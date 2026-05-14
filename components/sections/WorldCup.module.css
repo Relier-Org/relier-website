@@ -1,0 +1,259 @@
+.wc {
+  padding: 140px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 0.5px solid var(--border-subtle);
+}
+
+.wc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 20%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 80%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.wc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 80px,
+    rgba(201, 169, 97, 0.025) 80px,
+    rgba(201, 169, 97, 0.025) 81px
+  );
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.eyebrowWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.eyebrowIcon {
+  height: 64px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
+
+.eyebrowText {
+  color: var(--text-secondary);
+  font-size: 20px;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-variation-settings: "opsz" 144;
+}
+
+.h2 em {
+  color: var(--color-champagne-500);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-silver-300);
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+
+.features {
+  list-style: none;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 0.5px solid var(--border-subtle);
+  font-size: 14px;
+  color: var(--color-silver-200);
+}
+
+.features li:last-child {
+  border-bottom: none;
+}
+
+.features li::before {
+  content: "—";
+  color: var(--color-champagne-500);
+  flex-shrink: 0;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.6fr 1fr;
+  gap: 12px;
+  aspect-ratio: 4 / 4.5;
+}
+
+.photo {
+  grid-column: span 2;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-obsidian-800);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.78;
+  transition: transform var(--duration-cinema) var(--ease-out);
+}
+
+.bento:hover .photo img {
+  transform: scale(1.03);
+}
+
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.75) 100%);
+}
+
+.photoLabel {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+}
+
+.photoEyebrow {
+  margin-bottom: 6px;
+  color: var(--color-champagne-500);
+}
+
+.photoLabelMain {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-silver-50);
+}
+
+.infoCard {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.infoCard:hover {
+  border-color: var(--border-glass-strong);
+}
+
+.infoLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.infoValue {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-variation-settings: "opsz" 144;
+}
+
+.infoValue em {
+  color: var(--color-champagne-500);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.infoSub {
+  font-size: 12px;
+  color: var(--color-silver-400);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.infoIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  color: var(--color-champagne-500);
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .bento {
+    aspect-ratio: 4 / 3.2;
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wc {
+    padding: 100px 0;
+  }
+  .eyebrowIcon {
+    height: 48px;
+  }
+  .eyebrowWrap {
+    gap: 12px;
+  }
+  .bento {
+    aspect-ratio: 4 / 3.6;
+  }
+  .infoCard {
+    padding: 18px;
+  }
+  .infoValue {
+    font-size: 22px;
+  }
+}

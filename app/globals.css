@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Silver scale (frame, on-dark text) ─── */
+  --color-silver-50: #F5F7F9;
+  --color-silver-100: #E5EAEF;
+  --color-silver-200: #C5CDD5;
+  --color-silver-300: #A0A8B0;
+  --color-silver-400: #7A8189;
+  --color-silver-500: #5C636A;
+  --color-silver-600: #424850;
+  --color-silver-700: #2A3038;
+  --color-silver-800: #181C20;
+
+  /* ─── Obsidian (canvas, dark surfaces) ─── */
+  --color-obsidian-900: #0A0A0A;
+  --color-obsidian-800: #121212;
+  --color-obsidian-700: #1A1A1A;
+  --color-obsidian-600: #232323;
+
+  /* ─── Champagne (accent) ─── */
+  --color-champagne-300: #D8BC78;
+  --color-champagne-400: #D0B062;
+  --color-champagne-500: #C9A961;
+  --color-champagne-600: #B0904A;
+  --color-champagne-700: #8A6F33;
+  --color-champagne-800: #6B5224;
+
+  /* ─── Typography ─── */
+  --font-display: var(--font-fraunces), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ─── Motion ─── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ─── Radius scale ─── */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* ─── Container ─── */
+  --container-width: 1280px;
+}
+
+:root {
+  /* Semantic aliases (non-Tailwind, used in CSS Modules) */
+  --bg-canvas: var(--color-obsidian-900);
+  --bg-surface: var(--color-obsidian-800);
+  --bg-tile: #12121A;
+
+  --bg-light: #F5F2EB;
+  --bg-light-tile: #FFFFFF;
+  --bg-light-photo: linear-gradient(180deg, #F5F2EB 0%, #EBE5D8 100%);
+  --text-on-light: #181C20;
+  --text-on-light-muted: #5C636A;
+  --text-on-light-tertiary: #7A8189;
+  --border-on-light: rgba(0, 0, 0, 0.08);
+  --border-on-light-strong: rgba(0, 0, 0, 0.16);
+  --accent-on-light: var(--color-champagne-700);
+  --accent-on-light-strong: var(--color-champagne-800);
+
+  --text-primary: var(--color-silver-50);
+  --text-secondary: var(--color-silver-200);
+  --text-tertiary: var(--color-silver-300);
+  --text-muted: var(--color-silver-400);
+  --text-accent: var(--color-champagne-500);
+
+  --border-hairline: rgba(197, 205, 213, 0.06);
+  --border-subtle: rgba(197, 205, 213, 0.10);
+  --border-default: rgba(197, 205, 213, 0.18);
+  --border-strong: rgba(197, 205, 213, 0.32);
+  --border-glass: rgba(201, 169, 97, 0.18);
+  --border-glass-strong: rgba(201, 169, 97, 0.32);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 480ms;
+  --duration-cinema: 1200ms;
+
+  --inset: clamp(1.25rem, 4vw, 4rem);
+  --container: 1280px;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-canvas);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+input, select { font: inherit; color: inherit; outline: none; }
+
+::selection { background: var(--color-champagne-500); color: var(--color-obsidian-900); }
+::placeholder { color: var(--color-silver-400); opacity: 1; }
+
+/* ─── Container utility ─── */
+.container {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--inset);
+}
+
+/* ─── Display-heading "muted" accent · shared across h1/h2 splits ─── */
+.muted {
+  color: var(--color-silver-300);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ─── Eyebrow + section label (shared utility classes) ─── */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ─── Focus visible (a11y) ─── */
+:focus-visible {
+  outline: 2px solid var(--color-champagne-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* ─── Reveal base state (GSAP toggles to .is-visible) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

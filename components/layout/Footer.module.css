@@ -1,0 +1,166 @@
+.footer {
+  padding: 80px 0 32px;
+  border-top: 0.5px solid var(--border-subtle);
+  background: var(--color-obsidian-900);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 56px;
+  margin-bottom: 48px;
+}
+
+.brand .logo {
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImg {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-silver-400);
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.affiliations {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 0.5px solid var(--border-subtle);
+}
+
+.affiliations span {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+}
+
+.affiliations strong {
+  color: var(--color-champagne-500);
+  font-weight: 500;
+}
+
+.col h4 {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.col ul {
+  padding: 0;
+  margin: 0;
+}
+
+.col ul li {
+  margin-bottom: 10px;
+}
+
+.col ul a {
+  font-size: 14px;
+  color: var(--color-silver-200);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.col ul a:hover {
+  color: var(--color-champagne-500);
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.contactLabel {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contactValue {
+  font-size: 14px;
+  color: var(--color-silver-100);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 0.5px solid var(--border-subtle);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.bottom a {
+  color: var(--color-silver-300);
+}
+
+.bottom a:hover {
+  color: var(--color-champagne-500);
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socials a {
+  width: 32px;
+  height: 32px;
+  border: 0.5px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-silver-300);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.socials a:hover {
+  border-color: var(--color-champagne-500);
+  color: var(--color-champagne-500);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
