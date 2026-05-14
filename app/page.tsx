@@ -18,8 +18,10 @@ export default function HomePage() {
     <GsapProvider>
       <Nav />
       <main>
-        <Hero />
-        <BookingWidget />
+        <section className="firstScreen">
+          <Hero />
+          <BookingWidget />
+        </section>
         <TrustBar />
         <About />
         <Services />

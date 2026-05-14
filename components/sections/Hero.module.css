@@ -1,7 +1,6 @@
 .hero {
   position: relative;
-  min-height: 60vh;
-  min-height: 60svh;
+  min-height: clamp(440px, 62svh, 680px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +35,7 @@
 
 .img {
   object-fit: cover;
-  object-position: center 78%;
+  object-position: center 60%;
   opacity: 0.55;
 }
 

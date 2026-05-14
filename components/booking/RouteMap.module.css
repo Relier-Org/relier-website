@@ -1,0 +1,140 @@
+.shell {
+  border: 0.5px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-obsidian-800);
+}
+
+.map {
+  width: 100%;
+  height: 340px;
+  background: var(--color-obsidian-900);
+}
+
+.map :global(.maplibregl-ctrl-attrib) {
+  background: rgba(10, 10, 10, 0.6);
+  color: var(--color-silver-400);
+  font-size: 10px;
+}
+
+.map :global(.maplibregl-ctrl-attrib a) {
+  color: var(--color-silver-300);
+}
+
+.map :global(.maplibregl-ctrl-group) {
+  background: rgba(18, 18, 26, 0.85);
+  border: 0.5px solid var(--border-glass);
+}
+
+.map :global(.maplibregl-ctrl-group button) {
+  color: var(--color-silver-200);
+}
+
+.map :global(.maplibregl-ctrl-group button:hover) {
+  background: rgba(201, 169, 97, 0.12);
+}
+
+.marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.markerDot {
+  position: relative;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-champagne-500);
+  box-shadow: 0 0 0 2px var(--color-obsidian-900), 0 0 12px rgba(201, 169, 97, 0.7);
+}
+
+.markerRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-champagne-500);
+  opacity: 0.4;
+  animation: pulse 2.4s ease-out infinite;
+}
+
+.markerDropoff .markerDot {
+  background: var(--color-silver-50);
+  box-shadow: 0 0 0 2px var(--color-obsidian-900), 0 0 12px rgba(245, 247, 249, 0.5);
+}
+
+.markerDropoff .markerRing {
+  border-color: var(--color-silver-50);
+  opacity: 0.35;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .markerRing {
+    animation: none;
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 20px;
+  border-top: 0.5px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metaLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.metaValue {
+  font-size: 14px;
+  color: var(--color-silver-100);
+  font-variant-numeric: tabular-nums;
+}
+
+.metaDivider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-subtle);
+}
+
+.loading,
+.error {
+  font-size: 13px;
+  color: var(--color-silver-400);
+  letter-spacing: 0.02em;
+}
+
+.error {
+  color: var(--color-champagne-400, var(--color-champagne-500));
+}

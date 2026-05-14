@@ -124,6 +124,20 @@ input, select { font: inherit; color: inherit; outline: none; }
   padding-inline: var(--inset);
 }
 
+/* ─── First-screen wrapper: Hero + Booking fit 100vh ─── */
+.firstScreen {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 64px;
+}
+
+.firstScreen > :first-child {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 /* ─── Display-heading "muted" accent · shared across h1/h2 splits ─── */
 .muted {
   color: var(--color-silver-300);
