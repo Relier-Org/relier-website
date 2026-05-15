@@ -10,8 +10,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 0% 20%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 80%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse at 75% 35%, rgba(255, 140, 60, 0.1) 0%, transparent 45%),
+    radial-gradient(ellipse at 0% 20%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 80%, rgba(120, 60, 30, 0.08) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -29,6 +30,43 @@
   pointer-events: none;
 }
 
+.crowdBg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  -webkit-mask-image:
+    radial-gradient(ellipse at center, #000 35%, transparent 95%),
+    linear-gradient(180deg, transparent 0%, #000 18%, #000 80%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse at center, #000 35%, transparent 95%),
+    linear-gradient(180deg, transparent 0%, #000 18%, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.crowdBg img {
+  object-fit: cover;
+  opacity: 0.32;
+  filter: blur(10px) grayscale(0.5) contrast(1.15) brightness(0.85);
+  transform: scale(1.12);
+  mix-blend-mode: screen;
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.5;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
 .inner {
   position: relative;
   z-index: 2;
@@ -38,37 +76,16 @@
   align-items: center;
 }
 
-.eyebrowWrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.eyebrowIcon {
-  height: 64px;
-  width: auto;
-  flex-shrink: 0;
-  display: block;
-}
-
-.eyebrowText {
-  color: var(--text-secondary);
-  font-size: 20px;
-  letter-spacing: 0.14em;
-  line-height: 1.35;
-  margin: 0;
-}
-
 .h2 {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  line-height: 1;
   letter-spacing: -0.035em;
   color: var(--text-primary);
   margin-bottom: 24px;
   font-variation-settings: "opsz" 144;
+  position: relative;
 }
 
 .h2 em {
@@ -81,8 +98,73 @@
   font-size: 16px;
   line-height: 1.6;
   color: var(--color-silver-300);
-  margin-bottom: 36px;
+  margin-bottom: 28px;
   max-width: 460px;
+}
+
+.flagBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.flagChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 10px;
+  border-radius: var(--radius-pill);
+  border: 0.5px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.025);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-silver-100);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.flagChip:hover {
+  border-color: var(--border-glass-strong);
+}
+
+.flagDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.flagUsa .flagDot:nth-child(1) {
+  background: #b22234;
+}
+.flagUsa .flagDot:nth-child(2) {
+  background: #ffffff;
+}
+.flagUsa .flagDot:nth-child(3) {
+  background: #3c3b6e;
+}
+
+.flagMex .flagDot:nth-child(1) {
+  background: #006847;
+}
+.flagMex .flagDot:nth-child(2) {
+  background: #ffffff;
+}
+.flagMex .flagDot:nth-child(3) {
+  background: #ce1126;
+}
+
+.flagCan .flagDot:nth-child(1) {
+  background: #d52b1e;
+}
+.flagCan .flagDot:nth-child(2) {
+  background: #ffffff;
+}
+.flagCan .flagDot:nth-child(3) {
+  background: #d52b1e;
 }
 
 .features {
@@ -126,32 +208,60 @@
   background: var(--color-obsidian-800);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-hairline);
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(201, 169, 97, 0.14),
+    0 0 60px -10px rgba(255, 140, 60, 0.18);
+  transition: box-shadow var(--duration-cinema) var(--ease-out);
+}
+
+.bento:hover .photo {
+  box-shadow:
+    0 36px 90px -30px rgba(0, 0, 0, 0.78),
+    0 0 0 1px rgba(201, 169, 97, 0.24),
+    0 0 80px -8px rgba(255, 140, 60, 0.28);
 }
 
 .photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.78;
+  opacity: 0.82;
   transition: transform var(--duration-cinema) var(--ease-out);
 }
 
 .bento:hover .photo img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+}
+
+.photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(255, 165, 70, 0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(201, 169, 97, 0.18) 0%, transparent 55%);
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.75) 100%);
+  z-index: 2;
+  background:
+    linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.82) 100%),
+    linear-gradient(180deg, rgba(120, 60, 30, 0.12) 0%, transparent 30%);
+  pointer-events: none;
 }
 
 .photoLabel {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .photoEyebrow {
@@ -178,11 +288,38 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transition: border-color var(--duration-base) var(--ease-out);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.infoCard::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 169, 97, 0.5) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
 }
 
 .infoCard:hover {
   border-color: var(--border-glass-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -22px rgba(255, 140, 60, 0.35);
+}
+
+.infoCard:hover::before {
+  opacity: 1;
 }
 
 .infoLabel {
@@ -220,10 +357,16 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   color: var(--color-champagne-500);
-  opacity: 0.6;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 12px rgba(255, 165, 70, 0.4));
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.infoCard:hover .infoIcon {
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
@@ -235,17 +378,14 @@
     aspect-ratio: 4 / 3.2;
     max-height: 480px;
   }
+  .crowdBg img {
+    opacity: 0.18;
+  }
 }
 
 @media (max-width: 720px) {
   .wc {
     padding: 100px 0;
-  }
-  .eyebrowIcon {
-    height: 48px;
-  }
-  .eyebrowWrap {
-    gap: 12px;
   }
   .bento {
     aspect-ratio: 4 / 3.6;
@@ -255,5 +395,15 @@
   }
   .infoValue {
     font-size: 22px;
+  }
+  .crowdBg img {
+    opacity: 0.15;
+  }
+  .flagBar {
+    gap: 8px;
+  }
+  .flagChip {
+    padding: 6px 12px 6px 8px;
+    font-size: 10px;
   }
 }

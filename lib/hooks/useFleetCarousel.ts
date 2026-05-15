@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import ClassNames from "embla-carousel-class-names";
+import Autoplay from "embla-carousel-autoplay";
 
 export function useFleetCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -17,6 +18,11 @@ export function useFleetCarousel() {
       ClassNames({
         snapped: "is-snapped",
         inView: "is-in-view",
+      }),
+      Autoplay({
+        delay: 4500,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
       }),
     ]
   );

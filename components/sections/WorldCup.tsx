@@ -2,9 +2,9 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Reveal from "@/components/effects/Reveal";
-import WorldCupEmblem from "@/components/icons/WorldCupEmblem";
 import TrophyIcon from "@/components/icons/TrophyIcon";
 import StadiumIcon from "@/components/icons/StadiumIcon";
+import WorldCupConfetti from "@/components/icons/WorldCupConfetti";
 import { cn } from "@/lib/utils/cn";
 import styles from "./WorldCup.module.css";
 
@@ -20,14 +20,18 @@ const FEATURES = [
 export default function WorldCup() {
   return (
     <section className={styles.wc} id="wc">
+      <div className={styles.crowdBg} aria-hidden="true">
+        <Image
+          src="/images/worldcup/aficion.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
+      <WorldCupConfetti className={styles.confetti} />
       <div className={cn("container", styles.inner)}>
         <Reveal className={styles.content}>
-          <div className={styles.eyebrowWrap}>
-            <WorldCupEmblem size={64} className={styles.eyebrowIcon} />
-            <Eyebrow as="span" className={styles.eyebrowText}>
-              FIFA World Cup 2026 · USA · Mexico · Canada
-            </Eyebrow>
-          </div>
           <h2 className={styles.h2}>
             When the world
             <br />
@@ -39,6 +43,26 @@ export default function WorldCup() {
             Mexico, and Canada — airport, hotel, and stadium transfers for every
             match.
           </p>
+          <div className={styles.flagBar} aria-hidden="true">
+            <span className={cn(styles.flagChip, styles.flagUsa)}>
+              <span className={styles.flagDot} />
+              <span className={styles.flagDot} />
+              <span className={styles.flagDot} />
+              USA
+            </span>
+            <span className={cn(styles.flagChip, styles.flagMex)}>
+              <span className={styles.flagDot} />
+              <span className={styles.flagDot} />
+              <span className={styles.flagDot} />
+              Mexico
+            </span>
+            <span className={cn(styles.flagChip, styles.flagCan)}>
+              <span className={styles.flagDot} />
+              <span className={styles.flagDot} />
+              <span className={styles.flagDot} />
+              Canada
+            </span>
+          </div>
           <ul className={styles.features}>
             {FEATURES.map((f) => (
               <li key={f}>{f}</li>
