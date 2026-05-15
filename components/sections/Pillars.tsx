@@ -1,13 +1,96 @@
+"use client";
+
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Reveal from "@/components/effects/Reveal";
 import SectionHead from "@/components/ui/SectionHead";
 import ShieldIcon from "@/components/icons/ShieldIcon";
 import ClockIcon from "@/components/icons/ClockIcon";
 import CalendarCheckIcon from "@/components/icons/CalendarCheckIcon";
-import { cn } from "@/lib/utils/cn";
 import styles from "./Pillars.module.css";
 
+const PILLARS = [
+  {
+    icon: ShieldIcon,
+    title: "Safe Travels",
+    body: "Travel confidently knowing your safety is our #1 priority. Rigorous health and cleaning standards round out a best-in-class service.",
+    image:
+      "https://relier.com/wp-content/uploads/2025/02/LUXURY-VEHICLE-TRF-scaled.jpeg",
+    alt: "Safe travels",
+  },
+  {
+    icon: ClockIcon,
+    title: "Private Travel Solutions",
+    body: "Discover your one-stop travel shop: long-distance rides, one way or return, by the hour, airport transfers, and more.",
+    image:
+      "https://relier.com/wp-content/uploads/2025/10/AIRPORT-e1759429455173.webp",
+    alt: "Private travel solutions",
+  },
+  {
+    icon: CalendarCheckIcon,
+    title: "Book Online",
+    body: "No need to call or email for a quote. Enter your ride details, see the fixed price, and book. It’s really that simple.",
+    image:
+      "https://relier.com/wp-content/uploads/2025/10/CORPORATE-e1759429705849.webp",
+    alt: "Book online",
+  },
+];
+
 export default function Pillars() {
+  const stageRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!stageRef.current || !trackRef.current) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      const mm = gsap.matchMedia();
+      mm.add(
+        "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const stage = stageRef.current;
+          const track = trackRef.current;
+          if (!stage || !track) return;
+
+          const getDistance = () => {
+            const cards = track.children;
+            if (cards.length < 2) return 0;
+            const first = cards[0] as HTMLElement;
+            const last = cards[cards.length - 1] as HTMLElement;
+            const firstCenter =
+              first.offsetLeft + first.offsetWidth / 2;
+            const lastCenter =
+              last.offsetLeft + last.offsetWidth / 2;
+            return lastCenter - firstCenter;
+          };
+
+          gsap.to(track, {
+            x: () => -getDistance(),
+            ease: "none",
+            scrollTrigger: {
+              trigger: stage,
+              start: "top top",
+              end: () => `+=${getDistance()}`,
+              pin: true,
+              scrub: 0.8,
+              invalidateOnRefresh: true,
+              anticipatePin: 1,
+            },
+          });
+        }
+      );
+
+      return () => {
+        mm.revert();
+      };
+    },
+    { scope: stageRef }
+  );
+
   return (
     <section className={styles.pillars}>
       <div className="container">
@@ -23,61 +106,29 @@ export default function Pillars() {
             lead="Three principles, held without exception. What we promise on the booking page is what arrives at the curb."
           />
         </Reveal>
+      </div>
 
-        <Reveal className={styles.bento}>
-          {/* 01 · Safe Travels · shield icon · with photo */}
-          <article className={cn(styles.tile, styles.hero)}>
-            <div className={styles.heroImage}>
-              <Image
-                src="https://relier.com/wp-content/uploads/2025/02/LUXURY-VEHICLE-TRF-scaled.jpeg"
-                alt="Relier fleet"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <div className={styles.heroText}>
-              <div className={styles.header}>
-                <div className={cn(styles.icon, styles.heroIcon)}>
-                  <ShieldIcon size="100%" />
+      <div ref={stageRef} className={styles.stage}>
+        <div className={styles.viewport}>
+          <div ref={trackRef} className={styles.track}>
+            {PILLARS.map(({ icon: Icon, title, body, image, alt }) => (
+              <article key={title} className={styles.card}>
+                <div className={styles.cardImage}>
+                  <Image src={image} alt={alt} fill sizes="50vw" />
                 </div>
-                <h3>Safe Travels</h3>
-              </div>
-              <p>
-                Travel confidently knowing your safety is our #1 priority.
-                Rigorous health and cleaning standards round out a best-in-class
-                service.
-              </p>
-            </div>
-          </article>
-
-          {/* 02 · Private Travel Solutions · clock icon */}
-          <article className={cn(styles.tile, styles.typo)}>
-            <div className={styles.header}>
-              <div className={styles.icon}>
-                <ClockIcon size="100%" />
-              </div>
-              <h3>Private Travel Solutions</h3>
-            </div>
-            <p>
-              Discover your one-stop travel shop: long-distance rides, one way
-              or return, by the hour, airport transfers, and more.
-            </p>
-          </article>
-
-          {/* 03 · Book Online · calendar-check icon */}
-          <article className={cn(styles.tile, styles.typo)}>
-            <div className={styles.header}>
-              <div className={styles.icon}>
-                <CalendarCheckIcon size="100%" />
-              </div>
-              <h3>Book Online</h3>
-            </div>
-            <p>
-              No need to call or email for a quote. Enter your ride details, see
-              the fixed price, and book. It&rsquo;s really that simple.
-            </p>
-          </article>
-        </Reveal>
+                <div className={styles.cardText}>
+                  <div className={styles.header}>
+                    <div className={styles.icon}>
+                      <Icon size="100%" />
+                    </div>
+                    <h3>{title}</h3>
+                  </div>
+                  <p>{body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

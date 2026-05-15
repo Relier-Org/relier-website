@@ -4,6 +4,11 @@
   z-index: 5;
   padding: 0 var(--inset);
   animation: fadeUp 1.2s var(--ease-out) 1s both;
+  transition: margin-top 0.55s var(--ease-out-expo);
+}
+
+.bookingExpanded {
+  margin-top: 80px;
 }
 
 .shell {
@@ -283,6 +288,9 @@
 @media (max-width: 720px) {
   .booking {
     margin-top: -32px;
+  }
+  .bookingExpanded {
+    margin-top: 48px;
   }
   .shell {
     padding: 8px 8px 12px;

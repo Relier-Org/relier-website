@@ -8,24 +8,28 @@ import styles from "./Services.module.css";
 const SERVICES = [
   {
     href: "#",
-    num: "01 / Featured",
-    title: (
-      <>
-        Luxury Vehicle
-        <br />
-        Transfers
-      </>
-    ),
-    tagline: "Travel in style.",
+    num: "01 / Corporate",
+    title: <>Corporate Transportation</>,
+    tagline: "Meetings, conventions, business travel.",
     image:
-      "https://relier.com/wp-content/uploads/2025/02/LUXURY-VEHICLE-TRF-scaled.jpeg",
-    alt: "Luxury vehicle transfers",
+      "https://relier.com/wp-content/uploads/2025/10/CORPORATE-e1759429705849.webp",
+    alt: "Corporate transportation",
     variant: "feature" as const,
     cta: "Learn more",
   },
   {
     href: "#",
-    num: "02 / Airport",
+    num: "02 / Events",
+    title: <>Events Transportation</>,
+    tagline: "Freedom to go wherever.",
+    image:
+      "https://relier.com/wp-content/uploads/2025/02/EVENTS-TRANSPORTATION-scaled.jpeg",
+    alt: "Events transportation",
+    variant: "tall" as const,
+  },
+  {
+    href: "#",
+    num: "03 / Airport",
     title: (
       <>
         Airport
@@ -37,26 +41,22 @@ const SERVICES = [
     image:
       "https://relier.com/wp-content/uploads/2025/10/AIRPORT-e1759429455173.webp",
     alt: "Airport transfers",
-    variant: "tall" as const,
-  },
-  {
-    href: "#",
-    num: "03 / Events",
-    title: <>Events Transportation</>,
-    tagline: "Freedom to go wherever.",
-    image:
-      "https://relier.com/wp-content/uploads/2025/02/EVENTS-TRANSPORTATION-scaled.jpeg",
-    alt: "Events transportation",
     variant: "square" as const,
   },
   {
     href: "#",
-    num: "04 / Corporate",
-    title: <>Corporate Transportation</>,
-    tagline: "Meetings, conventions, business travel.",
+    num: "04 / Vehicle",
+    title: (
+      <>
+        Luxury Vehicle
+        <br />
+        Transfers
+      </>
+    ),
+    tagline: "Travel in style.",
     image:
-      "https://relier.com/wp-content/uploads/2025/10/CORPORATE-e1759429705849.webp",
-    alt: "Corporate transportation",
+      "https://relier.com/wp-content/uploads/2025/02/LUXURY-VEHICLE-TRF-scaled.jpeg",
+    alt: "Luxury vehicle transfers",
     variant: "square" as const,
   },
 ];

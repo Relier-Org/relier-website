@@ -144,23 +144,33 @@ export default function BookingWidget() {
 
       const shell = shellRef.current;
       if (shell) {
-        const nav = document.querySelector("nav");
-        const navHeight = nav?.getBoundingClientRect().height ?? 80;
-        const shellRect = shell.getBoundingClientRect();
-        const availableHeight = window.innerHeight - navHeight;
-        // Center the whole booking section vertically in the space below nav.
-        // If it's taller than available, pin to top with a 24px buffer.
-        const verticalCenter = Math.max(
-          24,
-          (availableHeight - shellRect.height) / 2
-        );
-        const desiredTopInViewport = navHeight + verticalCenter;
-        const top =
-          shellRect.top + window.scrollY - desiredTopInViewport;
-        window.scrollTo({
-          top,
-          behavior: reduced ? "auto" : "smooth",
-        });
+        const runScroll = () => {
+          const nav = document.querySelector("nav");
+          const navHeight = nav?.getBoundingClientRect().height ?? 80;
+          const shellRect = shell.getBoundingClientRect();
+          const availableHeight = window.innerHeight - navHeight;
+          // Center the whole booking section vertically in the space below nav.
+          // If it's taller than available, pin to top with a generous buffer
+          // so the hero subtitle doesn't kiss the shell.
+          const verticalCenter = Math.max(
+            48,
+            (availableHeight - shellRect.height) / 2
+          );
+          const desiredTopInViewport = navHeight + verticalCenter;
+          const top =
+            shellRect.top + window.scrollY - desiredTopInViewport;
+          window.scrollTo({
+            top,
+            behavior: reduced ? "auto" : "smooth",
+          });
+        };
+        // Wait for the margin-top transition (0.55s) to settle before
+        // measuring so the scroll target uses the final layout.
+        if (reduced) {
+          runScroll();
+        } else {
+          window.setTimeout(runScroll, 560);
+        }
       }
     },
     { dependencies: [hasRoute] }
@@ -209,7 +219,10 @@ export default function BookingWidget() {
   }
 
   return (
-    <div className={styles.booking} id="booking">
+    <div
+      className={cn(styles.booking, hasRoute && styles.bookingExpanded)}
+      id="booking"
+    >
       <div className={styles.shell} ref={shellRef}>
         <div
           className={styles.tabs}

@@ -2,15 +2,27 @@
 
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import ClassNames from "embla-carousel-class-names";
 
 export function useFleetCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-    skipSnaps: false,
-  });
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "center",
+      loop: true,
+      containScroll: false,
+      skipSnaps: false,
+      duration: 28,
+    },
+    [
+      ClassNames({
+        snapped: "is-snapped",
+        inView: "is-in-view",
+      }),
+    ]
+  );
+
+  const [canPrev, setCanPrev] = useState(true);
+  const [canNext, setCanNext] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
 
