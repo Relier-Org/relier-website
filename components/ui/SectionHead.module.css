@@ -9,11 +9,12 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 5.5vw, 3.25rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   font-variation-settings: "opsz" 96;
+  text-wrap: balance;
 }
 
 .title :global(.muted) {

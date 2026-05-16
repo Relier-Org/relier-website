@@ -78,6 +78,10 @@ export default function Services() {
           />
         </Reveal>
 
+        <div className={cn(styles.ctaRow, styles.ctaRowTop)}>
+          <TextCTA href="#">See all services</TextCTA>
+        </div>
+
         <Reveal className={styles.bento}>
           {SERVICES.map((s) => (
             <a
@@ -112,7 +116,7 @@ export default function Services() {
           ))}
         </Reveal>
 
-        <div className={styles.ctaRow}>
+        <div className={cn(styles.ctaRow, styles.ctaRowBottom)}>
           <TextCTA href="#">See all services</TextCTA>
         </div>
       </div>

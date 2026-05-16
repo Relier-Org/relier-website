@@ -1,25 +1,32 @@
 .footer {
-  padding: 80px 0 32px;
+  padding: 96px 0 32px;
   border-top: 0.5px solid var(--border-subtle);
   background: var(--color-obsidian-900);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: 56px;
-  margin-bottom: 48px;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 64px;
+  text-align: left;
+  align-items: start;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .brand .logo {
-  margin-bottom: 24px;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: flex-start;
 }
 
 .logoImg {
-  height: 32px;
+  height: 40px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -28,29 +35,34 @@
 .brand p {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--color-silver-400);
-  max-width: 320px;
-  margin-bottom: 24px;
-}
-
-.affiliations {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 24px;
-  border-top: 0.5px solid var(--border-subtle);
-}
-
-.affiliations span {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--color-silver-300);
+  max-width: 320px;
+  margin: 0;
 }
 
-.affiliations strong {
+.socialsMobile {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.socialsMobile a {
+  width: 40px;
+  height: 40px;
+  border: 0.5px solid var(--border-default);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-silver-300);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.socialsMobile a:hover {
+  border-color: var(--color-champagne-500);
   color: var(--color-champagne-500);
-  font-weight: 500;
 }
 
 .col h4 {
@@ -59,22 +71,24 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--color-champagne-500);
+  text-align: left;
   margin-bottom: 20px;
 }
 
 .col ul {
   padding: 0;
   margin: 0;
+  text-align: left;
 }
 
 .col ul li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .col ul a {
-  font-size: 14px;
-  color: var(--color-silver-200);
+  font-size: 15px;
+  color: var(--color-silver-100);
   transition: color var(--duration-fast) var(--ease-out);
 }
 
@@ -82,11 +96,54 @@
   color: var(--color-champagne-500);
 }
 
+.reachCol {
+  text-align: left;
+}
+
+.reachCol h4 {
+  text-align: left;
+}
+
 .contactItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 0.5px solid var(--border-subtle);
+  color: inherit;
+}
+
+.contactItem:first-of-type {
+  border-top: 0.5px solid var(--border-subtle);
+}
+
+a.contactItem:hover .contactChevron {
+  transform: translateX(2px);
+  color: var(--color-champagne-500);
+}
+
+.contactIcon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--color-champagne-500);
+}
+
+.contactIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contactBody {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 16px;
+  text-align: left;
 }
 
 .contactLabel {
@@ -97,16 +154,37 @@
 }
 
 .contactValue {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--color-silver-100);
+}
+
+.contactChevron {
+  display: block;
+  width: 14px;
+  height: 14px;
+  color: var(--color-silver-400);
+  flex-shrink: 0;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 28px;
+  padding-block: 16px;
 }
 
 .bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding-top: 32px;
+  text-align: center;
   border-top: 0.5px solid var(--border-subtle);
+  margin-top: 64px;
+  padding-top: 32px;
   font-size: 12px;
   color: var(--text-muted);
 }
@@ -120,47 +198,95 @@
 }
 
 .socials {
-  display: flex;
-  gap: 12px;
-}
-
-.socials a {
-  width: 32px;
-  height: 32px;
-  border: 0.5px solid var(--border-default);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-silver-300);
-  transition:
-    border-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out);
-}
-
-.socials a:hover {
-  border-color: var(--color-champagne-500);
-  color: var(--color-champagne-500);
+  display: none;
 }
 
 @media (max-width: 1024px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    text-align: center;
   }
   .brand {
-    grid-column: 1 / -1;
+    align-items: center;
+    gap: 28px;
+  }
+  .brand .logo {
+    justify-content: center;
+  }
+  .logoImg {
+    height: 56px;
+  }
+  .brand p {
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .socialsMobile {
+    justify-content: center;
+  }
+  .col h4 {
+    text-align: center;
+  }
+  .col ul {
+    text-align: center;
+  }
+  .col ul a {
+    font-size: 16px;
+  }
+  .col ul li {
+    margin-bottom: 14px;
+  }
+  .reachCol h4 {
+    text-align: center;
+  }
+  .contactItem {
+    padding: 16px 4px;
+    gap: 16px;
+  }
+  .contactIcon {
+    width: 28px;
+    height: 28px;
+  }
+  .contactValue {
+    font-size: 14px;
+  }
+  .contactChevron {
+    width: 16px;
+    height: 16px;
+  }
+  .ctaBtn {
+    margin-top: 32px;
+    padding-block: 18px;
+  }
+  .bottom {
+    margin-top: 48px;
   }
 }
 
 @media (max-width: 720px) {
+  .footer {
+    padding: 72px 0 28px;
+  }
   .grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
+  }
+  .brand .logoImg {
+    height: 48px;
+  }
+  .brand p {
+    font-size: 14px;
+  }
+  .col ul a {
+    font-size: 15px;
+  }
+  .contactValue {
+    font-size: 13px;
+  }
+  .ctaBtn {
+    margin-top: 24px;
   }
   .bottom {
-    flex-direction: column;
-    gap: 16px;
-    text-align: center;
+    margin-top: 40px;
   }
 }

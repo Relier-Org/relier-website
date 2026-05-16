@@ -18,12 +18,13 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.5rem, 5.5vw, 3.25rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   font-variation-settings: "opsz" 96;
   margin-bottom: 16px;
+  text-wrap: balance;
 }
 
 .headText p {
@@ -303,14 +304,22 @@
     padding: 80px 0;
   }
   .card {
-    flex-basis: 78%;
-    aspect-ratio: 1 / 1.2;
+    flex-basis: 82%;
+    aspect-ratio: 1 / 1.35;
+  }
+  .cardPhoto {
+    flex: 0 0 68%;
   }
   .cardContent {
-    padding: 14px 20px 18px;
+    padding: 16px 20px 20px;
+    gap: 4px;
   }
   .cardContent h3 {
     font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .tier {
+    margin-bottom: 4px;
   }
   .arrow {
     display: none;

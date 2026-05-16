@@ -293,8 +293,12 @@
     padding: 8px 8px 12px;
   }
   .tabs {
-    width: 100%;
-    justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .tab {
+    padding: 6px 16px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
   }
   .fieldsP2P,
   .fieldsHourly,

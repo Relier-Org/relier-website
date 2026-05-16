@@ -68,7 +68,7 @@ export default function WorldCup() {
               <li key={f}>{f}</li>
             ))}
           </ul>
-          <Button href="#" withArrow>
+          <Button href="#" withArrow className={styles.planBtn}>
             Plan your World Cup transport
           </Button>
         </Reveal>

@@ -143,7 +143,8 @@ export default function BookingWidget() {
       );
 
       const shell = shellRef.current;
-      if (shell) {
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+      if (shell && isDesktop) {
         const runScroll = () => {
           const nav = document.querySelector("nav");
           const navHeight = nav?.getBoundingClientRect().height ?? 80;

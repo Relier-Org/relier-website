@@ -92,7 +92,7 @@
 .h2 {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  font-size: clamp(3rem, 7vw, 4.75rem);
   line-height: 1;
   letter-spacing: -0.035em;
   color: var(--text-primary);
@@ -100,6 +100,7 @@
   font-variation-settings: "opsz" 144;
   position: relative;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
+  text-wrap: balance;
 }
 
 .h2 em {
@@ -390,8 +391,8 @@
     gap: 48px;
   }
   .bento {
-    aspect-ratio: 4 / 3.2;
-    max-height: 480px;
+    aspect-ratio: 16 / 11;
+    max-height: none;
   }
   .crowdBg img {
     opacity: 0.18;
@@ -406,10 +407,25 @@
     aspect-ratio: 4 / 3.6;
   }
   .infoCard {
-    padding: 18px;
+    padding: 16px 14px;
+  }
+  .infoLabel {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    padding-right: 28px;
   }
   .infoValue {
-    font-size: 22px;
+    font-size: 20px;
+  }
+  .infoSub {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .infoIcon {
+    width: 22px;
+    height: 22px;
+    top: 14px;
+    right: 14px;
   }
   .crowdBg img {
     opacity: 0.15;
@@ -420,5 +436,9 @@
   .flagChip {
     padding: 6px 12px 6px 8px;
     font-size: 10px;
+  }
+  .planBtn {
+    width: 100%;
+    justify-content: center;
   }
 }

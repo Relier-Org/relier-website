@@ -5,8 +5,13 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import Reveal from "@/components/effects/Reveal";
 import SectionHead from "@/components/ui/SectionHead";
-import TextCTA from "@/components/ui/TextCTA";
+import GoogleIcon from "@/components/icons/GoogleIcon";
 import styles from "./Testimonials.module.css";
+
+// TODO: client to confirm Google Business write-review URL (placeid-based)
+const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=Relier+Worldwide+Chauffeured+Services";
+const GOOGLE_RATING = 5.0;
+const GOOGLE_REVIEW_COUNT = 412;
 
 // TODO: client to approve final 3 testimonials selected for home
 
@@ -118,13 +123,36 @@ export default function Testimonials() {
                 <span className="muted">What our travelers say.</span>
               </>
             }
-            lead="Verified reviews from Google, collected via Endorsal. The full set — including reviews in Spanish, French, and Portuguese — lives on the testimonials page."
+            lead="Verified reviews from Google. Real travelers, real journeys, real results across the Americas, Europe, and the Middle East."
           />
         </Reveal>
+
+        <div className={styles.ratingPillWrap}>
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ratingPill}
+            aria-label={`${GOOGLE_RATING} out of 5 from ${GOOGLE_REVIEW_COUNT} Google reviews`}
+          >
+            <GoogleIcon size={16} />
+            <span className={styles.ratingValue}>{GOOGLE_RATING.toFixed(1)}</span>
+            <span className={styles.ratingStars} aria-hidden="true">
+              ★★★★★
+            </span>
+            <span className={styles.ratingDot} aria-hidden="true">·</span>
+            <span className={styles.ratingCount}>
+              {GOOGLE_REVIEW_COUNT} Google reviews
+            </span>
+          </a>
+        </div>
 
         <div ref={gridRef} className={styles.grid}>
           {TESTIMONIALS.map((t) => (
             <Reveal key={t.name} as="article" className={styles.card}>
+              <span className={styles.cardGoogle} aria-hidden="true">
+                <GoogleIcon size={18} />
+              </span>
               <div className={styles.stars} aria-label="5 stars">
                 ★★★★★
               </div>
@@ -142,9 +170,18 @@ export default function Testimonials() {
           ))}
         </div>
         <div className={styles.ctaRow}>
-          <TextCTA href="#" tone="light">
-            See all testimonials
-          </TextCTA>
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.reviewPill}
+          >
+            <GoogleIcon size={18} />
+            <span>Leave us a Google review</span>
+            <span className={styles.reviewPillArrow} aria-hidden="true">
+              ↗
+            </span>
+          </a>
         </div>
       </div>
     </section>
