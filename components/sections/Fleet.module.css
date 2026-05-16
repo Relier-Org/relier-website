@@ -141,13 +141,6 @@
       rgba(255, 252, 244, 0.92) 0%,
       rgba(255, 252, 244, 0) 58%
     ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 36px,
-      rgba(138, 111, 51, 0.04) 36px,
-      rgba(138, 111, 51, 0.04) 37px
-    ),
     linear-gradient(180deg, #ede5d2 0%, #f5f0e2 45%, #e5dbc4 100%);
   position: relative;
   display: flex;
