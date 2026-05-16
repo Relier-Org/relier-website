@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Reveal from "@/components/effects/Reveal";
-import SectionHead from "@/components/ui/SectionHead";
 import TextCTA from "@/components/ui/TextCTA";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Services.module.css";
@@ -66,21 +65,24 @@ export default function Services() {
     <section className={styles.services} id="services">
       <div className="container">
         <Reveal>
-          <SectionHead
-            title={
-              <>
-                What we drive,
-                <br />
-                <span className="muted">we drive with care.</span>
-              </>
-            }
-            lead="Four core services, each shaped around a different rhythm of travel. From a single airport transfer to a season of corporate roadshows — the standard does not change."
-          />
+          <header className={styles.header}>
+            <h2 className={styles.title}>
+              What we drive,
+              <br />
+              <span className="muted">we drive with care.</span>
+            </h2>
+            <div className={styles.rightCol}>
+              <p className={styles.lead}>
+                Four core services, each shaped around a different rhythm of
+                travel. From a single airport transfer to a season of corporate
+                roadshows — the standard does not change.
+              </p>
+              <TextCTA href="#" className={styles.headerCta}>
+                See all services
+              </TextCTA>
+            </div>
+          </header>
         </Reveal>
-
-        <div className={cn(styles.ctaRow, styles.ctaRowTop)}>
-          <TextCTA href="#">See all services</TextCTA>
-        </div>
 
         <Reveal className={styles.bento}>
           {SERVICES.map((s) => (
@@ -115,10 +117,6 @@ export default function Services() {
             </a>
           ))}
         </Reveal>
-
-        <div className={cn(styles.ctaRow, styles.ctaRowBottom)}>
-          <TextCTA href="#">See all services</TextCTA>
-        </div>
       </div>
     </section>
   );
