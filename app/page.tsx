@@ -10,7 +10,6 @@ import Fleet from "@/components/sections/Fleet";
 import WorldCup from "@/components/sections/WorldCup";
 import Testimonials from "@/components/sections/Testimonials";
 import CitiesMarquee from "@/components/sections/CitiesMarquee";
-import CTABand from "@/components/sections/CTABand";
 import GsapProvider from "@/components/effects/GsapProvider";
 
 export default function HomePage() {
@@ -30,7 +29,6 @@ export default function HomePage() {
         <WorldCup />
         <Testimonials />
         <CitiesMarquee />
-        <CTABand />
       </main>
       <Footer />
     </GsapProvider>

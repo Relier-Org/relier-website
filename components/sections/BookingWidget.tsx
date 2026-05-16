@@ -223,6 +223,7 @@ export default function BookingWidget() {
       className={cn(styles.booking, hasRoute && styles.bookingExpanded)}
       id="booking"
     >
+      <div className="container">
       <div className={styles.shell} ref={shellRef}>
         <div
           className={styles.tabs}
@@ -322,6 +323,7 @@ export default function BookingWidget() {
             <RouteMap pickup={pickup} dropoff={dropoff} />
           </div>
         )}
+      </div>
       </div>
     </div>
   );

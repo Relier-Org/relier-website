@@ -2,7 +2,6 @@
   padding: 140px 0;
   position: relative;
   overflow: hidden;
-  border-top: 0.5px solid var(--border-subtle);
 }
 
 .wc::before {
@@ -16,20 +15,6 @@
   pointer-events: none;
 }
 
-.wc::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 80px,
-    rgba(201, 169, 97, 0.025) 80px,
-    rgba(201, 169, 97, 0.025) 81px
-  );
-  pointer-events: none;
-}
-
 .crowdBg {
   position: absolute;
   inset: 0;
@@ -37,22 +22,50 @@
   pointer-events: none;
   user-select: none;
   overflow: hidden;
-  -webkit-mask-image:
-    radial-gradient(ellipse at center, #000 35%, transparent 95%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 80%, transparent 100%);
-  mask-image:
-    radial-gradient(ellipse at center, #000 35%, transparent 95%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 80%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 14%,
+    #000 30%,
+    #000 80%,
+    rgba(0, 0, 0, 0.5) 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 14%,
+    #000 30%,
+    #000 80%,
+    rgba(0, 0, 0, 0.5) 92%,
+    transparent 100%
+  );
 }
 
 .crowdBg img {
   object-fit: cover;
-  opacity: 0.32;
-  filter: blur(10px) grayscale(0.5) contrast(1.15) brightness(0.85);
-  transform: scale(1.12);
-  mix-blend-mode: screen;
+  opacity: 0.55;
+  filter: blur(4px) grayscale(0.4) contrast(1.1) brightness(0.9);
+  transform: scale(1.04);
+}
+
+.crowdBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 10, 0.85) 0%,
+      rgba(10, 10, 10, 0.55) 30%,
+      rgba(10, 10, 10, 0.15) 50%,
+      transparent 62%
+    ),
+    radial-gradient(ellipse 60% 50% at 20% 35%, rgba(201, 169, 97, 0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 80% 65%, rgba(216, 188, 120, 0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 95%, rgba(138, 111, 51, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
 .confetti {
@@ -86,6 +99,7 @@
   margin-bottom: 24px;
   font-variation-settings: "opsz" 144;
   position: relative;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
 }
 
 .h2 em {
@@ -97,9 +111,10 @@
 .lead {
   font-size: 16px;
   line-height: 1.6;
-  color: var(--color-silver-300);
+  color: var(--color-silver-100);
   margin-bottom: 28px;
   max-width: 460px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 
 .flagBar {
