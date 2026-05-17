@@ -24,7 +24,7 @@ const SERVICE_LINKS = [
 
 const COMPANY_LINKS = [
   { href: "/about", label: "About" },
-  { href: "/#fleet", label: "Fleet" },
+  { href: "/fleet", label: "Fleet" },
   { href: "/#testimonials", label: "Testimonials" },
   { href: "#", label: "News" },
   { href: "#", label: "Relier Europe" },

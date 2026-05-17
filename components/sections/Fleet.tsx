@@ -91,7 +91,7 @@ export default function Fleet() {
             </p>
           </div>
           <div className={styles.headCta}>
-            <TextCTA href="#">Explore the full fleet</TextCTA>
+            <TextCTA href="/fleet">Explore the full fleet</TextCTA>
           </div>
         </Reveal>
 
