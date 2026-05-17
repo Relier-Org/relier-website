@@ -1,0 +1,82 @@
+.section {
+  padding: 80px 0 120px;
+  background: var(--color-obsidian-900);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrowIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-champagne-500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyebrowIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  text-wrap: balance;
+  font-variation-settings: "opsz" 96;
+}
+
+.frameWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 0.5px solid var(--border-default);
+  background: var(--bg-tile);
+  box-shadow:
+    0 0 0 1px rgba(201, 169, 97, 0.06),
+    0 24px 80px -32px rgba(0, 0, 0, 0.6);
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.4) contrast(0.95) brightness(0.92);
+  transition: filter var(--duration-slow) var(--ease-out);
+}
+
+.frameWrap:hover .frame {
+  filter: grayscale(0) contrast(1) brightness(1);
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 56px 0 80px;
+  }
+  .header {
+    margin-bottom: 32px;
+  }
+  .frameWrap {
+    aspect-ratio: 4 / 5;
+  }
+}

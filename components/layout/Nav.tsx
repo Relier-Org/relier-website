@@ -12,13 +12,29 @@ import styles from "./Nav.module.css";
 // TODO: client to deliver SVG logo
 // TODO: phase 2 — add Spanish locale (Nav has EN switcher placeholder)
 
-const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#fleet", label: "Fleet" },
-  { href: "#wc", label: "World Cup '26" },
-  { href: "#testimonials", label: "Testimonials" },
+type NavLink = {
+  href: string;
+  label: string;
+  children?: { href: string; label: string }[];
+};
+
+const LINKS: NavLink[] = [
+  { href: "/", label: "Home" },
+  {
+    href: "/#services",
+    label: "Services",
+    children: [
+      { href: "/#wc", label: "FIFA World Cup 2026" },
+      { href: "/#services", label: "Luxury Vehicle Transfers" },
+      { href: "/#services", label: "Events Transportation" },
+      { href: "/#services", label: "Airport Transportation" },
+      { href: "/#services", label: "Corporate Transportation" },
+    ],
+  },
+  { href: "/#fleet", label: "Fleet" },
   { href: "#", label: "Relier Europe" },
+  { href: "/#about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Nav() {
@@ -77,7 +93,7 @@ export default function Nav() {
     <>
       <nav className={cn(styles.nav, isScrolled && styles.isScrolled)}>
         <div className={cn("container", styles.inner)}>
-          <a href="#" className={styles.logo} aria-label="Relier home">
+          <a href="/" className={styles.logo} aria-label="Relier home">
             <Image
               src="/images/relier-logo.png"
               alt="Relier"
@@ -89,8 +105,40 @@ export default function Nav() {
           </a>
           <ul className={styles.links}>
             {LINKS.map((link) => (
-              <li key={link.label}>
-                <a href={link.href}>{link.label}</a>
+              <li
+                key={link.label}
+                className={cn(link.children && styles.hasDropdown)}
+              >
+                <a href={link.href} className={styles.linkItem}>
+                  {link.label}
+                  {link.children && (
+                    <svg
+                      className={styles.caret}
+                      width="8"
+                      height="6"
+                      viewBox="0 0 8 6"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 1L4 4L7 1"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </a>
+                {link.children && (
+                  <ul className={styles.dropdown}>
+                    {link.children.map((child) => (
+                      <li key={child.label}>
+                        <a href={child.href}>{child.label}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -98,7 +146,7 @@ export default function Nav() {
             <span className={styles.lang} role="button" tabIndex={0}>
               EN ⌄
             </span>
-            <Button href="#booking" variant="primary" className={styles.cta}>
+            <Button href="/#booking" variant="primary" className={styles.cta}>
               Reserve
             </Button>
             <button
@@ -128,7 +176,7 @@ export default function Nav() {
         >
           <div className={styles.overlayHeader}>
             <a
-              href="#"
+              href="/"
               className={styles.overlayLogo}
               aria-label="Relier home"
               onClick={() => setIsOpen(false)}
@@ -158,12 +206,26 @@ export default function Nav() {
                   <a href={link.href} onClick={() => setIsOpen(false)}>
                     {link.label}
                   </a>
+                  {link.children && (
+                    <ul className={styles.overlaySublinks}>
+                      {link.children.map((child) => (
+                        <li key={child.label}>
+                          <a
+                            href={child.href}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
             <div className={styles.overlayFooter}>
               <Button
-                href="#booking"
+                href="/#booking"
                 variant="primary"
                 className={styles.overlayCta}
                 onClick={() => setIsOpen(false)}

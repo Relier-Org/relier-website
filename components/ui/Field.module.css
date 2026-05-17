@@ -1,0 +1,36 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.label span {
+  color: var(--text-accent);
+  margin-left: 2px;
+}
+
+.field:focus-within .label {
+  color: var(--text-accent);
+}
+
+.hasError .label {
+  color: #E67373;
+}
+
+.error {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: #E67373;
+  margin-top: 2px;
+}

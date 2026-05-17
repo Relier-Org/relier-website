@@ -7,7 +7,7 @@
   transition:
     background var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .isScrolled {
@@ -21,13 +21,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 20px;
+  padding-block: 0;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding-block: 20px;
   color: var(--text-primary);
 }
 
@@ -40,11 +41,25 @@
 
 .links {
   display: flex;
-  gap: 32px;
-  align-items: center;
+  gap: 0;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  align-self: stretch;
 }
 
-.links a {
+.links > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-block: 20px;
+}
+
+.linkItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 20px;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -53,14 +68,77 @@
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.links a:hover {
+.linkItem:hover {
   color: var(--text-accent);
+}
+
+.caret {
+  display: block;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.hasDropdown:hover .caret {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(8px);
+  min-width: 340px;
+  padding: 20px 0;
+  margin: 0;
+  list-style: none;
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 0.5px solid var(--border-glass);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    visibility var(--duration-base) var(--ease-out);
+}
+
+.hasDropdown:hover .dropdown,
+.hasDropdown:focus-within .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown li {
+  list-style: none;
+}
+
+.dropdown a {
+  display: block;
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-silver-100);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+.dropdown a:hover {
+  color: var(--color-champagne-500);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .right {
   display: flex;
   align-items: center;
   gap: 24px;
+  padding-block: 20px;
 }
 
 .lang {
@@ -241,16 +319,45 @@
   color: var(--color-champagne-500);
 }
 
-.overlayLinks li:last-child a {
+.overlayLinks > li:last-child > a {
   color: var(--color-champagne-500);
 }
 
-.overlayLinks li:last-child a:hover {
+.overlayLinks > li:last-child > a:hover {
   color: var(--color-champagne-300);
 }
 
-.overlayLinks li:last-child {
+.overlayLinks > li:last-child {
   border-bottom: none;
+}
+
+.overlaySublinks {
+  list-style: none;
+  padding: 0 0 16px 16px;
+  margin: -8px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.overlaySublinks li {
+  opacity: 1;
+  border-bottom: none;
+}
+
+.overlaySublinks a {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 4px;
+  color: var(--color-silver-300);
+}
+
+.overlaySublinks a::after {
+  content: none;
+}
+
+.overlaySublinks a:hover {
+  color: var(--color-champagne-500);
 }
 
 .overlayFooter {
@@ -279,12 +386,27 @@
   }
 }
 
-@media (max-width: 720px) {
-  .inner {
+@media (max-width: 1024px) and (min-width: 721px) {
+  .logo,
+  .right {
     padding-block: 16px;
   }
   .logoImg {
     height: 28px;
+  }
+  .burger {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 720px) {
+  .logo,
+  .right {
+    padding-block: 12px;
+  }
+  .logoImg {
+    height: 24px;
   }
   .cta {
     padding: 10px 16px;
@@ -292,7 +414,7 @@
   }
   .burger {
     margin-left: 4px;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 }
