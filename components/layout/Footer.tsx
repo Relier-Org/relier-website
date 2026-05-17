@@ -23,7 +23,7 @@ const SERVICE_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { href: "/#about", label: "About" },
+  { href: "/about", label: "About" },
   { href: "/#fleet", label: "Fleet" },
   { href: "/#testimonials", label: "Testimonials" },
   { href: "#", label: "News" },

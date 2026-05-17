@@ -1,0 +1,119 @@
+.hero {
+  position: relative;
+  min-height: clamp(520px, 78svh, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-obsidian-900);
+  padding-top: 84px;
+  text-align: center;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 40%, transparent 0%, rgba(10, 10, 10, 0.55) 80%),
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.55) 0%,
+      rgba(10, 10, 10, 0.3) 28%,
+      rgba(10, 10, 10, 0.55) 72%,
+      var(--color-obsidian-900) 100%
+    );
+}
+
+.img {
+  object-fit: cover;
+  object-position: center 50%;
+  opacity: 0.55;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  padding-block: 72px;
+}
+
+.eyebrow {
+  margin-bottom: 26px;
+  animation: fadeUp 1s var(--ease-out) 0.15s both;
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  line-height: 1.03;
+  letter-spacing: -0.022em;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+  font-variation-settings: "opsz" 144;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.55);
+  text-wrap: balance;
+  animation: fadeUp 1.2s var(--ease-out) 0.35s both;
+}
+
+.muted {
+  color: var(--color-silver-200);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-silver-200);
+  max-width: 620px;
+  margin: 0 auto;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  text-wrap: balance;
+  animation: fadeUp 1.2s var(--ease-out) 0.55s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: clamp(480px, 70svh, 640px);
+  }
+  .img {
+    object-position: 50% 45%;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-top: 72px;
+    min-height: clamp(460px, 68svh, 580px);
+  }
+  .img {
+    object-position: 50% 45%;
+    opacity: 0.55;
+  }
+  .h1 {
+    font-size: clamp(2rem, 8.5vw, 3rem);
+  }
+  .lead {
+    font-size: 15px;
+  }
+}

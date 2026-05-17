@@ -33,7 +33,7 @@ const LINKS: NavLink[] = [
   },
   { href: "/#fleet", label: "Fleet" },
   { href: "#", label: "Relier Europe" },
-  { href: "/#about", label: "About" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 

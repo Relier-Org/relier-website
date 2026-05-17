@@ -33,7 +33,7 @@ export default function About() {
               delivering exceptional service with a touch of personalized
               attention.
             </p>
-            <Button href="#" withArrow className={styles.btn}>
+            <Button href="/about" withArrow className={styles.btn}>
               About us
             </Button>
             <div className={styles.meta}>
