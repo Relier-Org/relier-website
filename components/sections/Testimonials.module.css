@@ -7,6 +7,24 @@
   position: relative;
 }
 
+/* When the inline "Leave a review" pill is hidden, recover the bottom padding
+   the .ctaRow was providing so the section doesn't collapse against the next
+   block (typically the Footer on /testimonials, with a floating CTA on top). */
+.testimonialsNoPill {
+  padding-bottom: 120px;
+}
+
+/* Flush variant — drop the top border + top padding when stacked directly
+   after another cream-bg section (e.g. the intro paragraphs on /testimonials)
+   so the two sections read as a single visual block.
+   `flow-root` creates a BFC so .grid's margin-top doesn't escape the section
+   and expose the dark body bg as a band between sections. */
+.testimonialsFlush {
+  border-top: none;
+  padding-top: 0;
+  display: flow-root;
+}
+
 .ratingPillWrap {
   display: flex;
   justify-content: center;
@@ -193,6 +211,46 @@
   padding-bottom: 96px;
   display: flex;
   justify-content: center;
+}
+
+/* Sticky variant: pill follows the viewport bottom while the section is in view,
+   then parks at the section's end — never overlapping the next section/footer. */
+.stickyCtaWrap {
+  position: sticky;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  padding-bottom: 96px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.stickyCtaWrap > a {
+  pointer-events: auto;
+  box-shadow:
+    0 8px 24px -8px rgba(0, 0, 0, 0.22),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(40px) scale(0.92);
+  transition:
+    opacity 850ms var(--ease-out-expo) 80ms,
+    transform 850ms var(--ease-out-expo) 80ms,
+    box-shadow var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.stickyCtaWrap[data-revealed="true"] > a {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stickyCtaWrap > a {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .reviewPill {

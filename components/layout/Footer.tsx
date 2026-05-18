@@ -6,7 +6,7 @@ import {
   LinkedInIcon,
   WhatsAppIcon,
 } from "@/components/icons/SocialIcons";
-import { LocationIcon, PhoneIcon } from "@/components/icons/ContactIcons";
+import { LocationIcon, PhoneIcon, MailIcon } from "@/components/icons/ContactIcons";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Footer.module.css";
@@ -28,10 +28,9 @@ const SERVICE_LINKS = [
 const COMPANY_LINKS = [
   { href: "/about", label: "About" },
   { href: "/fleet", label: "Fleet" },
-  { href: "/#testimonials", label: "Testimonials" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "News" },
-  { href: "#", label: "Relier Europe" },
-  { href: "#", label: "Careers" },
+  { href: "https://relier.es", label: "Relier Europe", external: true },
 ];
 
 function ChevronRight(props: SVGProps<SVGSVGElement>) {
@@ -59,10 +58,10 @@ const CONTACT_ITEMS = [
     href: undefined,
   },
   {
-    icon: LocationIcon,
-    label: "Barcelona · Europe HQ",
-    value: "[VERIFY address]",
-    href: undefined,
+    icon: MailIcon,
+    label: "Concierge · Email",
+    value: "info@relier.com",
+    href: "mailto:info@relier.com",
   },
   {
     icon: PhoneIcon,
@@ -124,7 +123,13 @@ export default function Footer() {
             <ul>
               {COMPANY_LINKS.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href}>{l.label}</a>
+                  <a
+                    href={l.href}
+                    target={l.external ? "_blank" : undefined}
+                    rel={l.external ? "noopener noreferrer" : undefined}
+                  >
+                    {l.label}
+                  </a>
                 </li>
               ))}
             </ul>

@@ -16,6 +16,7 @@ import styles from "./Nav.module.css";
 type NavLink = {
   href: string;
   label: string;
+  external?: boolean;
   children?: { href: string; label: string }[];
 };
 
@@ -36,7 +37,7 @@ const LINKS: NavLink[] = [
     ],
   },
   { href: "/fleet", label: "Fleet" },
-  { href: "#", label: "Relier Europe" },
+  { href: "https://relier.es", label: "Relier Europe", external: true },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -137,6 +138,8 @@ export default function Nav() {
               >
                 <a
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className={cn(styles.linkItem, active && styles.isActive)}
                   aria-current={active ? "page" : undefined}
                 >
@@ -249,6 +252,8 @@ export default function Nav() {
                   <li key={link.label}>
                     <a
                       href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
                       className={cn(active && styles.isActive)}
                       aria-current={active ? "page" : undefined}
                       onClick={() => setIsOpen(false)}
