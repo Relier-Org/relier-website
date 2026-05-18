@@ -34,8 +34,8 @@ export default function Hero() {
           <span className={styles.muted}>arrive in style.</span>
         </h1>
         <p className={styles.subtitle}>
-          Where luxury travel begins. Concierge transport from New York and
-          Barcelona to wherever you go.
+          Where executive travel begins. Based in New York and Barcelona.
+          Operating worldwide.
         </p>
       </div>
     </section>
