@@ -262,6 +262,15 @@
 }
 
 @media (max-width: 1024px) {
+  /* Tablet: subtitle wraps tighter (2 lines), the desktop -60px overlap leaves
+     no breathing room between the hero copy and the booking shell. Use the
+     mobile-friendly -32px so the spacing matches what we have on phones. */
+  .booking {
+    margin-top: -32px;
+  }
+  .bookingExpanded {
+    margin-top: 64px;
+  }
   .fieldsP2P,
   .fieldsHourly,
   .fieldsReturn {

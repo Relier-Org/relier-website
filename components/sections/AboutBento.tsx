@@ -22,11 +22,12 @@ export default function AboutBento() {
               <video
                 className={styles.video}
                 src="/videos/reel-1.mp4"
+                poster="/videos/reel-1-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 aria-hidden="true"
               />
             </div>
@@ -34,11 +35,12 @@ export default function AboutBento() {
               <video
                 className={styles.video}
                 src="/videos/reel-3.mp4"
+                poster="/videos/reel-3-poster.jpg"
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 aria-hidden="true"
               />
             </div>

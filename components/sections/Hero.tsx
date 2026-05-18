@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Hero.module.css";
 
@@ -6,14 +5,24 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.bg}>
-        <Image
-          src="/images/home/airport.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className={styles.img}
-        />
+        <video
+          className={styles.video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          poster="/videos/hero/horizontal-poster.jpg"
+        >
+          {/* Mobile portrait: vertical 720x1280 framing keeps the subject in view. */}
+          <source
+            src="/videos/hero/vertical.mp4"
+            type="video/mp4"
+            media="(max-width: 720px)"
+          />
+          <source src="/videos/hero/horizontal.mp4" type="video/mp4" />
+        </video>
       </div>
       <div className={cn("container", styles.inner)}>
         <p className={cn("eyebrow", styles.eyebrow)}>

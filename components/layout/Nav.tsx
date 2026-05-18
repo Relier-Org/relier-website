@@ -24,7 +24,7 @@ type NavLink = {
 const LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   {
-    href: "/#services",
+    href: "/services",
     label: "Services",
     children: [
       {
@@ -49,17 +49,20 @@ function stripHash(href: string) {
 }
 
 function isLinkActive(pathname: string, link: NavLink): boolean {
+  const matches = (rawHref: string) => {
+    const base = stripHash(rawHref);
+    if (!base || base === "#") return false;
+    if (base === "/") return pathname === "/";
+    if (/^https?:\/\//.test(base)) return false;
+    return pathname === base || pathname.startsWith(base + "/");
+  };
+
   if (link.children?.length) {
-    return link.children.some((c) => {
-      const cb = stripHash(c.href);
-      if (!cb || cb === "#" || cb === "/") return false;
-      return pathname === cb || pathname.startsWith(cb + "/");
-    });
+    // Parent matches if its own href matches OR any child does.
+    if (matches(link.href)) return true;
+    return link.children.some((c) => matches(c.href));
   }
-  const base = stripHash(link.href);
-  if (!base || base === "#") return false;
-  if (base === "/") return pathname === "/";
-  return pathname === base || pathname.startsWith(base + "/");
+  return matches(link.href);
 }
 
 export default function Nav() {

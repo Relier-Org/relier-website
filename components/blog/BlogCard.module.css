@@ -1,6 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  height: 100%;
   background: var(--bg-light-tile);
   border-radius: 12px;
   overflow: hidden;
@@ -102,7 +103,8 @@
 
 .cta {
   margin: 0 22px 24px;
-  align-self: flex-end;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 @media (max-width: 720px) {
