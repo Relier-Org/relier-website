@@ -137,7 +137,10 @@ export default function Fleet() {
                     </div>
                     <div className={styles.cardContent}>
                       <p className={styles.tier}>{v.tier}</p>
-                      <h3>{v.name}</h3>
+                      <h3>
+                        {v.name}
+                        <span className={styles.orSimilar}>or similar</span>
+                      </h3>
                       <p className={styles.spec}>
                         <span>{v.passengers} passengers</span>
                         <span>·</span>

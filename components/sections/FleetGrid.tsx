@@ -61,7 +61,12 @@ export default function FleetGrid({ title, vehicles, id }: FleetGridProps) {
 
                 <div className={styles.cardContent}>
                   <p className={styles.tier}>{v.tier}</p>
-                  <h3>{v.name}</h3>
+                  <h3>
+                    {v.name}
+                    {v.name !== v.tier && (
+                      <span className={styles.orSimilar}>or similar</span>
+                    )}
+                  </h3>
                   <p className={styles.spec}>
                     <span>{v.passengers} passengers</span>
                     {v.bags !== undefined && (
