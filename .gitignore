@@ -39,3 +39,6 @@ MEMORY-EXPORT*.md
 
 # claude code local artifacts
 .claude/
+
+# local-only ad-hoc scripts (scrapers, image pipelines, one-off utilities)
+/scripts/

@@ -1,0 +1,58 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 12px;
+  padding-top: 32px;
+  border-top: 0.5px solid rgba(24, 28, 32, 0.12);
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-on-light-muted);
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 0.5px solid rgba(24, 28, 32, 0.18);
+  background: transparent;
+  color: var(--text-on-light);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.btn:hover {
+  color: var(--accent-on-light);
+  border-color: var(--accent-on-light);
+  background: rgba(201, 169, 97, 0.08);
+  transform: translateY(-1px);
+}
+
+.copyHint {
+  font-size: 12px;
+  color: var(--text-on-light-muted);
+  letter-spacing: 0.04em;
+  min-height: 16px;
+  margin-left: 6px;
+}

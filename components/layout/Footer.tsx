@@ -29,7 +29,7 @@ const COMPANY_LINKS = [
   { href: "/about", label: "About" },
   { href: "/fleet", label: "Fleet" },
   { href: "/#testimonials", label: "Testimonials" },
-  { href: "#", label: "News" },
+  { href: "/blog", label: "News" },
   { href: "#", label: "Relier Europe" },
   { href: "#", label: "Careers" },
 ];
