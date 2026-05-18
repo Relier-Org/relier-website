@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -118,7 +119,7 @@ export default function Nav() {
     <>
       <nav className={cn(styles.nav, isScrolled && styles.isScrolled)}>
         <div className={cn("container", styles.inner)}>
-          <a href="/" className={styles.logo} aria-label="Relier home">
+          <Link href="/" className={styles.logo} aria-label="Relier home">
             <Image
               src="/images/relier-logo.png"
               alt="Relier"
@@ -127,7 +128,7 @@ export default function Nav() {
               priority
               className={styles.logoImg}
             />
-          </a>
+          </Link>
           <ul className={styles.links}>
             {LINKS.map((link) => {
               const active = isLinkActive(pathname, link);
@@ -220,7 +221,7 @@ export default function Nav() {
           aria-label="Navigation menu"
         >
           <div className={styles.overlayHeader}>
-            <a
+            <Link
               href="/"
               className={styles.overlayLogo}
               aria-label="Relier home"
@@ -233,7 +234,7 @@ export default function Nav() {
                 height={32}
                 className={styles.logoImg}
               />
-            </a>
+            </Link>
             <button
               type="button"
               className={styles.overlayClose}

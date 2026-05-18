@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { SVGProps } from "react";
 import {
   InstagramIcon,
@@ -84,7 +85,7 @@ export default function Footer() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <a href="/" className={styles.logo} aria-label="Relier home">
+            <Link href="/" className={styles.logo} aria-label="Relier home">
               <Image
                 src="/images/relier-logo.png"
                 alt="Relier"
@@ -92,7 +93,7 @@ export default function Footer() {
                 height={32}
                 className={styles.logoImg}
               />
-            </a>
+            </Link>
             <p>
               Personal mobility concierge. Based in New York and Barcelona. In
               service across the Americas, Europe, and the Middle East since
