@@ -11,7 +11,7 @@ export default function AboutBento() {
           <Reveal className={styles.bento}>
             <div className={cn(styles.tile, styles.photoTile)}>
               <Image
-                src="/images/about-2.jpg"
+                src="/images/about-2.webp"
                 alt="Relier chauffeur opening the door for a client"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

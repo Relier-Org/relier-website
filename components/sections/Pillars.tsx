@@ -18,7 +18,7 @@ const PILLARS = [
     title: "Safe Travels",
     body: "Travel confidently knowing your safety is our #1 priority. Rigorous health and cleaning standards round out a best-in-class service.",
     image:
-      "https://relier.com/wp-content/uploads/2025/02/LUXURY-VEHICLE-TRF-scaled.jpeg",
+      "/images/home/vehicle.webp",
     alt: "Safe travels",
   },
   {
@@ -26,7 +26,7 @@ const PILLARS = [
     title: "Private Travel Solutions",
     body: "Discover your one-stop travel shop: long-distance rides, one way or return, by the hour, airport transfers, and more.",
     image:
-      "https://relier.com/wp-content/uploads/2025/10/AIRPORT-e1759429455173.webp",
+      "/images/home/airport.webp",
     alt: "Private travel solutions",
   },
   {
@@ -34,7 +34,7 @@ const PILLARS = [
     title: "Book Online",
     body: "No need to call or email for a quote. Enter your ride details, see the fixed price, and book. It’s really that simple.",
     image:
-      "https://relier.com/wp-content/uploads/2025/10/CORPORATE-e1759429705849.webp",
+      "/images/home/corporate.webp",
     alt: "Book online",
   },
 ];

@@ -15,11 +15,14 @@ import styles from "./Footer.module.css";
 // TODO: client to confirm Barcelona HQ address
 
 const SERVICE_LINKS = [
-  { href: "#", label: "Luxury vehicle transfers" },
-  { href: "#", label: "Airport transfers" },
-  { href: "#", label: "Events transportation" },
-  { href: "#", label: "Corporate transportation" },
-  { href: "#", label: "FIFA World Cup 2026" },
+  { href: "/transfers", label: "Luxury vehicle transfers" },
+  { href: "/airport", label: "Airport transfers" },
+  { href: "/events", label: "Events transportation" },
+  { href: "/corporate", label: "Corporate transportation" },
+  {
+    href: "/fifa-world-cup-2026-private-transportation",
+    label: "FIFA World Cup 2026",
+  },
 ];
 
 const COMPANY_LINKS = [

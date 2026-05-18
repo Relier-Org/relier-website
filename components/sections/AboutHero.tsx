@@ -7,7 +7,7 @@ export default function AboutHero() {
     <section className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="/images/about-hero.jpg"
+          src="/images/about-hero.webp"
           alt=""
           fill
           priority

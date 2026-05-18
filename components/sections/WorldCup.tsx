@@ -68,7 +68,11 @@ export default function WorldCup() {
               <li key={f}>{f}</li>
             ))}
           </ul>
-          <Button href="#" withArrow className={styles.planBtn}>
+          <Button
+            href="/fifa-world-cup-2026-private-transportation"
+            withArrow
+            className={styles.planBtn}
+          >
             Plan your World Cup transport
           </Button>
         </Reveal>
@@ -76,7 +80,7 @@ export default function WorldCup() {
         <Reveal className={styles.bento}>
           <div className={styles.photo}>
             <Image
-              src="https://relier.com/wp-content/uploads/2025/09/FIFA-26-private-transportation.png"
+              src="/images/services/world-cup/hero.webp"
               alt="Relier private transportation for FIFA World Cup 2026"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

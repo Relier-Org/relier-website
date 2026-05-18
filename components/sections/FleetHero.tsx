@@ -7,7 +7,7 @@ export default function FleetHero() {
     <section className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="/images/fleet-hero.jpg"
+          src="/images/fleet-hero.webp"
           alt=""
           fill
           priority

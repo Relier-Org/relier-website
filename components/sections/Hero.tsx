@@ -7,7 +7,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="https://relier.com/wp-content/uploads/2025/10/AIRPORT-e1759429455173.webp"
+          src="/images/home/airport.webp"
           alt=""
           fill
           priority

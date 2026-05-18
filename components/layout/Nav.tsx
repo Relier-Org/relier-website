@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useNavScroll } from "@/lib/hooks/useNavScroll";
@@ -24,11 +25,14 @@ const LINKS: NavLink[] = [
     href: "/#services",
     label: "Services",
     children: [
-      { href: "/#wc", label: "FIFA World Cup 2026" },
-      { href: "/#services", label: "Luxury Vehicle Transfers" },
-      { href: "/#services", label: "Events Transportation" },
-      { href: "/#services", label: "Airport Transportation" },
-      { href: "/#services", label: "Corporate Transportation" },
+      {
+        href: "/fifa-world-cup-2026-private-transportation",
+        label: "FIFA World Cup 2026",
+      },
+      { href: "/transfers", label: "Luxury Vehicle Transfers" },
+      { href: "/events", label: "Events Transportation" },
+      { href: "/airport", label: "Airport Transportation" },
+      { href: "/corporate", label: "Corporate Transportation" },
     ],
   },
   { href: "/fleet", label: "Fleet" },
@@ -37,8 +41,28 @@ const LINKS: NavLink[] = [
   { href: "/contact", label: "Contact" },
 ];
 
+function stripHash(href: string) {
+  const i = href.indexOf("#");
+  return i === -1 ? href : href.slice(0, i);
+}
+
+function isLinkActive(pathname: string, link: NavLink): boolean {
+  if (link.children?.length) {
+    return link.children.some((c) => {
+      const cb = stripHash(c.href);
+      if (!cb || cb === "#" || cb === "/") return false;
+      return pathname === cb || pathname.startsWith(cb + "/");
+    });
+  }
+  const base = stripHash(link.href);
+  if (!base || base === "#") return false;
+  if (base === "/") return pathname === "/";
+  return pathname === base || pathname.startsWith(base + "/");
+}
+
 export default function Nav() {
   const isScrolled = useNavScroll(24);
+  const pathname = usePathname() ?? "/";
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
@@ -104,12 +128,18 @@ export default function Nav() {
             />
           </a>
           <ul className={styles.links}>
-            {LINKS.map((link) => (
+            {LINKS.map((link) => {
+              const active = isLinkActive(pathname, link);
+              return (
               <li
                 key={link.label}
                 className={cn(link.children && styles.hasDropdown)}
               >
-                <a href={link.href} className={styles.linkItem}>
+                <a
+                  href={link.href}
+                  className={cn(styles.linkItem, active && styles.isActive)}
+                  aria-current={active ? "page" : undefined}
+                >
                   {link.label}
                   {link.children && (
                     <svg
@@ -132,15 +162,27 @@ export default function Nav() {
                 </a>
                 {link.children && (
                   <ul className={styles.dropdown}>
-                    {link.children.map((child) => (
-                      <li key={child.label}>
-                        <a href={child.href}>{child.label}</a>
-                      </li>
-                    ))}
+                    {link.children.map((child) => {
+                      const childActive =
+                        pathname === stripHash(child.href) ||
+                        pathname.startsWith(stripHash(child.href) + "/");
+                      return (
+                        <li key={child.label}>
+                          <a
+                            href={child.href}
+                            className={cn(childActive && styles.isActive)}
+                            aria-current={childActive ? "page" : undefined}
+                          >
+                            {child.label}
+                          </a>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </li>
-            ))}
+              );
+            })}
           </ul>
           <div className={styles.right}>
             <span className={styles.lang} role="button" tabIndex={0}>
@@ -201,27 +243,42 @@ export default function Nav() {
           </div>
           <div className={styles.overlayInner} ref={itemsRef}>
             <ul className={styles.overlayLinks}>
-              {LINKS.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} onClick={() => setIsOpen(false)}>
-                    {link.label}
-                  </a>
-                  {link.children && (
-                    <ul className={styles.overlaySublinks}>
-                      {link.children.map((child) => (
-                        <li key={child.label}>
-                          <a
-                            href={child.href}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {child.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
+              {LINKS.map((link) => {
+                const active = isLinkActive(pathname, link);
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className={cn(active && styles.isActive)}
+                      aria-current={active ? "page" : undefined}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                    {link.children && (
+                      <ul className={styles.overlaySublinks}>
+                        {link.children.map((child) => {
+                          const childActive =
+                            pathname === stripHash(child.href) ||
+                            pathname.startsWith(stripHash(child.href) + "/");
+                          return (
+                            <li key={child.label}>
+                              <a
+                                href={child.href}
+                                className={cn(childActive && styles.isActive)}
+                                aria-current={childActive ? "page" : undefined}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {child.label}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
             <div className={styles.overlayFooter}>
               <Button

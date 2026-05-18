@@ -7,7 +7,7 @@ export default function ContactHero() {
     <section className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="/images/contact-hero.jpg"
+          src="/images/contact-hero.webp"
           alt=""
           fill
           priority

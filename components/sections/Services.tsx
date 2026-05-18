@@ -6,28 +6,28 @@ import styles from "./Services.module.css";
 
 const SERVICES = [
   {
-    href: "#",
+    href: "/corporate",
     num: "01 / Corporate",
     title: <>Corporate Transportation</>,
     tagline: "Meetings, conventions, business travel.",
     image:
-      "https://relier.com/wp-content/uploads/2025/10/CORPORATE-e1759429705849.webp",
+      "/images/home/corporate.webp",
     alt: "Corporate transportation",
     variant: "feature" as const,
     cta: "Learn more",
   },
   {
-    href: "#",
+    href: "/events",
     num: "02 / Events",
     title: <>Events Transportation</>,
     tagline: "Freedom to go wherever.",
     image:
-      "https://relier.com/wp-content/uploads/2025/02/EVENTS-TRANSPORTATION-scaled.jpeg",
+      "/images/home/events.webp",
     alt: "Events transportation",
     variant: "tall" as const,
   },
   {
-    href: "#",
+    href: "/airport",
     num: "03 / Airport",
     title: (
       <>
@@ -38,12 +38,12 @@ const SERVICES = [
     ),
     tagline: "Safe and fast.",
     image:
-      "https://relier.com/wp-content/uploads/2025/10/AIRPORT-e1759429455173.webp",
+      "/images/home/airport.webp",
     alt: "Airport transfers",
     variant: "square" as const,
   },
   {
-    href: "#",
+    href: "/transfers",
     num: "04 / Vehicle",
     title: (
       <>
@@ -54,7 +54,7 @@ const SERVICES = [
     ),
     tagline: "Travel in style.",
     image:
-      "https://relier.com/wp-content/uploads/2025/02/LUXURY-VEHICLE-TRF-scaled.jpeg",
+      "/images/home/vehicle.webp",
     alt: "Luxury vehicle transfers",
     variant: "square" as const,
   },
