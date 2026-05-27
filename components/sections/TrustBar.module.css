@@ -1,8 +1,7 @@
 .trust {
-  padding: 40px 0;
+  padding: 44px 0;
   border-top: 0.5px solid var(--border-subtle);
   border-bottom: 0.5px solid var(--border-subtle);
-  margin-top: 96px;
 }
 
 .inner {

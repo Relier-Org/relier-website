@@ -20,15 +20,18 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  /* Legibility scrim (brief §1): same palette, stronger contrast so the
+     headline never drops out over bright frames of the background video.
+     A center vignette darkens behind the copy block specifically. */
   background:
-    radial-gradient(ellipse at 50% 45%, transparent 30%, rgba(10, 10, 10, 0.35) 100%),
+    radial-gradient(ellipse 78% 62% at 50% 48%, rgba(10, 10, 10, 0.5) 0%, transparent 72%),
     linear-gradient(
       180deg,
-      rgba(10, 10, 10, 0.55) 0%,
-      rgba(10, 10, 10, 0.15) 18%,
-      transparent 35%,
-      transparent 60%,
-      rgba(10, 10, 10, 0.4) 85%,
+      rgba(10, 10, 10, 0.62) 0%,
+      rgba(10, 10, 10, 0.4) 22%,
+      rgba(10, 10, 10, 0.34) 45%,
+      rgba(10, 10, 10, 0.4) 62%,
+      rgba(10, 10, 10, 0.6) 84%,
       var(--color-obsidian-900) 100%
     );
 }
@@ -46,7 +49,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center 50%;
-  opacity: 0.65;
+  /* Slightly dimmed so the scrim above can carry the text contrast. */
+  opacity: 0.58;
 }
 
 .inner {
