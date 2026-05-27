@@ -33,10 +33,16 @@
 }
 
 .logoImg {
-  height: 32px;
+  height: 46px;
   width: auto;
   display: block;
   object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  .logoImg {
+    height: 38px;
+  }
 }
 
 .links {

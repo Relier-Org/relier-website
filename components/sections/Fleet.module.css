@@ -1,6 +1,5 @@
 .fleet {
-  padding: 120px 0;
-  overflow: hidden;
+  padding: 110px 0;
 }
 
 .head {
@@ -8,7 +7,7 @@
   align-items: end;
   justify-content: space-between;
   gap: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 .headText {
@@ -39,102 +38,41 @@
   padding-bottom: 6px;
 }
 
-.trackWrap {
-  position: relative;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  width: 48px;
-  height: 48px;
-  border: 0.5px solid var(--border-default);
-  border-radius: var(--radius-pill);
-  background: rgba(15, 15, 17, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--color-silver-100);
-  transition:
-    border-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out),
-    background var(--duration-fast) var(--ease-out);
-}
-
-.arrow:hover {
-  border-color: var(--color-champagne-500);
-  color: var(--color-champagne-500);
-  background: rgba(15, 15, 17, 0.75);
-}
-
-.arrowPrev {
-  left: -16px;
-}
-
-.arrowNext {
-  right: -16px;
-}
-
-.viewport {
-  overflow: hidden;
-}
-
-.track {
-  display: flex;
-  padding: 48px 0 56px;
+/* ─── Horizontal banner: all vehicles visible at once ─── */
+.banner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
 .card {
-  flex: 0 0 38%;
-  max-width: 460px;
-  min-width: 280px;
-  margin-right: 20px;
-  aspect-ratio: 1 / 1.18;
   position: relative;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-}
-
-.cardInner {
-  position: absolute;
-  inset: 0;
+  display: flex;
+  flex-direction: column;
   background: var(--color-obsidian-800);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-md);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  will-change: transform, opacity, box-shadow;
-  transform: translate3d(0, 14px, 0);
-  opacity: 0.55;
   transition:
-    transform 520ms var(--ease-out),
-    opacity 520ms var(--ease-out),
+    transform 420ms var(--ease-out),
     border-color var(--duration-base) var(--ease-out),
-    box-shadow 520ms var(--ease-out);
+    box-shadow 420ms var(--ease-out);
+  will-change: transform;
 }
 
-.card:global(.is-snapped) .cardInner {
-  transform: translate3d(0, -18px, 0);
-  opacity: 1;
+/* Hover enlarges the single car to inspect it — simple, no door-open theatrics. */
+.card:hover {
+  transform: scale(1.07);
+  z-index: 5;
+  border-color: rgba(201, 169, 97, 0.3);
   box-shadow:
-    0 28px 60px -24px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(201, 169, 97, 0.22);
-  border-color: rgba(201, 169, 97, 0.28);
-}
-
-.card:hover .cardInner {
-  border-color: rgba(201, 169, 97, 0.22);
+    0 28px 60px -24px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(201, 169, 97, 0.2);
 }
 
 .cardPhoto {
-  flex: 0 0 78%;
+  position: relative;
+  aspect-ratio: 1740 / 1140;
   background:
     radial-gradient(
       ellipse at 50% 64%,
@@ -142,60 +80,28 @@
       rgba(255, 252, 244, 0) 58%
     ),
     linear-gradient(180deg, #ede5d2 0%, #f5f0e2 45%, #e5dbc4 100%);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 20px;
   overflow: hidden;
 }
 
-.photoLabel {
-  position: absolute;
-  top: 16px;
-  left: 22px;
-  font-family: var(--font-sans);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: rgba(138, 111, 51, 0.55);
-  pointer-events: none;
-  z-index: 4;
-}
-
-.cardPhoto::after {
-  content: "";
-  position: absolute;
-  bottom: 18px;
-  left: 32px;
-  right: 32px;
-  height: 0.5px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(138, 111, 51, 0.22) 20%,
-    rgba(138, 111, 51, 0.22) 80%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
 .photoImg {
-  object-fit: contain;
+  object-fit: cover;
+  padding: 0;
   filter:
-    drop-shadow(0 12px 16px rgba(0, 0, 0, 0.12))
-    drop-shadow(0 28px 40px rgba(0, 0, 0, 0.08));
-  transition: transform var(--duration-base) var(--ease-out);
+    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.12))
+    drop-shadow(0 22px 32px rgba(0, 0, 0, 0.08));
+  transition: transform 420ms var(--ease-out);
 }
 
 .card:hover .photoImg {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .glow {
   position: absolute;
-  bottom: 18%;
+  bottom: 16%;
   left: 50%;
   width: 70%;
   aspect-ratio: 1 / 1;
@@ -203,32 +109,28 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(201, 169, 97, 0.32) 0%,
+    rgba(201, 169, 97, 0.28) 0%,
     rgba(201, 169, 97, 0) 60%
   );
-  z-index: 1;
+  opacity: 0.3;
   pointer-events: none;
-  opacity: 0.35;
-  transition: opacity 600ms var(--ease-out);
+  transition: opacity 420ms var(--ease-out);
 }
 
-.card:global(.is-snapped) .glow {
+.card:hover .glow {
   opacity: 0.6;
 }
 
 .cardContent {
-  flex: 1;
-  padding: 18px 24px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 14px 16px 16px;
   border-top: 0.5px solid var(--border-hairline);
+  flex: 1;
 }
 
 .tier {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-champagne-500);
   margin-bottom: 6px;
@@ -237,61 +139,21 @@
 .cardContent h3 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 20px;
-  line-height: 1.1;
+  font-size: 16px;
+  line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin-bottom: 8px;
 }
 
 .orSimilar {
-  display: inline-block;
-  margin-left: 8px;
+  display: block;
+  margin-top: 3px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 400;
   font-style: italic;
   letter-spacing: 0.02em;
   color: var(--color-silver-400);
-  vertical-align: baseline;
-}
-
-.spec {
-  font-size: 12px;
-  color: var(--color-silver-300);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.spec span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.dots {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.dot {
-  width: 24px;
-  height: 2px;
-  background: var(--color-silver-700);
-  cursor: pointer;
-  transition:
-    background var(--duration-fast) var(--ease-out),
-    width var(--duration-fast) var(--ease-out);
-  border: none;
-  padding: 0;
-}
-
-.dotActive {
-  background: var(--color-champagne-500);
-  width: 40px;
 }
 
 @media (max-width: 1024px) {
@@ -299,34 +161,23 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .card {
-    flex-basis: calc((100% - 14px) / 1.5);
+  .banner {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 720px) {
   .fleet {
-    padding: 80px 0;
+    padding: 72px 0;
   }
-  .card {
-    flex-basis: 82%;
-    aspect-ratio: 1 / 1.35;
+  .banner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-  .cardPhoto {
-    flex: 0 0 68%;
-  }
-  .cardContent {
-    padding: 16px 20px 20px;
-    gap: 4px;
+  .card:hover {
+    transform: scale(1.03);
   }
   .cardContent h3 {
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
-  .tier {
-    margin-bottom: 4px;
-  }
-  .arrow {
-    display: none;
+    font-size: 15px;
   }
 }

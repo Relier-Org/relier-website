@@ -1,0 +1,224 @@
+.coverage {
+  padding: 110px 0;
+}
+
+.header {
+  max-width: 640px;
+  margin-bottom: 44px;
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+  margin: 0 0 18px;
+}
+
+.title :global(.muted) {
+  color: var(--color-silver-300);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-silver-300);
+  max-width: 560px;
+  margin: 0;
+}
+
+/* ─── Map panel ─── */
+/* Map left, city list right. */
+.split {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 56px;
+  align-items: stretch;
+}
+
+.mapWrap {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  position: relative;
+  flex: 1;
+  min-height: 320px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse at 42% 36%, rgba(201, 169, 97, 0.07) 0%, transparent 55%),
+    var(--color-obsidian-800);
+  overflow: hidden;
+}
+
+/* Faint solid continents under the dots, for body. Mask stretched to fill the
+   box (100% 100%) so the map matches the list height while pins stay aligned. */
+.land {
+  position: absolute;
+  inset: 0;
+  background: rgba(197, 205, 213, 0.05);
+  -webkit-mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
+  mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
+}
+
+/* Dot-matrix masked to land → continents made of dots (Rolso-style). */
+.dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(201, 169, 97, 0.5) 0.8px,
+    transparent 1.2px
+  );
+  background-size: 9px 9px;
+  background-position: center;
+  -webkit-mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
+  mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
+}
+
+.pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.pinDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-champagne-500);
+  box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.16);
+  position: relative;
+}
+
+.pinDot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 169, 97, 0.5);
+  animation: pinPulse 2.8s var(--ease-out) infinite;
+}
+
+.pinHub .pinDot {
+  width: 12px;
+  height: 12px;
+  box-shadow:
+    0 0 0 5px rgba(201, 169, 97, 0.2),
+    0 0 16px rgba(201, 169, 97, 0.55);
+}
+
+.pinLabel {
+  margin-top: 7px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-silver-200);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.pinHub .pinLabel,
+.pin:hover .pinLabel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes pinPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.caption {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+/* ─── Region legend (right column) ─── */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.region + .region {
+  padding-top: 28px;
+  border-top: 0.5px solid var(--border-subtle);
+}
+
+.regionLabel {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  margin-bottom: 14px;
+}
+
+.regionList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.regionList li {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-silver-100);
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 720px) {
+  .coverage {
+    padding: 72px 0;
+  }
+  .split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .pinLabel {
+    display: none;
+  }
+  .pinHub .pinLabel {
+    display: block;
+  }
+}

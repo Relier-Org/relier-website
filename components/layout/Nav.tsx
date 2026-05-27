@@ -126,8 +126,8 @@ export default function Nav() {
             <Image
               src="/images/relier-logo.png"
               alt="Relier"
-              width={140}
-              height={32}
+              width={200}
+              height={46}
               priority
               className={styles.logoImg}
             />
