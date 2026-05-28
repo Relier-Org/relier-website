@@ -162,7 +162,7 @@ export default function Footer() {
               );
             })}
             <Button
-              href="/#booking"
+              href="/online-reservation/"
               variant="primary"
               withArrow
               className={styles.ctaBtn}

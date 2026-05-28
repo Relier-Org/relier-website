@@ -1,0 +1,13 @@
+.main {
+  background: var(--color-obsidian-900);
+}
+
+.formSection {
+  padding: clamp(40px, 6vw, 72px) 0 clamp(80px, 10vw, 140px);
+}
+
+@media (max-width: 720px) {
+  .formSection {
+    padding: 24px 0 64px;
+  }
+}

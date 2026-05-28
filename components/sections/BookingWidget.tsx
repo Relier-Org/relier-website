@@ -11,6 +11,11 @@ import TimePicker from "@/components/booking/TimePicker";
 import DurationPicker from "@/components/booking/DurationPicker";
 import Checkbox from "@/components/booking/Checkbox";
 import type { PlaceFeature } from "@/lib/booking/mapConfig";
+import {
+  requestQuote,
+  type BookingPayload,
+  type QuoteResponse,
+} from "@/lib/booking/api";
 import styles from "./BookingWidget.module.css";
 
 const RouteMap = dynamic(() => import("@/components/booking/RouteMap"), {
@@ -18,13 +23,22 @@ const RouteMap = dynamic(() => import("@/components/booking/RouteMap"), {
 });
 
 type Tab = "point-to-point" | "hourly";
+type SubmitState =
+  | { status: "idle" }
+  | { status: "submitting" }
+  | { status: "success"; data: QuoteResponse }
+  | { status: "error"; message: string };
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "point-to-point", label: "Point to Point" },
   { id: "hourly", label: "Hourly" },
 ];
 
-export default function BookingWidget() {
+export type BookingWidgetProps = {
+  variant?: "overlap" | "flat";
+};
+
+export default function BookingWidget({ variant = "overlap" }: BookingWidgetProps) {
   const [activeTab, setActiveTab] = useState<Tab>("point-to-point");
   const [pickup, setPickup] = useState<PlaceFeature | null>(null);
   const [dropoff, setDropoff] = useState<PlaceFeature | null>(null);
@@ -47,6 +61,8 @@ export default function BookingWidget() {
   const formRef = useRef<HTMLFormElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
   const [returnWidth, setReturnWidth] = useState<number | undefined>(undefined);
+  const [submit, setSubmit] = useState<SubmitState>({ status: "idle" });
+  const confirmationRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const form = formRef.current;
@@ -194,12 +210,13 @@ export default function BookingWidget() {
     if (focusable.tagName === "BUTTON") focusable.click();
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // TODO: wire to booking provider (likely Karhoo or Limos.com)
-    const payload = isPointToPoint
+    if (submit.status === "submitting") return;
+
+    const payload: BookingPayload = isPointToPoint
       ? {
-          mode: "point-to-point" as const,
+          mode: "point-to-point",
           pickup,
           dropoff,
           pickupDate,
@@ -209,23 +226,90 @@ export default function BookingWidget() {
           returnTime: returnTrip ? returnTime : null,
         }
       : {
-          mode: "hourly" as const,
+          mode: "hourly",
           pickup,
           durationHours,
           pickupDate,
           pickupTime,
         };
-    // eslint-disable-next-line no-console
-    console.log("booking payload", payload);
+
+    setSubmit({ status: "submitting" });
+    try {
+      const data = await requestQuote(payload);
+      setSubmit({ status: "success", data });
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setSubmit({ status: "error", message });
+    }
   }
+
+  function resetSubmit() {
+    setSubmit({ status: "idle" });
+  }
+
+  useGSAP(
+    () => {
+      if (submit.status !== "success") return;
+      const panel = confirmationRef.current;
+      if (!panel) return;
+      const reduced =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      gsap.fromTo(
+        panel,
+        { opacity: 0, y: reduced ? 0 : 12 },
+        { opacity: 1, y: 0, duration: reduced ? 0 : 0.55, ease: "expo.out" }
+      );
+    },
+    { dependencies: [submit.status] }
+  );
 
   return (
     <div
-      className={cn(styles.booking, hasRoute && styles.bookingExpanded)}
+      className={cn(
+        styles.booking,
+        variant === "flat" && styles.bookingFlat,
+        hasRoute && styles.bookingExpanded
+      )}
       id="booking"
     >
       <div className="container">
       <div className={styles.shell} ref={shellRef}>
+        {submit.status === "success" ? (
+          <div ref={confirmationRef} className={styles.confirmation} role="status">
+            <div className={styles.confirmationIcon} aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.2" />
+                <path
+                  d="m8.5 14 4 4 7-8"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 className={styles.confirmationTitle}>Your request is on its way.</h3>
+            <p className={styles.confirmationLead}>
+              Our concierge will contact you within 15 minutes to confirm
+              vehicle, pricing and pickup details.
+            </p>
+            <p className={styles.confirmationMeta}>
+              Reference: <strong>{submit.data.tripId}</strong>
+              {" · "}
+              <a href="tel:+18447354371">+1 (844) 735-4371</a>
+            </p>
+            <button
+              type="button"
+              className={styles.confirmationReset}
+              onClick={resetSubmit}
+            >
+              Make another request
+            </button>
+          </div>
+        ) : (
+          <>
         <div
           className={styles.tabs}
           role="tablist"
@@ -284,10 +368,28 @@ export default function BookingWidget() {
             <TimePicker value={pickupTime} onChange={setPickupTime} />
             <span className={styles.fieldIcon} aria-hidden="true">▾</span>
           </div>
-          <button type="submit" className={styles.cta}>
-            Get my prices <span className={styles.ctaArrow} aria-hidden="true">→</span>
+          <button
+            type="submit"
+            className={styles.cta}
+            disabled={submit.status === "submitting"}
+            aria-busy={submit.status === "submitting"}
+          >
+            {submit.status === "submitting" ? (
+              <>Sending…</>
+            ) : (
+              <>
+                Get my prices{" "}
+                <span className={styles.ctaArrow} aria-hidden="true">→</span>
+              </>
+            )}
           </button>
         </form>
+        {submit.status === "error" && (
+          <p className={styles.errorMsg} role="alert">
+            {submit.message} If it keeps failing, call{" "}
+            <a href="tel:+18447354371">+1 (844) 735-4371</a>.
+          </p>
+        )}
         <div className={styles.bottomRow}>
           {isPointToPoint && (
             <Checkbox checked={returnTrip} onChange={setReturnTrip}>
@@ -323,6 +425,8 @@ export default function BookingWidget() {
           <div ref={mapPanelRef} className={styles.mapPanel}>
             <RouteMap pickup={pickup} dropoff={dropoff} />
           </div>
+        )}
+          </>
         )}
       </div>
       </div>

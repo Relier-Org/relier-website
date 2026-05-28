@@ -10,6 +10,14 @@
   margin-top: 80px;
 }
 
+.bookingFlat {
+  margin-top: 0;
+}
+
+.bookingFlat.bookingExpanded {
+  margin-top: 0;
+}
+
 .shell {
   background: rgba(18, 18, 26, 0.65);
   backdrop-filter: blur(24px) saturate(140%);
@@ -225,6 +233,114 @@
 
 .cta:hover .ctaArrow {
   transform: translateX(4px);
+}
+
+.cta:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+
+.cta:disabled:hover {
+  background: var(--color-champagne-500);
+}
+
+.errorMsg {
+  margin-top: 12px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #f4c4b4;
+  background: rgba(214, 88, 56, 0.08);
+  border: 0.5px solid rgba(214, 88, 56, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.errorMsg a {
+  color: var(--color-champagne-500);
+  text-decoration: underline;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 24px 32px;
+  gap: 12px;
+}
+
+.confirmationIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(201, 169, 97, 0.12);
+  color: var(--color-champagne-500);
+  margin-bottom: 4px;
+}
+
+.confirmationTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.65rem, 3.5vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.018em;
+  color: var(--text-primary);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+  margin: 0;
+}
+
+.confirmationLead {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-silver-200);
+  max-width: 480px;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.confirmationMeta {
+  font-size: 12.5px;
+  color: var(--color-silver-400);
+  letter-spacing: 0.02em;
+  margin: 4px 0 0;
+}
+
+.confirmationMeta strong {
+  color: var(--color-silver-100);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.confirmationMeta a {
+  color: var(--color-champagne-500);
+}
+
+.confirmationReset {
+  margin-top: 12px;
+  padding: 10px 22px;
+  background: transparent;
+  border: 0.5px solid var(--border-glass-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-silver-100);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.confirmationReset:hover {
+  background: rgba(201, 169, 97, 0.08);
+  border-color: var(--color-champagne-500);
+  color: var(--color-champagne-300);
 }
 
 .mapPanel {

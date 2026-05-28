@@ -195,7 +195,7 @@ export default function Nav() {
             <span className={styles.lang} role="button" tabIndex={0}>
               EN ⌄
             </span>
-            <Button href="/#booking" variant="primary" className={styles.cta}>
+            <Button href="/online-reservation/" variant="primary" className={styles.cta}>
               Reserve
             </Button>
             <button
@@ -291,7 +291,7 @@ export default function Nav() {
             </ul>
             <div className={styles.overlayFooter}>
               <Button
-                href="/#booking"
+                href="/online-reservation/"
                 variant="primary"
                 className={styles.overlayCta}
                 onClick={() => setIsOpen(false)}
