@@ -70,7 +70,7 @@
 .h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.5rem, 6.5vw, 5.25rem);
+  font-size: clamp(2.85rem, 7vw, 5.75rem);
   line-height: 1.04;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -88,7 +88,7 @@
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5;
   color: var(--color-silver-200);
   max-width: 560px;
@@ -111,13 +111,14 @@
 
 @media (max-width: 720px) {
   .h1 {
-    font-size: clamp(2.25rem, 9vw, 3.25rem);
+    font-size: clamp(2.5rem, 9.5vw, 3.5rem);
   }
   .eyebrow {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.14em;
   }
   .subtitle {
+    font-size: 16px;
     max-width: 420px;
   }
 }

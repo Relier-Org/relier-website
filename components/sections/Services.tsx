@@ -16,23 +16,23 @@ const SERVICES = [
   {
     href: "/corporate",
     num: "01",
-    title: "Corporate",
-    tagline: "Meetings, conventions, business travel.",
+    title: "By the Hour",
+    tagline: "Freedom to go wherever.",
     image: "/images/home/corporate.webp",
-    alt: "Corporate transportation",
+    alt: "By the hour transportation",
   },
   {
     href: "/events",
     num: "02",
-    title: "Events",
-    tagline: "Freedom to go wherever the night leads.",
+    title: "Corporate & Events transportation",
+    tagline: "Meetings, conventions, business travel.",
     image: "/images/home/events.webp",
-    alt: "Events transportation",
+    alt: "Corporate and events transportation",
   },
   {
     href: "/airport",
     num: "03",
-    title: "Airport & By the Hour",
+    title: "Airport transfers",
     tagline: "Safe, fast, on your schedule.",
     image: "/images/home/airport.webp",
     alt: "Airport transfers",
@@ -89,7 +89,6 @@ export default function Services() {
                 />
               </div>
               <div className={styles.bannerContent}>
-                <p className={styles.num}>{s.num}</p>
                 <h3 className={styles.h3}>{s.title}</h3>
                 <p className={styles.tagline}>{s.tagline}</p>
                 <span className={styles.cta} aria-hidden="true">

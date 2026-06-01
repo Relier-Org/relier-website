@@ -21,7 +21,7 @@
 
 .kicker {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -32,7 +32,7 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.5rem, 5.5vw, 3.25rem);
+  font-size: clamp(2.75rem, 6vw, 3.75rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -48,7 +48,7 @@
 }
 
 .lead {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--color-silver-300);
   max-width: 560px;
@@ -123,32 +123,29 @@
   padding: 22px 22px 24px;
 }
 
-.num {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 12px;
-  color: var(--color-champagne-500);
-  letter-spacing: 0.12em;
-  margin-bottom: 10px;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-}
-
 .h3 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 23px;
+  font-size: 25px;
   line-height: 1.08;
   letter-spacing: -0.01em;
   color: var(--text-primary);
   margin-bottom: 7px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  /* Reserve two display lines so single-line titles bottom-align with the
+     two-line ones across the row. */
+  min-height: 2.16em;
+  display: flex;
+  align-items: flex-end;
 }
 
 .tagline {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
   color: var(--color-silver-200);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  /* Reserve two lines so taglines start at the same height too. */
+  min-height: 2.8em;
 }
 
 .cta {
@@ -216,10 +213,10 @@
     padding: 16px 16px 18px;
   }
   .h3 {
-    font-size: 17px;
+    font-size: 18px;
   }
   .tagline {
-    font-size: 11px;
+    font-size: 12px;
   }
   .cta {
     display: none;
