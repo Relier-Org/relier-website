@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import ReservationHero from "@/components/sections/ReservationHero";
-import BookingWidget from "@/components/sections/BookingWidget";
+import ReservationWidget from "@/components/ReservationWidget";
 import GsapProvider from "@/components/effects/GsapProvider";
 import styles from "./page.module.css";
 
@@ -20,7 +20,9 @@ export default function OnlineReservationPage() {
       <main className={styles.main}>
         <ReservationHero />
         <section className={styles.formSection}>
-          <BookingWidget variant="flat" />
+          <div className="container">
+            <ReservationWidget configId="13" />
+          </div>
         </section>
       </main>
       <Footer />
