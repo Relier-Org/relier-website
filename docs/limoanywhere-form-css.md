@@ -147,6 +147,13 @@ label {
 /* Iconos de equipaje / child seats (PNG oscuros): aclararlos sobre el dark */
 .luggage_type img, .child_seat img { filter: invert(0.85) !important; opacity: .85; }
 
+/* SOLO el tel: del Billing Contact (salia ROJO con el color de link del template).
+   OJO: .page_next/.page_prev/.final_submit/.send_me_quote son <a> -> NO usar un
+   selector amplio tipo "#content a" porque pinta el texto del boton y lo deja
+   invisible (champagne sobre champagne). Targetear solo el contacto. */
+.trip_person a { color: var(--rl-accent) !important; text-decoration: none !important; }
+.trip_person a:hover { color: var(--rl-accent-hover) !important; }
+
 /* =========================================================
    RELIER - Ajustes finos (cards, paneles anidados, iconos)
    ========================================================= */
@@ -233,7 +240,25 @@ ul.stops_list li { color: var(--rl-text-2) !important; border-color: var(--rl-bo
   margin: 0 0 14px 0 !important;
 }
 #type br { display: none !important; }
-.input_group { width: 14% !important; }
+
+/* Ancho de columnas SOLO en desktop. Critico: el template stackea en mobile con
+   @media (max-width:600px){.input_group{display:block;width:96%}}. Si dejamos el
+   14% sin media query (y declarado despues), gana en mobile -> campos apilados
+   pero a 14% de ancho (inusables en celular). Scope a >=601px y mobile vuelve a
+   apilar full-width como manda el template. */
+@media (min-width: 601px) {
+  .input_group { width: 14% !important; }
+}
+
+/* Mobile: el boton Quote quedaba mas ancho que los campos apilados y se iba del
+   borde. Full-width + border-box para que alinee con los inputs, sin overflow. */
+@media (max-width: 600px) {
+  #book_button {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 12px 0 0 0 !important;
+  }
+}
 
 /* Tabs Transfer / Hourly. Radio oculto; el label es el tab.
    Override del gris #353938 del template. */
@@ -303,3 +328,83 @@ select.form-control option, #content select option, #lead_form select option {
 /* Spinners del number, discretos */
 #num_passengers::-webkit-inner-spin-button,
 #num_passengers::-webkit-outer-spin-button { opacity: .55; }
+/* =========================================================
+   RELIER - FIX PASS 2 (feedback Nico, screenshots)
+   ========================================================= */
+
+/* #2 Headers de paso legibles (algunos salian tenues, ej. YOUR INFORMATION).
+   El color sin !important lo pisaba el template. */
+h1, h2, h3,
+#content h1, #content h2, #content h3,
+.page h1, .page h2, .page h3 {
+  color: var(--rl-text) !important;
+  opacity: 1 !important;
+}
+
+/* #3 Select your ride: auto mas grande + menos espacio muerto en la card.
+   La imagen estaba chica y la card muy alta con hueco al centro. */
+.category { padding: 18px 22px !important; }
+.category .thumbnail,
+.category .thumbnail.carousel,
+.category .thumbnail.max-250 { width: 100% !important; max-width: 300px !important; }
+.category img, .thumbnail img { max-width: 300px !important; width: 100% !important; height: auto !important; }
+
+/* #4 Sliver blanco a la derecha (paneles del template sin cubrir, sin ancestro
+   #content). Cubrir paneles/wells genericos al tema oscuro. */
+.panel, .panel-default, .panel-body, .panel-heading, .panel-footer, .well {
+  background-color: var(--rl-surface) !important;
+  border-color: var(--rl-border) !important;
+  color: var(--rl-text-2) !important;
+}
+
+/* #4b Your Information: el template anida imagen + ribbon + form en un mismo
+   wrapper #trip_info (con #personal_information adentro), lo que generaba
+   caja-dentro-de-caja, anchos distintos y un sliver blanco a la derecha.
+   Lo unificamos en UNA sola superficie limpia (overflow hidden mata el sliver). */
+#trip_info:not(.trip-info) {
+  background-color: var(--rl-surface) !important;
+  border: 1px solid var(--rl-border) !important;
+  border-radius: var(--rl-radius) !important;
+  padding: 24px 28px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+/* ribbon interno y form: sin caja propia (se integran al box unico) */
+.trip-info, #personal_information {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* separador sutil entre ribbon y form, en lugar de dos cajas */
+#personal_information { margin-top: 20px !important; padding-top: 20px !important; border-top: 1px solid var(--rl-border-subtle) !important; }
+
+/* #5 Reservation Summary: alinear los totales (subtotal/total) en un bloque de
+   ancho fijo a la derecha para que no queden desfasados entre si. */
+.vehicle_subtotal, .trip_total { width: 320px !important; }
+.vehicle_subtotal table, .trip_total table { width: 100% !important; margin-left: auto !important; }
+.vehicle_subtotal th, .trip_total th { text-align: left !important; }
+.vehicle_subtotal td, .trip_total td { text-align: right !important; }
+
+/* =========================================================
+   RELIER - FIX PASS 3 (audit exhaustivo headless, feedback Nico)
+   ========================================================= */
+
+/* Toggle "(manual address)" en el paso de pago: salia AZUL (link default).
+   A champagne para integrarse al tema. */
+#toggle_manual_billing_address,
+a#toggle_manual_billing_address,
+.toggle_manual_billing_address { color: var(--rl-accent) !important; }
+
+/* Billing Phone (#cc_phone): la lib intl-tel-input mete el flag DENTRO del input
+   con padding-left:75px inline. Nuestro ".form-control { padding:12px 2px }" lo
+   pisaba y el flag terminaba encimando el numero. Restauramos el espacio. */
+#cc_phone { padding-left: 52px !important; }
+
+/* NOTA (no es CSS): la imagen del vehiculo se ve sobre caja blanca cuando el JPEG
+   cargado en Limo Anywhere tiene fondo blanco (van / minibus / motorcoach).
+   NO se puede tapar por CSS sin arruinar los que ya son transparentes (sedan/suv).
+   Fix real: resubir esas imagenes como PNG transparente en LA (Vehicle Categories). */
