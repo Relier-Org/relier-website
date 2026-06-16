@@ -19,16 +19,13 @@ const BADGES: {
     modifier: "logoFlip",
   },
   {
-    name: "Brooklyn Chamber of Commerce",
-    src: "/images/partners/brooklyn-chamber.webp",
-    href: "https://www.brooklynchamber.com/",
-  },
-  {
     name: "NYC Association of Hotel Concierges",
     src: "/images/partners/nycahc.webp",
     href: "https://nycahc.org/",
     modifier: "logoFlip",
   },
+  // TODO (assets): sumar "Chauffeur Driven" y, al final, "Pax Chauffeur
+  // Training" (logo círculo dorado) cuando lleguen los assets del cliente.
 ];
 
 export default function TrustBar() {

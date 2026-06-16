@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/effects/Reveal";
+import { PassengerIcon, LuggageIcon } from "@/components/icons/FleetIcons";
 import styles from "./FleetGrid.module.css";
 
 export type FleetVehicle = {
@@ -15,10 +16,11 @@ export type FleetVehicle = {
 interface FleetGridProps {
   title: string;
   vehicles: FleetVehicle[];
+  lead?: string;
   id?: string;
 }
 
-export default function FleetGrid({ title, vehicles, id }: FleetGridProps) {
+export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps) {
   return (
     <section className={styles.section} id={id}>
       <div className="container">
@@ -26,6 +28,7 @@ export default function FleetGrid({ title, vehicles, id }: FleetGridProps) {
           <header className={styles.header}>
             <h2 className={styles.title}>{title}</h2>
           </header>
+          {lead && <p className={styles.lead}>{lead}</p>}
         </Reveal>
 
         <div className={styles.grid} data-count={vehicles.length}>
@@ -67,15 +70,20 @@ export default function FleetGrid({ title, vehicles, id }: FleetGridProps) {
                       <span className={styles.orSimilar}>or similar</span>
                     )}
                   </h3>
-                  <p className={styles.spec}>
-                    <span>{v.passengers} passengers</span>
+                  <div className={styles.specs}>
+                    <span className={styles.spec}>
+                      <PassengerIcon className={styles.specIcon} />
+                      <span className={styles.specValue}>{v.passengers}</span>
+                      <span className={styles.specUnit}>pax</span>
+                    </span>
                     {v.bags !== undefined && (
-                      <>
-                        <span>·</span>
-                        <span>{v.bags} bags</span>
-                      </>
+                      <span className={styles.spec}>
+                        <LuggageIcon className={styles.specIcon} />
+                        <span className={styles.specValue}>{v.bags}</span>
+                        <span className={styles.specUnit}>bags</span>
+                      </span>
                     )}
-                  </p>
+                  </div>
                 </div>
               </div>
             </Reveal>

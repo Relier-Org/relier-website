@@ -75,8 +75,18 @@ export default function FleetPage() {
       <Nav />
       <main>
         <FleetHero />
-        <FleetGrid title="Smaller vehicles" vehicles={SMALLER} id="smaller" />
-        <FleetGrid title="Larger vehicles" vehicles={LARGER} id="larger" />
+        <FleetGrid
+          title="Smaller vehicles"
+          lead="Late-model sedans, SUVs and executive vans — each immaculately kept, chauffeur-driven, and ready around the clock. Pick by passengers and luggage; every class is offered as the model shown or a like-for-like equivalent."
+          vehicles={SMALLER}
+          id="smaller"
+        />
+        <FleetGrid
+          title="Larger vehicles"
+          lead="For groups, productions and events — mini-buses and a 56-passenger motor coach, with the same standard of service and coordination as our private cars."
+          vehicles={LARGER}
+          id="larger"
+        />
       </main>
       <Footer />
     </GsapProvider>

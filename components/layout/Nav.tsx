@@ -38,6 +38,7 @@ const LINKS: NavLink[] = [
     ],
   },
   { href: "/fleet", label: "Fleet" },
+  { href: "/for-business", label: "For Business" },
   { href: "https://relier.es", label: "Relier Europe", external: true },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

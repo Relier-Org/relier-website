@@ -36,13 +36,6 @@ export default function About() {
             <Button href="/about" withArrow className={styles.btn}>
               About us
             </Button>
-            <div className={styles.meta}>
-              <span className={styles.metaDivider} aria-hidden="true" />
-              <p className={styles.metaText}>
-                <strong>New York</strong> &amp; <strong>Barcelona</strong> ·
-                Americas, Europe &amp; the Middle East
-              </p>
-            </div>
           </div>
         </Reveal>
       </div>

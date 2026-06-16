@@ -8,7 +8,6 @@ import Fleet from "@/components/sections/Fleet";
 import Pillars from "@/components/sections/Pillars";
 import WorldCup from "@/components/sections/WorldCup";
 import CoverageMap from "@/components/sections/CoverageMap";
-import ClientLogos from "@/components/sections/ClientLogos";
 import Testimonials from "@/components/sections/Testimonials";
 import About from "@/components/sections/About";
 import GsapProvider from "@/components/effects/GsapProvider";
@@ -16,7 +15,7 @@ import GsapProvider from "@/components/effects/GsapProvider";
 // Versión B order (Territory brief, 21-may-2026):
 //  1 Hero + booking · 2 Services (Disney+) · 3 Virtuoso/NLE credential band
 //  4 Fleet · 5 Reasons / Concierge on the Road · 6 Coverage map
-//  7 Social proof (logos → reviews) · 8 About, last of all.
+//  7 Testimonials (Google reviews) · 8 About, last of all.
 export default function HomePage() {
   return (
     <GsapProvider>
@@ -32,7 +31,6 @@ export default function HomePage() {
         <Pillars />
         <WorldCup />
         <CoverageMap />
-        <ClientLogos />
         <Testimonials />
         <About />
       </main>

@@ -7,43 +7,42 @@ import styles from "./Services.module.css";
 // vertical banner, all visible at once with no horizontal scroll. The user
 // scans the whole row at a glance and clicks the one they need.
 //
-// NOTE (blocked on Andres): final category names are pending. Current four are
-// placeholders. Confirmed rules for when they land: do NOT merge corporate /
-// roadshows / sales events / artists (each explicit); Airport + By the Hour go
-// together; Sightseeing TBD. The grid below auto-fits 4–6 columns, so adding
-// the confirmed categories later is a data-only change.
+// Categorías finales (PDF cliente 04-jun-2026): 4 categorías operativas en
+// orden — Point to Point, By the Hour, Corporate, Events. Airport sale del set
+// del home (la page /airport sigue viva y linkeada desde el Nav).
+// TODO (imágenes): provisorias de la web vieja; Andrés libera las del shooting.
 const SERVICES = [
   {
-    href: "/corporate",
+    href: "/transfers",
     num: "01",
+    title: "Point to Point",
+    tagline: "Transfers in style.",
+    image: "/images/home/vehicle.webp",
+    alt: "Point to point transfers",
+  },
+  {
+    href: "/hourly",
+    num: "02",
     title: "By the Hour",
     tagline: "Freedom to go wherever.",
-    image: "/images/home/corporate.webp",
+    image: "/images/home/airport.webp",
     alt: "By the hour transportation",
   },
   {
-    href: "/events",
-    num: "02",
-    title: "Corporate & Events transportation",
-    tagline: "Meetings, conventions, business travel.",
-    image: "/images/home/events.webp",
-    alt: "Corporate and events transportation",
-  },
-  {
-    href: "/airport",
+    href: "/corporate",
     num: "03",
-    title: "Airport transfers",
-    tagline: "Safe, fast, on your schedule.",
-    image: "/images/home/airport.webp",
-    alt: "Airport transfers",
+    title: "Corporate",
+    tagline: "Meetings, conventions, business travel.",
+    image: "/images/home/corporate.webp",
+    alt: "Corporate transportation",
   },
   {
-    href: "/transfers",
+    href: "/events",
     num: "04",
-    title: "Premium Transfers",
-    tagline: "Point to point, in style.",
-    image: "/images/home/vehicle.webp",
-    alt: "Premium vehicle transfers",
+    title: "Events",
+    tagline: "Galas, weddings, productions.",
+    image: "/images/home/events.webp",
+    alt: "Events transportation",
   },
 ];
 

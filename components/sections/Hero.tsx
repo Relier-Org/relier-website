@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
       <div className={cn("container", styles.inner)}>
         <p className={cn("eyebrow", styles.eyebrow)}>
-          Worldwide Private Black Car Transportation · Virtuoso Preferred
+          Worldwide Executive Car Service Company · Virtuoso Preferred
         </p>
         <h1 className={styles.h1}>
           Ride premium,
@@ -35,7 +35,7 @@ export default function Hero() {
         </h1>
         <p className={styles.subtitle}>
           Where private transfers &amp; transportation begins. From New York to
-          the World. Operating 500 cities worldwide.
+          the World. Operating more than 500 cities worldwide.
         </p>
       </div>
     </section>

@@ -1,7 +1,9 @@
 .fleet {
   padding: 110px 0;
+  overflow: hidden;
 }
 
+/* ─── Header ─── */
 .head {
   display: flex;
   align-items: end;
@@ -38,131 +40,407 @@
   padding-bottom: 6px;
 }
 
-/* ─── Horizontal banner: all vehicles visible at once ─── */
-.banner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+/* ─── Carousel shell ─── */
+.stageWrap {
+  position: relative;
 }
 
-.card {
+.viewport {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  background: var(--color-obsidian-800);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-md);
   overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.slide {
+  flex: 0 0 60%;
+  min-width: 0;
+  padding: 0 16px;
+}
+
+/* .card is the GSAP/CSS-animated inner wrapper — Embla writes transform on the
+   slide (loop mode), never on .card, so the active-state transform is safe. */
+.card {
+  transform: scale(0.84);
+  opacity: 0.5;
+  filter: saturate(0.88);
   transition:
-    transform 420ms var(--ease-out),
-    border-color var(--duration-base) var(--ease-out),
-    box-shadow 420ms var(--ease-out);
-  will-change: transform;
+    transform 620ms var(--ease-out-expo),
+    opacity 620ms var(--ease-out-expo),
+    filter 620ms var(--ease-out-expo);
 }
 
-/* Hover enlarges the single car to inspect it — simple, no door-open theatrics. */
-.card:hover {
-  transform: scale(1.07);
-  z-index: 5;
-  border-color: rgba(201, 169, 97, 0.3);
-  box-shadow:
-    0 28px 60px -24px rgba(0, 0, 0, 0.65),
-    0 0 0 1px rgba(201, 169, 97, 0.2);
+.slide:global(.is-snapped) .card {
+  transform: scale(1);
+  opacity: 1;
+  filter: none;
 }
 
-.cardPhoto {
+/* ─── Stage: car floating on a champagne studio sweep ─── */
+.stage {
   position: relative;
-  aspect-ratio: 1740 / 1140;
+  aspect-ratio: 16 / 10;
+  border-radius: 22px;
+  overflow: hidden;
   background:
     radial-gradient(
-      ellipse at 50% 64%,
-      rgba(255, 252, 244, 0.92) 0%,
-      rgba(255, 252, 244, 0) 58%
+      ellipse 80% 46% at 50% 54%,
+      rgba(255, 252, 245, 0.96) 0%,
+      rgba(255, 252, 245, 0) 60%
     ),
-    linear-gradient(180deg, #ede5d2 0%, #f5f0e2 45%, #e5dbc4 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    linear-gradient(
+      180deg,
+      #f5efe3 0%,
+      #efe7d7 46%,
+      #e7ddc9 60%,
+      #ddd0b8 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 }
 
-.photoImg {
-  object-fit: cover;
-  padding: 0;
-  filter:
-    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.12))
-    drop-shadow(0 22px 32px rgba(0, 0, 0, 0.08));
-  transition: transform 420ms var(--ease-out);
+/* Contact shadow — two layers (ambient + core), warm slate, flattened with
+   scaleY so the car reads as "grounded", not pasted. */
+.stage::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 13%;
+  width: calc(72% * var(--car-scale, 1));
+  height: 72px;
+  transform: translateX(-50%) scaleY(0.32);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(58, 44, 24, 0.3),
+    transparent 70%
+  );
+  filter: blur(20px);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.card:hover .photoImg {
-  transform: scale(1.05);
+.stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  width: calc(46% * var(--car-scale, 1));
+  height: 30px;
+  transform: translateX(-50%) scaleY(0.3);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(48, 36, 18, 0.5),
+    transparent 64%
+  );
+  filter: blur(9px);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .glow {
   position: absolute;
-  bottom: 16%;
   left: 50%;
-  width: 70%;
+  top: 36%;
+  width: 64%;
   aspect-ratio: 1 / 1;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(201, 169, 97, 0.28) 0%,
+    rgba(201, 169, 97, 0.24) 0%,
     rgba(201, 169, 97, 0) 60%
   );
-  opacity: 0.3;
+  opacity: 0;
+  z-index: 1;
   pointer-events: none;
-  transition: opacity 420ms var(--ease-out);
+  transition: opacity 600ms var(--ease-out-expo);
 }
 
-.card:hover .glow {
-  opacity: 0.6;
+.slide:global(.is-snapped) .glow {
+  opacity: 1;
+  animation: glowPulse 4.2s ease-in-out infinite;
 }
 
-.cardContent {
-  padding: 14px 16px 16px;
-  border-top: 0.5px solid var(--border-hairline);
-  flex: 1;
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.car {
+  position: absolute;
+  inset: 7% 6% 9%;
+  z-index: 2;
+}
+
+/* White rim (brief: "contorno blanco") via chained light drop-shadows that
+   trace the PNG's alpha silhouette, + a soft dark self-shadow for depth. */
+.carImg {
+  object-fit: contain;
+  transform: scale(var(--car-scale, 1));
+  transform-origin: center bottom;
+  filter:
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.92))
+    drop-shadow(0 1px 2px rgba(255, 255, 255, 0.55))
+    drop-shadow(0 14px 16px rgba(40, 30, 16, 0.18));
+  transition: transform 620ms var(--ease-out-expo);
+}
+
+/* ─── Meta (tier · name · specs) on the dark canvas below the stage ─── */
+.meta {
+  text-align: center;
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 520ms var(--ease-out-expo),
+    transform 520ms var(--ease-out-expo);
+}
+
+.slide:global(.is-snapped) .meta {
+  opacity: 1;
+  transform: none;
+  transition-delay: 120ms;
 }
 
 .tier {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-champagne-500);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-.cardContent h3 {
+.name {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.15;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
 .orSimilar {
-  display: block;
-  margin-top: 3px;
+  margin-left: 10px;
   font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 400;
+  font-size: 12px;
   font-style: italic;
   letter-spacing: 0.02em;
   color: var(--color-silver-400);
+  vertical-align: middle;
 }
 
+.specs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 18px;
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  align-items: center;
+  text-align: left;
+}
+
+.specIcon {
+  grid-row: 1 / 3;
+  width: 26px;
+  height: 26px;
+  color: var(--color-champagne-500);
+}
+
+.specLabel {
+  grid-column: 2;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.specValue {
+  grid-column: 2;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.specDivider {
+  width: 1px;
+  height: 30px;
+  background: var(--border-glass);
+}
+
+/* ─── Hot-zones + arrows ─── */
+.hotZone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 16%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hotZonePrev {
+  left: 0;
+}
+.hotZoneNext {
+  right: 0;
+}
+
+.arrow {
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border-glass);
+  background: rgba(10, 10, 10, 0.42);
+  backdrop-filter: blur(8px);
+  color: var(--color-silver-100);
+  cursor: pointer;
+  transition:
+    background var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-expo),
+    color var(--duration-base) var(--ease-out-expo);
+}
+
+.arrow:hover {
+  background: rgba(201, 169, 97, 0.16);
+  border-color: var(--border-glass-strong);
+  color: var(--color-champagne-300);
+}
+
+.arrowPrev {
+  left: 8px;
+}
+.arrowNext {
+  right: 8px;
+}
+
+/* ─── Controls: pause · dots · progress ─── */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.playBtn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-silver-200);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-expo),
+    color var(--duration-base) var(--ease-out-expo);
+}
+
+.playBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.playBtn:hover {
+  background: rgba(201, 169, 97, 0.14);
+  border-color: var(--border-glass-strong);
+  color: var(--color-champagne-300);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.dot {
+  position: relative;
+  width: 22px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: rgba(197, 205, 213, 0.22);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    width var(--duration-base) var(--ease-out-expo),
+    background var(--duration-base) var(--ease-out-expo);
+}
+
+.dot:hover {
+  background: rgba(197, 205, 213, 0.5);
+}
+
+.dotActive {
+  width: 38px;
+  background: var(--color-champagne-500);
+}
+
+.dotLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.progress {
+  width: 180px;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: rgba(197, 205, 213, 0.16);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(
+    90deg,
+    var(--color-champagne-600),
+    var(--color-champagne-300)
+  );
+}
+
+/* ─── Responsive ─── */
 @media (max-width: 1024px) {
   .head {
     flex-direction: column;
     align-items: flex-start;
   }
-  .banner {
-    grid-template-columns: repeat(2, 1fr);
+  .slide {
+    flex: 0 0 76%;
   }
 }
 
@@ -170,14 +448,36 @@
   .fleet {
     padding: 72px 0;
   }
-  .banner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  .slide {
+    flex: 0 0 88%;
+    padding: 0 8px;
   }
-  .card:hover {
-    transform: scale(1.03);
+  .card {
+    transform: scale(0.92);
   }
-  .cardContent h3 {
-    font-size: 15px;
+  .arrow {
+    display: none;
+  }
+  .hotZone {
+    display: none;
+  }
+  .specs {
+    gap: 20px;
+  }
+  .progress {
+    width: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .meta,
+  .carImg,
+  .glow {
+    transition: none;
+  }
+  .slide:global(.is-snapped) .glow {
+    animation: none;
+    opacity: 0.7;
   }
 }
