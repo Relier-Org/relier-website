@@ -49,9 +49,9 @@ export default function TransfersPage() {
       <Nav />
       <main>
         <ServiceHero
-          eyebrow="Luxury Vehicle Transfers"
+          eyebrow="Transfers"
           title="Luxury Private Vehicle Transfers and Chauffeur Services in New York City"
-          subtitle="Premium private transportation with high-end vehicles for any occasion."
+          subtitle="From seamless airport arrivals to efficient city transit, experience a flawless journey from A to B with the ultimate standard of comfort, punctuality, and style."
           image="/images/services/transfers/hero.webp"
         />
         <ServiceBody blocks={BLOCKS} />

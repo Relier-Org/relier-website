@@ -30,8 +30,8 @@ type SubmitState =
   | { status: "error"; message: string };
 
 const TABS: { id: Tab; label: string }[] = [
-  { id: "point-to-point", label: "Point to Point" },
-  { id: "hourly", label: "Hourly" },
+  { id: "point-to-point", label: "Transfers" },
+  { id: "hourly", label: "As directed/Hourly" },
 ];
 
 export type BookingWidgetProps = {

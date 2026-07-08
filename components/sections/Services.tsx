@@ -7,32 +7,32 @@ import styles from "./Services.module.css";
 // vertical banner, all visible at once with no horizontal scroll. The user
 // scans the whole row at a glance and clicks the one they need.
 //
-// Categorías finales (PDF cliente 04-jun-2026): 4 categorías operativas en
-// orden — Point to Point, By the Hour, Corporate, Events. Airport sale del set
-// del home (la page /airport sigue viva y linkeada desde el Nav).
+// Categorías finales (cliente 08-jul-2026): 4 categorías operativas en orden —
+// Transfers, As directed/Hourly, Corporate, Events. Airport queda absorbido en
+// Transfers (la page /airport sigue viva y linkeada desde el Nav).
 // TODO (imágenes): provisorias de la web vieja; Andrés libera las del shooting.
 const SERVICES = [
   {
     href: "/transfers",
     num: "01",
-    title: "Point to Point",
-    tagline: "Transfers in style.",
+    title: "Transfers",
+    tagline: "Airport transfers & point to point service.",
     image: "/images/home/vehicle.webp",
-    alt: "Point to point transfers",
+    alt: "Airport and point to point transfers",
   },
   {
     href: "/hourly",
     num: "02",
-    title: "By the Hour",
+    title: "As directed/Hourly",
     tagline: "Freedom to go wherever.",
     image: "/images/home/airport.webp",
-    alt: "By the hour transportation",
+    alt: "As directed and hourly chauffeur service",
   },
   {
     href: "/corporate",
     num: "03",
     title: "Corporate",
-    tagline: "Meetings, conventions, business travel.",
+    tagline: "Meetings, conventions, and business travel.",
     image: "/images/home/corporate.webp",
     alt: "Corporate transportation",
   },
@@ -40,7 +40,7 @@ const SERVICES = [
     href: "/events",
     num: "04",
     title: "Events",
-    tagline: "Galas, weddings, productions.",
+    tagline: "Galas, VIP groups, and large-scale event logistics.",
     image: "/images/home/events.webp",
     alt: "Events transportation",
   },

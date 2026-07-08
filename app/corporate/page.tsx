@@ -51,9 +51,9 @@ export default function CorporatePage() {
       <Nav />
       <main>
         <ServiceHero
-          eyebrow="Corporate Transportation"
+          eyebrow="Corporate"
           title="Corporate Limo Transportation NYC"
-          subtitle="Luxury and professional chauffeur service for business travel and corporate events."
+          subtitle="Tailored logistics for professionals and executive teams. We guarantee absolute reliability, privacy, and impeccable execution to keep your business moving smoothly."
           image="/images/services/corporate/hero.webp"
         />
         <ServiceBody blocks={BLOCKS} />

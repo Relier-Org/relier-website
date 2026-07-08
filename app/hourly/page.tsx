@@ -9,7 +9,7 @@ import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
 
 export const metadata: Metadata = {
-  title: "By the Hour · Relier — Hourly Chauffeur Service",
+  title: "As directed/Hourly · Relier — Hourly Chauffeur Service",
   description:
     "Hourly, as-directed chauffeur service — your car and driver on hold for as long as you need, wherever the day takes you.",
 };
@@ -44,9 +44,9 @@ export default function HourlyPage() {
       <Nav />
       <main>
         <ServiceHero
-          eyebrow="By the Hour"
+          eyebrow="As directed/Hourly"
           title="Hourly Chauffeur Service"
-          subtitle="Your car and chauffeur on hold for as long as you need — freedom to go wherever the day takes you."
+          subtitle="Enjoy total flexibility with a dedicated premium vehicle and professional chauffeur at your disposal for as long as you need. Ideal for dynamic schedules and multi-stop itineraries."
           image="/images/services/corporate/hero.webp"
         />
         <ServiceBody blocks={BLOCKS} />

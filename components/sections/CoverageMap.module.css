@@ -44,25 +44,11 @@
   margin: 0 auto;
 }
 
-/* ─── Map panel ─── */
-/* Map left, city list right. */
-.split {
-  display: grid;
-  grid-template-columns: 1.85fr 1fr;
-  gap: 56px;
-  align-items: stretch;
-}
-
-.mapWrap {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
+/* ─── Map panel — full-width hero ─── */
 .map {
   position: relative;
-  flex: 1;
-  min-height: 460px;
+  width: 100%;
+  aspect-ratio: 1010 / 666;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   background:
@@ -104,30 +90,49 @@
   z-index: 2;
 }
 
+/* Regular city dot — small + static (kept lightweight; the map carries 190+). */
 .pinDot {
-  width: 9px;
-  height: 9px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--color-champagne-500);
-  box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.16);
+  background: rgba(201, 169, 97, 0.85);
+  box-shadow: 0 0 0 2.5px rgba(201, 169, 97, 0.12);
   position: relative;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
-.pinDot::after {
+.pin:hover {
+  z-index: 5;
+}
+
+.pin:hover .pinDot {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.22);
+}
+
+/* Hub (NY + Barcelona) — larger, glowing, always above regular dots. */
+.pinHub {
+  z-index: 4;
+}
+
+.pinHub .pinDot {
+  width: 12px;
+  height: 12px;
+  background: var(--color-champagne-500);
+  box-shadow:
+    0 0 0 5px rgba(201, 169, 97, 0.2),
+    0 0 16px rgba(201, 169, 97, 0.55);
+}
+
+.pinHub .pinDot::after {
   content: "";
   position: absolute;
   inset: -4px;
   border-radius: 50%;
   border: 1px solid rgba(201, 169, 97, 0.5);
   animation: pinPulse 2.8s var(--ease-out) infinite;
-}
-
-.pinHub .pinDot {
-  width: 12px;
-  height: 12px;
-  box-shadow:
-    0 0 0 5px rgba(201, 169, 97, 0.2),
-    0 0 16px rgba(201, 169, 97, 0.55);
 }
 
 .pinLabel {
@@ -165,61 +170,144 @@
   }
 }
 
+/* Caption + toggle row under the map. */
+.bar {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 .caption {
-  margin-top: 14px;
   font-size: 11px;
   letter-spacing: 0.02em;
   color: var(--text-muted);
+  margin: 0;
 }
 
-/* ─── Region legend (right column) ─── */
-.legend {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+/* ─── "View all destinations" toggle ─── */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  transition: color var(--duration-base) var(--ease-out);
 }
 
-.region + .region {
-  padding-top: 28px;
+.toggle:hover {
+  color: var(--color-champagne-500);
+}
+
+.toggleIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 0.5px solid var(--border-subtle);
+  border-radius: 50%;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* ─── Full destination list (expanded) ─── */
+.fullList {
+  margin-top: 56px;
+  padding-top: 48px;
   border-top: 0.5px solid var(--border-subtle);
+  animation: fullReveal 480ms var(--ease-out) both;
 }
 
-.regionLabel {
+@keyframes fullReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fullGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 40px;
+}
+
+.fullRegionLabel {
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-accent);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid var(--border-subtle);
 }
 
-.regionList {
+.fullCountries {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
-.regionList li {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--color-silver-100);
-  letter-spacing: -0.01em;
+.fullCountryName {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-silver-200);
+  margin-bottom: 4px;
+}
+
+.fullCities {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--color-silver-400);
+}
+
+@media (max-width: 960px) {
+  .fullGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 720px) {
   .coverage {
     padding: 72px 0;
   }
-  .split {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
   .pinLabel {
     display: none;
   }
   .pinHub .pinLabel {
     display: block;
+  }
+  .fullGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pinHub .pinDot::after {
+    animation: none;
+  }
+  .fullList {
+    animation: none;
   }
 }

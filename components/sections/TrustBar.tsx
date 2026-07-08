@@ -24,8 +24,12 @@ const BADGES: {
     href: "https://nycahc.org/",
     modifier: "logoFlip",
   },
-  // TODO (assets): sumar "Chauffeur Driven" y, al final, "Pax Chauffeur
-  // Training" (logo círculo dorado) cuando lleguen los assets del cliente.
+  {
+    name: "PAX Professional Chauffeur Certification",
+    src: "/images/partners/pax.webp",
+    href: "https://paxtraining.com/courses/chauffeur-certification/",
+  },
+  // TODO (assets): sumar "Chauffeur Driven" cuando llegue el asset del cliente.
 ];
 
 export default function TrustBar() {

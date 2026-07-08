@@ -59,9 +59,9 @@ export default function EventsPage() {
       <Nav />
       <main>
         <ServiceHero
-          eyebrow="Events Transportation"
+          eyebrow="Events"
           title="Private Luxury Events Transportation NYC"
-          subtitle="Reliable and comfortable transportation for sports events, entertainment, and conferences."
+          subtitle="From major sports fixtures to grand celebrations, we manage high-profile group transport and complex event logistics with flawless precision. No matter the scale, we ensure your guests and VIPs arrive in absolute comfort and distinction."
           image="/images/services/events/hero.webp"
         />
         <ServiceBody blocks={BLOCKS} />
