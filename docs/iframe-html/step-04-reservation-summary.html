@@ -1,0 +1,1936 @@
+<html lang="en"><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>Book Quote #420 - Powered by LimoAnywhere</title>
+                <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/jquery-ui.min.css">
+        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/artusmode.css">
+        <script src="https://cdn.addons.la/code/7818/js/jquery-1.10.2.min.js"></script>
+        <script src="https://cdn.addons.la/code/7818/js/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/vendor/fortawesome/font-awesome/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/vendor/fortawesome/font-awesome/css/v4-shims.css">
+        <script src="https://cdn.addons.la/code/7818/thirdparty/signature-pad/jquery.signaturepad.js"></script>
+        <script src="https://cdn.addons.la/code/7818/thirdparty/signature-pad/assets/json2.min.js"></script>
+        <link href="https://cdn.addons.la/code/7818/js/select2/select2.css" rel="stylesheet">
+        <script src="https://cdn.addons.la/code/7818/js/select2/select2.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.addons.la/code/7818/thirdparty/intl-tel-input/css/intlTelInput.css">
+        <script src="https://cdn.addons.la/code/7818/thirdparty/intl-tel-input/js/intlTelInput.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+        <script src="https://cdn.addons.la/code/7818/leads/new/forms/ajax/artusmode_autocomplete.js"></script>
+        <script src="https://cdn.lgrckt-in.com/LogRocket.min.js" crossorigin="anonymous"></script><script src="https://cdn.lgrckt-in.com/logger-1.min.js" async=""></script>
+        <script>window.LogRocket && window.LogRocket.init("m9ysyq/la-web-prod", {mergeIframes: true, release: "7818", parentDomain: window.location.origin});</script><script>window.LogRocket && window.LogRocket.identify('relier-anon-TEST_IP', {"shortname":"relier","role":"anonymous","ip":"TEST_IP","quote_id":"TEST_QUOTE_ID","lead_id":"TEST_LEAD_ID"});</script>                <style>
+            html {
+                font-size:
+            }
+            form {
+                display: inline-block;
+                width: 100%;
+            }
+            table#trip_info {
+                border: none;
+                border-collapse: collapse;
+            }
+            .luggage_description, .child_seat_description {
+                font-size: 0.8em;
+            }
+            h1 {
+                font-family: 'Open Sans', Arial, sans-serif;
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+            table#trip_info th, table#trip_info td {
+                text-align: left;
+                border: none;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+            .trip_total table {
+                float: right;
+            }
+            .page_button, #submit {
+                width: 48%;
+                padding: 10px;
+                margin-bottom: 20px;
+                vertical-align: unset;
+            }
+            .page_prev {
+                filter: brightness(70%);
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+            }
+            .page_next {
+                box-shadow: 2px 2px 2px white;
+                float: right;
+                position: absolute;
+                bottom: 10px;
+                right: 0;
+            }
+            .page_next:hover {
+                background-color: #006a89;
+            }
+            .page {
+                font-size: 12pt;
+            padding-top: 10px;                max-width: 100%;
+                /*min-height: 700px; Removed per https://artusmode.slack.com/archives/D7QF7PZLM/p1606370562327000 */
+                position: relative;
+                padding-bottom: 75px;
+            }
+            .page label {
+                margin: 10px 0 3px 0;
+            }
+            .page section {
+                font-family: 'Open Sans', Arial, sans-serif;
+                background-color: white;
+                padding: 10px;
+                border-radius: 6px;
+                margin-bottom: 15px;
+            }
+            #account_options, #payment_options {
+                padding-left: 0 !important;
+            }
+            #line_items_header_text {
+                margin: 20px 0;
+            }
+            .final_submit {
+                background-color: #828282 !important;
+                float: right;
+                position: absolute;
+                bottom: 10px;
+                right: 0;
+                margin-bottom: 200px;
+                z-index: 999;
+            }
+            h2 {
+                margin: 20px 2px 2px 2px;
+            }
+            td {
+                padding-left: 5px;
+            }
+            #tos br:nth-child(2n), #tos br:nth-child(3n), #tos br:nth-child(4n) {
+                display: none !important;
+            }
+            #table-event th, #table-event td {
+                padding: 3px;
+            }
+            #tos {
+                max-height: 250px;
+                overflow-y: scroll;
+                margin: 20px;
+                font-size: 80%;
+            }
+            #billing_language {
+                min-height: 100px;
+            }
+            .lead_owner {
+                float: right;
+            }
+            .table-vehicle {
+                /*border: solid 2px grey;
+                border-radius: 6px;*/
+                padding: 10px;
+                border-collapse: separate;
+                width: 100%;
+                /*border-top: solid 1px;*/
+            }
+            .table-vehicle th {
+                vertical-align: top;
+                padding-bottom: 5px;
+            }
+            .table-vehicle td {
+                padding-bottom: 5px;
+            }
+            .pad {
+                border-right: solid 2px black;
+            }
+            #loading_box {
+                height: 100%;
+                width: 100%;
+                font-size: 36pt;
+                display: inline-block;
+                background-color: white !important;
+                min-height: 2000px;
+                overflow-y: hidden;
+                color: black !important;
+            }
+            .full-address-form {
+                display: none;
+            }
+            #toggle_manual_billing_address {
+                float: right;
+                color: #019ECB;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            #reservation_summary_left_block {
+                width: 50%;
+                position: relative;
+                top: -4em;
+                display: inline-block;
+            }
+            #content {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                background-color: #F3F3F3;
+                border-radius: 6px;
+                                padding-top: 20px;
+                        }
+            #trip_info {
+                width: 100%;
+            }
+            #possible_dupes label {
+                width: 90%;
+                vertical-align: top;
+                margin: 0 0 10px 0;
+            }
+            .summary_vehicle {
+                width: 100%;
+                border-top: solid 1px grey;
+                border-bottom: solid 1px grey;
+                background-color: #FBFBFB;
+                padding-top: 30px;
+                padding-bottom: 20px;
+                display: flex;
+                align-items: center;
+            }
+            .vehicle_name {
+                width: 100%;
+                text-align: center;
+                display: inline-block;
+                font-weight: bold;
+            }
+            .vehicle_subtotal, .trip_total {
+                width: 100%;
+                display: inline-block;
+                text-align: right;
+                margin-bottom: 10px;
+            }
+            .trip_total {
+                display: inline-block;
+                padding-right: 15px;
+            }
+            .vehicle_subtotal table {
+                float: right;
+                margin-right: 15px;
+            }
+            .vehicle_subtotal table th {
+                text-align: left;
+                padding-right: 10px;
+            }
+            .cost_breakdown {
+                align-self: flex-start;
+                font-size: 8pt;
+            }
+            #submit_spinner {
+                position: fixed;
+                top: 50%;
+                left: calc(50% - 75px);
+                color: black !important;
+            }
+            .valid_flight {
+                float: right;
+                margin-top: calc(0.2em + 10px);
+                color: green;
+                font-size: 0.8em;
+            }
+            .iti {
+                width: 100%;
+            }
+            .invalid_flight {
+                float: right;
+                margin-top: calc(0.2em + 10px);
+                color: red;
+                font-size: 0.8em;
+            }
+            body {
+                        }
+            .row-show {
+                display: none;
+            }
+            .row-hide {
+                display: table-row;
+            }
+            .ribbon-left {
+                text-align: center;
+            }
+            .table-vehicle img {
+                max-width: 100%;
+            }
+            #ribbon {
+                left: 0;
+            }
+            .page h1, .page h2, .page h3 {
+                margin: 0 !important;
+                padding-bottom: 20px;
+            }
+            #details_notes h2 {
+                padding-top: 15px;
+                padding-bottom: 0;
+            }
+            #details_notes .thumbnail {
+                margin-bottom: 0;
+            }
+            #details_notes .select2-choice {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                padding: 2px 0 0 10px !important;
+            }
+            .details_vehicle {
+                display: inline-block;
+                width: calc(100% - 60px);
+                vertical-align: middle;
+                margin-left: 5px;
+            }
+            .select2-arrow {
+                background-image: none !important;
+                background: #EEE;
+            }
+            .vehicle_image {
+                display: inline-block;
+                max-width: 100%;
+            }
+            .trip_person {
+                margin: 20px;
+                display: inline-block;
+            }
+            ul.stops_list {
+                list-style-type: none;
+                font-size: 10pt;
+            }
+            ul.stops_list li {
+                position: relative;
+                margin: 0;
+                padding-bottom: 1em;
+                padding-left: 20px;
+            }
+            ul.stops_list li:before {
+                border-left: dotted #979797 2px;
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 4px;
+                z-index: 1;  /* to be below the parent element */
+            }
+            ul.stops_list li:first-child:before {
+                top: 18px;
+            }
+            ul.stops_list li:last-child:before {
+                height: 6px;
+            }
+            ul.stops_list .bullet {
+                margin-left: -24px;
+                width: 28px;
+                fill: #979797;
+                float: left;
+                padding-right: 10px;
+                z-index: 2;
+            }
+            ul.stops_list .bullet.big {
+                width: 20px;
+                margin-left: -20px;
+                padding-right: 12px;
+            }
+            .stop_address {
+                display: inline-block;
+                width: calc(100% - 4px); /* Width of the stop's bullet */
+            }
+            #wrap_credit_card {
+                width: 67%;
+            }
+            .line_item_wrapper {
+                background-color: #ffffff;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 0 15px 15px 0;
+                display: inline-block;
+                text-align: center;
+                width: 100%;
+            }
+            .line_item_public {
+                display: inline-block;
+            }
+            .line_item_public h3 {
+                text-align: center;
+            }
+            .line_item_image {
+                max-width: 100%;
+                max-height: 150px;
+            }
+            .line_item_description {
+                text-align: left;
+            }
+            .child_seat, .luggage_type {
+                text-align: center;
+            }
+            .child_seat img, .luggage_type img {
+                margin-left: calc(50% - 50px);
+            }
+            .child_seat select, .luggage_type select {
+                width: auto;
+                margin-top: 10px;
+                margin-left: calc(50% - 100px);
+                min-width: 200px;
+            }
+            .col_full_width_override .col-sm-4 {
+                width: 100% !important;
+            }
+            .col_full_width_override .summary_vehicle {
+                display: inline-block;
+            }
+            .col_full_width_override .vehicle_column {
+                text-align: center;
+            }
+            .col_full_width_override .trip_column {
+                display: none;
+            }
+            .col_full_width_override .vehicle_image {
+                max-width: 200px;
+            }
+            .col_full_width_override .breakdown_table {
+                font-size:12pt;
+            }
+            #promo_code {
+                display: inline-block;
+                width: calc(100% - 50px);
+                margin-right: 5px;
+            }
+            #promo_code_label_2 {
+                text-align: left;
+                padding-right: 10px;
+                padding-left: 0;
+            }
+            #new_passenger_block .col-sm-6:nth-of-type(odd) {
+                padding-left: 0 !important;
+            }
+            #new_passenger_block .col-sm-6:nth-of-type(even) {
+                padding-right: 0 !important;
+            }
+            #welcome_video section {
+                text-align: center;
+            }
+            #video {
+                width: 100%;
+                max-width: 640px;
+                max-height: 600px;
+                display: inline-block;
+            }
+            
+            @media only screen and (max-width: 1300px) {
+                #content {
+                    width: 80%;
+                    margin-left: 10%;
+                }
+            }
+
+            @media only screen and (max-width: 999px) {
+                #content {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+
+            @media only screen and (max-width: 850px) {
+                h2 {feature_leadquoteclose_quote_percentages_of_target
+                text-align: left;
+                    font-size: 12pt;
+                }
+            }
+
+            @media only screen and (max-width: 700px) {
+                h2 {
+                    text-align: center;
+                    font-size: 14pt;
+                }
+                .cost_breakdown {
+                    font-size: 10pt;
+                }
+                .summary_vehicle {
+                    display: inline-block;
+                }
+                .vehicle_image {
+                    max-width: calc(100% - 30px);
+                }
+                #trip_summary .col-lg-6 {
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+                .row-show {
+                    display: table-row;
+                }
+                .row-hide {
+                    display: none;
+                }
+                .no-wrap {
+                    white-space: nowrap;
+                }
+                form {
+                    padding: 10px 0;
+                }
+                #content {
+                    width: calc(100% - 20px);
+                    margin: 70px 10px 5px 10px ;
+                    border: none;
+                }
+                table#trip_info th {
+                    display: block;
+                    padding: 10px 5px 5px 5px;
+                }
+                table#trip_info td {
+                    display: block;
+                    padding: 0 5px 5px 5px;
+                }
+                #payment_information {
+                    width: 100%;
+                    margin-left: 0;
+                    padding: 0 10px;
+                }
+                .page {
+                    margin: 20px 5px;
+                }
+                #wrap_credit_card {
+                    display: block;
+                    width: 100% !important;
+                }
+                #wrap_ccv {
+                    display: block;
+                    width: 100% !important;
+                }
+                #card_month {
+                    min-width: 115px;
+                    display: inline-block;
+                }
+                #card_year {
+                    min-width: 160px;
+                    display: inline-block;
+                }
+                .child_seat select {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        </style>
+        <!-- below is custom CSS ID #7 line=6046--><style>@import "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500;600&display=swap";:root{--rl-bg:#0a0a0a;--rl-surface:#121212;--rl-tile:#12121a;--rl-elev:#1a1a1a;--rl-text:#f5f7f9;--rl-text-2:#c5cdd5;--rl-label:#a0a8b0;--rl-muted:#7a8189;--rl-placeholder:#5c636a;--rl-accent:#c9a961;--rl-accent-hover:#d0b062;--rl-on-accent:#0a0a0a;--rl-border:#c5cdd52e;--rl-border-subtle:#c5cdd51a;--rl-border-strong:#c5cdd552;--rl-border-accent:#c9a96152;--rl-error:#e67373;--rl-radius:4px;--rl-display:"Fraunces","Cormorant Garamond",Georgia,serif;--rl-body:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif;--rl-ease:cubic-bezier(.16,1,.3,1)}html,body{background:0 0!important}body,#content,#lead_form{font-family:var(--rl-body);color:var(--rl-text)}h1,h2,h3{letter-spacing:-.02em;color:var(--rl-text);font-weight:400;font-family:var(--rl-display)!important}label{letter-spacing:.16em;text-transform:uppercase;color:var(--rl-label);font-size:10px;font-weight:500;font-family:var(--rl-body)!important}#lead_form{border:1px solid var(--rl-border);border-radius:var(--rl-radius);color:var(--rl-text);padding:18px;background:var(--rl-surface)!important}.form-control{font-family:var(--rl-body);font-size:15px;border:0!important;border-bottom:1px solid var(--rl-border)!important;color:var(--rl-text)!important;box-shadow:none!important;background:0 0!important;border-radius:0!important;padding:12px 2px!important}.form-control::placeholder{color:var(--rl-placeholder)}.form-control:hover{border-bottom-color:var(--rl-border-strong)!important}.form-control:focus{outline:none;border-bottom-color:var(--rl-accent)!important;box-shadow:none!important}.form-control.is-invalid,.form-control:invalid{border-bottom-color:var(--rl-error)!important}#book_button,input[type=submit],.btn-default{font-family:var(--rl-body);letter-spacing:.18em;text-transform:uppercase;font-size:11px;font-weight:500;background:var(--rl-accent)!important;color:var(--rl-on-accent)!important;border-radius:var(--rl-radius)!important;border:0!important;padding:14px 28px!important}#book_button:hover,input[type=submit]:hover,.btn-default:hover{background:var(--rl-accent-hover)!important}#searching_text{color:var(--rl-accent)}.artusmode_autocomplete_results{border-radius:var(--rl-radius);color:var(--rl-text);background:var(--rl-elev)!important;border:1px solid var(--rl-border)!important}.artusmode_suggest_address{color:var(--rl-text-2)}.artusmode_suggest_hover{color:var(--rl-text)!important;background:#c9a9611f!important}#content,.page{background:var(--rl-bg)!important;color:var(--rl-text-2)!important}#trip_info,#personal_information,#ribbon,.summary_vehicle,.line_item_wrapper,#content .panel,#content .panel-body,#content .panel-heading,#content .panel-footer,#content .well{background-color:var(--rl-surface)!important;color:var(--rl-text)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important}.vehicle-price{background-color:var(--rl-tile)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important;color:var(--rl-text)!important;min-width:200px!important}#content,#content .page,#trip_info,#personal_information,#ribbon,#content .panel,#content .panel-body,.cost_breakdown,#billing_language,#tos{color:var(--rl-text-2)!important}#content strong,#content b,#trip_info strong,#trip_info b,#personal_information strong,.vehicle_name,#content h1,#content h2,#content h3{color:var(--rl-text)!important}.trip_total{font-family:var(--rl-display);color:var(--rl-accent)!important}.trip_total th{color:var(--rl-accent)!important}.page section{color:var(--rl-text-2)!important;background:0 0!important}.vehicle_subtotal,.vehicle_subtotal th,.vehicle_subtotal td,.trip_person,.trip_person label,#trip_summary p{color:var(--rl-text-2)!important}.luggage_type img,.child_seat img{opacity:.85;filter:invert(.85)!important}.trip_person a{color:var(--rl-accent)!important;text-decoration:none!important}.trip_person a:hover{color:var(--rl-accent-hover)!important}#trip_info #trip_info{background:0 0!important;border:0!important;padding:0!important}.input-group-addon{border:1px solid var(--rl-border)!important;color:var(--rl-accent)!important;background:0 0!important}.input-group .form-control{border-radius:0!important}.vehicle_subtotal,.trip_total{float:right!important;clear:right!important}.vehicle_subtotal table,.trip_total table{margin-left:auto!important}.vehicle_image,.summary_vehicle img{background:0 0!important;width:100%!important;max-width:240px!important;height:auto!important}.line_item_image{max-width:64px!important;height:auto!important}#cat_list{background:0 0!important}.category{border-radius:var(--rl-radius);background:var(--rl-tile)!important;border:1px solid var(--rl-border)!important}.category:hover{border-color:var(--rl-border-accent)!important}.thumbnail{background:0 0!important;border:0!important}.description,.long_description,.price{font-family:var(--rl-body)!important;color:var(--rl-text-2)!important}.book_subtext{background-color:var(--rl-accent)!important;color:var(--rl-on-accent)!important;border-radius:var(--rl-radius)!important;white-space:nowrap!important;padding:12px 16px!important}.send_me_quote{border:1px solid var(--rl-border-strong)!important;color:var(--rl-text)!important;border-radius:var(--rl-radius)!important;background:0 0!important}.send_me_quote:hover{border-color:var(--rl-accent)!important}.page_button{font-family:var(--rl-body);border-radius:var(--rl-radius)!important;box-shadow:none!important}.page_next,.final_submit{text-transform:uppercase;letter-spacing:.18em;font-weight:500;background:var(--rl-accent)!important;color:var(--rl-on-accent)!important;box-shadow:none!important;border:0!important}.page_next:hover,.final_submit:hover{background:var(--rl-accent-hover)!important}.page_prev{text-transform:uppercase;letter-spacing:.18em;font-weight:500;color:var(--rl-text)!important;border:1px solid var(--rl-border-strong)!important;box-shadow:none!important;background:0 0!important}.page_prev:hover{border-color:var(--rl-accent)!important}ul.stops_list li{color:var(--rl-text-2)!important;border-color:var(--rl-border-subtle)!important}#tos{background:var(--rl-surface)!important;border:1px solid var(--rl-border)!important}.line_item_wrapper{background:var(--rl-tile)!important}#wrap_credit_card,#promo_code{color:var(--rl-text)!important}#type{text-align:left!important;width:100%!important;margin:0 0 14px!important;display:block!important}#type br{display:none!important}@media (width>=601px){.input_group{width:14%!important}}@media (width<=600px){#book_button{box-sizing:border-box!important;width:100%!important;margin:12px 0 0!important}}#type input[type=radio]+label{letter-spacing:.16em;text-transform:uppercase;border-radius:var(--rl-radius);border:1px solid #0000;font-weight:500;width:auto!important;color:var(--rl-muted)!important;font-family:var(--rl-body)!important;background:0 0!important;min-width:0!important;margin:0 8px 0 0!important;padding:10px 18px!important;font-size:11px!important;line-height:1.2!important;display:inline-block!important}#type input[type=radio]+label:hover{color:var(--rl-text-2)!important}#type input[type=radio]:checked+label{background:var(--rl-elev)!important;color:var(--rl-accent)!important;border-color:#0000!important}.form-control,#date_pickup,#time_pickup,#hours,#num_passengers{color-scheme:dark}select.form-control{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C9A961' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>")!important;background-position:right 2px center!important;background-repeat:no-repeat!important;background-size:13px!important;padding-right:22px!important}select.form-control,#content select,#lead_form select{color:var(--rl-text)!important;height:auto!important;line-height:1.6!important}select.form-control option,#content select option,#lead_form select option{color:var(--rl-text)!important;background-color:var(--rl-surface)!important}#date_pickup::-webkit-calendar-picker-indicator{filter:invert(72%)sepia(38%)saturate(560%)hue-rotate(5deg)brightness(92%);opacity:.9;cursor:pointer}#date_pickup::-webkit-calendar-picker-indicator:hover{opacity:1}#num_passengers::-webkit-inner-spin-button,#num_passengers::-webkit-outer-spin-button{opacity:.55}h1,h2,h3,#content h1,#content h2,#content h3,.page h1,.page h2,.page h3{color:var(--rl-text)!important;opacity:1!important}.category .thumbnail,.category .thumbnail.carousel,.category .thumbnail.max-250{width:100%!important;max-width:300px!important}.category img,.thumbnail img{width:100%!important;max-width:300px!important;height:auto!important}.panel,.panel-default,.panel-body,.panel-heading,.panel-footer,.well{background-color:var(--rl-surface)!important;border-color:var(--rl-border)!important;color:var(--rl-text-2)!important}#trip_info:not(.trip-info){background-color:var(--rl-surface)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important;box-sizing:border-box!important;width:100%!important;padding:24px 28px!important;overflow:hidden!important}.trip-info,#personal_information{box-sizing:border-box!important;background:0 0!important;border:0!important;border-radius:0!important;width:100%!important;padding:0!important}#personal_information{border-top:1px solid var(--rl-border-subtle)!important;margin-top:20px!important;padding-top:20px!important}.vehicle_subtotal table,.trip_total table{width:100%!important;margin-left:auto!important}.vehicle_subtotal th,.trip_total th{text-align:left!important}.vehicle_subtotal td,.trip_total td{text-align:right!important}#toggle_manual_billing_address,a#toggle_manual_billing_address,.toggle_manual_billing_address{color:var(--rl-accent)!important}#cc_phone{padding-left:52px!important}#lead_form *{box-sizing:border-box}#lead_form .lqc-fields{grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) repeat(3,minmax(0,1fr))!important;align-items:start!important;gap:16px!important}#lead_form .input_group>br{display:none!important}#lead_form .input_group>label{white-space:nowrap;height:18px;width:auto!important;margin:0 0 4px!important;font-size:10px!important;line-height:18px!important;display:block!important}#lead_form .lqc-fields .form-control,#return_fields>.form-control{width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;line-height:22px!important}#book_button{text-align:center!important;justify-content:center!important}#lead_form .lqc-return-block{width:100%;display:block}#lead_form .lqc-return-toggle{white-space:nowrap;gap:8px;width:auto!important;color:var(--rl-label)!important;align-items:center!important;margin:0!important;font-size:11px!important;line-height:16px!important;display:flex!important}#add_return{width:16px;height:16px;accent-color:var(--rl-accent);flex:none;margin:0}#lead_form:has(#add_return:checked) #return_fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;width:min(100%,640px);margin-top:14px;display:grid!important}#return_fields>label{white-space:nowrap;width:auto!important;margin:0!important;font-size:10px!important;line-height:18px!important;display:block!important}@media (width>=601px){label[for=return_date_pickup]{grid-area:1/1}#return_date_pickup{grid-area:2/1}label[for=return_time_pickup]{grid-area:1/2}#return_time_pickup{grid-area:2/2}}@media (width>=601px) and (width<=900px){#lead_form .lqc-fields{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media (width<=600px){#lead_form .lqc-fields{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}#book_button{justify-content:center!important;width:100%!important;margin:14px 0 0!important}#lead_form .lqc-bottom-row{margin-top:16px!important;display:block!important}#lead_form:has(#add_return:checked) #return_fields{grid-template-columns:minmax(0,1fr);gap:4px}#return_fields>label:not(:first-child){margin-top:12px!important}}.category{padding:24px 26px!important}.vehicle-price{box-sizing:border-box!important;width:224px!important;min-width:224px!important;padding:16px!important}.vehicle-price .book_subtext,.vehicle-price .send_me_quote{overflow-wrap:anywhere;box-sizing:border-box!important;text-align:center!important;white-space:normal!important;justify-content:center!important;align-items:center!important;width:100%!important;height:52px!important;min-height:52px!important;margin:12px 0 0!important;padding:8px 12px!important;font-size:15px!important;line-height:1.2!important;display:flex!important}.vehicle-price .send_me_quote{background:0 0!important}.trip-info{box-sizing:border-box!important;padding:12px 14px!important}.trip-info>*{min-width:0}@media (width<=600px){.trip-info{padding:14px!important;line-height:1.45!important;display:block!important}.category{text-align:center!important;padding:24px 18px!important}.category .thumbnail,.category .thumbnail.carousel,.category .thumbnail.max-250{width:100%!important;max-width:220px!important;height:auto!important;min-height:0!important;margin:0 auto 14px!important}.category img,.thumbnail img{max-width:220px!important;height:auto!important}.vehicle-price{float:none!important;width:100%!important;min-width:0!important;max-width:none!important;margin:20px auto 0!important;padding:18px!important}.vehicle-price .book_subtext,.vehicle-price .send_me_quote{height:auto!important;min-height:52px!important;margin-top:12px!important}.description,.long_description{max-width:32ch;text-align:center!important;margin-left:auto!important;margin-right:auto!important;line-height:1.5!important}.artusmode_autocomplete_results{box-sizing:border-box!important;width:100%!important;max-width:calc(100vw - 36px)!important;overflow-x:hidden!important}.artusmode_suggest_address{white-space:normal!important;overflow-wrap:anywhere!important;max-width:100%!important;line-height:1.35!important}#trip_info:not(.trip-info){padding:18px!important}#personal_information,#personal_information form,#personal_information .panel,#personal_information .panel-body,#personal_information .panel-heading,#personal_information .panel-footer{width:100%!important;max-width:none!important;box-shadow:none!important;background:0 0!important;border-bottom:0!important;border-left:0!important;border-right:0!important;border-radius:0!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#personal_information .row{width:100%!important;margin-left:0!important;margin-right:0!important}#personal_information [class*=col-]{float:none!important;width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#personal_information .form-group{width:100%!important;margin-left:0!important;margin-right:0!important}#personal_information .form-control{box-sizing:border-box!important;width:100%!important;max-width:none!important}#personal_information .page_button,#personal_information .page_next{box-sizing:border-box!important;text-align:center!important;justify-content:center!important;align-items:center!important;width:100%!important;max-width:none!important;min-height:52px!important;margin-left:0!important;margin-right:0!important;padding:12px 16px!important;line-height:1.25!important;display:flex!important}body:has(#personal_information) #ribbon,body:has(#personal_information) .trip-info{box-sizing:border-box!important;white-space:normal!important;width:100%!important;max-width:100%!important;margin:0!important;padding-left:15px!important;padding-right:15px!important}body:has(#personal_information) #ribbon div,body:has(#personal_information) #ribbon p,body:has(#personal_information) #ribbon span,body:has(#personal_information) .trip-info div,body:has(#personal_information) .trip-info p,body:has(#personal_information) .trip-info span{float:none!important;visibility:visible!important;white-space:normal!important;text-overflow:clip!important;overflow-wrap:anywhere!important;width:100%!important;max-width:100%!important;margin:0!important;display:block!important;position:static!important;overflow:visible!important}body:has(#personal_information) #ribbon div,body:has(#personal_information) #ribbon span,body:has(#personal_information) .trip-info div,body:has(#personal_information) .trip-info span{border-left:0!important}#personal_information .form-group,#personal_info.container .col-xs-12.z-index.no-padding{padding-left:0!important;padding-right:0!important}}body:has(.summary_vehicle) #trip_summary{box-sizing:border-box;width:100%}body:has(.summary_vehicle) .summary_vehicle{box-sizing:border-box!important;padding:28px!important;overflow:hidden!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total){float:none!important;clear:both!important;box-sizing:border-box!important;width:100%!important;max-width:420px!important;margin-left:0!important;margin-right:auto!important;padding:6px 14px!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) table{width:100%!important;margin:0!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) th{white-space:nowrap!important;text-align:left!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) td{text-align:right!important}tr:has(#promo_code){display:table-row!important}tr:has(#promo_code)>*{vertical-align:middle!important;width:auto!important;padding-top:0!important;padding-bottom:0!important;display:table-cell!important}tr:has(#promo_code)>:first-child{white-space:nowrap!important;text-align:left!important;width:1%!important;padding-right:12px!important}:is(div,span):has(>#promo_code){grid-template-columns:minmax(0,1fr) 36px!important;align-items:center!important;width:100%!important;display:grid!important}#promo_code{width:100%!important;height:36px!important;margin:0!important;padding-top:0!important;padding-bottom:0!important}td:has(>#promo_code)>#promo_code{vertical-align:middle!important;width:calc(100% - 40px)!important;display:inline-block!important}:is(td,div,span):has(>#promo_code)>:not(#promo_code){width:36px!important;height:36px!important;margin:0!important}tr:has(#promo_code) :is(button,.btn,input[type=button],input[type=submit]){vertical-align:middle!important;justify-content:center!important;align-items:center!important;width:36px!important;height:36px!important;margin:0!important;padding:0!important;display:inline-flex!important}body:has(.summary_vehicle) .page_next{justify-content:center!important;align-items:center!important;width:min(100%,420px)!important;min-height:52px!important;margin:48px auto 0 0!important;display:flex!important}@media (width>=601px){body:has(.summary_vehicle) :is(div,section):has(:is(.vehicle_subtotal,.trip_total)):not(:has(.summary_vehicle)){float:none!important;flex:0 0 100%!important;width:100%!important;display:block!important}}@media (width<=600px){body:has(.summary_vehicle) .summary_vehicle{width:100%!important;margin:0!important;padding:24px 20px!important}body:has(.summary_vehicle) .summary_vehicle img{max-width:200px!important;margin:0 auto 20px!important;display:block!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total){width:100%!important;max-width:none!important;margin:0!important;padding:7px 0!important}tr:has(#promo_code)>*{padding-top:10px!important;padding-bottom:16px!important}tr:has(#promo_code)>:first-child{font-size:16px!important;line-height:1.2!important}body:has(.summary_vehicle) .page_next{width:calc(100% - 60px)!important;max-width:none!important;margin:40px 30px 0!important}}</style>    </head>
+    <body style="">
+        <div id="content" class="pad-10">
+
+        
+        <form action="quote_save.php" method="post" class="sigPad" id="waiver_form" enctype="multipart/form-data" novalidate="">
+            <input type="hidden" name="config" id="config" value="2">
+            <input type="hidden" name="tos_id" id="tos_id" value="33">
+            <input type="hidden" name="quote_id" value="TEST_QUOTE_ID">
+            <input type="hidden" name="book_code" value="TEST_BOOK_CODE">
+            <!--for AC-3942-LQC-Promo Code not applying after trip is booked-->
+            <input type="hidden" name="promocode" id="promocode">
+            <input type="hidden" name="quote_cost" id="quote_cost" value="240.84">
+            <input type="hidden" name="limoanywhere_card_id" id="limoanywhere_card_id">
+            <input type="hidden" name="embedded" value="1">            <input type="hidden" name="embedded" value="1">
+            
+            <!-- Trip Summary -->
+
+            <div class="page container " id="trip_summary">
+                <h1>Reservation Summary</h1>
+                <section>
+                                            <span class="trip_person">
+                        <label>Billing Contact:</label><br>Test Example <br><a href="tel:12025550123">(202) 555-0123</a>                    </span>
+                                                                
+                    <table id="table-event">
+                                                                                            </table>
+                    
+    <div class="summary_vehicle">
+        <span class="col-sm-4 vehicle_column">
+            <img class="vehicle_image" src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/UVf8iXDyl.png" alt="Sedan"><span class="vehicle_name">Sedan</span>        </span>
+        <span class="col-sm-4 trip_column">
+            <h2 class="margin-bottom-5">Trip</h2>
+            <ul class="stops_list"><li>
+                        <div class="bullet">
+                            <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
+                                <circle fill="white" stroke="grey" stroke-width="2" cx="16" cy="16" r="6"></circle>
+                            </svg>
+                        </div>
+                        <span class="stop_address">
+                            John F Kennedy International Airport<br>
+
+                            JFK<br>
+                             
+                            <br><span class="time_pickup">7:00 AM Aug 15, 2026</span>
+                            
+                        </span>
+                    </li><li>
+                        <div class="bullet">
+                            <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
+                                <circle fill="white" stroke="grey" stroke-width="2" cx="16" cy="16" r="6"></circle>
+                            </svg>
+                        </div>
+                        <span class="stop_address">
+                            
+                            Times Square, Manhattan, NY, USA<br>
+                             
+                            <br><span class="time_dropoff">7:33 AM Aug 15, 2026</span>
+                            
+                        </span>
+                    </li></ul>        </span>
+
+        <span class="col-sm-4 cost_breakdown">
+                    </span>
+    </div><!-- end summary_vehicle -->
+    <span class="vehicle_subtotal">
+        <table>
+            <tbody><tr><th>Vehicle Subtotal</th><td>$240.84</td></tr>
+        </tbody></table>
+    </span>
+
+                                        <span class="trip_total">
+                <table>
+                    <tbody><tr><th style="padding-right: 10px;">Trip Total</th><td>$240.84</td></tr>
+                    <tr>
+                                <th>Promo Code</th>
+                                <td>
+                                    <input type="text" name="promo_code" id="promo_code" class="form-control">
+                                    <a class="btn btn-default" id="promo_code_saver"><i class="fa fa-check"></i></a>
+                                </td>
+                            </tr>
+                            <tr><td></td><td id="promo_code_result"></td></tr>
+                            <tr><td></td><td id="total_after_promo_code"></td></tr>                </tbody></table>
+            </span>
+                                        <br style="clear: both;">
+                    <br style="clear: both;">
+                    <p>Please confirm trip details are accurate.</p>
+                    <br>
+                    <span class="col-xs-6"><!-- spacer --></span>
+                                    </section>
+                <a class="btn btn-default page_button page_next" data-line="1366" data-target="details_notes">Next</a>
+            </div>
+
+        <!-- Accept and Sign -->
+
+            <div class="page container hidden" id="details_notes">
+                <h1 style="margin-left: 20px;">Details and Special Notes</h1>
+
+                
+                                            <div class="col-sm-12"><h2>Flight Info</h2></div>
+
+                                                    <div class="col-sm-6">
+                                <label for="pickup_airline_439">Airline</label>
+                                <span class="require">*</span>                                <br>
+                                                                <div class="input-group margin-bottom-sm"><span class="input-group-addon"><i class="fa fa-plane fa-fw"></i></span>
+                                    <div class="select2-container select2 full-width pickup_airline" id="s2id_pickup_airline_439"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-1"> - Please Choose - </span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen1" class="select2-offscreen">Airline</label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-1" id="s2id_autogen1"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen1_search" class="select2-offscreen">Airline</label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-1" id="s2id_autogen1_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-1">   </ul></div></div><select name="pickup_airline[439]" id="pickup_airline_439" class="select2 full-width pickup_airline select2-offscreen" tabindex="-1" title="Airline">
+                                        <option value=""> - Please Choose - </option>
+                                        <option value="AA">American</option>
+<option value="DL">Delta</option>
+<option value="WN">Southwest</option>
+<option value="UA">United</option>
+<option value="AC">Air Canada</option>
+<option value="AF">Air France</option>
+<option value="B6">JetBlue</option>
+<option value="NK">Spirit</option>
+<option value="F9">Frontier</option>
+<option value="FI">Icelandair</option>
+<option value="EI">Aer Lingus</option>
+<option value="SU">Aeroflot</option>
+<option value="AR">Aerolineas Argentinas</option>
+<option value="AM">Aeromexico</option>
+<option value="QK">Air Canada Jazz</option>
+<option value="CA">Air China</option>
+<option value="AI">Air India</option>
+<option value="JM">Air Jamaica</option>
+<option value="NZ">Air New Zealand</option>
+<option value="PX">Air Niugini</option>
+<option value="A7">Air Plus Comet</option>
+<option value="TN">Air Tahiti Nui</option>
+<option value="TS">Air Transat</option>
+<option value="NF">Air Vanuatu</option>
+<option value="D7">AirAsia X</option>
+<option value="SB">Aircalin</option>
+<option value="FL">AirTran</option>
+<option value="AS">Alaska</option>
+<option value="AZ">Alitalia</option>
+<option value="NH">All Nippon Airline</option>
+<option value="G4">Allegiant</option>
+<option value="QQ">Alliance Airlines</option>
+<option value="HP">America West</option>
+<option value="OZ">Asiana</option>
+<option value="OS">Austrian</option>
+<option value="6A">AVIACSA</option>
+<option value="AV">Avianca</option>
+<option value="UP">Bahamasair</option>
+<option value="GQ">Big Sky</option>
+<option value="BD">bmi british midland</option>
+<option value="AB">BONZA</option>
+<option value="MX">Breeze</option>
+<option value="BA">British Airways</option>
+<option value="C6">CanJet Airlines</option>
+<option value="9K">Cape Air</option>
+<option value="CX">Cathay</option>
+<option value="KA">Cathay Dragon</option>
+<option value="KX">Cayman</option>
+<option value="5J">Cebu Pacific Air</option>
+<option value="CI">China</option>
+<option value="MU">China Eastern</option>
+<option value="CZ">China Southern</option>
+<option value="DE">Condor</option>
+<option value="CO">Continental</option>
+<option value="V3">Copa</option>
+<option value="LY">El Al</option>
+<option value="EK">Emirates</option>
+<option value="EO">EOS</option>
+<option value="ET">Etihad Airways</option>
+<option value="BR">EVA Airways</option>
+<option value="XE">ExpressJet</option>
+<option value="FJ">Fiji Airways / Air Pacific</option>
+<option value="AY">Finnair</option>
+<option value="F8">Flair</option>
+<option value="GA">Garuda Indonesia</option>
+<option value="Y2">Globespan</option>
+<option value="ZK">Great Lakes</option>
+<option value="HU">Hainan Airlines</option>
+<option value="HQ">Harmony</option>
+<option value="HA">Hawaiian</option>
+<option value="IB">Iberia</option>
+<option value="JL">Japan Airline</option>
+<option value="JQ">Jetstar Airways</option>
+<option value="KL">KLM Royal Dutch Airlines</option>
+<option value="KE">Korean</option>
+<option value="KU">Kuwait</option>
+<option value="A0">L'Avion</option>
+<option value="LA">LanChile</option>
+<option value="LO">LOT</option>
+<option value="LT">LTU</option>
+<option value="LH">Lufthansa</option>
+<option value="Y9">Lynx</option>
+<option value="MH">Malaysia</option>
+<option value="MA">MALEV</option>
+<option value="YV">Mesa</option>
+<option value="YX">Midwest</option>
+<option value="NW">Northwest</option>
+<option value="DY">Norwegian Air Shuttle</option>
+<option value="LW">Pacific Wings</option>
+<option value="PB">PAL Provincial</option>
+<option value="PN">Pan American</option>
+<option value="PR">Philippine</option>
+<option value="PD">Porter</option>
+<option value="QF">Qantas</option>
+<option value="QR">Qatar Airways</option>
+<option value="ZL">Regional Express Airlines</option>
+<option value="AT">Royal Air Maroc</option>
+<option value="FR">Ryanair</option>
+<option value="SK">Scandinavian Airlines</option>
+<option value="TR">Scoot</option>
+<option value="FM">Shanghai Airline</option>
+<option value="Y7">Silverjet</option>
+<option value="SQ">Singapore</option>
+<option value="SN">SN Brussels</option>
+<option value="SA">South African</option>
+<option value="JK">Spanair</option>
+<option value="SY">Sun Country</option>
+<option value="WG">Sunwing</option>
+<option value="LX">SWISS</option>
+<option value="WO">Swoop</option>
+<option value="TA">Taca</option>
+<option value="TP">TAP</option>
+<option value="TG">Thai</option>
+<option value="TK">Turkish</option>
+<option value="US">US Air</option>
+<option value="U5">USA 3000</option>
+<option value="RG">VARIG</option>
+<option value="VN">Vietnam Airlines</option>
+<option value="VX">Virgin America</option>
+<option value="VS">Virgin Atlantic</option>
+<option value="VA">Virgin Australia</option>
+<option value="WA">Western</option>
+<option value="WS">WestJet</option>
+<option value="MF">XiamenAir</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <input type="hidden" id="pickup_flight_date_439" value="2026-08-15">
+                                <input type="hidden" id="pickup_airport_439" value="JFK">
+
+                                <label for="pickup_flight_439">Flight Number</label>
+                                <span class="require">*</span>                                <span id="valid_pickup_flight_439"></span>
+                                <br>
+                                <div class="input-group margin-bottom-sm"><span class="input-group-addon"><i class="fa fa-hashtag fa-fw"></i></span>
+                                    <input type="number" step="1" min="0" max="9999" name="pickup_flight[439]" id="pickup_flight_439" class="form-control pickup_flight" placeholder="ex: 123 (optional)"></div>
+                            </div>
+
+                                                    
+                        
+                        <br style="clear: both;">
+                    
+                                            <div class="col-sm-12"><h2>Luggage</h2></div>
+
+                        <div class="col-sm-4 luggage_type luggage_type_carryon" id="carryon_luggage_vehicle_439">
+                            <label for="carryon_439">Carry-On Bag</label><br>
+                            <img src="https://addons-images.s3.amazonaws.com/common/img/carryon.png" class="thumbnail max-100 max-100h">
+                                                        <select name="carryon[439]" data-name="Carry-On Bag" id="carryon_439" data-qvid="439" data-price="" class="public_price form-control">
+                                <option value="0">No Thanks</option>
+                                <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>
+                        </div>
+
+                        <div class="col-sm-4 luggage_type luggage_type_checked" id="checked_luggage_vehicle_439">
+                            <label for="checked_439">Checked Bag</label><br>
+                            <img src="https://addons-images.s3.amazonaws.com/common/img/checked.png" class="thumbnail max-100 max-100h">
+                                                        <select name="checked[439]" data-name="Checked Bag" id="checked_439" data-qvid="439" data-price="" class="public_price form-control">
+                                <option value="0">No Thanks</option>
+                                <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select>
+                        </div>
+
+                                                <div id="luggage_warning_439" class="col-sm-12" style="color: #d84315; font-weight: 600; margin-top: 8px; display: none;"></div>
+                        
+                        <br style="clear: both;">
+                    
+                                            <div class="col-sm-12"><h2>Child Seats? <span class="small grey clickable child_seat_expose" id="child_seats_expose_439">Yes, I need child seats</span></h2></div>
+
+                        <span id="child_seats_block_439" style="display: none;">
+                <div class="col-sm-4 child_seat">
+                    <label for="infant_439">Infant (rear facing)</label><br>
+                    <img src="https://addons-images.s3.amazonaws.com/common/img/infant_seat.png" class="thumbnail max-100 max-100h">
+                                        <select name="infant[439]" data-qvid="439" data-price="25.00" data-name="Infant Car Seat" id="infant_439" class="public_price form-control">
+                        <option value="0">No Thanks</option>
+                        <option value="1">1 +$25.00</option><option value="2">2 +$50.00</option><option value="3">3 +$75.00</option><option value="4">4 +$100.00</option><option value="5">5 +$125.00</option><option value="6">6 +$150.00</option><option value="7">7 +$175.00</option><option value="8">8 +$200.00</option><option value="9">9 +$225.00</option><option value="10">10 +$250.00</option><option value="11">11 +$275.00</option><option value="12">12 +$300.00</option><option value="13">13 +$325.00</option><option value="14">14 +$350.00</option><option value="15">15 +$375.00</option><option value="16">16 +$400.00</option><option value="17">17 +$425.00</option><option value="18">18 +$450.00</option><option value="19">19 +$475.00</option><option value="20">20 +$500.00</option></select>
+                </div>
+
+                <div class="col-sm-4 child_seat">
+                    <label for="toddler_439">Toddler (forward facing)</label><br>
+                    <img src="https://addons-images.s3.amazonaws.com/common/img/toddler_seat.png" class="thumbnail max-100 max-100h">
+                                        <select name="toddler[439]" data-qvid="439" data-price="25.00" data-name="Toddler Car Seat" id="toddler_439" class="public_price form-control">
+                        <option value="0">No Thanks</option>
+                        <option value="1">1 +$25.00</option><option value="2">2 +$50.00</option><option value="3">3 +$75.00</option><option value="4">4 +$100.00</option><option value="5">5 +$125.00</option><option value="6">6 +$150.00</option><option value="7">7 +$175.00</option><option value="8">8 +$200.00</option><option value="9">9 +$225.00</option><option value="10">10 +$250.00</option><option value="11">11 +$275.00</option><option value="12">12 +$300.00</option><option value="13">13 +$325.00</option><option value="14">14 +$350.00</option><option value="15">15 +$375.00</option><option value="16">16 +$400.00</option><option value="17">17 +$425.00</option><option value="18">18 +$450.00</option><option value="19">19 +$475.00</option><option value="20">20 +$500.00</option></select>
+                </div>
+
+                <div class="col-sm-4 child_seat">
+                    <label for="booster_439">Booster Seat</label><br>
+                    <img src="https://addons-images.s3.amazonaws.com/common/img/booster_seat.png" class="thumbnail max-100 max-100h">
+                                        <select name="booster[439]" data-qvid="439" data-price="25.00" data-name="Booster Car Seat" id="booster_439" class="public_price form-control">
+                        <option value="0">No Thanks</option>
+                        <option value="1">1 +$25.00</option><option value="2">2 +$50.00</option><option value="3">3 +$75.00</option><option value="4">4 +$100.00</option><option value="5">5 +$125.00</option><option value="6">6 +$150.00</option><option value="7">7 +$175.00</option><option value="8">8 +$200.00</option><option value="9">9 +$225.00</option><option value="10">10 +$250.00</option><option value="11">11 +$275.00</option><option value="12">12 +$300.00</option><option value="13">13 +$325.00</option><option value="14">14 +$350.00</option><option value="15">15 +$375.00</option><option value="16">16 +$400.00</option><option value="17">17 +$425.00</option><option value="18">18 +$450.00</option><option value="19">19 +$475.00</option><option value="20">20 +$500.00</option></select>
+                </div>
+                </span>
+
+                        <br style="clear: both;">
+                                    <br style="clear: both;">
+
+                
+                <a class="btn btn-default page_button page_prev" data-line="1644" data-target="trip_summary">Prev</a>
+                <br style="clear: both"><!--  --><!-- end col-sm-12 line items -->                                <a class="btn btn-default page_button page_next" data-line="1859" data-target="tos_accept">Next</a>
+            </div><!-- end page -->
+
+        <!-- Accept and Sign -->
+
+            <div class="page container hidden" id="tos_accept">
+                <h1 style="margin-left: 20px;">Accept and Sign</h1>
+                <div id="tos"><br><br><br><br><br><div><br><p>For International Arrivals we offer&nbsp;<strong>2 Hours&nbsp;</strong>of free waiting time. For Private Aviations we offer&nbsp;<strong>30</strong>&nbsp;minutes waiting time before the wheels down time. Pick up at home or office you have&nbsp;<strong>15&nbsp;</strong>minutes free after the schedule time on your reservation. All Cancellations must be made&nbsp;<strong>(4) four</strong>&nbsp;hours prior to the pick-up time or the will be charge in full. If you get to the airport you can't located your driver contact the office before you make another arrangement or you will be fully charged. Any questions or concerns, please call us at:&nbsp;<strong>347-855-0000. Thank you!</strong>&nbsp;</p><br></div><br><div>&nbsp;</div><br><div>All deposits are NON refundable. Company is not liable in the event of mechanical breakdown while on charter and will only be responsible for making up lost time at a mutually agreed date. The client assumes full financial liability for any damage to the limousine caused during the duration of the rental by them or any members of their party. A fee of 100.00 for each carpet or seat burn. Sanitation fee is 250.00. Alcohol Consumption and drug use is prohibited by law. Any fines will be paid for by the customer. The driver has the right to terminate run without refund (if there is blatant indiscretion on the part of the client(s)). It is Illegal to stand through the sunroof. Smoking is not permitted in some of our limousines and this is left to the discretion of the driver. Overtime pay will apply after the first 15 minutes of prearranged time described on the run sheet. Not responsible for delays or the termination in winter caused by unsafe road conditions (ie. not salted, accidents, etc.). Not responsible for articles left in the limousine. Balances to be paid to the driver on the run date before the beginning of the run. Vehicles cannot be loaded beyond seating capacity.</div><br><br></div>
+
+                <div id="accept_wrapper" style="margin-left: 10px;">                    <input type="checkbox" name="accept" id="accept" style="height: 30px; width: 30px; margin: 10px;">
+                    <label for="accept" class="font-18">I Accept the Terms and Sign Below</label>                </div>
+
+                <div id="signature" style="margin-left: 20px;">                    <label for="signature">Signature Box - Please Sign</label><br>
+                    <div class="sig sigWrapper current">
+                        <div class="typed" style="display: none;"></div>
+                        <canvas class="pad" width="400" height="200" style="max-width: 100%;"></canvas>
+                        <input type="hidden" name="signature" class="output" value="">
+                    </div>
+                    <ul class="sigNav">
+                        <li class="btn clearButton"><a class="btn action highlight-color" style="color: rgb(109, 109, 109);">Reset Signature</a></li>
+                    </ul>
+                </div>
+
+                <br>
+                                    <a class="btn btn-default page_button page_prev" data-line="1902" data-target="line_items">Prev</a>
+                                    <a class="btn btn-default page_button page_next" data-line="1972" data-target="payment_information">Next</a>
+                
+            </div>
+
+            <!-- Payment Information -->
+
+            <div class="page container hidden" id="payment_information">
+                <h1>Payment Information</h1>
+
+                
+
+
+
+
+
+
+<br style="clear:both;">
+                    <div class="col-sm-6" id="left_billing">
+                        <label for="billing_type">Billing Type</label><br>
+                                    <select name="billing_type" id="billing_type" class="form-control">
+                                    <option value="card">Credit Card</option></select>
+                            <script>
+                                jQuery('#billing_type').change(function() {
+                                    var this_val = jQuery(this).val();
+                                    jQuery('.billing_type').hide();
+                                    jQuery('#billing_type_'+this_val).show();
+                                });
+                            </script>                    <span id="billing_type_card" class="billing_type">
+                                        <span id="billing_type_card_details">
+                        <label for="cc_name">Name on Credit Card</label><br>
+                        <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                            <input type="text" name="cc_name" id="cc_name" class="form-control" value="Test Example">
+                        </div>
+
+                        
+                            <label for="cc_street">Billing Address</label>
+                            <span id="toggle_manual_billing_address">(manual address)</span>
+                            <br>
+                            <div class="input-group margin-bottom-sm" id="billing_address_block">
+                                <span class="input-group-addon" id="billing_address_crosshairs"><i class="fa fa-crosshairs fa-fw"></i></span>
+                                <input type="text" name="cc_address" id="autocomplete_cc" class="form-control" autocomplete="new-password">
+
+                                <label for="autocomplete_cc_street_number" class="full-address-form">Street Number</label>
+                                <input type="hidden" id="autocomplete_cc_street_number" name="cc_street_number" class="form-control full-address-form">
+                                <label for="autocomplete_cc_route" class="full-address-form">Street Name</label>
+                                <input type="hidden" id="autocomplete_cc_route" name="cc_street" class="form-control full-address-form" placeholder="ex: Main St, or P.O. Box 1234">
+                                <label for="autocomplete_cc_locality" class="full-address-form">City</label>
+                                <input type="hidden" id="autocomplete_cc_locality" name="cc_city" class="form-control full-address-form">
+                                <label for="autocomplete_cc_administrative_area_level_1" class="full-address-form">State / Providence</label>
+                                <input type="hidden" id="autocomplete_cc_administrative_area_level_1" name="cc_state" class="form-control full-address-form">
+                                <label for="autocomplete_cc_postal_code" class="full-address-form">Postal / Zip Code</label>
+                                <input type="hidden" id="autocomplete_cc_postal_code" name="cc_zip" class="form-control full-address-form">
+                                <label for="autocomplete_cc_country" class="full-address-form">Country Abbreviation</label>
+                                <input type="hidden" id="autocomplete_cc_country" name="cc_country" class="form-control full-address-form">
+                            </div>
+
+                        
+                        
+                        <label for="cc_phone">Billing Phone</label><br>
+                        <div class="iti iti--allow-dropdown iti--separate-dial-code"><div class="iti__flag-container"><div class="iti__selected-flag" role="combobox" aria-owns="country-listbox" tabindex="0" title="United States: +1"><div class="iti__flag iti__us"></div><div class="iti__selected-dial-code">+1</div><div class="iti__arrow"></div></div><ul class="iti__country-list iti__hide" id="country-listbox" aria-expanded="false" role="listbox" aria-activedescendant="iti-item-us"><li class="iti__country iti__preferred iti__active" tabindex="-1" id="iti-item-us" role="option" data-dial-code="1" data-country-code="us" aria-selected="true"><div class="iti__flag-box"><div class="iti__flag iti__us"></div></div><span class="iti__country-name">United States</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__preferred" tabindex="-1" id="iti-item-gb" role="option" data-dial-code="44" data-country-code="gb"><div class="iti__flag-box"><div class="iti__flag iti__gb"></div></div><span class="iti__country-name">United Kingdom</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__preferred" tabindex="-1" id="iti-item-au" role="option" data-dial-code="61" data-country-code="au"><div class="iti__flag-box"><div class="iti__flag iti__au"></div></div><span class="iti__country-name">Australia</span><span class="iti__dial-code">+61</span></li><li class="iti__divider" role="separator" aria-disabled="true"></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-af" role="option" data-dial-code="93" data-country-code="af"><div class="iti__flag-box"><div class="iti__flag iti__af"></div></div><span class="iti__country-name">Afghanistan (‫افغانستان‬‎)</span><span class="iti__dial-code">+93</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-al" role="option" data-dial-code="355" data-country-code="al"><div class="iti__flag-box"><div class="iti__flag iti__al"></div></div><span class="iti__country-name">Albania (Shqipëri)</span><span class="iti__dial-code">+355</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-dz" role="option" data-dial-code="213" data-country-code="dz"><div class="iti__flag-box"><div class="iti__flag iti__dz"></div></div><span class="iti__country-name">Algeria (‫الجزائر‬‎)</span><span class="iti__dial-code">+213</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-as" role="option" data-dial-code="1" data-country-code="as"><div class="iti__flag-box"><div class="iti__flag iti__as"></div></div><span class="iti__country-name">American Samoa</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ad" role="option" data-dial-code="376" data-country-code="ad"><div class="iti__flag-box"><div class="iti__flag iti__ad"></div></div><span class="iti__country-name">Andorra</span><span class="iti__dial-code">+376</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ao" role="option" data-dial-code="244" data-country-code="ao"><div class="iti__flag-box"><div class="iti__flag iti__ao"></div></div><span class="iti__country-name">Angola</span><span class="iti__dial-code">+244</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ai" role="option" data-dial-code="1" data-country-code="ai"><div class="iti__flag-box"><div class="iti__flag iti__ai"></div></div><span class="iti__country-name">Anguilla</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ag" role="option" data-dial-code="1" data-country-code="ag"><div class="iti__flag-box"><div class="iti__flag iti__ag"></div></div><span class="iti__country-name">Antigua and Barbuda</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ar" role="option" data-dial-code="54" data-country-code="ar"><div class="iti__flag-box"><div class="iti__flag iti__ar"></div></div><span class="iti__country-name">Argentina</span><span class="iti__dial-code">+54</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-am" role="option" data-dial-code="374" data-country-code="am"><div class="iti__flag-box"><div class="iti__flag iti__am"></div></div><span class="iti__country-name">Armenia (Հայաստան)</span><span class="iti__dial-code">+374</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-aw" role="option" data-dial-code="297" data-country-code="aw"><div class="iti__flag-box"><div class="iti__flag iti__aw"></div></div><span class="iti__country-name">Aruba</span><span class="iti__dial-code">+297</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-au" role="option" data-dial-code="61" data-country-code="au"><div class="iti__flag-box"><div class="iti__flag iti__au"></div></div><span class="iti__country-name">Australia</span><span class="iti__dial-code">+61</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-at" role="option" data-dial-code="43" data-country-code="at"><div class="iti__flag-box"><div class="iti__flag iti__at"></div></div><span class="iti__country-name">Austria (Österreich)</span><span class="iti__dial-code">+43</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-az" role="option" data-dial-code="994" data-country-code="az"><div class="iti__flag-box"><div class="iti__flag iti__az"></div></div><span class="iti__country-name">Azerbaijan (Azərbaycan)</span><span class="iti__dial-code">+994</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bs" role="option" data-dial-code="1" data-country-code="bs"><div class="iti__flag-box"><div class="iti__flag iti__bs"></div></div><span class="iti__country-name">Bahamas</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bh" role="option" data-dial-code="973" data-country-code="bh"><div class="iti__flag-box"><div class="iti__flag iti__bh"></div></div><span class="iti__country-name">Bahrain (‫البحرين‬‎)</span><span class="iti__dial-code">+973</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bd" role="option" data-dial-code="880" data-country-code="bd"><div class="iti__flag-box"><div class="iti__flag iti__bd"></div></div><span class="iti__country-name">Bangladesh (বাংলাদেশ)</span><span class="iti__dial-code">+880</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bb" role="option" data-dial-code="1" data-country-code="bb"><div class="iti__flag-box"><div class="iti__flag iti__bb"></div></div><span class="iti__country-name">Barbados</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-by" role="option" data-dial-code="375" data-country-code="by"><div class="iti__flag-box"><div class="iti__flag iti__by"></div></div><span class="iti__country-name">Belarus (Беларусь)</span><span class="iti__dial-code">+375</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-be" role="option" data-dial-code="32" data-country-code="be"><div class="iti__flag-box"><div class="iti__flag iti__be"></div></div><span class="iti__country-name">Belgium (België)</span><span class="iti__dial-code">+32</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bz" role="option" data-dial-code="501" data-country-code="bz"><div class="iti__flag-box"><div class="iti__flag iti__bz"></div></div><span class="iti__country-name">Belize</span><span class="iti__dial-code">+501</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bj" role="option" data-dial-code="229" data-country-code="bj"><div class="iti__flag-box"><div class="iti__flag iti__bj"></div></div><span class="iti__country-name">Benin (Bénin)</span><span class="iti__dial-code">+229</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bm" role="option" data-dial-code="1" data-country-code="bm"><div class="iti__flag-box"><div class="iti__flag iti__bm"></div></div><span class="iti__country-name">Bermuda</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bt" role="option" data-dial-code="975" data-country-code="bt"><div class="iti__flag-box"><div class="iti__flag iti__bt"></div></div><span class="iti__country-name">Bhutan (འབྲུག)</span><span class="iti__dial-code">+975</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bo" role="option" data-dial-code="591" data-country-code="bo"><div class="iti__flag-box"><div class="iti__flag iti__bo"></div></div><span class="iti__country-name">Bolivia</span><span class="iti__dial-code">+591</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ba" role="option" data-dial-code="387" data-country-code="ba"><div class="iti__flag-box"><div class="iti__flag iti__ba"></div></div><span class="iti__country-name">Bosnia and Herzegovina (Босна и Херцеговина)</span><span class="iti__dial-code">+387</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bw" role="option" data-dial-code="267" data-country-code="bw"><div class="iti__flag-box"><div class="iti__flag iti__bw"></div></div><span class="iti__country-name">Botswana</span><span class="iti__dial-code">+267</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-br" role="option" data-dial-code="55" data-country-code="br"><div class="iti__flag-box"><div class="iti__flag iti__br"></div></div><span class="iti__country-name">Brazil (Brasil)</span><span class="iti__dial-code">+55</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-io" role="option" data-dial-code="246" data-country-code="io"><div class="iti__flag-box"><div class="iti__flag iti__io"></div></div><span class="iti__country-name">British Indian Ocean Territory</span><span class="iti__dial-code">+246</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-vg" role="option" data-dial-code="1" data-country-code="vg"><div class="iti__flag-box"><div class="iti__flag iti__vg"></div></div><span class="iti__country-name">British Virgin Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bn" role="option" data-dial-code="673" data-country-code="bn"><div class="iti__flag-box"><div class="iti__flag iti__bn"></div></div><span class="iti__country-name">Brunei</span><span class="iti__dial-code">+673</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bg" role="option" data-dial-code="359" data-country-code="bg"><div class="iti__flag-box"><div class="iti__flag iti__bg"></div></div><span class="iti__country-name">Bulgaria (България)</span><span class="iti__dial-code">+359</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bf" role="option" data-dial-code="226" data-country-code="bf"><div class="iti__flag-box"><div class="iti__flag iti__bf"></div></div><span class="iti__country-name">Burkina Faso</span><span class="iti__dial-code">+226</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bi" role="option" data-dial-code="257" data-country-code="bi"><div class="iti__flag-box"><div class="iti__flag iti__bi"></div></div><span class="iti__country-name">Burundi (Uburundi)</span><span class="iti__dial-code">+257</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kh" role="option" data-dial-code="855" data-country-code="kh"><div class="iti__flag-box"><div class="iti__flag iti__kh"></div></div><span class="iti__country-name">Cambodia (កម្ពុជា)</span><span class="iti__dial-code">+855</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cm" role="option" data-dial-code="237" data-country-code="cm"><div class="iti__flag-box"><div class="iti__flag iti__cm"></div></div><span class="iti__country-name">Cameroon (Cameroun)</span><span class="iti__dial-code">+237</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ca" role="option" data-dial-code="1" data-country-code="ca"><div class="iti__flag-box"><div class="iti__flag iti__ca"></div></div><span class="iti__country-name">Canada</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cv" role="option" data-dial-code="238" data-country-code="cv"><div class="iti__flag-box"><div class="iti__flag iti__cv"></div></div><span class="iti__country-name">Cape Verde (Kabu Verdi)</span><span class="iti__dial-code">+238</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bq" role="option" data-dial-code="599" data-country-code="bq"><div class="iti__flag-box"><div class="iti__flag iti__bq"></div></div><span class="iti__country-name">Caribbean Netherlands</span><span class="iti__dial-code">+599</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ky" role="option" data-dial-code="1" data-country-code="ky"><div class="iti__flag-box"><div class="iti__flag iti__ky"></div></div><span class="iti__country-name">Cayman Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cf" role="option" data-dial-code="236" data-country-code="cf"><div class="iti__flag-box"><div class="iti__flag iti__cf"></div></div><span class="iti__country-name">Central African Republic (République centrafricaine)</span><span class="iti__dial-code">+236</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-td" role="option" data-dial-code="235" data-country-code="td"><div class="iti__flag-box"><div class="iti__flag iti__td"></div></div><span class="iti__country-name">Chad (Tchad)</span><span class="iti__dial-code">+235</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cl" role="option" data-dial-code="56" data-country-code="cl"><div class="iti__flag-box"><div class="iti__flag iti__cl"></div></div><span class="iti__country-name">Chile</span><span class="iti__dial-code">+56</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cn" role="option" data-dial-code="86" data-country-code="cn"><div class="iti__flag-box"><div class="iti__flag iti__cn"></div></div><span class="iti__country-name">China (中国)</span><span class="iti__dial-code">+86</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cx" role="option" data-dial-code="61" data-country-code="cx"><div class="iti__flag-box"><div class="iti__flag iti__cx"></div></div><span class="iti__country-name">Christmas Island</span><span class="iti__dial-code">+61</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cc" role="option" data-dial-code="61" data-country-code="cc"><div class="iti__flag-box"><div class="iti__flag iti__cc"></div></div><span class="iti__country-name">Cocos (Keeling) Islands</span><span class="iti__dial-code">+61</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-co" role="option" data-dial-code="57" data-country-code="co"><div class="iti__flag-box"><div class="iti__flag iti__co"></div></div><span class="iti__country-name">Colombia</span><span class="iti__dial-code">+57</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-km" role="option" data-dial-code="269" data-country-code="km"><div class="iti__flag-box"><div class="iti__flag iti__km"></div></div><span class="iti__country-name">Comoros (‫جزر القمر‬‎)</span><span class="iti__dial-code">+269</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cd" role="option" data-dial-code="243" data-country-code="cd"><div class="iti__flag-box"><div class="iti__flag iti__cd"></div></div><span class="iti__country-name">Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)</span><span class="iti__dial-code">+243</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cg" role="option" data-dial-code="242" data-country-code="cg"><div class="iti__flag-box"><div class="iti__flag iti__cg"></div></div><span class="iti__country-name">Congo (Republic) (Congo-Brazzaville)</span><span class="iti__dial-code">+242</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ck" role="option" data-dial-code="682" data-country-code="ck"><div class="iti__flag-box"><div class="iti__flag iti__ck"></div></div><span class="iti__country-name">Cook Islands</span><span class="iti__dial-code">+682</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cr" role="option" data-dial-code="506" data-country-code="cr"><div class="iti__flag-box"><div class="iti__flag iti__cr"></div></div><span class="iti__country-name">Costa Rica</span><span class="iti__dial-code">+506</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ci" role="option" data-dial-code="225" data-country-code="ci"><div class="iti__flag-box"><div class="iti__flag iti__ci"></div></div><span class="iti__country-name">Côte d’Ivoire</span><span class="iti__dial-code">+225</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-hr" role="option" data-dial-code="385" data-country-code="hr"><div class="iti__flag-box"><div class="iti__flag iti__hr"></div></div><span class="iti__country-name">Croatia (Hrvatska)</span><span class="iti__dial-code">+385</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cu" role="option" data-dial-code="53" data-country-code="cu"><div class="iti__flag-box"><div class="iti__flag iti__cu"></div></div><span class="iti__country-name">Cuba</span><span class="iti__dial-code">+53</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cw" role="option" data-dial-code="599" data-country-code="cw"><div class="iti__flag-box"><div class="iti__flag iti__cw"></div></div><span class="iti__country-name">Curaçao</span><span class="iti__dial-code">+599</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cy" role="option" data-dial-code="357" data-country-code="cy"><div class="iti__flag-box"><div class="iti__flag iti__cy"></div></div><span class="iti__country-name">Cyprus (Κύπρος)</span><span class="iti__dial-code">+357</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-cz" role="option" data-dial-code="420" data-country-code="cz"><div class="iti__flag-box"><div class="iti__flag iti__cz"></div></div><span class="iti__country-name">Czech Republic (Česká republika)</span><span class="iti__dial-code">+420</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-dk" role="option" data-dial-code="45" data-country-code="dk"><div class="iti__flag-box"><div class="iti__flag iti__dk"></div></div><span class="iti__country-name">Denmark (Danmark)</span><span class="iti__dial-code">+45</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-dj" role="option" data-dial-code="253" data-country-code="dj"><div class="iti__flag-box"><div class="iti__flag iti__dj"></div></div><span class="iti__country-name">Djibouti</span><span class="iti__dial-code">+253</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-dm" role="option" data-dial-code="1" data-country-code="dm"><div class="iti__flag-box"><div class="iti__flag iti__dm"></div></div><span class="iti__country-name">Dominica</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-do" role="option" data-dial-code="1" data-country-code="do"><div class="iti__flag-box"><div class="iti__flag iti__do"></div></div><span class="iti__country-name">Dominican Republic (República Dominicana)</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ec" role="option" data-dial-code="593" data-country-code="ec"><div class="iti__flag-box"><div class="iti__flag iti__ec"></div></div><span class="iti__country-name">Ecuador</span><span class="iti__dial-code">+593</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-eg" role="option" data-dial-code="20" data-country-code="eg"><div class="iti__flag-box"><div class="iti__flag iti__eg"></div></div><span class="iti__country-name">Egypt (‫مصر‬‎)</span><span class="iti__dial-code">+20</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sv" role="option" data-dial-code="503" data-country-code="sv"><div class="iti__flag-box"><div class="iti__flag iti__sv"></div></div><span class="iti__country-name">El Salvador</span><span class="iti__dial-code">+503</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gq" role="option" data-dial-code="240" data-country-code="gq"><div class="iti__flag-box"><div class="iti__flag iti__gq"></div></div><span class="iti__country-name">Equatorial Guinea (Guinea Ecuatorial)</span><span class="iti__dial-code">+240</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-er" role="option" data-dial-code="291" data-country-code="er"><div class="iti__flag-box"><div class="iti__flag iti__er"></div></div><span class="iti__country-name">Eritrea</span><span class="iti__dial-code">+291</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ee" role="option" data-dial-code="372" data-country-code="ee"><div class="iti__flag-box"><div class="iti__flag iti__ee"></div></div><span class="iti__country-name">Estonia (Eesti)</span><span class="iti__dial-code">+372</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-et" role="option" data-dial-code="251" data-country-code="et"><div class="iti__flag-box"><div class="iti__flag iti__et"></div></div><span class="iti__country-name">Ethiopia</span><span class="iti__dial-code">+251</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-fk" role="option" data-dial-code="500" data-country-code="fk"><div class="iti__flag-box"><div class="iti__flag iti__fk"></div></div><span class="iti__country-name">Falkland Islands (Islas Malvinas)</span><span class="iti__dial-code">+500</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-fo" role="option" data-dial-code="298" data-country-code="fo"><div class="iti__flag-box"><div class="iti__flag iti__fo"></div></div><span class="iti__country-name">Faroe Islands (Føroyar)</span><span class="iti__dial-code">+298</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-fj" role="option" data-dial-code="679" data-country-code="fj"><div class="iti__flag-box"><div class="iti__flag iti__fj"></div></div><span class="iti__country-name">Fiji</span><span class="iti__dial-code">+679</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-fi" role="option" data-dial-code="358" data-country-code="fi"><div class="iti__flag-box"><div class="iti__flag iti__fi"></div></div><span class="iti__country-name">Finland (Suomi)</span><span class="iti__dial-code">+358</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-fr" role="option" data-dial-code="33" data-country-code="fr"><div class="iti__flag-box"><div class="iti__flag iti__fr"></div></div><span class="iti__country-name">France</span><span class="iti__dial-code">+33</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gf" role="option" data-dial-code="594" data-country-code="gf"><div class="iti__flag-box"><div class="iti__flag iti__gf"></div></div><span class="iti__country-name">French Guiana (Guyane française)</span><span class="iti__dial-code">+594</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pf" role="option" data-dial-code="689" data-country-code="pf"><div class="iti__flag-box"><div class="iti__flag iti__pf"></div></div><span class="iti__country-name">French Polynesia (Polynésie française)</span><span class="iti__dial-code">+689</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ga" role="option" data-dial-code="241" data-country-code="ga"><div class="iti__flag-box"><div class="iti__flag iti__ga"></div></div><span class="iti__country-name">Gabon</span><span class="iti__dial-code">+241</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gm" role="option" data-dial-code="220" data-country-code="gm"><div class="iti__flag-box"><div class="iti__flag iti__gm"></div></div><span class="iti__country-name">Gambia</span><span class="iti__dial-code">+220</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ge" role="option" data-dial-code="995" data-country-code="ge"><div class="iti__flag-box"><div class="iti__flag iti__ge"></div></div><span class="iti__country-name">Georgia (საქართველო)</span><span class="iti__dial-code">+995</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-de" role="option" data-dial-code="49" data-country-code="de"><div class="iti__flag-box"><div class="iti__flag iti__de"></div></div><span class="iti__country-name">Germany (Deutschland)</span><span class="iti__dial-code">+49</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gh" role="option" data-dial-code="233" data-country-code="gh"><div class="iti__flag-box"><div class="iti__flag iti__gh"></div></div><span class="iti__country-name">Ghana (Gaana)</span><span class="iti__dial-code">+233</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gi" role="option" data-dial-code="350" data-country-code="gi"><div class="iti__flag-box"><div class="iti__flag iti__gi"></div></div><span class="iti__country-name">Gibraltar</span><span class="iti__dial-code">+350</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gr" role="option" data-dial-code="30" data-country-code="gr"><div class="iti__flag-box"><div class="iti__flag iti__gr"></div></div><span class="iti__country-name">Greece (Ελλάδα)</span><span class="iti__dial-code">+30</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gl" role="option" data-dial-code="299" data-country-code="gl"><div class="iti__flag-box"><div class="iti__flag iti__gl"></div></div><span class="iti__country-name">Greenland (Kalaallit Nunaat)</span><span class="iti__dial-code">+299</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gd" role="option" data-dial-code="1" data-country-code="gd"><div class="iti__flag-box"><div class="iti__flag iti__gd"></div></div><span class="iti__country-name">Grenada</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gp" role="option" data-dial-code="590" data-country-code="gp"><div class="iti__flag-box"><div class="iti__flag iti__gp"></div></div><span class="iti__country-name">Guadeloupe</span><span class="iti__dial-code">+590</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gu" role="option" data-dial-code="1" data-country-code="gu"><div class="iti__flag-box"><div class="iti__flag iti__gu"></div></div><span class="iti__country-name">Guam</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gt" role="option" data-dial-code="502" data-country-code="gt"><div class="iti__flag-box"><div class="iti__flag iti__gt"></div></div><span class="iti__country-name">Guatemala</span><span class="iti__dial-code">+502</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gg" role="option" data-dial-code="44" data-country-code="gg"><div class="iti__flag-box"><div class="iti__flag iti__gg"></div></div><span class="iti__country-name">Guernsey</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gn" role="option" data-dial-code="224" data-country-code="gn"><div class="iti__flag-box"><div class="iti__flag iti__gn"></div></div><span class="iti__country-name">Guinea (Guinée)</span><span class="iti__dial-code">+224</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gw" role="option" data-dial-code="245" data-country-code="gw"><div class="iti__flag-box"><div class="iti__flag iti__gw"></div></div><span class="iti__country-name">Guinea-Bissau (Guiné Bissau)</span><span class="iti__dial-code">+245</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gy" role="option" data-dial-code="592" data-country-code="gy"><div class="iti__flag-box"><div class="iti__flag iti__gy"></div></div><span class="iti__country-name">Guyana</span><span class="iti__dial-code">+592</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ht" role="option" data-dial-code="509" data-country-code="ht"><div class="iti__flag-box"><div class="iti__flag iti__ht"></div></div><span class="iti__country-name">Haiti</span><span class="iti__dial-code">+509</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-hn" role="option" data-dial-code="504" data-country-code="hn"><div class="iti__flag-box"><div class="iti__flag iti__hn"></div></div><span class="iti__country-name">Honduras</span><span class="iti__dial-code">+504</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-hk" role="option" data-dial-code="852" data-country-code="hk"><div class="iti__flag-box"><div class="iti__flag iti__hk"></div></div><span class="iti__country-name">Hong Kong (香港)</span><span class="iti__dial-code">+852</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-hu" role="option" data-dial-code="36" data-country-code="hu"><div class="iti__flag-box"><div class="iti__flag iti__hu"></div></div><span class="iti__country-name">Hungary (Magyarország)</span><span class="iti__dial-code">+36</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-is" role="option" data-dial-code="354" data-country-code="is"><div class="iti__flag-box"><div class="iti__flag iti__is"></div></div><span class="iti__country-name">Iceland (Ísland)</span><span class="iti__dial-code">+354</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-in" role="option" data-dial-code="91" data-country-code="in"><div class="iti__flag-box"><div class="iti__flag iti__in"></div></div><span class="iti__country-name">India (भारत)</span><span class="iti__dial-code">+91</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-id" role="option" data-dial-code="62" data-country-code="id"><div class="iti__flag-box"><div class="iti__flag iti__id"></div></div><span class="iti__country-name">Indonesia</span><span class="iti__dial-code">+62</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ir" role="option" data-dial-code="98" data-country-code="ir"><div class="iti__flag-box"><div class="iti__flag iti__ir"></div></div><span class="iti__country-name">Iran (‫ایران‬‎)</span><span class="iti__dial-code">+98</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-iq" role="option" data-dial-code="964" data-country-code="iq"><div class="iti__flag-box"><div class="iti__flag iti__iq"></div></div><span class="iti__country-name">Iraq (‫العراق‬‎)</span><span class="iti__dial-code">+964</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ie" role="option" data-dial-code="353" data-country-code="ie"><div class="iti__flag-box"><div class="iti__flag iti__ie"></div></div><span class="iti__country-name">Ireland</span><span class="iti__dial-code">+353</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-im" role="option" data-dial-code="44" data-country-code="im"><div class="iti__flag-box"><div class="iti__flag iti__im"></div></div><span class="iti__country-name">Isle of Man</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-il" role="option" data-dial-code="972" data-country-code="il"><div class="iti__flag-box"><div class="iti__flag iti__il"></div></div><span class="iti__country-name">Israel (‫ישראל‬‎)</span><span class="iti__dial-code">+972</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-it" role="option" data-dial-code="39" data-country-code="it"><div class="iti__flag-box"><div class="iti__flag iti__it"></div></div><span class="iti__country-name">Italy (Italia)</span><span class="iti__dial-code">+39</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-jm" role="option" data-dial-code="1" data-country-code="jm"><div class="iti__flag-box"><div class="iti__flag iti__jm"></div></div><span class="iti__country-name">Jamaica</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-jp" role="option" data-dial-code="81" data-country-code="jp"><div class="iti__flag-box"><div class="iti__flag iti__jp"></div></div><span class="iti__country-name">Japan (日本)</span><span class="iti__dial-code">+81</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-je" role="option" data-dial-code="44" data-country-code="je"><div class="iti__flag-box"><div class="iti__flag iti__je"></div></div><span class="iti__country-name">Jersey</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-jo" role="option" data-dial-code="962" data-country-code="jo"><div class="iti__flag-box"><div class="iti__flag iti__jo"></div></div><span class="iti__country-name">Jordan (‫الأردن‬‎)</span><span class="iti__dial-code">+962</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kz" role="option" data-dial-code="7" data-country-code="kz"><div class="iti__flag-box"><div class="iti__flag iti__kz"></div></div><span class="iti__country-name">Kazakhstan (Казахстан)</span><span class="iti__dial-code">+7</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ke" role="option" data-dial-code="254" data-country-code="ke"><div class="iti__flag-box"><div class="iti__flag iti__ke"></div></div><span class="iti__country-name">Kenya</span><span class="iti__dial-code">+254</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ki" role="option" data-dial-code="686" data-country-code="ki"><div class="iti__flag-box"><div class="iti__flag iti__ki"></div></div><span class="iti__country-name">Kiribati</span><span class="iti__dial-code">+686</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-xk" role="option" data-dial-code="383" data-country-code="xk"><div class="iti__flag-box"><div class="iti__flag iti__xk"></div></div><span class="iti__country-name">Kosovo</span><span class="iti__dial-code">+383</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kw" role="option" data-dial-code="965" data-country-code="kw"><div class="iti__flag-box"><div class="iti__flag iti__kw"></div></div><span class="iti__country-name">Kuwait (‫الكويت‬‎)</span><span class="iti__dial-code">+965</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kg" role="option" data-dial-code="996" data-country-code="kg"><div class="iti__flag-box"><div class="iti__flag iti__kg"></div></div><span class="iti__country-name">Kyrgyzstan (Кыргызстан)</span><span class="iti__dial-code">+996</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-la" role="option" data-dial-code="856" data-country-code="la"><div class="iti__flag-box"><div class="iti__flag iti__la"></div></div><span class="iti__country-name">Laos (ລາວ)</span><span class="iti__dial-code">+856</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lv" role="option" data-dial-code="371" data-country-code="lv"><div class="iti__flag-box"><div class="iti__flag iti__lv"></div></div><span class="iti__country-name">Latvia (Latvija)</span><span class="iti__dial-code">+371</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lb" role="option" data-dial-code="961" data-country-code="lb"><div class="iti__flag-box"><div class="iti__flag iti__lb"></div></div><span class="iti__country-name">Lebanon (‫لبنان‬‎)</span><span class="iti__dial-code">+961</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ls" role="option" data-dial-code="266" data-country-code="ls"><div class="iti__flag-box"><div class="iti__flag iti__ls"></div></div><span class="iti__country-name">Lesotho</span><span class="iti__dial-code">+266</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lr" role="option" data-dial-code="231" data-country-code="lr"><div class="iti__flag-box"><div class="iti__flag iti__lr"></div></div><span class="iti__country-name">Liberia</span><span class="iti__dial-code">+231</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ly" role="option" data-dial-code="218" data-country-code="ly"><div class="iti__flag-box"><div class="iti__flag iti__ly"></div></div><span class="iti__country-name">Libya (‫ليبيا‬‎)</span><span class="iti__dial-code">+218</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-li" role="option" data-dial-code="423" data-country-code="li"><div class="iti__flag-box"><div class="iti__flag iti__li"></div></div><span class="iti__country-name">Liechtenstein</span><span class="iti__dial-code">+423</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lt" role="option" data-dial-code="370" data-country-code="lt"><div class="iti__flag-box"><div class="iti__flag iti__lt"></div></div><span class="iti__country-name">Lithuania (Lietuva)</span><span class="iti__dial-code">+370</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lu" role="option" data-dial-code="352" data-country-code="lu"><div class="iti__flag-box"><div class="iti__flag iti__lu"></div></div><span class="iti__country-name">Luxembourg</span><span class="iti__dial-code">+352</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mo" role="option" data-dial-code="853" data-country-code="mo"><div class="iti__flag-box"><div class="iti__flag iti__mo"></div></div><span class="iti__country-name">Macau (澳門)</span><span class="iti__dial-code">+853</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mk" role="option" data-dial-code="389" data-country-code="mk"><div class="iti__flag-box"><div class="iti__flag iti__mk"></div></div><span class="iti__country-name">Macedonia (FYROM) (Македонија)</span><span class="iti__dial-code">+389</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mg" role="option" data-dial-code="261" data-country-code="mg"><div class="iti__flag-box"><div class="iti__flag iti__mg"></div></div><span class="iti__country-name">Madagascar (Madagasikara)</span><span class="iti__dial-code">+261</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mw" role="option" data-dial-code="265" data-country-code="mw"><div class="iti__flag-box"><div class="iti__flag iti__mw"></div></div><span class="iti__country-name">Malawi</span><span class="iti__dial-code">+265</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-my" role="option" data-dial-code="60" data-country-code="my"><div class="iti__flag-box"><div class="iti__flag iti__my"></div></div><span class="iti__country-name">Malaysia</span><span class="iti__dial-code">+60</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mv" role="option" data-dial-code="960" data-country-code="mv"><div class="iti__flag-box"><div class="iti__flag iti__mv"></div></div><span class="iti__country-name">Maldives</span><span class="iti__dial-code">+960</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ml" role="option" data-dial-code="223" data-country-code="ml"><div class="iti__flag-box"><div class="iti__flag iti__ml"></div></div><span class="iti__country-name">Mali</span><span class="iti__dial-code">+223</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mt" role="option" data-dial-code="356" data-country-code="mt"><div class="iti__flag-box"><div class="iti__flag iti__mt"></div></div><span class="iti__country-name">Malta</span><span class="iti__dial-code">+356</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mh" role="option" data-dial-code="692" data-country-code="mh"><div class="iti__flag-box"><div class="iti__flag iti__mh"></div></div><span class="iti__country-name">Marshall Islands</span><span class="iti__dial-code">+692</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mq" role="option" data-dial-code="596" data-country-code="mq"><div class="iti__flag-box"><div class="iti__flag iti__mq"></div></div><span class="iti__country-name">Martinique</span><span class="iti__dial-code">+596</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mr" role="option" data-dial-code="222" data-country-code="mr"><div class="iti__flag-box"><div class="iti__flag iti__mr"></div></div><span class="iti__country-name">Mauritania (‫موريتانيا‬‎)</span><span class="iti__dial-code">+222</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mu" role="option" data-dial-code="230" data-country-code="mu"><div class="iti__flag-box"><div class="iti__flag iti__mu"></div></div><span class="iti__country-name">Mauritius (Moris)</span><span class="iti__dial-code">+230</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-yt" role="option" data-dial-code="262" data-country-code="yt"><div class="iti__flag-box"><div class="iti__flag iti__yt"></div></div><span class="iti__country-name">Mayotte</span><span class="iti__dial-code">+262</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mx" role="option" data-dial-code="52" data-country-code="mx"><div class="iti__flag-box"><div class="iti__flag iti__mx"></div></div><span class="iti__country-name">Mexico (México)</span><span class="iti__dial-code">+52</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-fm" role="option" data-dial-code="691" data-country-code="fm"><div class="iti__flag-box"><div class="iti__flag iti__fm"></div></div><span class="iti__country-name">Micronesia</span><span class="iti__dial-code">+691</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-md" role="option" data-dial-code="373" data-country-code="md"><div class="iti__flag-box"><div class="iti__flag iti__md"></div></div><span class="iti__country-name">Moldova (Republica Moldova)</span><span class="iti__dial-code">+373</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mc" role="option" data-dial-code="377" data-country-code="mc"><div class="iti__flag-box"><div class="iti__flag iti__mc"></div></div><span class="iti__country-name">Monaco</span><span class="iti__dial-code">+377</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mn" role="option" data-dial-code="976" data-country-code="mn"><div class="iti__flag-box"><div class="iti__flag iti__mn"></div></div><span class="iti__country-name">Mongolia (Монгол)</span><span class="iti__dial-code">+976</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-me" role="option" data-dial-code="382" data-country-code="me"><div class="iti__flag-box"><div class="iti__flag iti__me"></div></div><span class="iti__country-name">Montenegro (Crna Gora)</span><span class="iti__dial-code">+382</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ms" role="option" data-dial-code="1" data-country-code="ms"><div class="iti__flag-box"><div class="iti__flag iti__ms"></div></div><span class="iti__country-name">Montserrat</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ma" role="option" data-dial-code="212" data-country-code="ma"><div class="iti__flag-box"><div class="iti__flag iti__ma"></div></div><span class="iti__country-name">Morocco (‫المغرب‬‎)</span><span class="iti__dial-code">+212</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mz" role="option" data-dial-code="258" data-country-code="mz"><div class="iti__flag-box"><div class="iti__flag iti__mz"></div></div><span class="iti__country-name">Mozambique (Moçambique)</span><span class="iti__dial-code">+258</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mm" role="option" data-dial-code="95" data-country-code="mm"><div class="iti__flag-box"><div class="iti__flag iti__mm"></div></div><span class="iti__country-name">Myanmar (Burma) (မြန်မာ)</span><span class="iti__dial-code">+95</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-na" role="option" data-dial-code="264" data-country-code="na"><div class="iti__flag-box"><div class="iti__flag iti__na"></div></div><span class="iti__country-name">Namibia (Namibië)</span><span class="iti__dial-code">+264</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-nr" role="option" data-dial-code="674" data-country-code="nr"><div class="iti__flag-box"><div class="iti__flag iti__nr"></div></div><span class="iti__country-name">Nauru</span><span class="iti__dial-code">+674</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-np" role="option" data-dial-code="977" data-country-code="np"><div class="iti__flag-box"><div class="iti__flag iti__np"></div></div><span class="iti__country-name">Nepal (नेपाल)</span><span class="iti__dial-code">+977</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-nl" role="option" data-dial-code="31" data-country-code="nl"><div class="iti__flag-box"><div class="iti__flag iti__nl"></div></div><span class="iti__country-name">Netherlands (Nederland)</span><span class="iti__dial-code">+31</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-nc" role="option" data-dial-code="687" data-country-code="nc"><div class="iti__flag-box"><div class="iti__flag iti__nc"></div></div><span class="iti__country-name">New Caledonia (Nouvelle-Calédonie)</span><span class="iti__dial-code">+687</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-nz" role="option" data-dial-code="64" data-country-code="nz"><div class="iti__flag-box"><div class="iti__flag iti__nz"></div></div><span class="iti__country-name">New Zealand</span><span class="iti__dial-code">+64</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ni" role="option" data-dial-code="505" data-country-code="ni"><div class="iti__flag-box"><div class="iti__flag iti__ni"></div></div><span class="iti__country-name">Nicaragua</span><span class="iti__dial-code">+505</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ne" role="option" data-dial-code="227" data-country-code="ne"><div class="iti__flag-box"><div class="iti__flag iti__ne"></div></div><span class="iti__country-name">Niger (Nijar)</span><span class="iti__dial-code">+227</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ng" role="option" data-dial-code="234" data-country-code="ng"><div class="iti__flag-box"><div class="iti__flag iti__ng"></div></div><span class="iti__country-name">Nigeria</span><span class="iti__dial-code">+234</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-nu" role="option" data-dial-code="683" data-country-code="nu"><div class="iti__flag-box"><div class="iti__flag iti__nu"></div></div><span class="iti__country-name">Niue</span><span class="iti__dial-code">+683</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-nf" role="option" data-dial-code="672" data-country-code="nf"><div class="iti__flag-box"><div class="iti__flag iti__nf"></div></div><span class="iti__country-name">Norfolk Island</span><span class="iti__dial-code">+672</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kp" role="option" data-dial-code="850" data-country-code="kp"><div class="iti__flag-box"><div class="iti__flag iti__kp"></div></div><span class="iti__country-name">North Korea (조선 민주주의 인민 공화국)</span><span class="iti__dial-code">+850</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mp" role="option" data-dial-code="1" data-country-code="mp"><div class="iti__flag-box"><div class="iti__flag iti__mp"></div></div><span class="iti__country-name">Northern Mariana Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-no" role="option" data-dial-code="47" data-country-code="no"><div class="iti__flag-box"><div class="iti__flag iti__no"></div></div><span class="iti__country-name">Norway (Norge)</span><span class="iti__dial-code">+47</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-om" role="option" data-dial-code="968" data-country-code="om"><div class="iti__flag-box"><div class="iti__flag iti__om"></div></div><span class="iti__country-name">Oman (‫عُمان‬‎)</span><span class="iti__dial-code">+968</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pk" role="option" data-dial-code="92" data-country-code="pk"><div class="iti__flag-box"><div class="iti__flag iti__pk"></div></div><span class="iti__country-name">Pakistan (‫پاکستان‬‎)</span><span class="iti__dial-code">+92</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pw" role="option" data-dial-code="680" data-country-code="pw"><div class="iti__flag-box"><div class="iti__flag iti__pw"></div></div><span class="iti__country-name">Palau</span><span class="iti__dial-code">+680</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ps" role="option" data-dial-code="970" data-country-code="ps"><div class="iti__flag-box"><div class="iti__flag iti__ps"></div></div><span class="iti__country-name">Palestine (‫فلسطين‬‎)</span><span class="iti__dial-code">+970</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pa" role="option" data-dial-code="507" data-country-code="pa"><div class="iti__flag-box"><div class="iti__flag iti__pa"></div></div><span class="iti__country-name">Panama (Panamá)</span><span class="iti__dial-code">+507</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pg" role="option" data-dial-code="675" data-country-code="pg"><div class="iti__flag-box"><div class="iti__flag iti__pg"></div></div><span class="iti__country-name">Papua New Guinea</span><span class="iti__dial-code">+675</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-py" role="option" data-dial-code="595" data-country-code="py"><div class="iti__flag-box"><div class="iti__flag iti__py"></div></div><span class="iti__country-name">Paraguay</span><span class="iti__dial-code">+595</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pe" role="option" data-dial-code="51" data-country-code="pe"><div class="iti__flag-box"><div class="iti__flag iti__pe"></div></div><span class="iti__country-name">Peru (Perú)</span><span class="iti__dial-code">+51</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ph" role="option" data-dial-code="63" data-country-code="ph"><div class="iti__flag-box"><div class="iti__flag iti__ph"></div></div><span class="iti__country-name">Philippines</span><span class="iti__dial-code">+63</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pl" role="option" data-dial-code="48" data-country-code="pl"><div class="iti__flag-box"><div class="iti__flag iti__pl"></div></div><span class="iti__country-name">Poland (Polska)</span><span class="iti__dial-code">+48</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pt" role="option" data-dial-code="351" data-country-code="pt"><div class="iti__flag-box"><div class="iti__flag iti__pt"></div></div><span class="iti__country-name">Portugal</span><span class="iti__dial-code">+351</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pr" role="option" data-dial-code="1" data-country-code="pr"><div class="iti__flag-box"><div class="iti__flag iti__pr"></div></div><span class="iti__country-name">Puerto Rico</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-qa" role="option" data-dial-code="974" data-country-code="qa"><div class="iti__flag-box"><div class="iti__flag iti__qa"></div></div><span class="iti__country-name">Qatar (‫قطر‬‎)</span><span class="iti__dial-code">+974</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-re" role="option" data-dial-code="262" data-country-code="re"><div class="iti__flag-box"><div class="iti__flag iti__re"></div></div><span class="iti__country-name">Réunion (La Réunion)</span><span class="iti__dial-code">+262</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ro" role="option" data-dial-code="40" data-country-code="ro"><div class="iti__flag-box"><div class="iti__flag iti__ro"></div></div><span class="iti__country-name">Romania (România)</span><span class="iti__dial-code">+40</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ru" role="option" data-dial-code="7" data-country-code="ru"><div class="iti__flag-box"><div class="iti__flag iti__ru"></div></div><span class="iti__country-name">Russia (Россия)</span><span class="iti__dial-code">+7</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-rw" role="option" data-dial-code="250" data-country-code="rw"><div class="iti__flag-box"><div class="iti__flag iti__rw"></div></div><span class="iti__country-name">Rwanda</span><span class="iti__dial-code">+250</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-bl" role="option" data-dial-code="590" data-country-code="bl"><div class="iti__flag-box"><div class="iti__flag iti__bl"></div></div><span class="iti__country-name">Saint Barthélemy</span><span class="iti__dial-code">+590</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sh" role="option" data-dial-code="290" data-country-code="sh"><div class="iti__flag-box"><div class="iti__flag iti__sh"></div></div><span class="iti__country-name">Saint Helena</span><span class="iti__dial-code">+290</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kn" role="option" data-dial-code="1" data-country-code="kn"><div class="iti__flag-box"><div class="iti__flag iti__kn"></div></div><span class="iti__country-name">Saint Kitts and Nevis</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lc" role="option" data-dial-code="1" data-country-code="lc"><div class="iti__flag-box"><div class="iti__flag iti__lc"></div></div><span class="iti__country-name">Saint Lucia</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-mf" role="option" data-dial-code="590" data-country-code="mf"><div class="iti__flag-box"><div class="iti__flag iti__mf"></div></div><span class="iti__country-name">Saint Martin (Saint-Martin (partie française))</span><span class="iti__dial-code">+590</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-pm" role="option" data-dial-code="508" data-country-code="pm"><div class="iti__flag-box"><div class="iti__flag iti__pm"></div></div><span class="iti__country-name">Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)</span><span class="iti__dial-code">+508</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-vc" role="option" data-dial-code="1" data-country-code="vc"><div class="iti__flag-box"><div class="iti__flag iti__vc"></div></div><span class="iti__country-name">Saint Vincent and the Grenadines</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ws" role="option" data-dial-code="685" data-country-code="ws"><div class="iti__flag-box"><div class="iti__flag iti__ws"></div></div><span class="iti__country-name">Samoa</span><span class="iti__dial-code">+685</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sm" role="option" data-dial-code="378" data-country-code="sm"><div class="iti__flag-box"><div class="iti__flag iti__sm"></div></div><span class="iti__country-name">San Marino</span><span class="iti__dial-code">+378</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-st" role="option" data-dial-code="239" data-country-code="st"><div class="iti__flag-box"><div class="iti__flag iti__st"></div></div><span class="iti__country-name">São Tomé and Príncipe (São Tomé e Príncipe)</span><span class="iti__dial-code">+239</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sa" role="option" data-dial-code="966" data-country-code="sa"><div class="iti__flag-box"><div class="iti__flag iti__sa"></div></div><span class="iti__country-name">Saudi Arabia (‫المملكة العربية السعودية‬‎)</span><span class="iti__dial-code">+966</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sn" role="option" data-dial-code="221" data-country-code="sn"><div class="iti__flag-box"><div class="iti__flag iti__sn"></div></div><span class="iti__country-name">Senegal (Sénégal)</span><span class="iti__dial-code">+221</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-rs" role="option" data-dial-code="381" data-country-code="rs"><div class="iti__flag-box"><div class="iti__flag iti__rs"></div></div><span class="iti__country-name">Serbia (Србија)</span><span class="iti__dial-code">+381</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sc" role="option" data-dial-code="248" data-country-code="sc"><div class="iti__flag-box"><div class="iti__flag iti__sc"></div></div><span class="iti__country-name">Seychelles</span><span class="iti__dial-code">+248</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sl" role="option" data-dial-code="232" data-country-code="sl"><div class="iti__flag-box"><div class="iti__flag iti__sl"></div></div><span class="iti__country-name">Sierra Leone</span><span class="iti__dial-code">+232</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sg" role="option" data-dial-code="65" data-country-code="sg"><div class="iti__flag-box"><div class="iti__flag iti__sg"></div></div><span class="iti__country-name">Singapore</span><span class="iti__dial-code">+65</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sx" role="option" data-dial-code="1" data-country-code="sx"><div class="iti__flag-box"><div class="iti__flag iti__sx"></div></div><span class="iti__country-name">Sint Maarten</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sk" role="option" data-dial-code="421" data-country-code="sk"><div class="iti__flag-box"><div class="iti__flag iti__sk"></div></div><span class="iti__country-name">Slovakia (Slovensko)</span><span class="iti__dial-code">+421</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-si" role="option" data-dial-code="386" data-country-code="si"><div class="iti__flag-box"><div class="iti__flag iti__si"></div></div><span class="iti__country-name">Slovenia (Slovenija)</span><span class="iti__dial-code">+386</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sb" role="option" data-dial-code="677" data-country-code="sb"><div class="iti__flag-box"><div class="iti__flag iti__sb"></div></div><span class="iti__country-name">Solomon Islands</span><span class="iti__dial-code">+677</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-so" role="option" data-dial-code="252" data-country-code="so"><div class="iti__flag-box"><div class="iti__flag iti__so"></div></div><span class="iti__country-name">Somalia (Soomaaliya)</span><span class="iti__dial-code">+252</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-za" role="option" data-dial-code="27" data-country-code="za"><div class="iti__flag-box"><div class="iti__flag iti__za"></div></div><span class="iti__country-name">South Africa</span><span class="iti__dial-code">+27</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-kr" role="option" data-dial-code="82" data-country-code="kr"><div class="iti__flag-box"><div class="iti__flag iti__kr"></div></div><span class="iti__country-name">South Korea (대한민국)</span><span class="iti__dial-code">+82</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ss" role="option" data-dial-code="211" data-country-code="ss"><div class="iti__flag-box"><div class="iti__flag iti__ss"></div></div><span class="iti__country-name">South Sudan (‫جنوب السودان‬‎)</span><span class="iti__dial-code">+211</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-es" role="option" data-dial-code="34" data-country-code="es"><div class="iti__flag-box"><div class="iti__flag iti__es"></div></div><span class="iti__country-name">Spain (España)</span><span class="iti__dial-code">+34</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-lk" role="option" data-dial-code="94" data-country-code="lk"><div class="iti__flag-box"><div class="iti__flag iti__lk"></div></div><span class="iti__country-name">Sri Lanka (ශ්‍රී ලංකාව)</span><span class="iti__dial-code">+94</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sd" role="option" data-dial-code="249" data-country-code="sd"><div class="iti__flag-box"><div class="iti__flag iti__sd"></div></div><span class="iti__country-name">Sudan (‫السودان‬‎)</span><span class="iti__dial-code">+249</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sr" role="option" data-dial-code="597" data-country-code="sr"><div class="iti__flag-box"><div class="iti__flag iti__sr"></div></div><span class="iti__country-name">Suriname</span><span class="iti__dial-code">+597</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sj" role="option" data-dial-code="47" data-country-code="sj"><div class="iti__flag-box"><div class="iti__flag iti__sj"></div></div><span class="iti__country-name">Svalbard and Jan Mayen</span><span class="iti__dial-code">+47</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sz" role="option" data-dial-code="268" data-country-code="sz"><div class="iti__flag-box"><div class="iti__flag iti__sz"></div></div><span class="iti__country-name">Swaziland</span><span class="iti__dial-code">+268</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-se" role="option" data-dial-code="46" data-country-code="se"><div class="iti__flag-box"><div class="iti__flag iti__se"></div></div><span class="iti__country-name">Sweden (Sverige)</span><span class="iti__dial-code">+46</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ch" role="option" data-dial-code="41" data-country-code="ch"><div class="iti__flag-box"><div class="iti__flag iti__ch"></div></div><span class="iti__country-name">Switzerland (Schweiz)</span><span class="iti__dial-code">+41</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-sy" role="option" data-dial-code="963" data-country-code="sy"><div class="iti__flag-box"><div class="iti__flag iti__sy"></div></div><span class="iti__country-name">Syria (‫سوريا‬‎)</span><span class="iti__dial-code">+963</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tw" role="option" data-dial-code="886" data-country-code="tw"><div class="iti__flag-box"><div class="iti__flag iti__tw"></div></div><span class="iti__country-name">Taiwan (台灣)</span><span class="iti__dial-code">+886</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tj" role="option" data-dial-code="992" data-country-code="tj"><div class="iti__flag-box"><div class="iti__flag iti__tj"></div></div><span class="iti__country-name">Tajikistan</span><span class="iti__dial-code">+992</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tz" role="option" data-dial-code="255" data-country-code="tz"><div class="iti__flag-box"><div class="iti__flag iti__tz"></div></div><span class="iti__country-name">Tanzania</span><span class="iti__dial-code">+255</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-th" role="option" data-dial-code="66" data-country-code="th"><div class="iti__flag-box"><div class="iti__flag iti__th"></div></div><span class="iti__country-name">Thailand (ไทย)</span><span class="iti__dial-code">+66</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tl" role="option" data-dial-code="670" data-country-code="tl"><div class="iti__flag-box"><div class="iti__flag iti__tl"></div></div><span class="iti__country-name">Timor-Leste</span><span class="iti__dial-code">+670</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tg" role="option" data-dial-code="228" data-country-code="tg"><div class="iti__flag-box"><div class="iti__flag iti__tg"></div></div><span class="iti__country-name">Togo</span><span class="iti__dial-code">+228</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tk" role="option" data-dial-code="690" data-country-code="tk"><div class="iti__flag-box"><div class="iti__flag iti__tk"></div></div><span class="iti__country-name">Tokelau</span><span class="iti__dial-code">+690</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-to" role="option" data-dial-code="676" data-country-code="to"><div class="iti__flag-box"><div class="iti__flag iti__to"></div></div><span class="iti__country-name">Tonga</span><span class="iti__dial-code">+676</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tt" role="option" data-dial-code="1" data-country-code="tt"><div class="iti__flag-box"><div class="iti__flag iti__tt"></div></div><span class="iti__country-name">Trinidad and Tobago</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tn" role="option" data-dial-code="216" data-country-code="tn"><div class="iti__flag-box"><div class="iti__flag iti__tn"></div></div><span class="iti__country-name">Tunisia (‫تونس‬‎)</span><span class="iti__dial-code">+216</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tr" role="option" data-dial-code="90" data-country-code="tr"><div class="iti__flag-box"><div class="iti__flag iti__tr"></div></div><span class="iti__country-name">Turkey (Türkiye)</span><span class="iti__dial-code">+90</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tm" role="option" data-dial-code="993" data-country-code="tm"><div class="iti__flag-box"><div class="iti__flag iti__tm"></div></div><span class="iti__country-name">Turkmenistan</span><span class="iti__dial-code">+993</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tc" role="option" data-dial-code="1" data-country-code="tc"><div class="iti__flag-box"><div class="iti__flag iti__tc"></div></div><span class="iti__country-name">Turks and Caicos Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-tv" role="option" data-dial-code="688" data-country-code="tv"><div class="iti__flag-box"><div class="iti__flag iti__tv"></div></div><span class="iti__country-name">Tuvalu</span><span class="iti__dial-code">+688</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-vi" role="option" data-dial-code="1" data-country-code="vi"><div class="iti__flag-box"><div class="iti__flag iti__vi"></div></div><span class="iti__country-name">U.S. Virgin Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ug" role="option" data-dial-code="256" data-country-code="ug"><div class="iti__flag-box"><div class="iti__flag iti__ug"></div></div><span class="iti__country-name">Uganda</span><span class="iti__dial-code">+256</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ua" role="option" data-dial-code="380" data-country-code="ua"><div class="iti__flag-box"><div class="iti__flag iti__ua"></div></div><span class="iti__country-name">Ukraine (Україна)</span><span class="iti__dial-code">+380</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ae" role="option" data-dial-code="971" data-country-code="ae"><div class="iti__flag-box"><div class="iti__flag iti__ae"></div></div><span class="iti__country-name">United Arab Emirates (‫الإمارات العربية المتحدة‬‎)</span><span class="iti__dial-code">+971</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-gb" role="option" data-dial-code="44" data-country-code="gb"><div class="iti__flag-box"><div class="iti__flag iti__gb"></div></div><span class="iti__country-name">United Kingdom</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-us" role="option" data-dial-code="1" data-country-code="us"><div class="iti__flag-box"><div class="iti__flag iti__us"></div></div><span class="iti__country-name">United States</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-uy" role="option" data-dial-code="598" data-country-code="uy"><div class="iti__flag-box"><div class="iti__flag iti__uy"></div></div><span class="iti__country-name">Uruguay</span><span class="iti__dial-code">+598</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-uz" role="option" data-dial-code="998" data-country-code="uz"><div class="iti__flag-box"><div class="iti__flag iti__uz"></div></div><span class="iti__country-name">Uzbekistan (Oʻzbekiston)</span><span class="iti__dial-code">+998</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-vu" role="option" data-dial-code="678" data-country-code="vu"><div class="iti__flag-box"><div class="iti__flag iti__vu"></div></div><span class="iti__country-name">Vanuatu</span><span class="iti__dial-code">+678</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-va" role="option" data-dial-code="39" data-country-code="va"><div class="iti__flag-box"><div class="iti__flag iti__va"></div></div><span class="iti__country-name">Vatican City (Città del Vaticano)</span><span class="iti__dial-code">+39</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ve" role="option" data-dial-code="58" data-country-code="ve"><div class="iti__flag-box"><div class="iti__flag iti__ve"></div></div><span class="iti__country-name">Venezuela</span><span class="iti__dial-code">+58</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-vn" role="option" data-dial-code="84" data-country-code="vn"><div class="iti__flag-box"><div class="iti__flag iti__vn"></div></div><span class="iti__country-name">Vietnam (Việt Nam)</span><span class="iti__dial-code">+84</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-wf" role="option" data-dial-code="681" data-country-code="wf"><div class="iti__flag-box"><div class="iti__flag iti__wf"></div></div><span class="iti__country-name">Wallis and Futuna (Wallis-et-Futuna)</span><span class="iti__dial-code">+681</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-eh" role="option" data-dial-code="212" data-country-code="eh"><div class="iti__flag-box"><div class="iti__flag iti__eh"></div></div><span class="iti__country-name">Western Sahara (‫الصحراء الغربية‬‎)</span><span class="iti__dial-code">+212</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ye" role="option" data-dial-code="967" data-country-code="ye"><div class="iti__flag-box"><div class="iti__flag iti__ye"></div></div><span class="iti__country-name">Yemen (‫اليمن‬‎)</span><span class="iti__dial-code">+967</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-zm" role="option" data-dial-code="260" data-country-code="zm"><div class="iti__flag-box"><div class="iti__flag iti__zm"></div></div><span class="iti__country-name">Zambia</span><span class="iti__dial-code">+260</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-zw" role="option" data-dial-code="263" data-country-code="zw"><div class="iti__flag-box"><div class="iti__flag iti__zw"></div></div><span class="iti__country-name">Zimbabwe</span><span class="iti__dial-code">+263</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-item-ax" role="option" data-dial-code="358" data-country-code="ax"><div class="iti__flag-box"><div class="iti__flag iti__ax"></div></div><span class="iti__country-name">Åland Islands</span><span class="iti__dial-code">+358</span></li></ul></div><input type="tel" name="cc_phone" id="cc_phone" class="form-control" value="+12025550123" autocomplete="off" data-intl-tel-input-id="0" style="padding-left: 75px;" placeholder="201-555-0123"></div>
+
+                        <label for="cc_number">Credit Card Number</label><br>
+                        <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon"><i class="fa fa-credit-card fa-fw"></i></span>
+                            <input type="text" name="cc_number" id="cc_number" class="form-control" data-private="">
+                        </div>
+
+                        <div class="inline" id="wrap_credit_card">
+                            <label for="cc_exp_month">Credit Card Exp</label><br>
+                            <div class="inline max-35p" id="card_month">
+                                <div class="input-group margin-bottom-sm">
+                                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                                    <select id="cc_exp_month" name="cc_exp_month" class="form-control" style="min-width: 75px;">
+                                        <option value="01">Jan</option>
+                                        <option value="02">Feb</option>
+                                        <option value="03">Mar</option>
+                                        <option value="04">Apr</option>
+                                        <option value="05">May</option>
+                                        <option value="06">Jun</option>
+                                        <option value="07">Jul</option>
+                                        <option value="08">Aug</option>
+                                        <option value="09">Sep</option>
+                                        <option value="10">Oct</option>
+                                        <option value="11">Nov</option>
+                                        <option value="12">Dec</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inline max-50p vert-top right" id="card_year">
+                                <span style="color: black;">/</span>
+                                <select id="cc_exp_year" name="cc_exp_year" class="form-control inline max-50p min-100">
+                                    			<option value="2026">2026</option>
+			<option value="2027">2027</option>
+			<option value="2028">2028</option>
+			<option value="2029">2029</option>
+			<option value="2030">2030</option>
+			<option value="2031">2031</option>
+			<option value="2032">2032</option>
+			<option value="2033">2033</option>
+			<option value="2034">2034</option>
+			<option value="2035">2035</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="max-24p inline vert-top" id="wrap_ccv">
+                                                            <label for="cc_ccv">CCV</label><br>
+                                <div class="input-group margin-bottom-sm">
+                                    <span class="input-group-addon"><i class="fa fa-cc fa-fw"></i></span>
+                                    <input type="number" step="1" name="cc_ccv" id="cc_ccv" class="form-control inline" data-private="" style="min-width: 70px;">
+                                </div>
+                                                    </div>
+                    </span>
+                                </span>
+
+                
+                <span id="billing_type_bill" class="billing_type" style="display: none;">
+                    <br>
+                    <em>Billing to Account, no additional information needed.</em>
+                </span>
+                        <span id="billing_type_room" class="billing_type" style="display: none;">
+                    <label for="">Room Number</label>
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
+                        <input type="text" name="billing_room_number" id="billing_room_number" class="form-control">
+                    </div>
+                </span>
+
+                                                <div class="margin-top-7 inline full-width" id="free_form_passenger" style="display: none;">
+                    <span id="new_passenger_wrapper">
+                        <input type="checkbox" name="new_passenger" id="new_passenger" class="medium-checkbox">
+                        <label for="new_passenger">Book for a Different Passenger</label>
+                    </span>
+
+                            <div class="inline full-width" id="new_passenger_block" style="display: none;">
+                                <div class="col-sm-6">
+                                    <label for="new_passenger_first">Passenger First</label><br>
+                                    <input type="text" name="new_passenger_first" id="new_passenger_first" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="new_passenger_last">Passenger Last</label><br>
+                                    <input type="text" name="new_passenger_last" id="new_passenger_last" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="new_passenger_phone">Passenger Phone</label><br>
+                                    <input type="text" name="new_passenger_phone" id="new_passenger_phone" class="form-control">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="new_passenger_email">Passenger E-Mail</label><br>
+                                    <input type="email" name="new_passenger_email" id="new_passenger_email" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <script>
+
+                            jQuery(document).ready(function() {
+                                
+                                function toggleFreeformPassenger(checked) {
+                                    var new_passenger_checkbox = jQuery('#new_passenger');
+                                    var passenger_block = jQuery('#free_form_passenger');
+                                    if(checked) {
+                                        passenger_block.show();
+                                    } else {
+                                        passenger_block.hide();
+                                    }
+                                    new_passenger_checkbox.unbind('change').change(function() {
+                                        if(jQuery(this).is(':checked')) {
+                                            jQuery('#new_passenger_block').show();
+                                        } else {
+                                            jQuery('#new_passenger_block').hide();
+                                        }
+                                    });
+                                }
+                                                            });
+                        </script>
+                    </div><!-- end left_billing -->
+
+                    <div class="col-sm-6 col_full_width_override" id="right_billing">
+
+                        
+    <div class="summary_vehicle">
+        <span class="col-sm-4 vehicle_column">
+            <img class="vehicle_image" src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/UVf8iXDyl.png" alt="Sedan"><span class="vehicle_name">Sedan</span>        </span>
+        <span class="col-sm-4 trip_column">
+            <h2 class="margin-bottom-5">Trip</h2>
+            <ul class="stops_list"><li>
+                        <div class="bullet">
+                            <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
+                                <circle fill="white" stroke="grey" stroke-width="2" cx="16" cy="16" r="6"></circle>
+                            </svg>
+                        </div>
+                        <span class="stop_address">
+                            John F Kennedy International Airport<br>
+
+                            JFK<br>
+                             
+                            <br><span class="time_pickup">7:00 AM Aug 15, 2026</span>
+                            
+                        </span>
+                    </li><li>
+                        <div class="bullet">
+                            <svg aria-hidden="true" viewBox="0 0 32 32" focusable="false">
+                                <circle fill="white" stroke="grey" stroke-width="2" cx="16" cy="16" r="6"></circle>
+                            </svg>
+                        </div>
+                        <span class="stop_address">
+                            
+                            Times Square, Manhattan, NY, USA<br>
+                             
+                            <br><span class="time_dropoff">7:33 AM Aug 15, 2026</span>
+                            
+                        </span>
+                    </li></ul>        </span>
+
+        <span class="col-sm-4 cost_breakdown">
+                    </span>
+    </div><!-- end summary_vehicle -->
+    <span class="vehicle_subtotal">
+        <table>
+            <tbody><tr><th>Vehicle Subtotal</th><td id="qv_total_439">$240.84</td></tr>
+        </tbody></table>
+    </span>
+                        <span class="trip_total">
+                    <table>
+                        <tbody><tr><th style="padding-right: 10px;">Trip Total</th><td id="quote_total_price">$240.84</td></tr>
+                        <tr><td id="promo_code_label_2"></td><td id="promo_code_result_2"></td></tr>
+                                <tr><th id="total_after_promo_label_2"></th><td id="total_after_promo_code_2"></td></tr>                    </tbody></table>
+                </span>
+
+                    </div><!-- end right_billing -->
+
+                    <br style="clear: both;">
+                    <br style="clear: both;">
+
+                    
+
+
+
+
+
+
+
+                <br style="clear: both;">
+                                    <a class="btn btn-default page_button page_prev" data-line="2453" data-target="tos_accept">Prev</a>
+                                        <a class="btn btn-default page_button page_next" data-line="2457" data-target="bill_card_accept">Next</a>
+                
+            </div>
+
+                            <div class="page container hidden" id="bill_card_accept">
+
+                    <div id="billing_language" style="width: 100%; padding-top: 10px;">
+
+
+
+
+I, the undersigned, authorize Relier to charge the above referenced credit card for transportation and related services, which may be rendered through Relier in accordance with the terms and conditions stated above. I agree to provide an immediate pre-authorization of funds for any reservations less than 7 days. For all others, a pre-authorization will be obtained 7 days prior. A final capture of the funds will be obtained 1 day after day of service for total amount due.
+
+</div>
+
+                    <div id="accept_billing_wrapper">
+                        <input type="checkbox" name="accepted_card_billing" id="accepted_card_billing" style="height: 30px; width: 30px; margin: 10px;">
+                        <label for="accepted_card_billing" class="font-18">I Accept</label>
+                    </div>
+
+                    <br style="clear: both;">
+                    <a class="btn btn-default page_button page_prev" data-line="2497" data-target="payment_information">Prev</a>
+                                            <input type="button" id="submit" class="btn btn-default final_submit" value="Confirm Reservation">
+                        <input type="submit" style="display: none; background-color: rgb(1, 158, 203);" id="submit_me">
+                                    </div>
+            
+            
+            
+        </form>
+
+    </div>
+    <span id="loading_box" class="hidden"><i id="submit_spinner" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></span>
+    
+    
+    <script type="text/javascript">
+        let phone_input_ref = document.querySelector("#cc_phone");
+        let iipt, num, countryData;
+
+        jQuery(document).ready(function() {
+
+            
+            function flightValidationCheck() {
+                var error = false;
+                var message = "Please fix the following errors:\n";
+
+                
+                
+                if(error) {
+                    alert(message);
+                    return false;
+                }
+                return true;
+            }
+
+            function termsAcceptedCheck() {
+                var error = false;
+                var message = "Please fix the following errors:\n";
+
+                                sigPad.validateForm(); // checks for a valid signature
+
+                if(!jQuery("#accept").is(':checked')) {
+                    error = true;
+                    message += "\n - You must accept the terms and conditions.";
+                }
+                if(!valid_sig) {
+                    error = true;
+                    message += "\n - You must sign the signature box.";
+                    jQuery('canvas.pad').css('box-shadow', 'red 0 0 5px 3px');
+                }
+                
+                if(error) {
+                    alert(message);
+                    return false;
+                }
+                else return true;
+            }
+
+            function passengerInfoCheck() {
+                var error = false;
+                var message = "Please fix the following errors:\n";
+                                                                                if(error) {
+                    alert(message);
+                    return false;
+                }
+                return true;
+            }
+
+            
+            jQuery('#promo_code').blur(function() {
+                var promo_code = jQuery(this).val();
+                var promo_result = jQuery('#promo_code_result');
+                var total_after = jQuery('#total_after_promo_code');
+                //AC-3942-LQC-Promo Code not applying after trip is booked
+                var quote_cost = jQuery('#quote_cost');
+                var promocode = jQuery('#promocode');
+                var promo_label = jQuery('#promo_code_label_2');
+                var total_label = jQuery('#total_after_promo_label_2');
+                var promo_2 = jQuery('#promo_code_result_2');
+                var total_2 = jQuery('#total_after_promo_code_2');
+
+                // blank everything out before the ajax call
+                promo_result.html('');
+                total_after.html('');
+                promo_label.html('');
+                total_label.html('');
+                promo_2.html('');
+                total_2.html('');
+                if(promo_code === '') return false;
+
+                jQuery.ajax({
+                    url: './ajax/promo.php',
+                    method: 'GET',
+                    data: {
+                        promo: promo_code,
+                        quote_id: 420,
+                        code: 'JcW9wAEBjd767v3D1Wc16YKnOu79zw'
+                    },
+                    success: function(result) {
+                        if(result.success) {
+                            var output = '';
+                            var discount = 0.00;
+                            var total = parseFloat(jQuery('#quote_total_price').html().replace('$', '')); // 240.84;
+
+                            for(var veh_id in result.success) {
+                                if(result.success.hasOwnProperty(veh_id)) {
+                                    total -= parseFloat(result.success[veh_id]);
+                                    discount += parseFloat(result.success[veh_id]);
+                                }
+                            }
+                            output = "<span style='color: red'>&ndash; $" + parseFloat(discount).toFixed(2) + "</span>";
+
+                            promo_result.html(output);
+                            total_after.html('$'+total.toFixed(2));
+                            //AC-3942-LQC-Promo Code not applying after trip is booked
+                            quote_cost.val(total.toFixed(2));
+                            promocode.val(promo_code);
+                            promo_label.html('Promo Code '+promo_code);
+                            total_label.html('Total After Discount');
+                            promo_2.html(output);
+                            total_2.html('$'+total.toFixed(2));
+                        }
+                        else if(result.error) {
+                            promo_result.html(result.error);
+                        }
+                    }
+                });
+            });
+
+            // Trigger blur on promo_code if promo was passed via URL parameter
+            
+            
+
+            if(phone_input_ref != undefined) {
+                iipt = window.intlTelInput(phone_input_ref,
+                    {
+                        separateDialCode: true,
+                        utilsScript: 'https://cdn.addons.la/code/7818/thirdparty/intl-tel-input/js/utils.js',
+                        preferredCountries: ["us","gb","au"],
+                    }
+                );
+                // FIX ISSUE WITH PLUGIN OVER-PADDING
+                jQuery("#cc_phone").css('padding-left', '75px');
+            }
+
+            
+            var full_address_view = false;
+                        jQuery('#toggle_manual_billing_address').click(function() {
+                if(jQuery('#autocomplete_cc').is(':visible')) {
+                    jQuery('.full-address-form').show();
+                    jQuery('#billing_address_crosshairs').hide();
+                    jQuery('input[type=hidden].full-address-form').prop('type', 'text');
+                    jQuery('#autocomplete_cc').hide();
+                    jQuery(this).text('(suggested address)');
+                    full_address_view = true;
+                }
+                else {
+                    jQuery('.full-address-form').hide();
+                    jQuery('#billing_address_crosshairs').show();
+                    jQuery('input[type=hidden].full-address-form').prop('type', 'hidden');
+                    jQuery('#autocomplete_cc').show();
+                    jQuery(this).text('(manual address)');
+                    full_address_view = false;
+                }
+            });
+            
+            jQuery('.child_seat_expose').click(function() {
+                var id = jQuery(this).prop('id').replace('_expose', '_block');
+                jQuery(this).hide();
+                jQuery('#'+id).show();
+            });
+
+            // GA4 checkout event deduplication flags
+            var ga4_begin_checkout_fired = false;
+            var ga4_payment_info_fired = false;
+                        var ga4CheckoutItems = [{"item_id":"quote_vehicle_439","item_name":"Sedan","item_category":"From Airport","price":240.84,"quantity":1}];
+            var ga4CheckoutValue = 240.84;
+            var ga4ForceDatalayer = false; // AC-4865: GTM-mode -> dataLayer push
+
+            jQuery(".page_button").click(function() {
+                if(!jQuery('#payment_information').hasClass('hidden') && passengerInfoCheck() === false) return false;
+                if(!jQuery('#details_notes').hasClass('hidden') && flightValidationCheck() === false) return false;
+                if(jQuery(this).hasClass('page_next') && !jQuery('#tos_accept').hasClass('hidden') && termsAcceptedCheck() === false) return false;
+
+                jQuery(".page").each(function() {
+                    if(!jQuery(this).hasClass("hidden")) jQuery(this).addClass("hidden");
+                });
+                var target = jQuery("#"+jQuery(this).data('target'));
+                if(target.length == 0) {
+                    if(jQuery(this).hasClass('page_next')) {
+                        target = jQuery(this).parent().next();
+                    }
+                    else if(jQuery(this).hasClass('page_prev')) {
+                        target = jQuery(this).parent().prev();
+                    }
+                }
+                target.removeClass("hidden");
+                window.scrollTo(0, 0);
+                // Defer the height measurement until the just-shown page has reflowed. The
+                // details_notes step (select2 airline dropdowns) and payment_information step
+                // (intl-tel-input billing phone + card fields) had not laid out yet when we
+                // measured synchronously, so html/body under-reported and the iframe clipped
+                // the step. Double-rAF + measuring the visible .page and scrollHeight fixes it.
+                var postPageHeight = function() {
+                    var heights = jQuery('html, body').map(function() {
+                        return jQuery(this).outerHeight(true);
+                    }).get();
+                    heights.push(document.documentElement.scrollHeight);
+                    var visible_page = jQuery('.page:not(.hidden)');
+                    if(visible_page.length && visible_page.offset()) heights.push(Math.ceil(visible_page.offset().top + visible_page.outerHeight(true)));
+                    maxHeight = Math.max.apply(null, heights);
+                    window.parent.postMessage({message: '{"width":"100%", "height":"'+maxHeight+'px", "task":"scroll"}'}, '*');
+                };
+                requestAnimationFrame(function() { requestAnimationFrame(postPageHeight); });
+
+                jQuery.ajax({
+                    url: "./ajax/page.php",
+                    method: "POST",
+                    data: {
+                        quote_id: 420,
+                        code: 'JcW9wAEBjd767v3D1Wc16YKnOu79zw',
+                        waiver_id: 1532,
+                        page: target.attr('id')
+                    },
+                    success: function (result) {
+                        if(result == "error") {
+                            console.log("There was an error logging your page turn.");
+                        }
+                        else if(result == "success") {
+                            console.log("Page turn successfully logged.");
+                        }
+                    }
+                });
+
+                // GA4 checkout step events - fire based on which page the user navigates to
+                var targetId = target.attr('id');
+                if(inIframe() && ga4CheckoutItems.length > 0) {
+                    if(!ga4_begin_checkout_fired && (targetId === 'details_notes' || targetId === 'tos_accept')) {
+                        ga4_begin_checkout_fired = true;
+                        window.parent.postMessage({message: JSON.stringify({
+                            'force_datalayer': ga4ForceDatalayer, // AC-4865
+                            'gtag_event': {
+                                'event_name': 'begin_checkout',
+                                'parameters': {
+                                    'currency': 'USD',
+                                    'value': ga4CheckoutValue,
+                                    'items': ga4CheckoutItems
+                                }
+                            }
+                        })}, '*');
+                        console.log('GA4 event sent to parent: begin_checkout');
+                    }
+                    else if(!ga4_payment_info_fired && targetId === 'payment_information') {
+                        ga4_payment_info_fired = true;
+                        window.parent.postMessage({message: JSON.stringify({
+                            'force_datalayer': ga4ForceDatalayer, // AC-4865
+                            'gtag_event': {
+                                'event_name': 'add_payment_info',
+                                'parameters': {
+                                    'currency': 'USD',
+                                    'value': ga4CheckoutValue,
+                                    'items': ga4CheckoutItems,
+                                    'payment_type': 'Credit Card'
+                                }
+                            }
+                        })}, '*');
+                        console.log('GA4 event sent to parent: add_payment_info');
+                    }
+                }
+            });
+
+                        var valid_sig = false;
+            var sigPad = jQuery('.sigPad').signaturePad({
+                drawOnly: true,
+                lineTop: 170,
+                onFormError: function(errors, context, settings) {
+                    // do NOT append HTML to the page!  handed with error handling below
+                    valid_sig = !errors.drawInvalid && !errors.nameInvalid;
+                }
+            });
+            
+            
+                        
+            jQuery('#pickup_flight_439').trigger('change');jQuery('#dropoff_flight_439').trigger('change');
+            jQuery('.public_price').change(function() {
+                var name = jQuery(this).data('name');
+                var qty = jQuery(this).val();
+                if(qty == 'on') {                     if(jQuery(this).is(':checked'))
+                        qty = 1;
+                    else
+                        qty = -1;
+                }
+                var qvid = jQuery(this).data('qvid');
+                var price = parseFloat(jQuery(this).data('price'));
+                if(isNaN(price)) price = 0;
+                var total = qty*price;
+                var old_vehicle_total = parseFloat(jQuery('#qv_total_'+qvid).html().replace('$', ''));
+                var new_vehicle_total = old_vehicle_total+total;
+                var qty_print = "";
+                var price_print = "";
+                if(qty > 1) {
+                    qty_print = qty+"&nbsp;&times;";
+                    price_print = "$"+price.toFixed(2);
+                }
+                var row_id = "row_"+qvid+"_"+name.replaceAll(' ', '-').replaceAll(' ', '(').replaceAll(' ', ')').replaceAll("'", "").replaceAll('"', '').replaceAll('/', '').replaceAll('&', '').replaceAll('?', '').replaceAll('%', '');
+                if(jQuery('#'+row_id).length > 0) jQuery('#'+row_id).remove(); // if it's already there, remove it
+
+                var breakdown_table = jQuery('#breakdown_table_'+qvid);
+                if(breakdown_table.length > 0 && qty > 0) {
+                    var this_row = "<tr id='"+row_id+"'><td>"+name+"</td><td style='text-align: right;'>"+qty_print+"</td><td style='text-align: right;'>"+price_print+"</td><td style='text-align: right;'>$"+total.toFixed(2)+"</td></tr>";
+                    var new_html = breakdown_table.html().replace('</tbody>', this_row + '</tbody>');
+                    breakdown_table.html(new_html);
+                }
+                var old_total_price = parseFloat(jQuery('#quote_total_price').html().replace('$', ''));
+                jQuery('#qv_total_'+qvid).html("$"+new_vehicle_total.toFixed(2));
+                jQuery('#quote_total_price').html("$"+((new_vehicle_total+old_total_price-old_vehicle_total).toFixed(2)));
+
+                                jQuery('#promo_code').trigger('blur');
+                            });
+
+                        // Real-time luggage capacity warning
+            (function() {
+                var luggageLimits = {
+                    439: {capacity: 2, name: "SED"},
+					                };
+                function checkLuggage(qvid) {
+                    if(!luggageLimits[qvid]) return;
+                    var carryon = parseInt(jQuery('#carryon_'+qvid).val()) || 0;
+                    var checked = parseInt(jQuery('#checked_'+qvid).val()) || 0;
+                    var total = carryon + checked;
+                    var limit = luggageLimits[qvid].capacity;
+                    var $warn = jQuery('#luggage_warning_'+qvid);
+                    if(total > limit) {
+                        $warn.html('The '+luggageLimits[qvid].name+' only supports '+limit+' total pieces of luggage. You have selected '+total+'.').show();
+                    } else {
+                        $warn.hide();
+                    }
+                }
+                jQuery.each(luggageLimits, function(qvid) {
+                    jQuery('#carryon_'+qvid+', #checked_'+qvid).change(function() {
+                        checkLuggage(qvid);
+                    });
+                });
+            })();
+            
+            function countryStates() {
+                if(jQuery("#cc_country").val() == "US") {
+                    jQuery("#wrapper_cc_state").html("<select name='cc_state' id='cc_state' class='form-control'><option value='null'> - Please Select - </option><option value='AL'>AL</option><option value='AK'>AK</option><option value='AZ'>AZ</option><option value='AR'>AR</option><option value='CA'>CA</option><option value='CO'>CO</option><option value='CT'>CT</option><option value='DE'>DE</option><option value='DC'>DC</option><option value='FL'>FL</option><option value='GA'>GA</option><option value='HI'>HI</option><option value='ID'>ID</option><option value='IL'>IL</option><option value='IN'>IN</option><option value='IA'>IA</option><option value='KS'>KS</option><option value='KY'>KY</option><option value='LA'>LA</option><option value='ME'>ME</option><option value='MD'>MD</option><option value='MA'>MA</option><option value='MI'>MI</option><option value='MN'>MN</option><option value='MS'>MS</option><option value='MO'>MO</option><option value='MT'>MT</option><option value='NE'>NE</option><option value='NV'>NV</option><option value='NH'>NH</option><option value='NJ'>NJ</option><option value='NM'>NM</option><option value='NY'>NY</option><option value='NC'>NC</option><option value='ND'>ND</option><option value='OH'>OH</option><option value='OK'>OK</option><option value='OR'>OR</option><option value='PA'>PA</option><option value='PR'>PR</option><option value='RI'>RI</option><option value='SC'>SC</option><option value='SD'>SD</option><option value='TN'>TN</option><option value='TX'>TX</option><option value='UT'>UT</option><option value='VT'>VT</option><option value='VA'>VA</option><option value='WA'>WA</option><option value='WV'>WV</option><option value='WI'>WI</option><option value='WY'>WY</option><option value='AB'>AB</option><option value='BC'>BC</option><option value='MB'>MB</option><option value='NB'>NB</option><option value='NL'>NL</option><option value='NT'>NT</option><option value='NS'>NS</option><option value='NU'>NU</option><option value='ON'>ON</option><option value='PE'>PE</option><option value='QC'>QC</option><option value='SK'>SK</option><option value='YT'>YT</option></select>");
+                }
+                else {
+                    jQuery("#wrapper_cc_state").html("<input type='text' name='cc_state' id='cc_state' class='form-control' />");
+                }
+            }
+            jQuery("#cc_country").change(countryStates);
+            countryStates(); // initialize
+
+            jQuery("#autocomplete_cc").artusmodeAutocomplete({pois: 0, airports: 0, google: 1});
+
+            
+            jQuery("#submit").click(function(event) {
+
+                
+                var error = false;
+                var message = "You must fix the following errors:\n";
+
+                let cc_phone    = jQuery("#cc_phone").val();
+                if(cc_phone != undefined) {
+                    num = iipt.getNumber();
+                    countryData = iipt.getSelectedCountryData();
+                }
+                let pass_cc_phone    = jQuery("#new_passenger_phone").val();
+                
+                                if(!jQuery("#accept").is(':checked')) {
+                    error = true;
+                    message += "\n - You must accept the terms and conditions.";
+                }
+                if(!valid_sig) {
+                    error = true;
+                    message += "\n - You must sign the signature box.";
+                }
+                                if(!jQuery('#payment_information').hasClass('hidden') && passengerInfoCheck() === false) return false;
+                if(!jQuery('#details_notes').hasClass('hidden') && flightValidationCheck() === false) return false;
+
+                
+                var payment_type = null;
+                var payment_method = jQuery('[name=payment_method_id]');
+                if(payment_method !== undefined && payment_method[0] !== undefined) {
+                    if(payment_method[0].tagName === 'SELECT') {
+                        payment_type = payment_method.find(':selected').data('billing_type');
+                    }
+                    else {
+                        payment_type = payment_method.data('billing_type');
+                    }
+                }
+                
+                var existing_card = null;
+                                if((existing_card == null || existing_card == 'new') && (payment_type === null || payment_type === undefined || payment_type === 'card')) {
+                    var billing_type = jQuery('#billing_type').val();
+                    if(billing_type != undefined && billing_type != 'card') {
+                        // not using a credit card, so continue
+                    }
+                    else {
+                        if(jQuery.trim(jQuery("#cc_name").val()) == "") {
+                            error = true;
+                            message += "\n - Your credit card name cannot be blank.";
+                        }
+    
+                        if(jQuery.trim(jQuery("#cc_name").val()).indexOf(' ') < 0) {
+                            error = true;
+                            message += "\n - Your credit card name must contain a first and last name (separated by a space).";
+                        }
+    
+                        var cc_number = jQuery("#cc_number").val();
+                        if(jQuery.trim(cc_number) == "") {
+                            error = true;
+                            message += "\n - Your credit card number cannot be blank.";
+                        }
+    
+                        if(!isCreditCard(cc_number.replace(/\s/g, '')) || !isCreditCardLuhnValid(cc_number)) {
+                            error = true;
+                            message += "\n - Your credit card number is not valid.";
+                        }
+    
+                        var exp_month = jQuery.trim(jQuery("#cc_exp_month").val());
+                        if(exp_month == "") {
+                            error = true;
+                            message += "\n - Your credit card expiration month cannot be blank.";
+                        }
+    
+                        var exp_year = jQuery.trim(jQuery("#cc_exp_year").val());
+                        if(exp_year == "") {
+                            error = true;
+                            message += "\n - Your credit card expiration year cannot be blank.";
+                        }
+    
+                        if(exp_year%100 < 26 || (exp_year%100 == 26  && exp_month < 7)) {
+                            error = true;
+                            message += "\n - Your credit card is expired.";
+                        }
+    
+                                                if(jQuery.trim(jQuery("#autocomplete_cc_route").val()) == "") {
+                            error = true;
+                            message += "\n - Your credit card street cannot be blank.";
+                        }
+    
+                        if(jQuery.trim(jQuery("#autocomplete_cc_locality").val()) == "") {
+                            error = true;
+                            message += "\n - Your credit card city cannot be blank.";
+                        }
+    
+                        if(jQuery.trim(jQuery("#autocomplete_cc_postal_code").val()) == "") {
+                            error = true;
+                            message += "\n - Your credit card zip code cannot be blank.";
+                        }
+                        
+                        
+                                                if(jQuery.trim(jQuery("#cc_ccv").val()) == "") {
+                            error = true;
+                            message += "\n - Your credit card CCV cannot be blank.";
+                        }
+                        else {
+                            var ccv_val = jQuery.trim(jQuery("#cc_ccv").val());
+                            var cc_num = cc_number.replace(/\s/g, '');
+                            var is_amex = /^3[47]/.test(cc_num); // Amex starts with 34 or 37
+
+                            if(is_amex && ccv_val.length !== 4) {
+                                error = true;
+                                message += "\n - American Express cards require a 4-digit CCV.";
+                            }
+                            else if(!is_amex && ccv_val.length !== 3) {
+                                error = true;
+                                message += "\n - Your credit card CCV must be 3 digits.";
+                            }
+                        }
+                                            }
+                }
+                else if(payment_type === 'room') {
+                    var room_number = jQuery("#billing_room_number").val();
+                    if(jQuery.trim(room_number) == "") {
+                        error = true;
+                        message += "\n - The billing room number cannot be blank.";
+                    }
+                }
+
+                                if(!jQuery("#accepted_card_billing").is(':checked')) {
+                    error = true;
+                    var card_language = "card";
+                    var payment_method = jQuery('[name=payment_method_id]');
+                    if(payment_method != undefined && payment_method.data('billing_type') == 'bill') card_language = "billing";
+                    message += "\n - You must accept the "+card_language+" authorization.";
+                }
+                
+                
+                //* CHECK TO ENSURE PHONE NUMBER AND COUNTRY CODE JIVE, PHONE NUMBER IS VALID, ETC.
+                // this lib uses google's lib to do this, and the function call they show in their docs is WRONG
+                // below is the correct way to call the function.
+                if ( num ) {
+                    if ( !iipt.isValidNumber( num, countryData.dialCode ) ) {
+                        error = true;
+                        message += "\n <span id='error_invalid_phone'> - Phone Number is invalid.</span>";
+                    } else {
+                        // SET the current number so that it will POST if there are no errors
+                        jQuery("#cc_phone").val(num)
+                        cc_phone = jQuery("#cc_phone").val();
+                    }
+                }/* else {
+                error = true;
+                message += "\n - Phone Number cannot be blank.";
+            }
+
+
+            if(cc_phone.replace(/[^0-9]/g, '').length < 10 || cc_phone.replace(/[^0-9]/g, '').length > 11) {
+                error = true;
+                message += "\n - Your billing phone number should only be 10 or 11 numeric digits long.  Remove any extensions or alternate numbers.";
+            }*/
+                
+                                                    
+                
+                // T3310
+                var pickup_flight_number = jQuery('#pickup_flight_439');
+                var dropoff_flight_number = jQuery('#dropoff_flight_439');
+                if(pickup_flight_number != undefined) {
+                    if(pickup_flight_number.val() < 0) {
+                        error = true;
+                        message += "\n - Your pick-up flight number cannot be negative.";
+                    }
+                    else if(pickup_flight_number.val() > 9999) {
+                        error = true;
+                        message += "\n - Your pick-up flight number cannot be higher than 9999 (flight numbers cannot exceed 4 digits).";
+                    }
+                }
+                if(dropoff_flight_number != undefined) {
+                    if(dropoff_flight_number.val() < 0) {
+                        error = true;
+                        message += "\n - Your pick-up flight number cannot be negative.";
+                    }
+                    else if(dropoff_flight_number.val() > 9999) {
+                        error = true;
+                        message += "\n - Your pick-up flight number cannot be higher than 9999 (flight numbers cannot exceed 4 digits).";
+                    }
+                }
+                
+                                var carryon = parseInt(jQuery('#carryon_439').val());
+                var checked = parseInt(jQuery('#checked_439').val());
+                if(carryon + checked > 2) {
+                    error = true;
+                    message += "\n - The SED only supports 2 pieces of luggage, but you requested "+(carryon+checked)+".";
+                }
+                                
+                // T3400
+                if(full_address_view) {
+                    var country = jQuery('#autocomplete_cc_country').val().toUpperCase();
+                    if(country == 'US' || country == 'USA' || country == 'UNITED STATES') {
+                        if(jQuery('#autocomplete_cc_postal_code').val().length != 5) {
+                            error = true;
+                            message += "\n - Zip codes in the US must be exactly 5 digits.";
+                        }
+                        var state_code = jQuery('#autocomplete_cc_administrative_area_level_1').val().toUpperCase();
+                        if(![ 'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY' ].includes(state_code)) {
+                            error = true;
+                            message += "\n - State must be one of the 50 valid US states, abbreviated to 2 characters.";
+                        }
+                    }
+                }
+
+                if(error) {
+                                        jQuery.ajax({
+                        url: '/leads/new/forms/ajax/log.php',
+                        method: "POST",
+                        data: {
+                            action: 'submit failed with error message = '+message
+                        },
+                        success: function (result) {
+                            console.log(result);
+                        }
+                    });
+                    
+                    alert(message);
+                    return false;
+                }
+                else {
+                    jQuery(".page_button").hide();
+                    jQuery(".final_submit").hide();
+                    jQuery("#loading_box").removeClass("hidden");
+                    jQuery("#content").hide();
+                    
+                                        
+                                                var billing_type = jQuery('#billing_type');
+                            if(billing_type != undefined && billing_type.val() != undefined && billing_type.val().toLowerCase() != 'card') {
+                                console.log("Not using a credit card, which this config allows for.");
+                                                                jQuery('#waiver_form').off('submit');
+                                jQuery('#submit_me').click(); // stupid hack, but nothing else worked
+                            } else // JS for the jQuery line below
+                                                    if(jQuery('#existing_card') != undefined && jQuery('#existing_card').val() != undefined && jQuery('#existing_card').val() != 'new') { // AC-4185 added val != undefined check
+                            console.log("Not tokenizing credit card because we already have it in LA");
+                            jQuery('#submit_me').click(); // stupid hack, but nothing else worked
+                            console.log("Form submit complete");
+                        } else jQuery.ajax({
+                            url: './ajax/card.php',
+                            method: 'POST',
+                            data: {
+                                quote_id: 420,
+                                cc_name: jQuery('#cc_name').val(),
+                                cc_number: jQuery('#cc_number').val(),
+                                cc_street_number: jQuery('#autocomplete_cc_street_number').val(),
+                                cc_street_name: jQuery('#autocomplete_cc_route').val(),
+                                cc_city: jQuery('#autocomplete_cc_locality').val(),
+                                cc_state: jQuery('#autocomplete_cc_administrative_area_level_1').val(),
+                                cc_zip: jQuery('#autocomplete_cc_postal_code').val(),
+                                cc_country: jQuery('#autocomplete_cc_country').val(),
+                                cc_exp_month: jQuery('#cc_exp_month').val(),
+                                cc_exp_year: jQuery('#cc_exp_year').val()
+                                , cc_ccv: jQuery('#cc_ccv').val()                             },
+                            success: function(result) {
+                                console.log(result);
+                    
+                                if (result.success) {
+                                    if (result.success.redirect) { // AC-4085: quote expired/requoted while filling form - go to the live quote, do not submit
+                                        window.location.href = result.success.redirect;
+                                        return;
+                                    }
+                                    jQuery('#limoanywhere_card_id').val(result.success.limoanywhere_card_id);
+                                    console.log("Success, about to submit form");
+                                    jQuery('#waiver_form').off('submit');
+                                    jQuery('#submit_me').click(); // stupid hack, but nothing else worked
+                                    console.log("Form submit complete");
+                                } else if (result.error) {
+                                    alert(result.error);
+                                    jQuery("#loading_box").addClass("hidden");
+                                    jQuery("#content").show();
+                                    jQuery(".page_button").show();
+                                    jQuery("#submit").show();
+                                    jQuery(".page").hide();
+                                    jQuery("#payment_information").show().removeClass('hidden');
+                                }
+                            },
+                            error: function() {
+                                alert("An error occurred while processing the request.");
+                                jQuery("#loading_box").addClass("hidden");
+                                jQuery("#content").show();
+                                jQuery(".page_button").show();
+                                jQuery("#submit").show();
+                                jQuery(".page").hide();
+                                jQuery("#payment_information").show().removeClass('hidden');
+                            }
+                        });
+                                    }
+            });
+
+            function isCreditCard( CC ) {
+                if (CC.length > 19)
+                    return (false);
+
+                sum = 0; mul = 1; l = CC.length;
+                for (i = 0; i < l; i++)
+                {
+                    digit = CC.substring(l-i-1,l-i);
+                    tproduct = parseInt(digit ,10)*mul;
+                    if (tproduct >= 10)
+                        sum += (tproduct % 10) + 1;
+                    else
+                        sum += tproduct;
+                    if (mul == 1)
+                        mul++;
+                    else
+                        mul--;
+                }
+                if ((sum % 10) == 0)
+                    return (true);
+                else
+                    return (false);
+            }
+
+            // Takes a credit card string value and returns true on valid number, from https://gist.github.com/DiegoSalazar/4075533
+            function isCreditCardLuhnValid( value ) {
+                // Accept only digits, dashes or spaces
+                if (/[^0-9-\s]+/.test(value)) return false;
+
+                // The Luhn Algorithm. It's so pretty.
+                let nCheck = 0, bEven = false;
+                if(typeof value !== 'string') value = ""+value;
+                value = value.replace(/\D/g, "");
+
+                for (var n = value.length - 1; n >= 0; n--) {
+                    var cDigit = value.charAt(n),
+                        nDigit = parseInt(cDigit, 10);
+
+                    if (bEven && (nDigit *= 2) > 9) nDigit -= 9;
+
+                    nCheck += nDigit;
+                    bEven = !bEven;
+                }
+
+                return (nCheck % 10) == 0;
+            }
+
+            jQuery(".select2").select2();
+
+            jQuery(".highlight-color").css("color", "#6D6D6D");
+            jQuery("input[type=submit]").css("background-color", "#019ECB");
+
+            function inIframe() {
+                try {
+                    return window.self !== window.top;
+                } catch (e) {
+                    return true;
+                }
+            }
+
+            jQuery(window).load(function() {
+                if(inIframe()) {
+                    var heights = jQuery('html, body').map(function () {
+                        return jQuery(this).outerHeight(true);
+                    }).get();
+
+                    maxHeight = Math.max.apply(null, heights);
+                    window.parent.postMessage({message: '{"width":"100%", "height":"' + maxHeight + 'px", "task":"scroll"}'}, '*');
+
+                    // GA4 view_item event - fires when quote page loads in iframe
+                    setTimeout(function() {window.parent.postMessage({message: JSON.stringify({"gtag_event":{"event_name":"view_item","parameters":{"currency":"USD","value":240.84,"items":[{"item_id":"quote_vehicle_439","item_name":"Sedan","item_category":"From Airport","price":240.84,"quantity":1}]}}})}, '*');console.log('GA4 event sent to parent: view_item');}, 600);                }
+            });
+
+                        jQuery.ajax({
+                url: "./ajax/viewed.php",
+                method: "POST",
+                data: {
+                    quote_id: 420,
+                    code: 'JcW9wAEBjd767v3D1Wc16YKnOu79zw',
+                    waiver_id: 1532                },
+                success: function (result) {
+                    if(result == "error") {
+                        console.log("There was an error authenticating your viewing.");
+                    }
+                    else if(result == "success") {
+                        console.log("Viewing was successfully logged.");
+                    }
+                }
+            });
+
+            function isValidEmailAddress(emailAddress) {
+                var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+                return pattern.test(emailAddress);
+            }
+
+                    });
+    </script>
+    <style>
+        #artusmode_alert {
+            background-color: rgba(0,0,0,0.4);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        #artusmode_alert_inner {
+            width: calc(100% - 10px);
+            min-height: 200px;
+            background-color: white;
+            padding: 20px;
+            border: solid 4px red;
+            border-radius: 6px;
+            margin-right: 5px;
+            display: inline-block;
+            font-size: 12pt;
+            max-width: 600px !important;
+        }
+        #artusmode_alert_close {
+            position: relative;
+            margin-left: calc(50% - 50px);
+            width: 100px;
+            background-color: lightgrey;
+            border: solid 1px grey;
+            clear: both;
+            margin-top: 50px;
+            padding: 5px;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #artusmode_alert_close:hover {
+            background-color: #a5a5a5;
+        }
+        @media only screen and (max-width: 768px) {
+            #artusmode_alert {
+                margin-left: 0 !important;
+            }
+            #artusmode_alert_close {
+                margin-top: 20px;
+            }
+        }
+    </style>
+    <script>
+        String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.split(search).join(replacement);
+        };
+
+        window.alert = function(input) {
+            var html = jQuery('html');
+            var w = html.width();
+            var h = html.height();
+            var top = html.offset().top;
+            var left = ((w/2) - 300);
+            if(left < 0 || w < 768) left = 5;
+
+            var code = "<div style='width: "+w+"px; min-height: "+h+"px; padding-top: 150px;' id='artusmode_alert'>"+
+                        "<div style='max-width: calc(100% - 10px); min-height: 200px; margin-top: "+(20+top)+"px; margin-left: "+left+"px;' id='artusmode_alert_inner'>"+
+                            input.replaceAll('\n', '<br/>')+
+                            "<br style='clear: both;' /><div id='artusmode_alert_close'>Close</div>"+
+                        "</div>"+
+                    "</div>"+
+                "</div>";
+            jQuery(html).append(jQuery(code));
+            jQuery('#artusmode_alert_close, #artusmode_alert').click(function() {
+                jQuery('#artusmode_alert').remove();
+            });
+
+            var heights = jQuery('html, body, #artusmode_alert').map(function () {
+                return jQuery(this).outerHeight(true);
+            }).get();
+            var maxHeight = Math.max.apply(null, heights);
+            if(document.documentElement.scrollHeight > maxHeight) maxHeight = document.documentElement.scrollHeight;
+            window.parent.postMessage({message: '{"height":"'+maxHeight+'px", "task":"scroll", "nojack":1}'}, '*');
+        }
+    </script>
+    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span><script class="iti-load-utils" async="" src="https://cdn.addons.la/code/7818/thirdparty/intl-tel-input/js/utils.js"></script></body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>

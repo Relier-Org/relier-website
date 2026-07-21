@@ -1,0 +1,937 @@
+<html lang="en"><head>
+				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+            	<title>AddOns.LA</title>
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/bootstrap.min.css">
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/vendor/fortawesome/font-awesome/css/all.min.css">
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/vendor/fortawesome/font-awesome/css/v4-shims.css">
+    	        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/js/select2/select2.css">
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/artusmode.css">
+		        <script src="https://cdn.addons.la/code/7818/js/jquery-3.6.4.min.js"></script>
+				<script src="https://cdn.addons.la/code/7818/thirdparty/signature-pad/jquery.signaturepad.js"></script>
+				<script src="https://cdn.addons.la/code/7818/thirdparty/signature-pad/assets/json2.min.js"></script>
+                <script src="https://cdn.addons.la/code/7818/js/select2/select2.min.js"></script><script src="https://cdn.lgrckt-in.com/LogRocket.min.js" crossorigin="anonymous"></script><script src="https://cdn.lgrckt-in.com/logger-1.min.js" async=""></script>
+        <script>window.LogRocket && window.LogRocket.init("m9ysyq/la-web-prod", {mergeIframes: true, release: "7818", parentDomain: window.location.origin});</script><script>window.LogRocket && window.LogRocket.identify('relier-anon-TEST_IP', {"shortname":"relier","role":"anonymous","ip":"TEST_IP"});</script><style>
+                .iti__country-list {
+                    position: absolute;
+                    z-index: 2;
+                    list-style: none;
+                    text-align: left;
+                    padding: 0;
+                    margin: 0 0 0 -1px;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+                    background-color: #666666;
+                    border: 1px solid #CCC;
+                    white-space: nowrap;
+                    max-height: 200px;
+                    overflow-y: scroll;
+                    -webkit-overflow-scrolling: touch;
+                }
+                </style>
+                
+    	        
+		        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/14a/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/64/14a/util.js"></script></head>
+            <body>
+            
+            <div id="body">
+            <span id="top"></span>
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <!-- below is custom CSS ID #7 line=6046--><style>@import "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500;600&display=swap";:root{--rl-bg:#0a0a0a;--rl-surface:#121212;--rl-tile:#12121a;--rl-elev:#1a1a1a;--rl-text:#f5f7f9;--rl-text-2:#c5cdd5;--rl-label:#a0a8b0;--rl-muted:#7a8189;--rl-placeholder:#5c636a;--rl-accent:#c9a961;--rl-accent-hover:#d0b062;--rl-on-accent:#0a0a0a;--rl-border:#c5cdd52e;--rl-border-subtle:#c5cdd51a;--rl-border-strong:#c5cdd552;--rl-border-accent:#c9a96152;--rl-error:#e67373;--rl-radius:4px;--rl-display:"Fraunces","Cormorant Garamond",Georgia,serif;--rl-body:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif;--rl-ease:cubic-bezier(.16,1,.3,1)}html,body{background:0 0!important}body,#content,#lead_form{font-family:var(--rl-body);color:var(--rl-text)}h1,h2,h3{letter-spacing:-.02em;color:var(--rl-text);font-weight:400;font-family:var(--rl-display)!important}label{letter-spacing:.16em;text-transform:uppercase;color:var(--rl-label);font-size:10px;font-weight:500;font-family:var(--rl-body)!important}#lead_form{border:1px solid var(--rl-border);border-radius:var(--rl-radius);color:var(--rl-text);padding:18px;background:var(--rl-surface)!important}.form-control{font-family:var(--rl-body);font-size:15px;border:0!important;border-bottom:1px solid var(--rl-border)!important;color:var(--rl-text)!important;box-shadow:none!important;background:0 0!important;border-radius:0!important;padding:12px 2px!important}.form-control::placeholder{color:var(--rl-placeholder)}.form-control:hover{border-bottom-color:var(--rl-border-strong)!important}.form-control:focus{outline:none;border-bottom-color:var(--rl-accent)!important;box-shadow:none!important}.form-control.is-invalid,.form-control:invalid{border-bottom-color:var(--rl-error)!important}#book_button,input[type=submit],.btn-default{font-family:var(--rl-body);letter-spacing:.18em;text-transform:uppercase;font-size:11px;font-weight:500;background:var(--rl-accent)!important;color:var(--rl-on-accent)!important;border-radius:var(--rl-radius)!important;border:0!important;padding:14px 28px!important}#book_button:hover,input[type=submit]:hover,.btn-default:hover{background:var(--rl-accent-hover)!important}#searching_text{color:var(--rl-accent)}.artusmode_autocomplete_results{border-radius:var(--rl-radius);color:var(--rl-text);background:var(--rl-elev)!important;border:1px solid var(--rl-border)!important}.artusmode_suggest_address{color:var(--rl-text-2)}.artusmode_suggest_hover{color:var(--rl-text)!important;background:#c9a9611f!important}#content,.page{background:var(--rl-bg)!important;color:var(--rl-text-2)!important}#trip_info,#personal_information,#ribbon,.summary_vehicle,.line_item_wrapper,#content .panel,#content .panel-body,#content .panel-heading,#content .panel-footer,#content .well{background-color:var(--rl-surface)!important;color:var(--rl-text)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important}.vehicle-price{background-color:var(--rl-tile)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important;color:var(--rl-text)!important;min-width:200px!important}#content,#content .page,#trip_info,#personal_information,#ribbon,#content .panel,#content .panel-body,.cost_breakdown,#billing_language,#tos{color:var(--rl-text-2)!important}#content strong,#content b,#trip_info strong,#trip_info b,#personal_information strong,.vehicle_name,#content h1,#content h2,#content h3{color:var(--rl-text)!important}.trip_total{font-family:var(--rl-display);color:var(--rl-accent)!important}.trip_total th{color:var(--rl-accent)!important}.page section{color:var(--rl-text-2)!important;background:0 0!important}.vehicle_subtotal,.vehicle_subtotal th,.vehicle_subtotal td,.trip_person,.trip_person label,#trip_summary p{color:var(--rl-text-2)!important}.luggage_type img,.child_seat img{opacity:.85;filter:invert(.85)!important}.trip_person a{color:var(--rl-accent)!important;text-decoration:none!important}.trip_person a:hover{color:var(--rl-accent-hover)!important}#trip_info #trip_info{background:0 0!important;border:0!important;padding:0!important}.input-group-addon{border:1px solid var(--rl-border)!important;color:var(--rl-accent)!important;background:0 0!important}.input-group .form-control{border-radius:0!important}.vehicle_subtotal,.trip_total{float:right!important;clear:right!important}.vehicle_subtotal table,.trip_total table{margin-left:auto!important}.vehicle_image,.summary_vehicle img{background:0 0!important;width:100%!important;max-width:240px!important;height:auto!important}.line_item_image{max-width:64px!important;height:auto!important}#cat_list{background:0 0!important}.category{border-radius:var(--rl-radius);background:var(--rl-tile)!important;border:1px solid var(--rl-border)!important}.category:hover{border-color:var(--rl-border-accent)!important}.thumbnail{background:0 0!important;border:0!important}.description,.long_description,.price{font-family:var(--rl-body)!important;color:var(--rl-text-2)!important}.book_subtext{background-color:var(--rl-accent)!important;color:var(--rl-on-accent)!important;border-radius:var(--rl-radius)!important;white-space:nowrap!important;padding:12px 16px!important}.send_me_quote{border:1px solid var(--rl-border-strong)!important;color:var(--rl-text)!important;border-radius:var(--rl-radius)!important;background:0 0!important}.send_me_quote:hover{border-color:var(--rl-accent)!important}.page_button{font-family:var(--rl-body);border-radius:var(--rl-radius)!important;box-shadow:none!important}.page_next,.final_submit{text-transform:uppercase;letter-spacing:.18em;font-weight:500;background:var(--rl-accent)!important;color:var(--rl-on-accent)!important;box-shadow:none!important;border:0!important}.page_next:hover,.final_submit:hover{background:var(--rl-accent-hover)!important}.page_prev{text-transform:uppercase;letter-spacing:.18em;font-weight:500;color:var(--rl-text)!important;border:1px solid var(--rl-border-strong)!important;box-shadow:none!important;background:0 0!important}.page_prev:hover{border-color:var(--rl-accent)!important}ul.stops_list li{color:var(--rl-text-2)!important;border-color:var(--rl-border-subtle)!important}#tos{background:var(--rl-surface)!important;border:1px solid var(--rl-border)!important}.line_item_wrapper{background:var(--rl-tile)!important}#wrap_credit_card,#promo_code{color:var(--rl-text)!important}#type{text-align:left!important;width:100%!important;margin:0 0 14px!important;display:block!important}#type br{display:none!important}@media (width>=601px){.input_group{width:14%!important}}@media (width<=600px){#book_button{box-sizing:border-box!important;width:100%!important;margin:12px 0 0!important}}#type input[type=radio]+label{letter-spacing:.16em;text-transform:uppercase;border-radius:var(--rl-radius);border:1px solid #0000;font-weight:500;width:auto!important;color:var(--rl-muted)!important;font-family:var(--rl-body)!important;background:0 0!important;min-width:0!important;margin:0 8px 0 0!important;padding:10px 18px!important;font-size:11px!important;line-height:1.2!important;display:inline-block!important}#type input[type=radio]+label:hover{color:var(--rl-text-2)!important}#type input[type=radio]:checked+label{background:var(--rl-elev)!important;color:var(--rl-accent)!important;border-color:#0000!important}.form-control,#date_pickup,#time_pickup,#hours,#num_passengers{color-scheme:dark}select.form-control{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C9A961' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>")!important;background-position:right 2px center!important;background-repeat:no-repeat!important;background-size:13px!important;padding-right:22px!important}select.form-control,#content select,#lead_form select{color:var(--rl-text)!important;height:auto!important;line-height:1.6!important}select.form-control option,#content select option,#lead_form select option{color:var(--rl-text)!important;background-color:var(--rl-surface)!important}#date_pickup::-webkit-calendar-picker-indicator{filter:invert(72%)sepia(38%)saturate(560%)hue-rotate(5deg)brightness(92%);opacity:.9;cursor:pointer}#date_pickup::-webkit-calendar-picker-indicator:hover{opacity:1}#num_passengers::-webkit-inner-spin-button,#num_passengers::-webkit-outer-spin-button{opacity:.55}h1,h2,h3,#content h1,#content h2,#content h3,.page h1,.page h2,.page h3{color:var(--rl-text)!important;opacity:1!important}.category .thumbnail,.category .thumbnail.carousel,.category .thumbnail.max-250{width:100%!important;max-width:300px!important}.category img,.thumbnail img{width:100%!important;max-width:300px!important;height:auto!important}.panel,.panel-default,.panel-body,.panel-heading,.panel-footer,.well{background-color:var(--rl-surface)!important;border-color:var(--rl-border)!important;color:var(--rl-text-2)!important}#trip_info:not(.trip-info){background-color:var(--rl-surface)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important;box-sizing:border-box!important;width:100%!important;padding:24px 28px!important;overflow:hidden!important}.trip-info,#personal_information{box-sizing:border-box!important;background:0 0!important;border:0!important;border-radius:0!important;width:100%!important;padding:0!important}#personal_information{border-top:1px solid var(--rl-border-subtle)!important;margin-top:20px!important;padding-top:20px!important}.vehicle_subtotal table,.trip_total table{width:100%!important;margin-left:auto!important}.vehicle_subtotal th,.trip_total th{text-align:left!important}.vehicle_subtotal td,.trip_total td{text-align:right!important}#toggle_manual_billing_address,a#toggle_manual_billing_address,.toggle_manual_billing_address{color:var(--rl-accent)!important}#cc_phone{padding-left:52px!important}#lead_form *{box-sizing:border-box}#lead_form .lqc-fields{grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) repeat(3,minmax(0,1fr))!important;align-items:start!important;gap:16px!important}#lead_form .input_group>br{display:none!important}#lead_form .input_group>label{white-space:nowrap;height:18px;width:auto!important;margin:0 0 4px!important;font-size:10px!important;line-height:18px!important;display:block!important}#lead_form .lqc-fields .form-control,#return_fields>.form-control{width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;line-height:22px!important}#book_button{text-align:center!important;justify-content:center!important}#lead_form .lqc-return-block{width:100%;display:block}#lead_form .lqc-return-toggle{white-space:nowrap;gap:8px;width:auto!important;color:var(--rl-label)!important;align-items:center!important;margin:0!important;font-size:11px!important;line-height:16px!important;display:flex!important}#add_return{width:16px;height:16px;accent-color:var(--rl-accent);flex:none;margin:0}#lead_form:has(#add_return:checked) #return_fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;width:min(100%,640px);margin-top:14px;display:grid!important}#return_fields>label{white-space:nowrap;width:auto!important;margin:0!important;font-size:10px!important;line-height:18px!important;display:block!important}@media (width>=601px){label[for=return_date_pickup]{grid-area:1/1}#return_date_pickup{grid-area:2/1}label[for=return_time_pickup]{grid-area:1/2}#return_time_pickup{grid-area:2/2}}@media (width>=601px) and (width<=900px){#lead_form .lqc-fields{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media (width<=600px){#lead_form .lqc-fields{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}#book_button{justify-content:center!important;width:100%!important;margin:14px 0 0!important}#lead_form .lqc-bottom-row{margin-top:16px!important;display:block!important}#lead_form:has(#add_return:checked) #return_fields{grid-template-columns:minmax(0,1fr);gap:4px}#return_fields>label:not(:first-child){margin-top:12px!important}}.category{padding:24px 26px!important}.vehicle-price{box-sizing:border-box!important;width:224px!important;min-width:224px!important;padding:16px!important}.vehicle-price .book_subtext,.vehicle-price .send_me_quote{overflow-wrap:anywhere;box-sizing:border-box!important;text-align:center!important;white-space:normal!important;justify-content:center!important;align-items:center!important;width:100%!important;height:52px!important;min-height:52px!important;margin:12px 0 0!important;padding:8px 12px!important;font-size:15px!important;line-height:1.2!important;display:flex!important}.vehicle-price .send_me_quote{background:0 0!important}.trip-info{box-sizing:border-box!important;padding:12px 14px!important}.trip-info>*{min-width:0}@media (width<=600px){.trip-info{padding:14px!important;line-height:1.45!important;display:block!important}.category{text-align:center!important;padding:24px 18px!important}.category .thumbnail,.category .thumbnail.carousel,.category .thumbnail.max-250{width:100%!important;max-width:220px!important;height:auto!important;min-height:0!important;margin:0 auto 14px!important}.category img,.thumbnail img{max-width:220px!important;height:auto!important}.vehicle-price{float:none!important;width:100%!important;min-width:0!important;max-width:none!important;margin:20px auto 0!important;padding:18px!important}.vehicle-price .book_subtext,.vehicle-price .send_me_quote{height:auto!important;min-height:52px!important;margin-top:12px!important}.description,.long_description{max-width:32ch;text-align:center!important;margin-left:auto!important;margin-right:auto!important;line-height:1.5!important}.artusmode_autocomplete_results{box-sizing:border-box!important;width:100%!important;max-width:calc(100vw - 36px)!important;overflow-x:hidden!important}.artusmode_suggest_address{white-space:normal!important;overflow-wrap:anywhere!important;max-width:100%!important;line-height:1.35!important}#trip_info:not(.trip-info){padding:18px!important}#personal_information,#personal_information form,#personal_information .panel,#personal_information .panel-body,#personal_information .panel-heading,#personal_information .panel-footer{width:100%!important;max-width:none!important;box-shadow:none!important;background:0 0!important;border-bottom:0!important;border-left:0!important;border-right:0!important;border-radius:0!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#personal_information .row{width:100%!important;margin-left:0!important;margin-right:0!important}#personal_information [class*=col-]{float:none!important;width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#personal_information .form-group{width:100%!important;margin-left:0!important;margin-right:0!important}#personal_information .form-control{box-sizing:border-box!important;width:100%!important;max-width:none!important}#personal_information .page_button,#personal_information .page_next{box-sizing:border-box!important;text-align:center!important;justify-content:center!important;align-items:center!important;width:100%!important;max-width:none!important;min-height:52px!important;margin-left:0!important;margin-right:0!important;padding:12px 16px!important;line-height:1.25!important;display:flex!important}body:has(#personal_information) #ribbon,body:has(#personal_information) .trip-info{box-sizing:border-box!important;white-space:normal!important;width:100%!important;max-width:100%!important;margin:0!important;padding-left:15px!important;padding-right:15px!important}body:has(#personal_information) #ribbon div,body:has(#personal_information) #ribbon p,body:has(#personal_information) #ribbon span,body:has(#personal_information) .trip-info div,body:has(#personal_information) .trip-info p,body:has(#personal_information) .trip-info span{float:none!important;visibility:visible!important;white-space:normal!important;text-overflow:clip!important;overflow-wrap:anywhere!important;width:100%!important;max-width:100%!important;margin:0!important;display:block!important;position:static!important;overflow:visible!important}body:has(#personal_information) #ribbon div,body:has(#personal_information) #ribbon span,body:has(#personal_information) .trip-info div,body:has(#personal_information) .trip-info span{border-left:0!important}#personal_information .form-group,#personal_info.container .col-xs-12.z-index.no-padding{padding-left:0!important;padding-right:0!important}}body:has(.summary_vehicle) #trip_summary{box-sizing:border-box;width:100%}body:has(.summary_vehicle) .summary_vehicle{box-sizing:border-box!important;padding:28px!important;overflow:hidden!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total){float:none!important;clear:both!important;box-sizing:border-box!important;width:100%!important;max-width:420px!important;margin-left:0!important;margin-right:auto!important;padding:6px 14px!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) table{width:100%!important;margin:0!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) th{white-space:nowrap!important;text-align:left!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) td{text-align:right!important}tr:has(#promo_code){display:table-row!important}tr:has(#promo_code)>*{vertical-align:middle!important;width:auto!important;padding-top:0!important;padding-bottom:0!important;display:table-cell!important}tr:has(#promo_code)>:first-child{white-space:nowrap!important;text-align:left!important;width:1%!important;padding-right:12px!important}:is(div,span):has(>#promo_code){grid-template-columns:minmax(0,1fr) 36px!important;align-items:center!important;width:100%!important;display:grid!important}#promo_code{width:100%!important;height:36px!important;margin:0!important;padding-top:0!important;padding-bottom:0!important}td:has(>#promo_code)>#promo_code{vertical-align:middle!important;width:calc(100% - 40px)!important;display:inline-block!important}:is(td,div,span):has(>#promo_code)>:not(#promo_code){width:36px!important;height:36px!important;margin:0!important}tr:has(#promo_code) :is(button,.btn,input[type=button],input[type=submit]){vertical-align:middle!important;justify-content:center!important;align-items:center!important;width:36px!important;height:36px!important;margin:0!important;padding:0!important;display:inline-flex!important}body:has(.summary_vehicle) .page_next{justify-content:center!important;align-items:center!important;width:min(100%,420px)!important;min-height:52px!important;margin:48px auto 0 0!important;display:flex!important}@media (width>=601px){body:has(.summary_vehicle) :is(div,section):has(:is(.vehicle_subtotal,.trip_total)):not(:has(.summary_vehicle)){float:none!important;flex:0 0 100%!important;width:100%!important;display:block!important}}@media (width<=600px){body:has(.summary_vehicle) .summary_vehicle{width:100%!important;margin:0!important;padding:24px 20px!important}body:has(.summary_vehicle) .summary_vehicle img{max-width:200px!important;margin:0 auto 20px!important;display:block!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total){width:100%!important;max-width:none!important;margin:0!important;padding:7px 0!important}tr:has(#promo_code)>*{padding-top:10px!important;padding-bottom:16px!important}tr:has(#promo_code)>:first-child{font-size:16px!important;line-height:1.2!important}body:has(.summary_vehicle) .page_next{width:calc(100% - 60px)!important;max-width:none!important;margin:40px 30px 0!important}}</style><style>
+        .rate_sheet_description_under_category, .rate_sheet_description_under_price {
+            color: grey;
+            text-align: center;
+            display: inline-block;
+        }
+</style>
+            
+            
+				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+            	<title>AddOns.LA</title>
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/bootstrap.min.css">
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/vendor/fortawesome/font-awesome/css/all.min.css">
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/vendor/fortawesome/font-awesome/css/v4-shims.css">
+    	        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/js/select2/select2.css">
+		        <link rel="stylesheet" href="https://cdn.addons.la/code/7818/css/artusmode.css">
+		        <script src="https://cdn.addons.la/code/7818/js/jquery-3.6.4.min.js"></script>
+				<script src="https://cdn.addons.la/code/7818/thirdparty/signature-pad/jquery.signaturepad.js"></script>
+				<script src="https://cdn.addons.la/code/7818/thirdparty/signature-pad/assets/json2.min.js"></script>
+                <script src="https://cdn.addons.la/code/7818/js/select2/select2.min.js"></script><script>window.LogRocket && window.LogRocket.identify('relier-anon-TEST_IP', {"shortname":"relier","role":"anonymous","ip":"TEST_IP"});</script><style>
+                .iti__country-list {
+                    position: absolute;
+                    z-index: 2;
+                    list-style: none;
+                    text-align: left;
+                    padding: 0;
+                    margin: 0 0 0 -1px;
+                    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+                    background-color: #666666;
+                    border: 1px solid #CCC;
+                    white-space: nowrap;
+                    max-height: 200px;
+                    overflow-y: scroll;
+                    -webkit-overflow-scrolling: touch;
+                }
+                </style>
+                
+    	        
+			<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+			<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places&amp;key=AIzaSyBiWg7DlV6Fz1pmoa0dHDBCA7n6UlUMnX8"></script>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="https://cdn.addons.la/code/7818/js/jquery.geocomplete.min.js"></script>
+			<script src="https://cdn.addons.la/code/7818/leads/new/forms/ajax/artusmode_autocomplete.js"></script>
+			<link type="text/css" rel="stylesheet" href="https://cdn.addons.la/code/7818/css/jquery-ui.min.css">
+			<script src="https://cdn.addons.la/code/7818/js/jquery-ui.min.js"></script>
+			<script src="https://cdn.addons.la/code/7818/thirdparty/jquery-ui/ui/jquery.ui.datepicker.js"></script>
+		    <link rel="shortcut icon" href="https://relier.addons.la/uploads/system/favicon/" type="image/x-icon">
+		
+		        
+            
+            
+            <div id="body">
+            <span id="top"></span>
+            <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+            <link type="text/css" rel="stylesheet" href="https://relier.addons.la/css/lightslider.css">
+        <script src="https://relier.addons.la/js/lightslider.js"></script>
+        <style>
+            html, body {
+                background: #F3F3F3 !important;
+            }
+            h1 {
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 600;
+            }
+            h4 {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                margin: 20px 0 0 0;
+                font-weight: bold;
+            }
+            .attribute_icons {
+                display: none; /* T2488, off by default */
+                float: right;
+            }
+            .category {
+                padding: 35px;
+                border-radius: 8px;
+                box-shadow: 2px 1px 5px #00000040;
+                background: white;
+            }
+            .category .long_description {
+                display: inline-block;
+                width: 100%;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                padding-top: 10px;
+            }
+            .vehicle-price {
+                background-color: #F3F3F3 !important;
+	            color: #383838 !important;
+	            width: 100%;
+	            min-height: 150px;
+	            padding: 10px;
+            }
+            .price {
+	            display: block;
+                text-align: center;
+                padding-top: 20px;
+                font-size: 32px;
+                font-weight: bold;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .book_subtext {
+                font-size: 18px;
+                font-weight: normal;
+                background-color: #0170BC;
+                padding: 7px;
+                border-radius: 6px;
+                color: white !important;
+                display: block;
+                box-shadow: 0.1em 0.1em 5px #00000036;
+                font-family: 'Open Sans', sans-serif;
+                margin: 24px 15px 14px 15px;
+                text-align: center;
+            }
+            .book_subtext:hover {
+                text-decoration: none;
+                background-color: #015ba0;
+            }
+            .send_me_quote {
+                width: 100%;
+                display: block;
+                text-align: center;
+                color: #0170BC;
+                font-family: 'Open Sans', sans-serif;
+                padding-bottom: 15px
+
+            }
+            .left_info {
+                width: calc(90% - 200px);
+            }
+            .max-250{
+                max-width: 250px;
+            }
+            .max-250h{
+                max-height: 250px;
+            }
+            .icons img {
+                color: #464646;
+                margin: 0 10px 2px 0;
+                max-height: 20px;
+            }
+            .icons {
+                color: #383838;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+            }
+            .icon {
+                color: #383838;
+                padding: 0px 6px 0 0;
+                margin-right: 5px;
+            }
+            .features {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+            }
+            .description {
+                font-size: 27px;
+                font-style: normal;
+                font-weight: 600;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .thumbnail {
+                border: none;
+                box-shadow: none;
+                width: 100%;
+            }
+            .grey-border {
+                border-radius: 6px;
+                background: #f3f3f39c;
+                text-align: center;
+                padding: 48px;
+                font-family: 'Open Sans', sans-serif;
+                width: 100%;
+                border: none;
+            }
+            .no-padding {
+                padding: 0;
+            }
+            .carousel {
+                display: block;
+                letter-spacing: 10px;
+                text-align: center;
+                cursor: pointer;
+                color: #999999;
+                font-size: 6pt;
+            }
+            #image_carousel img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .trip-info {
+                font-size: 13px;
+                background: white;
+                box-shadow: 2px 1px 5px #00000030;
+                border-radius: 8px;
+                padding: 20px;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .trip-title {
+                  text-transform: uppercase;
+                  padding-left: 10px;
+                  border-left: solid 1px #383838;
+            }
+            .trip-title:first-child {
+                border: none;
+            }
+            .pr-10 {
+                padding-right: 10px;
+            }
+            .mt-20 {
+                margin-top: 20px;
+            }
+            .icons img {
+                float: right;
+            }
+            .num_left {
+                font-size: 14px;
+                text-align: center;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .lSSlideOuter .lightSlider > * {
+                text-align: center !important;
+            }
+            .no_title .ui-dialog-titlebar {
+                display: none !important;
+            }
+            .margin-bottom-negative-15 {
+                margin-bottom: -15px;
+            }
+            .price_subtext {
+                text-align: center;
+                width: 100%;
+                display: block;
+                color: grey;
+                margin-bottom: 10px;
+            }
+            #edit_info {
+                background-color: #0170bc;
+                z-index: 11;
+                position: relative;
+            }
+            #edit_update {
+                background-color: #0170bc;
+                max-width: 200px;
+                margin-top: -20px !important;
+            }
+            #edit-form .trip-title {
+                border: none;
+            }
+            #edit-form .trip-title:before {
+                content: '';
+            }
+            #edit-form input {
+                margin: 2px 0;
+            }
+            #trip_info hr {
+                margin: 10px 0;
+            }
+            #return_vehicle_info {
+                display: inline-block;
+                width: calc(100% - 70px);
+            }
+            #edit-form .mobile-show label {
+                margin-bottom: 3px;
+                margin-top: 7px;
+            }
+            .circled {
+                display: inline-block;
+                border-radius: 50%;
+                background-color: #333333;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                padding: 0;
+                font-size: 16pt;
+                width: 30px;
+                height: 30px;
+                vertical-align: text-top;
+            }
+            .ellipsis-30 {
+                display: inline-block;
+                max-width: 30%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                vertical-align: text-top;
+            }
+            .ellipsis-60 {
+                display: inline-block;
+                max-width: 60%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                vertical-align: text-top;
+            }
+            .no-border {
+                border: none !important;
+            }
+            .retail_price {
+                text-decoration: line-through;
+                font-size: 24pt;
+                color: grey !important;
+            }
+            .promo_price {
+                display: block !important;
+                color: #B12704!important;
+            }
+            .unclickable {
+                cursor: default !important;
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 480px) {
+                .trip-title {
+                    padding-left: 0;
+                    margin: 5px 0 0 0;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                #edit_info {
+                    margin-top: -27px;
+                }
+                #edit-form input {
+                    min-width: 100% !important;
+                    max-width: 100% !important;
+                }
+                #edit_update {  
+                    margin-top: 10px !important;
+                    float: unset;
+                }
+                #return_vehicle_info {
+                    width: 100%;
+                }
+                .ellipsis-30, .ellipsis-60 {
+                    max-width: 100%;
+                    display: block;
+                }
+                .category {
+                    margin-left: 0;
+                    width: 100%;
+                    display: inline-block;
+                    margin-bottom: 20px;
+                    padding: 10px;
+                }
+                .booking_option, a.price {
+                    width: 100% !important;
+                }
+                .left_info {
+                    width: 90% !important;
+                    margin-left: 5%;
+                }
+                .left_info .description {
+                        width: 100%;
+                        text-align: center;
+                        display: inline-block;
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                }
+                .booking_option {
+                    text-align: center;
+                }
+                .category a.price {
+                    margin-top: 0 !important;
+                    margin-bottom: 30px;
+                }
+                .left_info a img {
+                    max-width: unset !important;
+                    max-height: unset !important;
+                    width: calc(50% - 5px) !important;
+                }
+                .z-index {
+                    z-index: 10;
+                }
+                .trip-title:before {
+                    content: ' ';
+                    display: block;
+                }
+                .trip-title {
+                    border-left: none;
+                }
+                .container .col-sm-3 {
+                    text-align: center;
+                }
+                .carousel, .description, .icons {
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                #edit_info {
+                    margin-top: -27px;
+                }
+            }
+        </style><!-- below is custom CSS ID #7 line=6046--><style>@import "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500;600&display=swap";:root{--rl-bg:#0a0a0a;--rl-surface:#121212;--rl-tile:#12121a;--rl-elev:#1a1a1a;--rl-text:#f5f7f9;--rl-text-2:#c5cdd5;--rl-label:#a0a8b0;--rl-muted:#7a8189;--rl-placeholder:#5c636a;--rl-accent:#c9a961;--rl-accent-hover:#d0b062;--rl-on-accent:#0a0a0a;--rl-border:#c5cdd52e;--rl-border-subtle:#c5cdd51a;--rl-border-strong:#c5cdd552;--rl-border-accent:#c9a96152;--rl-error:#e67373;--rl-radius:4px;--rl-display:"Fraunces","Cormorant Garamond",Georgia,serif;--rl-body:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif;--rl-ease:cubic-bezier(.16,1,.3,1)}html,body{background:0 0!important}body,#content,#lead_form{font-family:var(--rl-body);color:var(--rl-text)}h1,h2,h3{letter-spacing:-.02em;color:var(--rl-text);font-weight:400;font-family:var(--rl-display)!important}label{letter-spacing:.16em;text-transform:uppercase;color:var(--rl-label);font-size:10px;font-weight:500;font-family:var(--rl-body)!important}#lead_form{border:1px solid var(--rl-border);border-radius:var(--rl-radius);color:var(--rl-text);padding:18px;background:var(--rl-surface)!important}.form-control{font-family:var(--rl-body);font-size:15px;border:0!important;border-bottom:1px solid var(--rl-border)!important;color:var(--rl-text)!important;box-shadow:none!important;background:0 0!important;border-radius:0!important;padding:12px 2px!important}.form-control::placeholder{color:var(--rl-placeholder)}.form-control:hover{border-bottom-color:var(--rl-border-strong)!important}.form-control:focus{outline:none;border-bottom-color:var(--rl-accent)!important;box-shadow:none!important}.form-control.is-invalid,.form-control:invalid{border-bottom-color:var(--rl-error)!important}#book_button,input[type=submit],.btn-default{font-family:var(--rl-body);letter-spacing:.18em;text-transform:uppercase;font-size:11px;font-weight:500;background:var(--rl-accent)!important;color:var(--rl-on-accent)!important;border-radius:var(--rl-radius)!important;border:0!important;padding:14px 28px!important}#book_button:hover,input[type=submit]:hover,.btn-default:hover{background:var(--rl-accent-hover)!important}#searching_text{color:var(--rl-accent)}.artusmode_autocomplete_results{border-radius:var(--rl-radius);color:var(--rl-text);background:var(--rl-elev)!important;border:1px solid var(--rl-border)!important}.artusmode_suggest_address{color:var(--rl-text-2)}.artusmode_suggest_hover{color:var(--rl-text)!important;background:#c9a9611f!important}#content,.page{background:var(--rl-bg)!important;color:var(--rl-text-2)!important}#trip_info,#personal_information,#ribbon,.summary_vehicle,.line_item_wrapper,#content .panel,#content .panel-body,#content .panel-heading,#content .panel-footer,#content .well{background-color:var(--rl-surface)!important;color:var(--rl-text)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important}.vehicle-price{background-color:var(--rl-tile)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important;color:var(--rl-text)!important;min-width:200px!important}#content,#content .page,#trip_info,#personal_information,#ribbon,#content .panel,#content .panel-body,.cost_breakdown,#billing_language,#tos{color:var(--rl-text-2)!important}#content strong,#content b,#trip_info strong,#trip_info b,#personal_information strong,.vehicle_name,#content h1,#content h2,#content h3{color:var(--rl-text)!important}.trip_total{font-family:var(--rl-display);color:var(--rl-accent)!important}.trip_total th{color:var(--rl-accent)!important}.page section{color:var(--rl-text-2)!important;background:0 0!important}.vehicle_subtotal,.vehicle_subtotal th,.vehicle_subtotal td,.trip_person,.trip_person label,#trip_summary p{color:var(--rl-text-2)!important}.luggage_type img,.child_seat img{opacity:.85;filter:invert(.85)!important}.trip_person a{color:var(--rl-accent)!important;text-decoration:none!important}.trip_person a:hover{color:var(--rl-accent-hover)!important}#trip_info #trip_info{background:0 0!important;border:0!important;padding:0!important}.input-group-addon{border:1px solid var(--rl-border)!important;color:var(--rl-accent)!important;background:0 0!important}.input-group .form-control{border-radius:0!important}.vehicle_subtotal,.trip_total{float:right!important;clear:right!important}.vehicle_subtotal table,.trip_total table{margin-left:auto!important}.vehicle_image,.summary_vehicle img{background:0 0!important;width:100%!important;max-width:240px!important;height:auto!important}.line_item_image{max-width:64px!important;height:auto!important}#cat_list{background:0 0!important}.category{border-radius:var(--rl-radius);background:var(--rl-tile)!important;border:1px solid var(--rl-border)!important}.category:hover{border-color:var(--rl-border-accent)!important}.thumbnail{background:0 0!important;border:0!important}.description,.long_description,.price{font-family:var(--rl-body)!important;color:var(--rl-text-2)!important}.book_subtext{background-color:var(--rl-accent)!important;color:var(--rl-on-accent)!important;border-radius:var(--rl-radius)!important;white-space:nowrap!important;padding:12px 16px!important}.send_me_quote{border:1px solid var(--rl-border-strong)!important;color:var(--rl-text)!important;border-radius:var(--rl-radius)!important;background:0 0!important}.send_me_quote:hover{border-color:var(--rl-accent)!important}.page_button{font-family:var(--rl-body);border-radius:var(--rl-radius)!important;box-shadow:none!important}.page_next,.final_submit{text-transform:uppercase;letter-spacing:.18em;font-weight:500;background:var(--rl-accent)!important;color:var(--rl-on-accent)!important;box-shadow:none!important;border:0!important}.page_next:hover,.final_submit:hover{background:var(--rl-accent-hover)!important}.page_prev{text-transform:uppercase;letter-spacing:.18em;font-weight:500;color:var(--rl-text)!important;border:1px solid var(--rl-border-strong)!important;box-shadow:none!important;background:0 0!important}.page_prev:hover{border-color:var(--rl-accent)!important}ul.stops_list li{color:var(--rl-text-2)!important;border-color:var(--rl-border-subtle)!important}#tos{background:var(--rl-surface)!important;border:1px solid var(--rl-border)!important}.line_item_wrapper{background:var(--rl-tile)!important}#wrap_credit_card,#promo_code{color:var(--rl-text)!important}#type{text-align:left!important;width:100%!important;margin:0 0 14px!important;display:block!important}#type br{display:none!important}@media (width>=601px){.input_group{width:14%!important}}@media (width<=600px){#book_button{box-sizing:border-box!important;width:100%!important;margin:12px 0 0!important}}#type input[type=radio]+label{letter-spacing:.16em;text-transform:uppercase;border-radius:var(--rl-radius);border:1px solid #0000;font-weight:500;width:auto!important;color:var(--rl-muted)!important;font-family:var(--rl-body)!important;background:0 0!important;min-width:0!important;margin:0 8px 0 0!important;padding:10px 18px!important;font-size:11px!important;line-height:1.2!important;display:inline-block!important}#type input[type=radio]+label:hover{color:var(--rl-text-2)!important}#type input[type=radio]:checked+label{background:var(--rl-elev)!important;color:var(--rl-accent)!important;border-color:#0000!important}.form-control,#date_pickup,#time_pickup,#hours,#num_passengers{color-scheme:dark}select.form-control{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C9A961' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>")!important;background-position:right 2px center!important;background-repeat:no-repeat!important;background-size:13px!important;padding-right:22px!important}select.form-control,#content select,#lead_form select{color:var(--rl-text)!important;height:auto!important;line-height:1.6!important}select.form-control option,#content select option,#lead_form select option{color:var(--rl-text)!important;background-color:var(--rl-surface)!important}#date_pickup::-webkit-calendar-picker-indicator{filter:invert(72%)sepia(38%)saturate(560%)hue-rotate(5deg)brightness(92%);opacity:.9;cursor:pointer}#date_pickup::-webkit-calendar-picker-indicator:hover{opacity:1}#num_passengers::-webkit-inner-spin-button,#num_passengers::-webkit-outer-spin-button{opacity:.55}h1,h2,h3,#content h1,#content h2,#content h3,.page h1,.page h2,.page h3{color:var(--rl-text)!important;opacity:1!important}.category .thumbnail,.category .thumbnail.carousel,.category .thumbnail.max-250{width:100%!important;max-width:300px!important}.category img,.thumbnail img{width:100%!important;max-width:300px!important;height:auto!important}.panel,.panel-default,.panel-body,.panel-heading,.panel-footer,.well{background-color:var(--rl-surface)!important;border-color:var(--rl-border)!important;color:var(--rl-text-2)!important}#trip_info:not(.trip-info){background-color:var(--rl-surface)!important;border:1px solid var(--rl-border)!important;border-radius:var(--rl-radius)!important;box-sizing:border-box!important;width:100%!important;padding:24px 28px!important;overflow:hidden!important}.trip-info,#personal_information{box-sizing:border-box!important;background:0 0!important;border:0!important;border-radius:0!important;width:100%!important;padding:0!important}#personal_information{border-top:1px solid var(--rl-border-subtle)!important;margin-top:20px!important;padding-top:20px!important}.vehicle_subtotal table,.trip_total table{width:100%!important;margin-left:auto!important}.vehicle_subtotal th,.trip_total th{text-align:left!important}.vehicle_subtotal td,.trip_total td{text-align:right!important}#toggle_manual_billing_address,a#toggle_manual_billing_address,.toggle_manual_billing_address{color:var(--rl-accent)!important}#cc_phone{padding-left:52px!important}#lead_form *{box-sizing:border-box}#lead_form .lqc-fields{grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) repeat(3,minmax(0,1fr))!important;align-items:start!important;gap:16px!important}#lead_form .input_group>br{display:none!important}#lead_form .input_group>label{white-space:nowrap;height:18px;width:auto!important;margin:0 0 4px!important;font-size:10px!important;line-height:18px!important;display:block!important}#lead_form .lqc-fields .form-control,#return_fields>.form-control{width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;line-height:22px!important}#book_button{text-align:center!important;justify-content:center!important}#lead_form .lqc-return-block{width:100%;display:block}#lead_form .lqc-return-toggle{white-space:nowrap;gap:8px;width:auto!important;color:var(--rl-label)!important;align-items:center!important;margin:0!important;font-size:11px!important;line-height:16px!important;display:flex!important}#add_return{width:16px;height:16px;accent-color:var(--rl-accent);flex:none;margin:0}#lead_form:has(#add_return:checked) #return_fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px;width:min(100%,640px);margin-top:14px;display:grid!important}#return_fields>label{white-space:nowrap;width:auto!important;margin:0!important;font-size:10px!important;line-height:18px!important;display:block!important}@media (width>=601px){label[for=return_date_pickup]{grid-area:1/1}#return_date_pickup{grid-area:2/1}label[for=return_time_pickup]{grid-area:1/2}#return_time_pickup{grid-area:2/2}}@media (width>=601px) and (width<=900px){#lead_form .lqc-fields{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media (width<=600px){#lead_form .lqc-fields{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}#book_button{justify-content:center!important;width:100%!important;margin:14px 0 0!important}#lead_form .lqc-bottom-row{margin-top:16px!important;display:block!important}#lead_form:has(#add_return:checked) #return_fields{grid-template-columns:minmax(0,1fr);gap:4px}#return_fields>label:not(:first-child){margin-top:12px!important}}.category{padding:24px 26px!important}.vehicle-price{box-sizing:border-box!important;width:224px!important;min-width:224px!important;padding:16px!important}.vehicle-price .book_subtext,.vehicle-price .send_me_quote{overflow-wrap:anywhere;box-sizing:border-box!important;text-align:center!important;white-space:normal!important;justify-content:center!important;align-items:center!important;width:100%!important;height:52px!important;min-height:52px!important;margin:12px 0 0!important;padding:8px 12px!important;font-size:15px!important;line-height:1.2!important;display:flex!important}.vehicle-price .send_me_quote{background:0 0!important}.trip-info{box-sizing:border-box!important;padding:12px 14px!important}.trip-info>*{min-width:0}@media (width<=600px){.trip-info{padding:14px!important;line-height:1.45!important;display:block!important}.category{text-align:center!important;padding:24px 18px!important}.category .thumbnail,.category .thumbnail.carousel,.category .thumbnail.max-250{width:100%!important;max-width:220px!important;height:auto!important;min-height:0!important;margin:0 auto 14px!important}.category img,.thumbnail img{max-width:220px!important;height:auto!important}.vehicle-price{float:none!important;width:100%!important;min-width:0!important;max-width:none!important;margin:20px auto 0!important;padding:18px!important}.vehicle-price .book_subtext,.vehicle-price .send_me_quote{height:auto!important;min-height:52px!important;margin-top:12px!important}.description,.long_description{max-width:32ch;text-align:center!important;margin-left:auto!important;margin-right:auto!important;line-height:1.5!important}.artusmode_autocomplete_results{box-sizing:border-box!important;width:100%!important;max-width:calc(100vw - 36px)!important;overflow-x:hidden!important}.artusmode_suggest_address{white-space:normal!important;overflow-wrap:anywhere!important;max-width:100%!important;line-height:1.35!important}#trip_info:not(.trip-info){padding:18px!important}#personal_information,#personal_information form,#personal_information .panel,#personal_information .panel-body,#personal_information .panel-heading,#personal_information .panel-footer{width:100%!important;max-width:none!important;box-shadow:none!important;background:0 0!important;border-bottom:0!important;border-left:0!important;border-right:0!important;border-radius:0!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#personal_information .row{width:100%!important;margin-left:0!important;margin-right:0!important}#personal_information [class*=col-]{float:none!important;width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}#personal_information .form-group{width:100%!important;margin-left:0!important;margin-right:0!important}#personal_information .form-control{box-sizing:border-box!important;width:100%!important;max-width:none!important}#personal_information .page_button,#personal_information .page_next{box-sizing:border-box!important;text-align:center!important;justify-content:center!important;align-items:center!important;width:100%!important;max-width:none!important;min-height:52px!important;margin-left:0!important;margin-right:0!important;padding:12px 16px!important;line-height:1.25!important;display:flex!important}body:has(#personal_information) #ribbon,body:has(#personal_information) .trip-info{box-sizing:border-box!important;white-space:normal!important;width:100%!important;max-width:100%!important;margin:0!important;padding-left:15px!important;padding-right:15px!important}body:has(#personal_information) #ribbon div,body:has(#personal_information) #ribbon p,body:has(#personal_information) #ribbon span,body:has(#personal_information) .trip-info div,body:has(#personal_information) .trip-info p,body:has(#personal_information) .trip-info span{float:none!important;visibility:visible!important;white-space:normal!important;text-overflow:clip!important;overflow-wrap:anywhere!important;width:100%!important;max-width:100%!important;margin:0!important;display:block!important;position:static!important;overflow:visible!important}body:has(#personal_information) #ribbon div,body:has(#personal_information) #ribbon span,body:has(#personal_information) .trip-info div,body:has(#personal_information) .trip-info span{border-left:0!important}#personal_information .form-group,#personal_info.container .col-xs-12.z-index.no-padding{padding-left:0!important;padding-right:0!important}}body:has(.summary_vehicle) #trip_summary{box-sizing:border-box;width:100%}body:has(.summary_vehicle) .summary_vehicle{box-sizing:border-box!important;padding:28px!important;overflow:hidden!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total){float:none!important;clear:both!important;box-sizing:border-box!important;width:100%!important;max-width:420px!important;margin-left:0!important;margin-right:auto!important;padding:6px 14px!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) table{width:100%!important;margin:0!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) th{white-space:nowrap!important;text-align:left!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total) td{text-align:right!important}tr:has(#promo_code){display:table-row!important}tr:has(#promo_code)>*{vertical-align:middle!important;width:auto!important;padding-top:0!important;padding-bottom:0!important;display:table-cell!important}tr:has(#promo_code)>:first-child{white-space:nowrap!important;text-align:left!important;width:1%!important;padding-right:12px!important}:is(div,span):has(>#promo_code){grid-template-columns:minmax(0,1fr) 36px!important;align-items:center!important;width:100%!important;display:grid!important}#promo_code{width:100%!important;height:36px!important;margin:0!important;padding-top:0!important;padding-bottom:0!important}td:has(>#promo_code)>#promo_code{vertical-align:middle!important;width:calc(100% - 40px)!important;display:inline-block!important}:is(td,div,span):has(>#promo_code)>:not(#promo_code){width:36px!important;height:36px!important;margin:0!important}tr:has(#promo_code) :is(button,.btn,input[type=button],input[type=submit]){vertical-align:middle!important;justify-content:center!important;align-items:center!important;width:36px!important;height:36px!important;margin:0!important;padding:0!important;display:inline-flex!important}body:has(.summary_vehicle) .page_next{justify-content:center!important;align-items:center!important;width:min(100%,420px)!important;min-height:52px!important;margin:48px auto 0 0!important;display:flex!important}@media (width>=601px){body:has(.summary_vehicle) :is(div,section):has(:is(.vehicle_subtotal,.trip_total)):not(:has(.summary_vehicle)){float:none!important;flex:0 0 100%!important;width:100%!important;display:block!important}}@media (width<=600px){body:has(.summary_vehicle) .summary_vehicle{width:100%!important;margin:0!important;padding:24px 20px!important}body:has(.summary_vehicle) .summary_vehicle img{max-width:200px!important;margin:0 auto 20px!important;display:block!important}body:has(.summary_vehicle) :is(.vehicle_subtotal,.trip_total){width:100%!important;max-width:none!important;margin:0!important;padding:7px 0!important}tr:has(#promo_code)>*{padding-top:10px!important;padding-bottom:16px!important}tr:has(#promo_code)>:first-child{font-size:16px!important;line-height:1.2!important}body:has(.summary_vehicle) .page_next{width:calc(100% - 60px)!important;max-width:none!important;margin:40px 30px 0!important}}</style><div id="cat_list">
+        <div class="container">
+        <h1>SELECT YOUR RIDE</h1>
+        <div class="margin-bottom-20">
+            <div id="trip_info" class="trip-info mt-20">
+                <span id="edit-static">
+                
+                    <span class="ellipsis-60 trip-title no-border">
+                        <span class="bold">Pick Up: </span>
+                        <span class="pr-10">John F Kennedy International Airport JFK </span><br>
+                        
+                        <span class="bold">Drop Off: </span>
+                        <span class="pr-10"> Times Square, Manhattan, NY, USA </span>
+                    </span>
+
+                    <span class="ellipsis-30 trip-title">
+                        <span class="bold">Date: </span>
+                        <span class="pr-10">7:00 AM on Aug 15</span><br>
+                        <span class="bold">Duration: </span>
+                        <span class="pr-10">33 min</span>
+                    </span>
+                </span>
+                <span class="btn btn-default right" id="edit_info"><i id="edit_info_icon" class="fa fa-pencil"></i> Edit</span>
+                <span style="display: none;" id="edit-form">
+                    <form id="edit-lead-form" action="/leads/edit/quote/list/update.php" method="post">
+                        <input type="hidden" name="lead_id" value="TEST_LEAD_ID">
+                        <input type="hidden" name="css" value="7">
+                        <input type="hidden" name="lead_vehicle_id" value="1172">
+                        <input type="hidden" name="sec" value="TEST_SECURITY_TOKEN">
+                        <input type="hidden" name="lead_check_val" value="TEST_SECURITY_TOKEN">
+                        <input type="hidden" id="edit-exposed" name="edit-exposed" value="0"><br style="clear: both;">
+                    
+                    <table class="full-width">
+                        <tbody><tr id="row_edit_pickup">
+                           <td class="mobile-hide"><label for="autocomplete_pickup" class="trip-title">Pick Up: </label></td>
+                           <td><span class="mobile-show"><label for="autocomplete_pickup">Pick Up: </label><br></span>
+                           <input type="text" id="autocomplete_pickup" autocomplete="new-password" name="edit-pickup" class="form-control auto-width min-400 inline" value="John F Kennedy International Airport JFK ">
+                            <span id="pickup_address" class="hidden">
+                                <input type="text" id="autocomplete_pickup_address_id" name="pickup_address_id" value="1088">
+                                <input type="text" id="autocomplete_pickup_street_number" name="pickup_street_number">
+                                <input type="text" id="autocomplete_pickup_street" name="pickup_street_name">
+                                <input type="text" id="autocomplete_pickup_locality" name="pickup_city">
+                                <input type="text" id="autocomplete_pickup_administrative_area_level_1" name="pickup_state">
+                                <input type="text" id="autocomplete_pickup_postal_code" name="pickup_zip">
+                                <input type="text" id="autocomplete_pickup_country" name="pickup_country">
+                                <input type="text" id="autocomplete_pickup_latitude" name="pickup_latitude">
+                                <input type="text" id="autocomplete_pickup_longitude" name="pickup_longitude">
+                            </span></td>
+                        </tr>
+                    
+                        <tr id="row_edit_dropoff">
+                            <td class="mobile-hide"><label for="edit-dropoff" class="trip-title">Drop Off: </label></td>
+                            <td><span class="mobile-show"><label for="dropoff">Drop Off: </label><br></span>
+                                <input type="text" id="autocomplete_dropoff" autocomplete="new-password" name="edit-dropoff" class="form-control auto-width min-400 inline" value=" Times Square, Manhattan, NY, USA ">
+                            <span id="dropoff_address" class="hidden">
+                                <input type="text" id="autocomplete_dropoff_address_id" name="dropoff_address_id" value="138876">
+                                <input type="text" id="autocomplete_dropoff_street_number" name="dropoff_street_number">
+                                <input type="text" id="autocomplete_dropoff_street" name="dropoff_street_name">
+                                <input type="text" id="autocomplete_dropoff_locality" name="dropoff_city">
+                                <input type="text" id="autocomplete_dropoff_administrative_area_level_1" name="dropoff_state">
+                                <input type="text" id="autocomplete_dropoff_postal_code" name="dropoff_zip">
+                                <input type="text" id="autocomplete_dropoff_country" name="dropoff_country">
+                                <input type="text" id="autocomplete_dropoff_latitude" name="dropoff_latitude">
+                                <input type="text" id="autocomplete_dropoff_longitude" name="dropoff_longitude">
+                            </span>
+                            </td>
+                        </tr>
+
+                        <tr id="row_edit_stops_header">
+                            <td class="mobile-hide"><label class="trip-title">Stops: </label></td>
+                            <td><span class="mobile-show"><label class="trip-title">Stops: </label><br></span>
+                                <span class="btn btn-default" id="add_stop_btn"><i class="fa fa-plus"></i> Add Stop</span></td>
+                        </tr>
+                        <tr id="row_edit_date">
+                            <td class="mobile-hide"><label for="edit-date" class="trip-title">Date: </label></td>
+                            <td><span class="mobile-show"><label for="edit-date">Date: </label><br></span>
+                                <input type="date" name="edit-date" id="edit-date" class="form-control auto-width inline" min="2026-07-14" value="2026-08-15"></td>
+                        </tr>
+                        
+                        <tr id="row_edit_time">
+                            <td class="mobile-hide"><label for="edit-time" class="trip-title">Time: </label></td>
+                            <td><span class="mobile-show"><label for="edit-time">Time: </label><br></span>
+                                <input type="time" name="edit-time" id="edit-time" class="form-control auto-width inline" value="07:00:00"></td>
+                        </tr><tr>
+                            <td class="mobile-hide"><label for="edit-service_type" class="trip-title">Service Type: </label></td>
+                            <td><span class="mobile-show"><label for="edit-service_type">Service Type: </label><br></span>
+                                <select id="edit-service_type" class="form-control auto-width address-type inlineselect2" name="edit-service_type"><option value="null"> - Please Select - </option><option data-hourly="0" value="12">Point-to-Point</option><option data-hourly="0" value="13">Tour</option><option data-hourly="0" value="14">Greeter</option><option data-hourly="0" value="5" selected="selected">From Airport</option><option data-hourly="0" value="6">To Airport</option><option data-hourly="1" value="8">Hourly/As Directed</option></select>
+                            </td>
+                        </tr><tr id="row_edit_passengers">
+                            <td class="mobile-hide"><label for="edit-pax" class="trip-title">Passengers: </label></td>
+                            <td><span class="mobile-show"><label for="edit-pax">Passengers: </label><br></span>
+                                <input type="number" step="1" min="1" name="edit-pax" id="edit-pax" class="form-control auto-width inline" value="2"></td>
+                        </tr>
+                        
+                        <tr id="row_edit_luggage">
+                            <td class="mobile-hide"><label for="edit-luggage" class="trip-title">Luggage: </label></td>
+                            <td><span class="mobile-show"><label for="edit-luggage">Luggage: </label><br></span>
+                                <input type="number" step="1" min="0" name="edit-luggage" id="edit-luggage" class="form-control auto-width inline" value="0"></td>
+                        </tr></tbody></table>
+                        <input type="submit" id="edit_update" value="Update Request" class="margin-0 right margin-top-10">
+                        <span id="loading" style="display: none; font-size: 16pt;" class="right"><i class="fa fa-refresh fa-spin"></i></span>
+                    </form>
+                </span>
+                <div id="vehicle_category_list_info_footer" style="margin: 10px 0 0 10px;">    
+
+ </div>
+            </div>
+        </div></div>
+            <div class="container">
+
+                <div class="category col-xs-12" id="category_1020">
+
+                    <div class="col-sm-3 no-padding">
+                        <img src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/UVf8iXDyl.png" class="thumbnail max-250 max-250h inline carousel" data-cat_id="1020"><span class="grey carousel" data-cat_id="1020"></span>
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <span class="description">Sedan</span><br>
+                            <span class="icons">
+                                <span class="icon"><i class="fa fa-users"></i> 2</span>
+                                <span class="icon"><i class="fa fa-briefcase"></i> 2</span>
+                                <span class="attribute_icons"></span>
+                            </span>
+                            <span class="long_description vert-top"></span>
+
+                           
+                    </div>
+
+                     <div class="col-sm-4 col-md-3">
+                     <div class="vehicle-price ">
+                        <span class="price">$240.84</span>
+                        
+                        <span class="price_subtext">All Included</span>
+                        
+                        
+                        <a href="https://relier.addons.la/leads/new/forms/horizontal/book.php?&amp;sec=TEST_SECURITY_TOKEN&amp;config_id=13&amp;lead_id=TEST_LEAD_ID&amp;category_id=1020&amp;css=7">
+                          <span class="book_subtext">Reserve Sedan</span>
+                        </a>
+                        <a class="send_me_quote" href="https://relier.addons.la/leads/new/forms/common/send.php?lead_id=TEST_LEAD_ID&amp;sec=TEST_SECURITY_TOKEN&amp;category_id=1020&amp;css=7&amp;gl=TEST_LEAD_ID">Send Me Quote</a>
+                    
+                    </div>
+                    </div></div>
+
+                </div><br style="clear: both">
+            
+            <div class="container">
+
+                <div class="category col-xs-12" id="category_1028">
+
+                    <div class="col-sm-3 no-padding">
+                        <img src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/FPeAm6CTx.png" class="thumbnail max-250 max-250h inline carousel" data-cat_id="1028"><span class="grey carousel" data-cat_id="1028"></span>
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <span class="description">SUV</span><br>
+                            <span class="icons">
+                                <span class="icon"><i class="fa fa-users"></i> 5</span>
+                                <span class="icon"><i class="fa fa-briefcase"></i> 6</span>
+                                <span class="attribute_icons"></span>
+                            </span>
+                            <span class="long_description vert-top"></span>
+
+                           
+                    </div>
+
+                     <div class="col-sm-4 col-md-3">
+                     <div class="vehicle-price ">
+                        <span class="price">$259.82</span>
+                        
+                        
+                        
+                        
+                        <a href="https://relier.addons.la/leads/new/forms/horizontal/book.php?&amp;sec=TEST_SECURITY_TOKEN&amp;config_id=13&amp;lead_id=TEST_LEAD_ID&amp;category_id=1028&amp;css=7">
+                          <span class="book_subtext">Reserve SUV</span>
+                        </a>
+                        <a class="send_me_quote" href="https://relier.addons.la/leads/new/forms/common/send.php?lead_id=TEST_LEAD_ID&amp;sec=TEST_SECURITY_TOKEN&amp;category_id=1028&amp;css=7&amp;gl=TEST_LEAD_ID">Send Me Quote</a>
+                    
+                    </div>
+                    </div></div>
+
+                </div><br style="clear: both">
+            
+            <div class="container">
+
+                <div class="category col-xs-12" id="category_1015">
+
+                    <div class="col-sm-3 no-padding">
+                        <img src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/1052015163355_lq26KwvJIEkGOkaDmx27.jpg" class="thumbnail max-250 max-250h inline carousel" data-cat_id="1015"><span class="grey carousel" data-cat_id="1015"></span>
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <span class="description">14 Pax Van</span><br>
+                            <span class="icons">
+                                <span class="icon"><i class="fa fa-users"></i> 12</span>
+                                <span class="icon"><i class="fa fa-briefcase"></i> 12</span>
+                                <span class="attribute_icons"></span>
+                            </span>
+                            <span class="long_description vert-top"></span>
+
+                           
+                    </div>
+
+                     <div class="col-sm-4 col-md-3">
+                     <div class="vehicle-price ">
+                        <span class="price">$480.85</span>
+                        
+                        <span class="price_subtext">All Included</span>
+                        
+                        
+                        <a href="https://relier.addons.la/leads/new/forms/horizontal/book.php?&amp;sec=TEST_SECURITY_TOKEN&amp;config_id=13&amp;lead_id=TEST_LEAD_ID&amp;category_id=1015&amp;css=7">
+                          <span class="book_subtext">Reserve 14 Pax Van</span>
+                        </a>
+                        <a class="send_me_quote" href="https://relier.addons.la/leads/new/forms/common/send.php?lead_id=TEST_LEAD_ID&amp;sec=TEST_SECURITY_TOKEN&amp;category_id=1015&amp;css=7&amp;gl=TEST_LEAD_ID">Send Me Quote</a>
+                    
+                    </div>
+                    </div></div>
+
+                </div><br style="clear: both">
+            
+            <div class="container">
+
+                <div class="category col-xs-12" id="category_1023">
+
+                    <div class="col-sm-3 no-padding">
+                        <img src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/V3EWHvway.png" class="thumbnail max-250 max-250h inline carousel" data-cat_id="1023"><span class="grey carousel" data-cat_id="1023"></span>
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <span class="description">MotorCoach 52-54 pax</span><br>
+                            <span class="icons">
+                                <span class="icon"><i class="fa fa-users"></i> 50</span>
+                                <span class="icon"><i class="fa fa-briefcase"></i> 50</span>
+                                <span class="attribute_icons"></span>
+                            </span>
+                            <span class="long_description vert-top"></span>
+
+                           
+                    </div>
+
+                     <div class="col-sm-4 col-md-3">
+                     <div class="vehicle-price sold_out">
+                        <span class="price">Request Quote</span>
+                        
+                        <span class="price_subtext">All Included</span>
+                        
+                        
+                        <a href="https://relier.addons.la/leads/new/forms/common/unavailable.php?&amp;sec=TEST_SECURITY_TOKEN&amp;lead_id=TEST_LEAD_ID&amp;category_id=1023&amp;css=7">
+                          <span class="book_subtext">Send Me a Quote</span>
+                        </a>
+                        
+                    
+                    </div>
+                    </div></div>
+
+                </div><br style="clear: both">
+            
+            <div class="container">
+
+                <div class="category col-xs-12" id="category_1043">
+
+                    <div class="col-sm-3 no-padding">
+                        <img src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/ojqSRg2Vc.png" class="thumbnail max-250 max-250h inline carousel" data-cat_id="1043"><span class="grey carousel" data-cat_id="1043"></span>
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <span class="description">Mercedes Benz V class</span><br>
+                            <span class="icons">
+                                <span class="icon"><i class="fa fa-users"></i> 6</span>
+                                <span class="icon"><i class="fa fa-briefcase"></i> 8</span>
+                                <span class="attribute_icons"></span>
+                            </span>
+                            <span class="long_description vert-top">High-end van providing a luxurious and comfortable space for meetings, travel, and relaxation on the road.</span>
+
+                           
+                    </div>
+
+                     <div class="col-sm-4 col-md-3">
+                     <div class="vehicle-price sold_out">
+                        <span class="price">Request Quote</span>
+                        
+                        
+                        
+                        
+                        <a href="https://relier.addons.la/leads/new/forms/common/unavailable.php?&amp;sec=TEST_SECURITY_TOKEN&amp;lead_id=TEST_LEAD_ID&amp;category_id=1043&amp;css=7">
+                          <span class="book_subtext">Send Me a Quote</span>
+                        </a>
+                        
+                    
+                    </div>
+                    </div></div>
+
+                </div><br style="clear: both">
+            
+            <div class="container">
+
+                <div class="category col-xs-12" id="category_1044">
+
+                    <div class="col-sm-3 no-padding">
+                        <img src="https://addonsla.s3.amazonaws.com/relier/uploads/vehicles/PmgfCt75e.png" class="thumbnail max-250 max-250h inline carousel" data-cat_id="1044"><span class="grey carousel" data-cat_id="1044"></span>
+                    </div>
+
+                    <div class="col-sm-5 col-md-6">
+                        <span class="description">Mercedes Benz Sprinter</span><br>
+                            <span class="icons">
+                                <span class="icon"><i class="fa fa-users"></i> 15</span>
+                                <span class="icon"><i class="fa fa-briefcase"></i> 15</span>
+                                <span class="attribute_icons"></span>
+                            </span>
+                            <span class="long_description vert-top"><span style="color: #ffffff; font-family: Roboto, sans-serif; font-size: 15px; background-color: #000000;">The sophistication and inventiveness of this vehicle are wonderful. Passengers are provided with the fastest-moving van imaginable.</span></span>
+
+                           
+                    </div>
+
+                     <div class="col-sm-4 col-md-3">
+                     <div class="vehicle-price sold_out">
+                        <span class="price">Request Quote</span>
+                        
+                        
+                        
+                        
+                        <a href="https://relier.addons.la/leads/new/forms/common/unavailable.php?&amp;sec=TEST_SECURITY_TOKEN&amp;lead_id=TEST_LEAD_ID&amp;category_id=1044&amp;css=7">
+                          <span class="book_subtext">Send Me a Quote</span>
+                        </a>
+                        
+                    
+                    </div>
+                    </div></div>
+
+                </div><br style="clear: both">
+            </div>
+        <script>
+            jQuery('.vehicle-price a').click(function() {
+                var target = jQuery(this);
+                target.html('<i class=\'fa fa-refresh fa-spin fa-2x\'></i>').css('display', 'block').css('text-align', 'center');
+            });
+        
+            jQuery(document).ready(function() {
+                var heights = jQuery('html, body').map(function() {
+                        return jQuery(this).outerHeight(true);
+                }).get();
+
+                maxHeight = Math.max.apply(null, heights);
+                window.parent.postMessage({message: '{"width":"100%", "height":"'+maxHeight+'px", "task":"scroll"}'}, '*');
+            });
+
+            jQuery('.carousel').click(function() {
+                var w = jQuery(window).width();
+                if(w > 900) w = 900;
+                
+                // Create the element
+                var image_carousel = jQuery("<div id='image_carousel'><i class='fa fa-refresh fa-spin fa-5x'></i></div>");
+                
+                // Append the element to the body or other container
+                jQuery("body").append(image_carousel);
+                
+                // Then initialize the dialog
+                image_carousel.dialog({
+                    width: w,
+                    title: 'Vehicle Media',
+                    draggable: false,
+                    modal: true,
+                    closeText: null,
+                    dialogClass: 'no_title',
+                    open: function() {
+                        jQuery('.ui-dialog-titlebar-close').removeAttr('title');
+                        jQuery('.ui-widget-overlay').bind('click', function() {
+                            jQuery('#image_carousel').dialog('close');
+                        });
+                    },
+                    close: function() {
+                        jQuery('#image_carousel').remove();
+                    }
+                });
+                
+                var cat_id = jQuery(this).data('cat_id');
+                jQuery.ajax({
+                    url: '/vehicles/categories/ajax/photos.php',
+                    method: 'POST',
+                    data: {
+                        cat_id: cat_id
+                    },
+                    success: function(result) {
+                        jQuery('#image_carousel').html(result);
+                        jQuery('#lightSlider').lightSlider({ item: 1, loop: true });
+                    }
+                })
+            });
+            
+            jQuery('#edit_info').click(function() {
+                var exposed = jQuery('#edit-exposed'); 
+                if(exposed.val() == 0) {
+                    jQuery('#edit-form').show();
+                    jQuery('#edit-static').hide();
+                    
+                    exposed.val(1);
+                } 
+                else {
+                    jQuery('#edit-form').hide();
+                    
+                    jQuery('#edit-static').show();
+                    exposed.val(0);
+                }
+            });
+            jQuery('#autocomplete_pickup').artusmodeAutocomplete();
+            jQuery('#autocomplete_dropoff').artusmodeAutocomplete();
+
+            // Wire autocomplete for any existing stop rows rendered server-side.
+            jQuery('tr.row_edit_stop input[type=text][id^=autocomplete_]').each(function() {
+                if(/^autocomplete_(return_)?stop_\d+$/.test(this.id)) jQuery(this).artusmodeAutocomplete();
+            });
+
+            var stop_next_idx        = 0;
+            var return_stop_next_idx = 0;
+
+            function buildStopRow(prefix, idx, isReturn) {
+                var base = (isReturn ? 'autocomplete_return_stop_' : 'autocomplete_stop_') + idx;
+                return '<tr class="row_edit_stop" data-prefix="' + prefix + '" data-stop-idx="' + idx + '">'
+                    + '<td class="mobile-hide"><label for="' + base + '" class="trip-title">Stop: </label></td>'
+                    + '<td><span class="mobile-show"><label for="' + base + '">Stop: </label><br/></span>'
+                    + '<input type="hidden" name="' + prefix + '[' + idx + '][lead_vehicle_stop_id]" value="" />'
+                    + '<input type="text" id="' + base + '" autocomplete="off" name="' + prefix + '[' + idx + '][address_text]" class="form-control auto-width min-400 inline" />'
+                    + '<span class="btn btn-default btn-sm remove-stop-btn" title="Remove stop"><i class="fa fa-times"></i></span>'
+                    + '<span class="hidden">'
+                    +   '<input type="text" id="' + base + '_address_id"                  name="' + prefix + '[' + idx + '][address_id]" />'
+                    +   '<input type="text" id="' + base + '_street_number"               name="' + prefix + '[' + idx + '][street_number]" />'
+                    +   '<input type="text" id="' + base + '_route"                       name="' + prefix + '[' + idx + '][street_name]" />'
+                    +   '<input type="text" id="' + base + '_locality"                    name="' + prefix + '[' + idx + '][city]" />'
+                    +   '<input type="text" id="' + base + '_administrative_area_level_1" name="' + prefix + '[' + idx + '][state]" />'
+                    +   '<input type="text" id="' + base + '_postal_code"                 name="' + prefix + '[' + idx + '][zip]" />'
+                    +   '<input type="text" id="' + base + '_country"                     name="' + prefix + '[' + idx + '][country]" />'
+                    +   '<input type="text" id="' + base + '_latitude"                    name="' + prefix + '[' + idx + '][latitude]" />'
+                    +   '<input type="text" id="' + base + '_longitude"                   name="' + prefix + '[' + idx + '][longitude]" />'
+                    + '</span></td></tr>';
+            }
+
+            jQuery('#add_stop_btn').on('click', function() {
+                var row = jQuery(buildStopRow('stops', stop_next_idx, false));
+                var after = jQuery('tr.row_edit_stop[data-prefix="stops"]').last();
+                if(after.length === 0) after = jQuery('#row_edit_stops_header');
+                after.after(row);
+                jQuery('#autocomplete_stop_' + stop_next_idx).artusmodeAutocomplete();
+                stop_next_idx++;
+            });
+
+            jQuery('#add_return_stop_btn').on('click', function() {
+                var row = jQuery(buildStopRow('return_stops', return_stop_next_idx, true));
+                var after = jQuery('tr.row_edit_stop[data-prefix="return_stops"]').last();
+                if(after.length === 0) after = jQuery('#row_edit_return_stops_header');
+                after.after(row);
+                jQuery('#autocomplete_return_stop_' + return_stop_next_idx).artusmodeAutocomplete();
+                return_stop_next_idx++;
+            });
+
+            jQuery(document).on('click', '.remove-stop-btn', function() {
+                jQuery(this).closest('tr.row_edit_stop').remove();
+                // no reindex — PHP foreach handles sparse arrays
+            });
+
+            jQuery('#edit-lead-form').submit(function() {
+                var error = false;
+			    var message = 'The following errors must be fixed to update:';
+
+			    var pu_addr_id = jQuery('#autocomplete_pickup_address_id').val();
+			    var pu_addr_lat = jQuery('#autocomplete_pickup_latitude').val();
+			    if(pu_addr_id == '' && pu_addr_lat == '') {
+			        error = true;
+			        message += '\n - The pick up address is not recognized.  Please be sure to choose an option from the suggestions.';
+			    }
+			    var do_addr_id = jQuery('#autocomplete_dropoff_address_id').val();
+			    var do_addr_lat = jQuery('#autocomplete_dropoff_latitude').val();
+			    if(do_addr_id == '' && do_addr_lat == '') {
+			        error = true;
+			        message += '\n - The drop off address is not recognized.  Please be sure to choose an option from the suggestions.';
+			    }
+			    var pu_date = jQuery('#edit-date').val();
+			    var pu_time = jQuery('#edit-time').val();
+			    if(pu_date < '2026-07-14') {
+			        error = true;
+			        message += '\n - You cannot have a pick-up date in the past.';
+			    }
+
+                // Stop rows: each must resolve to either an address_id or a latitude (Google Places pick).
+                jQuery('tr.row_edit_stop').each(function() {
+                    var base = jQuery(this).find('input[type=text][id^=autocomplete_]').first().attr('id');
+                    if(!base) return;
+                    var txt = jQuery('#'+base).val();
+                    var aid = jQuery('#'+base+'_address_id').val();
+                    var lat = jQuery('#'+base+'_latitude').val();
+                    if(txt && !aid && !lat) {
+                        error = true;
+                        message += '\n - A stop address is not recognized.  Please choose an option from the suggestions.';
+                    }
+                });
+
+			    if(error) {
+			        alert(message);
+			        return false;
+			    }
+                else {
+                    jQuery('#edit_update').hide();
+                    jQuery('#loading').show();
+                    return true;
+                }
+            });
+        </script>
+    </div><!-- Comments out the printed notifications below --></div></body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>
