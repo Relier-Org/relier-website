@@ -21,6 +21,13 @@
   outline: none;
 }
 
+/* One line always: lets the booking grid size the column to the longest
+   translation instead of wrapping the field to two rows. */
+.trigger > span {
+  display: block;
+  white-space: nowrap;
+}
+
 .value {
   color: var(--color-silver-100);
 }

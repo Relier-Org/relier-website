@@ -1,0 +1,64 @@
+{
+  "showcase": {
+    "kicker": "A Frota",
+    "title": "sempre pronta.",
+    "lead": "Seis categorias, um único padrão. Sempre pontuais, sempre impecáveis: a galeria avança sozinha; pause para ver de perto.",
+    "imageAlt": "{name} ou similar",
+    "previousVehicle": "Veículo anterior",
+    "nextVehicle": "Próximo veículo",
+    "categories": "Categorias da frota",
+    "exploreFull": "Explore a frota completa"
+  },
+  "tiers": {
+    "executive-sedan": "Sedã Executivo",
+    "flagship-sedan": "Sedã Topo de Linha",
+    "full-size-suv": "SUV de Grande Porte",
+    "executive-van": "Van Executiva",
+    "mini-coach": "Micro-ônibus",
+    "motor-coach": "Ônibus"
+  },
+  "meta": {
+    "title": "Frota · Relier — Nossos veículos",
+    "description": "Veículos menores e maiores disponíveis para mobilidade pessoal: sedãs, SUVs, S-Class, vans Sprinter, micro-ônibus e ônibus."
+  },
+  "hero": {
+    "eyebrow": "Nossa frota",
+    "titleLine1": "Nossa frota,",
+    "titleLine2": "sempre pronta."
+  },
+  "grid": {
+    "photoComingSoon": "Foto em breve"
+  },
+  "smaller": {
+    "title": "Veículos menores",
+    "lead": "Sedãs, SUVs e vans executivas de última geração, cada um impecavelmente conservado, com motorista e disponível 24 horas. Escolha por passageiros e malas; cada categoria é oferecida com o modelo exibido ou um equivalente da mesma classe."
+  },
+  "larger": {
+    "title": "Veículos maiores",
+    "lead": "Para grupos, produções e eventos: micro-ônibus e um ônibus de 56 passageiros, com o mesmo padrão de serviço e coordenação dos nossos carros privativos."
+  },
+  "vehicles": {
+    "sedan": {
+      "tier": "Sedã",
+      "label": "Sedã Executivo"
+    },
+    "suv": {
+      "tier": "SUV",
+      "label": "SUV de Grande Porte"
+    },
+    "sClass": {
+      "tier": "S Class",
+      "label": "Sedã Topo de Linha"
+    },
+    "van": {
+      "tier": "Van",
+      "label": "Van Executiva"
+    },
+    "minibus": {
+      "tier": "Micro-ônibus"
+    },
+    "motorcoach": {
+      "tier": "Ônibus"
+    }
+  }
+}

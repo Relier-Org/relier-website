@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   FacebookIcon,
   LinkedInIcon,
@@ -21,25 +22,21 @@ const buildTargets = (title: string, url: string) => {
   return [
     {
       key: "facebook",
-      label: "Share on Facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
       Icon: FacebookIcon,
     },
     {
       key: "linkedin",
-      label: "Share on LinkedIn",
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
       Icon: LinkedInIcon,
     },
     {
       key: "x",
-      label: "Share on X",
       href: `https://twitter.com/intent/tweet?text=${t}&url=${u}`,
       Icon: XIcon,
     },
     {
       key: "email",
-      label: "Share by email",
       href: `mailto:?subject=${t}&body=${u}`,
       Icon: MailIcon,
     },
@@ -47,6 +44,7 @@ const buildTargets = (title: string, url: string) => {
 };
 
 export default function PostShare({ title, url }: PostShareProps) {
+  const t = useTranslations("blog.share");
   const [copied, setCopied] = useState(false);
   const targets = buildTargets(title, url);
 
@@ -62,16 +60,16 @@ export default function PostShare({ title, url }: PostShareProps) {
 
   return (
     <div className={styles.wrap}>
-      <p className={styles.label}>Share this post</p>
+      <p className={styles.label}>{t("label")}</p>
       <div className={styles.row}>
-        {targets.map(({ key, label, href, Icon }) => (
+        {targets.map(({ key, href, Icon }) => (
           <a
             key={key}
             className={styles.btn}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={label}
+            aria-label={t(key)}
           >
             <Icon width={16} height={16} />
           </a>
@@ -80,12 +78,12 @@ export default function PostShare({ title, url }: PostShareProps) {
           type="button"
           className={styles.btn}
           onClick={copy}
-          aria-label={copied ? "Link copied" : "Copy link"}
+          aria-label={copied ? t("linkCopied") : t("copyLink")}
         >
           <LinkIcon width={16} height={16} />
         </button>
         <span className={styles.copyHint} aria-live="polite">
-          {copied ? "Link copied" : ""}
+          {copied ? t("linkCopied") : ""}
         </span>
       </div>
     </div>

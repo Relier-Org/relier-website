@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import { ALL_CITIES, COVERAGE, project } from "@/lib/coverage/data";
 import styles from "./CoverageMap.module.css";
 
 export default function CoverageMap() {
+  const t = useTranslations("home");
   const [showAll, setShowAll] = useState(false);
 
   return (
@@ -13,17 +15,13 @@ export default function CoverageMap() {
       <div className="container">
         <Reveal>
           <header className={styles.header}>
-            <p className={styles.kicker}>Global coverage</p>
+            <p className={styles.kicker}>{t("coverage.kicker")}</p>
             <h2 className={styles.title}>
-              Two homes,
+              {t("coverage.titleLine1")}
               <br />
-              <span className="muted">one network worldwide.</span>
+              <span className="muted">{t("coverage.titleLine2")}</span>
             </h2>
-            <p className={styles.lead}>
-              Headquartered in New York and Barcelona, with the same chauffeured
-              standard across 500+ cities in Europe, the Americas, the Middle
-              East, Africa and Asia.
-            </p>
+            <p className={styles.lead}>{t("coverage.lead")}</p>
           </header>
         </Reveal>
 
@@ -31,7 +29,7 @@ export default function CoverageMap() {
           <div
             className={styles.map}
             role="img"
-            aria-label="Map of Relier coverage across 500+ cities worldwide"
+            aria-label={t("coverage.mapAria")}
           >
             <div className={styles.land} aria-hidden="true" />
             <div className={styles.dots} aria-hidden="true" />
@@ -51,9 +49,7 @@ export default function CoverageMap() {
           </div>
 
           <div className={styles.bar}>
-            <p className={styles.caption}>
-              500+ cities across 40+ countries — hover the map to explore.
-            </p>
+            <p className={styles.caption}>{t("coverage.caption")}</p>
             <button
               type="button"
               className={styles.toggle}
@@ -61,7 +57,7 @@ export default function CoverageMap() {
               aria-expanded={showAll}
               aria-controls="coverage-full"
             >
-              {showAll ? "Hide destinations" : "View all destinations"}
+              {showAll ? t("coverage.hide") : t("coverage.viewAll")}
               <span className={styles.toggleIcon} aria-hidden="true">
                 {showAll ? "−" : "+"}
               </span>
@@ -78,11 +74,15 @@ export default function CoverageMap() {
           <div className={styles.fullGrid}>
             {COVERAGE.map((region) => (
               <div key={region.label} className={styles.fullRegion}>
-                <h3 className={styles.fullRegionLabel}>{region.label}</h3>
+                <h3 className={styles.fullRegionLabel}>
+                  {t(`coverage.regions.${region.label}`)}
+                </h3>
                 <div className={styles.fullCountries}>
                   {region.countries.map((c) => (
                     <div key={c.country} className={styles.fullCountry}>
-                      <p className={styles.fullCountryName}>{c.country}</p>
+                      <p className={styles.fullCountryName}>
+                        {t(`coverage.countries.${c.country}`)}
+                      </p>
                       <p className={styles.fullCities}>
                         {c.cities.map((city) => city.name).join(" · ")}
                       </p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import styles from "./DatePicker.module.css";
 
 type DatePickerProps = {
@@ -8,22 +9,6 @@ type DatePickerProps = {
   onChange: (date: Date | null) => void;
   placeholder?: string;
 };
-
-const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
 
 function startOfDay(d: Date) {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -48,17 +33,36 @@ function getCalendarGrid(year: number, month: number): Date[] {
   return days;
 }
 
-function formatDisplay(d: Date): string {
-  return `${MONTHS[d.getMonth()].slice(0, 3)} ${d.getDate()}, ${d.getFullYear()}`;
-}
-
 export default function DatePicker({
   value,
   onChange,
-  placeholder = "Select a date",
+  placeholder,
 }: DatePickerProps) {
+  const t = useTranslations("booking");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const today = useMemo(() => startOfDay(new Date()), []);
+
+  const displayFormat = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale, {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }),
+    [locale]
+  );
+  const monthTitleFormat = useMemo(
+    () => new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }),
+    [locale]
+  );
+  const weekdays = useMemo(() => {
+    const format = new Intl.DateTimeFormat(locale, { weekday: "short" });
+    // 2024-01-01 is a Monday; the grid starts on Monday.
+    return Array.from({ length: 7 }, (_, i) =>
+      format.format(new Date(2024, 0, 1 + i))
+    );
+  }, [locale]);
   const [viewYear, setViewYear] = useState(
     value?.getFullYear() ?? today.getFullYear()
   );
@@ -122,34 +126,38 @@ export default function DatePicker({
         aria-expanded={open}
       >
         <span className={value ? styles.value : styles.placeholder}>
-          {value ? formatDisplay(value) : placeholder}
+          {value ? displayFormat.format(value) : placeholder ?? t("datePicker.placeholder")}
         </span>
       </button>
       {open && (
-        <div className={styles.popover} role="dialog" aria-label="Select date">
+        <div
+          className={styles.popover}
+          role="dialog"
+          aria-label={t("datePicker.dialogLabel")}
+        >
           <div className={styles.header}>
             <button
               type="button"
               className={styles.navBtn}
               onClick={goPrev}
-              aria-label="Previous month"
+              aria-label={t("datePicker.prevMonth")}
             >
               ‹
             </button>
             <span className={styles.title}>
-              {MONTHS[viewMonth]} {viewYear}
+              {monthTitleFormat.format(new Date(viewYear, viewMonth, 1))}
             </span>
             <button
               type="button"
               className={styles.navBtn}
               onClick={goNext}
-              aria-label="Next month"
+              aria-label={t("datePicker.nextMonth")}
             >
               ›
             </button>
           </div>
           <div className={styles.weekdays}>
-            {WEEKDAYS.map((w) => (
+            {weekdays.map((w) => (
               <span key={w} className={styles.weekday}>
                 {w}
               </span>

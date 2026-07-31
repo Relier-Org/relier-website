@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useFormatter, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import TextCTA from "@/components/ui/TextCTA";
 import type { Post } from "@/lib/blog/posts";
 import styles from "./BlogCard.module.css";
@@ -8,16 +9,9 @@ interface BlogCardProps {
   post: Post;
 }
 
-const formatDate = (iso: string) => {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-};
-
 export default function BlogCard({ post }: BlogCardProps) {
+  const t = useTranslations("blog");
+  const format = useFormatter();
   const href = `/${post.slug}/`;
   return (
     <article className={styles.card}>
@@ -35,9 +29,14 @@ export default function BlogCard({ post }: BlogCardProps) {
         )}
       </Link>
       <div className={styles.meta}>
-        <span className={styles.tag}>News</span>
+        <span className={styles.tag}>{t("tag")}</span>
         <time className={styles.date} dateTime={post.date}>
-          {formatDate(post.date)}
+          {format.dateTime(new Date(post.date), {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            timeZone: "UTC",
+          })}
         </time>
       </div>
       <h3 className={styles.title}>
@@ -45,7 +44,7 @@ export default function BlogCard({ post }: BlogCardProps) {
       </h3>
       <p className={styles.excerpt}>{post.excerpt}</p>
       <TextCTA href={href} tone="light" className={styles.cta}>
-        Read more
+        {t("readMore")}
       </TextCTA>
     </article>
   );

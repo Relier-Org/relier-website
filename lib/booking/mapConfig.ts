@@ -24,15 +24,30 @@ export type RouteSummary = {
   durationSeconds: number;
 };
 
+// Photon only accepts these; anything else 400s. "default" returns native names.
+const PHOTON_LANGS = new Set(["de", "en", "fr", "it"]);
+
+function photonLang(locale?: string): string {
+  const base = locale?.split("-")[0].toLowerCase();
+  return base && PHOTON_LANGS.has(base) ? base : "default";
+}
+
+export type SearchPlacesOptions = {
+  locale?: string;
+  /** Localized label used when a result carries no usable name. */
+  unknownLabel?: string;
+};
+
 export async function searchPlaces(
   query: string,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  options?: SearchPlacesOptions
 ): Promise<PlaceFeature[]> {
   if (!query.trim()) return [];
   const url = new URL(GEOCODING_URL);
   url.searchParams.set("q", query);
   url.searchParams.set("limit", "5");
-  url.searchParams.set("lang", "en");
+  url.searchParams.set("lang", photonLang(options?.locale));
 
   const res = await fetch(url.toString(), { signal });
   if (!res.ok) throw new Error(`Geocoding failed: ${res.status}`);
@@ -57,7 +72,7 @@ export async function searchPlaces(
     const primary =
       [p.housenumber, p.street].filter(Boolean).join(" ") || p.name || "";
     const secondary = [p.city, p.state, p.country].filter(Boolean).join(", ");
-    const name = primary || secondary || "Unknown";
+    const name = primary || secondary || options?.unknownLabel || "Unknown";
     const fullName = [primary, secondary].filter(Boolean).join(", ");
     return {
       id: `${p.osm_id ?? i}`,
@@ -93,15 +108,20 @@ export async function fetchRoute(
   };
 }
 
-export function formatDistance(meters: number): string {
-  const miles = meters / 1609.34;
-  return `${miles.toFixed(1)} mi`;
+// Distances stay in miles (US-operated service); only the number formatting
+// follows the locale — es/pt render "12,4 mi".
+export function formatDistance(meters: number, locale = "en"): string {
+  return new Intl.NumberFormat(locale, {
+    style: "unit",
+    unit: "mile",
+    unitDisplay: "short",
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(meters / 1609.34);
 }
 
-export function formatDuration(seconds: number): string {
+/** Raw parts; the localized string is assembled from booking messages. */
+export function splitDuration(seconds: number): { hours: number; minutes: number } {
   const mins = Math.round(seconds / 60);
-  if (mins < 60) return `${mins} min`;
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return m ? `${h}h ${m}m` : `${h}h`;
+  return { hours: Math.floor(mins / 60), minutes: mins % 60 };
 }

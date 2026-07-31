@@ -1,0 +1,88 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Fraunces, Manrope } from "next/font/google";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { clientNamespaces } from "@/i18n/request";
+import { ORIGIN } from "@/lib/i18n/seo";
+import "../globals.css";
+
+// OG locale tags (BCP 47 with region) per site locale.
+const OG_LOCALES: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  pt: "pt_BR",
+};
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "home" });
+
+  return {
+    metadataBase: new URL(ORIGIN),
+    title: t("meta.title"),
+    description: t("meta.description"),
+    openGraph: {
+      title: t("meta.title"),
+      description: t("meta.ogDescription"),
+      type: "website",
+      locale: OG_LOCALES[locale] ?? OG_LOCALES.en,
+    },
+  };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}>) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
+  const clientMessages = Object.fromEntries(
+    clientNamespaces.map((ns) => [ns, messages[ns]])
+  );
+
+  return (
+    <html lang={locale} className={`${fraunces.variable} ${manrope.variable}`}>
+      <body>
+        <NextIntlClientProvider messages={clientMessages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,96 @@
+{
+  "about": {
+    "meta": {
+      "title": "Nosotros · Relier — Un concierge de movilidad personal",
+      "description": "Relier es una empresa líder de transporte a nivel mundial. Comodidad, conveniencia, lujo y mucho más en un solo lugar, dondequiera que te lleve tu viaje."
+    },
+    "hero": {
+      "eyebrow": "Sobre Relier",
+      "titleLine1": "Una forma fluida de viajar",
+      "titleLine2": "a cualquier lugar del mundo."
+    },
+    "intro": {
+      "lead": "¿Buscas una forma fluida de viajar a cualquier lugar del mundo?",
+      "leadAccent": "Estás en el lugar indicado.",
+      "support": "Relier es tu solución global de transporte de primer nivel: comodidad, conveniencia, lujo y mucho más en un solo lugar."
+    },
+    "bento": {
+      "photoAlt": "Chofer de Relier abriendo la puerta a un cliente",
+      "titleLine1": "Solo dinos qué necesitas,",
+      "titleLine2": "nosotros lo hacemos realidad.",
+      "body1": "Relier es una empresa líder de transporte a nivel mundial. Con años de experiencia en la industria, nuestro equipo de profesionales ofrece un servicio de primer nivel adaptado a cualquier requerimiento de viaje. Ya sea que viajes solo a un evento importante o que coordines el transporte de unas vacaciones en grupo, una salida corporativa o un viaje internacional, estás cubierto.",
+      "body2": "En Relier, la satisfacción de nuestros clientes es siempre nuestra máxima prioridad. Cuidamos cada detalle para garantizar una experiencia de viaje fluida, dondequiera que te lleve tu recorrido. Con nosotros estás en buenas manos y siempre recibirás el servicio de alta calidad que mereces."
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contacto · Relier — Concierge de movilidad personal",
+      "description": "Habla con un concierge de Relier. Teléfono, correo y la sede en Brooklyn: respondemos con prontitud a cada consulta."
+    },
+    "hero": {
+      "eyebrow": "Ponte en contacto",
+      "titleLine1": "Atención al cliente,",
+      "titleLine2": "hecha personal.",
+      "lead": "Si necesitas algo a la medida, escríbenos: estamos aquí para ayudarte y te responderemos con prontitud."
+    },
+    "statement": "Hacemos más de lo esperado para que cada experiencia de viaje se adapte a tus preferencias. Nuestro equipo de profesionales dedicados tiene amplia experiencia en rutas y logística global, y ofrece un transporte eficiente y puntual a cualquier destino del mundo. Nuestro objetivo es superar tus expectativas, asegurando que llegues a tiempo, con comodidad y con el máximo lujo.",
+    "form": {
+      "label": "Envía un mensaje",
+      "title": "Cuéntanos a dónde vas.",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "message": "Mensaje",
+      "placeholders": {
+        "firstName": "Ana",
+        "lastName": "Pérez",
+        "email": "ana@email.com",
+        "phone": "+1 555 000 0000",
+        "message": "Cuéntanos sobre tu viaje: fechas, ruta, cantidad de pasajeros y cualquier pedido especial."
+      },
+      "errors": {
+        "required": "Obligatorio",
+        "email": "Ingresa un correo válido"
+      },
+      "fine": "Al enviar, aceptas que nuestro equipo te contacte.",
+      "submit": "Enviar",
+      "sending": "Enviando...",
+      "success": {
+        "title": "Gracias.",
+        "body": "Tu mensaje va camino a nuestro equipo de concierge. Te responderemos dentro de la hora en horario laboral.",
+        "again": "Enviar otro mensaje"
+      }
+    },
+    "info": {
+      "label": "Concierge",
+      "titleLead": "Líneas directas con",
+      "titleMuted": "nuestro equipo.",
+      "phoneLabel": "Reservas por teléfono",
+      "emailLabel": "Consultas por correo",
+      "followLabel": "Síguenos"
+    },
+    "map": {
+      "eyebrow": "Visítanos",
+      "titleLine1": "Costanera de Williamsburg,",
+      "titleLine2": "Brooklyn, Nueva York.",
+      "iframeTitle": "Mapa que muestra la oficina de Relier en Nueva York"
+    }
+  },
+  "testimonials": {
+    "meta": {
+      "title": "Testimonios · Relier — Reseñas verificadas de 5 estrellas",
+      "description": "Viajeros reales, viajes reales. Reseñas verificadas de 5 estrellas de Relier: transporte con chofer y servicio de concierge en América, Europa y Medio Oriente."
+    },
+    "hero": {
+      "titleLine1": "Viajeros reales,",
+      "titleLine2": "viajes reales.",
+      "lead": "{count}+ reseñas verificadas en Google, Tripadvisor y Birdeye, que nos califican con {rating} de 5.",
+      "reviewsCount": "{count} reseñas"
+    },
+    "intro": {
+      "eyebrow": "En la ruta con nosotros",
+      "body": "Nuestros clientes destacan de forma constante nuestro servicio impecable, profesionalismo y confiabilidad. Con choferes expertos que conocen a fondo cada ciudad, nuestro servicio de transporte mundial garantiza viajes fluidos, eficientes y personalizados, algo que se refleja en las numerosas reseñas de 5 estrellas que recibimos con orgullo."
+    }
+  }
+}

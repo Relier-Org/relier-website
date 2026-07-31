@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import maplibregl, { type Map as MapLibreMap, type LngLatBoundsLike } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import {
   MAP_STYLE_URL,
   fetchRoute,
   formatDistance,
-  formatDuration,
+  splitDuration,
   type PlaceFeature,
   type RouteSummary,
 } from "@/lib/booking/mapConfig";
@@ -30,11 +31,13 @@ function makeMarkerEl(variant: "pickup" | "dropoff") {
 }
 
 export default function RouteMap({ pickup, dropoff }: RouteMapProps) {
+  const t = useTranslations("booking");
+  const locale = useLocale();
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const markersRef = useRef<maplibregl.Marker[]>([]);
   const [route, setRoute] = useState<RouteSummary | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(false);
 
   // Init map once
   useEffect(() => {
@@ -78,7 +81,7 @@ export default function RouteMap({ pickup, dropoff }: RouteMapProps) {
 
     async function loadRoute() {
       try {
-        setError(null);
+        setError(false);
         const r = await fetchRoute(pickup.coords, dropoff.coords, controller.signal);
         if (cancelled) return;
         setRoute(r);
@@ -135,7 +138,7 @@ export default function RouteMap({ pickup, dropoff }: RouteMapProps) {
         else m.once("load", renderRoute);
       } catch (err) {
         if (cancelled || (err as Error).name === "AbortError") return;
-        setError("Couldn't fetch route. Try again.");
+        setError(true);
       }
     }
 
@@ -147,28 +150,37 @@ export default function RouteMap({ pickup, dropoff }: RouteMapProps) {
     };
   }, [pickup, dropoff]);
 
+  function durationLabel(seconds: number) {
+    const { hours, minutes } = splitDuration(seconds);
+    if (!hours) return t("routeMap.durationMinutes", { minutes });
+    if (!minutes) return t("routeMap.durationHours", { hours });
+    return t("routeMap.durationHoursMinutes", { hours, minutes });
+  }
+
   return (
     <div className={styles.shell}>
-      <div ref={containerRef} className={styles.map} aria-label="Trip route preview" />
+      <div ref={containerRef} className={styles.map} aria-label={t("routeMap.mapLabel")} />
       <div className={styles.meta}>
         {error ? (
-          <span className={styles.error}>{error}</span>
+          <span className={styles.error}>{t("routeMap.error")}</span>
         ) : route ? (
           <>
             <span className={styles.metaItem}>
-              <span className={styles.metaLabel}>Duration</span>
+              <span className={styles.metaLabel}>{t("routeMap.duration")}</span>
               <span className={styles.metaValue}>
-                ~{formatDuration(route.durationSeconds)}
+                ~{durationLabel(route.durationSeconds)}
               </span>
             </span>
             <span className={styles.metaDivider} aria-hidden="true" />
             <span className={styles.metaItem}>
-              <span className={styles.metaLabel}>Distance</span>
-              <span className={styles.metaValue}>{formatDistance(route.distanceMeters)}</span>
+              <span className={styles.metaLabel}>{t("routeMap.distance")}</span>
+              <span className={styles.metaValue}>
+                {formatDistance(route.distanceMeters, locale)}
+              </span>
             </span>
           </>
         ) : (
-          <span className={styles.loading}>Calculating route…</span>
+          <span className={styles.loading}>{t("routeMap.calculating")}</span>
         )}
       </div>
     </div>

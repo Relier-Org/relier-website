@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
 import styles from "./ServiceCloser.module.css";
@@ -12,9 +13,11 @@ interface ServiceCloserProps {
 export default function ServiceCloser({
   title,
   body,
-  ctaLabel = "Book online",
+  ctaLabel,
   ctaHref = "/#booking",
 }: ServiceCloserProps) {
+  const t = useTranslations("common");
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -25,7 +28,7 @@ export default function ServiceCloser({
           </div>
           <div className={styles.actions}>
             <Button href={ctaHref} withArrow className={styles.cta}>
-              {ctaLabel}
+              {ctaLabel ?? t("bookOnline")}
             </Button>
           </div>
         </Reveal>

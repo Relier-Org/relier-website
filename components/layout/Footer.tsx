@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { SVGProps } from "react";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import {
   InstagramIcon,
   FacebookIcon,
@@ -16,23 +17,23 @@ import styles from "./Footer.module.css";
 // TODO: client to confirm Barcelona HQ address
 
 const SERVICE_LINKS = [
-  { href: "/transfers", label: "Transfers" },
-  { href: "/hourly", label: "As directed/Hourly" },
-  { href: "/corporate", label: "Corporate" },
-  { href: "/events", label: "Events" },
-  { href: "/airport", label: "Airport transfers" },
+  { href: "/transfers", labelKey: "common.transfers" },
+  { href: "/hourly", labelKey: "common.asDirectedHourly" },
+  { href: "/corporate", labelKey: "common.corporate" },
+  { href: "/events", labelKey: "common.events" },
+  { href: "/airport", labelKey: "footer.links.airportTransfers" },
   {
     href: "/fifa-world-cup-2026-private-transportation",
-    label: "FIFA World Cup 2026",
+    labelKey: "common.fifaWorldCup2026",
   },
 ];
 
 const COMPANY_LINKS = [
-  { href: "/about", label: "About" },
-  { href: "/fleet", label: "Fleet" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/blog", label: "News" },
-  { href: "https://relier.es", label: "Relier Europe", external: true },
+  { href: "/about", labelKey: "footer.links.about" },
+  { href: "/fleet", labelKey: "footer.links.fleet" },
+  { href: "/testimonials", labelKey: "common.testimonials" },
+  { href: "/blog", labelKey: "common.news" },
+  { href: "https://relier.es", labelKey: "footer.links.relierEurope", external: true },
 ];
 
 function ChevronRight(props: SVGProps<SVGSVGElement>) {
@@ -55,19 +56,19 @@ function ChevronRight(props: SVGProps<SVGSVGElement>) {
 const CONTACT_ITEMS = [
   {
     icon: LocationIcon,
-    label: "New York · HQ",
+    labelKey: "footer.contact.hq",
     value: "240 Kent Ave, 3rd Floor B14, Brooklyn, NY 11249",
     href: undefined,
   },
   {
     icon: MailIcon,
-    label: "Concierge · Email",
+    labelKey: "footer.contact.email",
     value: "info@relier.com",
     href: "mailto:info@relier.com",
   },
   {
     icon: PhoneIcon,
-    label: "Concierge · 24/7",
+    labelKey: "footer.contact.phone",
     value: "+1 (844) 735-4371",
     href: "tel:+18447354371",
   },
@@ -80,13 +81,15 @@ const SOCIALS = [
   { href: "#", label: "WhatsApp", Icon: WhatsAppIcon },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations();
+
   return (
     <footer className={styles.footer} id="contact">
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.brand}>
-            <Link href="/" className={styles.logo} aria-label="Relier home">
+            <Link href="/" className={styles.logo} aria-label={t("footer.aria.home")}>
               <Image
                 src="/images/relier-logo.png"
                 alt="Relier"
@@ -95,11 +98,7 @@ export default function Footer() {
                 className={styles.logoImg}
               />
             </Link>
-            <p>
-              Personal mobility concierge. Based in New York and Barcelona. In
-              service across the Americas, Europe, and the Middle East since
-              2012.
-            </p>
+            <p>{t("footer.brand")}</p>
             <div className={styles.socialsMobile}>
               {SOCIALS.map(({ href, label, Icon }) => (
                 <a key={label} href={href} aria-label={label}>
@@ -110,54 +109,54 @@ export default function Footer() {
           </div>
 
           <div className={styles.col}>
-            <h4>Service</h4>
+            <h4>{t("footer.headings.service")}</h4>
             <ul>
               {SERVICE_LINKS.map((l) => (
-                <li key={l.label}>
-                  <a href={l.href}>{l.label}</a>
+                <li key={l.labelKey}>
+                  <Link href={l.href}>{t(l.labelKey)}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className={styles.col}>
-            <h4>Company</h4>
+            <h4>{t("footer.headings.company")}</h4>
             <ul>
               {COMPANY_LINKS.map((l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.href}
-                    target={l.external ? "_blank" : undefined}
-                    rel={l.external ? "noopener noreferrer" : undefined}
-                  >
-                    {l.label}
-                  </a>
+                <li key={l.labelKey}>
+                  {l.external ? (
+                    <a href={l.href} target="_blank" rel="noopener noreferrer">
+                      {t(l.labelKey)}
+                    </a>
+                  ) : (
+                    <Link href={l.href}>{t(l.labelKey)}</Link>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
           <div className={cn(styles.col, styles.reachCol)}>
-            <h4>Reach us</h4>
-            {CONTACT_ITEMS.map(({ icon: Icon, label, value, href }) => {
+            <h4>{t("footer.headings.reach")}</h4>
+            {CONTACT_ITEMS.map(({ icon: Icon, labelKey, value, href }) => {
               const inner = (
                 <>
                   <span className={styles.contactIcon} aria-hidden="true">
                     <Icon />
                   </span>
                   <span className={styles.contactBody}>
-                    <span className={styles.contactLabel}>{label}</span>
+                    <span className={styles.contactLabel}>{t(labelKey)}</span>
                     <span className={styles.contactValue}>{value}</span>
                   </span>
                   <ChevronRight className={styles.contactChevron} />
                 </>
               );
               return href ? (
-                <a key={label} href={href} className={styles.contactItem}>
+                <a key={labelKey} href={href} className={styles.contactItem}>
                   {inner}
                 </a>
               ) : (
-                <div key={label} className={styles.contactItem}>
+                <div key={labelKey} className={styles.contactItem}>
                   {inner}
                 </div>
               );
@@ -168,13 +167,13 @@ export default function Footer() {
               withArrow
               className={styles.ctaBtn}
             >
-              Book your ride
+              {t("common.bookYourRide")}
             </Button>
           </div>
         </div>
 
         <div className={styles.bottom}>
-          <p>© 2026 Relier · All rights reserved</p>
+          <p>{t("footer.copyright")}</p>
           <div className={styles.socials}>
             {SOCIALS.map(({ href, label, Icon }) => (
               <a key={label} href={href} aria-label={label}>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Reveal from "@/components/effects/Reveal";
@@ -10,14 +11,11 @@ import styles from "./WorldCup.module.css";
 
 // TODO: client to confirm match dates, venues, package details
 
-const FEATURES = [
-  "Coverage in all host cities · New York, Toronto, Mexico City, Los Angeles, and beyond",
-  "Airport, hotel-to-stadium, and full-day service tailored to your schedule",
-  "Multi-day packages for delegations, sponsors, and broadcast crews",
-  "Bilingual chauffeurs (EN · ES · FR · PT) · Dedicated concierge during match windows",
-];
+const FEATURES = ["coverage", "service", "packages", "chauffeurs"];
 
-export default function WorldCup() {
+export default async function WorldCup() {
+  const t = await getTranslations("home");
+
   return (
     <section className={styles.wc} id="wc">
       <div className={styles.crowdBg} aria-hidden="true">
@@ -33,39 +31,34 @@ export default function WorldCup() {
       <div className={cn("container", styles.inner)}>
         <Reveal className={styles.content}>
           <h2 className={styles.h2}>
-            When the world
+            {t("wc.titleLine1")}
             <br />
-            comes to <em>your city.</em>
+            {t.rich("wc.titleLine2", { em: (c) => <em>{c}</em> })}
           </h2>
-          <p className={styles.lead}>
-            Private ground transportation across every host city of the FIFA
-            World Cup 2026. Door-to-door service across the United States,
-            Mexico, and Canada — airport, hotel, and stadium transfers for every
-            match.
-          </p>
+          <p className={styles.lead}>{t("wc.lead")}</p>
           <div className={styles.flagBar} aria-hidden="true">
             <span className={cn(styles.flagChip, styles.flagUsa)}>
               <span className={styles.flagDot} />
               <span className={styles.flagDot} />
               <span className={styles.flagDot} />
-              USA
+              {t("wc.flags.usa")}
             </span>
             <span className={cn(styles.flagChip, styles.flagMex)}>
               <span className={styles.flagDot} />
               <span className={styles.flagDot} />
               <span className={styles.flagDot} />
-              Mexico
+              {t("wc.flags.mexico")}
             </span>
             <span className={cn(styles.flagChip, styles.flagCan)}>
               <span className={styles.flagDot} />
               <span className={styles.flagDot} />
               <span className={styles.flagDot} />
-              Canada
+              {t("wc.flags.canada")}
             </span>
           </div>
           <ul className={styles.features}>
             {FEATURES.map((f) => (
-              <li key={f}>{f}</li>
+              <li key={f}>{t(`wc.features.${f}`)}</li>
             ))}
           </ul>
           <Button
@@ -73,7 +66,7 @@ export default function WorldCup() {
             withArrow
             className={styles.planBtn}
           >
-            Plan your World Cup transport
+            {t("wc.cta")}
           </Button>
         </Reveal>
 
@@ -81,37 +74,39 @@ export default function WorldCup() {
           <div className={styles.photo}>
             <Image
               src="/images/services/world-cup/hero.webp"
-              alt="Relier private transportation for FIFA World Cup 2026"
+              alt={t("wc.photoAlt")}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className={styles.photoLabel}>
-              <Eyebrow className={styles.photoEyebrow}>The journey</Eyebrow>
-              <p className={styles.photoLabelMain}>USA · Mexico · Canada</p>
+              <Eyebrow className={styles.photoEyebrow}>
+                {t("wc.photoEyebrow")}
+              </Eyebrow>
+              <p className={styles.photoLabelMain}>{t("wc.nations")}</p>
             </div>
           </div>
 
           <div className={styles.infoCard}>
             <TrophyIcon className={styles.infoIcon} />
-            <p className={styles.infoLabel}>Tournament window</p>
+            <p className={styles.infoLabel}>{t("wc.window.label")}</p>
             <div>
               <p className={styles.infoValue}>
-                Jun 11 — <em>Jul 19</em>
+                {t.rich("wc.window.value", { em: (c) => <em>{c}</em> })}
               </p>
-              <p className={styles.infoSub}>39 days · 60 days of operations</p>
+              <p className={styles.infoSub}>{t("wc.window.sub")}</p>
             </div>
           </div>
 
           <div className={styles.infoCard}>
             <StadiumIcon className={styles.infoIcon} />
-            <p className={styles.infoLabel}>Host coverage</p>
+            <p className={styles.infoLabel}>{t("wc.host.label")}</p>
             <div>
               <p className={styles.infoValue}>
-                16 cities
+                {t("wc.host.valueLine1")}
                 <br />
-                <em>3 nations</em>
+                <em>{t("wc.host.valueLine2")}</em>
               </p>
-              <p className={styles.infoSub}>USA · Mexico · Canada</p>
+              <p className={styles.infoSub}>{t("wc.nations")}</p>
             </div>
           </div>
         </Reveal>

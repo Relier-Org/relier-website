@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import styles from "./TimePicker.module.css";
 
 type TimePickerProps = {
@@ -14,22 +15,31 @@ function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
 
-function formatDisplay(value: string): string {
-  const [h, m] = value.split(":").map(Number);
-  const ampm = h >= 12 ? "PM" : "AM";
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  return `${hour12}:${pad(m)} ${ampm}`;
-}
-
 export default function TimePicker({
   value,
   onChange,
   intervalMinutes = 15,
-  placeholder = "Select a time",
+  placeholder,
 }: TimePickerProps) {
+  const t = useTranslations("booking");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+
+  // hour12 vs 24h follows the locale (en → 12h AM/PM, es/pt → 24h).
+  const timeFormat = useMemo(
+    () =>
+      new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit" }),
+    [locale]
+  );
+  const formatDisplay = useCallback(
+    (val: string) => {
+      const [h, m] = val.split(":").map(Number);
+      return timeFormat.format(new Date(2000, 0, 1, h, m));
+    },
+    [timeFormat]
+  );
 
   const options = useMemo(() => {
     const out: string[] = [];
@@ -83,7 +93,7 @@ export default function TimePicker({
         aria-expanded={open}
       >
         <span className={value ? styles.value : styles.placeholder}>
-          {value ? formatDisplay(value) : placeholder}
+          {value ? formatDisplay(value) : placeholder ?? t("timePicker.placeholder")}
         </span>
       </button>
       {open && (

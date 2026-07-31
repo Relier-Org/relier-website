@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import styles from "./ContactHero.module.css";
 
 export default function ContactHero() {
+  const t = useTranslations("pages");
   return (
     <section className={styles.hero}>
       <div className={styles.bg}>
@@ -16,16 +18,15 @@ export default function ContactHero() {
         />
       </div>
       <div className={cn("container", styles.inner)}>
-        <p className={cn("eyebrow", styles.eyebrow)}>Get in touch</p>
-        <h1 className={styles.h1}>
-          Customer support,
-          <br />
-          <span className={styles.muted}>made personal.</span>
-        </h1>
-        <p className={styles.lead}>
-          If you need something tailored to your needs, reach out — we&apos;re
-          here to assist you and will get back to you promptly.
+        <p className={cn("eyebrow", styles.eyebrow)}>
+          {t("contact.hero.eyebrow")}
         </p>
+        <h1 className={styles.h1}>
+          {t("contact.hero.titleLine1")}
+          <br />
+          <span className={styles.muted}>{t("contact.hero.titleLine2")}</span>
+        </h1>
+        <p className={styles.lead}>{t("contact.hero.lead")}</p>
       </div>
     </section>
   );

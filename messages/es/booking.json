@@ -1,0 +1,62 @@
+{
+  "tabs": {
+    "ariaLabel": "Tipo de reserva",
+    "transfers": "Traslados",
+    "hourly": "A disposición/Por hora"
+  },
+  "fields": {
+    "pickupLocation": "Lugar de recogida",
+    "destination": "Destino",
+    "duration": "Duración",
+    "date": "Fecha",
+    "pickupTime": "Hora de recogida",
+    "returnDate": "Fecha de regreso",
+    "returnTime": "Hora de regreso"
+  },
+  "cta": {
+    "idle": "Obtener mis precios",
+    "sending": "Enviando…"
+  },
+  "returnTrip": "Agregar un viaje de regreso",
+  "concierge": {
+    "prompt": "¿Necesitas ayuda para planificar?",
+    "action": "Habla con un concierge → {phone}"
+  },
+  "error": {
+    "generic": "Algo salió mal. Inténtalo de nuevo.",
+    "help": "Si el problema continúa, llama al <tel>{phone}</tel>."
+  },
+  "confirmation": {
+    "title": "Tu solicitud está en camino.",
+    "lead": "Nuestro concierge te contactará en un plazo de 15 minutos para confirmar el vehículo, el precio y los detalles de la recogida.",
+    "reference": "Referencia:",
+    "reset": "Hacer otra solicitud"
+  },
+  "placeAutocomplete": {
+    "placeholder": "Dirección, aeropuerto, hotel...",
+    "unknownPlace": "Ubicación desconocida"
+  },
+  "datePicker": {
+    "placeholder": "Selecciona una fecha",
+    "dialogLabel": "Seleccionar fecha",
+    "prevMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente"
+  },
+  "timePicker": {
+    "placeholder": "Selecciona una hora"
+  },
+  "durationPicker": {
+    "placeholder": "Selecciona la duración",
+    "hours": "{count, plural, =1 {1 hora} other {# horas}}"
+  },
+  "routeMap": {
+    "mapLabel": "Vista previa de la ruta del viaje",
+    "duration": "Duración",
+    "distance": "Distancia",
+    "calculating": "Calculando ruta…",
+    "error": "No se pudo obtener la ruta. Inténtalo de nuevo.",
+    "durationMinutes": "{minutes} min",
+    "durationHours": "{hours} h",
+    "durationHoursMinutes": "{hours} h {minutes} min"
+  }
+}

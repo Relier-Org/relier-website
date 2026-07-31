@@ -1,0 +1,23 @@
+{
+  "links": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "fleet": "Flota",
+    "forBusiness": "Para empresas",
+    "relierEurope": "Relier Europe",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "aria": {
+    "home": "Inicio de Relier",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "menu": "Menú de navegación"
+  },
+  "lang": {
+    "label": "Cambiar idioma",
+    "en": "English",
+    "es": "Español",
+    "pt": "Português"
+  }
+}

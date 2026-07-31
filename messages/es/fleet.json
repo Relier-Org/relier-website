@@ -1,0 +1,64 @@
+{
+  "showcase": {
+    "kicker": "La Flota",
+    "title": "siempre lista.",
+    "lead": "Seis categorías, un solo estándar. Siempre puntuales, siempre impecables: la galería avanza sola; deténla para verla de cerca.",
+    "imageAlt": "{name} o similar",
+    "previousVehicle": "Vehículo anterior",
+    "nextVehicle": "Vehículo siguiente",
+    "categories": "Categorías de la flota",
+    "exploreFull": "Explora la flota completa"
+  },
+  "tiers": {
+    "executive-sedan": "Sedán Ejecutivo",
+    "flagship-sedan": "Sedán Insignia",
+    "full-size-suv": "SUV de Gran Tamaño",
+    "executive-van": "Van Ejecutiva",
+    "mini-coach": "Minibús",
+    "motor-coach": "Autobús"
+  },
+  "meta": {
+    "title": "Flota · Relier — Nuestros vehículos",
+    "description": "Vehículos pequeños y grandes disponibles para movilidad personal: sedanes, SUV, S-Class, vans Sprinter, minibús y autobús."
+  },
+  "hero": {
+    "eyebrow": "Nuestra flota",
+    "titleLine1": "Nuestra flota,",
+    "titleLine2": "siempre lista."
+  },
+  "grid": {
+    "photoComingSoon": "Foto próximamente"
+  },
+  "smaller": {
+    "title": "Vehículos pequeños",
+    "lead": "Sedanes, SUV y vans ejecutivas de último modelo, cada uno impecablemente mantenido, con chofer y disponible las 24 horas. Elige según pasajeros y maletas; cada categoría se ofrece con el modelo mostrado o un equivalente de la misma clase."
+  },
+  "larger": {
+    "title": "Vehículos grandes",
+    "lead": "Para grupos, producciones y eventos: minibuses y un autobús de 56 pasajeros, con el mismo estándar de servicio y coordinación que nuestros autos privados."
+  },
+  "vehicles": {
+    "sedan": {
+      "tier": "Sedán",
+      "label": "Sedán Ejecutivo"
+    },
+    "suv": {
+      "tier": "SUV",
+      "label": "SUV de Gran Tamaño"
+    },
+    "sClass": {
+      "tier": "S Class",
+      "label": "Sedán Insignia"
+    },
+    "van": {
+      "tier": "Van",
+      "label": "Van Ejecutiva"
+    },
+    "minibus": {
+      "tier": "Minibús"
+    },
+    "motorcoach": {
+      "tier": "Autobús"
+    }
+  }
+}

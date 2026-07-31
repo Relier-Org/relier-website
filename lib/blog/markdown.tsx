@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
+import { Link } from "@/i18n/navigation";
 
 // Render a single line of inline Markdown ([text](url), **bold**, *italic*,
 // escaped chars like \{ or \<). Returns an array of React nodes / strings.

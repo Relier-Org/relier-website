@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import styles from "./BlogHero.module.css";
 
 export default function BlogHero() {
+  const t = useTranslations("blog");
   return (
     <section className={styles.hero}>
       <div className={styles.bg}>
@@ -16,15 +18,13 @@ export default function BlogHero() {
         />
       </div>
       <div className={cn("container", styles.inner)}>
-        <p className={cn("eyebrow", styles.eyebrow)}>Journal</p>
+        <p className={cn("eyebrow", styles.eyebrow)}>{t("hero.eyebrow")}</p>
         <h1 className={styles.h1}>
-          News & insights
+          {t("hero.titleLine1")}
           <br />
-          <span className={styles.muted}>from the road.</span>
+          <span className={styles.muted}>{t("hero.titleLine2")}</span>
         </h1>
-        <p className={styles.lead}>
-          Stories, itineraries, and field notes from our chauffeurs and concierge desks across the Americas, Europe, and the Middle East.
-        </p>
+        <p className={styles.lead}>{t("hero.lead")}</p>
       </div>
     </section>
   );

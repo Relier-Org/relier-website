@@ -2,47 +2,47 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useNavScroll } from "@/lib/hooks/useNavScroll";
 import Button from "@/components/ui/Button";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Nav.module.css";
 
 // TODO: client to deliver SVG logo
-// TODO: phase 2 — add Spanish locale (Nav has EN switcher placeholder)
 
 type NavLink = {
   href: string;
-  label: string;
+  labelKey: string;
   external?: boolean;
-  children?: { href: string; label: string }[];
+  children?: { href: string; labelKey: string }[];
 };
 
 const LINKS: NavLink[] = [
-  { href: "/", label: "Home" },
+  { href: "/", labelKey: "nav.links.home" },
   {
     href: "/services",
-    label: "Services",
+    labelKey: "nav.links.services",
     children: [
       {
         href: "/fifa-world-cup-2026-private-transportation",
-        label: "FIFA World Cup 2026",
+        labelKey: "common.fifaWorldCup2026",
       },
-      { href: "/transfers", label: "Transfers" },
-      { href: "/hourly", label: "As directed/Hourly" },
-      { href: "/corporate", label: "Corporate" },
-      { href: "/events", label: "Events" },
-      { href: "/airport", label: "Airport Transfers" },
+      { href: "/transfers", labelKey: "common.transfers" },
+      { href: "/hourly", labelKey: "common.asDirectedHourly" },
+      { href: "/corporate", labelKey: "common.corporate" },
+      { href: "/events", labelKey: "common.events" },
+      { href: "/airport", labelKey: "common.airportTransfers" },
     ],
   },
-  { href: "/fleet", label: "Fleet" },
-  { href: "/for-business", label: "For Business" },
-  { href: "https://relier.es", label: "Relier Europe", external: true },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/fleet", labelKey: "nav.links.fleet" },
+  { href: "/for-business", labelKey: "nav.links.forBusiness" },
+  { href: "https://relier.es", labelKey: "nav.links.relierEurope", external: true },
+  { href: "/about", labelKey: "nav.links.about" },
+  { href: "/contact", labelKey: "nav.links.contact" },
 ];
 
 function stripHash(href: string) {
@@ -68,6 +68,7 @@ function isLinkActive(pathname: string, link: NavLink): boolean {
 }
 
 export default function Nav() {
+  const t = useTranslations();
   const isScrolled = useNavScroll(24);
   const pathname = usePathname() ?? "/";
   const [isOpen, setIsOpen] = useState(false);
@@ -124,7 +125,7 @@ export default function Nav() {
     <>
       <nav className={cn(styles.nav, isScrolled && styles.isScrolled)}>
         <div className={cn("container", styles.inner)}>
-          <Link href="/" className={styles.logo} aria-label="Relier home">
+          <Link href="/" className={styles.logo} aria-label={t("nav.aria.home")}>
             <Image
               src="/images/relier-logo.png"
               alt="Relier"
@@ -137,19 +138,20 @@ export default function Nav() {
           <ul className={styles.links}>
             {LINKS.map((link) => {
               const active = isLinkActive(pathname, link);
+              const LinkTag = link.external ? "a" : Link;
               return (
               <li
-                key={link.label}
+                key={link.labelKey}
                 className={cn(link.children && styles.hasDropdown)}
               >
-                <a
+                <LinkTag
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
                   className={cn(styles.linkItem, active && styles.isActive)}
                   aria-current={active ? "page" : undefined}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                   {link.children && (
                     <svg
                       className={styles.caret}
@@ -168,7 +170,7 @@ export default function Nav() {
                       />
                     </svg>
                   )}
-                </a>
+                </LinkTag>
                 {link.children && (
                   <ul className={styles.dropdown}>
                     {link.children.map((child) => {
@@ -176,14 +178,14 @@ export default function Nav() {
                         pathname === stripHash(child.href) ||
                         pathname.startsWith(stripHash(child.href) + "/");
                       return (
-                        <li key={child.label}>
-                          <a
+                        <li key={child.labelKey}>
+                          <Link
                             href={child.href}
                             className={cn(childActive && styles.isActive)}
                             aria-current={childActive ? "page" : undefined}
                           >
-                            {child.label}
-                          </a>
+                            {t(child.labelKey)}
+                          </Link>
                         </li>
                       );
                     })}
@@ -194,16 +196,14 @@ export default function Nav() {
             })}
           </ul>
           <div className={styles.right}>
-            <span className={styles.lang} role="button" tabIndex={0}>
-              EN ⌄
-            </span>
+            <LanguageSwitcher className={styles.lang} />
             <Button href="/online-reservation/" variant="primary" className={styles.cta}>
-              Reserve
+              {t("common.reserve")}
             </Button>
             <button
               type="button"
               className={cn(styles.burger, isOpen && styles.burgerOpen)}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? t("nav.aria.closeMenu") : t("nav.aria.openMenu")}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsOpen((o) => !o)}
@@ -223,13 +223,13 @@ export default function Nav() {
           className={styles.overlay}
           role="dialog"
           aria-modal="true"
-          aria-label="Navigation menu"
+          aria-label={t("nav.aria.menu")}
         >
           <div className={styles.overlayHeader}>
             <Link
               href="/"
               className={styles.overlayLogo}
-              aria-label="Relier home"
+              aria-label={t("nav.aria.home")}
               onClick={() => setIsOpen(false)}
             >
               <Image
@@ -243,7 +243,7 @@ export default function Nav() {
             <button
               type="button"
               className={styles.overlayClose}
-              aria-label="Close menu"
+              aria-label={t("nav.aria.closeMenu")}
               onClick={() => setIsOpen(false)}
             >
               <span />
@@ -254,9 +254,10 @@ export default function Nav() {
             <ul className={styles.overlayLinks}>
               {LINKS.map((link) => {
                 const active = isLinkActive(pathname, link);
+                const LinkTag = link.external ? "a" : Link;
                 return (
-                  <li key={link.label}>
-                    <a
+                  <li key={link.labelKey}>
+                    <LinkTag
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
@@ -264,8 +265,8 @@ export default function Nav() {
                       aria-current={active ? "page" : undefined}
                       onClick={() => setIsOpen(false)}
                     >
-                      {link.label}
-                    </a>
+                      {t(link.labelKey)}
+                    </LinkTag>
                     {link.children && (
                       <ul className={styles.overlaySublinks}>
                         {link.children.map((child) => {
@@ -273,15 +274,15 @@ export default function Nav() {
                             pathname === stripHash(child.href) ||
                             pathname.startsWith(stripHash(child.href) + "/");
                           return (
-                            <li key={child.label}>
-                              <a
+                            <li key={child.labelKey}>
+                              <Link
                                 href={child.href}
                                 className={cn(childActive && styles.isActive)}
                                 aria-current={childActive ? "page" : undefined}
                                 onClick={() => setIsOpen(false)}
                               >
-                                {child.label}
-                              </a>
+                                {t(child.labelKey)}
+                              </Link>
                             </li>
                           );
                         })}
@@ -292,13 +293,18 @@ export default function Nav() {
               })}
             </ul>
             <div className={styles.overlayFooter}>
+              <LanguageSwitcher
+                variant="inline"
+                className={styles.overlayLang}
+                onNavigate={() => setIsOpen(false)}
+              />
               <Button
                 href="/online-reservation/"
                 variant="primary"
                 className={styles.overlayCta}
                 onClick={() => setIsOpen(false)}
               >
-                Reserve
+                {t("common.reserve")}
               </Button>
             </div>
           </div>

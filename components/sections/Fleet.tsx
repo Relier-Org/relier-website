@@ -2,278 +2,255 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
-import ClassNames from "embla-carousel-class-names";
-import Autoplay from "embla-carousel-autoplay";
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
+import Button from "@/components/ui/Button";
 import TextCTA from "@/components/ui/TextCTA";
-import {
-  PassengerIcon,
-  LuggageIcon,
-  PauseIcon,
-  PlayIcon,
-} from "@/components/icons/FleetIcons";
-import ChevronIcon from "@/components/icons/ChevronIcon";
+import { PassengerIcon, LuggageIcon } from "@/components/icons/FleetIcons";
 import { FLEET } from "@/lib/fleet/data";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Fleet.module.css";
 
-// Versión cliente (PDF 04-jun §5): showroom auto-advancing de 6 categorías.
-// El competitor research mostró que NADIE auto-avanza con elegancia ni muestra
-// pax/valijas directo — eso es lo que hacemos. Embla maneja snap/scroll; el
-// estado activo (escala, specs fade-up, glow) es CSS sobre la clase is-snapped
-// que aplica el plugin ClassNames (mismo patrón probado del fleet anterior).
+// Showcase "Light Bay" (Claude Design, jul-2026): un solo vehículo en escena
+// compuesto directo sobre el canvas obsidian — under-glow champagne, palabra
+// gigante de fondo, info centrada y playback bar. Reemplaza el carrusel Embla:
+// acá no hay track, el auto entra desde el costado según la dirección y el
+// resto vive precargado con opacity 0. Animaciones de entrada en CSS,
+// reiniciadas por remount (key={tick}); JS solo lleva índice/dirección/autoplay.
 
-const AUTOPLAY_DELAY = 6000; // contenido grande (autos) → 6s, premium no apurado.
+const AUTOPLAY_MS = 6000; // contenido grande (autos) → 6s, premium no apurado.
+const SWIPE_THRESHOLD = 40;
+const N = FLEET.length;
 
-// Vista mínima del plugin Autoplay (evita fricción de tipos con el augment).
-type AutoplayApi = {
-  play: () => void;
-  stop: () => void;
-  reset: () => void;
-  isPlaying: () => boolean;
-  timeUntilNext: () => number | null;
-};
+// La palabra de fondo se dimensiona por cantidad de caracteres para ocupar
+// siempre un ancho similar del stage (×0.42 en mobile, via CSS).
+const wordSize = (word: string) =>
+  word.length <= 5 ? 200 : word.length <= 8 ? 150 : 110;
 
 export default function Fleet() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      align: "center",
-      loop: true,
-      containScroll: false,
-      skipSnaps: false,
-      duration: 28,
-    },
-    [
-      ClassNames({ snapped: "is-snapped", inView: "is-in-view" }),
-      Autoplay({
-        delay: AUTOPLAY_DELAY,
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-        stopOnFocusIn: true,
-        playOnInit: true,
-      }),
-    ]
-  );
+  const t = useTranslations("fleet");
+  const tc = useTranslations("common");
+  const [{ active, dir, tick }, setPos] = useState({
+    active: 0,
+    dir: 1,
+    tick: 0,
+  });
+  // Sin botón de pausa: el autoplay frena mientras el mouse está sobre la
+  // escena o el focus dentro de la sección (equivalente al stopOnMouseEnter/
+  // stopOnFocusIn de la versión Embla — mantiene el mecanismo de pausa WCAG).
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [reduced, setReduced] = useState(false);
+  const touchX = useRef(0);
 
-  const [selected, setSelected] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const progressRef = useRef<HTMLDivElement>(null);
+  const go = useCallback((step: number) => {
+    setPos((s) => ({
+      active: (s.active + step + N) % N,
+      dir: step,
+      tick: s.tick + 1,
+    }));
+  }, []);
 
-  const autoplay = () =>
-    (emblaApi?.plugins() as { autoplay?: AutoplayApi } | undefined)?.autoplay;
+  const goTo = useCallback((i: number) => {
+    setPos((s) =>
+      i === s.active
+        ? s
+        : { active: i, dir: i > s.active ? 1 : -1, tick: s.tick + 1 }
+    );
+  }, []);
 
-  const scrollTo = useCallback(
-    (i: number) => emblaApi?.scrollTo(i),
-    [emblaApi]
-  );
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  // Selección + estado play/pause + arranque reduced-motion.
   useEffect(() => {
-    if (!emblaApi) return;
-    const ap = autoplay();
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
-    const reduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (reduced) ap?.stop();
-
-    const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
-    const onPlay = () => setIsPlaying(true);
-    const onStop = () => setIsPlaying(false);
-
-    onSelect();
-    setIsPlaying(ap?.isPlaying() ?? false);
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    emblaApi.on("autoplay:play", onPlay);
-    emblaApi.on("autoplay:stop", onStop);
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-      emblaApi.off("autoplay:play", onPlay);
-      emblaApi.off("autoplay:stop", onStop);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emblaApi]);
-
-  // Progress bar: se llena hacia el próximo slide leyendo timeUntilNext().
-  // Cuando está pausado (null) congela su valor → feedback visual de pausa.
+  // Autoplay: un timeout por slide, se reagenda en cada cambio (tick) — la
+  // navegación manual resetea el reloj, igual que el diseño original.
+  const playing = !hovered && !focused && !reduced;
   useEffect(() => {
-    if (!emblaApi) return;
-    let raf = 0;
-    const tick = () => {
-      const ap = autoplay();
-      const left = ap?.timeUntilNext() ?? null;
-      const bar = progressRef.current;
-      if (bar && left !== null) {
-        const pct = Math.min(Math.max(1 - left / AUTOPLAY_DELAY, 0), 1);
-        bar.style.transform = `scaleX(${pct})`;
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emblaApi]);
+    if (!playing) return;
+    const t = setTimeout(() => go(1), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [tick, playing, go]);
 
-  const togglePlay = () => {
-    const ap = autoplay();
-    if (!ap) return;
-    if (ap.isPlaying()) ap.stop();
-    else ap.play();
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      go(1);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      go(-1);
+    }
   };
 
-  // Hot-zones (brief: "al apoyarse a un costado avanza") — solo puntero fino,
-  // un avance por entrada para no ser molesto. En touch manda el drag de Embla.
-  const onZoneEnter = (dir: "prev" | "next") => () => {
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    if (dir === "next") scrollNext();
-    else scrollPrev();
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
   };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > SWIPE_THRESHOLD) go(dx < 0 ? 1 : -1);
+  };
+
+  const v = FLEET[active];
+  const tier = (id: string) => t(`tiers.${id}`);
+  const prevTier = tier(FLEET[(active - 1 + N) % N].id);
+  const nextTier = tier(FLEET[(active + 1) % N].id);
 
   return (
-    <section className={styles.fleet} id="fleet">
-      <div className="container">
+    <section
+      className={styles.fleet}
+      id="fleet"
+      onKeyDown={onKeyDown}
+      onFocus={() => setFocused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false);
+      }}
+    >
+      <div className={cn("container", styles.inner)}>
         <Reveal className={styles.head}>
-          <div className={styles.headText}>
-            <h2 className={styles.title}>
-              Our fleet,
-              <br />
-              <span className="muted">always at the ready.</span>
-            </h2>
-            <p>
-              Six categories, one standard. Always punctual, always immaculate —
-              the showcase moves on its own, pause it to take a closer look.
-            </p>
-          </div>
-          <div className={styles.headCta}>
-            <TextCTA href="/fleet">Explore the full fleet</TextCTA>
-          </div>
+          <p className={styles.kicker}>
+            {t("showcase.kicker")}
+            <span className={styles.kickerRule} aria-hidden="true" />
+          </p>
+          <h2 className={styles.title}>{t("showcase.title")}</h2>
+          <p className={styles.lead}>{t("showcase.lead")}</p>
         </Reveal>
 
-        <div className={styles.stageWrap}>
-          <div className={styles.viewport} ref={emblaRef}>
-            <div className={styles.container}>
-              {FLEET.map((v) => (
-                <div className={styles.slide} key={v.id}>
-                  <article className={styles.card}>
-                    <div
-                      className={styles.stage}
-                      style={{ "--car-scale": v.scale } as React.CSSProperties}
-                    >
-                      <span className={styles.glow} aria-hidden="true" />
-                      <div className={styles.car}>
-                        <Image
-                          src={v.image}
-                          alt={v.name}
-                          fill
-                          sizes="(max-width: 720px) 86vw, (max-width: 1024px) 70vw, 760px"
-                          className={styles.carImg}
-                        />
-                      </div>
-                    </div>
+        <div
+          className={styles.stage}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          <span className={styles.glow} aria-hidden="true" />
+          <span
+            key={`word-${tick}`}
+            className={styles.word}
+            aria-hidden="true"
+            style={{ "--word-size": `${wordSize(v.word)}px` } as React.CSSProperties}
+          >
+            {v.word}
+          </span>
+          <span className={styles.groundShadow} aria-hidden="true" />
 
-                    <div className={styles.meta}>
-                      <p className={styles.tier}>{v.tier}</p>
-                      <h3 className={styles.name}>
-                        {v.name}
-                        {v.orSimilar && (
-                          <span className={styles.orSimilar}>or similar</span>
-                        )}
-                      </h3>
-                      <dl className={styles.specs}>
-                        <div className={styles.spec}>
-                          <PassengerIcon className={styles.specIcon} />
-                          <dt className={styles.specLabel}>Passengers</dt>
-                          <dd className={styles.specValue}>{v.passengers}</dd>
-                        </div>
-                        {v.luggage !== undefined && (
-                          <>
-                            <span
-                              className={styles.specDivider}
-                              aria-hidden="true"
-                            />
-                            <div className={styles.spec}>
-                              <LuggageIcon className={styles.specIcon} />
-                              <dt className={styles.specLabel}>Luggage</dt>
-                              <dd className={styles.specValue}>
-                                {v.luggage} bags
-                              </dd>
-                            </div>
-                          </>
-                        )}
-                      </dl>
-                    </div>
-                  </article>
-                </div>
-              ))}
+          {FLEET.map((c, i) => (
+            <div
+              key={c.id}
+              className={cn(
+                styles.car,
+                i === active && styles.carActive,
+                i === active && dir < 0 && styles.fromLeft
+              )}
+              aria-hidden={i !== active}
+              style={
+                {
+                  "--car-h": c.stageHeight,
+                  "--car-r": (c.width / c.height).toFixed(3),
+                } as React.CSSProperties
+              }
+            >
+              <div
+                key={i === active ? `anim-${tick}` : "idle"}
+                className={styles.carAnim}
+              >
+                <Image
+                  src={c.image}
+                  alt={t("showcase.imageAlt", { name: c.name })}
+                  fill
+                  sizes="(max-width: 760px) 340px, 640px"
+                  className={styles.carImg}
+                />
+              </div>
             </div>
+          ))}
 
-            {/* Hot-zones: hover en un costado avanza (desktop, no intrusivo). */}
-            <span
-              className={cn(styles.hotZone, styles.hotZonePrev)}
-              aria-hidden="true"
-              onMouseEnter={onZoneEnter("prev")}
-            />
-            <span
-              className={cn(styles.hotZone, styles.hotZoneNext)}
-              aria-hidden="true"
-              onMouseEnter={onZoneEnter("next")}
-            />
+          <button
+            type="button"
+            className={cn(styles.sideNav, styles.sidePrev)}
+            onClick={() => go(-1)}
+          >
+            <span aria-hidden="true">‹</span>
+            {prevTier}
+          </button>
+          <button
+            type="button"
+            className={cn(styles.sideNav, styles.sideNext)}
+            onClick={() => go(1)}
+          >
+            {nextTier}
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
 
-            <button
-              type="button"
-              className={cn(styles.arrow, styles.arrowPrev)}
-              aria-label="Previous vehicle"
-              onClick={scrollPrev}
-            >
-              <ChevronIcon direction="left" size={18} />
-            </button>
-            <button
-              type="button"
-              className={cn(styles.arrow, styles.arrowNext)}
-              aria-label="Next vehicle"
-              onClick={scrollNext}
-            >
-              <ChevronIcon direction="right" size={18} />
-            </button>
+        <footer className={styles.foot}>
+          <div key={`info-${tick}`} className={styles.info}>
+            <p className={styles.tier}>{tier(v.id)}</p>
+            <h3 className={styles.nameRow}>
+              <span className={styles.name}>{v.name}</span>
+              {v.orSimilar && (
+                <span className={styles.orSimilar}>{tc("orSimilar")}</span>
+              )}
+            </h3>
+            <ul className={styles.specs}>
+              <li className={styles.spec}>
+                <PassengerIcon className={styles.specIcon} />
+                {v.passengers} {tc("passengers")}
+              </li>
+              {v.luggage !== undefined && (
+                <li className={styles.spec}>
+                  <span className={styles.specDivider} aria-hidden="true" />
+                  <LuggageIcon className={styles.specIcon} />
+                  {v.luggage} {tc("luggage")}
+                </li>
+              )}
+            </ul>
           </div>
 
-          <div className={styles.controls}>
+          <div className={styles.ctaRow}>
+            <Button href="#booking">{tc("reserve")}</Button>
+            <TextCTA href="/fleet">{t("showcase.exploreFull")}</TextCTA>
+          </div>
+
+          <div className={styles.playback}>
             <button
               type="button"
-              className={styles.playBtn}
-              aria-label={isPlaying ? "Pause showcase" : "Play showcase"}
-              aria-pressed={!isPlaying}
-              onClick={togglePlay}
+              className={styles.mobArrow}
+              aria-label={t("showcase.previousVehicle")}
+              onClick={() => go(-1)}
             >
-              {isPlaying ? <PauseIcon /> : <PlayIcon />}
+              ‹
             </button>
-
-            <div className={styles.dots} role="tablist" aria-label="Fleet categories">
-              {FLEET.map((v, i) => (
+            <div
+              className={styles.dots}
+              role="tablist"
+              aria-label={t("showcase.categories")}
+            >
+              {FLEET.map((c, i) => (
                 <button
-                  key={v.id}
+                  key={c.id}
                   type="button"
                   role="tab"
-                  aria-selected={i === selected}
-                  aria-label={v.tier}
-                  className={cn(styles.dot, i === selected && styles.dotActive)}
-                  onClick={() => scrollTo(i)}
-                >
-                  <span className={styles.dotLabel}>{v.tier}</span>
-                </button>
+                  aria-selected={i === active}
+                  aria-label={tier(c.id)}
+                  className={cn(styles.dot, i === active && styles.dotActive)}
+                  onClick={() => goTo(i)}
+                />
               ))}
             </div>
-
-            <div className={styles.progress} aria-hidden="true">
-              <div ref={progressRef} className={styles.progressBar} />
-            </div>
+            <button
+              type="button"
+              className={styles.mobArrow}
+              aria-label={t("showcase.nextVehicle")}
+              onClick={() => go(1)}
+            >
+              ›
+            </button>
           </div>
-        </div>
+        </footer>
       </div>
     </section>
   );

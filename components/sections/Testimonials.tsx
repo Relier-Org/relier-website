@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import SectionHead from "@/components/ui/SectionHead";
 import GoogleIcon from "@/components/icons/GoogleIcon";
@@ -31,6 +32,7 @@ export default function Testimonials({
   reviewPillMode = "inline",
   className,
 }: TestimonialsProps = {}) {
+  const t = useTranslations("home");
   const gridRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [stickyRevealed, setStickyRevealed] = useState(false);
@@ -125,12 +127,12 @@ export default function Testimonials({
             <SectionHead
               title={
                 <>
-                  Testimonials.
+                  {t("testimonials.titleLine1")}
                   <br />
-                  <span className="muted">What our travelers say.</span>
+                  <span className="muted">{t("testimonials.titleLine2")}</span>
                 </>
               }
-              lead="Verified reviews from Google. Real travelers, real journeys, real results across the Americas, Europe, and the Middle East."
+              lead={t("testimonials.lead")}
             />
           </Reveal>
         )}
@@ -142,7 +144,10 @@ export default function Testimonials({
               target="_blank"
               rel="noopener noreferrer"
               className={styles.ratingPill}
-              aria-label={`${GOOGLE_RATING} out of 5 from ${GOOGLE_REVIEW_COUNT} Google reviews`}
+              aria-label={t("testimonials.ratingAria", {
+                rating: GOOGLE_RATING,
+                count: GOOGLE_REVIEW_COUNT,
+              })}
             >
               <GoogleIcon size={16} />
               <span className={styles.ratingValue}>{GOOGLE_RATING.toFixed(1)}</span>
@@ -151,29 +156,33 @@ export default function Testimonials({
               </span>
               <span className={styles.ratingDot} aria-hidden="true">·</span>
               <span className={styles.ratingCount}>
-                {GOOGLE_REVIEW_COUNT} Google reviews
+                {t("testimonials.ratingCount", { count: GOOGLE_REVIEW_COUNT })}
               </span>
             </a>
           </div>
         )}
 
         <div ref={gridRef} className={styles.grid}>
-          {testimonials.map((t) => (
-            <Reveal key={t.name} as="article" className={styles.card}>
+          {testimonials.map((item) => (
+            <Reveal key={item.name} as="article" className={styles.card}>
               <span className={styles.cardGoogle} aria-hidden="true">
                 <GoogleIcon size={18} />
               </span>
-              <div className={styles.stars} aria-label="5 stars">
+              <div
+                className={styles.stars}
+                aria-label={t("testimonials.starsAria")}
+              >
                 ★★★★★
               </div>
-              <blockquote>“{t.quote}”</blockquote>
+              {/* Reviews are verbatim customer quotes — never translated. */}
+              <blockquote>“{item.quote}”</blockquote>
               <div className={styles.author}>
                 <div className={styles.avatar} aria-hidden="true">
-                  {t.initial}
+                  {item.initial}
                 </div>
                 <div>
-                  <p className={styles.name}>{t.name}</p>
-                  <p className={styles.sub}>Verified Google review</p>
+                  <p className={styles.name}>{item.name}</p>
+                  <p className={styles.sub}>{t("testimonials.verified")}</p>
                 </div>
               </div>
             </Reveal>
@@ -188,7 +197,7 @@ export default function Testimonials({
               className={styles.reviewPill}
             >
               <GoogleIcon size={18} />
-              <span>Leave us a Google review</span>
+              <span>{t("testimonials.leaveReview")}</span>
               <span className={styles.reviewPillArrow} aria-hidden="true">
                 ↗
               </span>
@@ -205,7 +214,7 @@ export default function Testimonials({
               className={styles.reviewPill}
             >
               <GoogleIcon size={18} />
-              <span>Leave us a Google review</span>
+              <span>{t("testimonials.leaveReview")}</span>
               <span className={styles.reviewPillArrow} aria-hidden="true">
                 ↗
               </span>

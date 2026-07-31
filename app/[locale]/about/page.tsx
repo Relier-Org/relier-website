@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { localeAlternates } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import AboutHero from "@/components/sections/AboutHero";
@@ -7,13 +9,26 @@ import AboutBento from "@/components/sections/AboutBento";
 import Testimonials from "@/components/sections/Testimonials";
 import GsapProvider from "@/components/effects/GsapProvider";
 
-export const metadata: Metadata = {
-  title: "About · Relier — A Personal Mobility Concierge",
-  description:
-    "Relier is a leading worldwide transportation company. Comfort, convenience, luxury, and so much more in one place — wherever your journey takes you.",
-};
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export default function AboutPage() {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "pages" });
+  return {
+    title: t("about.meta.title"),
+    description: t("about.meta.description"),
+    alternates: localeAlternates("/about", locale),
+  };
+}
+
+export default async function AboutPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <GsapProvider>
       <Nav />

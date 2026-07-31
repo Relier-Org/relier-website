@@ -168,6 +168,9 @@
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 6px;
+  /* Keeps the label on one line so the grid column sizes to the longest
+     translation instead of wrapping (es/pt labels are ~60% longer). */
+  white-space: nowrap;
 }
 
 .field input,

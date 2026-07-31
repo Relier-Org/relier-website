@@ -1,3 +1,5 @@
+import { setRequestLocale } from "next-intl/server";
+import { localeAlternates } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
@@ -16,7 +18,19 @@ import GsapProvider from "@/components/effects/GsapProvider";
 //  1 Hero + booking · 2 Services (Disney+) · 3 Virtuoso/NLE credential band
 //  4 Fleet · 5 Reasons / Concierge on the Road · 6 Coverage map
 //  7 Testimonials (Google reviews) · 8 About, last of all.
-export default function HomePage() {
+type PageProps = { params: Promise<{ locale: string }> };
+
+// Title/description come from the locale layout; this only adds the
+// self-referencing canonical + hreflang set, which needs the locale.
+export async function generateMetadata({ params }: PageProps) {
+  const { locale } = await params;
+  return { alternates: localeAlternates("/", locale) };
+}
+
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <GsapProvider>
       <Nav />

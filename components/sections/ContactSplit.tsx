@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
 import Field from "@/components/ui/Field";
@@ -23,7 +24,9 @@ type FormState = {
   message: string;
 };
 
-type FormErrors = Partial<Record<keyof FormState, string>>;
+// Errors travel as message codes so they re-render in the active locale.
+type ErrorCode = "required" | "email";
+type FormErrors = Partial<Record<keyof FormState, ErrorCode>>;
 
 const INITIAL: FormState = {
   firstName: "",
@@ -42,21 +45,28 @@ const SOCIALS = [
 
 function validate(values: FormState): FormErrors {
   const errors: FormErrors = {};
-  if (!values.firstName.trim()) errors.firstName = "Required";
-  if (!values.lastName.trim()) errors.lastName = "Required";
+  if (!values.firstName.trim()) errors.firstName = "required";
+  if (!values.lastName.trim()) errors.lastName = "required";
   if (!values.email.trim()) {
-    errors.email = "Required";
+    errors.email = "required";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-    errors.email = "Enter a valid email";
+    errors.email = "email";
   }
-  if (!values.message.trim()) errors.message = "Required";
+  if (!values.message.trim()) errors.message = "required";
   return errors;
 }
 
 export default function ContactSplit() {
+  const t = useTranslations("pages");
+  const tc = useTranslations("common");
   const [values, setValues] = useState<FormState>(INITIAL);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+
+  const errorText = (key: keyof FormState) => {
+    const code = errors[key];
+    return code ? t(`contact.form.errors.${code}`) : undefined;
+  };
 
   const update = (key: keyof FormState) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -85,35 +95,30 @@ export default function ContactSplit() {
         <div className={styles.grid}>
           <Reveal className={styles.formCol}>
             <header className={styles.formHeader}>
-              <p className="section-label">Send a message</p>
-              <h2 className={styles.h2}>
-                Tell us where you&apos;re going.
-              </h2>
+              <p className="section-label">{t("contact.form.label")}</p>
+              <h2 className={styles.h2}>{t("contact.form.title")}</h2>
             </header>
 
             {status === "sent" ? (
               <div className={styles.successCard} role="status">
-                <h3>Thank you.</h3>
-                <p>
-                  Your message is on its way to our concierge team. We&apos;ll
-                  be in touch within the hour during business times.
-                </p>
+                <h3>{t("contact.form.success.title")}</h3>
+                <p>{t("contact.form.success.body")}</p>
                 <button
                   type="button"
                   className={styles.resetBtn}
                   onClick={() => setStatus("idle")}
                 >
-                  Send another message
+                  {t("contact.form.success.again")}
                 </button>
               </div>
             ) : (
               <form className={styles.form} onSubmit={handleSubmit} noValidate>
                 <div className={styles.row}>
                   <Field
-                    label="First name"
+                    label={t("contact.form.firstName")}
                     htmlFor="firstName"
                     required
-                    error={errors.firstName}
+                    error={errorText("firstName")}
                   >
                     <Input
                       id="firstName"
@@ -123,14 +128,14 @@ export default function ContactSplit() {
                       value={values.firstName}
                       onChange={update("firstName")}
                       invalid={Boolean(errors.firstName)}
-                      placeholder="Jane"
+                      placeholder={t("contact.form.placeholders.firstName")}
                     />
                   </Field>
                   <Field
-                    label="Last name"
+                    label={t("contact.form.lastName")}
                     htmlFor="lastName"
                     required
-                    error={errors.lastName}
+                    error={errorText("lastName")}
                   >
                     <Input
                       id="lastName"
@@ -140,17 +145,17 @@ export default function ContactSplit() {
                       value={values.lastName}
                       onChange={update("lastName")}
                       invalid={Boolean(errors.lastName)}
-                      placeholder="Doe"
+                      placeholder={t("contact.form.placeholders.lastName")}
                     />
                   </Field>
                 </div>
 
                 <div className={styles.row}>
                   <Field
-                    label="Email"
+                    label={t("contact.form.email")}
                     htmlFor="email"
                     required
-                    error={errors.email}
+                    error={errorText("email")}
                   >
                     <Input
                       id="email"
@@ -160,10 +165,10 @@ export default function ContactSplit() {
                       value={values.email}
                       onChange={update("email")}
                       invalid={Boolean(errors.email)}
-                      placeholder="jane@email.com"
+                      placeholder={t("contact.form.placeholders.email")}
                     />
                   </Field>
-                  <Field label="Phone" htmlFor="phone">
+                  <Field label={t("contact.form.phone")} htmlFor="phone">
                     <Input
                       id="phone"
                       name="phone"
@@ -171,16 +176,16 @@ export default function ContactSplit() {
                       autoComplete="tel"
                       value={values.phone}
                       onChange={update("phone")}
-                      placeholder="+1 555 000 0000"
+                      placeholder={t("contact.form.placeholders.phone")}
                     />
                   </Field>
                 </div>
 
                 <Field
-                  label="Message"
+                  label={t("contact.form.message")}
                   htmlFor="message"
                   required
-                  error={errors.message}
+                  error={errorText("message")}
                 >
                   <Textarea
                     id="message"
@@ -188,21 +193,21 @@ export default function ContactSplit() {
                     value={values.message}
                     onChange={update("message")}
                     invalid={Boolean(errors.message)}
-                    placeholder="Tell us about your trip — dates, route, party size, any special requests."
+                    placeholder={t("contact.form.placeholders.message")}
                   />
                 </Field>
 
                 <div className={styles.actions}>
-                  <p className={styles.fine}>
-                    By submitting, you agree to be contacted by our team.
-                  </p>
+                  <p className={styles.fine}>{t("contact.form.fine")}</p>
                   <Button
                     type="submit"
                     variant="primary"
                     withArrow
                     disabled={status === "sending"}
                   >
-                    {status === "sending" ? "Sending..." : "Submit"}
+                    {status === "sending"
+                      ? t("contact.form.sending")
+                      : t("contact.form.submit")}
                   </Button>
                 </div>
               </form>
@@ -211,9 +216,10 @@ export default function ContactSplit() {
 
           <Reveal className={styles.infoCol}>
             <aside className={styles.infoCard}>
-              <p className="section-label">Concierge</p>
+              <p className="section-label">{t("contact.info.label")}</p>
               <h3 className={styles.infoTitle}>
-                Direct lines to <span className="muted">our team.</span>
+                {t("contact.info.titleLead")}{" "}
+                <span className="muted">{t("contact.info.titleMuted")}</span>
               </h3>
 
               <ul className={styles.infoList}>
@@ -222,9 +228,11 @@ export default function ContactSplit() {
                     <PhoneIcon />
                   </span>
                   <div className={styles.infoBody}>
-                    <p className={styles.infoLabel}>Phone bookings</p>
+                    <p className={styles.infoLabel}>
+                      {t("contact.info.phoneLabel")}
+                    </p>
                     <a href="tel:+18447354371" className={styles.infoValue}>
-                      +1 (844) 735-4371
+                      {tc("phone")}
                     </a>
                   </div>
                 </li>
@@ -233,7 +241,9 @@ export default function ContactSplit() {
                     <MailIcon />
                   </span>
                   <div className={styles.infoBody}>
-                    <p className={styles.infoLabel}>Email enquiries</p>
+                    <p className={styles.infoLabel}>
+                      {t("contact.info.emailLabel")}
+                    </p>
                     <a
                       href="mailto:info@relier.com"
                       className={styles.infoValue}
@@ -245,7 +255,9 @@ export default function ContactSplit() {
               </ul>
 
               <div className={styles.socialBar}>
-                <p className={styles.infoLabel}>Follow</p>
+                <p className={styles.infoLabel}>
+                  {t("contact.info.followLabel")}
+                </p>
                 <div className={styles.socials}>
                   {SOCIALS.map(({ href, label, Icon }) => (
                     <a key={label} href={href} aria-label={label}>

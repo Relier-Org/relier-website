@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useFormatter, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
 import { Markdown } from "@/lib/blog/markdown";
@@ -12,16 +13,9 @@ interface PostBodyProps {
   siteUrl?: string;
 }
 
-const formatDate = (iso: string) => {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-};
-
 export default function PostBody({ post, siteUrl }: PostBodyProps) {
+  const t = useTranslations("blog");
+  const format = useFormatter();
   const shareUrl = siteUrl ?? post.sourceUrl;
 
   return (
@@ -29,9 +23,14 @@ export default function PostBody({ post, siteUrl }: PostBodyProps) {
       <div className={cn("container", styles.container)}>
         <Reveal className={styles.head}>
           <div className={styles.meta}>
-            <span className={styles.tag}>News</span>
+            <span className={styles.tag}>{t("tag")}</span>
             <time className={styles.date} dateTime={post.date}>
-              {formatDate(post.date)}
+              {format.dateTime(new Date(post.date), {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+                timeZone: "UTC",
+              })}
             </time>
           </div>
           <h1 className={styles.title}>{post.title}</h1>
@@ -60,7 +59,7 @@ export default function PostBody({ post, siteUrl }: PostBodyProps) {
         <div className={styles.backRow}>
           <Link href="/blog/" className={styles.back}>
             <span aria-hidden="true">←</span>
-            Back to Journal
+            {t("post.back")}
           </Link>
         </div>
       </div>

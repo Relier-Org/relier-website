@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import Reveal from "@/components/effects/Reveal";
 import TextCTA from "@/components/ui/TextCTA";
 import styles from "./Services.module.css";
@@ -15,68 +17,58 @@ const SERVICES = [
   {
     href: "/transfers",
     num: "01",
-    title: "Transfers",
-    tagline: "Airport transfers & point to point service.",
+    key: "transfers",
     image: "/images/home/vehicle.webp",
-    alt: "Airport and point to point transfers",
   },
   {
     href: "/hourly",
     num: "02",
-    title: "As directed/Hourly",
-    tagline: "Freedom to go wherever.",
+    key: "hourly",
     image: "/images/home/airport.webp",
-    alt: "As directed and hourly chauffeur service",
   },
   {
     href: "/corporate",
     num: "03",
-    title: "Corporate",
-    tagline: "Meetings, conventions, and business travel.",
+    key: "corporate",
     image: "/images/home/corporate.webp",
-    alt: "Corporate transportation",
   },
   {
     href: "/events",
     num: "04",
-    title: "Events",
-    tagline: "Galas, VIP groups, and large-scale event logistics.",
+    key: "events",
     image: "/images/home/events.webp",
-    alt: "Events transportation",
   },
 ];
 
-export default function Services() {
+export default async function Services() {
+  const t = await getTranslations("home");
+
   return (
     <section className={styles.services} id="services">
       <div className="container">
         <Reveal>
           <header className={styles.header}>
             <div className={styles.headText}>
-              <p className={styles.kicker}>Concierge on the Road</p>
+              <p className={styles.kicker}>{t("services.kicker")}</p>
               <h2 className={styles.title}>
-                One standard of service,
+                {t("services.titleLine1")}
                 <br />
-                <span className="muted">every kind of journey.</span>
+                <span className="muted">{t("services.titleLine2")}</span>
               </h2>
-              <p className={styles.lead}>
-                From a single airport run to a season of corporate roadshows,
-                every service below is run by the same team, to the same
-                standard. Pick the one that fits your trip.
-              </p>
+              <p className={styles.lead}>{t("services.lead")}</p>
             </div>
             <div className={styles.headCta}>
-              <TextCTA href="/services">See all services</TextCTA>
+              <TextCTA href="/services">{t("services.seeAll")}</TextCTA>
             </div>
           </header>
         </Reveal>
 
         <Reveal className={styles.row}>
           {SERVICES.map((s) => (
-            <a
+            <Link
               key={s.num}
               href={s.href}
-              aria-label={s.alt}
+              aria-label={t(`services.items.${s.key}.alt`)}
               className={styles.banner}
             >
               <div className={styles.bannerImg}>
@@ -88,13 +80,17 @@ export default function Services() {
                 />
               </div>
               <div className={styles.bannerContent}>
-                <h3 className={styles.h3}>{s.title}</h3>
-                <p className={styles.tagline}>{s.tagline}</p>
+                <h3 className={styles.h3}>
+                  {t(`services.items.${s.key}.title`)}
+                </h3>
+                <p className={styles.tagline}>
+                  {t(`services.items.${s.key}.tagline`)}
+                </p>
                 <span className={styles.cta} aria-hidden="true">
-                  Explore
+                  {t("services.explore")}
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </Reveal>
       </div>

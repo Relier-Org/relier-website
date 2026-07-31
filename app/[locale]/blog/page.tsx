@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import BlogHero from "@/components/sections/BlogHero";
@@ -8,27 +9,35 @@ import BlogGrid from "@/components/sections/BlogGrid";
 import GsapProvider from "@/components/effects/GsapProvider";
 import { getAllPosts } from "@/lib/blog/posts";
 
-export const metadata: Metadata = {
-  title: "News · Relier — Insights & Travel Notes",
-  description:
-    "Stories, itineraries, and field notes from Relier's chauffeurs and concierge desks across New York, Europe, and beyond.",
-  alternates: { canonical: "https://relier.com/blog/" },
-};
-
 const PER_PAGE = 6;
 
 interface PageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ page?: string }>;
 }
 
-export default async function BlogPage({ searchParams }: PageProps) {
-  const params = await searchParams;
+// SEO: blog is excluded from the hreflang cluster — the /es and /pt
+// versions canonicalize to the EN listing, no alternates emitted.
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  return {
+    title: t("meta.title"),
+    description: t("meta.description"),
+    alternates: { canonical: "https://relier.com/blog/" },
+  };
+}
+
+export default async function BlogPage({ params, searchParams }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const query = await searchParams;
   const allPosts = await getAllPosts();
   if (allPosts.length === 0) notFound();
 
   const [featured, ...rest] = allPosts;
 
-  const pageParam = Number(params.page ?? 1);
+  const pageParam = Number(query.page ?? 1);
   const page = Number.isFinite(pageParam) && pageParam >= 1 ? Math.floor(pageParam) : 1;
   const pageCount = Math.max(1, Math.ceil(rest.length / PER_PAGE));
 

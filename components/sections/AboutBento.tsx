@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
 import styles from "./AboutBento.module.css";
 
 export default function AboutBento() {
+  const t = useTranslations("pages");
+  const tc = useTranslations("common");
   return (
     <section className={styles.section}>
       <div className="container">
@@ -12,7 +15,7 @@ export default function AboutBento() {
             <div className={cn(styles.tile, styles.photoTile)}>
               <Image
                 src="/images/about-2.webp"
-                alt="Relier chauffeur opening the door for a client"
+                alt={t("about.bento.photoAlt")}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={styles.photo}
@@ -47,28 +50,15 @@ export default function AboutBento() {
           </Reveal>
 
           <Reveal className={styles.text}>
-            <p className={cn("eyebrow", styles.eyebrow)}>Who we are</p>
+            <p className={cn("eyebrow", styles.eyebrow)}>{tc("whoWeAre")}</p>
             <h2 className={styles.h2}>
-              Just tell us what you need,
+              {t("about.bento.titleLine1")}
               <br />
-              <span className="muted">we&apos;ll make it happen.</span>
+              <span className="muted">{t("about.bento.titleLine2")}</span>
             </h2>
             <div className={styles.body}>
-              <p>
-                Relier is a leading worldwide transportation company. With years
-                of experience in the industry, our team of professionals provides
-                top-notch service tailored to any unique travel requirement.
-                Whether you&apos;re traveling alone for an important event or
-                coordinating transportation for a group vacation, corporate
-                outing, or international trip, we&apos;ve got you covered.
-              </p>
-              <p>
-                At Relier, our clients&apos; satisfaction is always our top
-                priority. We take every detail into consideration to ensure a
-                seamless travel experience — wherever in the world your journey
-                takes you. With us, you are in good hands and will always receive
-                the high-quality service you deserve.
-              </p>
+              <p>{t("about.bento.body1")}</p>
+              <p>{t("about.bento.body2")}</p>
             </div>
           </Reveal>
         </div>

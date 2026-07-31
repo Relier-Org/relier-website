@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./DurationPicker.module.css";
 
 type DurationPickerProps = {
@@ -11,15 +12,12 @@ type DurationPickerProps = {
 
 const HOUR_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 24];
 
-function formatLabel(h: number): string {
-  return h === 1 ? "1 hour" : `${h} hours`;
-}
-
 export default function DurationPicker({
   value,
   onChange,
-  placeholder = "Select duration",
+  placeholder,
 }: DurationPickerProps) {
+  const t = useTranslations("booking");
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +53,9 @@ export default function DurationPicker({
         aria-expanded={open}
       >
         <span className={value !== null ? styles.value : styles.placeholder}>
-          {value !== null ? formatLabel(value) : placeholder}
+          {value !== null
+            ? t("durationPicker.hours", { count: value })
+            : placeholder ?? t("durationPicker.placeholder")}
         </span>
       </button>
       {open && (
@@ -71,7 +71,7 @@ export default function DurationPicker({
                 className={`${styles.option} ${isSelected ? styles.optionSelected : ""}`}
                 onClick={() => commit(h)}
               >
-                {formatLabel(h)}
+                {t("durationPicker.hours", { count: h })}
               </button>
             );
           })}

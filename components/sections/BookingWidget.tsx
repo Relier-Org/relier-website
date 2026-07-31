@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState, type FormEvent, type MouseEvent } from "react";
+import { useTranslations } from "next-intl";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { cn } from "@/lib/utils/cn";
@@ -27,18 +28,22 @@ type SubmitState =
   | { status: "idle" }
   | { status: "submitting" }
   | { status: "success"; data: QuoteResponse }
-  | { status: "error"; message: string };
+  | { status: "error" };
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: "point-to-point", label: "Transfers" },
-  { id: "hourly", label: "As directed/Hourly" },
+const TABS: { id: Tab; labelKey: "tabs.transfers" | "tabs.hourly" }[] = [
+  { id: "point-to-point", labelKey: "tabs.transfers" },
+  { id: "hourly", labelKey: "tabs.hourly" },
 ];
+
+const PHONE_DISPLAY = "+1 (844) 735-4371";
+const PHONE_HREF = "tel:+18447354371";
 
 export type BookingWidgetProps = {
   variant?: "overlap" | "flat";
 };
 
 export default function BookingWidget({ variant = "overlap" }: BookingWidgetProps) {
+  const t = useTranslations("booking");
   const [activeTab, setActiveTab] = useState<Tab>("point-to-point");
   const [pickup, setPickup] = useState<PlaceFeature | null>(null);
   const [dropoff, setDropoff] = useState<PlaceFeature | null>(null);
@@ -238,9 +243,9 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
       const data = await requestQuote(payload);
       setSubmit({ status: "success", data });
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Something went wrong. Please try again.";
-      setSubmit({ status: "error", message });
+      // Server messages are untranslated internals — surface the localized copy.
+      console.error(err);
+      setSubmit({ status: "error" });
     }
   }
 
@@ -290,22 +295,19 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
                 />
               </svg>
             </div>
-            <h3 className={styles.confirmationTitle}>Your request is on its way.</h3>
-            <p className={styles.confirmationLead}>
-              Our concierge will contact you within 15 minutes to confirm
-              vehicle, pricing and pickup details.
-            </p>
+            <h3 className={styles.confirmationTitle}>{t("confirmation.title")}</h3>
+            <p className={styles.confirmationLead}>{t("confirmation.lead")}</p>
             <p className={styles.confirmationMeta}>
-              Reference: <strong>{submit.data.tripId}</strong>
+              {t("confirmation.reference")} <strong>{submit.data.tripId}</strong>
               {" · "}
-              <a href="tel:+18447354371">+1 (844) 735-4371</a>
+              <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
             </p>
             <button
               type="button"
               className={styles.confirmationReset}
               onClick={resetSubmit}
             >
-              Make another request
+              {t("confirmation.reset")}
             </button>
           </div>
         ) : (
@@ -313,7 +315,7 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
         <div
           className={styles.tabs}
           role="tablist"
-          aria-label="Booking type"
+          aria-label={t("tabs.ariaLabel")}
           ref={tabsRef}
         >
           {TABS.map((tab) => (
@@ -328,7 +330,7 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
               className={cn(styles.tab, activeTab === tab.id && styles.tabActive)}
               onClick={() => setActiveTab(tab.id)}
             >
-              {tab.label}
+              {t(tab.labelKey)}
             </button>
           ))}
           <span
@@ -343,28 +345,28 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
           onSubmit={handleSubmit}
         >
           <div className={styles.field} onClick={handleFieldClick}>
-            <span className={styles.fieldLabel}>Pick-up location</span>
+            <span className={styles.fieldLabel}>{t("fields.pickupLocation")}</span>
             <PlaceAutocomplete value={pickup} onSelect={setPickup} />
           </div>
           {isPointToPoint ? (
             <div className={styles.field} onClick={handleFieldClick}>
-              <span className={styles.fieldLabel}>Destination</span>
+              <span className={styles.fieldLabel}>{t("fields.destination")}</span>
               <PlaceAutocomplete value={dropoff} onSelect={setDropoff} />
             </div>
           ) : (
             <div className={styles.field} onClick={handleFieldClick}>
-              <span className={styles.fieldLabel}>Duration</span>
+              <span className={styles.fieldLabel}>{t("fields.duration")}</span>
               <DurationPicker value={durationHours} onChange={setDurationHours} />
               <span className={styles.fieldIcon} aria-hidden="true">▾</span>
             </div>
           )}
           <div className={styles.field} onClick={handleFieldClick}>
-            <span className={styles.fieldLabel}>Date</span>
+            <span className={styles.fieldLabel}>{t("fields.date")}</span>
             <DatePicker value={pickupDate} onChange={setPickupDate} />
             <span className={styles.fieldIcon} aria-hidden="true">▾</span>
           </div>
           <div className={styles.field} onClick={handleFieldClick}>
-            <span className={styles.fieldLabel}>Pickup time</span>
+            <span className={styles.fieldLabel}>{t("fields.pickupTime")}</span>
             <TimePicker value={pickupTime} onChange={setPickupTime} />
             <span className={styles.fieldIcon} aria-hidden="true">▾</span>
           </div>
@@ -375,10 +377,10 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
             aria-busy={submit.status === "submitting"}
           >
             {submit.status === "submitting" ? (
-              <>Sending…</>
+              <>{t("cta.sending")}</>
             ) : (
               <>
-                Get my prices{" "}
+                {t("cta.idle")}{" "}
                 <span className={styles.ctaArrow} aria-hidden="true">→</span>
               </>
             )}
@@ -386,20 +388,23 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
         </form>
         {submit.status === "error" && (
           <p className={styles.errorMsg} role="alert">
-            {submit.message} If it keeps failing, call{" "}
-            <a href="tel:+18447354371">+1 (844) 735-4371</a>.
+            {t("error.generic")}{" "}
+            {t.rich("error.help", {
+              phone: PHONE_DISPLAY,
+              tel: (chunks) => <a href={PHONE_HREF}>{chunks}</a>,
+            })}
           </p>
         )}
         <div className={styles.bottomRow}>
           {isPointToPoint && (
             <Checkbox checked={returnTrip} onChange={setReturnTrip}>
-              Add a return trip
+              {t("returnTrip")}
             </Checkbox>
           )}
           <p className={styles.concierge}>
-            Need help planning?{" "}
-            <a href="tel:+18447354371">
-              Talk to a concierge → +1 (844) 735-4371
+            {t("concierge.prompt")}{" "}
+            <a href={PHONE_HREF}>
+              {t("concierge.action", { phone: PHONE_DISPLAY })}
             </a>
           </p>
         </div>
@@ -410,12 +415,12 @@ export default function BookingWidget({ variant = "overlap" }: BookingWidgetProp
             style={returnWidth ? { width: returnWidth } : undefined}
           >
             <div className={styles.field} onClick={handleFieldClick}>
-              <span className={styles.fieldLabel}>Return date</span>
+              <span className={styles.fieldLabel}>{t("fields.returnDate")}</span>
               <DatePicker value={returnDate} onChange={setReturnDate} />
               <span className={styles.fieldIcon} aria-hidden="true">▾</span>
             </div>
             <div className={styles.field} onClick={handleFieldClick}>
-              <span className={styles.fieldLabel}>Return time</span>
+              <span className={styles.fieldLabel}>{t("fields.returnTime")}</span>
               <TimePicker value={returnTime} onChange={setReturnTime} />
               <span className={styles.fieldIcon} aria-hidden="true">▾</span>
             </div>

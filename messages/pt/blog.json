@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "Notícias · Relier — Perspectivas e notas de viagem",
+    "description": "Histórias, itinerários e notas de campo dos motoristas e equipes de concierge da Relier em Nova York, na Europa e além."
+  },
+  "hero": {
+    "eyebrow": "Diário",
+    "titleLine1": "Notícias e perspectivas",
+    "titleLine2": "da estrada.",
+    "lead": "Histórias, itinerários e notas de campo dos nossos motoristas e equipes de concierge nas Américas, na Europa e no Oriente Médio."
+  },
+  "featured": {
+    "label": "Artigo mais recente"
+  },
+  "listing": {
+    "eyebrow": "Diário",
+    "title": "Últimas perspectivas e notas de viagem."
+  },
+  "tag": "Notícias",
+  "readMore": "Leia mais",
+  "pagination": {
+    "label": "Paginação",
+    "previous": "Anterior",
+    "next": "Próxima",
+    "previousPage": "Página anterior",
+    "nextPage": "Próxima página"
+  },
+  "post": {
+    "back": "Voltar ao diário"
+  },
+  "share": {
+    "label": "Compartilhar esta publicação",
+    "facebook": "Compartilhar no Facebook",
+    "linkedin": "Compartilhar no LinkedIn",
+    "x": "Compartilhar no X",
+    "email": "Compartilhar por e-mail",
+    "copyLink": "Copiar link",
+    "linkCopied": "Link copiado"
+  }
+}

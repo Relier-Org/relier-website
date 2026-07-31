@@ -1,0 +1,23 @@
+{
+  "brand": "Concierge de movilidad personal. Con sede en Nueva York y Barcelona. En servicio en las Américas, Europa y Medio Oriente desde 2012.",
+  "headings": {
+    "service": "Servicios",
+    "company": "Compañía",
+    "reach": "Contáctanos"
+  },
+  "links": {
+    "airportTransfers": "Traslados al aeropuerto",
+    "about": "Nosotros",
+    "fleet": "Flota",
+    "relierEurope": "Relier Europe"
+  },
+  "contact": {
+    "hq": "Nueva York · Sede",
+    "email": "Concierge · Email",
+    "phone": "Concierge · 24/7"
+  },
+  "aria": {
+    "home": "Inicio de Relier"
+  },
+  "copyright": "© 2026 Relier · Todos los derechos reservados"
+}

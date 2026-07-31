@@ -8,8 +8,8 @@
 // (swap de webp; el layout ya las centra).
 
 export interface Vehicle {
+  /** Translation key: `tiers.<id>` in messages/<locale>/fleet.json. */
   id: string;
-  tier: string;
   name: string;
   image: string;
   width: number;
@@ -17,14 +17,19 @@ export interface Vehicle {
   passengers: number | string;
   luggage?: number;
   orSimilar?: boolean;
-  /** Width normalization so sedan/SUV/van/coach read balanced in the stage. */
-  scale: number;
+  /** Giant backdrop word behind the car in the showcase stage. */
+  word: string;
+  /**
+   * Car height in the desktop stage, px (×0.52 on mobile, via CSS). Encodes the
+   * real-volume hierarchy: sedan < SUV < van < coach. Width derives from the
+   * canvas ratio (width/height) since every webp is a normalized canvas.
+   */
+  stageHeight: number;
 }
 
 export const FLEET: Vehicle[] = [
   {
     id: "executive-sedan",
-    tier: "Executive Sedan",
     name: "Cadillac Lyriq",
     image: "/images/fleet/lyriq.webp",
     width: 1740,
@@ -32,11 +37,11 @@ export const FLEET: Vehicle[] = [
     passengers: 2,
     luggage: 2,
     orSimilar: true,
-    scale: 0.9,
+    word: "LYRIQ",
+    stageHeight: 345,
   },
   {
     id: "flagship-sedan",
-    tier: "Flagship Sedan",
     name: "Mercedes-Benz S-Class",
     image: "/images/fleet/s-class.webp",
     width: 1740,
@@ -44,11 +49,11 @@ export const FLEET: Vehicle[] = [
     passengers: 2,
     luggage: 2,
     orSimilar: true,
-    scale: 0.9,
+    word: "S-CLASS",
+    stageHeight: 330,
   },
   {
     id: "full-size-suv",
-    tier: "Full-Size SUV",
     name: "Cadillac Escalade",
     image: "/images/fleet/escalade.webp",
     width: 1740,
@@ -56,11 +61,11 @@ export const FLEET: Vehicle[] = [
     passengers: 5,
     luggage: 6,
     orSimilar: true,
-    scale: 0.97,
+    word: "ESCALADE",
+    stageHeight: 355,
   },
   {
     id: "executive-van",
-    tier: "Executive Van",
     name: "Mercedes-Benz Sprinter",
     image: "/images/fleet/sprinter.webp",
     width: 1740,
@@ -68,28 +73,29 @@ export const FLEET: Vehicle[] = [
     passengers: 13,
     luggage: 10,
     orSimilar: true,
-    scale: 1,
+    word: "SPRINTER",
+    stageHeight: 375,
   },
   {
     id: "mini-coach",
-    tier: "Mini Coach",
     name: "Executive Mini-Bus",
     image: "/images/fleet/minibus.webp",
     width: 1600,
     height: 1000,
     passengers: "24–40",
     orSimilar: true,
-    scale: 1.05,
+    word: "MINI COACH",
+    stageHeight: 390,
   },
   {
     id: "motor-coach",
-    tier: "Motor Coach",
     name: "56-Passenger Coach",
     image: "/images/fleet/motorcoach.webp",
     width: 1600,
     height: 1000,
     passengers: 56,
     orSimilar: true,
-    scale: 1.1,
+    word: "COACH",
+    stageHeight: 400,
   },
 ];

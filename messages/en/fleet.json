@@ -1,0 +1,64 @@
+{
+  "showcase": {
+    "kicker": "The Fleet",
+    "title": "always at the ready.",
+    "lead": "Six categories, one standard. Always punctual, always immaculate — the showcase moves on its own; pause it to take a closer look.",
+    "imageAlt": "{name} or similar",
+    "previousVehicle": "Previous vehicle",
+    "nextVehicle": "Next vehicle",
+    "categories": "Fleet categories",
+    "exploreFull": "Explore the full fleet"
+  },
+  "tiers": {
+    "executive-sedan": "Executive Sedan",
+    "flagship-sedan": "Flagship Sedan",
+    "full-size-suv": "Full-Size SUV",
+    "executive-van": "Executive Van",
+    "mini-coach": "Mini Coach",
+    "motor-coach": "Motor Coach"
+  },
+  "meta": {
+    "title": "Fleet · Relier — Our Vehicles",
+    "description": "Smaller and larger vehicles available for personal mobility — sedans, SUVs, S-Class, Sprinter vans, minibus and motorcoach."
+  },
+  "hero": {
+    "eyebrow": "Our fleet",
+    "titleLine1": "Our fleet,",
+    "titleLine2": "always at the ready."
+  },
+  "grid": {
+    "photoComingSoon": "Photo coming soon"
+  },
+  "smaller": {
+    "title": "Smaller vehicles",
+    "lead": "Late-model sedans, SUVs and executive vans — each immaculately kept, chauffeur-driven, and ready around the clock. Pick by passengers and luggage; every class is offered as the model shown or a like-for-like equivalent."
+  },
+  "larger": {
+    "title": "Larger vehicles",
+    "lead": "For groups, productions and events — mini-buses and a 56-passenger motor coach, with the same standard of service and coordination as our private cars."
+  },
+  "vehicles": {
+    "sedan": {
+      "tier": "Sedan",
+      "label": "Executive Sedan"
+    },
+    "suv": {
+      "tier": "SUV",
+      "label": "Full-Size SUV"
+    },
+    "sClass": {
+      "tier": "S Class",
+      "label": "Flagship Sedan"
+    },
+    "van": {
+      "tier": "Van",
+      "label": "Executive Van"
+    },
+    "minibus": {
+      "tier": "Minibus"
+    },
+    "motorcoach": {
+      "tier": "Motorcoach"
+    }
+  }
+}

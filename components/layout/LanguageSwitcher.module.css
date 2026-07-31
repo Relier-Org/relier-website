@@ -1,0 +1,144 @@
+/* Se estira a la altura de la fila del header (mismo patrón que `.links > li`
+   en Nav.module.css) para que el menú, anclado con top:100% + el padding de
+   `.right`, caiga en el borde inferior del header igual que el dropdown de
+   Services. Sin esto el menú arranca desde el alto del trigger (~17px) y queda
+   flotando dentro del header. */
+.root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  color: var(--text-accent);
+}
+
+.trigger:focus-visible {
+  outline: 1px solid var(--color-champagne-500);
+  outline-offset: 4px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.caret {
+  display: block;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.caretOpen {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  right: -16px;
+  transform: translateY(8px);
+  min-width: 180px;
+  padding: 12px 0;
+  margin: 0;
+  list-style: none;
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 0.5px solid var(--border-glass);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    visibility var(--duration-base) var(--ease-out);
+}
+
+.menu.isOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 24px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-silver-100);
+  white-space: nowrap;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.menu a:hover,
+.menu a.isActive {
+  color: var(--color-champagne-500);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.menu a:focus-visible {
+  outline: 1px solid var(--color-champagne-500);
+  outline-offset: -1px;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.inlineItem {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.inlineItem:hover {
+  color: var(--color-champagne-500);
+}
+
+.inlineItem.isActive {
+  color: var(--color-champagne-500);
+}
+
+.inlineItem:focus-visible {
+  outline: 1px solid var(--color-champagne-500);
+  outline-offset: 4px;
+}

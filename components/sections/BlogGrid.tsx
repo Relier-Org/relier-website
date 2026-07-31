@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
 import BlogCard from "@/components/blog/BlogCard";
@@ -24,6 +25,7 @@ export default function BlogGrid({
   perPage,
   showLead = true,
 }: BlogGridProps) {
+  const t = useTranslations("blog");
   const start = (page - 1) * perPage;
   const slice = posts.slice(start, start + perPage);
 
@@ -34,9 +36,9 @@ export default function BlogGrid({
           <Reveal className={styles.header}>
             <p className={styles.eyebrow}>
               <span className={styles.dot} aria-hidden="true" />
-              Journal
+              {t("listing.eyebrow")}
             </p>
-            <h2 className={styles.title}>Latest insights & travel notes.</h2>
+            <h2 className={styles.title}>{t("listing.title")}</h2>
           </Reveal>
         )}
 
@@ -57,21 +59,22 @@ export default function BlogGrid({
 }
 
 function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
+  const t = useTranslations("blog");
   const prev = page > 1 ? buildHref(page - 1) : null;
   const next = page < pageCount ? buildHref(page + 1) : null;
   const numbers = pageNumbers(page, pageCount);
 
   return (
-    <nav className={styles.pagination} aria-label="Pagination">
+    <nav className={styles.pagination} aria-label={t("pagination.label")}>
       {prev ? (
-        <Link href={prev} className={styles.navLink} aria-label="Previous page">
+        <Link href={prev} className={styles.navLink} aria-label={t("pagination.previousPage")}>
           <span aria-hidden="true">←</span>
-          <span className={styles.navLabel}>Previous</span>
+          <span className={styles.navLabel}>{t("pagination.previous")}</span>
         </Link>
       ) : (
         <span className={cn(styles.navLink, styles.navDisabled)} aria-hidden="true">
           <span>←</span>
-          <span className={styles.navLabel}>Previous</span>
+          <span className={styles.navLabel}>{t("pagination.previous")}</span>
         </span>
       )}
 
@@ -98,13 +101,13 @@ function Pagination({ page, pageCount }: { page: number; pageCount: number }) {
       </ol>
 
       {next ? (
-        <Link href={next} className={styles.navLink} aria-label="Next page">
-          <span className={styles.navLabel}>Next</span>
+        <Link href={next} className={styles.navLink} aria-label={t("pagination.nextPage")}>
+          <span className={styles.navLabel}>{t("pagination.next")}</span>
           <span aria-hidden="true">→</span>
         </Link>
       ) : (
         <span className={cn(styles.navLink, styles.navDisabled)} aria-hidden="true">
-          <span className={styles.navLabel}>Next</span>
+          <span className={styles.navLabel}>{t("pagination.next")}</span>
           <span>→</span>
         </span>
       )}

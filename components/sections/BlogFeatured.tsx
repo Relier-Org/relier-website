@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useFormatter, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 import TextCTA from "@/components/ui/TextCTA";
 import Reveal from "@/components/effects/Reveal";
@@ -10,23 +11,16 @@ interface BlogFeaturedProps {
   post: Post;
 }
 
-const formatDate = (iso: string) => {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-};
-
 export default function BlogFeatured({ post }: BlogFeaturedProps) {
+  const t = useTranslations("blog");
+  const format = useFormatter();
   const href = `/${post.slug}/`;
   return (
     <section className={styles.section}>
       <div className={cn("container", styles.container)}>
         <Reveal className={styles.eyebrowRow}>
           <span className={styles.dot} aria-hidden="true" />
-          <span className={styles.sectionLabel}>Latest article</span>
+          <span className={styles.sectionLabel}>{t("featured.label")}</span>
         </Reveal>
         <Reveal className={styles.card} delay={0.05}>
           <Link href={href} className={styles.imageWrap} aria-label={post.title}>
@@ -44,16 +38,21 @@ export default function BlogFeatured({ post }: BlogFeaturedProps) {
             )}
           </Link>
           <div className={styles.content}>
-            <span className={styles.tag}>News</span>
+            <span className={styles.tag}>{t("tag")}</span>
             <h2 className={styles.title}>
               <Link href={href}>{post.title}</Link>
             </h2>
             <time className={styles.date} dateTime={post.date}>
-              {formatDate(post.date)}
+              {format.dateTime(new Date(post.date), {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+                timeZone: "UTC",
+              })}
             </time>
             <p className={styles.excerpt}>{post.excerpt}</p>
             <TextCTA href={href} tone="light" className={styles.cta}>
-              Read more
+              {t("readMore")}
             </TextCTA>
           </div>
         </Reveal>

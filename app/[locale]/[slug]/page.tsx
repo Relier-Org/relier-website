@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import BlogHero from "@/components/sections/BlogHero";
@@ -8,7 +9,7 @@ import GsapProvider from "@/components/effects/GsapProvider";
 import { getAllPosts, getPostBySlug } from "@/lib/blog/posts";
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -16,6 +17,8 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
+// SEO: posts are EN-only and excluded from the hreflang cluster — every
+// locale version canonicalizes to the unprefixed EN URL, no alternates.
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
@@ -38,7 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function PostPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 

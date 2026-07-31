@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "title": "Nossos serviços · Relier — Transporte com motorista em todo o mundo",
+    "description": "Transporte terrestre de nível concierge adaptado a cada viagem: traslados de luxo, eventos, aeroporto, viagens corporativas e serviço dedicado para a Copa do Mundo FIFA 2026 nas Américas, na Europa e no Oriente Médio."
+  },
+  "hero": {
+    "eyebrow": "Serviços",
+    "title": "Nossos serviços",
+    "subtitle": "Transporte sob medida, de nível concierge — adaptado a cada viajante, cada ocasião, cada cidade.",
+    "imageAlt": "Motorista da Relier abrindo a porta de um veículo de luxo"
+  },
+  "intro": {
+    "eyebrow": "Por que a Relier",
+    "body": "Seja você um viajante a negócios que precisa de um traslado confiável para o aeroporto ou um turista exigente que quer explorar os pontos emblemáticos da cidade, nosso serviço de transporte foi desenhado para atender às suas necessidades específicas. Nossa frota, mantida com o máximo rigor, oferece uma gama de veículos de alto padrão que garantem conforto e estilo durante todo o trajeto."
+  },
+  "featured": {
+    "label": "Destaque · Reservas abertas"
+  },
+  "grid": {
+    "eyebrow": "Serviços principais",
+    "title": "Feitos para cada tipo de viagem."
+  },
+  "body": {
+    "imagePlaceholder": "Imagem em breve"
+  },
+  "items": {
+    "transfers": {
+      "title": "Traslados",
+      "tagline": "Traslados para o aeroporto e serviço ponto a ponto.",
+      "description": "De chegadas ao aeroporto sem atritos a deslocamentos eficientes pela cidade, viva um trajeto impecável de A a B com o mais alto padrão de conforto, pontualidade e estilo.",
+      "coverAlt": "Traslados para o aeroporto e ponto a ponto"
+    },
+    "hourly": {
+      "title": "À disposição/Por hora",
+      "tagline": "Liberdade para ir aonde quiser.",
+      "description": "Aproveite total flexibilidade com um veículo premium e um motorista profissional à sua disposição pelo tempo que precisar. Ideal para agendas dinâmicas e itinerários com várias paradas.",
+      "coverAlt": "Serviço de motorista à disposição e por hora"
+    },
+    "corporate": {
+      "title": "Corporativo",
+      "tagline": "Reuniões, convenções e viagens de negócios.",
+      "description": "Logística sob medida para profissionais e equipes executivas. Garantimos confiabilidade absoluta, privacidade e execução impecável para manter seu negócio em movimento.",
+      "coverAlt": "Transporte corporativo"
+    },
+    "events": {
+      "title": "Eventos",
+      "tagline": "Galas, grupos VIP e logística de eventos em grande escala.",
+      "description": "De grandes competições esportivas a celebrações de alto nível, gerenciamos o transporte de grupos e a logística de eventos complexos com precisão impecável. Qualquer que seja a escala, garantimos que seus convidados e VIPs cheguem com absoluto conforto e distinção.",
+      "coverAlt": "Transporte para eventos"
+    }
+  },
+  "transfers": {
+    "meta": {
+      "title": "Traslados em veículos de luxo · Relier — Serviço privado de motorista em NYC",
+      "description": "Transporte privado premium com veículos de alto padrão para qualquer ocasião. Motoristas bilíngues, preço fixo, sem custos ocultos."
+    },
+    "hero": {
+      "eyebrow": "Traslados",
+      "title": "Traslados privados de luxo e serviços de motorista na cidade de Nova York",
+      "subtitle": "De chegadas ao aeroporto sem atritos a deslocamentos eficientes pela cidade, viva um trajeto impecável de A a B com o mais alto padrão de conforto, pontualidade e estilo."
+    },
+    "blocks": {
+      "maximize": {
+        "title": "Aproveite seu tempo ao máximo",
+        "p1": "Com os traslados de luxo da Relier, viajar é mais confortável do que nunca. Você economiza tempo ao evitar aeroportos e estações de trem e pode usar o trajeto como preferir: ligações privadas, a preparação de última hora de uma apresentação ou até recuperar horas de sono. Nossos motoristas bilíngues são comprometidos com a discrição e lhe dão o espaço e a privacidade necessários para entregar o seu melhor.",
+        "imageAlt": "Motorista da Relier abrindo a porta para um passageiro"
+      },
+      "stressFree": {
+        "title": "Uma solução sem estresse",
+        "p1": "Reservar nossos traslados como alternativa ao trem ou ao aluguel de carro significa evitar multidões e viajar com segurança. Em vez de enfrentar longas filas e vários atendimentos antes mesmo de pegar a estrada, você simplesmente aproveita o conforto de um traslado privado em um veículo de primeira linha.",
+        "imageAlt": "Interior de um veículo da Relier"
+      },
+      "costCertainty": {
+        "title": "Previsibilidade de custos e flexibilidade",
+        "p1": "As tarifas são garantidas com antecedência e nosso preço fixo entre o embarque e o destino significa que não há custos ocultos. Os planos mudaram? Altere ou cancele sua viagem sem custo até 24 horas antes do embarque. Prevê uma ou duas paradas no caminho? A Relier cuida disso. Para grupos pequenos, nossa classe de serviço Business Van ou SUV oferece espaço de trabalho adicional sem abrir mão do conforto ou do estilo.",
+        "imageAlt": "Traslado executivo da Relier"
+      }
+    },
+    "closer": {
+      "title": "Reserve hoje seu traslado de luxo.",
+      "body": "Veículos premium, motoristas bilíngues e preço fixo — reserve sua viagem em minutos."
+    }
+  },
+  "hourly": {
+    "meta": {
+      "title": "À disposição/Por hora · Relier — Serviço de motorista por hora",
+      "description": "Serviço de motorista por hora e à disposição — seu veículo e seu motorista reservados pelo tempo que precisar, aonde quer que o dia leve você."
+    },
+    "hero": {
+      "eyebrow": "À disposição/Por hora",
+      "title": "Serviço de motorista por hora",
+      "subtitle": "Aproveite total flexibilidade com um veículo premium e um motorista profissional à sua disposição pelo tempo que precisar. Ideal para agendas dinâmicas e itinerários com várias paradas."
+    },
+    "blocks": {
+      "schedule": {
+        "title": "Seu veículo, na sua agenda",
+        "p1": "Reserve um motorista por hora e mantenha o veículo com você o dia inteiro. Sem reservar de novo entre as paradas, sem esperar pelo próximo embarque — seu motorista permanece à disposição, pronto quando você estiver, pelo tempo que precisar.",
+        "imageAlt": "Motorista por hora à disposição com a Relier"
+      },
+      "freedom": {
+        "title": "Liberdade para ir aonde quiser",
+        "p1": "Reuniões pela cidade, um dia de compras, um passeio turístico ou um itinerário cheio que muda o tempo todo — com o serviço à disposição, você define a rota conforme o dia avança. Uma única reserva cobre tudo.",
+        "imageAlt": "Viagem à disposição com a Relier"
+      }
+    },
+    "closer": {
+      "title": "Reserve seu dia, hora a hora.",
+      "body": "Diga a que horas começamos e mantemos o veículo com você — cobrado por hora, com o mesmo padrão de serviço com motorista em cada parada."
+    }
+  },
+  "corporate": {
+    "meta": {
+      "title": "Transporte corporativo · Relier — Serviço de motorista para empresas em NYC",
+      "description": "Serviço de motorista de luxo e profissional para viagens de negócios e eventos corporativos."
+    },
+    "hero": {
+      "eyebrow": "Corporativo",
+      "title": "Transporte corporativo em limusine em NYC",
+      "subtitle": "Logística sob medida para profissionais e equipes executivas. Garantimos confiabilidade absoluta, privacidade e execução impecável para manter seu negócio em movimento."
+    },
+    "blocks": {
+      "onTime": {
+        "title": "Chegue no horário, sempre",
+        "p1": "O tempo é um fator crucial em toda agenda corporativa. Chegar atrasado a um evento de negócios é inaceitável: além de deixar uma má impressão, pode significar perder momentos-chave da ocasião. Evite esses contratempos com nossos serviços de transporte corporativo, apoiados por nossa equipe de despacho 24/7, que garante coordenação impecável e monitoramento da viagem em tempo real para uma experiência sem estresse.",
+        "imageAlt": "Transporte corporativo pontual da Relier"
+      },
+      "impression": {
+        "title": "Deixe uma impressão duradoura",
+        "p1": "Um serviço de motorista corporativo não é só pontualidade: é uma declaração. Ele reflete profissionalismo, importância e os altos padrões da sua empresa, deixando uma impressão duradoura em clientes e parceiros.",
+        "imageAlt": "Transporte executivo da Relier"
+      },
+      "workRelax": {
+        "title": "Trabalhe ou relaxe na estrada",
+        "p1": "Deixe o motorista cuidar da direção enquanto você se concentra no que importa: colocar o trabalho em dia, revisar documentos importantes ou simplesmente desligar. Com WiFi a bordo em todos os nossos veículos, você permanece conectado e produtivo enquanto aproveita um trajeto tranquilo e sem estresse.",
+        "imageAlt": "Relaxe durante sua viagem com a Relier"
+      }
+    },
+    "closer": {
+      "title": "Reserve hoje sua viagem corporativa.",
+      "body": "Despacho 24/7, WiFi a bordo e motoristas treinados para viagens de negócios — reserve em minutos e chegue pronto."
+    }
+  },
+  "events": {
+    "meta": {
+      "title": "Transporte para eventos · Relier — Serviço privado de motorista para eventos em NYC",
+      "description": "Transporte confiável e confortável para eventos esportivos, entretenimento e conferências."
+    },
+    "hero": {
+      "eyebrow": "Eventos",
+      "title": "Transporte privado de luxo para eventos em NYC",
+      "subtitle": "De grandes competições esportivas a celebrações de alto nível, gerenciamos o transporte de grupos e a logística de eventos complexos com precisão impecável. Qualquer que seja a escala, garantimos que seus convidados e VIPs cheguem com absoluto conforto e distinção."
+    },
+    "blocks": {
+      "entertainment": {
+        "title": "Eventos de entretenimento",
+        "p1": "Qualquer que seja o evento a que você queira ir, a Relier oferece preços acessíveis em todo o serviço de carros de luxo para eventos em NYC. Temos pacotes para todas as ocasiões especiais: aniversários de casamento, despedidas de solteiro e solteira, aniversários, shows, bailes de formatura, passeios turísticos, eventos esportivos, compras ou qualquer evento em família — a Relier tem a solução de transporte perfeita para todas as suas necessidades. Contrate nossos serviços para a sua noite livre ou para uma saída pedagógica com a turma. Fazemos questão de oferecer um serviço que faça você se sentir seguro e confortável — e com estilo ao mesmo tempo.",
+        "imageAlt": "Eventos de entretenimento com a Relier"
+      },
+      "corporate": {
+        "title": "Eventos corporativos",
+        "p1": "Garanta um transporte impecável para seus eventos corporativos com nosso serviço privado com motorista. Sejam reuniões executivas, conferências ou retiros corporativos, oferecemos traslados pontuais, profissionais e luxuosos, adaptados às suas necessidades. Com uma frota diversificada e suporte de despacho 24/7, garantimos uma experiência tranquila e sem estresse para você e sua equipe. Chegue com estilo, pronto para o sucesso.",
+        "imageAlt": "Eventos corporativos com a Relier"
+      },
+      "sports": {
+        "title": "Eventos esportivos",
+        "p1": "Seja para transportar um time visitante antes do grande jogo ou levar uma jovem promessa para se reunir com um executivo da franquia, cobrimos todas as suas necessidades de transporte. Como serviço de referência para os grandes eventos esportivos, somos a escolha de atletas, agentes, equipes de produção e franquias esportivas profissionais. Além disso, conseguimos pacotes VIP para eventos exclusivos e cuidamos do transporte de grupos em encontros de grande escala, como a Copa América.",
+        "imageAlt": "Eventos esportivos com a Relier"
+      },
+      "conferences": {
+        "title": "Conferências",
+        "p1": "Transporte todos os seus participantes com estilo ou faça uma entrada marcante com nossa logística especializada para eventos organizacionais e conferências. Seja para levar uma equipe comercial inteira até um local ou para chegar de limusine, cuidamos de tudo.",
+        "imageAlt": "Conferências com a Relier"
+      }
+    },
+    "closer": {
+      "title": "Reserve hoje o transporte do seu evento.",
+      "body": "Transporte tranquilo, confiável e luxuoso para qualquer evento. De chegadas VIP a traslados de grandes grupos, nossa equipe garante uma experiência impecável. Garanta sua viagem online agora e deixe o resto conosco."
+    }
+  },
+  "airport": {
+    "meta": {
+      "title": "Traslados para o aeroporto · Relier — Transporte privado para JFK, LaGuardia e Newark",
+      "description": "Viagens confiáveis e confortáveis de e para JFK, LaGuardia e Newark."
+    },
+    "hero": {
+      "eyebrow": "Traslados para o aeroporto",
+      "title": "Traslados para o aeroporto em NYC — Transporte privado de luxo",
+      "subtitle": "Viagens confiáveis e confortáveis de e para JFK, LaGuardia e Newark."
+    },
+    "blocks": {
+      "prompt": {
+        "title": "Pontual e seguro",
+        "p1": "Um transporte terrestre para o aeroporto capaz de oferecer um serviço seguro e rápido é a solução para as dores de cabeça causadas pelo tempo de espera e pelo transporte público confuso. Por que se contentar com menos quando você pode ter acesso a um meio de transporte impecável para se deslocar em NYC?",
+        "imageAlt": "Embarque no aeroporto com a Relier"
+      },
+      "noWaiting": {
+        "title": "Sem tempo de espera",
+        "p1": "Evite as longas filas e pegue a estrada assim que sair do aeroporto. Não é preciso se estressar tentando entender o transporte público, pedir uma corrida por aplicativo ou esperar por um táxi. Com um serviço de transporte para o aeroporto, nenhum tempo é desperdiçado e as preocupações desaparecem.",
+        "imageAlt": "Sem espera no aeroporto"
+      },
+      "luxury": {
+        "title": "Luxo em sua melhor forma",
+        "p1": "Além da conveniência de ter um veículo e um motorista para levar você de e para o aeroporto, nosso transporte não para por aí. Nossos carros são equipados com interiores e comodidades de última geração para garantir um trajeto confortável. Aproveite um ambiente com temperatura controlada onde você pode recostar e relaxar.",
+        "imageAlt": "Interior de veículo de luxo"
+      }
+    },
+    "closer": {
+      "title": "Reserve hoje seu traslado para o aeroporto.",
+      "body": "JFK, LaGuardia, Newark — sem espera, sem estresse. Reserve online e estaremos lá dez minutos antes do embarque."
+    }
+  },
+  "forBusiness": {
+    "meta": {
+      "title": "Para empresas · Relier — Agências de viagens, corporativo e eventos",
+      "description": "Faça parceria com a Relier para transporte terrestre com motorista em todo o mundo — para consultores de viagens, contas corporativas e equipes de eventos."
+    },
+    "hero": {
+      "eyebrow": "Para empresas",
+      "title": "Relier para empresas",
+      "subtitle": "Transporte terrestre com motorista em todo o mundo — para consultores de viagens, contas corporativas e as equipes por trás de cada evento."
+    },
+    "blocks": {
+      "advisors": {
+        "title": "Consultores e agências de viagens",
+        "p1": "Como Virtuoso Preferred Partner, a Relier foi feita para valorizar o trabalho dos consultores. Reserve em nome dos seus clientes com confiança: um único ponto de contato, serviço consistente em mais de 500 cidades e a discrição que sua clientela espera — de um traslado privado para o aeroporto a um itinerário de vários dias.",
+        "p2": "Cuidamos da logística para que você se concentre na experiência. Monitoramento da viagem em tempo real, atualizações proativas e uma equipe de despacho 24/7 que trata seus clientes como nossos.",
+        "imageAlt": "Traslado com motorista da Relier para consultores de viagens"
+      },
+      "accounts": {
+        "title": "Contas corporativas",
+        "p1": "Ofereça à sua equipe e aos seus convidados um programa de transporte terrestre em que possam confiar. Faturamento centralizado, relatórios de dever de cuidado e motoristas treinados para viagens de negócios — em roadshows, visitas a clientes, conferências e deslocamentos executivos diários.",
+        "p2": "Uma conta, um padrão, em cada cidade onde você opera.",
+        "imageAlt": "Transporte terrestre corporativo da Relier"
+      },
+      "events": {
+        "title": "Eventos e produções",
+        "p1": "De galas e convenções a produções de cinema e música, coordenamos frotas em grande escala sem perder o cuidado boutique. Responsáveis dedicados no local, de sedãs a ônibus de 56 passageiros, e o apoio de planejamento necessário para manter agendas complexas dentro do horário.",
+        "imageAlt": "Transporte da Relier para eventos e produções"
+      }
+    },
+    "closer": {
+      "title": "Vamos construir sua conta.",
+      "body": "Conte-nos como sua empresa se movimenta e desenharemos um programa sob medida — com um único ponto de contato e o mesmo padrão em cada cidade.",
+      "ctaLabel": "Fale com nossa equipe"
+    }
+  },
+  "reservation": {
+    "meta": {
+      "title": "Reserva online · Relier — Faça sua reserva",
+      "description": "Reserve seu transporte privado com motorista na Relier. Ponto a ponto ou por hora, nas Américas, na Europa e no Oriente Médio."
+    },
+    "hero": {
+      "eyebrow": "Reserva online",
+      "titleLine1": "Faça sua",
+      "titleLine2": "reserva."
+    }
+  }
+}

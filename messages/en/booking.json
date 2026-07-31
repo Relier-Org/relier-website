@@ -1,0 +1,62 @@
+{
+  "tabs": {
+    "ariaLabel": "Booking type",
+    "transfers": "Transfers",
+    "hourly": "As directed/Hourly"
+  },
+  "fields": {
+    "pickupLocation": "Pick-up location",
+    "destination": "Destination",
+    "duration": "Duration",
+    "date": "Date",
+    "pickupTime": "Pickup time",
+    "returnDate": "Return date",
+    "returnTime": "Return time"
+  },
+  "cta": {
+    "idle": "Get my prices",
+    "sending": "Sending…"
+  },
+  "returnTrip": "Add a return trip",
+  "concierge": {
+    "prompt": "Need help planning?",
+    "action": "Talk to a concierge → {phone}"
+  },
+  "error": {
+    "generic": "Something went wrong. Please try again.",
+    "help": "If it keeps failing, call <tel>{phone}</tel>."
+  },
+  "confirmation": {
+    "title": "Your request is on its way.",
+    "lead": "Our concierge will contact you within 15 minutes to confirm vehicle, pricing and pickup details.",
+    "reference": "Reference:",
+    "reset": "Make another request"
+  },
+  "placeAutocomplete": {
+    "placeholder": "Address, airport, hotel...",
+    "unknownPlace": "Unknown location"
+  },
+  "datePicker": {
+    "placeholder": "Select a date",
+    "dialogLabel": "Select date",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month"
+  },
+  "timePicker": {
+    "placeholder": "Select a time"
+  },
+  "durationPicker": {
+    "placeholder": "Select duration",
+    "hours": "{count, plural, =1 {1 hour} other {# hours}}"
+  },
+  "routeMap": {
+    "mapLabel": "Trip route preview",
+    "duration": "Duration",
+    "distance": "Distance",
+    "calculating": "Calculating route…",
+    "error": "Couldn't fetch route. Try again.",
+    "durationMinutes": "{minutes} min",
+    "durationHours": "{hours}h",
+    "durationHoursMinutes": "{hours}h {minutes}m"
+  }
+}

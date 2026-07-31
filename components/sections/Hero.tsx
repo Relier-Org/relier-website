@@ -1,7 +1,10 @@
+import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getTranslations("home");
+
   return (
     <section className={styles.hero}>
       <div className={styles.bg}>
@@ -25,18 +28,13 @@ export default function Hero() {
         </video>
       </div>
       <div className={cn("container", styles.inner)}>
-        <p className={cn("eyebrow", styles.eyebrow)}>
-          Worldwide Executive Car Service Company · Virtuoso Preferred
-        </p>
+        <p className={cn("eyebrow", styles.eyebrow)}>{t("hero.eyebrow")}</p>
         <h1 className={styles.h1}>
-          Ride premium,
+          {t("hero.titleLine1")}
           <br />
-          <span className={styles.muted}>arrive in style.</span>
+          <span className={styles.muted}>{t("hero.titleLine2")}</span>
         </h1>
-        <p className={styles.subtitle}>
-          Where private transfers &amp; transportation begins. From New York to
-          the World. Operating more than 500 cities worldwide.
-        </p>
+        <p className={styles.subtitle}>{t("hero.subtitle")}</p>
       </div>
     </section>
   );

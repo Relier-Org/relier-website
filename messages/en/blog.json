@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "title": "News · Relier — Insights & Travel Notes",
+    "description": "Stories, itineraries, and field notes from Relier's chauffeurs and concierge desks across New York, Europe, and beyond."
+  },
+  "hero": {
+    "eyebrow": "Journal",
+    "titleLine1": "News & insights",
+    "titleLine2": "from the road.",
+    "lead": "Stories, itineraries, and field notes from our chauffeurs and concierge desks across the Americas, Europe, and the Middle East."
+  },
+  "featured": {
+    "label": "Latest article"
+  },
+  "listing": {
+    "eyebrow": "Journal",
+    "title": "Latest insights & travel notes."
+  },
+  "tag": "News",
+  "readMore": "Read more",
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next",
+    "previousPage": "Previous page",
+    "nextPage": "Next page"
+  },
+  "post": {
+    "back": "Back to Journal"
+  },
+  "share": {
+    "label": "Share this post",
+    "facebook": "Share on Facebook",
+    "linkedin": "Share on LinkedIn",
+    "x": "Share on X",
+    "email": "Share by email",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied"
+  }
+}

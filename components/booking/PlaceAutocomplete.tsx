@@ -7,6 +7,7 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { searchPlaces, type PlaceFeature } from "@/lib/booking/mapConfig";
 import styles from "./PlaceAutocomplete.module.css";
 
@@ -17,16 +18,19 @@ type PlaceAutocompleteProps = {
 };
 
 export default function PlaceAutocomplete({
-  placeholder = "Address, airport, hotel...",
+  placeholder,
   value,
   onSelect,
 }: PlaceAutocompleteProps) {
+  const t = useTranslations("booking");
+  const locale = useLocale();
   const [query, setQuery] = useState(value?.name ?? "");
   const [results, setResults] = useState<PlaceFeature[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [highlight, setHighlight] = useState(0);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const listboxId = useId();
+  const unknownLabel = t("placeAutocomplete.unknownPlace");
 
   useEffect(() => {
     if (value && value.name !== query) setQuery(value.name);
@@ -38,9 +42,12 @@ export default function PlaceAutocomplete({
       return;
     }
     const controller = new AbortController();
-    const t = setTimeout(async () => {
+    const timer = setTimeout(async () => {
       try {
-        const r = await searchPlaces(query, controller.signal);
+        const r = await searchPlaces(query, controller.signal, {
+          locale,
+          unknownLabel,
+        });
         setResults(r);
         setHighlight(0);
       } catch (err) {
@@ -49,9 +56,9 @@ export default function PlaceAutocomplete({
     }, 300);
     return () => {
       controller.abort();
-      clearTimeout(t);
+      clearTimeout(timer);
     };
-  }, [query, value?.name]);
+  }, [query, value?.name, locale, unknownLabel]);
 
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
@@ -92,7 +99,7 @@ export default function PlaceAutocomplete({
       <input
         type="text"
         className={styles.input}
-        placeholder={placeholder}
+        placeholder={placeholder ?? t("placeAutocomplete.placeholder")}
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);

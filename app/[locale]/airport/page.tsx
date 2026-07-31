@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { localeAlternates } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import ServiceHero from "@/components/sections/ServiceHero";
@@ -8,58 +10,61 @@ import ServiceBody, {
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
 
-export const metadata: Metadata = {
-  title:
-    "Airport Transfers · Relier — JFK, LaGuardia & Newark Private Transportation",
-  description:
-    "Reliable and comfortable rides to and from JFK, LaGuardia, and Newark.",
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-const BLOCKS: ServiceBlock[] = [
-  {
-    title: "Prompt And Secure",
-    paragraphs: [
-      "An airport ground transportation that can deliver a safe and fast service is the solution to the headaches brought about by the waiting time and confusing public transport. Why settle for less when you can get access to a seamless mode of transportation for your NYC travel?",
-    ],
-    image:
-      "/images/services/airport/prompt.webp",
-    imageAlt: "Relier airport pickup",
-  },
-  {
-    title: "No Waiting Time",
-    paragraphs: [
-      "Skip the long lines and get on the road as soon as you step out of the airport. No need to stress about figuring out the public transport or booking a rideshare and even waiting for a cab. With an airport transportation service, no time is wasted and worry lines will fade away.",
-    ],
-    image: "/images/services/airport/no-waiting.webp",
-    imageAlt: "No waiting at the airport",
-  },
-  {
-    title: "Luxury At Its Finest",
-    paragraphs: [
-      "Aside from the convenience of having a vehicle and driver to drive you to and from the airport, our airport transportation doesn't stop there. Our cars are equipped with state-of-the-art interiors and amenities to ensure a comfortable time on the road. Enjoy a temperature-controlled environment where you can sit back and relax.",
-    ],
-    image:
-      "/images/services/airport/luxury.webp",
-    imageAlt: "Luxury vehicle interior",
-  },
-];
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "services.airport.meta",
+  });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: localeAlternates("/airport", locale),
+  };
+}
 
-export default function AirportPage() {
+export default async function AirportPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("services.airport");
+
+  const blocks: ServiceBlock[] = [
+    {
+      title: t("blocks.prompt.title"),
+      paragraphs: [t("blocks.prompt.p1")],
+      image: "/images/services/airport/prompt.webp",
+      imageAlt: t("blocks.prompt.imageAlt"),
+    },
+    {
+      title: t("blocks.noWaiting.title"),
+      paragraphs: [t("blocks.noWaiting.p1")],
+      image: "/images/services/airport/no-waiting.webp",
+      imageAlt: t("blocks.noWaiting.imageAlt"),
+    },
+    {
+      title: t("blocks.luxury.title"),
+      paragraphs: [t("blocks.luxury.p1")],
+      image: "/images/services/airport/luxury.webp",
+      imageAlt: t("blocks.luxury.imageAlt"),
+    },
+  ];
+
   return (
     <GsapProvider>
       <Nav />
       <main>
         <ServiceHero
-          eyebrow="Airport Transfers"
-          title="Airport Transfers NYC — Luxury Private Transportation"
-          subtitle="Reliable and comfortable rides to and from JFK, LaGuardia, and Newark."
+          eyebrow={t("hero.eyebrow")}
+          title={t("hero.title")}
+          subtitle={t("hero.subtitle")}
           image="/images/services/airport/hero.webp"
         />
-        <ServiceBody blocks={BLOCKS} />
-        <ServiceCloser
-          title="Reserve your airport transfer today."
-          body="JFK, LaGuardia, Newark — no waiting, no stress. Book online and we'll be there ten minutes before pickup."
-        />
+        <ServiceBody blocks={blocks} />
+        <ServiceCloser title={t("closer.title")} body={t("closer.body")} />
       </main>
       <Footer />
     </GsapProvider>

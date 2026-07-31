@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "title": "Relier — Donde comienza el viaje de lujo",
+    "description": "Relier · Concierge de movilidad personal. Con sede en Nueva York y Barcelona, en servicio en las Américas, Europa y Medio Oriente.",
+    "ogDescription": "Concierge de movilidad personal desde Nueva York y Barcelona."
+  },
+  "hero": {
+    "eyebrow": "Compañía global de servicio de autos ejecutivos · Virtuoso Preferred",
+    "titleLine1": "Viaja premium,",
+    "titleLine2": "llega con estilo.",
+    "subtitle": "Donde comienzan los traslados y el transporte privado. De Nueva York al mundo. Operamos en más de 500 ciudades en todo el mundo."
+  },
+  "services": {
+    "kicker": "Concierge en el camino",
+    "titleLine1": "Un solo estándar de servicio,",
+    "titleLine2": "para cada tipo de viaje.",
+    "lead": "Desde un único traslado al aeropuerto hasta una temporada de roadshows corporativos, cada servicio que ves a continuación lo opera el mismo equipo, con el mismo estándar. Elige el que se ajuste a tu viaje.",
+    "seeAll": "Ver todos los servicios",
+    "explore": "Explorar",
+    "items": {
+      "transfers": {
+        "title": "Traslados",
+        "tagline": "Traslados al aeropuerto y servicio punto a punto.",
+        "alt": "Traslados al aeropuerto y punto a punto"
+      },
+      "hourly": {
+        "title": "A disposición/Por horas",
+        "tagline": "Libertad para ir a donde quieras.",
+        "alt": "Servicio de chofer a disposición y por horas"
+      },
+      "corporate": {
+        "title": "Corporativo",
+        "tagline": "Reuniones, convenciones y viajes de negocios.",
+        "alt": "Transporte corporativo"
+      },
+      "events": {
+        "title": "Eventos",
+        "tagline": "Galas, grupos VIP y logística de eventos a gran escala.",
+        "alt": "Transporte para eventos"
+      }
+    }
+  },
+  "trust": {
+    "label": "Al servicio de"
+  },
+  "pillars": {
+    "kicker": "Concierge en el camino",
+    "title": "Razones para <muted>elegir Relier.</muted>",
+    "lead": "Más que un viaje: un concierge que viaja contigo. Tres principios, sin excepciones: lo que prometemos en la página de reserva es lo que llega a tu puerta.",
+    "items": {
+      "safe": {
+        "title": "Viajes seguros",
+        "body": "Viaja con confianza sabiendo que tu seguridad es nuestra prioridad n.º 1. Rigurosos estándares de higiene y limpieza completan un servicio de primer nivel."
+      },
+      "solutions": {
+        "title": "Soluciones de viaje privado",
+        "body": "Descubre tu solución integral de viaje: trayectos de larga distancia, de ida o de ida y vuelta, por horas, traslados al aeropuerto y más."
+      },
+      "book": {
+        "title": "Reserva en línea",
+        "body": "No hace falta llamar ni escribir para pedir un presupuesto. Introduce los datos de tu viaje, consulta el precio fijo y reserva. Así de simple."
+      }
+    }
+  },
+  "wc": {
+    "titleLine1": "Cuando el mundo",
+    "titleLine2": "llega a <em>tu ciudad.</em>",
+    "lead": "Transporte terrestre privado en todas las ciudades sede de la Copa Mundial de la FIFA 2026. Servicio puerta a puerta en Estados Unidos, México y Canadá: traslados al aeropuerto, al hotel y al estadio para cada partido.",
+    "flags": {
+      "usa": "EE. UU.",
+      "mexico": "México",
+      "canada": "Canadá"
+    },
+    "features": {
+      "coverage": "Cobertura en todas las ciudades sede · Nueva York, Toronto, Ciudad de México, Los Ángeles y más",
+      "service": "Servicio de aeropuerto, de hotel a estadio y de jornada completa adaptado a tu agenda",
+      "packages": "Paquetes de varios días para delegaciones, patrocinadores y equipos de transmisión",
+      "chauffeurs": "Choferes bilingües (EN · ES · FR · PT) · Concierge dedicado durante las ventanas de partidos"
+    },
+    "cta": "Planifica tu transporte para la Copa Mundial",
+    "photoAlt": "Transporte privado de Relier para la Copa Mundial de la FIFA 2026",
+    "photoEyebrow": "El viaje",
+    "nations": "EE. UU. · México · Canadá",
+    "window": {
+      "label": "Ventana del torneo",
+      "value": "11 jun — <em>19 jul</em>",
+      "sub": "39 días · 60 días de operación"
+    },
+    "host": {
+      "label": "Cobertura de sedes",
+      "valueLine1": "16 ciudades",
+      "valueLine2": "3 países"
+    }
+  },
+  "coverage": {
+    "kicker": "Cobertura global",
+    "titleLine1": "Dos casas,",
+    "titleLine2": "una red en todo el mundo.",
+    "lead": "Con sede en Nueva York y Barcelona, con el mismo estándar de servicio con chofer en más de 500 ciudades de Europa, las Américas, Medio Oriente, África y Asia.",
+    "mapAria": "Mapa de la cobertura de Relier en más de 500 ciudades del mundo",
+    "caption": "Más de 500 ciudades en más de 40 países: pasa el cursor por el mapa para explorar.",
+    "viewAll": "Ver todos los destinos",
+    "hide": "Ocultar destinos",
+    "regions": {
+      "Europe": "Europa",
+      "North America": "América del Norte",
+      "Latin America": "América Latina",
+      "Middle East": "Medio Oriente",
+      "Africa": "África",
+      "Asia": "Asia"
+    },
+    "countries": {
+      "Spain": "España",
+      "Portugal": "Portugal",
+      "France": "Francia",
+      "Italy": "Italia",
+      "United Kingdom": "Reino Unido",
+      "Ireland": "Irlanda",
+      "Germany": "Alemania",
+      "Netherlands": "Países Bajos",
+      "Belgium": "Bélgica",
+      "Switzerland": "Suiza",
+      "Austria": "Austria",
+      "Czech Republic": "República Checa",
+      "Hungary": "Hungría",
+      "Poland": "Polonia",
+      "Denmark": "Dinamarca",
+      "Sweden": "Suecia",
+      "Norway": "Noruega",
+      "Finland": "Finlandia",
+      "Greece": "Grecia",
+      "Croatia": "Croacia",
+      "Malta": "Malta",
+      "Türkiye": "Turquía",
+      "Albania": "Albania",
+      "United States": "Estados Unidos",
+      "Canada": "Canadá",
+      "Mexico": "México",
+      "Argentina": "Argentina",
+      "Brazil": "Brasil",
+      "Chile": "Chile",
+      "Uruguay": "Uruguay",
+      "Peru": "Perú",
+      "Ecuador": "Ecuador",
+      "Bolivia": "Bolivia",
+      "United Arab Emirates": "Emiratos Árabes Unidos",
+      "Qatar": "Catar",
+      "Saudi Arabia": "Arabia Saudita",
+      "Israel": "Israel",
+      "Morocco": "Marruecos",
+      "Egypt": "Egipto",
+      "Kenya": "Kenia",
+      "Nigeria": "Nigeria",
+      "Angola": "Angola",
+      "Senegal": "Senegal",
+      "Ethiopia": "Etiopía",
+      "South Africa": "Sudáfrica",
+      "Japan": "Japón",
+      "China": "China",
+      "South Korea": "Corea del Sur",
+      "Singapore": "Singapur",
+      "Thailand": "Tailandia",
+      "Vietnam": "Vietnam",
+      "Malaysia": "Malasia",
+      "Taiwan": "Taiwán",
+      "Uzbekistan": "Uzbekistán",
+      "India": "India",
+      "Russia": "Rusia"
+    }
+  },
+  "marquee": {
+    "label": "En servicio en"
+  },
+  "testimonials": {
+    "titleLine1": "Testimonios.",
+    "titleLine2": "Lo que dicen nuestros viajeros.",
+    "lead": "Reseñas verificadas de Google. Viajeros reales, viajes reales, resultados reales en las Américas, Europa y Medio Oriente.",
+    "ratingAria": "{rating} de 5 según {count} reseñas de Google",
+    "ratingCount": "{count} reseñas de Google",
+    "starsAria": "5 estrellas",
+    "verified": "Reseña verificada de Google",
+    "leaveReview": "Déjanos una reseña en Google"
+  },
+  "about": {
+    "eyebrow": "Quiénes somos",
+    "titleLine1": "Convierte tu viaje",
+    "titleLine2": "en una <em>experiencia.</em>",
+    "p1": "Relier nació con el objetivo y el compromiso de hacer de tu viaje una experiencia maravillosa, brindando soluciones de transporte de lujo del más alto nivel. De la A a la Z, nosotros nos ocupamos de todo.",
+    "p2": "En nuestro servicio boutique priorizamos la excelencia en cada aspecto de tu viaje. Desde el momento en que subes a uno de nuestros vehículos elegantes y sofisticados, te reciben nuestros choferes profesionales y expertos, comprometidos con brindar un servicio excepcional con un toque de atención personalizada.",
+    "cta": "Nosotros"
+  }
+}

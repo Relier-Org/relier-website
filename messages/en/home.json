@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "title": "Relier — Where Luxury Travel Begins",
+    "description": "Relier · Personal mobility concierge. Based in New York and Barcelona, in service across the Americas, Europe, and the Middle East.",
+    "ogDescription": "Personal mobility concierge from New York and Barcelona."
+  },
+  "hero": {
+    "eyebrow": "Worldwide Executive Car Service Company · Virtuoso Preferred",
+    "titleLine1": "Ride premium,",
+    "titleLine2": "arrive in style.",
+    "subtitle": "Where private transfers & transportation begins. From New York to the World. Operating more than 500 cities worldwide."
+  },
+  "services": {
+    "kicker": "Concierge on the Road",
+    "titleLine1": "One standard of service,",
+    "titleLine2": "every kind of journey.",
+    "lead": "From a single airport run to a season of corporate roadshows, every service below is run by the same team, to the same standard. Pick the one that fits your trip.",
+    "seeAll": "See all services",
+    "explore": "Explore",
+    "items": {
+      "transfers": {
+        "title": "Transfers",
+        "tagline": "Airport transfers & point to point service.",
+        "alt": "Airport and point to point transfers"
+      },
+      "hourly": {
+        "title": "As directed/Hourly",
+        "tagline": "Freedom to go wherever.",
+        "alt": "As directed and hourly chauffeur service"
+      },
+      "corporate": {
+        "title": "Corporate",
+        "tagline": "Meetings, conventions, and business travel.",
+        "alt": "Corporate transportation"
+      },
+      "events": {
+        "title": "Events",
+        "tagline": "Galas, VIP groups, and large-scale event logistics.",
+        "alt": "Events transportation"
+      }
+    }
+  },
+  "trust": {
+    "label": "In service of"
+  },
+  "pillars": {
+    "kicker": "Concierge on the Road",
+    "title": "Reasons to <muted>choose Relier.</muted>",
+    "lead": "More than a ride — a concierge that travels with you. Three principles, held without exception: what we promise on the booking page is what arrives at the curb.",
+    "items": {
+      "safe": {
+        "title": "Safe Travels",
+        "body": "Travel confidently knowing your safety is our #1 priority. Rigorous health and cleaning standards round out a best-in-class service."
+      },
+      "solutions": {
+        "title": "Private Travel Solutions",
+        "body": "Discover your one-stop travel shop: long-distance rides, one way or return, by the hour, airport transfers, and more."
+      },
+      "book": {
+        "title": "Book Online",
+        "body": "No need to call or email for a quote. Enter your ride details, see the fixed price, and book. It’s really that simple."
+      }
+    }
+  },
+  "wc": {
+    "titleLine1": "When the world",
+    "titleLine2": "comes to <em>your city.</em>",
+    "lead": "Private ground transportation across every host city of the FIFA World Cup 2026. Door-to-door service across the United States, Mexico, and Canada — airport, hotel, and stadium transfers for every match.",
+    "flags": {
+      "usa": "USA",
+      "mexico": "Mexico",
+      "canada": "Canada"
+    },
+    "features": {
+      "coverage": "Coverage in all host cities · New York, Toronto, Mexico City, Los Angeles, and beyond",
+      "service": "Airport, hotel-to-stadium, and full-day service tailored to your schedule",
+      "packages": "Multi-day packages for delegations, sponsors, and broadcast crews",
+      "chauffeurs": "Bilingual chauffeurs (EN · ES · FR · PT) · Dedicated concierge during match windows"
+    },
+    "cta": "Plan your World Cup transport",
+    "photoAlt": "Relier private transportation for FIFA World Cup 2026",
+    "photoEyebrow": "The journey",
+    "nations": "USA · Mexico · Canada",
+    "window": {
+      "label": "Tournament window",
+      "value": "Jun 11 — <em>Jul 19</em>",
+      "sub": "39 days · 60 days of operations"
+    },
+    "host": {
+      "label": "Host coverage",
+      "valueLine1": "16 cities",
+      "valueLine2": "3 nations"
+    }
+  },
+  "coverage": {
+    "kicker": "Global coverage",
+    "titleLine1": "Two homes,",
+    "titleLine2": "one network worldwide.",
+    "lead": "Headquartered in New York and Barcelona, with the same chauffeured standard across 500+ cities in Europe, the Americas, the Middle East, Africa and Asia.",
+    "mapAria": "Map of Relier coverage across 500+ cities worldwide",
+    "caption": "500+ cities across 40+ countries — hover the map to explore.",
+    "viewAll": "View all destinations",
+    "hide": "Hide destinations",
+    "regions": {
+      "Europe": "Europe",
+      "North America": "North America",
+      "Latin America": "Latin America",
+      "Middle East": "Middle East",
+      "Africa": "Africa",
+      "Asia": "Asia"
+    },
+    "countries": {
+      "Spain": "Spain",
+      "Portugal": "Portugal",
+      "France": "France",
+      "Italy": "Italy",
+      "United Kingdom": "United Kingdom",
+      "Ireland": "Ireland",
+      "Germany": "Germany",
+      "Netherlands": "Netherlands",
+      "Belgium": "Belgium",
+      "Switzerland": "Switzerland",
+      "Austria": "Austria",
+      "Czech Republic": "Czech Republic",
+      "Hungary": "Hungary",
+      "Poland": "Poland",
+      "Denmark": "Denmark",
+      "Sweden": "Sweden",
+      "Norway": "Norway",
+      "Finland": "Finland",
+      "Greece": "Greece",
+      "Croatia": "Croatia",
+      "Malta": "Malta",
+      "Türkiye": "Türkiye",
+      "Albania": "Albania",
+      "United States": "United States",
+      "Canada": "Canada",
+      "Mexico": "Mexico",
+      "Argentina": "Argentina",
+      "Brazil": "Brazil",
+      "Chile": "Chile",
+      "Uruguay": "Uruguay",
+      "Peru": "Peru",
+      "Ecuador": "Ecuador",
+      "Bolivia": "Bolivia",
+      "United Arab Emirates": "United Arab Emirates",
+      "Qatar": "Qatar",
+      "Saudi Arabia": "Saudi Arabia",
+      "Israel": "Israel",
+      "Morocco": "Morocco",
+      "Egypt": "Egypt",
+      "Kenya": "Kenya",
+      "Nigeria": "Nigeria",
+      "Angola": "Angola",
+      "Senegal": "Senegal",
+      "Ethiopia": "Ethiopia",
+      "South Africa": "South Africa",
+      "Japan": "Japan",
+      "China": "China",
+      "South Korea": "South Korea",
+      "Singapore": "Singapore",
+      "Thailand": "Thailand",
+      "Vietnam": "Vietnam",
+      "Malaysia": "Malaysia",
+      "Taiwan": "Taiwan",
+      "Uzbekistan": "Uzbekistan",
+      "India": "India",
+      "Russia": "Russia"
+    }
+  },
+  "marquee": {
+    "label": "In service across"
+  },
+  "testimonials": {
+    "titleLine1": "Testimonials.",
+    "titleLine2": "What our travelers say.",
+    "lead": "Verified reviews from Google. Real travelers, real journeys, real results across the Americas, Europe, and the Middle East.",
+    "ratingAria": "{rating} out of 5 from {count} Google reviews",
+    "ratingCount": "{count} Google reviews",
+    "starsAria": "5 stars",
+    "verified": "Verified Google review",
+    "leaveReview": "Leave us a Google review"
+  },
+  "about": {
+    "eyebrow": "Who we are",
+    "titleLine1": "Turn your trip",
+    "titleLine2": "into an <em>experience.</em>",
+    "p1": "Relier was born with the objective and commitment to make your trip a wonderful experience, providing top-level luxury transportation solutions. From A to Z, all taken care by us.",
+    "p2": "At our boutique service, we prioritize excellence in every aspect of your journey. From the moment you step into one of our sleek and sophisticated vehicles, you will be greeted by our professional and knowledgeable chauffeurs who are committed to delivering exceptional service with a touch of personalized attention.",
+    "cta": "About us"
+  }
+}

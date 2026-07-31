@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { localeAlternates } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import ServiceHero from "@/components/sections/ServiceHero";
@@ -8,59 +10,61 @@ import ServiceBody, {
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
 
-export const metadata: Metadata = {
-  title:
-    "Corporate Transportation · Relier — Business Chauffeur Service NYC",
-  description:
-    "Luxury and professional chauffeur service for business travel and corporate events.",
-};
+type PageProps = { params: Promise<{ locale: string }> };
 
-const BLOCKS: ServiceBlock[] = [
-  {
-    title: "Arrive On Time Every Time",
-    paragraphs: [
-      "Time is a crucial factor in all corporate schedules. Arriving late to a business event is a big no-no — not only does it leave a poor impression, but it can also mean missing key moments of the occasion. Avoid these setbacks with our corporate transportation services, backed by our dedicated 24/7 Dispatch Team, ensuring seamless coordination and real-time trip monitoring for a stress-free experience.",
-    ],
-    image:
-      "/images/services/corporate/arrive-on-time.webp",
-    imageAlt: "Relier on-time corporate transport",
-  },
-  {
-    title: "Make A Lasting Impression",
-    paragraphs: [
-      "A corporate chauffeur service isn't just about punctuality — it's about making a statement. It reflects professionalism, importance, and the high standards of your business, leaving a lasting impression on clients and partners.",
-    ],
-    image:
-      "/images/services/corporate/lasting-impression.webp",
-    imageAlt: "Relier executive transport",
-  },
-  {
-    title: "Work or Relax On The Road",
-    paragraphs: [
-      "Let the chauffeur handle the driving while you sit back and focus on what matters — whether it's catching up on work, reviewing important documents, or simply unwinding. With onboard WiFi in all our vehicles, you stay connected and productive while enjoying a smooth, stress-free ride.",
-    ],
-    image:
-      "/images/services/corporate/work-relax.webp",
-    imageAlt: "Relax during your ride with Relier",
-  },
-];
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "services.corporate.meta",
+  });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: localeAlternates("/corporate", locale),
+  };
+}
 
-export default function CorporatePage() {
+export default async function CorporatePage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("services.corporate");
+
+  const blocks: ServiceBlock[] = [
+    {
+      title: t("blocks.onTime.title"),
+      paragraphs: [t("blocks.onTime.p1")],
+      image: "/images/services/corporate/arrive-on-time.webp",
+      imageAlt: t("blocks.onTime.imageAlt"),
+    },
+    {
+      title: t("blocks.impression.title"),
+      paragraphs: [t("blocks.impression.p1")],
+      image: "/images/services/corporate/lasting-impression.webp",
+      imageAlt: t("blocks.impression.imageAlt"),
+    },
+    {
+      title: t("blocks.workRelax.title"),
+      paragraphs: [t("blocks.workRelax.p1")],
+      image: "/images/services/corporate/work-relax.webp",
+      imageAlt: t("blocks.workRelax.imageAlt"),
+    },
+  ];
+
   return (
     <GsapProvider>
       <Nav />
       <main>
         <ServiceHero
-          eyebrow="Corporate"
-          title="Corporate Limo Transportation NYC"
-          subtitle="Tailored logistics for professionals and executive teams. We guarantee absolute reliability, privacy, and impeccable execution to keep your business moving smoothly."
+          eyebrow={t("hero.eyebrow")}
+          title={t("hero.title")}
+          subtitle={t("hero.subtitle")}
           image="/images/services/corporate/hero.webp"
         />
-        <ServiceBody blocks={BLOCKS} />
-        <ServiceCloser
-          title="Reserve your corporate ride today."
-          body="24/7 dispatch, onboard WiFi, and chauffeurs trained for business travel — book in minutes and arrive ready."
-        />
+        <ServiceBody blocks={blocks} />
+        <ServiceCloser title={t("closer.title")} body={t("closer.body")} />
       </main>
       <Footer />
     </GsapProvider>

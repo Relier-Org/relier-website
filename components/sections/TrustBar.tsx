@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils/cn";
 import styles from "./TrustBar.module.css";
 
@@ -32,11 +33,13 @@ const BADGES: {
   // TODO (assets): sumar "Chauffeur Driven" cuando llegue el asset del cliente.
 ];
 
-export default function TrustBar() {
+export default async function TrustBar() {
+  const t = await getTranslations("home");
+
   return (
     <section className={styles.trust}>
       <div className={cn("container", styles.inner)}>
-        <span className={styles.label}>In service of</span>
+        <span className={styles.label}>{t("trust.label")}</span>
         {BADGES.map(({ name, src, href, modifier }) => (
           <a
             key={name}

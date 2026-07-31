@@ -1,0 +1,23 @@
+{
+  "brand": "Personal mobility concierge. Based in New York and Barcelona. In service across the Americas, Europe, and the Middle East since 2012.",
+  "headings": {
+    "service": "Service",
+    "company": "Company",
+    "reach": "Reach us"
+  },
+  "links": {
+    "airportTransfers": "Airport transfers",
+    "about": "About",
+    "fleet": "Fleet",
+    "relierEurope": "Relier Europe"
+  },
+  "contact": {
+    "hq": "New York · HQ",
+    "email": "Concierge · Email",
+    "phone": "Concierge · 24/7"
+  },
+  "aria": {
+    "home": "Relier home"
+  },
+  "copyright": "© 2026 Relier · All rights reserved"
+}

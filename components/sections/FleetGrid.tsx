@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import { PassengerIcon, LuggageIcon } from "@/components/icons/FleetIcons";
 import styles from "./FleetGrid.module.css";
@@ -11,6 +12,8 @@ export type FleetVehicle = {
   image?: string;
   passengers: string | number;
   bags?: number;
+  /** Named model → the card shows the "or similar" qualifier. */
+  orSimilar?: boolean;
 };
 
 interface FleetGridProps {
@@ -21,6 +24,8 @@ interface FleetGridProps {
 }
 
 export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps) {
+  const t = useTranslations("fleet");
+  const tc = useTranslations("common");
   return (
     <section className={styles.section} id={id}>
       <div className="container">
@@ -52,7 +57,7 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
                   ) : (
                     <div className={styles.photoPlaceholder}>
                       <span className={styles.placeholderText}>
-                        Photo coming soon
+                        {t("grid.photoComingSoon")}
                       </span>
                     </div>
                   )}
@@ -66,21 +71,23 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
                   <p className={styles.tier}>{v.tier}</p>
                   <h3>
                     {v.name}
-                    {v.name !== v.tier && (
-                      <span className={styles.orSimilar}>or similar</span>
+                    {v.orSimilar && (
+                      <span className={styles.orSimilar}>
+                        {tc("orSimilar")}
+                      </span>
                     )}
                   </h3>
                   <div className={styles.specs}>
                     <span className={styles.spec}>
                       <PassengerIcon className={styles.specIcon} />
                       <span className={styles.specValue}>{v.passengers}</span>
-                      <span className={styles.specUnit}>pax</span>
+                      <span className={styles.specUnit}>{tc("pax")}</span>
                     </span>
                     {v.bags !== undefined && (
                       <span className={styles.spec}>
                         <LuggageIcon className={styles.specIcon} />
                         <span className={styles.specValue}>{v.bags}</span>
-                        <span className={styles.specUnit}>bags</span>
+                        <span className={styles.specUnit}>{tc("bags")}</span>
                       </span>
                     )}
                   </div>

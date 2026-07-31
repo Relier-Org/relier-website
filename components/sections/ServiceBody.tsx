@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
 import styles from "./ServiceBody.module.css";
@@ -15,6 +16,8 @@ interface ServiceBodyProps {
 }
 
 export default function ServiceBody({ blocks }: ServiceBodyProps) {
+  const t = useTranslations("services.body");
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -51,7 +54,7 @@ export default function ServiceBody({ blocks }: ServiceBodyProps) {
                   ) : (
                     <div className={styles.placeholder}>
                       <span className={styles.placeholderText}>
-                        Image to come
+                        {t("imagePlaceholder")}
                       </span>
                     </div>
                   )}
