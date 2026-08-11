@@ -8,6 +8,8 @@ interface ServiceHeroProps {
   subtitle?: string;
   image: string;
   imageAlt?: string;
+  /** Page-level hook, for framing a photo the shared crop doesn't suit. */
+  className?: string;
 }
 
 export default function ServiceHero({
@@ -16,9 +18,10 @@ export default function ServiceHero({
   subtitle,
   image,
   imageAlt = "",
+  className,
 }: ServiceHeroProps) {
   return (
-    <section className={styles.hero}>
+    <section className={cn(styles.hero, className)}>
       <div className={styles.bg}>
         <Image
           src={image}

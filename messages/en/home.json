@@ -62,6 +62,13 @@
       }
     }
   },
+  "events": {
+    "kicker": "Events",
+    "titleLine1": "Events, covered",
+    "titleLine2": "end to end.",
+    "lead": "Tournaments, championships, fashion weeks, assemblies. When thousands of people move on the same schedule, ground transport becomes an operation.",
+    "seeAll": "See all events"
+  },
   "wc": {
     "titleLine1": "When the world",
     "titleLine2": "comes to <em>your city.</em>",

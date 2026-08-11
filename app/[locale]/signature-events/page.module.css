@@ -1,0 +1,5 @@
+/* The World Cup shot is a moving SUV low in the frame; the shared `center 50%`
+   crop clips the roofline. Scoped here so the other service heroes keep theirs. */
+.hero img {
+  object-position: center 62%;
+}

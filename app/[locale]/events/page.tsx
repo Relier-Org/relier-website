@@ -9,6 +9,7 @@ import ServiceBody, {
 } from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
+import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -68,6 +69,7 @@ export default async function EventsPage({ params }: PageProps) {
           title={t("hero.title")}
           subtitle={t("hero.subtitle")}
           image="/images/services/events/hero.webp"
+          className={styles.hero}
         />
         <ServiceBody blocks={blocks} />
         <ServiceCloser title={t("closer.title")} body={t("closer.body")} />

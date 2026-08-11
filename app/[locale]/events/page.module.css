@@ -1,0 +1,6 @@
+/* The events hero is the only one where the subjects sit high in the frame: the
+   shared `center 50%` crop cuts the chauffeurs' faces off at the top. Scoped
+   here so the other service heroes keep the default framing. */
+.hero img {
+  object-position: center 22%;
+}

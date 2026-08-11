@@ -1,0 +1,280 @@
+.wrap {
+  width: 100%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+/* ─── View switch ─── */
+
+.toggle {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 0.5px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.toggleBtn {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  background: transparent;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.toggleBtn:hover {
+  color: var(--color-silver-100);
+}
+
+.active {
+  color: var(--color-obsidian-900);
+  background: var(--color-champagne-500);
+}
+
+.active:hover {
+  color: var(--color-obsidian-900);
+}
+
+/* ─── Shared card shell ─── */
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-tile);
+  border: 0.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.card:hover {
+  border-color: var(--border-glass);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-surface);
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding: 26px 28px 28px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+}
+
+/* Edition and dates share the micro-label treatment; the venue sits under them
+   in body type so the three lines don't read as one block of small caps. */
+.edition,
+.dates {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.edition {
+  margin-top: 12px;
+}
+
+.dates {
+  margin-top: 5px;
+  color: var(--text-accent);
+}
+
+.venue {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  text-wrap: pretty;
+}
+
+.note {
+  position: relative;
+  margin-top: 16px;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.note::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 1px;
+  background: var(--color-champagne-500);
+  opacity: 0.5;
+}
+
+.service {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+  text-wrap: pretty;
+}
+
+/* Pins every CTA to the same line regardless of how long the note runs. */
+.cta {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+/* Long/short copy pairs. Only the compact mobile row uses the short ones, so the
+   default is: long visible, short hidden. */
+.short {
+  display: none;
+}
+
+/* ─── Row view: same card, laid on its side ─── */
+
+.listRows {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.listRows .card {
+  flex-direction: row;
+}
+
+.listRows .photo {
+  flex: 0 0 38%;
+  aspect-ratio: auto;
+  min-height: 260px;
+}
+
+.listRows .body {
+  padding: 30px 34px 32px;
+}
+
+/* The row is wide enough that a full-measure paragraph would run long. */
+.listRows .venue,
+.listRows .note,
+.listRows .service {
+  max-width: 62ch;
+}
+
+.listRows .cta {
+  padding-top: 26px;
+}
+
+/* Cards go single-column here, but rows keep working side by side — a tablet at
+   820px still has ~760px of container, which is plenty. */
+@media (max-width: 1024px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+  .listRows .photo {
+    flex: 0 0 34%;
+    min-height: 220px;
+  }
+  .listRows .body {
+    padding: 26px 28px 28px;
+  }
+}
+
+@media (max-width: 720px) {
+  .list,
+  .listRows {
+    grid-template-columns: 1fr;
+  }
+  .body {
+    padding: 22px 22px 24px;
+  }
+
+  /* At 350px of container there is no room for a photo beside the full text, so
+     the row view becomes a compact index instead: thumbnail, name, dates, CTA.
+     The detail lives one tap away in the card view — that is what the switch is
+     for. Four events fit in a screen here instead of four screens. */
+  .listRows .card {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  /* Explicit width and no aspect-ratio: with the card stretching, an
+     aspect-ratio would size the thumbnail off the row height instead, and every
+     row has a different amount of text — the thumbs came out 125-162px wide. */
+  .listRows .photo {
+    flex: 0 0 104px;
+    width: 104px;
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+  .listRows .body {
+    justify-content: center;
+    padding: 14px 16px 16px;
+  }
+  .listRows .name {
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+  .listRows .edition,
+  .listRows .venue,
+  .listRows .note,
+  .listRows .service {
+    display: none;
+  }
+  .listRows .dates {
+    margin-top: 7px;
+  }
+  .listRows .cta {
+    margin-top: 0;
+    padding-top: 12px;
+  }
+  /* Title and date only, and the date trimmed to its range: the client asked for
+     the compact row to stop carrying a paragraph of it. */
+  .listRows .long {
+    display: none;
+  }
+  .listRows .short {
+    display: inline;
+  }
+}

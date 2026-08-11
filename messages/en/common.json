@@ -11,6 +11,7 @@
   "asDirectedHourly": "As directed/Hourly",
   "corporate": "Corporate",
   "events": "Events",
+  "signatureEvents": "Signature Events",
   "airportTransfers": "Airport Transfers",
   "fifaWorldCup2026": "FIFA World Cup 2026",
   "planWorldCupTransport": "Plan your World Cup transport",
@@ -28,5 +29,8 @@
   "bags": "bags",
   "sending": "Sending…",
   "leaveGoogleReview": "Leave us a Google review",
-  "phone": "+1 (844) 735-4371"
+  "phone": "+1 (844) 735-4371",
+  "preloader": {
+    "label": "Preparing your reservation"
+  }
 }

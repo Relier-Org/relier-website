@@ -62,6 +62,13 @@
       }
     }
   },
+  "events": {
+    "kicker": "Eventos",
+    "titleLine1": "Eventos, cobertos",
+    "titleLine2": "do início ao fim.",
+    "lead": "Torneios, campeonatos, semanas de moda, assembleias. Quando milhares de pessoas se movem no mesmo horário, o transporte terrestre vira uma operação.",
+    "seeAll": "Ver todos os eventos"
+  },
   "wc": {
     "titleLine1": "Quando o mundo",
     "titleLine2": "chega à <em>sua cidade.</em>",

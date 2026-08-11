@@ -177,6 +177,108 @@
       "body": "Transporte fluido, confiable y de lujo para cualquier evento. Desde llegadas VIP hasta traslados de grandes grupos, nuestro equipo garantiza una experiencia impecable. Asegura tu viaje en línea ahora y déjanos el resto a nosotros."
     }
   },
+  "signatureEvents": {
+    "meta": {
+      "title": "Eventos Signature · Relier — Transporte para los eventos que movemos",
+      "description": "Los eventos que opera Relier: Mundial FIFA 2026, US Open, New York Fashion Week, Fórmula 1 en Madrid y la Asamblea General de la ONU."
+    },
+    "hero": {
+      "eyebrow": "Eventos Signature",
+      "title": "Eventos que movemos",
+      "subtitle": "Torneos, campeonatos, semanas de la moda, asambleas. Cuando miles de personas se mueven con el mismo horario, el transporte terrestre deja de ser una reserva y pasa a ser una operación."
+    },
+    "labels": {
+      "ourOperation": "Nuestra operación",
+      "theEvent": "El evento",
+      "upcoming": "Lo que viene",
+      "service": "Servicio",
+      "edition": "Edición",
+      "dates": "Fechas",
+      "venue": "Sede",
+      "status": {
+        "operated": "Operado",
+        "upcoming": "Próximo"
+      },
+      "viewCards": "Ver en tarjetas",
+      "viewRows": "Ver en filas",
+      "ctaShort": "Planificar traslado"
+    },
+    "items": {
+      "world-cup": {
+        "name": "Mundial FIFA 2026",
+        "edition": "23.º Mundial FIFA",
+        "dates": "11 jun al 19 jul, 2026",
+        "venue": "EE. UU. · México · Canadá",
+        "title": "El mundo vino por la copa. Nosotros lo llevamos.",
+        "cta": "Planificá el transporte de tu próximo evento",
+        "secondaryCta": "Ver el servicio del Mundial",
+        "imageAlt": "SUV de Relier en movimiento durante el Mundial FIFA 2026",
+        "metrics": {
+          "trips": {
+            "label": "Viajes totales",
+            "desc": "Todos los viajes que operamos, del 11 de junio al 19 de julio."
+          },
+          "suv": {
+            "label": "Solo SUV",
+            "desc": "Más de la mitad en SUV full-size: grupos, equipaje, comodidad."
+          },
+          "final": {
+            "label": "La final, Nueva York",
+            "desc": "En un solo día. La final se jugó en casa."
+          }
+        }
+      },
+      "us-open": {
+        "name": "US Open 2026",
+        "edition": "146.º US Open",
+        "dates": "30 ago al 13 sep, 2026 · Fan Week y clasificación desde el 23 de agosto",
+        "datesShort": "30 ago – 13 sep, 2026",
+        "venue": "USTA Billie Jean King National Tennis Center · Flushing Meadows, Queens, Nueva York",
+        "note": "Las canchas están bajo la trayectoria de aproximación de LaGuardia. Es el único Grand Slam donde escuchás aterrizar los aviones.",
+        "service": "Traslados desde el aeropuerto y del hotel a la cancha, sesiones nocturnas incluidas.",
+        "cta": "Planificá tu transporte para el US Open",
+        "imageAlt": "El Arthur Ashe Stadium lleno durante una sesión del US Open"
+      },
+      "fashion-week": {
+        "name": "New York Fashion Week",
+        "edition": "Colecciones primavera/verano 2027 · desde 1943",
+        "dates": "10 al 15 sep, 2026",
+        "datesShort": "10 – 15 sep, 2026",
+        "venue": "Manhattan y Brooklyn",
+        "note": "Nueva York abre el mes de la moda, antes de Londres, Milán y París. 70 desfiles en seis días, sin sede central y sin que la primera fila espere.",
+        "service": "Por hora y a disposición. Tu chofer espera entre desfiles.",
+        "cta": "Planificá tu transporte para Fashion Week",
+        "imageAlt": "Modelos en la pasarela de un desfile de fashion week"
+      },
+      "spanish-gp": {
+        "name": "Gran Premio de España de Fórmula 1 · Madrid",
+        "edition": "1.ª edición en MADRING · el primer Gran Premio de Madrid en 45 años",
+        "dates": "11 al 13 sep, 2026 · Carrera el domingo 13",
+        "datesShort": "11 – 13 sep, 2026",
+        "venue": "MADRING · IFEMA Madrid",
+        "note": "A cinco minutos del aeropuerto de Barajas. El único Gran Premio al que llegás desde la terminal antes de que se apaguen los semáforos.",
+        "service": "Del aeropuerto al circuito y del hotel al paddock, todo el fin de semana de carrera.",
+        "cta": "Planificá tu transporte para el Gran Premio",
+        "imageAlt": "Un auto de Fórmula 1 a toda velocidad en el circuito"
+      },
+      "un-assembly": {
+        "name": "Asamblea General de la ONU",
+        "edition": "81.º período de sesiones de la Asamblea General",
+        "dates": "Semana de alto nivel, 22 al 28 sep, 2026 · Las sesiones abren el 8 de septiembre",
+        "datesShort": "22 – 28 sep, 2026",
+        "venue": "Sede de las Naciones Unidas · Turtle Bay, Midtown East, Nueva York",
+        "note": "193 países dentro de veinte cuadras de Midtown. El tránsito baja de 6 km/h y la Primera Avenida cierra entre la 42 y la 48.",
+        "service": "Transporte de delegaciones con choferes que conocen los desvíos.",
+        "cta": "Planificá el transporte de tu delegación",
+        "imageAlt": "El edificio de la Secretaría de las Naciones Unidas en Nueva York"
+      }
+    },
+    "closer": {
+      "title": "¿Estás organizando un evento?",
+      "body": "Contanos las fechas, las sedes y cuánta gente se mueve con vos. Armamos el plan en tierra alrededor de eso.",
+      "cta": "Hablá con nuestro equipo"
+    }
+  },
   "airport": {
     "meta": {
       "title": "Traslados al aeropuerto · Relier — Transporte privado a JFK, LaGuardia y Newark",

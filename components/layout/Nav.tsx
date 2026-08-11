@@ -40,7 +40,9 @@ const LINKS: NavLink[] = [
   },
   { href: "/fleet", labelKey: "nav.links.fleet" },
   { href: "/for-business", labelKey: "nav.links.forBusiness" },
-  { href: "https://relier.es", labelKey: "nav.links.relierEurope", external: true },
+  // The dossier, not the service page — the Services dropdown already holds
+  // /events. Two different pages, so two different labels.
+  { href: "/signature-events", labelKey: "common.signatureEvents" },
   { href: "/about", labelKey: "nav.links.about" },
   { href: "/contact", labelKey: "nav.links.contact" },
 ];

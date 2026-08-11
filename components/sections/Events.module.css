@@ -1,0 +1,213 @@
+/* Light band, same treatment as Pillars and Testimonials: it is one of the
+   cream stripes that break up the dark top half of the home. */
+.events {
+  padding: 104px 0;
+  background: var(--bg-light);
+  color: var(--text-on-light);
+  border-top: 0.5px solid var(--border-on-light);
+  border-bottom: 0.5px solid var(--border-on-light);
+}
+
+.head {
+  max-width: 720px;
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-on-light);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-on-light);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+  margin-bottom: 18px;
+}
+
+.muted {
+  color: var(--text-on-light-muted);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.lead {
+  font-size: var(--lead-size);
+  line-height: var(--lead-leading);
+  color: var(--text-on-light-muted);
+  max-width: var(--lead-measure);
+}
+
+/* Sits with the copy rather than at the foot of the section, where it read as
+   orphaned below the carousel (client, 11-aug). */
+.headCta {
+  margin-top: 26px;
+}
+
+/* ─── Featured: the finished operation, with its figures ─── */
+
+/* The photo carries more of the width than the copy (client, 11-aug): at 0.9fr
+   the text column was ~200px wider than the copy needed and the block read as
+   half empty on the right. */
+.featured {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 56px;
+}
+
+/* 16/10, not 4/3: a wider photo can take the extra width without its height
+   ballooning past the copy beside it. */
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--bg-light-tile);
+}
+
+.media img {
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ─── Shared card innards ─── */
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-on-light-tertiary);
+  margin-bottom: 16px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.16em;
+}
+
+.statusOperated {
+  color: var(--accent-on-light-strong);
+  background: rgba(201, 169, 97, 0.14);
+}
+
+.statusUpcoming {
+  color: var(--text-on-light);
+  border: 0.5px solid var(--border-on-light-strong);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3vw, 2.375rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--text-on-light);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+  margin-bottom: 14px;
+}
+
+/* The client's own headline for the operation — display type, not body copy. */
+.headline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.25;
+  color: var(--text-on-light-muted);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+}
+
+
+
+/* ─── Figures ─── */
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 40px;
+  margin: 30px 0 4px;
+}
+
+/* Value first, label under it — the number is the point. */
+.metric {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.metricValue {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-on-light);
+  font-variation-settings: "opsz" 96;
+}
+
+.metricLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-on-light-tertiary);
+}
+
+.cta {
+  margin-top: 28px;
+}
+
+@media (max-width: 1024px) {
+  .events {
+    padding: 80px 0;
+  }
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* Content first, photo under it — same pattern as the featured cards on
+     /blog and /services. */
+  .body {
+    order: 1;
+  }
+  .media {
+    order: 2;
+    aspect-ratio: 16 / 9;
+  }
+  .metrics {
+    gap: 24px 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .events {
+    padding: 64px 0;
+  }
+  .featured {
+    margin-top: 40px;
+  }
+  }

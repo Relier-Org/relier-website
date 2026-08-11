@@ -11,6 +11,7 @@
   "asDirectedHourly": "À disposição/Por hora",
   "corporate": "Corporativo",
   "events": "Eventos",
+  "signatureEvents": "Eventos Signature",
   "airportTransfers": "Traslados para o aeroporto",
   "fifaWorldCup2026": "Copa do Mundo FIFA 2026",
   "planWorldCupTransport": "Planeje seu transporte para a Copa do Mundo",
@@ -28,5 +29,8 @@
   "bags": "malas",
   "sending": "Enviando…",
   "leaveGoogleReview": "Deixe-nos uma avaliação no Google",
-  "phone": "+1 (844) 735-4371"
+  "phone": "+1 (844) 735-4371",
+  "preloader": {
+    "label": "Preparando sua reserva"
+  }
 }
