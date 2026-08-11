@@ -1,0 +1,89 @@
+.frame {
+  /* Rendered height of the horizontalv2 bar, measured 2026-08-05 on config 13
+     (329px from ~601px up, 665px once the form's own CSS stacks the fields at
+     600px). Only reserves space until the embed reports its real height, so a
+     drift after a panel CSS change is cosmetic. Override per consumer with
+     --embed-placeholder. */
+  --embed-placeholder-fallback: 329px;
+
+  position: relative;
+}
+
+/* Limo Anywhere mounts the iframe at its configured default height (800px) and
+   only shrinks it once the form measures itself and posts its real height. Hold
+   the collapsed height until then, so the resize never lands as a layout jump
+   and the skeleton has a box to fill. */
+.frame:not([data-ready="true"]) {
+  min-height: var(--embed-placeholder, var(--embed-placeholder-fallback));
+  max-height: var(--embed-placeholder, var(--embed-placeholder-fallback));
+  overflow: hidden;
+}
+
+.root {
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.frame[data-ready="true"] .root {
+  opacity: 1;
+}
+
+/* Stand-in for the bar while the embed is still coming down the wire. Matters
+   on the paths with no curtain over them: the reservation page, and repeat
+   visits inside a session. Mirrors #lead_form's own panel from the Limo
+   Anywhere stylesheet (obsidian tile, hairline, 4px radius). */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--color-obsidian-800);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  opacity: 1;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.frame[data-ready="true"] .skeleton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-champagne-500),
+    transparent
+  );
+  animation: travel 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes travel {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(363%);
+  }
+}
+
+@media (max-width: 600px) {
+  .frame {
+    --embed-placeholder-fallback: 665px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::before {
+    animation: none;
+    width: 100%;
+    opacity: 0.4;
+  }
+}

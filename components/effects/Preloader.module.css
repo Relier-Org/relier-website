@@ -1,0 +1,205 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 90; /* above the nav (40) and its mobile overlay (50) */
+  display: grid;
+  place-items: center;
+  background: var(--color-obsidian-900);
+  overscroll-behavior: none;
+  will-change: transform;
+}
+
+/* Depth, so the canvas doesn't read as flat black behind the wordmark. */
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 45% at 50% 58%,
+      rgba(201, 169, 97, 0.09) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 100% 70% at 50% 120%,
+      rgba(201, 169, 97, 0.06) 0%,
+      transparent 65%
+    );
+}
+
+/* Set by the inline script: nothing to play, or React never woke up. */
+:global(html[data-preloader="skip"]) .root,
+:global(html[data-preloader="failed"]) .root {
+  display: none !important;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-inline: var(--inset);
+}
+
+/* ─── Wordmark + specular sweep ─── */
+
+.logo {
+  position: relative;
+  width: 156px;
+  animation: riseIn 1.1s var(--ease-out) 0.05s both;
+}
+
+/* width + height:auto keeps next/image happy (both axes accounted for) and the
+   box's aspect ratio identical to the source, which the sheen mask relies on. */
+.logoImg {
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+/* Masked to the wordmark's own alpha, so the light only travels inside the
+   letterforms. The mask lives on the clip and the bar moves inside it —
+   transforming the masked element itself would drag the mask along with it. */
+.sheen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  mask: url("/images/relier-logo.png") center / contain no-repeat;
+  -webkit-mask: url("/images/relier-logo.png") center / contain no-repeat;
+}
+
+.sheenBar {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 34%,
+    rgba(216, 188, 120, 0.95) 50%,
+    transparent 66%
+  );
+  animation: sweep 3.4s cubic-bezier(0.5, 0, 0.2, 1) 0.7s infinite;
+}
+
+/* ─── Indeterminate hairline ─── */
+
+.track {
+  position: relative;
+  display: block;
+  width: 148px;
+  height: 1px;
+  overflow: hidden;
+  background: rgba(197, 205, 213, 0.12);
+  animation: fadeIn 0.9s var(--ease-out) 0.35s both;
+}
+
+.beam {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-champagne-500),
+    transparent
+  );
+  animation: travel 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-silver-400);
+  text-align: center;
+  animation: riseIn 1.1s var(--ease-out) 0.45s both;
+}
+
+/* Rides the bottom edge of the curtain as it lifts: a single line of light
+   travelling up the screen. */
+.edge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 169, 97, 0.5) 35%,
+    rgba(216, 188, 120, 0.7) 50%,
+    rgba(201, 169, 97, 0.5) 65%,
+    transparent
+  );
+  box-shadow: 0 0 28px rgba(201, 169, 97, 0.3);
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(-105%);
+  }
+  55%,
+  100% {
+    transform: translateX(105%);
+  }
+}
+
+@keyframes travel {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(322%);
+  }
+}
+
+@media (max-width: 720px) {
+  .content {
+    gap: 26px;
+  }
+  .logo {
+    width: 132px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .track,
+  .label {
+    animation: none;
+  }
+  .logoImg {
+    opacity: 0.85;
+  }
+  .sheen {
+    display: none;
+  }
+  .beam {
+    animation: none;
+    width: 100%;
+    opacity: 0.5;
+  }
+}

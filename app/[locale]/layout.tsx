@@ -77,7 +77,13 @@ export default async function LocaleLayout({
   );
 
   return (
-    <html lang={locale} className={`${fraunces.variable} ${manrope.variable}`}>
+    // suppressHydrationWarning: the preloader's inline script stamps
+    // `data-preloader` (and the scroll lock class) on <html> before hydration.
+    <html
+      lang={locale}
+      className={`${fraunces.variable} ${manrope.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <NextIntlClientProvider messages={clientMessages}>
           {children}

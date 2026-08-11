@@ -82,6 +82,13 @@
 
   --inset: clamp(1.25rem, 4vw, 4rem);
   --container: 1280px;
+
+  /* Section lead (the paragraph under each section title). Single-sourced: these
+     had drifted to four different sizes across the home. The hero subtitle is
+     deliberately larger — it sits a level above these. */
+  --lead-size: 16px;
+  --lead-leading: 1.6;
+  --lead-measure: 560px;
 }
 
 /* ─── Reset ─── */
@@ -122,6 +129,20 @@ input, select { font: inherit; color: inherit; outline: none; }
   max-width: var(--container-width);
   margin-inline: auto;
   padding-inline: var(--inset);
+}
+
+/* ─── Preloader curtain (components/effects/Preloader.tsx) ─── */
+/* `!important`: the Limo Anywhere expander sets an inline `overflow-y: scroll`
+   on <html> 200ms and 2s after it boots, which would unlock the scroll. */
+html.curtainUp {
+  overflow: hidden !important;
+}
+
+/* Hold the first-screen entrances at frame 0 while the curtain is up, so they
+   play as it lifts instead of finishing behind it. */
+html[data-preloader="running"] .firstScreen,
+html[data-preloader="running"] .firstScreen * {
+  animation-play-state: paused;
 }
 
 /* ─── First-screen wrapper: Hero + Booking fit 100vh ─── */
