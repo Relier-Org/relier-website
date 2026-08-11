@@ -192,22 +192,10 @@ html[data-preloader="running"] .firstScreen * {
   border-radius: var(--radius-xs);
 }
 
-/* ─── Reveal base state (GSAP toggles to .is-visible) ─── */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  will-change: opacity, transform;
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
 }
