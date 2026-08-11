@@ -9,11 +9,18 @@
   gap: 10px;
   padding-bottom: 4px;
   border-bottom: 0.5px solid var(--color-champagne-500);
-  transition: gap var(--duration-fast) var(--ease-out);
 }
 
-.cta:hover {
-  gap: 16px;
+/* La flecha se corre con transform, NUNCA con gap. `gap` es layout: en una fila
+   con flex-wrap el link se ensancha, envuelve a la linea siguiente, se sale de
+   abajo del cursor, pierde el hover y vuelve — parpadeo infinito que mueve toda
+   la pagina. Mismo bug que hubo en la paginacion del blog. */
+.cta > span:last-child {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.cta:hover > span:last-child {
+  transform: translateX(6px);
 }
 
 .light {
