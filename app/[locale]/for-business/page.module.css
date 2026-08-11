@@ -1,0 +1,6 @@
+/* The subjects in the corporate photo sit high in the frame: the shared
+   `center 50%` crop cuts the head off the guest stepping out of the car.
+   Scoped here so the other service heroes keep the default framing. */
+.hero img {
+  object-position: center 10%;
+}

@@ -9,6 +9,7 @@ import ServiceBody, {
 } from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
+import styles from "./page.module.css";
 
 // Página nueva (PDF cliente 04-jun-2026 §1, "For Business" estilo Blacklane).
 // Apunta a travel agencies / corporativos / eventos. Arranca como contenido
@@ -71,6 +72,7 @@ export default async function ForBusinessPage({ params }: PageProps) {
           title={t("hero.title")}
           subtitle={t("hero.subtitle")}
           image="/images/services/corporate/hero.webp"
+          className={styles.hero}
         />
         <ServiceBody blocks={blocks} />
         <ServiceCloser

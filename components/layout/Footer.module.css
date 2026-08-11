@@ -119,8 +119,18 @@
 }
 
 a.contactItem:hover .contactChevron {
-  transform: translateX(2px);
+  transform: translateX(3px);
   color: var(--color-champagne-500);
+}
+
+/* The value tints too, so the row reads as a link and not just as a chevron
+   that happens to move. */
+a.contactItem:hover .contactValue {
+  color: var(--color-champagne-300);
+}
+
+.contactValue {
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .contactIcon {

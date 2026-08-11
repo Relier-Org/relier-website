@@ -13,23 +13,22 @@
   transition:
     background var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
+    color var(--duration-fast) var(--ease-out);
 }
 
 .primary {
   background: var(--color-champagne-500);
   color: var(--color-obsidian-900);
 }
+/* Straight off the brandbook's own scale: Champagne 300 is documented as the
+   hover value and 600 as pressed. The 32px champagne glow this replaces was not
+   in the brandbook — motion here is meant to be "calm and decisive", and a halo
+   reads as neither. The arrow's 4px slide carries the feedback. */
 .primary:hover {
-  background: var(--color-champagne-400);
-  box-shadow:
-    0 0 0 1px rgba(201, 169, 97, 0.3),
-    0 0 32px rgba(201, 169, 97, 0.18);
+  background: var(--color-champagne-300);
 }
 .primary:active {
-  transform: translateY(1px);
+  background: var(--color-champagne-600);
 }
 
 .withArrow::after {

@@ -3,21 +3,25 @@ import { localeAlternates } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import BookingWidget from "@/components/sections/BookingWidget";
+import HeroBooking from "@/components/sections/HeroBooking";
 import Services from "@/components/sections/Services";
 import TrustBar from "@/components/sections/TrustBar";
 import Fleet from "@/components/sections/Fleet";
 import Pillars from "@/components/sections/Pillars";
-import WorldCup from "@/components/sections/WorldCup";
+import Events from "@/components/sections/Events";
 import CoverageMap from "@/components/sections/CoverageMap";
 import Testimonials from "@/components/sections/Testimonials";
 import About from "@/components/sections/About";
 import GsapProvider from "@/components/effects/GsapProvider";
+import Preloader from "@/components/effects/Preloader";
 
-// Versión B order (Territory brief, 21-may-2026):
-//  1 Hero + booking · 2 Services (Disney+) · 3 Virtuoso/NLE credential band
-//  4 Fleet · 5 Reasons / Concierge on the Road · 6 Coverage map
-//  7 Testimonials (Google reviews) · 8 About, last of all.
+// Home order (client, 05-aug-2026 — supersedes the Versión B brief):
+//  1 Hero + booking · 2 Services · 3 "In service of" credential band
+//  4 Events · 5 Fleet · 6 Reasons / Concierge on the Road · 7 Coverage map
+//  8 Testimonials · 9 About, last of all.
+// Events sits above Fleet deliberately: show the service before the vehicles.
+// It also replaces the standalone World Cup section, which is now the first
+// entry inside it (the section component is kept, unused, in case it comes back).
 type PageProps = { params: Promise<{ locale: string }> };
 
 // Title/description come from the locale layout; this only adds the
@@ -33,17 +37,18 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <Preloader />
       <Nav />
       <main>
         <section className="firstScreen">
           <Hero />
-          <BookingWidget />
+          <HeroBooking />
         </section>
         <Services />
         <TrustBar />
+        <Events />
         <Fleet />
         <Pillars />
-        <WorldCup />
         <CoverageMap />
         <Testimonials />
         <About />

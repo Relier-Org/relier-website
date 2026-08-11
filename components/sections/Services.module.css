@@ -48,10 +48,10 @@
 }
 
 .lead {
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: var(--lead-size);
+  line-height: var(--lead-leading);
   color: var(--color-silver-300);
-  max-width: 560px;
+  max-width: var(--lead-measure);
   margin: 0;
 }
 

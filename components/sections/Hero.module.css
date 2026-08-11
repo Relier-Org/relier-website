@@ -7,6 +7,11 @@
   overflow: hidden;
   background: var(--color-obsidian-900);
   text-align: center;
+  /* Reserves the booking bar's overlap. Without it the copy block centres into
+     the space the bar occupies, and on a laptop-height viewport — where the
+     hero has already hit its min-height — the bar lands on the subtitle
+     (measured -4px of clearance at 790px tall). */
+  padding-bottom: 68px;
 }
 
 .bg {

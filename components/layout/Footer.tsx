@@ -31,6 +31,7 @@ const SERVICE_LINKS = [
 const COMPANY_LINKS = [
   { href: "/about", labelKey: "footer.links.about" },
   { href: "/fleet", labelKey: "footer.links.fleet" },
+  { href: "/signature-events", labelKey: "common.signatureEvents" },
   { href: "/testimonials", labelKey: "common.testimonials" },
   { href: "/blog", labelKey: "common.news" },
   { href: "https://relier.es", labelKey: "footer.links.relierEurope", external: true },
@@ -53,12 +54,21 @@ function ChevronRight(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-const CONTACT_ITEMS = [
+const CONTACT_ITEMS: {
+  icon: typeof LocationIcon;
+  labelKey: string;
+  value: string;
+  href: string;
+  external?: boolean;
+}[] = [
   {
     icon: LocationIcon,
     labelKey: "footer.contact.hq",
     value: "240 Kent Ave, 3rd Floor B14, Brooklyn, NY 11249",
-    href: undefined,
+    // Maps URL API: no key, and it hands off to the native app on mobile. The
+    // query drops the floor and suite on purpose — they only confuse geocoding.
+    href: "https://www.google.com/maps/search/?api=1&query=240%20Kent%20Ave%2C%20Brooklyn%2C%20NY%2011249",
+    external: true,
   },
   {
     icon: MailIcon,
@@ -138,7 +148,7 @@ export default async function Footer() {
 
           <div className={cn(styles.col, styles.reachCol)}>
             <h4>{t("footer.headings.reach")}</h4>
-            {CONTACT_ITEMS.map(({ icon: Icon, labelKey, value, href }) => {
+            {CONTACT_ITEMS.map(({ icon: Icon, labelKey, value, href, external }) => {
               const inner = (
                 <>
                   <span className={styles.contactIcon} aria-hidden="true">
@@ -151,14 +161,17 @@ export default async function Footer() {
                   <ChevronRight className={styles.contactChevron} />
                 </>
               );
-              return href ? (
-                <a key={labelKey} href={href} className={styles.contactItem}>
+              return (
+                <a
+                  key={labelKey}
+                  href={href}
+                  className={styles.contactItem}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
                   {inner}
                 </a>
-              ) : (
-                <div key={labelKey} className={styles.contactItem}>
-                  {inner}
-                </div>
               );
             })}
             <Button

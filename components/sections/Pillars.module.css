@@ -39,10 +39,10 @@
 }
 
 .lead {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--lead-size);
+  line-height: var(--lead-leading);
   color: var(--text-on-light-muted);
-  max-width: 560px;
+  max-width: var(--lead-measure);
   margin: 0;
 }
 

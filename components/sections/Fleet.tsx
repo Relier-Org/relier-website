@@ -111,10 +111,7 @@ export default function Fleet() {
     >
       <div className={cn("container", styles.inner)}>
         <Reveal className={styles.head}>
-          <p className={styles.kicker}>
-            {t("showcase.kicker")}
-            <span className={styles.kickerRule} aria-hidden="true" />
-          </p>
+          <p className={styles.kicker}>{t("showcase.kicker")}</p>
           <h2 className={styles.title}>{t("showcase.title")}</h2>
           <p className={styles.lead}>{t("showcase.lead")}</p>
         </Reveal>
