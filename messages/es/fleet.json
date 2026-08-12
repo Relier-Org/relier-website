@@ -1,8 +1,8 @@
 {
   "showcase": {
     "kicker": "La Flota",
-    "title": "siempre lista.",
-    "lead": "Seis categorías, un solo estándar. Siempre puntuales, siempre impecables: la galería avanza sola; deténla para verla de cerca.",
+    "title": "Listos para cada viaje.",
+    "lead": "Cada reserva garantiza una clase de vehículo. Nuestra flota se mantiene meticulosamente para exigencias ejecutivas:",
     "imageAlt": "{name} o similar",
     "previousVehicle": "Vehículo anterior",
     "nextVehicle": "Vehículo siguiente",
@@ -18,7 +18,7 @@
     "motor-coach": "Autobús"
   },
   "meta": {
-    "title": "Flota · Relier — Nuestros vehículos",
+    "title": "Flota · Relier · Nuestros vehículos",
     "description": "Vehículos pequeños y grandes disponibles para movilidad personal: sedanes, SUV, S-Class, vans Sprinter, minibús y autobús."
   },
   "hero": {

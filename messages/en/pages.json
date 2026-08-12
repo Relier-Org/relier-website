@@ -1,8 +1,8 @@
 {
   "about": {
     "meta": {
-      "title": "About · Relier — A Personal Mobility Concierge",
-      "description": "Relier is a leading worldwide transportation company. Comfort, convenience, luxury, and so much more in one place — wherever your journey takes you."
+      "title": "About · Relier · A Personal Mobility Concierge",
+      "description": "Relier is a leading worldwide transportation company. Comfort, convenience, luxury, and so much more in one place, wherever your journey takes you."
     },
     "hero": {
       "eyebrow": "About Relier",
@@ -12,28 +12,28 @@
     "intro": {
       "lead": "Looking for a seamless way to travel anywhere in the world?",
       "leadAccent": "You're in the right place.",
-      "support": "Relier is your premier global transportation solution — offering comfort, convenience, luxury, and so much more in one place."
+      "support": "Relier is your premier global transportation solution, offering comfort, convenience, luxury, and so much more in one place."
     },
     "bento": {
       "photoAlt": "Relier chauffeur opening the door for a client",
       "titleLine1": "Just tell us what you need,",
       "titleLine2": "we'll make it happen.",
       "body1": "Relier is a leading worldwide transportation company. With years of experience in the industry, our team of professionals provides top-notch service tailored to any unique travel requirement. Whether you're traveling alone for an important event or coordinating transportation for a group vacation, corporate outing, or international trip, we've got you covered.",
-      "body2": "At Relier, our clients' satisfaction is always our top priority. We take every detail into consideration to ensure a seamless travel experience — wherever in the world your journey takes you. With us, you are in good hands and will always receive the high-quality service you deserve."
+      "body2": "At Relier, our clients' satisfaction is always our top priority. We take every detail into consideration to ensure a seamless travel experience, wherever in the world your journey takes you. With us, you are in good hands and will always receive the high-quality service you deserve."
     }
   },
   "contact": {
     "meta": {
-      "title": "Contact · Relier — Personal Mobility Concierge",
-      "description": "Talk to a Relier concierge. Phone, email, and the Brooklyn HQ — we respond promptly to every enquiry."
+      "title": "Contact · Relier · Personal Mobility Concierge",
+      "description": "Talk to a Relier concierge. Phone, email, and the Brooklyn HQ. We respond promptly to every enquiry."
     },
     "hero": {
       "eyebrow": "Get in touch",
       "titleLine1": "Customer support,",
       "titleLine2": "made personal.",
-      "lead": "If you need something tailored to your needs, reach out — we're here to assist you and will get back to you promptly."
+      "lead": "If you need something tailored to your needs, reach out. We're here to assist you and will get back to you promptly."
     },
-    "statement": "We go above and beyond to ensure every travel experience is tailored to your preferences. Our team of dedicated professionals is highly experienced in navigating global routes and logistics, providing efficient and punctual transportation to any destination worldwide. Our goal is to exceed your expectations — ensuring you arrive on time, with comfort and in utmost luxury.",
+    "statement": "We go above and beyond to ensure every travel experience is tailored to your preferences. Our team of dedicated professionals is highly experienced in navigating global routes and logistics, providing efficient and punctual transportation to any destination worldwide. Our goal is to exceed your expectations, ensuring you arrive on time, with comfort and in utmost luxury.",
     "form": {
       "label": "Send a message",
       "title": "Tell us where you're going.",
@@ -47,7 +47,7 @@
         "lastName": "Doe",
         "email": "jane@email.com",
         "phone": "+1 555 000 0000",
-        "message": "Tell us about your trip — dates, route, party size, any special requests."
+        "message": "Tell us about your trip: dates, route, party size, any special requests."
       },
       "errors": {
         "required": "Required",
@@ -79,8 +79,8 @@
   },
   "testimonials": {
     "meta": {
-      "title": "Testimonials · Relier — Verified 5-Star Reviews",
-      "description": "Real travelers, real journeys. Verified 5-star reviews of Relier — chauffeured concierge transport across the Americas, Europe, and the Middle East."
+      "title": "Testimonials · Relier · Verified 5-Star Reviews",
+      "description": "Real travelers, real journeys. Verified 5-star reviews of Relier: chauffeured concierge transport across the Americas, Europe, and the Middle East."
     },
     "hero": {
       "titleLine1": "Real travelers,",
@@ -90,7 +90,7 @@
     },
     "intro": {
       "eyebrow": "On the road with us",
-      "body": "Our clients consistently praise us for our impeccable service, professionalism, and reliability. Backed by expert chauffeurs with deep knowledge of each city, our worldwide transportation service ensures smooth, efficient, and personalized journeys—reflected in the many 5-star reviews we are proud to receive."
+      "body": "Our clients consistently praise us for our impeccable service, professionalism, and reliability. Backed by expert chauffeurs with deep knowledge of each city, our worldwide transportation service ensures smooth, efficient, and personalized journeys, reflected in the many 5-star reviews we are proud to receive."
     }
   }
 }

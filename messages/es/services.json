@@ -1,17 +1,17 @@
 {
   "meta": {
-    "title": "Nuestros servicios · Relier — Transporte con chofer en todo el mundo",
+    "title": "Nuestros servicios · Relier · Transporte con chofer en todo el mundo",
     "description": "Transporte terrestre de nivel concierge adaptado a cada viaje: traslados de lujo, eventos, aeropuerto, viajes corporativos y servicio dedicado para la Copa Mundial de la FIFA 2026 en América, Europa y Medio Oriente."
   },
   "hero": {
     "eyebrow": "Servicios",
     "title": "Nuestros servicios",
-    "subtitle": "Transporte a medida, de nivel concierge — adaptado a cada viajero, cada ocasión, cada ciudad.",
+    "subtitle": "Transporte a medida, de nivel concierge, adaptado a cada viajero, cada ocasión, cada ciudad.",
     "imageAlt": "Chofer de Relier abriendo la puerta de un vehículo de lujo"
   },
   "intro": {
     "eyebrow": "Por qué Relier",
-    "body": "Ya seas un viajero de negocios que necesita un traslado al aeropuerto confiable o un turista exigente que quiere descubrir los lugares emblemáticos de la ciudad, nuestro servicio de transporte está diseñado para responder a tus necesidades específicas. Nuestra flota, mantenida con el máximo cuidado, ofrece una gama de vehículos de alta gama que garantizan confort y estilo durante todo el trayecto."
+    "body": "Ya seas un viajero de negocios que necesita un traslado al aeropuerto confiable o un turista exigente que quiere descubrir los lugares emblemáticos de cualquier ciudad, nuestro servicio de transporte está diseñado para responder a tus necesidades específicas. Nuestra flota, mantenida con el máximo cuidado, ofrece una gama de vehículos de alta gama que garantizan confort y estilo durante todo el trayecto."
   },
   "featured": {
     "label": "Destacado · Reservas abiertas"
@@ -51,12 +51,12 @@
   },
   "transfers": {
     "meta": {
-      "title": "Traslados en vehículos de lujo · Relier — Servicio privado de chofer en NYC",
+      "title": "Traslados en vehículos de lujo · Relier · Servicio privado de chofer en todo el mundo",
       "description": "Transporte privado premium con vehículos de alta gama para cualquier ocasión. Choferes bilingües, tarifas fijas, sin costos ocultos."
     },
     "hero": {
       "eyebrow": "Traslados",
-      "title": "Traslados privados de lujo y servicios de chofer en la ciudad de Nueva York",
+      "title": "Traslados privados de lujo y servicios de chofer en todo el mundo",
       "subtitle": "Desde llegadas al aeropuerto sin fricciones hasta desplazamientos eficientes por la ciudad, vive un trayecto impecable de A a B con el máximo estándar de confort, puntualidad y estilo."
     },
     "blocks": {
@@ -78,13 +78,13 @@
     },
     "closer": {
       "title": "Reserva hoy tu traslado de lujo.",
-      "body": "Vehículos premium, choferes bilingües y tarifas fijas — reserva tu viaje en minutos."
+      "body": "Vehículos premium, choferes bilingües y tarifas fijas. Reserva tu viaje en minutos."
     }
   },
   "hourly": {
     "meta": {
-      "title": "A disposición/Por horas · Relier — Servicio de chofer por horas",
-      "description": "Servicio de chofer por horas y a disposición — tu vehículo y tu chofer reservados durante el tiempo que necesites, allá donde te lleve el día."
+      "title": "A disposición/Por horas · Relier · Servicio de chofer por horas",
+      "description": "Servicio de chofer por horas y a disposición: tu vehículo y tu chofer reservados durante el tiempo que necesites, allá donde te lleve el día."
     },
     "hero": {
       "eyebrow": "A disposición/Por horas",
@@ -94,28 +94,28 @@
     "blocks": {
       "schedule": {
         "title": "Tu vehículo, según tu agenda",
-        "p1": "Reserva un chofer por horas y conserva el vehículo contigo durante todo el día. Sin volver a reservar entre paradas, sin esperar la siguiente recogida — tu chofer permanece a la espera, listo cuando tú lo estés, durante el tiempo que necesites.",
+        "p1": "Reserva un chofer por horas y conserva el vehículo contigo durante todo el día. Sin volver a reservar entre paradas, sin esperar la siguiente recogida. Tu chofer permanece a la espera, listo cuando tú lo estés, durante el tiempo que necesites.",
         "imageAlt": "Chofer por horas a disposición con Relier"
       },
       "freedom": {
         "title": "Libertad para ir a donde quieras",
-        "p1": "Reuniones por toda la ciudad, un día de compras, un recorrido turístico o un itinerario apretado que cambia sobre la marcha — con el servicio a disposición defines la ruta a medida que avanza el día. Una sola reserva lo cubre todo.",
+        "p1": "Reuniones por toda la ciudad, un día de compras, un recorrido turístico o un itinerario apretado que cambia sobre la marcha. Con el servicio a disposición defines la ruta a medida que avanza el día. Una sola reserva lo cubre todo.",
         "imageAlt": "Viaje a disposición con Relier"
       }
     },
     "closer": {
       "title": "Reserva tu día, hora por hora.",
-      "body": "Dinos a qué hora empezamos y mantenemos el vehículo contigo — facturado por hora, con el mismo estándar de servicio con chofer en cada parada."
+      "body": "Dinos a qué hora empezamos y mantenemos el vehículo contigo, facturado por hora, con el mismo estándar de servicio con chofer en cada parada."
     }
   },
   "corporate": {
     "meta": {
-      "title": "Transporte corporativo · Relier — Servicio de chofer para empresas en NYC",
+      "title": "Transporte corporativo · Relier · Servicio de chofer para empresas en todo el mundo",
       "description": "Servicio de chofer de lujo y profesional para viajes de negocios y eventos corporativos."
     },
     "hero": {
       "eyebrow": "Corporativo",
-      "title": "Transporte corporativo en limusina en NYC",
+      "title": "Transporte corporativo en limusina en todo el mundo",
       "subtitle": "Logística a medida para profesionales y equipos ejecutivos. Garantizamos fiabilidad absoluta, privacidad y una ejecución impecable para que tu negocio siga en movimiento."
     },
     "blocks": {
@@ -137,23 +137,23 @@
     },
     "closer": {
       "title": "Reserva hoy tu viaje corporativo.",
-      "body": "Despacho 24/7, WiFi a bordo y choferes formados para viajes de negocios — reserva en minutos y llega listo."
+      "body": "Despacho 24/7, WiFi a bordo y choferes formados para viajes de negocios. Reserva en minutos y llega listo."
     }
   },
   "events": {
     "meta": {
-      "title": "Transporte para eventos · Relier — Servicio privado de chofer para eventos en NYC",
+      "title": "Transporte para eventos · Relier · Servicio privado de chofer para eventos en todo el mundo",
       "description": "Transporte confiable y cómodo para eventos deportivos, entretenimiento y conferencias."
     },
     "hero": {
       "eyebrow": "Eventos",
-      "title": "Transporte privado de lujo para eventos en NYC",
+      "title": "Transporte privado de lujo para eventos en todo el mundo",
       "subtitle": "Desde grandes citas deportivas hasta celebraciones de alto nivel, gestionamos el transporte de grupos y la logística de eventos complejos con precisión impecable. Sea cual sea la escala, aseguramos que tus invitados y VIP lleguen con absoluto confort y distinción."
     },
     "blocks": {
       "entertainment": {
         "title": "Eventos de entretenimiento",
-        "p1": "Sea cual sea el evento al que quieras asistir, Relier ofrece precios accesibles en todo el servicio de autos de lujo para eventos en NYC. Tenemos paquetes para todas las ocasiones especiales: aniversarios, despedidas de soltero o soltera, cumpleaños, conciertos, fiestas de graduación, recorridos turísticos, eventos deportivos, compras o cualquier evento familiar — Relier tiene la solución de transporte perfecta para todas tus necesidades. Contrata nuestros servicios para tu noche libre o para una salida educativa con tu clase. Nos aseguramos de brindarte un servicio que te haga sentir seguro y cómodo — y con estilo al mismo tiempo.",
+        "p1": "Sea cual sea el evento al que quieras asistir, Relier ofrece precios accesibles en el servicio de autos de lujo para eventos en todas las ciudades donde operamos. Tenemos paquetes para todas las ocasiones especiales: aniversarios, despedidas de soltero o soltera, cumpleaños, conciertos, fiestas de graduación, recorridos turísticos, eventos deportivos, compras o cualquier evento familiar. Relier tiene la solución de transporte perfecta para todas tus necesidades. Contrata nuestros servicios para tu noche libre o para una salida educativa con tu clase. Nos aseguramos de brindarte un servicio que te haga sentir seguro y cómodo, y con estilo al mismo tiempo.",
         "imageAlt": "Eventos de entretenimiento con Relier"
       },
       "corporate": {
@@ -179,7 +179,7 @@
   },
   "signatureEvents": {
     "meta": {
-      "title": "Eventos Signature · Relier — Transporte para los eventos que movemos",
+      "title": "Eventos Signature · Relier · Transporte para los eventos que movemos",
       "description": "Los eventos que opera Relier: Mundial FIFA 2026, US Open, New York Fashion Week, Fórmula 1 en Madrid y la Asamblea General de la ONU."
     },
     "hero": {
@@ -281,18 +281,18 @@
   },
   "airport": {
     "meta": {
-      "title": "Traslados al aeropuerto · Relier — Transporte privado a JFK, LaGuardia y Newark",
-      "description": "Viajes confiables y cómodos desde y hacia JFK, LaGuardia y Newark."
+      "title": "Traslados al aeropuerto · Relier · Transporte privado a aeropuertos en todo el mundo",
+      "description": "Viajes confiables y cómodos desde y hacia cualquier aeropuerto importante, de JFK, LaGuardia y Newark a más de 500 ciudades en todo el mundo."
     },
     "hero": {
       "eyebrow": "Traslados al aeropuerto",
-      "title": "Traslados al aeropuerto en NYC — Transporte privado de lujo",
-      "subtitle": "Viajes confiables y cómodos desde y hacia JFK, LaGuardia y Newark."
+      "title": "Traslados privados al aeropuerto en todo el mundo",
+      "subtitle": "Viajes confiables y cómodos desde y hacia cualquier aeropuerto importante, de JFK, LaGuardia y Newark a más de 500 ciudades en todo el mundo."
     },
     "blocks": {
       "prompt": {
         "title": "Puntual y seguro",
-        "p1": "Un transporte terrestre al aeropuerto capaz de ofrecer un servicio seguro y rápido es la solución a los dolores de cabeza que provocan los tiempos de espera y un transporte público confuso. ¿Por qué conformarse con menos cuando puedes acceder a una forma de transporte impecable para tus desplazamientos en NYC?",
+        "p1": "Un transporte terrestre al aeropuerto capaz de ofrecer un servicio seguro y rápido es la solución a los dolores de cabeza que provocan los tiempos de espera y un transporte público confuso. ¿Por qué conformarse con menos cuando puedes acceder a una forma de transporte impecable estés donde estés?",
         "imageAlt": "Recogida en el aeropuerto con Relier"
       },
       "noWaiting": {
@@ -308,29 +308,29 @@
     },
     "closer": {
       "title": "Reserva hoy tu traslado al aeropuerto.",
-      "body": "JFK, LaGuardia, Newark — sin esperas, sin estrés. Reserva en línea y estaremos allí diez minutos antes de la recogida."
+      "body": "De JFK y Newark a cualquier aeropuerto que cubrimos. Sin esperas, sin estrés. Reserva en línea y estaremos allí diez minutos antes de la recogida."
     }
   },
   "forBusiness": {
     "meta": {
-      "title": "Para empresas · Relier — Agencias de viajes, corporativo y eventos",
-      "description": "Asóciate con Relier para el transporte terrestre con chofer en todo el mundo — para asesores de viaje, cuentas corporativas y equipos de eventos."
+      "title": "Para empresas · Relier · Agencias de viajes, corporativo y eventos",
+      "description": "Asóciate con Relier para el transporte terrestre con chofer en todo el mundo: asesores de viaje, cuentas corporativas y equipos de eventos."
     },
     "hero": {
       "eyebrow": "Para empresas",
       "title": "Relier para empresas",
-      "subtitle": "Transporte terrestre con chofer en todo el mundo — para asesores de viaje, cuentas corporativas y los equipos detrás de cada evento."
+      "subtitle": "Transporte terrestre con chofer en todo el mundo. Para asesores de viaje, cuentas corporativas y los equipos detrás de cada evento."
     },
     "blocks": {
       "advisors": {
         "title": "Asesores y agencias de viajes",
-        "p1": "Como Virtuoso Preferred Partner, Relier está pensado para hacer quedar bien a los asesores. Reserva en nombre de tus clientes con confianza: un único punto de contacto, un servicio consistente en más de 500 ciudades y la discreción que tu clientela espera — desde un traslado privado al aeropuerto hasta un itinerario de varios días.",
+        "p1": "Como Virtuoso Preferred Partner, Relier está pensado para hacer quedar bien a los asesores. Reserva en nombre de tus clientes con confianza: un único punto de contacto, un servicio consistente en más de 500 ciudades y la discreción que tu clientela espera, desde un traslado privado al aeropuerto hasta un itinerario de varios días.",
         "p2": "Nosotros nos ocupamos de la logística para que tú te concentres en la experiencia. Seguimiento del viaje en tiempo real, actualizaciones proactivas y un equipo de despacho 24/7 que trata a tus clientes como propios.",
         "imageAlt": "Traslado con chofer de Relier para asesores de viaje"
       },
       "accounts": {
         "title": "Cuentas corporativas",
-        "p1": "Ofrece a tu equipo y a tus invitados un programa de transporte terrestre en el que puedan confiar. Facturación centralizada, informes de deber de cuidado y choferes formados para viajes de negocios — en roadshows, visitas a clientes, conferencias y desplazamientos ejecutivos diarios.",
+        "p1": "Ofrece a tu equipo y a tus invitados un programa de transporte terrestre en el que puedan confiar. Facturación centralizada, informes de deber de cuidado y choferes formados para viajes de negocios, en roadshows, visitas a clientes, conferencias y desplazamientos ejecutivos diarios.",
         "p2": "Una cuenta, un estándar, en cada ciudad donde operas.",
         "imageAlt": "Transporte terrestre corporativo de Relier"
       },
@@ -342,13 +342,13 @@
     },
     "closer": {
       "title": "Construyamos tu cuenta.",
-      "body": "Cuéntanos cómo se mueve tu empresa y diseñaremos un programa a su medida — con un único punto de contacto y el mismo estándar en cada ciudad.",
+      "body": "Cuéntanos cómo se mueve tu empresa y diseñaremos un programa a su medida, con un único punto de contacto y el mismo estándar en cada ciudad.",
       "ctaLabel": "Habla con nuestro equipo"
     }
   },
   "reservation": {
     "meta": {
-      "title": "Reserva en línea · Relier — Haz tu reserva",
+      "title": "Reserva en línea · Relier · Haz tu reserva",
       "description": "Reserva tu transporte privado con chofer con Relier. Punto a punto o por horas, en América, Europa y Medio Oriente."
     },
     "hero": {

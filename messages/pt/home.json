@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Relier — Onde começa a viagem de luxo",
+    "title": "Relier · Onde começa a viagem de luxo",
     "description": "Relier · Concierge de mobilidade pessoal. Com sede em Nova York e Barcelona, em serviço nas Américas, na Europa e no Oriente Médio.",
     "ogDescription": "Concierge de mobilidade pessoal de Nova York e Barcelona."
   },
@@ -90,7 +90,7 @@
     "nations": "EUA · México · Canadá",
     "window": {
       "label": "Janela do torneio",
-      "value": "11 jun — <em>19 jul</em>",
+      "value": "11 jun a <em>19 jul</em>",
       "sub": "39 dias · 60 dias de operação"
     },
     "host": {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Relier — Where Luxury Travel Begins",
+    "title": "Relier · Where Luxury Travel Begins",
     "description": "Relier · Personal mobility concierge. Based in New York and Barcelona, in service across the Americas, Europe, and the Middle East.",
     "ogDescription": "Personal mobility concierge from New York and Barcelona."
   },
@@ -46,7 +46,7 @@
   "pillars": {
     "kicker": "Concierge on the Road",
     "title": "Reasons to <muted>choose Relier.</muted>",
-    "lead": "More than a ride — a concierge that travels with you. Three principles, held without exception: what we promise on the booking page is what arrives at the curb.",
+    "lead": "More than a ride. A concierge that travels with you. Three principles, held without exception: what we promise on the booking page is what arrives at the curb.",
     "items": {
       "safe": {
         "title": "Safe Travels",
@@ -72,7 +72,7 @@
   "wc": {
     "titleLine1": "When the world",
     "titleLine2": "comes to <em>your city.</em>",
-    "lead": "Private ground transportation across every host city of the FIFA World Cup 2026. Door-to-door service across the United States, Mexico, and Canada — airport, hotel, and stadium transfers for every match.",
+    "lead": "Private ground transportation across every host city of the FIFA World Cup 2026. Door-to-door service across the United States, Mexico, and Canada: airport, hotel, and stadium transfers for every match.",
     "flags": {
       "usa": "USA",
       "mexico": "Mexico",
@@ -90,7 +90,7 @@
     "nations": "USA · Mexico · Canada",
     "window": {
       "label": "Tournament window",
-      "value": "Jun 11 — <em>Jul 19</em>",
+      "value": "Jun 11 to <em>Jul 19</em>",
       "sub": "39 days · 60 days of operations"
     },
     "host": {
@@ -105,7 +105,7 @@
     "titleLine2": "one network worldwide.",
     "lead": "Headquartered in New York and Barcelona, with the same chauffeured standard across 500+ cities in Europe, the Americas, the Middle East, Africa and Asia.",
     "mapAria": "Map of Relier coverage across 500+ cities worldwide",
-    "caption": "500+ cities across 40+ countries — hover the map to explore.",
+    "caption": "500+ cities across 40+ countries. Hover the map to explore.",
     "viewAll": "View all destinations",
     "hide": "Hide destinations",
     "regions": {
