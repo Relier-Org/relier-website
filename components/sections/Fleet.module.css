@@ -118,21 +118,6 @@
 
 /* Sombra de contacto del showcase (Claude Design jul-2026) — ancla los autos
    al piso ahora que van compuestos directo sobre obsidian, sin panel. */
-.groundShadow {
-  position: absolute;
-  left: 50%;
-  bottom: 8px;
-  transform: translateX(-50%);
-  width: 560px;
-  height: 36px;
-  pointer-events: none;
-  background: radial-gradient(
-    closest-side,
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0) 72%
-  );
-}
-
 /* ─── Cars: todos montados (preload), solo el activo visible ─── */
 .car {
   position: absolute;
@@ -394,11 +379,7 @@
   .word {
     font-size: calc(var(--word-size, 150px) * 0.42);
   }
-  .groundShadow {
-    width: 280px;
-    height: 24px;
-  }
-  .car {
+    .car {
     bottom: 2px;
     height: calc(var(--car-h) * 0.52 * 1px);
     width: min(calc(var(--car-h) * var(--car-r) * 0.52 * 1px), 100%);

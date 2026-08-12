@@ -132,7 +132,6 @@ export default function Fleet() {
           >
             {v.word}
           </span>
-          <span className={styles.groundShadow} aria-hidden="true" />
 
           {FLEET.map((c, i) => (
             <div
