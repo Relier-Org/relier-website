@@ -5,7 +5,6 @@ import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import ServiceHero from "@/components/sections/ServiceHero";
 import ServicesIntro from "@/components/sections/ServicesIntro";
-import ServicesFeatured from "@/components/sections/ServicesFeatured";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import GsapProvider from "@/components/effects/GsapProvider";
 
@@ -40,7 +39,6 @@ export default async function ServicesPage({ params }: PageProps) {
           imageAlt={t("imageAlt")}
         />
         <ServicesIntro />
-        <ServicesFeatured />
         <ServicesGrid />
       </main>
       <Footer />

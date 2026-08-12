@@ -33,9 +33,3 @@ export const SERVICES: ServiceItem[] = [
     cover: "/images/services/cards/events.webp",
   },
 ];
-
-export const WC_FEATURED: ServiceItem = {
-  slug: "fifa-world-cup-2026-private-transportation",
-  href: "/fifa-world-cup-2026-private-transportation/",
-  cover: "/images/services/world-cup/hero.webp",
-};

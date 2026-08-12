@@ -27,10 +27,6 @@ const LINKS: NavLink[] = [
     href: "/services",
     labelKey: "nav.links.services",
     children: [
-      {
-        href: "/fifa-world-cup-2026-private-transportation",
-        labelKey: "common.fifaWorldCup2026",
-      },
       { href: "/transfers", labelKey: "common.transfers" },
       { href: "/hourly", labelKey: "common.asDirectedHourly" },
       { href: "/corporate", labelKey: "common.corporate" },

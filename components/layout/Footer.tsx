@@ -22,10 +22,6 @@ const SERVICE_LINKS = [
   { href: "/corporate", labelKey: "common.corporate" },
   { href: "/events", labelKey: "common.events" },
   { href: "/airport", labelKey: "footer.links.airportTransfers" },
-  {
-    href: "/fifa-world-cup-2026-private-transportation",
-    labelKey: "common.fifaWorldCup2026",
-  },
 ];
 
 const COMPANY_LINKS = [
