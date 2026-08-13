@@ -195,6 +195,22 @@
   }
 }
 
+/* ─── Mobile: bento asimétrico ───────────────────────────────────────────
+   Cuatro tiles iguales en una grilla 2×2 se leen como una lista y no dicen
+   nada sobre qué servicio importa más. Acá el tamaño hace el ranking: 01 toma
+   el ancho completo, 02 la columna alta, 03 y 04 quedan de apoyo a la derecha.
+
+     ┌───────────────────┐
+     │        01         │
+     ├─────────┬─────────┤
+     │         │   03    │
+     │   02    ├─────────┤
+     │         │   04    │
+     └─────────┴─────────┘
+
+   El alto de la columna de 02 lo fijan los dos cuadrados de la derecha (su
+   aspect-ratio da altura definida a las filas), por eso 02 va con
+   `aspect-ratio: auto` y estira. */
 @media (max-width: 720px) {
   .services {
     padding: 72px 0 88px;
@@ -202,23 +218,103 @@
   .header {
     margin-bottom: 32px;
   }
+  /* Columnas desparejas: la izquierda pesa más (refuerza el ranking y le da
+     ancho a "As directed/Hourly", el título más largo de las cuatro). */
   .row {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1.18fr 1fr;
+    grid-template-areas:
+      "hero hero"
+      "tall a"
+      "tall b";
     gap: 10px;
   }
-  .banner {
-    aspect-ratio: 3 / 4;
+  .row .slotHero {
+    grid-area: hero;
+    aspect-ratio: 16 / 10;
   }
+  .row .slotTall {
+    grid-area: tall;
+    aspect-ratio: auto;
+  }
+  .row .slotA {
+    grid-area: a;
+    aspect-ratio: 1 / 1;
+  }
+  .row .slotB {
+    grid-area: b;
+    aspect-ratio: 1 / 1;
+  }
+
   .bannerContent {
     padding: 16px 16px 18px;
   }
+  /* Sin fila pareja no hay nada que alinear: cada tile deja que el texto se
+     apoye en su propio piso en vez de reservar dos líneas fantasma. */
   .h3 {
     font-size: 18px;
+    min-height: 0;
+    margin-bottom: 5px;
+    /* Los títulos son palabras largas dentro de tiles angostos: sin esto el
+       min-content del título más largo desborda la tarjeta en vez de partirse. */
+    overflow-wrap: anywhere;
   }
   .tagline {
     font-size: 12px;
+    min-height: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
   .cta {
     display: none;
+  }
+
+  /* Escala tipográfica por slot: el peso visual acompaña al tamaño del tile. */
+  .row .slotHero .bannerContent {
+    padding: 20px 20px 22px;
+  }
+  .row .slotHero .h3 {
+    font-size: 26px;
+  }
+  .row .slotHero .tagline {
+    font-size: 13px;
+    -webkit-line-clamp: 1;
+  }
+  /* En touch no hay hover que revele el CTA, así que en el tile principal
+     queda fijo — es el único que tiene aire de sobra para bancarlo. */
+  .row .slotHero .cta {
+    display: inline-flex;
+    margin-top: 12px;
+    opacity: 1;
+    transform: none;
+  }
+  /* El tile alto es el más angosto en relación a lo que tiene que decir: el
+     título acompaña al ancho real de la columna en vez de quedar fijo. */
+  .row .slotTall .h3 {
+    font-size: clamp(16px, 5.2vw, 20px);
+  }
+  .row .slotA .h3,
+  .row .slotB .h3 {
+    font-size: 17px;
+  }
+}
+
+/* Pantallas muy angostas (SE / mini): los cuadrados de la derecha se achatan
+   un poco para que el bloque no se coma toda la pantalla. */
+@media (max-width: 380px) {
+  .row .slotA,
+  .row .slotB {
+    aspect-ratio: 5 / 4;
+  }
+  .bannerContent {
+    padding: 13px 13px 15px;
+  }
+  .row .slotHero .h3 {
+    font-size: 23px;
+  }
+  .row .slotA .h3,
+  .row .slotB .h3 {
+    font-size: 15px;
   }
 }
