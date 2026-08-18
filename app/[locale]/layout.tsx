@@ -9,6 +9,7 @@ import {
 } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { clientNamespaces } from "@/i18n/request";
+import Analytics from "@/components/analytics/Analytics";
 import { ORIGIN } from "@/lib/i18n/seo";
 import "../globals.css";
 
@@ -85,6 +86,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body>
+        <Analytics />
         <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
