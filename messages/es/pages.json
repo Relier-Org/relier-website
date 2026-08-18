@@ -51,7 +51,12 @@
       },
       "errors": {
         "required": "Obligatorio",
-        "email": "Ingresa un correo válido"
+        "email": "Ingresa un correo válido",
+        "tooLong": "Demasiado largo"
+      },
+      "error": {
+        "generic": "No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a info@relier.com.",
+        "rateLimited": "Ya enviaste varios mensajes. Espera unos minutos antes de volver a intentarlo."
       },
       "fine": "Al enviar, aceptas que nuestro equipo te contacte.",
       "submit": "Enviar",
