@@ -103,11 +103,18 @@
   top: 16px;
   left: 22px;
   font-family: var(--font-sans);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.32em;
+  /* Was 9px at champagne-700/55% alpha, which measured 2.01:1 over the plinth:
+     less than half of what AA asks. Size, weight and colour all move, per the
+     rule that hierarchy comes from combining dimensions rather than shrinking
+     one. Solid token instead of an alpha so the contrast is predictable.
+     Light, not dark: the label sits at the card's top-left corner, outside the
+     radial cream pool that lights the middle, so its ground is the dark
+     cardInner. Darkening it was the wrong direction. */
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(138, 111, 51, 0.55);
+  color: var(--text-accent);
   pointer-events: none;
   z-index: 4;
 }

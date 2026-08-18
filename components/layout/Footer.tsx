@@ -115,7 +115,7 @@ export default async function Footer() {
           </div>
 
           <div className={styles.col}>
-            <h4>{t("footer.headings.service")}</h4>
+            <h3>{t("footer.headings.service")}</h3>
             <ul>
               {SERVICE_LINKS.map((l) => (
                 <li key={l.labelKey}>
@@ -126,7 +126,7 @@ export default async function Footer() {
           </div>
 
           <div className={styles.col}>
-            <h4>{t("footer.headings.company")}</h4>
+            <h3>{t("footer.headings.company")}</h3>
             <ul>
               {COMPANY_LINKS.map((l) => (
                 <li key={l.labelKey}>
@@ -143,7 +143,7 @@ export default async function Footer() {
           </div>
 
           <div className={cn(styles.col, styles.reachCol)}>
-            <h4>{t("footer.headings.reach")}</h4>
+            <h3>{t("footer.headings.reach")}</h3>
             {CONTACT_ITEMS.map(({ icon: Icon, labelKey, value, href, external }) => {
               const inner = (
                 <>

@@ -229,6 +229,9 @@
 }
 
 .infoValue {
+  /* Padding block, not a taller font: gets the tap target to 44px without
+     changing the type. */
+  padding-block: 9px;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 22px;
@@ -273,14 +276,24 @@ a.infoValue:hover {
 
 .socials {
   display: flex;
-  gap: 18px;
+  /* Gap shrinks because each link now carries its own 44px box; the icons keep
+     roughly the same optical spacing they had at gap 18 with no box at all. */
+  gap: 0;
   align-items: center;
+  /* Pulls the first icon back to the label's left edge, since the box padding
+     would otherwise indent it. */
+  margin-left: -14px;
 }
 
 .socials a {
   color: var(--text-tertiary);
   transition: color var(--duration-fast) var(--ease-out);
+  /* 16px glyph, 44px target: the tap area was the glyph itself before. */
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
 }
 
 .socials a svg {

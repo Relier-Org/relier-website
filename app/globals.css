@@ -46,8 +46,16 @@
 
 :root {
   /* Semantic aliases (non-Tailwind, used in CSS Modules) */
-  --bg-canvas: var(--color-obsidian-900);
-  --bg-surface: var(--color-obsidian-800);
+  /* Perceived-luminance pass (18-ago-2026, pedido de marketing).
+     The canvas used to be obsidian-900 (#0A0A0A) straight up, which put every
+     section without its own background at luma ~15 out of 255. Measured: 56% of
+     the home page was near-black. Two changes, both here in the semantic layer
+     so the obsidian primitives stay untouched as brand identity:
+       1. The canvas floor sits above the darkest step instead of on it.
+       2. It carries a warm tint toward champagne. A pure R=G=B near-black reads
+          dead; the tint is what makes dark read as "rich" rather than "off". */
+  --bg-canvas: #100F0C;
+  --bg-surface: #191713;
   --bg-tile: #12121A;
 
   --bg-light: #F5F2EB;
@@ -55,11 +63,18 @@
   --bg-light-photo: linear-gradient(180deg, #F5F2EB 0%, #EBE5D8 100%);
   --text-on-light: #181C20;
   --text-on-light-muted: #5C636A;
-  --text-on-light-tertiary: #7A8189;
+  /* Was silver-300 (#7A8189), which measured 3.94:1 against the cream sections
+     and failed AA everywhere it was used for small text: event dates, review
+     captions. Darkened to silver-400 territory. Fixing the token rather than
+     the callers because every use of it is small text on light. */
+  --text-on-light-tertiary: #656C74;
   --border-on-light: rgba(0, 0, 0, 0.08);
   --border-on-light-strong: rgba(0, 0, 0, 0.16);
-  --accent-on-light: var(--color-champagne-700);
-  --accent-on-light-strong: var(--color-champagne-800);
+  /* champagne-700 (#8A6F33) measured 4.27:1 on cream: just under AA, and it is
+     the colour of every kicker and text CTA on the light sections. Bumped a
+     step down the champagne ramp. */
+  --accent-on-light: var(--color-champagne-800);
+  --accent-on-light-strong: #58421B;
 
   --text-primary: var(--color-silver-50);
   --text-secondary: var(--color-silver-200);
@@ -73,6 +88,70 @@
   --border-strong: rgba(197, 205, 213, 0.32);
   --border-glass: rgba(201, 169, 97, 0.18);
   --border-glass-strong: rgba(201, 169, 97, 0.32);
+
+  /* ─── Media scrims ───
+     The darkening laid over hero photography and video so display type stays
+     legible. Eight heroes each carried their own copy of this recipe, with the
+     alphas drifting between 0.5 and 0.65 at the same gradient stop; that drift
+     was copy-paste noise, not art direction. The alphas live here so perceived
+     luminance is one edit instead of fifty scattered literals.
+     `--scrim-base` is RGB channels, not a color, so alpha can vary per stop. */
+  --scrim-base: 16, 15, 12;
+  /* Baked into --scrim-hero below, not overridable per element: a var() inside
+     a custom property declared here resolves against :root. A hero that needs
+     a different vignette centre composes the gradient locally from the alphas
+     (see ContactHero). */
+  --scrim-focus: 50% 45%;
+  --scrim-alpha-vignette: 0.4;
+  --scrim-alpha-top: 0.42;
+  --scrim-alpha-mid: 0.16;
+  --scrim-alpha-bottom: 0.5;
+
+  /* Inner-page heroes: still photo behind display type. */
+  --scrim-hero: radial-gradient(
+      ellipse at var(--scrim-focus),
+      transparent 0%,
+      rgba(var(--scrim-base), var(--scrim-alpha-vignette)) 80%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(var(--scrim-base), var(--scrim-alpha-top)) 0%,
+      rgba(var(--scrim-base), var(--scrim-alpha-mid)) 28%,
+      rgba(var(--scrim-base), var(--scrim-alpha-bottom)) 78%,
+      var(--bg-canvas) 100%
+    );
+
+  /* Home hero: art-directed apart from the rest, so it gets its own alphas.
+     The video runs brighter than a still and the copy block sits mid-frame, so
+     the curve dips twice instead of once and the vignette has its own geometry.
+     Four knobs, same file: still one place to change, not fifty. */
+  --scrim-home-vignette: 0.4;
+  --scrim-home-edge: 0.48;
+  --scrim-home-mid: 0.24;
+  --scrim-home-core: 0.2;
+
+  --scrim-hero-home: radial-gradient(
+      ellipse 78% 62% at 50% 48%,
+      rgba(var(--scrim-base), var(--scrim-home-vignette)) 0%,
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(var(--scrim-base), var(--scrim-home-edge)) 0%,
+      rgba(var(--scrim-base), var(--scrim-home-mid)) 22%,
+      rgba(var(--scrim-base), var(--scrim-home-core)) 45%,
+      rgba(var(--scrim-base), var(--scrim-home-mid)) 62%,
+      rgba(var(--scrim-base), var(--scrim-home-edge)) 84%,
+      var(--bg-canvas) 100%
+    );
+
+  /* Display type over media. Same two steps in every hero. */
+  --text-shadow-display: 0 4px 32px rgba(var(--scrim-base), 0.55);
+  --text-shadow-lead: 0 2px 16px rgba(var(--scrim-base), 0.55);
+
+  /* How far the media itself is dimmed before the scrim goes on top. */
+  --media-opacity-video: 0.7;
+  --media-opacity-photo: 0.7;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 180ms;

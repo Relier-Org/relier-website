@@ -21,15 +21,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    radial-gradient(ellipse at 50% 45%, transparent 0%, rgba(10, 10, 10, 0.55) 80%),
-    linear-gradient(
-      180deg,
-      rgba(10, 10, 10, 0.55) 0%,
-      rgba(10, 10, 10, 0.3) 28%,
-      rgba(10, 10, 10, 0.6) 78%,
-      var(--color-obsidian-900) 100%
-    );
+  background: var(--scrim-hero);
 }
 
 .img {
@@ -58,7 +50,7 @@
   letter-spacing: -0.022em;
   color: var(--text-primary);
   font-variation-settings: "opsz" 144;
-  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.55);
+  text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   margin-bottom: 28px;
   animation: fadeUp 1.2s var(--ease-out) 0.35s both;
@@ -70,7 +62,7 @@
   color: var(--color-silver-200);
   max-width: 640px;
   margin: 0 auto;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  text-shadow: var(--text-shadow-lead);
   text-wrap: balance;
   animation: fadeUp 1.2s var(--ease-out) 0.55s both;
 }

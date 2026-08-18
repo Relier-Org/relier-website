@@ -61,20 +61,36 @@
   height: 470px;
 }
 
+/* Studio sweep. The vehicles are black cutouts on a near-black canvas: measured
+   19 points of luma between car and ground, so the silhouette vanished and only
+   the chrome read. Two stacked pools fix the figure-ground:
+     1. A wide, cool, very low-alpha lift that acts as the bay wall, so the car
+        reads as a dark shape against light instead of black on black.
+     2. The champagne pool, kept as the brand warmth and pulled a little
+        stronger, sitting lower and tighter so it reads as the floor bounce.
+   This is a light sweep, not the contact shadow the client asked us to remove
+   in a655dcf. It adds light behind the car; it does not put dark under it. */
 .glow {
   position: absolute;
   left: 50%;
-  top: 64%;
+  top: 58%;
   transform: translate(-50%, -50%);
-  width: 920px;
-  max-width: 100%;
-  height: 520px;
+  width: 1180px;
+  max-width: 118%;
+  height: 660px;
   pointer-events: none;
-  background: radial-gradient(
-    closest-side,
-    rgba(201, 169, 97, 0.2) 0%,
-    rgba(201, 169, 97, 0) 72%
-  );
+  background:
+    radial-gradient(
+      closest-side,
+      rgba(197, 205, 213, 0.11) 0%,
+      rgba(197, 205, 213, 0.045) 46%,
+      rgba(197, 205, 213, 0) 74%
+    ),
+    radial-gradient(
+      ellipse 62% 46% at 50% 62%,
+      rgba(201, 169, 97, 0.3) 0%,
+      rgba(201, 169, 97, 0) 72%
+    );
   animation: glowBreathe 7s ease-in-out infinite alternate;
 }
 
@@ -187,6 +203,7 @@
   align-items: center;
   gap: 10px;
   padding: 14px 0;
+  min-height: 44px;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.3em;

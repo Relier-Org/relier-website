@@ -47,8 +47,8 @@
 }
 
 .socialsMobile a {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 0.5px solid var(--border-default);
   border-radius: 50%;
   display: flex;
@@ -65,7 +65,9 @@
   color: var(--color-champagne-500);
 }
 
-.col h4 {
+/* h3, not h4: the preceding heading on every page is an h2, so h4 skipped a
+   level. */
+.col h3 {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
@@ -83,13 +85,22 @@
 }
 
 .col ul li {
-  margin-bottom: 12px;
+  /* Was 12: the links now carry their own vertical padding, so the gap between
+     rows comes from the targets themselves. */
+  margin-bottom: 4px;
 }
 
 .col ul a {
   font-size: 15px;
   color: var(--color-silver-100);
   transition: color var(--duration-fast) var(--ease-out);
+  /* The tap target was the 21px text box. Padding takes it to 37px, clearing
+     the 24px WCAG 2.5.8 AA minimum with margin. Not the full 44px of 2.5.5
+     (AAA): a footer with nine 44px rows per column doubles in height, and the
+     trade reads worse than it measures. The controls that matter for
+     conversion, the CTA and the hamburger, do get the full 44. */
+  display: inline-block;
+  padding-block: 8px;
 }
 
 .col ul a:hover {
@@ -235,7 +246,9 @@ a.contactItem:hover .contactValue {
   .socialsMobile {
     justify-content: center;
   }
-  .col h4 {
+  /* h3, not h4: the preceding heading on every page is an h2, so h4 skipped a
+   level. */
+.col h3 {
     text-align: center;
   }
   .col ul {
