@@ -11,6 +11,7 @@ import { routing } from "@/i18n/routing";
 import { clientNamespaces } from "@/i18n/request";
 import Analytics from "@/components/analytics/Analytics";
 import { ORIGIN } from "@/lib/i18n/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import "../globals.css";
 
 // OG locale tags (BCP 47 with region) per site locale.
@@ -54,6 +55,15 @@ export async function generateMetadata({
       type: "website",
       locale: OG_LOCALES[locale] ?? OG_LOCALES.en,
     },
+    // El WordPress emitía og:image en todas las páginas y este sitio no emitía
+    // ninguna salvo en los posts: compartir un link salía sin preview. La imagen
+    // sale de app/opengraph-image.jpg + app/twitter-image.jpg (convención de
+    // Next), así que acá sólo hace falta subir la card de Twitter a la grande.
+    twitter: {
+      card: "summary_large_image",
+      title: t("meta.title"),
+      description: t("meta.ogDescription"),
+    },
   };
 }
 
@@ -86,6 +96,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body>
+        <JsonLd />
         <Analytics />
         <NextIntlClientProvider messages={clientMessages}>
           {children}
