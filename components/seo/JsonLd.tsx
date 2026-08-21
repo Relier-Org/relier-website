@@ -1,4 +1,5 @@
 import { ORIGIN } from "@/lib/i18n/seo";
+import { SOCIAL_SAME_AS } from "@/lib/social/profiles";
 
 // El WordPress traía un Organization inservible: el `name` era el title
 // completo con keyword stuffing ("New York Logistics & Transportation. New York
@@ -6,9 +7,9 @@ import { ORIGIN } from "@/lib/i18n/seo";
 // repetía ese mismo string. No se portó — esto está escrito de cero.
 //
 // Todos los datos salen del repo (Footer.tsx y el embed de Google Maps). Nada
-// inventado: sin `sameAs` porque no hay URLs de perfiles sociales en el código
-// (los links del footer son share intents), y sin `aggregateRating` porque no
-// hay una fuente real de reviews.
+// inventado: el `sameAs` sale de lib/social/profiles.ts (perfiles rescatados
+// del footer del WordPress) y no hay `aggregateRating` porque no hay una
+// fuente real de reviews.
 //
 // TODO: cuando el cliente confirme la dirección de Barcelona (ver Footer.tsx),
 // agregarla como segundo nodo `LimousineService` con su propio @id.
@@ -31,6 +32,7 @@ const graph = {
       url: ORIGIN,
       telephone: "+1-844-735-4371",
       email: "info@relier.com",
+      sameAs: SOCIAL_SAME_AS,
       address: {
         "@type": "PostalAddress",
         streetAddress: "240 Kent Ave, 3rd Floor B14",

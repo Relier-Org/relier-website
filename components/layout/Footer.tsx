@@ -2,14 +2,9 @@ import Image from "next/image";
 import type { SVGProps } from "react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import {
-  InstagramIcon,
-  FacebookIcon,
-  LinkedInIcon,
-  WhatsAppIcon,
-} from "@/components/icons/SocialIcons";
 import { LocationIcon, PhoneIcon, MailIcon } from "@/components/icons/ContactIcons";
 import Button from "@/components/ui/Button";
+import { SOCIAL_PROFILES } from "@/lib/social/profiles";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Footer.module.css";
 
@@ -80,13 +75,6 @@ const CONTACT_ITEMS: {
   },
 ];
 
-const SOCIALS = [
-  { href: "#", label: "Instagram", Icon: InstagramIcon },
-  { href: "#", label: "Facebook", Icon: FacebookIcon },
-  { href: "#", label: "LinkedIn", Icon: LinkedInIcon },
-  { href: "#", label: "WhatsApp", Icon: WhatsAppIcon },
-];
-
 export default async function Footer() {
   const t = await getTranslations();
 
@@ -106,8 +94,14 @@ export default async function Footer() {
             </Link>
             <p>{t("footer.brand")}</p>
             <div className={styles.socialsMobile}>
-              {SOCIALS.map(({ href, label, Icon }) => (
-                <a key={label} href={href} aria-label={label}>
+              {SOCIAL_PROFILES.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Icon />
                 </a>
               ))}
@@ -184,8 +178,14 @@ export default async function Footer() {
         <div className={styles.bottom}>
           <p>{t("footer.copyright")}</p>
           <div className={styles.socials}>
-            {SOCIALS.map(({ href, label, Icon }) => (
-              <a key={label} href={href} aria-label={label}>
+            {SOCIAL_PROFILES.map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Icon />
               </a>
             ))}

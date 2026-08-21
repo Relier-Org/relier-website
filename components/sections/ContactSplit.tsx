@@ -7,12 +7,6 @@ import Button from "@/components/ui/Button";
 import Field from "@/components/ui/Field";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
-import {
-  InstagramIcon,
-  FacebookIcon,
-  LinkedInIcon,
-  WhatsAppIcon,
-} from "@/components/icons/SocialIcons";
 import { MailIcon, PhoneIcon } from "@/components/icons/ContactIcons";
 import { ContactApiError, sendContactMessage } from "@/lib/contact/api";
 import {
@@ -22,14 +16,8 @@ import {
   type ContactFieldErrors,
   type ContactValues,
 } from "@/lib/contact/schema";
+import { SOCIAL_PROFILES } from "@/lib/social/profiles";
 import styles from "./ContactSplit.module.css";
-
-const SOCIALS = [
-  { href: "#", label: "Instagram", Icon: InstagramIcon },
-  { href: "#", label: "Facebook", Icon: FacebookIcon },
-  { href: "#", label: "LinkedIn", Icon: LinkedInIcon },
-  { href: "#", label: "WhatsApp", Icon: WhatsAppIcon },
-];
 
 type Status = "idle" | "sending" | "sent";
 type SendError = "generic" | "rateLimited";
@@ -288,8 +276,14 @@ export default function ContactSplit() {
                   {t("contact.info.followLabel")}
                 </p>
                 <div className={styles.socials}>
-                  {SOCIALS.map(({ href, label, Icon }) => (
-                    <a key={label} href={href} aria-label={label}>
+                  {SOCIAL_PROFILES.map(({ href, label, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      aria-label={label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Icon />
                     </a>
                   ))}
