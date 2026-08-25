@@ -7,6 +7,8 @@ import ServiceHero from "@/components/sections/ServiceHero";
 import ServicesIntro from "@/components/sections/ServicesIntro";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { servicesHubNodes } from "@/lib/seo/pages";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -29,6 +31,7 @@ export default async function ServicesPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await servicesHubNodes(locale)} />
       <Nav />
       <main>
         <ServiceHero

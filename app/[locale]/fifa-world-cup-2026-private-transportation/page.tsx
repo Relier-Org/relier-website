@@ -9,6 +9,8 @@ import ServiceBody, {
 } from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { worldCupNodes } from "@/lib/seo/pages";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -52,6 +54,7 @@ export default async function WorldCupPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await worldCupNodes(locale)} />
       <Nav />
       <main>
         <ServiceHero

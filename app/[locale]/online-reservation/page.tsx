@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import ReservationHero from "@/components/sections/ReservationHero";
 import ReservationWidget from "@/components/ReservationWidget";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { reservationNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -31,6 +33,7 @@ export default async function OnlineReservationPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await reservationNodes(locale)} />
       <Nav />
       <main className={styles.main}>
         <ReservationHero />

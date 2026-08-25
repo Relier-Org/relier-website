@@ -8,6 +8,8 @@ import FleetGrid, {
   type FleetVehicle,
 } from "@/components/sections/FleetGrid";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { fleetNodes } from "@/lib/seo/pages";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -92,6 +94,7 @@ export default async function FleetPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await fleetNodes(locale)} />
       <Nav />
       <main>
         <FleetHero />

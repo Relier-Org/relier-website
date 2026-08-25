@@ -7,6 +7,8 @@ import BlogHero from "@/components/sections/BlogHero";
 import BlogFeatured from "@/components/sections/BlogFeatured";
 import BlogGrid from "@/components/sections/BlogGrid";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { blogHubNodes } from "@/lib/seo/pages";
 import { getAllPosts } from "@/lib/blog/posts";
 
 const PER_PAGE = 6;
@@ -45,6 +47,7 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await blogHubNodes()} />
       <Nav />
       <main>
         <BlogHero />

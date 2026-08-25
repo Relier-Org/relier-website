@@ -9,6 +9,8 @@ import ServiceBody, {
 } from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { serviceLandingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -62,6 +64,7 @@ export default async function EventsPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await serviceLandingNodes(locale, "events")} />
       <Nav />
       <main>
         <ServiceHero

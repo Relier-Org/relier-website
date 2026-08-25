@@ -9,6 +9,8 @@ import ServiceBody, {
 } from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { serviceLandingNodes } from "@/lib/seo/pages";
 
 // Página nueva para la categoría "By the Hour" (PDF cliente 04-jun §3). El
 // booking widget ya ofrece el modo Hourly; esto le da destino propio a la card
@@ -57,6 +59,7 @@ export default async function HourlyPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await serviceLandingNodes(locale, "hourly")} />
       <Nav />
       <main>
         <ServiceHero

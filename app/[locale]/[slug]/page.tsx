@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import BlogHero from "@/components/sections/BlogHero";
 import PostBody from "@/components/sections/PostBody";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { postNodes } from "@/lib/seo/pages";
 import { getAllPosts, getPostBySlug } from "@/lib/blog/posts";
 
 interface PageProps {
@@ -24,13 +26,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(slug);
   if (!post) return {};
   const canonical = `https://relier.com/${post.slug}/`;
+  const description = post.metaDescription ?? post.excerpt;
   return {
-    title: `${post.title} · Relier`,
-    description: post.excerpt,
+    title: post.seoTitle ?? `${post.title} · Relier`,
+    description,
     alternates: { canonical },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: post.seoTitle ?? post.title,
+      description,
       url: canonical,
       type: "article",
       publishedTime: post.date,
@@ -48,9 +51,11 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await postNodes(post)} />
       <Nav />
       <main>
-        <BlogHero />
+        {/* as="p": el H1 de esta página es el título del artículo (PostBody). */}
+        <BlogHero as="p" />
         <PostBody post={post} />
       </main>
       <Footer />

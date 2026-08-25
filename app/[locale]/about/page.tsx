@@ -8,6 +8,8 @@ import AboutIntro from "@/components/sections/AboutIntro";
 import AboutBento from "@/components/sections/AboutBento";
 import Testimonials from "@/components/sections/Testimonials";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { aboutNodes } from "@/lib/seo/pages";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -31,6 +33,7 @@ export default async function AboutPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await aboutNodes(locale)} />
       <Nav />
       <main>
         <AboutHero />

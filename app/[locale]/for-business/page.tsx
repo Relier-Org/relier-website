@@ -9,6 +9,8 @@ import ServiceBody, {
 } from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { serviceLandingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
 // Página nueva (PDF cliente 04-jun-2026 §1, "For Business" estilo Blacklane).
@@ -65,6 +67,7 @@ export default async function ForBusinessPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await serviceLandingNodes(locale, "forBusiness")} />
       <Nav />
       <main>
         <ServiceHero

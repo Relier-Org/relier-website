@@ -52,7 +52,10 @@
   font-variation-settings: "opsz" 144;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
-  margin-bottom: 28px;
+  /* `margin: 0 0` y no `margin-bottom`: el hero también se renderiza como <p>
+     en los posts (ver BlogHero.tsx) y ahí el margen default del browser
+     desalinearía el bloque. */
+  margin: 0 0 28px;
   animation: fadeUp 1.2s var(--ease-out) 0.35s both;
 }
 

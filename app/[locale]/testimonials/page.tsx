@@ -8,6 +8,8 @@ import TestimonialsIntro from "@/components/sections/TestimonialsIntro";
 import Testimonials from "@/components/sections/Testimonials";
 import testimonialsStyles from "@/components/sections/Testimonials.module.css";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { testimonialsNodes } from "@/lib/seo/pages";
 import { TESTIMONIALS } from "@/lib/testimonials/data";
 
 interface PageProps {
@@ -32,6 +34,7 @@ export default async function TestimonialsPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await testimonialsNodes(locale)} />
       <Nav />
       <main>
         <TestimonialsHero />

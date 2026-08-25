@@ -8,6 +8,8 @@ import ContactStatement from "@/components/sections/ContactStatement";
 import ContactSplit from "@/components/sections/ContactSplit";
 import ContactMap from "@/components/sections/ContactMap";
 import GsapProvider from "@/components/effects/GsapProvider";
+import PageSchema from "@/components/seo/PageSchema";
+import { contactNodes } from "@/lib/seo/pages";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -31,6 +33,7 @@ export default async function ContactPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await contactNodes(locale)} />
       <Nav />
       <main>
         <ContactHero />
