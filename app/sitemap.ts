@@ -11,6 +11,7 @@ const ROUTES = [
   { path: "/services", priority: 0.9 },
   { path: "/transfers", priority: 0.8 },
   { path: "/airport", priority: 0.8 },
+  { path: "/concierge", priority: 0.8 },
   { path: "/corporate", priority: 0.8 },
   { path: "/events", priority: 0.8 },
   { path: "/hourly", priority: 0.8 },

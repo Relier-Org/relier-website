@@ -27,25 +27,63 @@ const LEGACY_REDIRECTS = [
     destination: "/airport/",
   },
 
+  // /concierge no está acá: se recuperó como landing 200 (app/[locale]/concierge),
+  // que es lo que pedía el audit en lugar de mandarla a /services/.
+
   // Match temático. La página vieja no tiene equivalente 1:1, va a la más cercana.
   { source: "/wedding", destination: "/events/" },
   { source: "/artist-transportation", destination: "/events/" },
-  { source: "/concierge", destination: "/services/" },
   { source: "/tours", destination: "/hourly/" },
 
   // Interino: /relier-europe/ existía en el WP y todavía está pendiente acá.
   // Cuando la página exista, borrar este redirect.
   { source: "/relier-europe", destination: "/about/" },
 
-  // SEO local del WP: 21 páginas /locations/<ciudad>. No hay equivalente en el
-  // sitio nuevo, así que esto es un parche para no perder el link equity, no
-  // una solución — si el SEO local importa, hay que recrear las páginas.
+  // SEO local del WP: 21 páginas /locations/<ciudad> + el hub, 27.157
+  // impresiones GSC entre todas. Sigue siendo un parche y no una solución: el
+  // audit (P0) pide recrear las landings, no redirigirlas. Lo que sí se
+  // corrigió es el catch-all a /services/, que el audit marcó como "pérdida de
+  // intención" y Google puede leer como soft-404.
+  //
+  // El destino de cada una sale del title que tenía en el WP (relevado de
+  // Wayback, ver docs/seo-legacy-wordpress.md): las que vendían "limo and car
+  // service" van a /transfers/, que es la landing de punto a punto; las que
+  // vendían "sightseeing/private tours" van a /hourly/, el mismo destino que
+  // /tours/ porque el servicio as-directed es el que cubre esa intención.
   { source: "/locations", destination: "/services/" },
-  { source: "/locations/:slug*", destination: "/services/" },
 
-  // Archivos de WordPress: 60 /tag/* y 2 /category/* indexados, todos thin.
-  { source: "/tag/:slug*", destination: "/blog/" },
-  { source: "/category/:slug*", destination: "/blog/" },
+  // Intención "limo & car service" → transfers punto a punto.
+  { source: "/locations/newark-nj-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/jersey-city-nj-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/new-york-city-nyc-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/caldwell-nj-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/hicksville-ny-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/fort-lee-nj-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/new-rochelle-ny-limo-and-car-service", destination: "/transfers/" },
+  { source: "/locations/montauk-ny-limousine-and-luxury-car-services", destination: "/transfers/" },
+
+  // Intención "sightseeing / private tours" → as-directed por horas.
+  { source: "/locations/staten-island-nyc-private-tours", destination: "/hourly/" },
+  { source: "/locations/yonkers-ny-sightseeing-and-event-transportation", destination: "/hourly/" },
+  { source: "/locations/port-washington-ny-sightseeing-tours-and-transport-services", destination: "/hourly/" },
+  { source: "/locations/brooklyn-sightseeing-tours", destination: "/hourly/" },
+  { source: "/locations/queens-ny-sightseeing-tours", destination: "/hourly/" },
+  { source: "/locations/bronx-ny-sightseeing-tours-private-car-services", destination: "/hourly/" },
+  { source: "/locations/tour-manhattan-private-limo-car-bus-service", destination: "/hourly/" },
+  { source: "/locations/long-island-ny-private-tours-transit", destination: "/hourly/" },
+  { source: "/locations/secaucus-nj-private-tours-event-transportation", destination: "/hourly/" },
+  { source: "/locations/elizabeth-nj-private-tours-event-transportation", destination: "/hourly/" },
+  { source: "/locations/union-city-nj-private-tours-car-services", destination: "/hourly/" },
+  { source: "/locations/babylon-ny-premier-tours-transport-services", destination: "/hourly/" },
+
+  // Fallback para las /locations/* que no quedaron relevadas: el patrón del WP
+  // era mayoritariamente car service, así que transfers es el destino más
+  // cercano. Sigue siendo mejor que el índice de servicios.
+  { source: "/locations/:slug*", destination: "/transfers/" },
+
+  // /tag/* y /category/* NO van acá: el audit de SEO pidió 410 en lugar de un
+  // 301 masivo a /blog/. Se sirven desde middleware.ts (redirects() corre antes
+  // del middleware, así que dejarlos acá lo anularía).
 
   // Posts que no se portaron a content/news. Si algún día se escriben, borrar.
   {

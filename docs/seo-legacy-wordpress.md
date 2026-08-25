@@ -6,6 +6,16 @@
 **Estado:** estas URLs hoy están redirigidas como parche en `next.config.mjs`.
 Si se decide recrear alguna página, acá está el título y la description que tenía.
 
+**Actualización 25-ago-2026** (audit técnico de SEO, hoja "03 Redirects Legacy"):
+- `/concierge/` ya **no** redirige: se recuperó como landing 200 en
+  `app/[locale]/concierge/`. Era la URL con más demanda perdida del sitio
+  (11.344 impresiones GSC).
+- Los destinos de `/locations/*` dejaron de ser el catch-all a `/services/` y se
+  reparten entre `/transfers/` y `/hourly/` según la intención que tenía cada
+  title de acá. Sigue siendo un parche: el audit pide recrear las landings.
+- `/tag/*` y `/category/*` pasaron de 301→`/blog/` a **410 Gone**
+  (`middleware.ts`), como pidió el audit.
+
 **Advertencia:** el inventario no está cerrado. Wayback no archivó el sitemap del WP,
 así que las 158 URLs relevadas son una muestra, no el índice completo de Google.
 La fuente autoritativa es Search Console.
@@ -93,7 +103,9 @@ Apuntaban a queries tipo "limo and car service <ciudad>". Hoy todas redirigen a
   stuffing y entidades HTML sin decodificar (`New York Logistics &amp; Transportation...`),
   y la `description` repetía ese mismo string. Las páginas internas no tenían ningún schema.
   Se escribió uno nuevo en `components/seo/JsonLd.tsx`.
-- **Los archivos `/tag/*` (60) y `/category/*` (2).** Thin content, redirigidos a `/blog/`.
+- **Los archivos `/tag/*` (60) y `/category/*` (2).** Thin content. Se servían con 301 a
+  `/blog/`; desde el audit de ago-2026 devuelven 410 Gone desde `middleware.ts`, porque un
+  301 masivo a un hub genérico no conserva intención y retrasa la limpieza del índice.
 - **Las páginas demo del theme** (`/demo-2/`…`/demo-11/`, `/example-i/`, `/sample-page/`,
   `/test-addon-2/`). Nunca debieron indexarse: se las deja en 404 a propósito.
 
@@ -102,6 +114,7 @@ Apuntaban a queries tipo "limo and car service <ciudad>". Hoy todas redirigen a
 `og:image` en todas las páginas. Este sitio no la emitía en ninguna salvo los posts, así que
 compartir un link salía sin preview. Cerrado con `app/opengraph-image.jpg`.
 
-También vale registrar que el title del home soltó las keywords comerciales:
-el WP decía **"Worldwide Private Black Car Transportation | Relier"**, el nuevo dice
-**"Relier · Where Luxury Travel Begins"**.
+También valía registrar que el title del home había soltado las keywords comerciales:
+el WP decía **"Worldwide Private Black Car Transportation | Relier"** y el sitio nuevo
+**"Relier · Where Luxury Travel Begins"**. El audit de ago-2026 lo revirtió: ahora es
+**"Worldwide Private Chauffeur & Car Service | Relier"**.

@@ -17,6 +17,7 @@ const SERVICE_LINKS = [
   { href: "/corporate", labelKey: "common.corporate" },
   { href: "/events", labelKey: "common.events" },
   { href: "/airport", labelKey: "footer.links.airportTransfers" },
+  { href: "/concierge", labelKey: "common.concierge" },
 ];
 
 const COMPANY_LINKS = [
