@@ -311,6 +311,39 @@
       "body": "De JFK e Newark a qualquer aeroporto que atendemos. Sem espera, sem estresse. Reserve online e estaremos lá dez minutos antes do embarque."
     }
   },
+  "concierge": {
+    "meta": {
+      "title": "Serviço de transporte concierge em Nova York | Relier",
+      "description": "Transporte concierge privado em Nova York para executivos, viajantes, eventos e itinerários complexos, com motoristas profissionais e suporte 24/7."
+    },
+    "hero": {
+      "eyebrow": "Concierge",
+      "title": "Transporte concierge privado em Nova York",
+      "subtitle": "Uma única equipe que planeja, reserva e sustenta cada trecho do itinerário, em Nova York e nas mais de 500 cidades onde operamos.",
+      "imageAlt": "Motorista da Relier aguardando ao lado do veículo em Nova York"
+    },
+    "blocks": {
+      "oneDesk": {
+        "title": "Uma única equipe para todo o itinerário",
+        "p1": "Dias com várias paradas, reuniões em sequência, um jantar que se estende, um voo que muda. Você conta como é o dia e nós mantemos a sequência de pé, ajustando veículos e horários conforme ela muda, sem precisar reservar cada trecho de novo.",
+        "imageAlt": "Equipe concierge coordenando o itinerário de um cliente"
+      },
+      "chauffeurs": {
+        "title": "Motoristas informados antes de você entrar",
+        "p1": "Cada viagem é conduzida por um motorista profissional e bilíngue que já conhece a rota, as paradas e as preferências. O mesmo padrão em Nova York, em Barcelona e em cada cidade que cobrimos.",
+        "imageAlt": "Motorista profissional abrindo a porta traseira de um sedã preto"
+      },
+      "alwaysOn": {
+        "title": "Disponíveis a qualquer hora",
+        "p1": "Viajar não respeita horário comercial. Nossa linha concierge atende 24/7: uma chegada às 3h ou uma mudança de plano no meio da viagem chega a uma pessoa que já tem a sua reserva à frente.",
+        "imageAlt": "Viajante confirmando uma reserva pelo telefone"
+      }
+    },
+    "closer": {
+      "title": "Conte como é o dia.",
+      "body": "Envie o itinerário, mesmo que ainda incompleto, e voltamos com veículos, horários e um preço fixo, sem custos ocultos."
+    }
+  },
   "forBusiness": {
     "meta": {
       "title": "Para empresas · Relier · Agências de viagens, corporativo e eventos",

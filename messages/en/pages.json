@@ -1,13 +1,13 @@
 {
   "about": {
     "meta": {
-      "title": "About · Relier · A Personal Mobility Concierge",
-      "description": "Relier is a leading worldwide transportation company. Comfort, convenience, luxury, and so much more in one place, wherever your journey takes you."
+      "title": "About Relier | Personal Mobility Concierge Worldwide",
+      "description": "Meet Relier, a personal mobility concierge headquartered in New York and Barcelona, delivering chauffeured transportation across 500+ cities since 2012."
     },
     "hero": {
       "eyebrow": "About Relier",
-      "titleLine1": "A seamless way to travel",
-      "titleLine2": "anywhere in the world."
+      "titleLine1": "About Relier:",
+      "titleLine2": "Personal Mobility Concierge"
     },
     "intro": {
       "lead": "Looking for a seamless way to travel anywhere in the world?",
@@ -24,13 +24,13 @@
   },
   "contact": {
     "meta": {
-      "title": "Contact · Relier · Personal Mobility Concierge",
-      "description": "Talk to a Relier concierge. Phone, email, and the Brooklyn HQ. We respond promptly to every enquiry."
+      "title": "Contact Relier | Worldwide Chauffeur Concierge",
+      "description": "Contact Relier’s concierge team for private chauffeur and transportation support. New York HQ, 24/7 assistance and worldwide service."
     },
     "hero": {
       "eyebrow": "Get in touch",
-      "titleLine1": "Customer support,",
-      "titleLine2": "made personal.",
+      "titleLine1": "Contact",
+      "titleLine2": "Relier",
       "lead": "If you need something tailored to your needs, reach out. We're here to assist you and will get back to you promptly."
     },
     "statement": "We go above and beyond to ensure every travel experience is tailored to your preferences. Our team of dedicated professionals is highly experienced in navigating global routes and logistics, providing efficient and punctual transportation to any destination worldwide. Our goal is to exceed your expectations, ensuring you arrive on time, with comfort and in utmost luxury.",
@@ -84,12 +84,12 @@
   },
   "testimonials": {
     "meta": {
-      "title": "Testimonials · Relier · Verified 5-Star Reviews",
-      "description": "Real travelers, real journeys. Verified 5-star reviews of Relier: chauffeured concierge transport across the Americas, Europe, and the Middle East."
+      "title": "Relier Reviews | Verified 5-Star Chauffeur Service",
+      "description": "Read verified 5-star reviews from Relier travelers using private chauffeur and transportation services across New York and worldwide."
     },
     "hero": {
-      "titleLine1": "Real travelers,",
-      "titleLine2": "real journeys.",
+      "titleLine1": "Relier Reviews",
+      "titleLine2": "& Traveler Testimonials",
       "lead": "{count}+ verified reviews across Google, Tripadvisor and Birdeye, rating us {rating} out of 5.",
       "reviewsCount": "{count} reviews"
     },

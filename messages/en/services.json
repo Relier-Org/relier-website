@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "Our Services · Relier · Worldwide Chauffeured Transportation",
-    "description": "Concierge-grade ground transportation tailored to every journey: luxury transfers, events, airport, corporate travel, and dedicated FIFA World Cup 2026 service across the Americas, Europe, and the Middle East."
+    "title": "Worldwide Chauffeur & Transportation Services | Relier",
+    "description": "Explore Relier’s worldwide chauffeured transportation services: airport transfers, hourly chauffeur, corporate travel, events and private transfers."
   },
   "hero": {
     "eyebrow": "Services",
-    "title": "Our Services",
+    "title": "Worldwide Chauffeured Transportation Services",
     "subtitle": "Tailored, concierge-grade transportation, adapted to each traveler, each occasion, each city.",
     "imageAlt": "Relier chauffeur opening the door of a luxury vehicle"
   },
@@ -51,8 +51,8 @@
   },
   "transfers": {
     "meta": {
-      "title": "Luxury Vehicle Transfers · Relier · Private Chauffeur Service Worldwide",
-      "description": "Premium private transportation with high-end vehicles for any occasion. Bi-lingual chauffeurs, fixed pricing, no hidden costs."
+      "title": "Private Chauffeur & Luxury Transfers Worldwide | Relier",
+      "description": "Book private point-to-point transfers with professional chauffeurs and premium vehicles in 500+ cities worldwide. Fixed pricing and concierge support."
     },
     "hero": {
       "eyebrow": "Transfers",
@@ -83,12 +83,12 @@
   },
   "hourly": {
     "meta": {
-      "title": "As directed/Hourly · Relier · Hourly Chauffeur Service",
-      "description": "Hourly, as-directed chauffeur service: your car and driver on hold for as long as you need, wherever the day takes you."
+      "title": "Hourly Chauffeur Service Worldwide | Relier",
+      "description": "Book a private chauffeur by the hour with a premium vehicle on standby. Flexible as-directed service for meetings, shopping, events and city travel."
     },
     "hero": {
       "eyebrow": "As directed/Hourly",
-      "title": "Hourly Chauffeur Service",
+      "title": "Hourly Chauffeur Service Worldwide",
       "subtitle": "Enjoy total flexibility with a dedicated premium vehicle and professional chauffeur at your disposal for as long as you need. Ideal for dynamic schedules and multi-stop itineraries."
     },
     "blocks": {
@@ -110,12 +110,12 @@
   },
   "corporate": {
     "meta": {
-      "title": "Corporate Transportation · Relier · Business Chauffeur Service Worldwide",
-      "description": "Luxury and professional chauffeur service for business travel and corporate events."
+      "title": "Corporate Chauffeur & Executive Transportation | Relier",
+      "description": "Executive transportation for business travel, roadshows, meetings and corporate events, coordinated by professional chauffeurs across 500+ cities."
     },
     "hero": {
       "eyebrow": "Corporate",
-      "title": "Corporate Limo Transportation Worldwide",
+      "title": "Corporate Chauffeur & Executive Transportation",
       "subtitle": "Tailored logistics for professionals and executive teams. We guarantee absolute reliability, privacy, and impeccable execution to keep your business moving smoothly."
     },
     "blocks": {
@@ -142,12 +142,12 @@
   },
   "events": {
     "meta": {
-      "title": "Events Transportation · Relier · Private Chauffeur Service for Events Worldwide",
-      "description": "Reliable and comfortable transportation for sports events, entertainment, and conferences."
+      "title": "Event Transportation & Chauffeur Service Worldwide | Relier",
+      "description": "Private event transportation for conferences, sports, entertainment and VIP groups, with chauffeured vehicles and coordinated logistics worldwide."
     },
     "hero": {
       "eyebrow": "Events",
-      "title": "Private Luxury Events Transportation Worldwide",
+      "title": "Private Event Transportation & Chauffeur Service Worldwide",
       "subtitle": "From major sports fixtures to grand celebrations, we manage high-profile group transport and complex event logistics with flawless precision. No matter the scale, we ensure your guests and VIPs arrive in absolute comfort and distinction."
     },
     "blocks": {
@@ -179,12 +179,12 @@
   },
   "signatureEvents": {
     "meta": {
-      "title": "Signature Events · Relier · Ground Transport for the Events We Move",
-      "description": "The events Relier operates: FIFA World Cup 2026, US Open, New York Fashion Week, Formula 1 in Madrid and the UN General Assembly."
+      "title": "Signature Event Transportation Worldwide | Relier",
+      "description": "Explore major events Relier supports with private chauffeured transportation and ground logistics for sports, fashion and international gatherings."
     },
     "hero": {
       "eyebrow": "Signature Events",
-      "title": "Events we move",
+      "title": "Signature Event Transportation",
       "subtitle": "Tournaments, championships, fashion weeks, assemblies. When thousands of people move on the same schedule, ground transport stops being a booking and becomes an operation."
     },
     "labels": {
@@ -281,8 +281,8 @@
   },
   "airport": {
     "meta": {
-      "title": "Airport Transfers · Relier · Private Airport Transportation Worldwide",
-      "description": "Reliable and comfortable rides to and from every major airport, from JFK, LaGuardia and Newark to 500+ cities worldwide."
+      "title": "Private Airport Transfers & Chauffeur Service | Relier",
+      "description": "Private airport transfers with professional chauffeurs in New York and 500+ cities worldwide. Reliable pickups, premium vehicles and fixed pricing."
     },
     "hero": {
       "eyebrow": "Airport Transfers",
@@ -311,14 +311,47 @@
       "body": "From JFK and Newark to any airport we cover. No waiting, no stress. Book online and we'll be there ten minutes before pickup."
     }
   },
+  "concierge": {
+    "meta": {
+      "title": "Concierge Transportation Service in New York | Relier",
+      "description": "Private concierge transportation in New York for executives, travelers, events and complex itineraries, with professional chauffeurs and 24/7 support."
+    },
+    "hero": {
+      "eyebrow": "Concierge",
+      "title": "Private Concierge Transportation in New York",
+      "subtitle": "One desk that plans, books and holds together every leg of the itinerary — in New York and across the 500+ cities we operate in.",
+      "imageAlt": "Relier chauffeur waiting beside the car in New York"
+    },
+    "blocks": {
+      "oneDesk": {
+        "title": "One desk for the whole itinerary",
+        "p1": "Multi-stop days, back-to-back meetings, a dinner that runs long, a flight that moves. You tell us what the day looks like and we keep the sequence together, adjusting vehicles and timings as it changes instead of asking you to rebook each leg.",
+        "imageAlt": "Concierge desk coordinating a client itinerary"
+      },
+      "chauffeurs": {
+        "title": "Chauffeurs briefed before you get in",
+        "p1": "Every ride is run by a professional, bilingual chauffeur who already knows the route, the stops and the preferences. The same standard applies in New York, in Barcelona and in every city we cover.",
+        "imageAlt": "Professional chauffeur opening the rear door of a black sedan"
+      },
+      "alwaysOn": {
+        "title": "Reachable around the clock",
+        "p1": "Travel does not keep office hours. Our concierge line answers 24/7, so a 3am arrival or a change of plan mid-trip reaches a person who already has your booking in front of them.",
+        "imageAlt": "Traveler confirming a booking on a phone"
+      }
+    },
+    "closer": {
+      "title": "Tell us what the day looks like.",
+      "body": "Send the itinerary, however rough, and we come back with vehicles, timings and a fixed price — no hidden costs."
+    }
+  },
   "forBusiness": {
     "meta": {
-      "title": "For Business · Relier · Travel Agencies, Corporate & Events",
-      "description": "Partner with Relier for chauffeured ground transportation worldwide: travel advisors, corporate accounts, and events teams."
+      "title": "Chauffeured Transportation for Business | Relier",
+      "description": "Worldwide chauffeured transportation for travel advisors, corporate accounts and event teams, with one service standard across 500+ cities."
     },
     "hero": {
       "eyebrow": "For Business",
-      "title": "Relier for Business",
+      "title": "Chauffeured Transportation for Business",
       "subtitle": "Chauffeured ground transportation worldwide. For travel advisors, corporate accounts, and the teams behind every event."
     },
     "blocks": {
@@ -348,13 +381,13 @@
   },
   "reservation": {
     "meta": {
-      "title": "Online Reservation · Relier · Make Your Reservation",
-      "description": "Reserve your private chauffeured transport with Relier. Point-to-point or hourly, anywhere in the Americas, Europe and the Middle East."
+      "title": "Book Private Chauffeur & Car Service | Relier",
+      "description": "Book private chauffeured transportation with Relier. Reserve point-to-point, airport or hourly service with fixed pricing across 500+ cities worldwide."
     },
     "hero": {
       "eyebrow": "Online reservation",
-      "titleLine1": "Make Your",
-      "titleLine2": "Reservation."
+      "titleLine1": "Book Your Private",
+      "titleLine2": "Chauffeur Service"
     }
   }
 }

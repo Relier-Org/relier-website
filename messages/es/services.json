@@ -311,6 +311,39 @@
       "body": "De JFK y Newark a cualquier aeropuerto que cubrimos. Sin esperas, sin estrés. Reserva en línea y estaremos allí diez minutos antes de la recogida."
     }
   },
+  "concierge": {
+    "meta": {
+      "title": "Servicio de transporte concierge en Nueva York | Relier",
+      "description": "Transporte concierge privado en Nueva York para ejecutivos, viajeros, eventos e itinerarios complejos, con chóferes profesionales y soporte 24/7."
+    },
+    "hero": {
+      "eyebrow": "Concierge",
+      "title": "Transporte concierge privado en Nueva York",
+      "subtitle": "Un solo equipo que planifica, reserva y sostiene cada tramo del itinerario, en Nueva York y en las más de 500 ciudades donde operamos.",
+      "imageAlt": "Chófer de Relier esperando junto al vehículo en Nueva York"
+    },
+    "blocks": {
+      "oneDesk": {
+        "title": "Un solo equipo para todo el itinerario",
+        "p1": "Días con múltiples paradas, reuniones encadenadas, una cena que se estira, un vuelo que se mueve. Nos contás cómo es el día y nosotros mantenemos la secuencia, ajustando vehículos y horarios a medida que cambia, sin que tengas que volver a reservar cada tramo.",
+        "imageAlt": "Equipo concierge coordinando el itinerario de un cliente"
+      },
+      "chauffeurs": {
+        "title": "Chóferes briefeados antes de que subas",
+        "p1": "Cada viaje lo maneja un chófer profesional y bilingüe que ya conoce la ruta, las paradas y las preferencias. El mismo estándar en Nueva York, en Barcelona y en cada ciudad que cubrimos.",
+        "imageAlt": "Chófer profesional abriendo la puerta trasera de un sedán negro"
+      },
+      "alwaysOn": {
+        "title": "Disponibles a cualquier hora",
+        "p1": "Viajar no respeta horarios de oficina. Nuestra línea concierge atiende 24/7: una llegada a las 3am o un cambio de plan a mitad del viaje llega a una persona que ya tiene tu reserva delante.",
+        "imageAlt": "Viajera confirmando una reserva desde el teléfono"
+      }
+    },
+    "closer": {
+      "title": "Contanos cómo es el día.",
+      "body": "Mandanos el itinerario, aunque esté a medio armar, y volvemos con vehículos, horarios y un precio fijo, sin costos ocultos."
+    }
+  },
   "forBusiness": {
     "meta": {
       "title": "Para empresas · Relier · Agencias de viajes, corporativo y eventos",

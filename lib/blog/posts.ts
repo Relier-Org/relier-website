@@ -4,10 +4,21 @@ import { cache } from "react";
 
 export interface PostFrontmatter {
   title: string;
+  /**
+   * Title tag completo, marca incluida — viene del audit de SEO (ago-2026),
+   * que pedía titles bajo 60 caracteres con el término principal adelante.
+   * `title` quedó para el H1 visible y las cards del listado.
+   */
+  seoTitle?: string;
   slug: string;
   date: string;
   modified?: string;
   excerpt: string;
+  /**
+   * Meta description escrita a mano. Sin esto la meta era el `excerpt`
+   * heredado del WordPress: 300+ caracteres cortados en "[…]".
+   */
+  metaDescription?: string;
   cover?: string;
   coverAlt?: string;
   category: string;
