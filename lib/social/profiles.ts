@@ -12,7 +12,10 @@ import {
 // LinkedIn se normaliza a www: el WP linkeaba al subdominio regional
 // (ar.linkedin.com), que redirige pero no es la URL canónica del perfil.
 // WhatsApp sale del plugin Click to Chat del WP (+1 917 275 0000), que es un
-// número distinto al 844 público del sitio.
+// número distinto al 844 público del sitio. El mismo link alimenta el ícono
+// social y el botón flotante (components/layout/WhatsAppButton.tsx).
+export const WHATSAPP_HREF = "https://wa.me/19172750000";
+
 export const SOCIAL_PROFILES = [
   {
     href: "https://www.instagram.com/relier/",
@@ -29,7 +32,7 @@ export const SOCIAL_PROFILES = [
     label: "LinkedIn",
     Icon: LinkedInIcon,
   },
-  { href: "https://wa.me/19172750000", label: "WhatsApp", Icon: WhatsAppIcon },
+  { href: WHATSAPP_HREF, label: "WhatsApp", Icon: WhatsAppIcon },
 ];
 
 // Para el `sameAs` del JSON-LD: sólo perfiles de la entidad. wa.me queda

@@ -1,0 +1,50 @@
+.button {
+  position: fixed;
+  /* max() con safe-area: en iPhones con home indicator el botón no queda
+     pegado al borde gestual. */
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 30; /* under the nav (40) and its mobile overlay (50) */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+
+  /* Verde de marca de WhatsApp, no de la paleta: el botón tiene que leerse
+     como WhatsApp antes que como Relier (mismo criterio que el plugin del WP
+     viejo). */
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.button:active {
+  transform: scale(1);
+}
+
+@media (max-width: 640px) {
+  .button {
+    width: 3.25rem;
+    height: 3.25rem;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+@media print {
+  .button {
+    display: none;
+  }
+}

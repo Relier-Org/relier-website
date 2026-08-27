@@ -10,6 +10,7 @@ import {
 import { routing } from "@/i18n/routing";
 import { clientNamespaces } from "@/i18n/request";
 import Analytics from "@/components/analytics/Analytics";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import { ORIGIN } from "@/lib/i18n/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import "../globals.css";
@@ -101,6 +102,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
+        <WhatsAppButton />
       </body>
     </html>
   );
