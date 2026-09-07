@@ -48,6 +48,11 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(ORIGIN),
+    // Search Console pide el meta en el <head> de la home; el resto de las
+    // páginas lo heredan de este layout porque nadie sobreescribe verification.
+    verification: {
+      google: "lpmTYCy4qioj3yPAih5KhKTB1WwHoBIMssBrBAKGgHQ",
+    },
     title: t("meta.title"),
     description: t("meta.description"),
     openGraph: {
