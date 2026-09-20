@@ -31,13 +31,13 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
             target={url.startsWith("http") ? "_blank" : undefined}
             rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
           >
-            {label}
+            {renderInline(label, `${keyPrefix}-l${i}`)}
           </a>
         );
       } else {
         out.push(
           <Link key={`${keyPrefix}-l${i}`} href={url}>
-            {label}
+            {renderInline(label, `${keyPrefix}-l${i}`)}
           </Link>
         );
       }
