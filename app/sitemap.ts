@@ -19,6 +19,9 @@ const ROUTES = [
   { path: "/fifa-world-cup-2026-private-transportation", priority: 0.7 },
   { path: "/fleet", priority: 0.8 },
   { path: "/for-business", priority: 0.7 },
+  // Roadmap SEO sep-2026 (R01/R04): nacen con las 3 versiones y hreflang.
+  { path: "/for-business/travel-advisors", priority: 0.7 },
+  { path: "/affiliates", priority: 0.7 },
   { path: "/online-reservation", priority: 0.7 },
   { path: "/about", priority: 0.6 },
   { path: "/testimonials", priority: 0.6 },

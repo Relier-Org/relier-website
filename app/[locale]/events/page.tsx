@@ -35,7 +35,19 @@ export default async function EventsPage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("services.events");
 
+  // Rebuild parcial (roadmap SEO sep-2026, R03): /events/ pasa a ser la
+  // landing B2B de Events & Productions sin mover la URL. El bloque de
+  // artistas/crews/producciones va primero; los cuatro históricos siguen.
   const blocks: ServiceBlock[] = [
+    {
+      title: t("blocks.productions.title"),
+      paragraphs: [t("blocks.productions.p1"), t("blocks.productions.p2")],
+      image: "/images/services/world-cup/ground-transport.webp",
+      imageAlt: t("blocks.productions.imageAlt"),
+      links: [
+        { href: "/signature-events", label: t("links.signatureEvents") },
+      ],
+    },
     {
       title: t("blocks.entertainment.title"),
       paragraphs: [t("blocks.entertainment.p1")],
@@ -59,6 +71,7 @@ export default async function EventsPage({ params }: PageProps) {
       paragraphs: [t("blocks.conferences.p1")],
       image: "/images/services/events/conferences.webp",
       imageAlt: t("blocks.conferences.imageAlt"),
+      links: [{ href: "/fleet", label: t("links.fleet") }],
     },
   ];
 

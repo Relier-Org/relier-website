@@ -85,6 +85,11 @@ const LEGACY_REDIRECTS = [
   // 301 masivo a /blog/. Se sirven desde middleware.ts (redirects() corre antes
   // del middleware, así que dejarlos acá lo anularía).
 
+  // Paginación del WordPress (/blog/page/2/, /page/2/): el listado nuevo no
+  // pagina por URL. Van al hub del blog (roadmap SEO sep-2026, T11).
+  { source: "/blog/page/:page", destination: "/blog/" },
+  { source: "/page/:page", destination: "/blog/" },
+
   // Posts que no se portaron a content/news. Si algún día se escriben, borrar.
   {
     source: "/relier-vs-other-luxury-transportation-providers",

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
+import TextCTA from "@/components/ui/TextCTA";
 import styles from "./ServiceCloser.module.css";
 
 interface ServiceCloserProps {
@@ -8,6 +9,9 @@ interface ServiceCloserProps {
   body: string;
   ctaLabel?: string;
   ctaHref?: string;
+  /** Link secundario (p. ej. child → hub), anchor del plan de internal linking. */
+  secondaryHref?: string;
+  secondaryLabel?: string;
 }
 
 export default function ServiceCloser({
@@ -15,6 +19,8 @@ export default function ServiceCloser({
   body,
   ctaLabel,
   ctaHref = "/#booking",
+  secondaryHref,
+  secondaryLabel,
 }: ServiceCloserProps) {
   const t = useTranslations("common");
 
@@ -30,6 +36,9 @@ export default function ServiceCloser({
             <Button href={ctaHref} withArrow className={styles.cta}>
               {ctaLabel ?? t("bookOnline")}
             </Button>
+            {secondaryHref && secondaryLabel ? (
+              <TextCTA href={secondaryHref}>{secondaryLabel}</TextCTA>
+            ) : null}
           </div>
         </Reveal>
       </div>

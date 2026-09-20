@@ -60,5 +60,12 @@
     "motorcoach": {
       "tier": "Motorcoach"
     }
+  },
+  "useCases": {
+    "eyebrow": "Built for",
+    "title": "The right vehicle for every kind of trip.",
+    "corporate": "corporate transportation",
+    "events": "event transportation",
+    "airport": "airport transfers"
   }
 }

@@ -7,6 +7,7 @@ import FleetHero from "@/components/sections/FleetHero";
 import FleetGrid, {
   type FleetVehicle,
 } from "@/components/sections/FleetGrid";
+import RelatedLinks from "@/components/sections/RelatedLinks";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { fleetNodes } from "@/lib/seo/pages";
@@ -109,6 +110,16 @@ export default async function FleetPage({ params }: PageProps) {
           lead={t("larger.lead")}
           vehicles={larger}
           id="larger"
+        />
+        {/* Internal linking (roadmap SEO sep-2026): vehículos → money pages. */}
+        <RelatedLinks
+          eyebrow={t("useCases.eyebrow")}
+          title={t("useCases.title")}
+          links={[
+            { href: "/corporate", label: t("useCases.corporate") },
+            { href: "/events", label: t("useCases.events") },
+            { href: "/airport", label: t("useCases.airport") },
+          ]}
         />
       </main>
       <Footer />

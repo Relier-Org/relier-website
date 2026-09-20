@@ -40,12 +40,26 @@ export default async function AirportPage({ params }: PageProps) {
       paragraphs: [t("blocks.prompt.p1")],
       image: "/images/services/airport/prompt.webp",
       imageAlt: t("blocks.prompt.imageAlt"),
+      // Hub → child (roadmap SEO sep-2026): el post airport-to-hotel es el
+      // activo con más impresiones del cluster (23k) y no recibía links.
+      links: [
+        {
+          href: "/airport-to-hotel-transportation",
+          label: t("links.airportToHotel"),
+        },
+      ],
     },
     {
       title: t("blocks.noWaiting.title"),
       paragraphs: [t("blocks.noWaiting.p1")],
       image: "/images/services/airport/no-waiting.webp",
       imageAlt: t("blocks.noWaiting.imageAlt"),
+      links: [
+        {
+          href: "/luxury-airport-transfers-to-jfk-why-choose-relier-for-your-brooklyn-travels",
+          label: t("links.jfk"),
+        },
+      ],
     },
     {
       title: t("blocks.luxury.title"),

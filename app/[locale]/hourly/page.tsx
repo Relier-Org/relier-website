@@ -48,12 +48,14 @@ export default async function HourlyPage({ params }: PageProps) {
       paragraphs: [t("blocks.schedule.p1")],
       image: "/images/services/transfers/maximize.webp",
       imageAlt: t("blocks.schedule.imageAlt"),
+      links: [{ href: "/corporate", label: t("links.corporate") }],
     },
     {
       title: t("blocks.freedom.title"),
       paragraphs: [t("blocks.freedom.p1")],
       image: "/images/services/corporate/work-relax.webp",
       imageAlt: t("blocks.freedom.imageAlt"),
+      links: [{ href: "/concierge", label: t("links.concierge") }],
     },
   ];
 

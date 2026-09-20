@@ -204,6 +204,12 @@
   text-wrap: balance;
 }
 
+.closerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+}
+
 .closerBody {
   margin: 14px 0 24px;
   font-size: 16px;

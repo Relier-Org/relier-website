@@ -21,11 +21,7 @@ export default function ContactHero() {
         <p className={cn("eyebrow", styles.eyebrow)}>
           {t("contact.hero.eyebrow")}
         </p>
-        <h1 className={styles.h1}>
-          {t("contact.hero.titleLine1")}
-          <br />
-          <span className={styles.muted}>{t("contact.hero.titleLine2")}</span>
-        </h1>
+        <h1 className={styles.h1}>{t("contact.hero.title")}</h1>
         <p className={styles.lead}>{t("contact.hero.lead")}</p>
       </div>
     </section>

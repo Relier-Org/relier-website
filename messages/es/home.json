@@ -43,6 +43,13 @@
   "trust": {
     "label": "Al servicio de"
   },
+  "work": {
+    "kicker": "Trabaja con Relier",
+    "titleLine1": "Transporte con chofer",
+    "titleLine2": "para empresas.",
+    "lead": "Cuatro formas de trabajar con nosotros: asesores y agencias de viajes, cuentas corporativas, eventos y producciones, y socios afiliados. Un solo estándar en más de 500 ciudades.",
+    "hubCta": "Ver transporte con chofer para empresas"
+  },
   "pillars": {
     "kicker": "Concierge en el camino",
     "title": "Razones para <muted>elegir Relier.</muted>",

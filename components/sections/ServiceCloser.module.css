@@ -38,7 +38,9 @@
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 16px 28px;
 }
 
 .cta {

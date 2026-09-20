@@ -2,7 +2,7 @@
   "about": {
     "meta": {
       "title": "Nosotros · Relier · Un concierge de movilidad personal",
-      "description": "Relier es una empresa líder de transporte a nivel mundial. Comodidad, conveniencia, lujo y mucho más en un solo lugar, dondequiera que te lleve tu viaje."
+      "description": "Descubre cómo Relier combina su operación en Nueva York con una red global cuidadosamente seleccionada, al servicio del viaje de lujo, las cuentas corporativas y los eventos en vivo desde 2012."
     },
     "hero": {
       "eyebrow": "Sobre Relier",
@@ -20,17 +20,24 @@
       "titleLine2": "nosotros lo hacemos realidad.",
       "body1": "Relier es una empresa líder de transporte a nivel mundial. Con años de experiencia en la industria, nuestro equipo de profesionales ofrece un servicio de primer nivel adaptado a cualquier requerimiento de viaje. Ya sea que viajes solo a un evento importante o que coordines el transporte de unas vacaciones en grupo, una salida corporativa o un viaje internacional, estás cubierto.",
       "body2": "En Relier, la satisfacción de nuestros clientes es siempre nuestra máxima prioridad. Cuidamos cada detalle para garantizar una experiencia de viaje fluida, dondequiera que te lleve tu recorrido. Con nosotros estás en buenas manos y siempre recibirás el servicio de alta calidad que mereces."
+    },
+    "serve": {
+      "eyebrow": "A quién servimos",
+      "title": "Un solo estándar, cuatro formas de trabajar con nosotros.",
+      "advisors": "asesores y agencias de viajes",
+      "affiliates": "red de afiliados",
+      "corporate": "transporte corporativo",
+      "events": "transporte para eventos"
     }
   },
   "contact": {
     "meta": {
-      "title": "Contacto · Relier · Concierge de movilidad personal",
-      "description": "Habla con un concierge de Relier. Teléfono, correo y la sede en Brooklyn: respondemos con prontitud a cada consulta."
+      "title": "Contacto Relier | Consultas de transporte y para empresas",
+      "description": "Contacta al equipo de Relier indicado para reservas de viaje, agencias, transporte corporativo, eventos, afiliados o consultas generales."
     },
     "hero": {
       "eyebrow": "Ponte en contacto",
-      "titleLine1": "Atención al cliente,",
-      "titleLine2": "hecha personal.",
+      "title": "¿En qué podemos ayudarte?",
       "lead": "Si necesitas algo a la medida, escríbenos: estamos aquí para ayudarte y te responderemos con prontitud."
     },
     "statement": "Hacemos más de lo esperado para que cada experiencia de viaje se adapte a tus preferencias. Nuestro equipo de profesionales dedicados tiene amplia experiencia en rutas y logística global, y ofrece un transporte eficiente y puntual a cualquier destino del mundo. Nuestro objetivo es superar tus expectativas, asegurando que llegues a tiempo, con comodidad y con el máximo lujo.",

@@ -4,3 +4,8 @@
 .hero img {
   object-position: center 10%;
 }
+
+.segments {
+  background: var(--color-obsidian-900);
+  padding: clamp(48px, 8vw, 96px) 0 clamp(72px, 10vw, 120px);
+}

@@ -6,6 +6,7 @@ import Hero from "@/components/sections/Hero";
 import HeroBooking from "@/components/sections/HeroBooking";
 import Services from "@/components/sections/Services";
 import TrustBar from "@/components/sections/TrustBar";
+import WorkWithRelier from "@/components/sections/WorkWithRelier";
 import Fleet from "@/components/sections/Fleet";
 import Pillars from "@/components/sections/Pillars";
 import Events from "@/components/sections/Events";
@@ -17,7 +18,8 @@ import Preloader from "@/components/effects/Preloader";
 
 // Home order (client, 05-aug-2026 — supersedes the Versión B brief):
 //  1 Hero + booking · 2 Services · 3 "In service of" credential band
-//  4 Events · 5 Fleet · 6 Reasons / Concierge on the Road · 7 Coverage map
+//  3b Work with Relier (B2B cards, roadmap SEO sep-2026 R08: after Services,
+//     before Events) · 4 Events · 5 Fleet · 6 Reasons / Concierge on the Road · 7 Coverage map
 //  8 Testimonials · 9 About, last of all.
 // Events sits above Fleet deliberately: show the service before the vehicles.
 // It also replaces the standalone World Cup section, which is now the first
@@ -46,6 +48,7 @@ export default async function HomePage({ params }: PageProps) {
         </section>
         <Services />
         <TrustBar />
+        <WorkWithRelier />
         <Events />
         <Fleet />
         <Pillars />

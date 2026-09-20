@@ -3,11 +3,13 @@ import { routing } from "@/i18n/routing";
 import { ORIGIN } from "@/lib/i18n/seo";
 import { SERVICES } from "@/lib/services/data";
 import { FLEET } from "@/lib/fleet/data";
+import { B2B_SEGMENTS } from "@/lib/b2b/segments";
 import type { Post } from "@/lib/blog/posts";
 import {
   blogSchema,
   collectionSchema,
   entityPageSchema,
+  pageUrl,
   postSchema,
   serviceSchema,
   webPageSchema,
@@ -43,6 +45,8 @@ async function crumbLabels(locale: string) {
     airport: c("airportTransfers"),
     fifa: c("fifaWorldCup2026"),
     concierge: c("concierge"),
+    travelAdvisors: c("travelAdvisors"),
+    affiliates: c("affiliates"),
     testimonials: c("testimonials"),
     blog: c("news"),
   };
@@ -54,10 +58,11 @@ const SERVICES_CRUMB = (label: string): Crumb => ({
 });
 
 /**
- * Las cuatro landings que cuelgan de /services/ más las que el schema map
- * también trata como Service landing (airport, signature events, FIFA,
- * for-business). `serviceType` en inglés a propósito: es un valor de datos que
- * Google lee, no copy visible.
+ * Las landings que cuelgan de /services/ más las que el schema map también
+ * trata como Service landing (airport, signature events, FIFA) y la de travel
+ * advisors, que cuelga del hub /for-business/ (roadmap SEO sep-2026, T04).
+ * `parent` fija el breadcrumb intermedio. `serviceType` en inglés a propósito:
+ * es un valor de datos que Google lee, no copy visible.
  */
 const SERVICE_LANDINGS = {
   transfers: {
@@ -65,58 +70,63 @@ const SERVICE_LANDINGS = {
     ns: "services.transfers",
     serviceType: "Private chauffeured transfers",
     crumb: "transfers",
-    underServices: true,
+    parent: "services",
   },
   hourly: {
     path: "/hourly",
     ns: "services.hourly",
     serviceType: "Hourly as-directed chauffeur service",
     crumb: "hourly",
-    underServices: true,
+    parent: "services",
   },
   corporate: {
     path: "/corporate",
     ns: "services.corporate",
     serviceType: "Corporate ground transportation",
     crumb: "corporate",
-    underServices: true,
+    parent: "services",
   },
   events: {
     path: "/events",
     ns: "services.events",
     serviceType: "Event transportation",
     crumb: "events",
-    underServices: true,
+    parent: "services",
   },
   airport: {
     path: "/airport",
     ns: "services.airport",
     serviceType: "Airport transfers",
     crumb: "airport",
-    underServices: true,
+    parent: "services",
   },
   concierge: {
     path: "/concierge",
     ns: "services.concierge",
     serviceType: "Concierge transportation",
     crumb: "concierge",
-    underServices: true,
+    parent: "services",
   },
   signatureEvents: {
     path: "/signature-events",
     ns: "services.signatureEvents",
     serviceType: "Event transportation",
     crumb: "signatureEvents",
-    underServices: true,
+    parent: "services",
   },
-  forBusiness: {
-    path: "/for-business",
-    ns: "services.forBusiness",
-    serviceType: "Chauffeured transportation for business accounts",
-    crumb: "forBusiness",
-    underServices: false,
+  travelAdvisors: {
+    path: "/for-business/travel-advisors",
+    ns: "services.travelAdvisors",
+    serviceType: "Chauffeured transportation for travel advisors and agencies",
+    crumb: "travelAdvisors",
+    parent: "forBusiness",
   },
 } as const;
+
+const FOR_BUSINESS_CRUMB = (label: string): Crumb => ({
+  name: label,
+  path: "/for-business",
+});
 
 export async function serviceLandingNodes(
   locale: string,
@@ -125,10 +135,11 @@ export async function serviceLandingNodes(
   const cfg = SERVICE_LANDINGS[key];
   const labels = await crumbLabels(locale);
   const t = await getTranslations({ locale, namespace: cfg.ns });
-  const trail: Crumb[] = [
-    ...(cfg.underServices ? [SERVICES_CRUMB(labels.services)] : []),
-    { name: labels[cfg.crumb], path: cfg.path },
-  ];
+  const parent: Crumb[] =
+    cfg.parent === "services"
+      ? [SERVICES_CRUMB(labels.services)]
+      : [FOR_BUSINESS_CRUMB(labels.forBusiness)];
+  const trail: Crumb[] = [parent[0], { name: labels[cfg.crumb], path: cfg.path }];
   return serviceSchema({
     locale,
     path: cfg.path,
@@ -176,6 +187,51 @@ export async function servicesHubNodes(locale: string): Promise<SchemaNode[]> {
       name: t(`items.${s.slug}.title`),
       url: `${ORIGIN}${s.href}`,
     })),
+  });
+}
+
+/**
+ * Hub B2B (roadmap SEO sep-2026, T03): CollectionPage + ItemList con las 4
+ * páginas de segmento. Las URLs van en el locale de la página para que el
+ * ItemList apunte a las mismas versiones que enlazan las cards.
+ */
+export async function forBusinessHubNodes(
+  locale: string
+): Promise<SchemaNode[]> {
+  const labels = await crumbLabels(locale);
+  const t = await getTranslations({ locale, namespace: "services.forBusiness" });
+  return collectionSchema({
+    locale,
+    path: "/for-business",
+    name: t("hero.title"),
+    description: t("meta.description"),
+    homeName: labels.home,
+    trail: [FOR_BUSINESS_CRUMB(labels.forBusiness)],
+    items: B2B_SEGMENTS.map((s) => ({
+      name: t(`segments.${s.id}.title`),
+      url: pageUrl(locale, s.href),
+    })),
+  });
+}
+
+/**
+ * /affiliates/ es un partner program, no un servicio: WebPage + BreadcrumbList
+ * y nada de Service/Product (T05). Cuelga del hub en el breadcrumb aunque la
+ * URL viva en la raíz, que es la que fijó el equipo de SEO.
+ */
+export async function affiliatesNodes(locale: string): Promise<SchemaNode[]> {
+  const labels = await crumbLabels(locale);
+  const t = await getTranslations({ locale, namespace: "services.affiliates" });
+  return webPageSchema({
+    locale,
+    path: "/affiliates",
+    name: t("hero.title"),
+    description: t("meta.description"),
+    homeName: labels.home,
+    trail: [
+      FOR_BUSINESS_CRUMB(labels.forBusiness),
+      { name: labels.affiliates, path: "/affiliates" },
+    ],
   });
 }
 
@@ -235,7 +291,7 @@ export async function contactNodes(locale: string): Promise<SchemaNode[]> {
   return entityPageSchema("ContactPage", {
     locale,
     path: "/contact",
-    name: `${t("hero.titleLine1")} ${t("hero.titleLine2")}`,
+    name: t("hero.title"),
     description: t("meta.description"),
     homeName: labels.home,
     trail: [{ name: labels.contact, path: "/contact" }],

@@ -43,6 +43,14 @@
   text-wrap: pretty;
 }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+  margin-top: 6px;
+}
+
 @media (max-width: 720px) {
   .body {
     font-size: 15px;

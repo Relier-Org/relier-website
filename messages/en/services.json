@@ -11,7 +11,11 @@
   },
   "intro": {
     "eyebrow": "Why Relier",
-    "body": "Whether you’re a business traveler in need of a reliable airport transfer or a discerning traveler seeking to explore a city’s iconic landmarks, our transportation service is designed to cater to your specific needs. Our meticulously maintained fleet offers a range of high-end vehicles, ensuring both comfort and style throughout your ride."
+    "body": "Whether you’re a business traveler in need of a reliable airport transfer or a discerning traveler seeking to explore a city’s iconic landmarks, our transportation service is designed to cater to your specific needs. Our meticulously maintained fleet offers a range of high-end vehicles, ensuring both comfort and style throughout your ride.",
+    "links": {
+      "business": "transportation for business",
+      "airport": "airport transfers"
+    }
   },
   "featured": {
     "label": "Featured · Now booking"
@@ -106,16 +110,20 @@
     "closer": {
       "title": "Book your day, by the hour.",
       "body": "Tell us when to start and we'll keep the car with you, billed by the hour, with the same chauffeured standard across every stop."
+    },
+    "links": {
+      "corporate": "hourly corporate chauffeur service",
+      "concierge": "concierge transportation"
     }
   },
   "corporate": {
     "meta": {
-      "title": "Corporate Chauffeur & Executive Transportation | Relier",
-      "description": "Executive transportation for business travel, roadshows, meetings and corporate events, coordinated by professional chauffeurs across 500+ cities."
+      "title": "Corporate Transportation & Executive Car Service NYC | Relier",
+      "description": "Corporate ground transportation for companies and executive travelers, with 24/7 dispatch, centralized account support and consistent service across 500+ cities."
     },
     "hero": {
       "eyebrow": "Corporate",
-      "title": "Corporate Chauffeur & Executive Transportation",
+      "title": "Corporate Transportation for Teams & Executives",
       "subtitle": "Tailored logistics for professionals and executive teams. We guarantee absolute reliability, privacy, and impeccable execution to keep your business moving smoothly."
     },
     "blocks": {
@@ -138,19 +146,30 @@
     "closer": {
       "title": "Reserve your corporate ride today.",
       "body": "24/7 dispatch, onboard WiFi, and chauffeurs trained for business travel. Book in minutes and arrive ready."
+    },
+    "links": {
+      "airport": "corporate airport transfers",
+      "fleet": "executive vehicle options",
+      "forBusiness": "business transportation solutions"
     }
   },
   "events": {
     "meta": {
-      "title": "Event Transportation & Chauffeur Service Worldwide | Relier",
-      "description": "Private event transportation for conferences, sports, entertainment and VIP groups, with chauffeured vehicles and coordinated logistics worldwide."
+      "title": "Event & Production Transportation for Artists & Crews | Relier",
+      "description": "Ground transportation for artists, crews and production teams across the U.S. and Europe, from initial quote through coordination and final invoicing."
     },
     "hero": {
       "eyebrow": "Events",
-      "title": "Private Event Transportation & Chauffeur Service Worldwide",
+      "title": "Ground transportation for artists, crews and productions",
       "subtitle": "From major sports fixtures to grand celebrations, we manage high-profile group transport and complex event logistics with flawless precision. No matter the scale, we ensure your guests and VIPs arrive in absolute comfort and distinction."
     },
     "blocks": {
+      "productions": {
+        "title": "Artists, Crews & Productions",
+        "p1": "From galas and conventions to film and music productions, we coordinate fleets at scale without losing the boutique touch. Dedicated on-site leads, sedans through 56-passenger motor coaches, and the planning support to keep complex schedules on time.",
+        "p2": "One quote, one coordinator and one invoice for the whole run, with 24/7 dispatch monitoring every movement between venues, hotels and airports.",
+        "imageAlt": "Relier vehicles staged for a production crew"
+      },
       "entertainment": {
         "title": "Entertainment Events",
         "p1": "Whatever the event you want to attend, Relier offers affordable prices on luxury car service for events in every city we operate. We have packages for all special occasions including anniversary, bachelor/bachelorette parties, birthdays, concerts, prom night, sightseeing, sports event, shopping, or any family event. Relier has the perfect transport solution for all your needs. Charter our services for your night out, or take a class on an educational field trip. We make sure to give you service that leaves you feeling safe and comfortable, and stylish at the same time.",
@@ -175,16 +194,20 @@
     "closer": {
       "title": "Book your event transportation today.",
       "body": "Seamless, reliable, and luxurious transportation for any event. From VIP arrivals to large group transfers, our team ensures a flawless experience. Secure your ride online now and let us handle the rest."
+    },
+    "links": {
+      "signatureEvents": "major event transportation experience",
+      "fleet": "vehicles for event transportation"
     }
   },
   "signatureEvents": {
     "meta": {
-      "title": "Signature Event Transportation Worldwide | Relier",
-      "description": "Explore major events Relier supports with private chauffeured transportation and ground logistics for sports, fashion and international gatherings."
+      "title": "Major Event Transportation Experience | Relier",
+      "description": "See selected major-event transportation experience, operational proof points and verified service metrics from Relier."
     },
     "hero": {
       "eyebrow": "Signature Events",
-      "title": "Signature Event Transportation",
+      "title": "Transportation experience for major events",
       "subtitle": "Tournaments, championships, fashion weeks, assemblies. When thousands of people move on the same schedule, ground transport stops being a booking and becomes an operation."
     },
     "labels": {
@@ -276,13 +299,14 @@
     "closer": {
       "title": "Planning an event?",
       "body": "Tell us the dates, the venues and how many people move with you. We build the ground plan around them.",
-      "cta": "Talk to our team"
+      "cta": "Talk to our team",
+      "secondaryCta": "event transportation services"
     }
   },
   "airport": {
     "meta": {
-      "title": "Private Airport Transfers & Chauffeur Service | Relier",
-      "description": "Private airport transfers with professional chauffeurs in New York and 500+ cities worldwide. Reliable pickups, premium vehicles and fixed pricing."
+      "title": "Private Airport Transfers in New York & Worldwide | Relier",
+      "description": "Book private airport transfers with professional chauffeurs in New York and 500+ cities worldwide, including JFK, LaGuardia and Newark."
     },
     "hero": {
       "eyebrow": "Airport Transfers",
@@ -309,6 +333,10 @@
     "closer": {
       "title": "Reserve your airport transfer today.",
       "body": "From JFK and Newark to any airport we cover. No waiting, no stress. Book online and we'll be there ten minutes before pickup."
+    },
+    "links": {
+      "airportToHotel": "airport to hotel transportation",
+      "jfk": "JFK airport transfers"
     }
   },
   "concierge": {
@@ -342,41 +370,145 @@
     "closer": {
       "title": "Tell us what the day looks like.",
       "body": "Send the itinerary, however rough, and we come back with vehicles, timings and a fixed price — no hidden costs."
+    },
+    "links": {
+      "conciergeService": "concierge service",
+      "conciergeNyc": "concierge service in New York City"
     }
   },
   "forBusiness": {
     "meta": {
       "title": "Chauffeured Transportation for Business | Relier",
-      "description": "Worldwide chauffeured transportation for travel advisors, corporate accounts and event teams, with one service standard across 500+ cities."
+      "description": "Worldwide chauffeured transportation for travel advisors, corporate accounts, productions and affiliate partners, with one point of contact and one standard."
     },
     "hero": {
       "eyebrow": "For Business",
       "title": "Chauffeured Transportation for Business",
       "subtitle": "Chauffeured ground transportation worldwide. For travel advisors, corporate accounts, and the teams behind every event."
     },
-    "blocks": {
+    "segments": {
       "advisors": {
         "title": "Travel Advisors & Agencies",
-        "p1": "As a Virtuoso Preferred Partner, Relier is built to make advisors look good. Book on behalf of your clients with confidence: a single point of contact, consistent service in more than 500 cities, and the discretion your clientele expects, from a private airport transfer to a multi-day itinerary.",
-        "p2": "We handle the logistics so you can focus on the experience. Real-time trip monitoring, proactive updates, and a 24/7 dispatch team that treats your clients as our own.",
+        "cta": "for travel advisors & agencies",
+        "anchor": "travel advisors & agencies",
+        "blurb": "Book on behalf of your clients with one point of contact and 24/7 dispatch.",
+        "body": "As a Virtuoso Preferred Partner, Relier is built to make advisors look good: a single point of contact, consistent service in more than 500 cities, and the discretion your clientele expects.",
         "imageAlt": "Relier chauffeured transfer for travel advisors"
       },
       "accounts": {
         "title": "Corporate Accounts",
-        "p1": "Give your team and guests a ground transportation program they can rely on. Centralized billing, duty-of-care reporting, and chauffeurs trained for business travel, across roadshows, client visits, conferences and daily executive travel.",
-        "p2": "One account, one standard, every city you operate in.",
+        "cta": "for corporate accounts",
+        "anchor": "corporate transportation",
+        "blurb": "One account, one standard, every city your team operates in.",
+        "body": "Centralized billing, duty-of-care reporting and chauffeurs trained for business travel, across roadshows, client visits, conferences and daily executive travel.",
         "imageAlt": "Relier corporate ground transportation"
       },
       "events": {
         "title": "Events & Productions",
-        "p1": "From galas and conventions to film and music productions, we coordinate fleets at scale without losing the boutique touch. Dedicated on-site leads, sedans through 56-passenger motor coaches, and the planning support to keep complex schedules on time.",
+        "cta": "for events & productions",
+        "anchor": "events & productions",
+        "blurb": "Fleets at scale for artists, crews and production teams.",
+        "body": "From galas and conventions to film and music productions, dedicated on-site leads and vehicles from sedans to 56-passenger motor coaches keep complex schedules on time.",
         "imageAlt": "Relier events and production transportation"
+      },
+      "affiliates": {
+        "title": "Affiliates",
+        "cta": "for affiliates",
+        "anchor": "affiliate partners",
+        "blurb": "Extend one chauffeured standard through a selected partner network.",
+        "body": "Chauffeured transportation companies that meet our standard can join the network that fulfils Relier trips beyond our own operation, in New York and worldwide.",
+        "imageAlt": "Relier affiliate partner vehicle"
       }
     },
     "closer": {
       "title": "Let's build your account.",
       "body": "Tell us how your business moves and we'll tailor a program around it, with one point of contact and the same standard in every city.",
       "ctaLabel": "Talk to our team"
+    }
+  },
+  "travelAdvisors": {
+    "meta": {
+      "title": "Ground Transportation for Travel Advisors & Agencies | Relier",
+      "description": "Worldwide chauffeured transportation for travel advisors, agencies and hospitality teams, with one point of contact, proactive updates and 24/7 dispatch."
+    },
+    "hero": {
+      "eyebrow": "For Business · Travel Advisors & Agencies",
+      "title": "Trusted by the people behind luxury travel.",
+      "subtitle": "Chauffeured ground transportation for travel advisors, agencies and hospitality teams, in New York, Barcelona and 500+ cities worldwide."
+    },
+    "blocks": {
+      "whatYouGet": {
+        "title": "What you get",
+        "p1": "One point of contact for every booking, from a single airport transfer to a multi-day itinerary. Real-time trip monitoring, proactive updates before your client has to ask, and a 24/7 dispatch team that treats your clients as our own.",
+        "p2": "Fixed pricing confirmed in advance, free changes up to 24 hours before pickup, and bilingual chauffeurs briefed on the route, the stops and the preferences.",
+        "imageAlt": "Relier chauffeur greeting a traveler at the vehicle",
+        "link": "see the fleet"
+      },
+      "whereWeOperate": {
+        "title": "Where we operate",
+        "p1": "Headquartered in New York and Barcelona, with the same chauffeured standard across 500+ cities in Europe, the Americas, the Middle East, Africa and Asia.",
+        "p2": "Trips outside our own operation are fulfilled through a carefully selected partner network, held to the same service standard and coordinated by the same team.",
+        "imageAlt": "Relier vehicle on a city street",
+        "link": "how Relier works"
+      },
+      "ecosystem": {
+        "title": "Part of the luxury travel ecosystem",
+        "p1": "Relier is a Virtuoso Preferred Partner and a member of the National Limousine Association and the NYC Association of Hotel Concierges. Our chauffeurs hold PAX professional chauffeur certification.",
+        "p2": "That means advisors, hotels and concierge desks book with a supplier that already speaks their language.",
+        "imageAlt": "Relier chauffeur opening the rear door for a client",
+        "link": "chauffeured transportation for business"
+      },
+      "hotels": {
+        "title": "Hotels & concierges",
+        "p1": "Concierge desks and guest-services teams use Relier for airport arrivals, hourly service and same-day requests, with one line to call and a booking already in front of the person who answers.",
+        "imageAlt": "Hotel entrance with a Relier vehicle waiting",
+        "linkConcierge": "concierge transportation",
+        "linkHourly": "hourly chauffeur service"
+      }
+    },
+    "closer": {
+      "title": "Talk to sales.",
+      "body": "Tell us how your agency books and we'll set up a program around it, with one point of contact and the same standard in every city.",
+      "ctaLabel": "Talk to sales"
+    }
+  },
+  "affiliates": {
+    "meta": {
+      "title": "Chauffeured Transportation Affiliate Network | Relier",
+      "description": "Partner with Relier to extend consistent chauffeured transportation service through a carefully selected global affiliate network across 500+ cities."
+    },
+    "hero": {
+      "eyebrow": "For Business · Affiliates",
+      "title": "Global reach. Local expertise. One standard.",
+      "subtitle": "Relier fulfils trips in 500+ cities through its own operation and a selected network of chauffeured transportation partners. If you run one, this is how to work with us."
+    },
+    "blocks": {
+      "ownOperation": {
+        "title": "Our own operation",
+        "p1": "Relier has operated chauffeured ground transportation from New York since 2012, with a second base in Barcelona and a 24/7 dispatch team that monitors every trip in real time.",
+        "p2": "Our clients are travel advisors, corporate accounts, productions and private travelers who expect the same experience in every city. Affiliates are how we keep that promise beyond our own fleet.",
+        "imageAlt": "Relier chauffeur beside a black SUV in New York",
+        "link": "about Relier"
+      },
+      "partnershipModel": {
+        "title": "How the partnership works",
+        "p1": "We send you confirmed trips with the passenger details, timings and service notes already in place. You operate them to the Relier standard: professional chauffeurs, vehicles in immaculate condition, on-time pickups and a clear line to our dispatch.",
+        "p2": "Reciprocity is possible: partners who send work to New York or Barcelona get the same standard back from our own operation.",
+        "imageAlt": "Chauffeur checking a pickup on a phone",
+        "link": "chauffeured transportation for business"
+      },
+      "compliance": {
+        "title": "What we look for",
+        "p1": "A chauffeured operation with professional, trained chauffeurs, a well-maintained fleet, the licensing and insurance your market requires, and the ability to confirm and track trips in real time.",
+        "p2": "Our own chauffeurs hold PAX professional chauffeur certification and we are members of the National Limousine Association; we look for partners who take standards as seriously.",
+        "imageAlt": "Detail of a chauffeur's hands on the wheel",
+        "link": "our fleet standard"
+      }
+    },
+    "closer": {
+      "title": "Apply to partner.",
+      "body": "Tell us where you operate, the size of your fleet and how you dispatch. We'll come back to you with the next steps.",
+      "ctaLabel": "Apply to partner"
     }
   },
   "reservation": {

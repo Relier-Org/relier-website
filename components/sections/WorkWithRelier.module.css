@@ -1,0 +1,76 @@
+/* Same header grammar as the Services section above it (kicker, two-line
+   display title, lead, text CTA on the right), so the two read as one system. */
+.work {
+  padding: 96px 0 110px;
+  border-top: 0.5px solid var(--border-hairline);
+}
+
+.header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.headText {
+  max-width: 640px;
+}
+
+.headCta {
+  flex-shrink: 0;
+  padding-bottom: 6px;
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  margin-bottom: 18px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-variation-settings: "opsz" 96;
+  text-wrap: balance;
+  margin: 0 0 18px;
+}
+
+.muted {
+  color: var(--color-silver-300);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.lead {
+  font-size: var(--lead-size);
+  line-height: var(--lead-leading);
+  color: var(--color-silver-300);
+  max-width: var(--lead-measure);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .work {
+    padding: 72px 0 88px;
+  }
+  .header {
+    margin-bottom: 32px;
+  }
+}

@@ -16,6 +16,10 @@ import { routing, type Locale } from "@/i18n/routing";
  *   About             → AboutPage + Organization + BreadcrumbList
  *   Contact           → ContactPage + Organization + BreadcrumbList
  *   Reservations      → WebPage + BreadcrumbList
+ *   For Business hub  → CollectionPage + ItemList (4 segmentos) + BreadcrumbList
+ *   Travel Advisors   → Service + WebPage + BreadcrumbList (roadmap sep-2026, T04)
+ *   Affiliates        → WebPage + BreadcrumbList, sin Service (T05: es un
+ *                       partner program, no un servicio que se vende)
  *   Localized (es/pt) → mismo tipo + inLanguage, con @id y canonical coherentes
  *
  * Las páginas no indexables (tags, legacy, endpoints técnicos) no llevan nada:
@@ -48,6 +52,11 @@ const AREA_SERVED = [
  * inventado: el `sameAs` sale de lib/social/profiles.ts y no hay
  * `aggregateRating` porque no hay una fuente real de reviews.
  *
+ * Roadmap SEO sep-2026 (T02): la entidad lleva logo, contactPoint y
+ * foundingDate sólo porque los tres están confirmados en el sitio (logo del
+ * Nav, "Concierge · 24/7" y "since 2012" del footer, idiomas del sitio). Sin
+ * `Person` de leadership hasta que el cliente valide nombre/cargo/foto.
+ *
  * TODO: cuando el cliente confirme la dirección de Barcelona (ver Footer.tsx),
  * agregarla como segundo nodo `LimousineService` con su propio @id.
  */
@@ -59,8 +68,36 @@ export const businessNode: SchemaNode = {
   description:
     "Personal mobility concierge. Chauffeured ground transportation across the Americas, Europe, and the Middle East.",
   url: ORIGIN,
+  logo: {
+    "@type": "ImageObject",
+    url: `${ORIGIN}/images/relier-logo.png`,
+  },
+  foundingDate: "2012",
   telephone: "+1-844-735-4371",
   email: "info@relier.com",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: "+1-844-735-4371",
+      email: "info@relier.com",
+      availableLanguage: ["English", "Spanish", "Portuguese"],
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "00:00",
+        closes: "23:59",
+      },
+    },
+  ],
   sameAs: SOCIAL_SAME_AS,
   address: {
     "@type": "PostalAddress",
@@ -104,7 +141,8 @@ const pageId = (locale: string, path: string) =>
   `${localeUrl(asLocale(locale), path)}#webpage`;
 const breadcrumbId = (locale: string, path: string) =>
   `${localeUrl(asLocale(locale), path)}#breadcrumb`;
-const pageUrl = (locale: string, path: string) =>
+/** URL absoluta de una ruta en el locale pedido; la usan también los ItemList. */
+export const pageUrl = (locale: string, path: string) =>
   localeUrl(asLocale(locale), path);
 
 /**

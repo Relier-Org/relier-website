@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
+import TextCTA from "@/components/ui/TextCTA";
 import styles from "./ServiceBody.module.css";
 
 export type ServiceBlock = {
@@ -9,6 +10,12 @@ export type ServiceBlock = {
   paragraphs: string[];
   image?: string;
   imageAlt?: string;
+  /**
+   * Links contextuales del plan de internal linking (roadmap SEO sep-2026):
+   * anchors descriptivos hacia páginas relacionadas, dentro del body y no
+   * sólo en la navegación.
+   */
+  links?: { href: string; label: string }[];
 };
 
 interface ServiceBodyProps {
@@ -40,6 +47,15 @@ export default function ServiceBody({ blocks }: ServiceBodyProps) {
                       <p key={j}>{p}</p>
                     ))}
                   </div>
+                  {block.links?.length ? (
+                    <ul className={styles.links}>
+                      {block.links.map((l) => (
+                        <li key={l.href}>
+                          <TextCTA href={l.href}>{l.label}</TextCTA>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
 
                 <div className={styles.mediaWrap}>

@@ -41,6 +41,7 @@ export default async function CorporatePage({ params }: PageProps) {
       paragraphs: [t("blocks.onTime.p1")],
       image: "/images/services/corporate/arrive-on-time.webp",
       imageAlt: t("blocks.onTime.imageAlt"),
+      links: [{ href: "/airport", label: t("links.airport") }],
     },
     {
       title: t("blocks.impression.title"),
@@ -53,6 +54,7 @@ export default async function CorporatePage({ params }: PageProps) {
       paragraphs: [t("blocks.workRelax.p1")],
       image: "/images/services/corporate/work-relax.webp",
       imageAlt: t("blocks.workRelax.imageAlt"),
+      links: [{ href: "/fleet", label: t("links.fleet") }],
     },
   ];
 
@@ -69,7 +71,12 @@ export default async function CorporatePage({ params }: PageProps) {
           className={styles.hero}
         />
         <ServiceBody blocks={blocks} />
-        <ServiceCloser title={t("closer.title")} body={t("closer.body")} />
+        <ServiceCloser
+          title={t("closer.title")}
+          body={t("closer.body")}
+          secondaryHref="/for-business"
+          secondaryLabel={t("links.forBusiness")}
+        />
       </main>
       <Footer />
     </GsapProvider>

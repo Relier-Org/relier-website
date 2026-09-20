@@ -35,7 +35,19 @@ const LINKS: NavLink[] = [
     ],
   },
   { href: "/fleet", labelKey: "nav.links.fleet" },
-  { href: "/for-business", labelKey: "nav.links.forBusiness" },
+  {
+    href: "/for-business",
+    labelKey: "nav.links.forBusiness",
+    // Los 4 segmentos del hub B2B (roadmap SEO sep-2026, R05). Corporate y
+    // Events repiten destino con el dropdown de Services a propósito: son las
+    // URLs que ya rankean y el roadmap pide no abrir paralelas.
+    children: [
+      { href: "/for-business/travel-advisors", labelKey: "common.travelAdvisors" },
+      { href: "/corporate", labelKey: "common.corporateAccounts" },
+      { href: "/events", labelKey: "common.eventsProductions" },
+      { href: "/affiliates", labelKey: "common.affiliates" },
+    ],
+  },
   // The dossier, not the service page — the Services dropdown already holds
   // /events. Two different pages, so two different labels.
   { href: "/signature-events", labelKey: "common.signatureEvents" },

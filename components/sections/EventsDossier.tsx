@@ -138,7 +138,12 @@ export default async function EventsDossier() {
           <Reveal className={styles.closerInner}>
             <h2 className={styles.closerTitle}>{t("closer.title")}</h2>
             <p className={styles.closerBody}>{t("closer.body")}</p>
-            <TextCTA href="/contact">{t("closer.cta")}</TextCTA>
+            <div className={styles.closerLinks}>
+              <TextCTA href="/contact">{t("closer.cta")}</TextCTA>
+              {/* Proof → money page (roadmap SEO sep-2026): el dossier cierra
+                  hacia la landing del servicio, no sólo hacia el contacto. */}
+              <TextCTA href="/events">{t("closer.secondaryCta")}</TextCTA>
+            </div>
           </Reveal>
         </div>
       </section>

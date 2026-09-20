@@ -2,7 +2,7 @@
   "about": {
     "meta": {
       "title": "Sobre · Relier · Um concierge de mobilidade pessoal",
-      "description": "A Relier é uma empresa líder de transporte em nível mundial. Conforto, conveniência, luxo e muito mais em um só lugar, para onde quer que sua viagem leve você."
+      "description": "Saiba como a Relier combina sua operação em Nova York com uma rede global cuidadosamente selecionada, atendendo viagens de luxo, contas corporativas e eventos ao vivo desde 2012."
     },
     "hero": {
       "eyebrow": "Sobre a Relier",
@@ -20,17 +20,24 @@
       "titleLine2": "nós tornamos realidade.",
       "body1": "A Relier é uma empresa líder de transporte em nível mundial. Com anos de experiência no setor, nossa equipe de profissionais oferece um serviço de primeira linha adaptado a qualquer necessidade de viagem. Seja viajando sozinho para um evento importante ou coordenando o transporte de férias em grupo, uma saída corporativa ou uma viagem internacional, você está coberto.",
       "body2": "Na Relier, a satisfação dos nossos clientes é sempre a nossa maior prioridade. Cuidamos de cada detalhe para garantir uma experiência de viagem fluida, para onde quer que sua jornada leve você. Conosco, você está em boas mãos e sempre receberá o serviço de alta qualidade que merece."
+    },
+    "serve": {
+      "eyebrow": "A quem atendemos",
+      "title": "Um só padrão, quatro formas de trabalhar conosco.",
+      "advisors": "consultores e agências de viagens",
+      "affiliates": "rede de afiliados",
+      "corporate": "transporte corporativo",
+      "events": "transporte para eventos"
     }
   },
   "contact": {
     "meta": {
-      "title": "Contato · Relier · Concierge de mobilidade pessoal",
-      "description": "Fale com um concierge da Relier. Telefone, e-mail e a sede no Brooklyn: respondemos prontamente a cada solicitação."
+      "title": "Contato Relier | Consultas de transporte e para empresas",
+      "description": "Fale com a equipe certa da Relier para reservas de viagem, agências, transporte corporativo, eventos, afiliados ou consultas gerais."
     },
     "hero": {
       "eyebrow": "Entre em contato",
-      "titleLine1": "Atendimento ao cliente,",
-      "titleLine2": "feito de forma pessoal.",
+      "title": "Como podemos ajudar?",
       "lead": "Se você precisa de algo sob medida, entre em contato: estamos aqui para ajudar e responderemos prontamente."
     },
     "statement": "Vamos além para que cada experiência de viagem seja adaptada às suas preferências. Nossa equipe de profissionais dedicados tem ampla experiência em rotas e logística global, oferecendo um transporte eficiente e pontual para qualquer destino do mundo. Nosso objetivo é superar suas expectativas, garantindo que você chegue na hora, com conforto e com o máximo de luxo.",

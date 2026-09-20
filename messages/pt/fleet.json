@@ -60,5 +60,12 @@
     "motorcoach": {
       "tier": "Ônibus"
     }
+  },
+  "useCases": {
+    "eyebrow": "Feita para",
+    "title": "O veículo certo para cada tipo de viagem.",
+    "corporate": "transporte corporativo",
+    "events": "transporte para eventos",
+    "airport": "traslados para o aeroporto"
   }
 }

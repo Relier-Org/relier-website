@@ -11,7 +11,11 @@
   },
   "intro": {
     "eyebrow": "Por qué Relier",
-    "body": "Ya seas un viajero de negocios que necesita un traslado al aeropuerto confiable o un turista exigente que quiere descubrir los lugares emblemáticos de cualquier ciudad, nuestro servicio de transporte está diseñado para responder a tus necesidades específicas. Nuestra flota, mantenida con el máximo cuidado, ofrece una gama de vehículos de alta gama que garantizan confort y estilo durante todo el trayecto."
+    "body": "Ya seas un viajero de negocios que necesita un traslado al aeropuerto confiable o un turista exigente que quiere descubrir los lugares emblemáticos de cualquier ciudad, nuestro servicio de transporte está diseñado para responder a tus necesidades específicas. Nuestra flota, mantenida con el máximo cuidado, ofrece una gama de vehículos de alta gama que garantizan confort y estilo durante todo el trayecto.",
+    "links": {
+      "business": "transporte para empresas",
+      "airport": "traslados al aeropuerto"
+    }
   },
   "featured": {
     "label": "Destacado · Reservas abiertas"
@@ -106,16 +110,20 @@
     "closer": {
       "title": "Reserva tu día, hora por hora.",
       "body": "Dinos a qué hora empezamos y mantenemos el vehículo contigo, facturado por hora, con el mismo estándar de servicio con chofer en cada parada."
+    },
+    "links": {
+      "corporate": "servicio de chofer corporativo por horas",
+      "concierge": "transporte concierge"
     }
   },
   "corporate": {
     "meta": {
-      "title": "Transporte corporativo · Relier · Servicio de chofer para empresas en todo el mundo",
-      "description": "Servicio de chofer de lujo y profesional para viajes de negocios y eventos corporativos."
+      "title": "Transporte corporativo y servicio de auto ejecutivo en NYC | Relier",
+      "description": "Transporte terrestre corporativo para empresas y viajeros ejecutivos, con despacho 24/7, soporte de cuenta centralizado y un servicio consistente en más de 500 ciudades."
     },
     "hero": {
       "eyebrow": "Corporativo",
-      "title": "Transporte corporativo en limusina en todo el mundo",
+      "title": "Transporte corporativo para equipos y ejecutivos",
       "subtitle": "Logística a medida para profesionales y equipos ejecutivos. Garantizamos fiabilidad absoluta, privacidad y una ejecución impecable para que tu negocio siga en movimiento."
     },
     "blocks": {
@@ -138,19 +146,30 @@
     "closer": {
       "title": "Reserva hoy tu viaje corporativo.",
       "body": "Despacho 24/7, WiFi a bordo y choferes formados para viajes de negocios. Reserva en minutos y llega listo."
+    },
+    "links": {
+      "airport": "traslados corporativos al aeropuerto",
+      "fleet": "opciones de vehículos ejecutivos",
+      "forBusiness": "soluciones de transporte para empresas"
     }
   },
   "events": {
     "meta": {
-      "title": "Transporte para eventos · Relier · Servicio privado de chofer para eventos en todo el mundo",
-      "description": "Transporte confiable y cómodo para eventos deportivos, entretenimiento y conferencias."
+      "title": "Transporte para eventos y producciones, artistas y equipos | Relier",
+      "description": "Transporte terrestre para artistas, equipos técnicos y producciones en Estados Unidos y Europa, desde la cotización inicial hasta la coordinación y la facturación final."
     },
     "hero": {
       "eyebrow": "Eventos",
-      "title": "Transporte privado de lujo para eventos en todo el mundo",
+      "title": "Transporte terrestre para artistas, equipos y producciones",
       "subtitle": "Desde grandes citas deportivas hasta celebraciones de alto nivel, gestionamos el transporte de grupos y la logística de eventos complejos con precisión impecable. Sea cual sea la escala, aseguramos que tus invitados y VIP lleguen con absoluto confort y distinción."
     },
     "blocks": {
+      "productions": {
+        "title": "Artistas, equipos y producciones",
+        "p1": "Desde galas y convenciones hasta producciones de cine y música, coordinamos flotas a gran escala sin perder el trato boutique. Responsables dedicados en el lugar, desde sedanes hasta autocares de 56 pasajeros, y el apoyo de planificación necesario para que las agendas complejas lleguen a tiempo.",
+        "p2": "Una cotización, un coordinador y una factura para toda la gira, con un despacho 24/7 que sigue cada movimiento entre sedes, hoteles y aeropuertos.",
+        "imageAlt": "Vehículos de Relier preparados para un equipo de producción"
+      },
       "entertainment": {
         "title": "Eventos de entretenimiento",
         "p1": "Sea cual sea el evento al que quieras asistir, Relier ofrece precios accesibles en el servicio de autos de lujo para eventos en todas las ciudades donde operamos. Tenemos paquetes para todas las ocasiones especiales: aniversarios, despedidas de soltero o soltera, cumpleaños, conciertos, fiestas de graduación, recorridos turísticos, eventos deportivos, compras o cualquier evento familiar. Relier tiene la solución de transporte perfecta para todas tus necesidades. Contrata nuestros servicios para tu noche libre o para una salida educativa con tu clase. Nos aseguramos de brindarte un servicio que te haga sentir seguro y cómodo, y con estilo al mismo tiempo.",
@@ -175,16 +194,20 @@
     "closer": {
       "title": "Reserva hoy el transporte de tu evento.",
       "body": "Transporte fluido, confiable y de lujo para cualquier evento. Desde llegadas VIP hasta traslados de grandes grupos, nuestro equipo garantiza una experiencia impecable. Asegura tu viaje en línea ahora y déjanos el resto a nosotros."
+    },
+    "links": {
+      "signatureEvents": "experiencia en transporte para grandes eventos",
+      "fleet": "vehículos para transporte de eventos"
     }
   },
   "signatureEvents": {
     "meta": {
-      "title": "Eventos Signature · Relier · Transporte para los eventos que movemos",
-      "description": "Los eventos que opera Relier: Mundial FIFA 2026, US Open, New York Fashion Week, Fórmula 1 en Madrid y la Asamblea General de la ONU."
+      "title": "Experiencia en transporte para grandes eventos | Relier",
+      "description": "Conoce la experiencia de Relier en transporte para grandes eventos: casos seleccionados, pruebas operativas y métricas de servicio verificadas."
     },
     "hero": {
       "eyebrow": "Eventos Signature",
-      "title": "Eventos que movemos",
+      "title": "Experiencia en transporte para grandes eventos",
       "subtitle": "Torneos, campeonatos, semanas de la moda, asambleas. Cuando miles de personas se mueven con el mismo horario, el transporte terrestre deja de ser una reserva y pasa a ser una operación."
     },
     "labels": {
@@ -276,13 +299,14 @@
     "closer": {
       "title": "¿Estás organizando un evento?",
       "body": "Contanos las fechas, las sedes y cuánta gente se mueve con vos. Armamos el plan en tierra alrededor de eso.",
-      "cta": "Hablá con nuestro equipo"
+      "cta": "Hablá con nuestro equipo",
+      "secondaryCta": "servicios de transporte para eventos"
     }
   },
   "airport": {
     "meta": {
-      "title": "Traslados al aeropuerto · Relier · Transporte privado a aeropuertos en todo el mundo",
-      "description": "Viajes confiables y cómodos desde y hacia cualquier aeropuerto importante, de JFK, LaGuardia y Newark a más de 500 ciudades en todo el mundo."
+      "title": "Traslados privados al aeropuerto en Nueva York y en todo el mundo | Relier",
+      "description": "Reserva traslados privados al aeropuerto con chóferes profesionales en Nueva York y más de 500 ciudades del mundo, incluidos JFK, LaGuardia y Newark."
     },
     "hero": {
       "eyebrow": "Traslados al aeropuerto",
@@ -309,6 +333,10 @@
     "closer": {
       "title": "Reserva hoy tu traslado al aeropuerto.",
       "body": "De JFK y Newark a cualquier aeropuerto que cubrimos. Sin esperas, sin estrés. Reserva en línea y estaremos allí diez minutos antes de la recogida."
+    },
+    "links": {
+      "airportToHotel": "transporte del aeropuerto al hotel",
+      "jfk": "traslados al aeropuerto JFK"
     }
   },
   "concierge": {
@@ -342,41 +370,145 @@
     "closer": {
       "title": "Contanos cómo es el día.",
       "body": "Mandanos el itinerario, aunque esté a medio armar, y volvemos con vehículos, horarios y un precio fijo, sin costos ocultos."
+    },
+    "links": {
+      "conciergeService": "servicio de concierge",
+      "conciergeNyc": "servicio de concierge en la ciudad de Nueva York"
     }
   },
   "forBusiness": {
     "meta": {
-      "title": "Para empresas · Relier · Agencias de viajes, corporativo y eventos",
-      "description": "Asóciate con Relier para el transporte terrestre con chofer en todo el mundo: asesores de viaje, cuentas corporativas y equipos de eventos."
+      "title": "Transporte con chofer para empresas | Relier",
+      "description": "Transporte con chofer en todo el mundo para asesores de viaje, cuentas corporativas, producciones y socios afiliados, con un único punto de contacto y un solo estándar."
     },
     "hero": {
       "eyebrow": "Para empresas",
-      "title": "Relier para empresas",
+      "title": "Transporte con chofer para empresas",
       "subtitle": "Transporte terrestre con chofer en todo el mundo. Para asesores de viaje, cuentas corporativas y los equipos detrás de cada evento."
     },
-    "blocks": {
+    "segments": {
       "advisors": {
         "title": "Asesores y agencias de viajes",
-        "p1": "Como Virtuoso Preferred Partner, Relier está pensado para hacer quedar bien a los asesores. Reserva en nombre de tus clientes con confianza: un único punto de contacto, un servicio consistente en más de 500 ciudades y la discreción que tu clientela espera, desde un traslado privado al aeropuerto hasta un itinerario de varios días.",
-        "p2": "Nosotros nos ocupamos de la logística para que tú te concentres en la experiencia. Seguimiento del viaje en tiempo real, actualizaciones proactivas y un equipo de despacho 24/7 que trata a tus clientes como propios.",
+        "cta": "para asesores y agencias de viajes",
+        "anchor": "asesores y agencias de viajes",
+        "blurb": "Reserva en nombre de tus clientes con un único punto de contacto y despacho 24/7.",
+        "body": "Como Virtuoso Preferred Partner, Relier está pensado para hacer quedar bien a los asesores: un único punto de contacto, un servicio consistente en más de 500 ciudades y la discreción que tu clientela espera.",
         "imageAlt": "Traslado con chofer de Relier para asesores de viaje"
       },
       "accounts": {
         "title": "Cuentas corporativas",
-        "p1": "Ofrece a tu equipo y a tus invitados un programa de transporte terrestre en el que puedan confiar. Facturación centralizada, informes de deber de cuidado y choferes formados para viajes de negocios, en roadshows, visitas a clientes, conferencias y desplazamientos ejecutivos diarios.",
-        "p2": "Una cuenta, un estándar, en cada ciudad donde operas.",
+        "cta": "para cuentas corporativas",
+        "anchor": "transporte corporativo",
+        "blurb": "Una cuenta, un estándar, en cada ciudad donde opera tu equipo.",
+        "body": "Facturación centralizada, informes de deber de cuidado y choferes formados para viajes de negocios, en roadshows, visitas a clientes, conferencias y desplazamientos ejecutivos diarios.",
         "imageAlt": "Transporte terrestre corporativo de Relier"
       },
       "events": {
         "title": "Eventos y producciones",
-        "p1": "Desde galas y convenciones hasta producciones de cine y música, coordinamos flotas a gran escala sin perder el trato boutique. Responsables dedicados en el lugar, desde sedanes hasta autocares de 56 pasajeros, y el apoyo de planificación necesario para que las agendas complejas lleguen a tiempo.",
+        "cta": "para eventos y producciones",
+        "anchor": "eventos y producciones",
+        "blurb": "Flotas a escala para artistas, equipos y producciones.",
+        "body": "Desde galas y convenciones hasta producciones de cine y música, responsables dedicados en el lugar y vehículos desde sedanes hasta autocares de 56 pasajeros mantienen a tiempo las agendas complejas.",
         "imageAlt": "Transporte de Relier para eventos y producciones"
+      },
+      "affiliates": {
+        "title": "Afiliados",
+        "cta": "para afiliados",
+        "anchor": "socios afiliados",
+        "blurb": "Extiende un mismo estándar de servicio con chofer a través de una red de socios seleccionada.",
+        "body": "Las empresas de transporte con chofer que cumplen nuestro estándar pueden sumarse a la red que opera los viajes de Relier más allá de nuestra operación propia, en Nueva York y en todo el mundo.",
+        "imageAlt": "Vehículo de un socio afiliado de Relier"
       }
     },
     "closer": {
       "title": "Construyamos tu cuenta.",
       "body": "Cuéntanos cómo se mueve tu empresa y diseñaremos un programa a su medida, con un único punto de contacto y el mismo estándar en cada ciudad.",
       "ctaLabel": "Habla con nuestro equipo"
+    }
+  },
+  "travelAdvisors": {
+    "meta": {
+      "title": "Transporte terrestre para asesores y agencias de viajes | Relier",
+      "description": "Transporte con chofer en todo el mundo para asesores de viaje, agencias y equipos de hospitalidad, con un único punto de contacto, actualizaciones proactivas y despacho 24/7."
+    },
+    "hero": {
+      "eyebrow": "Para empresas · Asesores y agencias de viajes",
+      "title": "La confianza de quienes hacen posible el viaje de lujo.",
+      "subtitle": "Transporte terrestre con chofer para asesores de viaje, agencias y equipos de hospitalidad, en Nueva York, Barcelona y más de 500 ciudades del mundo."
+    },
+    "blocks": {
+      "whatYouGet": {
+        "title": "Qué obtienes",
+        "p1": "Un único punto de contacto para cada reserva, desde un traslado al aeropuerto hasta un itinerario de varios días. Seguimiento del viaje en tiempo real, actualizaciones proactivas antes de que tu cliente tenga que preguntar y un equipo de despacho 24/7 que trata a tus clientes como propios.",
+        "p2": "Precio fijo confirmado por adelantado, cambios sin cargo hasta 24 horas antes de la recogida y choferes bilingües informados sobre la ruta, las paradas y las preferencias.",
+        "imageAlt": "Chofer de Relier recibiendo a un viajero junto al vehículo",
+        "link": "ver la flota"
+      },
+      "whereWeOperate": {
+        "title": "Dónde operamos",
+        "p1": "Con sede en Nueva York y Barcelona, y el mismo estándar de servicio con chofer en más de 500 ciudades de Europa, las Américas, Medio Oriente, África y Asia.",
+        "p2": "Los viajes fuera de nuestra operación propia se cubren con una red de socios cuidadosamente seleccionada, sujeta al mismo estándar de servicio y coordinada por el mismo equipo.",
+        "imageAlt": "Vehículo de Relier en una calle de la ciudad",
+        "link": "cómo trabaja Relier"
+      },
+      "ecosystem": {
+        "title": "Parte del ecosistema del viaje de lujo",
+        "p1": "Relier es Virtuoso Preferred Partner y miembro de la National Limousine Association y de la NYC Association of Hotel Concierges. Nuestros choferes cuentan con la certificación profesional PAX.",
+        "p2": "Eso significa que asesores, hoteles y conserjerías reservan con un proveedor que ya habla su idioma.",
+        "imageAlt": "Chofer de Relier abriendo la puerta trasera a un cliente",
+        "link": "transporte con chofer para empresas"
+      },
+      "hotels": {
+        "title": "Hoteles y conserjerías",
+        "p1": "Las conserjerías y los equipos de atención al huésped usan Relier para llegadas al aeropuerto, servicio por horas y pedidos del mismo día, con una sola línea a la que llamar y una reserva ya a la vista de quien atiende.",
+        "imageAlt": "Entrada de hotel con un vehículo de Relier esperando",
+        "linkConcierge": "transporte concierge",
+        "linkHourly": "servicio de chofer por horas"
+      }
+    },
+    "closer": {
+      "title": "Habla con ventas.",
+      "body": "Cuéntanos cómo reserva tu agencia y armaremos un programa a su medida, con un único punto de contacto y el mismo estándar en cada ciudad.",
+      "ctaLabel": "Habla con ventas"
+    }
+  },
+  "affiliates": {
+    "meta": {
+      "title": "Red de afiliados de transporte con chofer | Relier",
+      "description": "Asóciate con Relier para extender un servicio de transporte con chofer consistente a través de una red global de afiliados cuidadosamente seleccionada en más de 500 ciudades."
+    },
+    "hero": {
+      "eyebrow": "Para empresas · Afiliados",
+      "title": "Alcance global. Experiencia local. Un solo estándar.",
+      "subtitle": "Relier opera viajes en más de 500 ciudades con su operación propia y una red seleccionada de socios de transporte con chofer. Si diriges una, así es como trabajamos contigo."
+    },
+    "blocks": {
+      "ownOperation": {
+        "title": "Nuestra operación propia",
+        "p1": "Relier opera transporte terrestre con chofer desde Nueva York desde 2012, con una segunda base en Barcelona y un equipo de despacho 24/7 que sigue cada viaje en tiempo real.",
+        "p2": "Nuestros clientes son asesores de viaje, cuentas corporativas, producciones y viajeros particulares que esperan la misma experiencia en cada ciudad. Los afiliados son la forma de cumplir esa promesa más allá de nuestra propia flota.",
+        "imageAlt": "Chofer de Relier junto a un SUV negro en Nueva York",
+        "link": "sobre Relier"
+      },
+      "partnershipModel": {
+        "title": "Cómo funciona la asociación",
+        "p1": "Te enviamos viajes confirmados con los datos del pasajero, los horarios y las notas de servicio ya definidos. Tú los operas con el estándar Relier: choferes profesionales, vehículos en estado impecable, recogidas puntuales y una línea directa con nuestro despacho.",
+        "p2": "La reciprocidad es posible: los socios que envían trabajo a Nueva York o Barcelona reciben el mismo estándar de vuelta de nuestra operación propia.",
+        "imageAlt": "Chofer revisando una recogida en el teléfono",
+        "link": "transporte con chofer para empresas"
+      },
+      "compliance": {
+        "title": "Qué buscamos",
+        "p1": "Una operación con chofer con conductores profesionales y formados, una flota bien mantenida, las licencias y seguros que exige tu mercado, y la capacidad de confirmar y seguir los viajes en tiempo real.",
+        "p2": "Nuestros propios choferes cuentan con la certificación profesional PAX y somos miembros de la National Limousine Association; buscamos socios que se tomen los estándares con la misma seriedad.",
+        "imageAlt": "Detalle de las manos de un chofer al volante",
+        "link": "nuestro estándar de flota"
+      }
+    },
+    "closer": {
+      "title": "Solicita ser socio.",
+      "body": "Cuéntanos dónde operas, el tamaño de tu flota y cómo despachas. Te responderemos con los siguientes pasos.",
+      "ctaLabel": "Solicita ser socio"
     }
   },
   "reservation": {

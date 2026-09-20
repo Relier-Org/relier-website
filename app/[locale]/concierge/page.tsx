@@ -55,6 +55,12 @@ export default async function ConciergePage({ params }: PageProps) {
       paragraphs: [t("blocks.oneDesk.p1")],
       image: "/images/news/the-importance-of-booking-concierge-in-advance-during-peak-season/cover.webp",
       imageAlt: t("blocks.oneDesk.imageAlt"),
+      // Cluster concierge (roadmap SEO sep-2026, T14): las tres URLs se
+      // preservan y se diferencian por intent; /concierge/ es la principal y
+      // enlaza a las dos legacy, que a su vez apuntan de vuelta acá.
+      links: [
+        { href: "/concierge-service", label: t("links.conciergeService") },
+      ],
     },
     {
       title: t("blocks.chauffeurs.title"),
@@ -67,6 +73,12 @@ export default async function ConciergePage({ params }: PageProps) {
       paragraphs: [t("blocks.alwaysOn.p1")],
       image: "/images/news/concierge-service-in-new-york-city/cover.webp",
       imageAlt: t("blocks.alwaysOn.imageAlt"),
+      links: [
+        {
+          href: "/concierge-service-in-new-york-city",
+          label: t("links.conciergeNyc"),
+        },
+      ],
     },
   ];
 
