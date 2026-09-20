@@ -1,0 +1,738 @@
+[
+  {
+    "width": 280,
+    "documentWidth": 280,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 240,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 240,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 240,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 240,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 240,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 194
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 240
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 350,
+    "documentWidth": 350,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 310,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 310,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 310,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 310,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 310,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 264
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 310
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 552,
+    "documentWidth": 552,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 512,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 512,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 512,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 512,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 512,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 225.6328125
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 212.1640625
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 553,
+    "documentWidth": 553,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 513,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 513,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 513,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 513,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 513,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 226.1796875
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 212.6171875
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 599,
+    "documentWidth": 599,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 559,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 559,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 559,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 559,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 559,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 251.265625
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 233.53125
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 600,
+    "documentWidth": 600,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 560,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 560,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 560,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 560,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 560,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 251.8125
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 233.9765625
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 601,
+    "documentWidth": 601,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 561,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 561,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 561,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 561,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 561,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 252.359375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 234.4375
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 707,
+    "documentWidth": 707,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 677,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 677,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 677,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 677,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 677,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 315.6328125
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 287.15625
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 899,
+    "documentWidth": 899,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 720,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 339.0859375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 306.7109375
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 900,
+    "documentWidth": 900,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 720,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 720,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 339.0859375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 306.7109375
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 901,
+    "documentWidth": 901,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 352,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 138.359375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 139.4375
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 942,
+    "documentWidth": 942,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 352,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 352,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 138.359375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 139.4375
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 999,
+    "documentWidth": 999,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 462,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 462,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 462,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 462,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 462,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 198.359375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 189.4296875
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 1000,
+    "documentWidth": 1000,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 377,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 377,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 377,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 377,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 377,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 152
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 150.796875
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 1001,
+    "documentWidth": 1001,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 377.3984375,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 377.3984375,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 377.3984375,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 377.3984375,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 377.3984375,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 152.2109375
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 150.984375
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  },
+  {
+    "width": 1165,
+    "documentWidth": 1165,
+    "manualFields": [
+      {
+        "id": "autocomplete_cc_route",
+        "width": 443,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_locality",
+        "width": 443,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_administrative_area_level_1",
+        "width": 443,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_postal_code",
+        "width": 443,
+        "visible": true
+      },
+      {
+        "id": "autocomplete_cc_country",
+        "width": 443,
+        "visible": true
+      }
+    ],
+    "card": [
+      {
+        "id": "cc_exp_month",
+        "width": 188
+      },
+      {
+        "id": "cc_exp_year",
+        "width": 180.796875
+      },
+      {
+        "id": "cc_ccv",
+        "width": 174
+      }
+    ],
+    "phonePadding": "100px"
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "width": 280,
+    "doc": 280,
+    "fields": [
+      {
+        "id": "first_name",
+        "w": 212
+      },
+      {
+        "id": "last_name",
+        "w": 212
+      },
+      {
+        "id": "phone",
+        "w": 212
+      },
+      {
+        "id": "email",
+        "w": 212
+      },
+      {
+        "id": "personal_info_submit",
+        "w": 212
+      }
+    ]
+  },
+  {
+    "width": 350,
+    "doc": 350,
+    "fields": [
+      {
+        "id": "first_name",
+        "w": 282
+      },
+      {
+        "id": "last_name",
+        "w": 282
+      },
+      {
+        "id": "phone",
+        "w": 282
+      },
+      {
+        "id": "email",
+        "w": 282
+      },
+      {
+        "id": "personal_info_submit",
+        "w": 282
+      }
+    ]
+  },
+  {
+    "width": 707,
+    "doc": 707,
+    "fields": [
+      {
+        "id": "first_name",
+        "w": 559
+      },
+      {
+        "id": "last_name",
+        "w": 559
+      },
+      {
+        "id": "phone",
+        "w": 559
+      },
+      {
+        "id": "email",
+        "w": 559
+      },
+      {
+        "id": "personal_info_submit",
+        "w": 559
+      }
+    ]
+  },
+  {
+    "width": 942,
+    "doc": 942,
+    "fields": [
+      {
+        "id": "first_name",
+        "w": 286
+      },
+      {
+        "id": "last_name",
+        "w": 286
+      },
+      {
+        "id": "phone",
+        "w": 286
+      },
+      {
+        "id": "email",
+        "w": 286
+      },
+      {
+        "id": "personal_info_submit",
+        "w": 221.0546875
+      }
+    ]
+  },
+  {
+    "width": 1165,
+    "doc": 1165,
+    "fields": [
+      {
+        "id": "first_name",
+        "w": 396
+      },
+      {
+        "id": "last_name",
+        "w": 396
+      },
+      {
+        "id": "phone",
+        "w": 396
+      },
+      {
+        "id": "email",
+        "w": 396
+      },
+      {
+        "id": "personal_info_submit",
+        "w": 221.0546875
+      }
+    ]
+  }
+]

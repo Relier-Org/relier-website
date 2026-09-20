@@ -24,6 +24,14 @@
   transition: opacity 0.7s var(--ease-out);
 }
 
+/* The quote flow writes a pixel width inline. Keep the external iframe inside
+   its responsive container when the viewport changes or the device rotates. */
+.root :global(#artusmode_filecontainer) {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
 .frame[data-ready="true"] .root {
   opacity: 1;
 }

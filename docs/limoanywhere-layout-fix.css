@@ -1,0 +1,155 @@
+/* Relier / Limo Anywhere horizontalv2, configuration 13, Custom CSS 7.
+ * Append AFTER the existing custom CSS in Limo Anywhere, not in Next.js.
+ * Supports the route/when/who wrappers introduced by the provider.
+ */
+#lead_form .lqc-fields {
+  display: grid !important;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 2fr) minmax(140px, 1fr) !important;
+  align-items: start !important;
+  gap: 20px !important;
+}
+
+#lead_form .lqc-fields .lqc-route-fields,
+#lead_form .lqc-fields .lqc-when-fields,
+#lead_form .lqc-fields .lqc-who-fields {
+  display: grid !important;
+  grid-auto-flow: row !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: start !important;
+  gap: 16px !important;
+  min-width: 0 !important;
+}
+
+#lead_form .lqc-fields .lqc-who-fields {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+#lead_form .lqc-fields .input_group {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#lead_form .lqc-fields .form-control {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Keep date and time readable when Hourly adds a duration and a return option. */
+#lead_form.lqc-hourly .lqc-fields {
+  grid-template-columns: minmax(0, 3fr) minmax(140px, 1fr) !important;
+}
+
+#lead_form.lqc-hourly .lqc-route-fields {
+  grid-column: 1 / -1;
+}
+
+#lead_form.lqc-hourly .lqc-when-fields {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+/* Additional stops, if enabled in the provider configuration, span the route. */
+#lead_form .lqc-route-fields .lqc-stops {
+  grid-column: 1 / -1;
+}
+
+/* The old generic label rule used !important and exposed this in Transfer. */
+#lead_form .lqc-fields #destination {
+  display: flex;
+  flex-direction: column;
+}
+
+#lead_form .lqc-fields #destination > .form-control {
+  order: 1;
+}
+
+#lead_form .lqc-fields .input_group > .lqc-return-to-pu {
+  display: none !important;
+}
+
+#lead_form.lqc-hourly .lqc-fields .input_group > .lqc-return-to-pu {
+  display: flex !important;
+  order: 2;
+  align-items: center;
+  gap: 8px;
+  height: auto !important;
+  min-height: 24px;
+  margin: 8px 0 0 !important;
+  white-space: normal;
+  cursor: pointer;
+}
+
+#lead_form #hourly_return_to_pickup {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--a, #c9a961);
+}
+
+#lead_form #autocomplete_dropoff:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+#lead_form #lqc_customer_state {
+  float: right;
+  margin: 0 0 12px 12px;
+  font-size: 12px;
+  line-height: 34px;
+}
+
+#lead_form #lqc_customer_state a {
+  color: var(--a, #c9a961) !important;
+}
+
+#lead_form #type {
+  width: auto !important;
+}
+
+#lead_form > .lqc-fields {
+  clear: both;
+}
+
+#lead_form #book_button {
+  min-height: 44px;
+  margin-top: 20px !important;
+}
+
+#lead_form :is(a, button, input, select):focus-visible {
+  outline: 2px solid var(--a, #c9a961) !important;
+  outline-offset: 3px;
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  #lead_form .lqc-fields {
+    grid-template-columns: minmax(0, 2fr) minmax(140px, 1fr) !important;
+  }
+
+  #lead_form .lqc-route-fields {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  #lead_form .lqc-fields,
+  #lead_form.lqc-hourly .lqc-fields,
+  #lead_form .lqc-fields .lqc-route-fields,
+  #lead_form .lqc-fields .lqc-when-fields,
+  #lead_form.lqc-hourly .lqc-fields .lqc-when-fields {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  #lead_form #lqc_customer_state {
+    float: none;
+    display: block;
+    margin: 0 0 8px;
+    text-align: right;
+  }
+
+  #lead_form #book_button {
+    width: 100% !important;
+  }
+}
