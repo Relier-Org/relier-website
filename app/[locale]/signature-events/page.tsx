@@ -7,7 +7,7 @@ import ServiceHero from "@/components/sections/ServiceHero";
 import EventsDossier from "@/components/sections/EventsDossier";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
-import { serviceLandingNodes } from "@/lib/seo/pages";
+import { signatureEventsNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
 // The events Relier has actually run, and the ones coming. Separate page from
@@ -39,7 +39,7 @@ export default async function SignatureEventsPage({ params }: PageProps) {
 
   return (
     <GsapProvider>
-      <PageSchema nodes={await serviceLandingNodes(locale, "signatureEvents")} />
+      <PageSchema nodes={await signatureEventsNodes(locale)} />
       <Nav />
       <main>
         <ServiceHero

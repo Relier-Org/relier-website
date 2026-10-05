@@ -4,22 +4,26 @@ import { SOCIAL_SAME_AS } from "@/lib/social/profiles";
 import { routing, type Locale } from "@/i18n/routing";
 
 /**
- * Structured data del sitio. Los tipos por página salen del "Schema
- * Implementation Map" del audit de SEO (ago-2026):
+ * Structured data del sitio. Los tipos por página salen de la schema matrix
+ * del equipo de SEO (`relier_schema_matrix.xlsx`, oct-2026), que reemplaza al
+ * "Schema Implementation Map" del audit de ago-2026:
  *
- *   Home              → Organization + WebSite
+ *   Home              → Organization + WebSite + WebPage
  *   Services hub      → CollectionPage + ItemList + BreadcrumbList
- *   Service landing   → Service + BreadcrumbList
- *   Fleet             → CollectionPage + ItemList + BreadcrumbList
- *   Blog hub          → Blog + BreadcrumbList
+ *   Service landing   → WebPage + Service (con audience) + BreadcrumbList
+ *   Fleet             → CollectionPage + ItemList(Vehicle/BusOrCoach) + BreadcrumbList
+ *   Signature Events  → CollectionPage + ItemList(Service, Event en about) + BreadcrumbList
+ *   FIFA World Cup    → WebPage + Service (Event en about) + BreadcrumbList
+ *   Blog hub          → CollectionPage + Blog (blogPost) + BreadcrumbList
  *   Blog post         → BlogPosting + BreadcrumbList
  *   About             → AboutPage + Organization + BreadcrumbList
  *   Contact           → ContactPage + Organization + BreadcrumbList
+ *   Testimonials      → CollectionPage + BreadcrumbList, sin Review/AggregateRating
  *   Reservations      → WebPage + BreadcrumbList
  *   For Business hub  → CollectionPage + ItemList (4 segmentos) + BreadcrumbList
  *   Travel Advisors   → Service + WebPage + BreadcrumbList (roadmap sep-2026, T04)
- *   Affiliates        → WebPage + BreadcrumbList, sin Service (T05: es un
- *                       partner program, no un servicio que se vende)
+ *   Affiliates        → WebPage (about Organization) + BreadcrumbList, sin Service
+ *                       (T05: es un partner program, no un servicio que se vende)
  *   Localized (es/pt) → mismo tipo + inLanguage, con @id y canonical coherentes
  *
  * Las páginas no indexables (tags, legacy, endpoints técnicos) no llevan nada:
@@ -28,7 +32,12 @@ import { routing, type Locale } from "@/i18n/routing";
 
 export type SchemaNode = Record<string, unknown>;
 
-export const BUSINESS_ID = `${ORIGIN}/#business`;
+/**
+ * @id canónico de la entidad (regla de la schema matrix: uno solo para todo el
+ * sitio y los tres idiomas). Hasta oct-2026 era `#business`; se migró a
+ * `#organization` para alinearlo con la matrix.
+ */
+export const BUSINESS_ID = `${ORIGIN}/#organization`;
 export const WEBSITE_ID = `${ORIGIN}/#website`;
 
 /** BCP 47 por locale, el mismo criterio que los og:locale del layout. */
@@ -67,7 +76,7 @@ export const businessNode: SchemaNode = {
   alternateName: "Relier Worldwide Chauffeured Services",
   description:
     "Personal mobility concierge. Chauffeured ground transportation across the Americas, Europe, and the Middle East.",
-  url: ORIGIN,
+  url: `${ORIGIN}/`,
   logo: {
     "@type": "ImageObject",
     url: `${ORIGIN}/images/relier-logo.png`,
@@ -78,7 +87,7 @@ export const businessNode: SchemaNode = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      contactType: "customer service",
+      contactType: "reservations and concierge",
       telephone: "+1-844-735-4371",
       email: "info@relier.com",
       availableLanguage: ["English", "Spanish", "Portuguese"],
@@ -118,9 +127,10 @@ export const businessNode: SchemaNode = {
 export const websiteNode: SchemaNode = {
   "@type": "WebSite",
   "@id": WEBSITE_ID,
-  url: ORIGIN,
+  url: `${ORIGIN}/`,
   name: "Relier",
   publisher: { "@id": BUSINESS_ID },
+  inLanguage: ["en", "es", "pt"],
 };
 
 /** Mismo criterio que `localeAlternates`: un locale desconocido cae al default. */
@@ -204,29 +214,81 @@ function pageNode(
   ];
 }
 
-/** Service landing: transfers, hourly, corporate, events, airport, etc. */
-export function serviceSchema(
-  args: PageArgs & { serviceType: string }
-): SchemaNode[] {
-  const { locale, path, name, description, serviceType } = args;
+/**
+ * Home: el WebPage que la matrix pide junto a Organization + WebSite (esos dos
+ * ya los emite el layout). Sin breadcrumb: la home es la raíz.
+ */
+export function homeSchema({
+  locale,
+  name,
+  description,
+}: Pick<PageArgs, "locale" | "name" | "description">): SchemaNode[] {
   return [
-    ...pageNode("WebPage", args),
     {
-      "@type": "Service",
-      "@id": `${pageUrl(locale, path)}#service`,
+      "@type": "WebPage",
+      "@id": pageId(locale, "/"),
+      url: pageUrl(locale, "/"),
       name,
       description,
-      serviceType,
-      provider: { "@id": BUSINESS_ID },
-      areaServed: AREA_SERVED,
+      inLanguage: IN_LANGUAGE[locale] ?? IN_LANGUAGE.en,
+      isPartOf: { "@id": WEBSITE_ID },
+      about: { "@id": BUSINESS_ID },
+    },
+  ];
+}
+
+export interface ServiceExtras {
+  serviceType: string;
+  /** Audience / BusinessAudience: la matrix lo pide en las páginas B2B y de eventos. */
+  audience?: SchemaNode;
+  /** Pisa el default worldwide cuando la página es de una zona concreta. */
+  areaServed?: SchemaNode[];
+  /** Contexto del servicio (p. ej. un Event). Nunca Relier como organizer. */
+  about?: SchemaNode;
+}
+
+/** Nodo Service suelto, para las landings y para los ItemList de hubs. */
+export function serviceNode(
+  id: string,
+  name: string,
+  description: string,
+  { serviceType, audience, areaServed, about }: ServiceExtras
+): SchemaNode {
+  return {
+    "@type": "Service",
+    "@id": id,
+    name,
+    description,
+    serviceType,
+    provider: { "@id": BUSINESS_ID },
+    areaServed: areaServed ?? AREA_SERVED,
+    ...(audience ? { audience } : {}),
+    ...(about ? { about } : {}),
+  };
+}
+
+/** Service landing: transfers, hourly, corporate, events, airport, etc. */
+export function serviceSchema(args: PageArgs & ServiceExtras): SchemaNode[] {
+  const { locale, path, name, description } = args;
+  const serviceId = `${pageUrl(locale, path)}#service`;
+  return [
+    ...pageNode("WebPage", args, { mainEntity: { "@id": serviceId } }),
+    {
+      ...serviceNode(serviceId, name, description, args),
       mainEntityOfPage: { "@id": pageId(locale, path) },
     },
   ];
 }
 
-/** Hub con listado: /services/ y /fleet/. */
+/**
+ * Hub con listado: /services/, /fleet/, /for-business/, /signature-events/.
+ * `item` embebe la entidad del ListItem (Vehicle, Service) cuando la matrix la
+ * pide; sin `item` queda el ListItem con name + url.
+ */
 export function collectionSchema(
-  args: PageArgs & { items: { name: string; url?: string }[] }
+  args: PageArgs & {
+    items: { name: string; url?: string; item?: SchemaNode }[];
+  }
 ): SchemaNode[] {
   const { locale, path, items } = args;
   return [
@@ -237,11 +299,12 @@ export function collectionSchema(
       "@type": "ItemList",
       "@id": `${pageUrl(locale, path)}#list`,
       numberOfItems: items.length,
-      itemListElement: items.map((item, i) => ({
+      itemListElement: items.map((entry, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        name: item.name,
-        ...(item.url ? { url: item.url } : {}),
+        ...(entry.item
+          ? { item: entry.item }
+          : { name: entry.name, ...(entry.url ? { url: entry.url } : {}) }),
       })),
     },
   ];
@@ -253,21 +316,48 @@ export function webPageSchema(args: PageArgs): SchemaNode[] {
 }
 
 /**
- * /about/ y /contact/: el mapa pide el tipo específico + la Organization. La
- * Organization no se repite acá — ya la emite `JsonLd` en el layout con el
- * mismo @id, así que alcanza con apuntarle desde `about`.
+ * Páginas cuyo tema es la propia Relier: /about/, /contact/, /testimonials/ y
+ * /affiliates/. La Organization no se repite acá — ya la emite `JsonLd` en el
+ * layout con el mismo @id, así que alcanza con apuntarle desde `about`.
  */
 export function entityPageSchema(
-  type: "AboutPage" | "ContactPage",
+  type: "AboutPage" | "ContactPage" | "CollectionPage" | "WebPage",
   args: PageArgs
 ): SchemaNode[] {
   return pageNode(type, args, { about: { "@id": BUSINESS_ID } });
 }
 
-/** Hub editorial /blog/. */
-export function blogSchema(args: PageArgs): SchemaNode[] {
-  return pageNode("Blog", args, { publisher: { "@id": BUSINESS_ID } });
+/**
+ * Hub editorial /blog/: CollectionPage cuyo mainEntity es el Blog, con
+ * referencias por @id a cada BlogPosting (el nodo completo vive en cada post).
+ */
+export function blogSchema(
+  args: PageArgs & { posts: { url: string; headline: string }[] }
+): SchemaNode[] {
+  const { locale, path, name, description, posts } = args;
+  const blogId = `${pageUrl(locale, path)}#blog`;
+  return [
+    ...pageNode("CollectionPage", args, { mainEntity: { "@id": blogId } }),
+    {
+      "@type": "Blog",
+      "@id": blogId,
+      url: pageUrl(locale, path),
+      name,
+      description,
+      inLanguage: IN_LANGUAGE[locale] ?? IN_LANGUAGE.en,
+      publisher: { "@id": BUSINESS_ID },
+      blogPost: posts.map((p) => ({
+        "@type": "BlogPosting",
+        "@id": `${p.url}#post`,
+        url: p.url,
+        headline: p.headline,
+      })),
+    },
+  ];
 }
+
+/** og:image por defecto (app/opengraph-image.jpg), para posts sin cover propia. */
+const DEFAULT_IMAGE = `${ORIGIN}/opengraph-image.jpg`;
 
 export interface PostSchemaArgs {
   /** Los posts viven sin prefijo de locale y canonicalizan al inglés. */
@@ -310,7 +400,7 @@ export function postSchema({
       dateModified: dateModified ?? datePublished,
       author: { "@type": "Organization", name: author, url: ORIGIN },
       publisher: { "@id": BUSINESS_ID },
-      ...(image ? { image: `${ORIGIN}${image}` } : {}),
+      image: image ? `${ORIGIN}${image}` : DEFAULT_IMAGE,
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       isPartOf: { "@id": WEBSITE_ID },
       inLanguage: IN_LANGUAGE.en,

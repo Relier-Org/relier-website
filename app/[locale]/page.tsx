@@ -15,6 +15,8 @@ import Testimonials from "@/components/sections/Testimonials";
 import About from "@/components/sections/About";
 import GsapProvider from "@/components/effects/GsapProvider";
 import Preloader from "@/components/effects/Preloader";
+import PageSchema from "@/components/seo/PageSchema";
+import { homeNodes } from "@/lib/seo/pages";
 
 // Home order (client, 05-aug-2026 — supersedes the Versión B brief):
 //  1 Hero + booking · 2 Services · 3 "In service of" credential band
@@ -39,6 +41,7 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <GsapProvider>
+      <PageSchema nodes={await homeNodes(locale)} />
       <Preloader />
       <Nav />
       <main>

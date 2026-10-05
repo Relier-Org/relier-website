@@ -4,17 +4,21 @@ import { ORIGIN } from "@/lib/i18n/seo";
 import { SERVICES } from "@/lib/services/data";
 import { FLEET } from "@/lib/fleet/data";
 import { B2B_SEGMENTS } from "@/lib/b2b/segments";
-import type { Post } from "@/lib/blog/posts";
+import { EVENTS } from "@/lib/events/data";
+import { getAllPosts, type Post } from "@/lib/blog/posts";
 import {
   blogSchema,
   collectionSchema,
   entityPageSchema,
+  homeSchema,
   pageUrl,
   postSchema,
+  serviceNode,
   serviceSchema,
   webPageSchema,
   type Crumb,
   type SchemaNode,
+  type ServiceExtras,
 } from "./schema";
 
 /**
@@ -52,23 +56,45 @@ async function crumbLabels(locale: string) {
   };
 }
 
+/** El title sin el sufijo de marca, para nombres de entidad descriptivos. */
+const stripBrand = (title: string) => title.replace(/\s*\|\s*Relier$/, "");
+
+const WORLDWIDE: SchemaNode[] = [
+  { "@type": "Place", name: "Americas" },
+  { "@type": "Place", name: "Europe" },
+  { "@type": "Place", name: "Middle East" },
+];
+
 const SERVICES_CRUMB = (label: string): Crumb => ({
   name: label,
   path: "/services",
 });
 
 /**
- * Las landings que cuelgan de /services/ más las que el schema map también
- * trata como Service landing (airport, signature events, FIFA) y la de travel
+ * Las landings que cuelgan de /services/ más airport y concierge, y la de travel
  * advisors, que cuelga del hub /for-business/ (roadmap SEO sep-2026, T04).
- * `parent` fija el breadcrumb intermedio. `serviceType` en inglés a propósito:
- * es un valor de datos que Google lee, no copy visible.
+ * `parent` fija el breadcrumb intermedio. `serviceType` y `audience` en inglés a
+ * propósito: son valores de datos que Google lee, no copy visible, y el
+ * audience sale de la meta description de cada página (schema matrix oct-2026).
+ * `nameFromMeta` usa el title en vez del H1 cuando el H1 es un tagline.
  */
-const SERVICE_LANDINGS = {
+type LandingConfig = {
+  path: string;
+  ns: string;
+  crumb: keyof Awaited<ReturnType<typeof crumbLabels>>;
+  parent: "services" | "forBusiness";
+  nameFromMeta?: boolean;
+} & ServiceExtras;
+
+const SERVICE_LANDINGS: Record<string, LandingConfig> = {
   transfers: {
     path: "/transfers",
     ns: "services.transfers",
     serviceType: "Private chauffeured transfers",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Private travelers, executives and VIP guests",
+    },
     crumb: "transfers",
     parent: "services",
   },
@@ -83,6 +109,10 @@ const SERVICE_LANDINGS = {
     path: "/corporate",
     ns: "services.corporate",
     serviceType: "Corporate ground transportation",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Companies, business travelers and executive teams",
+    },
     crumb: "corporate",
     parent: "services",
   },
@@ -90,6 +120,10 @@ const SERVICE_LANDINGS = {
     path: "/events",
     ns: "services.events",
     serviceType: "Event transportation",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Artists, crews, production teams and event planners",
+    },
     crumb: "events",
     parent: "services",
   },
@@ -104,24 +138,24 @@ const SERVICE_LANDINGS = {
     path: "/concierge",
     ns: "services.concierge",
     serviceType: "Concierge transportation",
+    // NYC-led con cobertura worldwide: la matrix pide representar las dos.
+    areaServed: [{ "@type": "City", name: "New York" }, ...WORLDWIDE],
     crumb: "concierge",
-    parent: "services",
-  },
-  signatureEvents: {
-    path: "/signature-events",
-    ns: "services.signatureEvents",
-    serviceType: "Event transportation",
-    crumb: "signatureEvents",
     parent: "services",
   },
   travelAdvisors: {
     path: "/for-business/travel-advisors",
     ns: "services.travelAdvisors",
     serviceType: "Chauffeured transportation for travel advisors and agencies",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Travel advisors, travel agencies and hospitality teams",
+    },
     crumb: "travelAdvisors",
     parent: "forBusiness",
+    nameFromMeta: true,
   },
-} as const;
+};
 
 const FOR_BUSINESS_CRUMB = (label: string): Crumb => ({
   name: label,
@@ -130,7 +164,14 @@ const FOR_BUSINESS_CRUMB = (label: string): Crumb => ({
 
 export async function serviceLandingNodes(
   locale: string,
-  key: keyof typeof SERVICE_LANDINGS
+  key:
+    | "transfers"
+    | "hourly"
+    | "corporate"
+    | "events"
+    | "airport"
+    | "concierge"
+    | "travelAdvisors"
 ): Promise<SchemaNode[]> {
   const cfg = SERVICE_LANDINGS[key];
   const labels = await crumbLabels(locale);
@@ -141,15 +182,22 @@ export async function serviceLandingNodes(
       : [FOR_BUSINESS_CRUMB(labels.forBusiness)];
   const trail: Crumb[] = [parent[0], { name: labels[cfg.crumb], path: cfg.path }];
   return serviceSchema({
+    ...cfg,
     locale,
-    path: cfg.path,
-    name: t("hero.title"),
+    name: cfg.nameFromMeta ? stripBrand(t("meta.title")) : t("hero.title"),
     description: t("meta.description"),
-    serviceType: cfg.serviceType,
     homeName: labels.home,
     trail,
   });
 }
+
+/** Mundial ya jugado: la matrix pide EventCompleted y FIFA como organizer. */
+const WORLD_CUP_EVENT = EVENTS.find((e) => e.id === "world-cup")!;
+const HOST_COUNTRIES: SchemaNode[] = [
+  { "@type": "Country", name: "United States" },
+  { "@type": "Country", name: "Mexico" },
+  { "@type": "Country", name: "Canada" },
+];
 
 /** La página FIFA vive fuera del namespace `services`, de ahí el helper aparte. */
 export async function worldCupNodes(locale: string): Promise<SchemaNode[]> {
@@ -161,6 +209,20 @@ export async function worldCupNodes(locale: string): Promise<SchemaNode[]> {
     name: t("hero.title"),
     description: t("meta.description"),
     serviceType: "Event transportation",
+    areaServed: HOST_COUNTRIES,
+    about: {
+      "@type": "Event",
+      name: "FIFA World Cup 2026",
+      startDate: WORLD_CUP_EVENT.startDate,
+      endDate: WORLD_CUP_EVENT.endDate,
+      eventStatus: "https://schema.org/EventCompleted",
+      location: HOST_COUNTRIES,
+      organizer: {
+        "@type": "Organization",
+        name: "FIFA",
+        url: "https://www.fifa.com/",
+      },
+    },
     homeName: labels.home,
     trail: [
       SERVICES_CRUMB(labels.services),
@@ -169,6 +231,64 @@ export async function worldCupNodes(locale: string): Promise<SchemaNode[]> {
         path: "/fifa-world-cup-2026-private-transportation",
       },
     ],
+  });
+}
+
+/**
+ * /signature-events/ es un hub: CollectionPage + ItemList con un Service por
+ * evento que muestra la página, y el Event anidado en `about` (Relier vende el
+ * transporte, no organiza el evento). Los textos salen del mismo namespace que
+ * renderiza `EventsDossier`.
+ */
+const EVENT_SERVICE_NAME: Record<string, (event: string) => string> = {
+  en: (e) => `${e} transportation`,
+  es: (e) => `Transporte para ${e}`,
+  pt: (e) => `Transporte para ${e}`,
+};
+
+export async function signatureEventsNodes(
+  locale: string
+): Promise<SchemaNode[]> {
+  const labels = await crumbLabels(locale);
+  const t = await getTranslations({
+    locale,
+    namespace: "services.signatureEvents",
+  });
+  const serviceName = EVENT_SERVICE_NAME[locale] ?? EVENT_SERVICE_NAME.en;
+  const path = "/signature-events";
+  return collectionSchema({
+    locale,
+    path,
+    name: t("hero.title"),
+    description: t("meta.description"),
+    homeName: labels.home,
+    trail: [
+      SERVICES_CRUMB(labels.services),
+      { name: labels.signatureEvents, path },
+    ],
+    items: EVENTS.map((e) => {
+      const eventName = t(`items.${e.id}.name`);
+      return {
+        name: eventName,
+        item: serviceNode(
+          `${pageUrl(locale, path)}#${e.id}`,
+          serviceName(eventName),
+          t.has(`items.${e.id}.service`)
+            ? t(`items.${e.id}.service`)
+            : t(`items.${e.id}.title`),
+          {
+            serviceType: "Event transportation",
+            about: {
+              "@type": "Event",
+              name: eventName,
+              startDate: e.startDate,
+              endDate: e.endDate,
+              location: { "@type": "Place", name: t(`items.${e.id}.venue`) },
+            },
+          }
+        ),
+      };
+    }),
   });
 }
 
@@ -222,10 +342,10 @@ export async function forBusinessHubNodes(
 export async function affiliatesNodes(locale: string): Promise<SchemaNode[]> {
   const labels = await crumbLabels(locale);
   const t = await getTranslations({ locale, namespace: "services.affiliates" });
-  return webPageSchema({
+  return entityPageSchema("WebPage", {
     locale,
     path: "/affiliates",
-    name: t("hero.title"),
+    name: stripBrand(t("meta.title")),
     description: t("meta.description"),
     homeName: labels.home,
     trail: [
@@ -245,9 +365,24 @@ export async function fleetNodes(locale: string): Promise<SchemaNode[]> {
     description: t("meta.description"),
     homeName: labels.home,
     trail: [{ name: labels.fleet, path: "/fleet" }],
-    // Categorías, no modelos: el schema map avisa de no usar Product salvo que
-    // haya una oferta de producto real.
-    items: FLEET.map((v) => ({ name: t(`tiers.${v.id}`) })),
+    // Categorías, no modelos, y sin Product/Offer: no se venden ni alquilan
+    // como producto en la página. Vehicle para autos y vans, BusOrCoach para
+    // los buses; la capacidad es la misma que muestra la ficha.
+    items: FLEET.map((v) => {
+      const name = t(`tiers.${v.id}`);
+      const isBus = v.id === "mini-coach" || v.id === "motor-coach";
+      const [min, max] = String(v.passengers).split("–").map(Number);
+      return {
+        name,
+        item: {
+          "@type": isBus ? "BusOrCoach" : "Vehicle",
+          name,
+          vehicleSeatingCapacity: max
+            ? { "@type": "QuantitativeValue", minValue: min, maxValue: max }
+            : min,
+        },
+      };
+    }),
   });
 }
 
@@ -262,6 +397,7 @@ export async function blogHubNodes(): Promise<SchemaNode[]> {
   const locale = routing.defaultLocale;
   const labels = await crumbLabels(locale);
   const t = await getTranslations({ locale, namespace: "blog" });
+  const posts = await getAllPosts();
   return blogSchema({
     locale,
     path: "/blog",
@@ -269,6 +405,10 @@ export async function blogHubNodes(): Promise<SchemaNode[]> {
     description: t("meta.description"),
     homeName: labels.home,
     trail: [{ name: labels.blog, path: "/blog" }],
+    posts: posts.map((p) => ({
+      url: `${ORIGIN}/${p.slug}/`,
+      headline: p.title,
+    })),
   });
 }
 
@@ -299,22 +439,29 @@ export async function contactNodes(locale: string): Promise<SchemaNode[]> {
 }
 
 /**
- * /testimonials/ no está en el schema map de la hoja 08 y la hoja 00 sugería
- * `Service`, que sería falso — la página no vende un servicio, muestra
- * reviews. Queda WebPage + BreadcrumbList. No se emite `aggregateRating`
- * porque no hay un feed verificable de reviews en el repo (mismo criterio que
- * la entidad de negocio).
+ * /testimonials/: CollectionPage sobre Relier (schema matrix oct-2026). Nada
+ * de Review/AggregateRating: son reviews importadas de Google/Tripadvisor y
+ * Google las trata como self-serving / agregación de terceros.
  */
 export async function testimonialsNodes(locale: string): Promise<SchemaNode[]> {
   const labels = await crumbLabels(locale);
   const t = await getTranslations({ locale, namespace: "pages.testimonials" });
-  return webPageSchema({
+  return entityPageSchema("CollectionPage", {
     locale,
     path: "/testimonials",
     name: `${t("hero.titleLine1")} ${t("hero.titleLine2")}`,
     description: t("meta.description"),
     homeName: labels.home,
     trail: [{ name: labels.testimonials, path: "/testimonials" }],
+  });
+}
+
+export async function homeNodes(locale: string): Promise<SchemaNode[]> {
+  const t = await getTranslations({ locale, namespace: "home" });
+  return homeSchema({
+    locale,
+    name: t("meta.title"),
+    description: t("meta.description"),
   });
 }
 

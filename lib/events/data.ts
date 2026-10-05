@@ -28,6 +28,12 @@ export interface EventEntry {
   href?: string;
   /** What Relier ran. Client figures — never estimates. */
   metrics?: EventMetric[];
+  /**
+   * ISO dates for the Event node in the JSON-LD (schema matrix, oct-2026). Same
+   * range as the visible `items.<id>.dates` copy — keep both in sync.
+   */
+  startDate: string;
+  endDate: string;
 }
 
 /**
@@ -45,6 +51,8 @@ export interface EventEntry {
 export const EVENTS: EventEntry[] = [
   {
     id: "world-cup",
+    startDate: "2026-06-11",
+    endDate: "2026-07-19",
     status: "operated",
     featured: true,
     image: "/images/services/world-cup/hero.webp",
@@ -57,21 +65,29 @@ export const EVENTS: EventEntry[] = [
   },
   {
     id: "us-open",
+    startDate: "2026-08-30",
+    endDate: "2026-09-13",
     status: "upcoming",
     image: "/images/events/us-open.webp",
   },
   {
     id: "fashion-week",
+    startDate: "2026-09-10",
+    endDate: "2026-09-15",
     status: "upcoming",
     image: "/images/events/fashion-week.webp",
   },
   {
     id: "spanish-gp",
+    startDate: "2026-09-11",
+    endDate: "2026-09-13",
     status: "upcoming",
     image: "/images/events/spanish-gp.webp",
   },
   {
     id: "un-assembly",
+    startDate: "2026-09-22",
+    endDate: "2026-09-28",
     status: "upcoming",
     image: "/images/events/un-assembly.webp",
   },
