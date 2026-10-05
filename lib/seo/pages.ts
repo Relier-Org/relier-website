@@ -283,6 +283,9 @@ export async function signatureEventsNodes(
               name: eventName,
               startDate: e.startDate,
               endDate: e.endDate,
+              ...(e.status === "operated"
+                ? { eventStatus: "https://schema.org/EventCompleted" }
+                : {}),
               location: { "@type": "Place", name: t(`items.${e.id}.venue`) },
             },
           }

@@ -7,8 +7,10 @@
  * there, so an edition, a date or a venue is only written once. Values, images
  * and links live here.
  *
- * When an upcoming event finishes and the numbers are worth showing, flip
- * `status` and add its `metrics` (label + description go in the message files).
+ * When an upcoming event finishes, flip `status` to `operated` (client, 05-oct-2026:
+ * the four September events were run by Relier). Add `metrics` only with client
+ * figures. With nothing upcoming, the /signature-events grid reads "Recent events"
+ * and each card's CTA switches to the generic booking one.
  */
 
 export interface EventMetric {
@@ -67,28 +69,28 @@ export const EVENTS: EventEntry[] = [
     id: "us-open",
     startDate: "2026-08-30",
     endDate: "2026-09-13",
-    status: "upcoming",
+    status: "operated",
     image: "/images/events/us-open.webp",
   },
   {
     id: "fashion-week",
     startDate: "2026-09-10",
     endDate: "2026-09-15",
-    status: "upcoming",
+    status: "operated",
     image: "/images/events/fashion-week.webp",
   },
   {
     id: "spanish-gp",
     startDate: "2026-09-11",
     endDate: "2026-09-13",
-    status: "upcoming",
+    status: "operated",
     image: "/images/events/spanish-gp.webp",
   },
   {
     id: "un-assembly",
     startDate: "2026-09-22",
     endDate: "2026-09-28",
-    status: "upcoming",
+    status: "operated",
     image: "/images/events/un-assembly.webp",
   },
 ];

@@ -119,6 +119,11 @@
   text-transform: uppercase;
 }
 
+.statusOperated {
+  color: var(--accent-on-light-strong);
+  background: rgba(201, 169, 97, 0.14);
+}
+
 .statusUpcoming {
   color: var(--text-on-light);
   border: 0.5px solid var(--border-on-light-strong);

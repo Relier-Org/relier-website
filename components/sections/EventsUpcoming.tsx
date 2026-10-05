@@ -9,6 +9,9 @@ import styles from "./EventsUpcoming.module.css";
 
 export interface UpcomingItem {
   id: string;
+  /** Translated status label ("Operated", "Upcoming"). */
+  status: string;
+  operated: boolean;
   /** Already-translated strings: the parent is a server component, so the
       `services` namespace never has to be serialized to the client. */
   name: string;
@@ -35,7 +38,7 @@ export interface UpcomingLabels {
 type View = "cards" | "rows";
 
 /**
- * The upcoming events, switchable between the card grid and full-width rows
+ * The events below the recap (upcoming, or recent once run), switchable between the card grid and full-width rows
  * (client, 11-aug-2026). Cards are the default: the grid is what keeps the page
  * short. Rows give the same content more room to breathe for anyone who wants to
  * read it end to end.
@@ -94,6 +97,14 @@ export default function EventsUpcoming({
               </div>
             ) : null}
             <div className={styles.body}>
+              <p
+                className={cn(
+                  styles.status,
+                  e.operated ? styles.statusOperated : styles.statusUpcoming
+                )}
+              >
+                {e.status}
+              </p>
               <h3 className={styles.name}>{e.name}</h3>
               <p className={styles.edition}>{e.edition}</p>
               {/* Both strings ship and CSS picks one: the compact mobile row

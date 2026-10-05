@@ -12,6 +12,7 @@ export interface EventsCarouselItem {
   /** Already-translated strings: the parent is a server component, so no
       message namespace has to be shipped to the client for this. */
   status: string;
+  operated: boolean;
   name: string;
   dates: string;
   service?: string;
@@ -114,7 +115,12 @@ export default function EventsCarousel({
           <li key={e.id} className={styles.slide}>
             <article className={styles.card}>
               <p className={styles.meta}>
-                <span className={cn(styles.status, styles.statusUpcoming)}>
+                <span
+                  className={cn(
+                    styles.status,
+                    e.operated ? styles.statusOperated : styles.statusUpcoming
+                  )}
+                >
                   {e.status}
                 </span>
               </p>

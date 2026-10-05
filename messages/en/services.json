@@ -214,6 +214,7 @@
       "ourOperation": "Our operation",
       "theEvent": "The event",
       "upcoming": "What's coming",
+      "recent": "Recent events",
       "service": "Service",
       "edition": "Edition",
       "dates": "Dates",
@@ -224,7 +225,8 @@
       },
       "viewCards": "View as cards",
       "viewRows": "View as rows",
-      "ctaShort": "Plan transport"
+      "ctaShort": "Plan transport",
+      "ctaBook": "Book transport for your next event"
     },
     "items": {
       "world-cup": {

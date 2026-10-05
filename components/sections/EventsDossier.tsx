@@ -10,8 +10,9 @@ import { EVENTS } from "@/lib/events/data";
 import styles from "./EventsDossier.module.css";
 
 /**
- * Body of /signature-events, in three bands: the operated recap on cream, the
- * upcoming events on obsidian, the closer on cream.
+ * Body of /signature-events, in three bands: the featured recap on cream, the
+ * rest of the events on obsidian (upcoming, or recent once they have all been
+ * run), the closer on cream.
  *
  * Rebuilt 11-aug-2026. The first version was five identical full-width rows —
  * 5,692px of unbroken obsidian, 6.3 screens. The client asked for shorter, less
@@ -21,14 +22,18 @@ import styles from "./EventsDossier.module.css";
  */
 export default async function EventsDossier() {
   const t = await getTranslations("services.signatureEvents");
-  const recap = EVENTS.find((e) => e.status === "operated");
+  const recap =
+    EVENTS.find((e) => e.featured) ??
+    EVENTS.find((e) => e.status === "operated");
+  const rest = EVENTS.filter((e) => e !== recap);
+  const anyUpcoming = rest.some((e) => e.status === "upcoming");
 
   // Translated here and handed down as plain strings: the switch below needs
   // client state, but the `services` namespace stays off the wire.
-  const upcoming: UpcomingItem[] = EVENTS.filter(
-    (e) => e.status === "upcoming"
-  ).map((e) => ({
+  const upcoming: UpcomingItem[] = rest.map((e) => ({
     id: e.id,
+    status: t(`labels.status.${e.status}`),
+    operated: e.status === "operated",
     name: t(`items.${e.id}.name`),
     edition: t(`items.${e.id}.edition`),
     dates: t(`items.${e.id}.dates`),
@@ -38,7 +43,12 @@ export default async function EventsDossier() {
     service: t.has(`items.${e.id}.service`)
       ? t(`items.${e.id}.service`)
       : undefined,
-    cta: t(`items.${e.id}.cta`),
+    // The per-event CTA ("Plan your US Open transport") only makes sense
+    // before the event; once run, the card points to booking in general.
+    cta:
+      e.status === "operated"
+        ? t("labels.ctaBook")
+        : t(`items.${e.id}.cta`),
     image: e.image,
     imageAlt: t(`items.${e.id}.imageAlt`),
   }));
@@ -123,7 +133,7 @@ export default async function EventsDossier() {
             <EventsUpcoming
               items={upcoming}
               labels={{
-                kicker: t("labels.upcoming"),
+                kicker: anyUpcoming ? t("labels.upcoming") : t("labels.recent"),
                 viewCards: t("labels.viewCards"),
                 viewRows: t("labels.viewRows"),
                 ctaShort: t("labels.ctaShort"),

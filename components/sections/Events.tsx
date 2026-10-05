@@ -31,12 +31,16 @@ export default async function Events() {
     .map((e) => ({
       id: e.id,
       status: te(`labels.status.${e.status}`),
+      operated: e.status === "operated",
       name: te(`items.${e.id}.name`),
       dates: te(`items.${e.id}.dates`),
       service: te.has(`items.${e.id}.service`)
         ? te(`items.${e.id}.service`)
         : undefined,
-      cta: te(`items.${e.id}.cta`),
+      cta:
+        e.status === "operated"
+          ? te("labels.ctaBook")
+          : te(`items.${e.id}.cta`),
       href: "/online-reservation",
     }));
 
