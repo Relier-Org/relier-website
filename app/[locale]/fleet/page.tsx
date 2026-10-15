@@ -8,6 +8,7 @@ import FleetGrid, {
   type FleetVehicle,
 } from "@/components/sections/FleetGrid";
 import RelatedLinks from "@/components/sections/RelatedLinks";
+import { CarIcon, RouteIcon, TruckIcon } from "@/components/icons/SegmentIcons";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { fleetNodes } from "@/lib/seo/pages";
@@ -32,7 +33,7 @@ export default async function FleetPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "fleet" });
-  const tc = await getTranslations({ locale, namespace: "common" });
+  const th = await getTranslations({ locale, namespace: "home.services.items" });
 
   const smaller: FleetVehicle[] = [
     {
@@ -116,12 +117,32 @@ export default async function FleetPage({ params }: PageProps) {
         <RelatedLinks
           eyebrow={t("useCases.eyebrow")}
           title={t("useCases.title")}
-          links={[
-            { href: "/corporate", label: t("useCases.corporate") },
-            { href: "/events", label: t("useCases.events") },
-            { href: "/airport", label: t("useCases.airport") },
+          items={[
+            {
+              id: "corporate",
+              href: "/corporate",
+              title: th("corporate.title"),
+              body: th("corporate.tagline"),
+              cta: t("useCases.corporate"),
+              icon: CarIcon,
+            },
+            {
+              id: "events",
+              href: "/events",
+              title: th("events.title"),
+              body: th("events.tagline"),
+              cta: t("useCases.events"),
+              icon: TruckIcon,
+            },
+            {
+              id: "airport",
+              href: "/airport",
+              title: th("transfers.title"),
+              body: th("transfers.tagline"),
+              cta: t("useCases.airport"),
+              icon: RouteIcon,
+            },
           ]}
-          primary={{ href: "/online-reservation", label: tc("bookOnline") }}
         />
       </main>
       <Footer />

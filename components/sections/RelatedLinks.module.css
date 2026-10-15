@@ -1,19 +1,15 @@
 .section {
-  padding: clamp(44px, 6vw, 72px) 0;
+  padding: clamp(64px, 8vw, 104px) 0;
   border-top: 0.5px solid var(--border-hairline);
+  background: var(--ambient-right), var(--bg-canvas);
 }
 
-.inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  gap: 40px;
-  align-items: center;
-}
-
-.text {
+.head {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  max-width: 720px;
+  margin-bottom: 44px;
 }
 
 .eyebrow {
@@ -23,39 +19,20 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: var(--type-h3);
-  line-height: 1.12;
-  letter-spacing: -0.018em;
+  font-size: var(--type-h2);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
   font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
 }
 
-/* Primario arriba, secundarios debajo; todo alineado a la derecha como los
-   cierres (ServiceCloser, EventsDossier). */
-.actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 12px;
+.section .grid3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 @media (max-width: 1024px) {
-  .inner {
+  .section .grid3 {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .actions {
-    align-items: flex-start;
-  }
-  .list {
-    justify-content: flex-start;
   }
 }
