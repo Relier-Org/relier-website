@@ -89,7 +89,8 @@ export default async function ForBusinessPage({ params }: PageProps) {
           title={t("closer.title")}
           body={t("closer.body")}
           ctaLabel={t("closer.ctaLabel")}
-          ctaHref="/contact"
+          ctaHref="mailto:reservations@relier.com"
+          note={t("closer.agentNote")}
         />
       </main>
       <Footer />

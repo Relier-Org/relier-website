@@ -2,7 +2,7 @@
   "meta": {
     "title": "Relier · Donde comienza el viaje de lujo",
     "description": "Relier · Concierge de movilidad personal. Con sede en Nueva York y Barcelona, en servicio en las Américas, Europa y Medio Oriente.",
-    "ogDescription": "Concierge de movilidad personal desde Nueva York y Barcelona."
+    "ogDescription": "Transporte con chofer desde Nueva York y Barcelona."
   },
   "hero": {
     "eyebrow": "Compañía global de servicio de autos ejecutivos · Virtuoso Preferred",
@@ -11,7 +11,7 @@
     "subtitle": "Donde comienzan los traslados y el transporte privado. De Nueva York al mundo. Operamos en más de 500 ciudades en todo el mundo."
   },
   "services": {
-    "kicker": "Concierge en el camino",
+    "kicker": "Nuestros servicios",
     "titleLine1": "Un solo estándar de servicio,",
     "titleLine2": "para cada tipo de viaje.",
     "lead": "Desde un único traslado al aeropuerto hasta una temporada de roadshows corporativos, cada servicio que ves a continuación lo opera el mismo equipo, con el mismo estándar. Elige el que se ajuste a tu viaje.",
@@ -51,9 +51,9 @@
     "hubCta": "Ver transporte con chofer para empresas"
   },
   "pillars": {
-    "kicker": "Concierge en el camino",
+    "kicker": "El estándar Relier",
     "title": "Razones para <muted>elegir Relier.</muted>",
-    "lead": "Más que un viaje: un concierge que viaja contigo. Tres principios, sin excepciones: lo que prometemos en la página de reserva es lo que llega a tu puerta.",
+    "lead": "Más que un viaje: un equipo que viaja contigo. Tres principios, sin excepciones: lo que prometemos en la página de reserva es lo que llega a tu puerta.",
     "items": {
       "safe": {
         "title": "Viajes seguros",
@@ -91,7 +91,7 @@
       "coverage": "Cobertura en todas las ciudades sede · Nueva York, Toronto, Ciudad de México, Los Ángeles y más",
       "service": "Servicio de aeropuerto, de hotel a estadio y de jornada completa adaptado a tu agenda",
       "packages": "Paquetes de varios días para delegaciones, patrocinadores y equipos de transmisión",
-      "chauffeurs": "Choferes bilingües (EN · ES · FR · PT) · Concierge dedicado durante las ventanas de partidos"
+      "chauffeurs": "Choferes bilingües (EN · ES · FR · PT) · Coordinador dedicado durante las ventanas de partidos"
     },
     "cta": "Planifica tu transporte para la Copa Mundial",
     "photoAlt": "Transporte privado de Relier para la Copa Mundial de la FIFA 2026",

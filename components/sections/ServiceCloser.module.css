@@ -36,6 +36,15 @@
   text-wrap: pretty;
 }
 
+.note {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-accent);
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

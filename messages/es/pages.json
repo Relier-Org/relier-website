@@ -1,7 +1,7 @@
 {
   "about": {
     "meta": {
-      "title": "Nosotros · Relier · Un concierge de movilidad personal",
+      "title": "Nosotros · Relier · Transporte con chofer en todo el mundo",
       "description": "Descubre cómo Relier combina su operación en Nueva York con una red global cuidadosamente seleccionada, al servicio del viaje de lujo, las cuentas corporativas y los eventos en vivo desde 2012."
     },
     "hero": {
@@ -70,17 +70,31 @@
       "sending": "Enviando...",
       "success": {
         "title": "Gracias.",
-        "body": "Tu mensaje va camino a nuestro equipo de concierge. Te responderemos dentro de la hora en horario laboral.",
+        "body": "Tu mensaje va camino a nuestro equipo. Te responderemos dentro de la hora en horario laboral.",
         "again": "Enviar otro mensaje"
       }
     },
     "info": {
-      "label": "Concierge",
+      "label": "Contacto",
       "titleLead": "Líneas directas con",
       "titleMuted": "nuestro equipo.",
       "phoneLabel": "Reservas por teléfono",
       "emailLabel": "Consultas por correo",
-      "followLabel": "Síguenos"
+      "followLabel": "Síguenos",
+      "departments": {
+        "reservations": {
+          "name": "Reservas",
+          "for": "Agencias de viajes y clientes directos"
+        },
+        "events": {
+          "name": "Eventos",
+          "for": "Eventos, giras y producciones"
+        },
+        "affiliates": {
+          "name": "Afiliados",
+          "for": "Operadores asociados"
+        }
+      }
     },
     "map": {
       "eyebrow": "Visítanos",

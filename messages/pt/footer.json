@@ -1,5 +1,5 @@
 {
-  "brand": "Concierge de mobilidade pessoal. Com sede em Nova York e Barcelona. Em serviço nas Américas, na Europa e no Oriente Médio desde 2012.",
+  "brand": "Transporte com motorista no mundo todo. Com sede em Nova York e Barcelona. Em serviço nas Américas, na Europa e no Oriente Médio desde 2012.",
   "headings": {
     "service": "Serviços",
     "company": "Empresa",
@@ -13,8 +13,8 @@
   },
   "contact": {
     "hq": "Nova York · Sede",
-    "email": "Concierge · E-mail",
-    "phone": "Concierge · 24/7"
+    "email": "E-mail",
+    "phone": "Telefone · 24/7"
   },
   "aria": {
     "home": "Início da Relier"

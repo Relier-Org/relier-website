@@ -2,7 +2,7 @@
   "meta": {
     "title": "Worldwide Private Chauffeur & Car Service | Relier",
     "description": "Private chauffeur and executive car service in 500+ cities worldwide. Airport transfers, corporate travel, events and hourly rides with Relier.",
-    "ogDescription": "Personal mobility concierge from New York and Barcelona."
+    "ogDescription": "Chauffeured transportation from New York and Barcelona."
   },
   "hero": {
     "eyebrow": "Worldwide Executive Car Service Company · Virtuoso Preferred",
@@ -11,7 +11,7 @@
     "subtitle": "Where private transfers & transportation begins. From New York to the World. Operating more than 500 cities worldwide."
   },
   "services": {
-    "kicker": "Concierge on the Road",
+    "kicker": "Our services",
     "titleLine1": "One standard of service,",
     "titleLine2": "every kind of journey.",
     "lead": "From a single airport run to a season of corporate roadshows, every service below is run by the same team, to the same standard. Pick the one that fits your trip.",
@@ -51,9 +51,9 @@
     "hubCta": "See chauffeured transportation for business"
   },
   "pillars": {
-    "kicker": "Concierge on the Road",
+    "kicker": "The Relier standard",
     "title": "Reasons to <muted>choose Relier.</muted>",
-    "lead": "More than a ride. A concierge that travels with you. Three principles, held without exception: what we promise on the booking page is what arrives at the curb.",
+    "lead": "More than a ride. A team that travels with you. Three principles, held without exception: what we promise on the booking page is what arrives at the curb.",
     "items": {
       "safe": {
         "title": "Safe Travels",
@@ -91,7 +91,7 @@
       "coverage": "Coverage in all host cities · New York, Toronto, Mexico City, Los Angeles, and beyond",
       "service": "Airport, hotel-to-stadium, and full-day service tailored to your schedule",
       "packages": "Multi-day packages for delegations, sponsors, and broadcast crews",
-      "chauffeurs": "Bilingual chauffeurs (EN · ES · FR · PT) · Dedicated concierge during match windows"
+      "chauffeurs": "Bilingual chauffeurs (EN · ES · FR · PT) · Dedicated coordinator during match windows"
     },
     "cta": "Plan your World Cup transport",
     "photoAlt": "Relier private transportation for FIFA World Cup 2026",

@@ -2,12 +2,14 @@ import { getTranslations } from "next-intl/server";
 import { cn } from "@/lib/utils/cn";
 import styles from "./TrustBar.module.css";
 
-const BADGES: {
+export type TrustBadge = {
   name: string;
   src: string;
-  href: string;
+  href?: string;
   modifier?: keyof typeof styles;
-}[] = [
+};
+
+const BADGES: TrustBadge[] = [
   {
     name: "Virtuoso Preferred Partner",
     src: "/images/partners/virtuoso.svg",
@@ -34,32 +36,55 @@ const BADGES: {
   // TODO (assets): sumar "Chauffeur Driven" cuando llegue el asset del cliente.
 ];
 
-export default async function TrustBar() {
+/**
+ * Banda de logos ("In service of" por defecto). Con `label`, `badges` y `note`
+ * se reusa para otras tiras, p. ej. las ferias de Travel Advisors (oct-2026).
+ */
+export default async function TrustBar({
+  label,
+  badges = BADGES,
+  note,
+}: {
+  label?: string;
+  badges?: TrustBadge[];
+  /** Texto corrido bajo los logos: nombra lo que muestran (lectores y AI). */
+  note?: string;
+} = {}) {
   const t = await getTranslations("home");
 
   return (
     <section className={styles.trust}>
       <div className={cn("container", styles.inner)}>
-        <span className={styles.label}>{t("trust.label")}</span>
-        {BADGES.map(({ name, src, href, modifier }) => (
-          <a
-            key={name}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.badge}
-            aria-label={name}
-            title={name}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+        <span className={styles.label}>{label ?? t("trust.label")}</span>
+        {badges.map(({ name, src, href, modifier }) => {
+          const logo = (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={src}
               alt={name}
               className={cn(styles.logo, modifier && styles[modifier])}
               loading="lazy"
             />
-          </a>
-        ))}
+          );
+          return href ? (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.badge}
+              aria-label={name}
+              title={name}
+            >
+              {logo}
+            </a>
+          ) : (
+            <span key={name} className={styles.badge} title={name}>
+              {logo}
+            </span>
+          );
+        })}
+        {note ? <p className={styles.note}>{note}</p> : null}
       </div>
     </section>
   );

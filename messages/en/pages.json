@@ -1,13 +1,13 @@
 {
   "about": {
     "meta": {
-      "title": "About Relier | Personal Mobility Concierge Worldwide",
+      "title": "About Relier | Chauffeured Transportation Worldwide",
       "description": "Learn how Relier combines its New York operation with a carefully selected global network, serving luxury travel, corporate accounts and live events since 2012."
     },
     "hero": {
       "eyebrow": "About Relier",
       "titleLine1": "About Relier:",
-      "titleLine2": "Personal Mobility Concierge"
+      "titleLine2": "Chauffeured, Worldwide"
     },
     "intro": {
       "lead": "Looking for a seamless way to travel anywhere in the world?",
@@ -70,17 +70,31 @@
       "sending": "Sending...",
       "success": {
         "title": "Thank you.",
-        "body": "Your message is on its way to our concierge team. We'll be in touch within the hour during business times.",
+        "body": "Your message is on its way to our team. We'll be in touch within the hour during business times.",
         "again": "Send another message"
       }
     },
     "info": {
-      "label": "Concierge",
+      "label": "Contact",
       "titleLead": "Direct lines to",
       "titleMuted": "our team.",
       "phoneLabel": "Phone bookings",
       "emailLabel": "Email enquiries",
-      "followLabel": "Follow"
+      "followLabel": "Follow",
+      "departments": {
+        "reservations": {
+          "name": "Reservations",
+          "for": "Travel agencies and direct clients"
+        },
+        "events": {
+          "name": "Events",
+          "for": "Events, tours and productions"
+        },
+        "affiliates": {
+          "name": "Affiliates",
+          "for": "Partner operators"
+        }
+      }
     },
     "map": {
       "eyebrow": "Visit us",

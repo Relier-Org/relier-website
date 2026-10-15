@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Serviços",
     "title": "Nossos serviços",
-    "subtitle": "Transporte sob medida, de nível concierge, adaptado a cada viajante, cada ocasião, cada cidade.",
+    "subtitle": "Transporte com motorista sob medida, adaptado a cada viajante, cada ocasião, cada cidade.",
     "imageAlt": "Motorista da Relier abrindo a porta de um veículo de luxo",
     "closer": {
       "title": "Reserve seu motorista hoje.",
@@ -429,7 +429,8 @@
     "closer": {
       "title": "Vamos construir sua conta.",
       "body": "Conte-nos como sua empresa se movimenta e desenharemos um programa sob medida, com um único ponto de contato e o mesmo padrão em cada cidade.",
-      "ctaLabel": "Fale com nossa equipe"
+      "ctaLabel": "Fale com nossa equipe",
+      "agentNote": "É consultor de viagens? Peça sua conta de agente com tarifas comissionáveis e benefícios para parceiros."
     },
     "intro": {
       "eyebrow": "Por que a Relier",
@@ -468,13 +469,13 @@
       "ecosystem": {
         "title": "Parte do ecossistema da viagem de luxo",
         "p1": "A Relier é Virtuoso Preferred Partner e membro da National Limousine Association e da NYC Association of Hotel Concierges. Nossos motoristas têm a certificação profissional PAX.",
-        "p2": "Isso significa que consultores, hotéis e concierges reservam com um fornecedor que já fala a língua deles.",
+        "p2": "Isso significa que consultores, hotéis e equipes de atendimento ao hóspede reservam com um fornecedor que já fala a língua deles.",
         "imageAlt": "Motorista da Relier abrindo a porta traseira para um cliente",
         "link": "transporte com motorista para empresas"
       },
       "hotels": {
-        "title": "Hotéis e concierges",
-        "p1": "Concierges e equipes de atendimento ao hóspede usam a Relier para chegadas ao aeroporto, serviço por hora e pedidos no mesmo dia, com uma só linha para ligar e uma reserva já na tela de quem atende.",
+        "title": "Hotéis e atendimento ao hóspede",
+        "p1": "Recepções de hotel e equipes de atendimento ao hóspede usam a Relier para chegadas ao aeroporto, serviço por hora e pedidos no mesmo dia, com uma só linha para ligar e uma reserva já na tela de quem atende.",
         "imageAlt": "Entrada de hotel com um veículo da Relier aguardando",
         "linkConcierge": "transporte concierge",
         "linkHourly": "serviço de motorista por hora"
@@ -484,6 +485,32 @@
       "title": "Fale com vendas.",
       "body": "Conte como sua agência reserva e montaremos um programa sob medida, com um único ponto de contato e o mesmo padrão em cada cidade.",
       "ctaLabel": "Fale com vendas"
+    },
+    "events": {
+      "label": "Onde nos encontrar",
+      "note": "A equipe da Relier participa das principais feiras do setor de viagens de luxo e eventos: ILTM, M&I Forums, IMEX, Virtuoso On Tour e Virtuoso Travel Week."
+    },
+    "faq": {
+      "eyebrow": "Perguntas frequentes",
+      "title": "Perguntas de consultores de viagens.",
+      "items": {
+        "commissions": {
+          "q": "Vocês oferecem comissões para agentes de viagens?",
+          "a": "Sim. A Relier oferece tarifas comissionáveis para agentes e agências de viagens, com taxas de comissão especiais para membros da Virtuoso. Trabalhamos regularmente com profissionais do setor e enviamos atualizações da reserva tanto ao agente quanto ao passageiro, para que a comunicação seja clara durante todo o serviço. Também podemos oferecer tarifas líquidas para agências que preferem aplicar sua própria margem."
+        },
+        "account": {
+          "q": "Minha agência pode ter sua própria conta online?",
+          "a": "Sim. Criamos uma conta personalizada para a sua agência no nosso portal de reservas, para que você possa reservar e acompanhar as viagens dos seus clientes em um só lugar. Peça à nossa equipe para abrir a sua."
+        },
+        "updates": {
+          "q": "Vou receber atualizações das viagens dos meus clientes?",
+          "a": "Sim. Um único ponto de contato cuida de cada reserva, e tanto você quanto seus passageiros recebem as atualizações. Nossa equipe de despacho 24/7 acompanha cada viagem em tempo real."
+        },
+        "where": {
+          "q": "Vocês atendem viagens fora de Nova York?",
+          "a": "Sim. A Relier opera a partir de Nova York e Barcelona e oferece o mesmo padrão com motorista em mais de 500 cidades na Europa, nas Américas, no Oriente Médio, na África e na Ásia, coordenado pela mesma equipe."
+        }
+      }
     }
   },
   "affiliates": {

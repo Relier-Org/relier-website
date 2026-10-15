@@ -96,7 +96,7 @@ export default async function AffiliatesPage({ params }: PageProps) {
           title={t("closer.title")}
           body={t("closer.body")}
           ctaLabel={t("closer.ctaLabel")}
-          ctaHref="/contact"
+          ctaHref="mailto:info@relier.com"
         />
       </main>
       <Footer />

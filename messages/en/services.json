@@ -6,7 +6,7 @@
   "hero": {
     "eyebrow": "Services",
     "title": "Worldwide Chauffeured Transportation Services",
-    "subtitle": "Tailored, concierge-grade transportation, adapted to each traveler, each occasion, each city.",
+    "subtitle": "Tailored chauffeured transportation, adapted to each traveler, each occasion, each city.",
     "imageAlt": "Relier chauffeur opening the door of a luxury vehicle",
     "closer": {
       "title": "Book your chauffeur today.",
@@ -60,7 +60,7 @@
   "transfers": {
     "meta": {
       "title": "Private Chauffeur & Luxury Transfers Worldwide | Relier",
-      "description": "Book private point-to-point transfers with professional chauffeurs and premium vehicles in 500+ cities worldwide. Fixed pricing and concierge support."
+      "description": "Book private point-to-point transfers with professional chauffeurs and premium vehicles in 500+ cities worldwide. Fixed pricing and 24/7 support."
     },
     "hero": {
       "eyebrow": "Transfers",
@@ -102,7 +102,7 @@
     "blocks": {
       "schedule": {
         "title": "Your Car, On Your Schedule",
-        "p1": "Book a chauffeur by the hour and keep the car with you for the whole day. No re-booking between stops, no waiting for the next pickup. Your driver stays on hold, ready when you are, for as long as you need.",
+        "p1": "Book a chauffeur by the hour and keep the car with you for the whole day. No re-booking between stops, no waiting for the next pickup. Your chauffeur stays on hold, ready when you are, for as long as you need.",
         "imageAlt": "Hourly chauffeur on hold with Relier"
       },
       "freedom": {
@@ -332,7 +332,7 @@
       },
       "luxury": {
         "title": "Luxury At Its Finest",
-        "p1": "Aside from the convenience of having a vehicle and driver to drive you to and from the airport, our airport transportation doesn't stop there. Our cars are equipped with state-of-the-art interiors and amenities to ensure a comfortable time on the road. Enjoy a temperature-controlled environment where you can sit back and relax.",
+        "p1": "Aside from the convenience of having a vehicle and chauffeur to take you to and from the airport, our airport transportation doesn't stop there. Our cars are equipped with state-of-the-art interiors and amenities to ensure a comfortable time on the road. Enjoy a temperature-controlled environment where you can sit back and relax.",
         "imageAlt": "Luxury vehicle interior"
       }
     },
@@ -429,7 +429,8 @@
     "closer": {
       "title": "Let's build your account.",
       "body": "Tell us how your business moves and we'll tailor a program around it, with one point of contact and the same standard in every city.",
-      "ctaLabel": "Talk to our team"
+      "ctaLabel": "Talk to our team",
+      "agentNote": "Travel advisor? Ask for an agent account with commissionable rates and partner benefits."
     },
     "intro": {
       "eyebrow": "Why Relier",
@@ -468,13 +469,13 @@
       "ecosystem": {
         "title": "Part of the luxury travel ecosystem",
         "p1": "Relier is a Virtuoso Preferred Partner and a member of the National Limousine Association and the NYC Association of Hotel Concierges. Our chauffeurs hold PAX professional chauffeur certification.",
-        "p2": "That means advisors, hotels and concierge desks book with a supplier that already speaks their language.",
+        "p2": "That means advisors, hotels and guest-services teams book with a supplier that already speaks their language.",
         "imageAlt": "Relier chauffeur opening the rear door for a client",
         "link": "chauffeured transportation for business"
       },
       "hotels": {
-        "title": "Hotels & concierges",
-        "p1": "Concierge desks and guest-services teams use Relier for airport arrivals, hourly service and same-day requests, with one line to call and a booking already in front of the person who answers.",
+        "title": "Hotels & guest services",
+        "p1": "Hotel front desks and guest-services teams use Relier for airport arrivals, hourly service and same-day requests, with one line to call and a booking already in front of the person who answers.",
         "imageAlt": "Hotel entrance with a Relier vehicle waiting",
         "linkConcierge": "concierge transportation",
         "linkHourly": "hourly chauffeur service"
@@ -484,6 +485,32 @@
       "title": "Talk to sales.",
       "body": "Tell us how your agency books and we'll set up a program around it, with one point of contact and the same standard in every city.",
       "ctaLabel": "Talk to sales"
+    },
+    "events": {
+      "label": "Where to meet us",
+      "note": "The Relier team attends the luxury travel and events industry’s key trade shows: ILTM, M&I Forums, IMEX, Virtuoso On Tour and Virtuoso Travel Week."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Questions from travel advisors.",
+      "items": {
+        "commissions": {
+          "q": "Do you offer commissions to travel agents?",
+          "a": "Yes, Relier offers commissionable rates for travel agents and travel agencies, with special commission rates available for Virtuoso members. We regularly work with travel industry professionals, providing booking updates to both agents and passengers to ensure clear communication throughout the service. We can also offer net rates for agencies that prefer to apply their own markup."
+        },
+        "account": {
+          "q": "Can my agency have its own online account?",
+          "a": "Yes. We set up a personalized account for your agency on our online booking portal, so you can book and follow your clients’ trips in one place. Ask our team to open yours."
+        },
+        "updates": {
+          "q": "Will I be kept updated on my clients’ trips?",
+          "a": "Yes. One point of contact handles every booking, and both you and your passengers receive booking updates. Our 24/7 dispatch team monitors every trip in real time."
+        },
+        "where": {
+          "q": "Can you cover trips outside New York?",
+          "a": "Yes. Relier operates from New York and Barcelona and delivers the same chauffeured standard in 500+ cities across Europe, the Americas, the Middle East, Africa and Asia, coordinated by the same team."
+        }
+      }
     }
   },
   "affiliates": {

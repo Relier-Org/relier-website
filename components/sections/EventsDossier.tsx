@@ -154,7 +154,7 @@ export default async function EventsDossier() {
                 Primario = hablar con el equipo; secundario = la landing del
                 servicio (proof → money page, roadmap SEO sep-2026). */}
             <div className={styles.closerLinks}>
-              <Button href="/contact" withArrow>
+              <Button href="mailto:events@relier.com" withArrow>
                 {t("closer.cta")}
               </Button>
               <Button href="/events" variant="secondary">

@@ -8,6 +8,8 @@ import Field from "@/components/ui/Field";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import { MailIcon, PhoneIcon } from "@/components/icons/ContactIcons";
+import { WhatsAppIcon } from "@/components/icons/SocialIcons";
+import { DEPARTMENTS } from "@/lib/contact/departments";
 import { ContactApiError, sendContactMessage } from "@/lib/contact/api";
 import {
   CONTACT_LIMITS,
@@ -239,37 +241,49 @@ export default function ContactSplit() {
                 <span className="muted">{t("contact.info.titleMuted")}</span>
               </h3>
 
-              <ul className={styles.infoList}>
-                <li>
-                  <span className={styles.infoIcon} aria-hidden="true">
-                    <PhoneIcon />
-                  </span>
-                  <div className={styles.infoBody}>
-                    <p className={styles.infoLabel}>
-                      {t("contact.info.phoneLabel")}
+              {/* Un bloque por departamento con sus líneas oficiales (doc del
+                  cliente, oct-2026): cada consulta va directo al equipo que la
+                  atiende. */}
+              <div className={styles.departments}>
+                {DEPARTMENTS.map((d) => (
+                  <div key={d.id} className={styles.department}>
+                    <p className={styles.deptName}>
+                      {t(`contact.info.departments.${d.id}.name`)}
                     </p>
-                    <a href="tel:+18447354371" className={styles.infoValue}>
-                      {tc("phone")}
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <span className={styles.infoIcon} aria-hidden="true">
-                    <MailIcon />
-                  </span>
-                  <div className={styles.infoBody}>
-                    <p className={styles.infoLabel}>
-                      {t("contact.info.emailLabel")}
+                    <p className={styles.deptFor}>
+                      {t(`contact.info.departments.${d.id}.for`)}
                     </p>
-                    <a
-                      href="mailto:info@relier.com"
-                      className={styles.infoValue}
-                    >
-                      info@relier.com
-                    </a>
+                    <ul className={styles.deptList}>
+                      <li>
+                        <MailIcon className={styles.deptIcon} aria-hidden="true" />
+                        <a href={`mailto:${d.email}`} className={styles.deptValue}>
+                          {d.email}
+                        </a>
+                      </li>
+                      <li>
+                        <PhoneIcon className={styles.deptIcon} aria-hidden="true" />
+                        <a href={`tel:${d.phone.tel}`} className={styles.deptValue}>
+                          {d.phone.display}
+                        </a>
+                      </li>
+                      {d.whatsapp ? (
+                        <li>
+                          <WhatsAppIcon className={styles.deptIcon} aria-hidden="true" />
+                          <a
+                            href={`https://wa.me/${d.whatsapp.number}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.deptValue}
+                            aria-label={`WhatsApp ${d.whatsapp.display}`}
+                          >
+                            {d.whatsapp.display}
+                          </a>
+                        </li>
+                      ) : null}
+                    </ul>
                   </div>
-                </li>
-              </ul>
+                ))}
+              </div>
 
               <div className={styles.socialBar}>
                 <p className={styles.infoLabel}>

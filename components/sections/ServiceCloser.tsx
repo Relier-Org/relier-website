@@ -12,6 +12,8 @@ interface ServiceCloserProps {
   /** Link secundario (p. ej. child → hub), anchor del plan de internal linking. */
   secondaryHref?: string;
   secondaryLabel?: string;
+  /** Línea chica bajo el cuerpo, dirigida a un público puntual (p. ej. agentes). */
+  note?: string;
 }
 
 export default function ServiceCloser({
@@ -21,6 +23,7 @@ export default function ServiceCloser({
   ctaHref = "/#booking",
   secondaryHref,
   secondaryLabel,
+  note,
 }: ServiceCloserProps) {
   const t = useTranslations("common");
 
@@ -31,6 +34,7 @@ export default function ServiceCloser({
           <div className={styles.text}>
             <h2 className={styles.h2}>{title}</h2>
             <p className={styles.body}>{body}</p>
+            {note ? <p className={styles.note}>{note}</p> : null}
           </div>
           <div className={styles.actions}>
             <Button href={ctaHref} withArrow className={styles.cta}>

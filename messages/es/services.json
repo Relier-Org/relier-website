@@ -6,11 +6,11 @@
   "hero": {
     "eyebrow": "Servicios",
     "title": "Nuestros servicios",
-    "subtitle": "Transporte a medida, de nivel concierge, adaptado a cada viajero, cada ocasión, cada ciudad.",
+    "subtitle": "Transporte con chofer a medida, adaptado a cada viajero, cada ocasión, cada ciudad.",
     "imageAlt": "Chofer de Relier abriendo la puerta de un vehículo de lujo",
     "closer": {
-      "title": "Reservá tu chofer hoy.",
-      "body": "Tarifa fija, choferes profesionales y soporte 24/7 en más de 500 ciudades. Reservá tu viaje en minutos."
+      "title": "Reserva tu chofer hoy.",
+      "body": "Tarifa fija, choferes profesionales y soporte 24/7 en más de 500 ciudades. Reserva tu viaje en minutos."
     }
   },
   "intro": {
@@ -429,11 +429,12 @@
     "closer": {
       "title": "Construyamos tu cuenta.",
       "body": "Cuéntanos cómo se mueve tu empresa y diseñaremos un programa a su medida, con un único punto de contacto y el mismo estándar en cada ciudad.",
-      "ctaLabel": "Habla con nuestro equipo"
+      "ctaLabel": "Habla con nuestro equipo",
+      "agentNote": "¿Eres asesor de viajes? Pide tu cuenta de agente con tarifas comisionables y beneficios para socios."
     },
     "intro": {
       "eyebrow": "Por qué Relier",
-      "body": "Relier opera transporte terrestre con chofer desde Nueva York desde 2012, con una segunda base en Barcelona y el mismo estándar en más de 500 ciudades. Ya sea que reserves para tus clientes, muevas a un equipo ejecutivo, coordines una producción o tengas tu propia flota, trabajás con un único punto de contacto, un equipo de despacho 24/7 que sigue cada viaje en tiempo real y tarifas fijas confirmadas de antemano."
+      "body": "Relier opera transporte terrestre con chofer desde Nueva York desde 2012, con una segunda base en Barcelona y el mismo estándar en más de 500 ciudades. Ya sea que reserves para tus clientes, muevas a un equipo ejecutivo, coordines una producción o tengas tu propia flota, trabajas con un único punto de contacto, un equipo de despacho 24/7 que sigue cada viaje en tiempo real y tarifas fijas confirmadas de antemano."
     },
     "segmentsHead": {
       "eyebrow": "Formas de trabajar con nosotros",
@@ -468,13 +469,13 @@
       "ecosystem": {
         "title": "Parte del ecosistema del viaje de lujo",
         "p1": "Relier es Virtuoso Preferred Partner y miembro de la National Limousine Association y de la NYC Association of Hotel Concierges. Nuestros choferes cuentan con la certificación profesional PAX.",
-        "p2": "Eso significa que asesores, hoteles y conserjerías reservan con un proveedor que ya habla su idioma.",
+        "p2": "Eso significa que asesores, hoteles y equipos de atención al huésped reservan con un proveedor que ya habla su idioma.",
         "imageAlt": "Chofer de Relier abriendo la puerta trasera a un cliente",
         "link": "transporte con chofer para empresas"
       },
       "hotels": {
-        "title": "Hoteles y conserjerías",
-        "p1": "Las conserjerías y los equipos de atención al huésped usan Relier para llegadas al aeropuerto, servicio por horas y pedidos del mismo día, con una sola línea a la que llamar y una reserva ya a la vista de quien atiende.",
+        "title": "Hoteles y atención al huésped",
+        "p1": "Las recepciones de hotel y los equipos de atención al huésped usan Relier para llegadas al aeropuerto, servicio por horas y pedidos del mismo día, con una sola línea a la que llamar y una reserva ya a la vista de quien atiende.",
         "imageAlt": "Entrada de hotel con un vehículo de Relier esperando",
         "linkConcierge": "transporte concierge",
         "linkHourly": "servicio de chofer por horas"
@@ -484,6 +485,32 @@
       "title": "Habla con ventas.",
       "body": "Cuéntanos cómo reserva tu agencia y armaremos un programa a su medida, con un único punto de contacto y el mismo estándar en cada ciudad.",
       "ctaLabel": "Habla con ventas"
+    },
+    "events": {
+      "label": "Dónde encontrarnos",
+      "note": "El equipo de Relier participa en las principales ferias de la industria del turismo de lujo y los eventos: ILTM, M&I Forums, IMEX, Virtuoso On Tour y Virtuoso Travel Week."
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Preguntas de asesores de viajes.",
+      "items": {
+        "commissions": {
+          "q": "¿Ofrecen comisiones a los agentes de viajes?",
+          "a": "Sí. Relier ofrece tarifas comisionables para agentes y agencias de viajes, con tarifas de comisión especiales para miembros de Virtuoso. Trabajamos de forma habitual con profesionales de la industria y enviamos actualizaciones de la reserva tanto al agente como al pasajero, para que la comunicación sea clara durante todo el servicio. También podemos ofrecer tarifas netas a las agencias que prefieren aplicar su propio margen."
+        },
+        "account": {
+          "q": "¿Mi agencia puede tener su propia cuenta en línea?",
+          "a": "Sí. Creamos una cuenta personalizada para tu agencia en nuestro portal de reservas, para que puedas reservar y seguir los viajes de tus clientes en un solo lugar. Pídele a nuestro equipo que abra la tuya."
+        },
+        "updates": {
+          "q": "¿Me mantienen al tanto de los viajes de mis clientes?",
+          "a": "Sí. Un único punto de contacto gestiona cada reserva, y tanto tú como tus pasajeros reciben las actualizaciones. Nuestro equipo de despacho 24/7 sigue cada viaje en tiempo real."
+        },
+        "where": {
+          "q": "¿Cubren viajes fuera de Nueva York?",
+          "a": "Sí. Relier opera desde Nueva York y Barcelona y ofrece el mismo estándar con chofer en más de 500 ciudades de Europa, las Américas, Medio Oriente, África y Asia, coordinado por el mismo equipo."
+        }
+      }
     }
   },
   "affiliates": {
@@ -513,7 +540,7 @@
       },
       "compliance": {
         "title": "Qué buscamos",
-        "p1": "Una operación con chofer con conductores profesionales y formados, una flota bien mantenida, las licencias y seguros que exige tu mercado, y la capacidad de confirmar y seguir los viajes en tiempo real.",
+        "p1": "Una operación de transporte con choferes profesionales y formados, una flota bien mantenida, las licencias y seguros que exige tu mercado, y la capacidad de confirmar y seguir los viajes en tiempo real.",
         "p2": "Nuestros propios choferes cuentan con la certificación profesional PAX y somos miembros de la National Limousine Association; buscamos socios que se tomen los estándares con la misma seriedad.",
         "imageAlt": "Detalle de las manos de un chofer al volante",
         "link": "nuestro estándar de flota"

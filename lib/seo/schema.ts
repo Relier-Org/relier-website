@@ -75,7 +75,7 @@ export const businessNode: SchemaNode = {
   name: "Relier",
   alternateName: "Relier Worldwide Chauffeured Services",
   description:
-    "Personal mobility concierge. Chauffeured ground transportation across the Americas, Europe, and the Middle East.",
+    "Chauffeured ground transportation across the Americas, Europe, and the Middle East, from New York and Barcelona.",
   url: `${ORIGIN}/`,
   logo: {
     "@type": "ImageObject",
@@ -87,7 +87,7 @@ export const businessNode: SchemaNode = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      contactType: "reservations and concierge",
+      contactType: "reservations",
       telephone: "+1-844-735-4371",
       email: "info@relier.com",
       availableLanguage: ["English", "Spanish", "Portuguese"],
@@ -110,7 +110,7 @@ export const businessNode: SchemaNode = {
   sameAs: SOCIAL_SAME_AS,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "240 Kent Ave, 3rd Floor B14",
+    streetAddress: "240 Kent Ave",
     addressLocality: "Brooklyn",
     addressRegion: "NY",
     postalCode: "11249",

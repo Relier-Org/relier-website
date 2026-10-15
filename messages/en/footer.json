@@ -1,5 +1,5 @@
 {
-  "brand": "Personal mobility concierge. Based in New York and Barcelona. In service across the Americas, Europe, and the Middle East since 2012.",
+  "brand": "Chauffeured transportation worldwide. Based in New York and Barcelona. In service across the Americas, Europe, and the Middle East since 2012.",
   "headings": {
     "service": "Service",
     "company": "Company",
@@ -13,8 +13,8 @@
   },
   "contact": {
     "hq": "New York · HQ",
-    "email": "Concierge · Email",
-    "phone": "Concierge · 24/7"
+    "email": "Email",
+    "phone": "Phone · 24/7"
   },
   "aria": {
     "home": "Relier home"

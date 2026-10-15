@@ -20,7 +20,7 @@
   "returnTrip": "Adicionar uma viagem de retorno",
   "concierge": {
     "prompt": "Precisa de ajuda para planejar?",
-    "action": "Fale com um concierge → {phone}"
+    "action": "Fale com a nossa equipe → {phone}"
   },
   "error": {
     "generic": "Algo deu errado. Tente novamente.",
@@ -28,7 +28,7 @@
   },
   "confirmation": {
     "title": "Sua solicitação está a caminho.",
-    "lead": "Nosso concierge entrará em contato com você em até 15 minutos para confirmar o veículo, o preço e os detalhes do embarque.",
+    "lead": "Nossa equipe entrará em contato com você em até 15 minutos para confirmar o veículo, o preço e os detalhes do embarque.",
     "reference": "Referência:",
     "reset": "Fazer outra solicitação"
   },

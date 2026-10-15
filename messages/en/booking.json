@@ -20,7 +20,7 @@
   "returnTrip": "Add a return trip",
   "concierge": {
     "prompt": "Need help planning?",
-    "action": "Talk to a concierge → {phone}"
+    "action": "Talk to our team → {phone}"
   },
   "error": {
     "generic": "Something went wrong. Please try again.",
@@ -28,7 +28,7 @@
   },
   "confirmation": {
     "title": "Your request is on its way.",
-    "lead": "Our concierge will contact you within 15 minutes to confirm vehicle, pricing and pickup details.",
+    "lead": "Our team will contact you within 15 minutes to confirm vehicle, pricing and pickup details.",
     "reference": "Reference:",
     "reset": "Make another request"
   },

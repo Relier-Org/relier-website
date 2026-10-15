@@ -144,6 +144,13 @@
   background: rgba(255, 255, 255, 0.04);
 }
 
+/* La página en la que estás: además del color, una barra champagne a la
+   izquierda para que se distinga del hover. */
+.dropdown a.isActive {
+  box-shadow: inset 2px 0 0 var(--color-champagne-500);
+  background: rgba(201, 169, 97, 0.08);
+}
+
 .right {
   display: flex;
   align-items: center;

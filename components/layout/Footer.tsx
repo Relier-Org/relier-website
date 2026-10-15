@@ -60,7 +60,7 @@ const CONTACT_ITEMS: {
   {
     icon: LocationIcon,
     labelKey: "footer.contact.hq",
-    value: "240 Kent Ave, 3rd Floor B14, Brooklyn, NY 11249",
+    value: "240 Kent Ave, Brooklyn, NY 11249",
     // Maps URL API: no key, and it hands off to the native app on mobile. The
     // query drops the floor and suite on purpose — they only confuse geocoding.
     href: "https://www.google.com/maps/search/?api=1&query=240%20Kent%20Ave%2C%20Brooklyn%2C%20NY%2011249",
