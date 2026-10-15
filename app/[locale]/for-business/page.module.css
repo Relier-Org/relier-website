@@ -1,8 +1,7 @@
-/* The subjects in the corporate photo sit high in the frame: the shared
-   `center 50%` crop cuts the head off the guest stepping out of the car.
-   Scoped here so the other service heroes keep the default framing. */
+/* Foto del evento en NY (oct-2026): la SUV está en la mitad baja del cuadro,
+   así que el recorte baja un poco del centro. */
 .hero img {
-  object-position: center 10%;
+  object-position: center 60%;
 }
 
 .segments {

@@ -22,7 +22,7 @@ export interface B2BSegment {
 export const B2B_SEGMENTS: B2BSegment[] = [
   {
     id: "advisors",
-    href: "/for-business/travel-advisors",
+    href: "/travel-advisors",
     image: "/images/services/transfers/hero.webp",
   },
   {
@@ -33,11 +33,11 @@ export const B2B_SEGMENTS: B2BSegment[] = [
   {
     id: "events",
     href: "/events",
-    image: "/images/services/events/conferences.webp",
+    image: "/images/events-nyc/guest-arrival.webp",
   },
   {
     id: "affiliates",
     href: "/affiliates",
-    image: "/images/services/hourly/hero.webp",
+    image: "/images/events-nyc/chauffeur-press.webp",
   },
 ];

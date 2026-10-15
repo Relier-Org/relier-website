@@ -98,8 +98,9 @@ export default async function WorkWithRelier({
                 <br />
                 <span className={styles.muted}>{t("titleLine2")}</span>
               </h2>
-              <p className={styles.lead}>{t("lead")}</p>
             </div>
+            {/* Título a la izquierda, descripción a la derecha (Figma oct-2026). */}
+            <p className={styles.lead}>{t("lead")}</p>
           </header>
         </Reveal>
         <SegmentCards items={items} />

@@ -42,7 +42,7 @@ const LINKS: NavLink[] = [
     // Events repiten destino con el dropdown de Services a propósito: son las
     // URLs que ya rankean y el roadmap pide no abrir paralelas.
     children: [
-      { href: "/for-business/travel-advisors", labelKey: "common.travelAdvisors" },
+      { href: "/travel-advisors", labelKey: "common.travelAdvisors" },
       { href: "/corporate", labelKey: "common.corporateAccounts" },
       { href: "/events", labelKey: "common.eventsProductions" },
       { href: "/affiliates", labelKey: "common.affiliates" },

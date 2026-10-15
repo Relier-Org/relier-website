@@ -13,6 +13,7 @@ export const namespaces = [
   "fleet",
   "pages",
   "blog",
+  "landings",
 ] as const;
 
 /**

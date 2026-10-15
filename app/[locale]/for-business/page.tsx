@@ -65,7 +65,7 @@ export default async function ForBusinessPage({ params }: PageProps) {
           eyebrow={t("hero.eyebrow")}
           title={t("hero.title")}
           subtitle={t("hero.subtitle")}
-          image="/images/services/corporate/hero.webp"
+          image="/images/events-nyc/suv-arrival.webp"
           className={styles.hero}
         />
         {/* Misma gramática que /services: franja crema con "Why Relier" y

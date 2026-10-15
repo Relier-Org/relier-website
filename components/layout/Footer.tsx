@@ -25,7 +25,7 @@ const COMPANY_LINKS = [
   { href: "/about", labelKey: "footer.links.about" },
   { href: "/fleet", labelKey: "footer.links.fleet" },
   { href: "/for-business", labelKey: "nav.links.forBusiness" },
-  { href: "/for-business/travel-advisors", labelKey: "common.travelAdvisors" },
+  { href: "/travel-advisors", labelKey: "common.travelAdvisors" },
   { href: "/affiliates", labelKey: "common.affiliates" },
   { href: "/signature-events", labelKey: "common.signatureEvents" },
   { href: "/testimonials", labelKey: "common.testimonials" },

@@ -1,0 +1,685 @@
+{
+  "common": {
+    "talk": "Talk to our team",
+    "why": "Why Relier",
+    "faqEyebrow": "Questions",
+    "faqTitle": "Frequently asked questions",
+    "contactRelier": "Contact Relier",
+    "advisorPrompt": "Travel advisor?",
+    "advisorLink": "Ask for your agent account to access advisor benefits."
+  },
+  "events": {
+    "meta": {
+      "title": "Event Transportation Services for Groups & Productions | Relier",
+      "description": "Event transportation services for artists, crews, corporate events and productions worldwide, with group transfers, motor coaches and operational support across the U.S. and Europe."
+    },
+    "hero": {
+      "eyebrow": "For Business · Events & Productions",
+      "title": "Event Transportation Services",
+      "subtitle": "Relier provides event transportation for artists, touring teams, crews, corporate events, conferences and productions. We coordinate point-to-point transfers, group transportation, city-to-city movements and motor coach services while keeping communication close to the event or production team."
+    },
+    "highlights": {
+      "items": [
+        "Dedicated Event Coordination",
+        "Options for Every Group",
+        "24/7 Coordinated Dispatch Team",
+        "Worldwide Support"
+      ],
+      "tagline": "Every movement planned around the event."
+    },
+    "services": {
+      "eyebrow": "Event transportation services",
+      "title": "Event Transportation for Artists, Groups and Production Teams",
+      "lead": "Relier provides professional ground transportation for live events, music tours, film and production teams, galas, conventions, and complex guest movements. From principals and artists to crew, production teams, and larger passenger groups, we coordinate the right transportation for each group and each stage of the event.",
+      "items": [
+        {
+          "title": "Artist & Talent Transportation",
+          "body": "Discreet and seamless transportation for artists, talent, VIPs and their teams, with a strong focus on privacy, precision and personalized service."
+        },
+        {
+          "title": "Large-Scale Events & Logistics",
+          "body": "Complex transportation programs managed from the ground up, from multi-vehicle movements to large groups, venues and production schedules."
+        },
+        {
+          "title": "Corporate Events",
+          "body": "Reliable, polished transportation for executives, clients and corporate groups, supporting meetings, conferences, launches and high-profile events."
+        }
+      ]
+    },
+    "experience": {
+      "eyebrow": "Selected experience",
+      "title": "Trusted Event Experience",
+      "lead": "Relier has a dedicated Events team specializing in the planning and coordination of ground transportation for complex events and productions. Our experience includes transportation for the following artists, productions, and events:",
+      "more": "See more experience",
+      "note": "Experience references are presented as transportation work associated with the Events team and should not be read as artist endorsements.",
+      "link": "See our signature events",
+      "names": [
+        "Aerosmith",
+        "Alejandro Sanz",
+        "Bad Bunny",
+        "BLACKPINK",
+        "Daddy Yankee",
+        "Enrique Iglesias",
+        "J Balvin",
+        "Karol G",
+        "Luis Miguel",
+        "Marc Anthony",
+        "Rammstein",
+        "RBD"
+      ],
+      "more_names": [
+        "Ana Gabriel",
+        "Anuel AA",
+        "Becky G",
+        "Belladonna Productions",
+        "Blessd",
+        "Camilo",
+        "Cauty",
+        "Chayanne",
+        "Christian Nodal",
+        "Coachella",
+        "Daniel Habif",
+        "Dante Gebel",
+        "Darell",
+        "Duki",
+        "Eagles",
+        "Eladio Carrión",
+        "Emilia Mernes",
+        "Farruko",
+        "Feid",
+        "Fonseca",
+        "Gipsy Kings",
+        "Ivy Queen",
+        "Jackson Wang",
+        "Jerry Rivera",
+        "Jessi Uribe",
+        "Jowell & Randy",
+        "Juan Luis Guerra",
+        "Juanes",
+        "Kim Loaiza",
+        "La Oreja de Van Gogh",
+        "Los Borjas",
+        "Los Fabulosos Cadillacs",
+        "Lunay",
+        "Manuel Turizo",
+        "Mariachi Vargas",
+        "Melendi",
+        "Miky Woodz",
+        "Molotov",
+        "Mora",
+        "Nathy Peluso",
+        "Nicki Nicole",
+        "Nicky Jam",
+        "Ozuna",
+        "Peter Manjarrés",
+        "Prince Royce",
+        "Rauw Alejandro",
+        "Residente",
+        "Ricardo Arjona",
+        "Roberto Carlos",
+        "Romeo Santos",
+        "Rubén Blades",
+        "Sebastián Yatra",
+        "Silvestre Dangond",
+        "Vicentico",
+        "Víctor Manuelle",
+        "Wilfrido Vargas",
+        "Willie Colón"
+      ]
+    },
+    "how": {
+      "eyebrow": "How we work",
+      "title": "Large-scale coordination with a dedicated team.",
+      "lead": "From galas and conventions to film, music and touring productions, our Events team plans every movement before the first pickup and stays involved until the last one.",
+      "items": [
+        {
+          "title": "Artists, talent and crew in one plan",
+          "body": "Principals, entourage, crew, dancers and technicians, coordinated together around the production schedule."
+        },
+        {
+          "title": "Direct contact throughout the event",
+          "body": "You deal with a team that knows your plan and keeps every channel open before, during and after the service."
+        },
+        {
+          "title": "Venue access prepared in advance",
+          "body": "Chauffeur details are shared ahead of service, and vehicle information is provided whenever a show or venue requires it."
+        }
+      ]
+    },
+    "steps": {
+      "eyebrow": "From request to completion",
+      "title": "A team involved at every step.",
+      "items": [
+        {
+          "title": "Scope and quote",
+          "body": "Send us what you have, even if the plan is still taking shape. We review the requirements, suggest options where they help and prepare a quote."
+        },
+        {
+          "title": "Plan and coordinate",
+          "body": "Once approved, we build every transfer around your itinerary and stay in direct contact with your team throughout the event."
+        },
+        {
+          "title": "Close and invoice",
+          "body": "After the last transfer, our Events team hands off to our billing team to close the paperwork and invoice."
+        }
+      ],
+      "note": "Confidentiality is part of the operation, not an afterthought."
+    },
+    "coverage": {
+      "eyebrow": "Event transportation coverage",
+      "title": "Global Event Transportation",
+      "lead": "Relier provides event transportation worldwide, with a strong presence across the United States and Europe. Our team coordinates transportation around each event's itinerary, passenger groups, locations, and operational requirements, adapting the service to the needs of each production.",
+      "badges": [
+        "Worldwide",
+        "United States",
+        "Europe",
+        "Group transportation",
+        "Motor coach transfers"
+      ]
+    },
+    "faq": [
+      {
+        "q": "Can you help us define what we need?",
+        "a": "Yes. If the plan is still taking shape, our Events team works through the options with you and reflects them in the quote."
+      },
+      {
+        "q": "Who do you transport?",
+        "a": "Artists, talent and VIPs and everyone traveling with them: entourage, crew, dancers, technicians, production staff and corporate groups."
+      },
+      {
+        "q": "How do we stay in contact during the event?",
+        "a": "With a dedicated team that knows your plan, available 24/7 through every channel you prefer, before, during and after the service."
+      },
+      {
+        "q": "What information do we receive before each service?",
+        "a": "Chauffeur details ahead of service, and vehicle information whenever a show or venue requires it for access."
+      },
+      {
+        "q": "Where do you coordinate event transportation?",
+        "a": "Worldwide, with a strong presence across the United States and Europe. We adapt the plan to each event's locations and requirements."
+      },
+      {
+        "q": "Can you move large groups and full crews?",
+        "a": "Yes. From multi-vehicle movements to motor coach transfers between cities, we plan the right vehicle for each group and each leg of the event."
+      }
+    ],
+    "closer": {
+      "eyebrow": "Start a conversation",
+      "title": "Discuss your event, tour or production.",
+      "body": "If the plan is already defined, send it over. If it is still taking shape, our Events team can help work through the transportation requirements with you."
+    }
+  },
+  "corporate": {
+    "meta": {
+      "title": "Corporate Transportation Services & Executive Car Service | Relier",
+      "description": "Corporate transportation services for executives, employees and guests. Airport transfers, roadshows and business travel coordination across 500+ cities."
+    },
+    "hero": {
+      "eyebrow": "For Business · Corporate Accounts",
+      "title": "Corporate Transportation Services",
+      "subtitle": "Relier provides corporate transportation for executives, employees, clients and guests across more than 500 cities. Coordinate executive car service, airport transfers, roadshows, conferences, meetings and daily business travel through one account and one service standard."
+    },
+    "highlights": {
+      "items": [
+        "Corporate Ground Transportation",
+        "Executive Transportation",
+        "Corporate Airport Transfers",
+        "Roadshow & Event Transportation"
+      ],
+      "tagline": "Business travel, coordinated as one program."
+    },
+    "services": {
+      "eyebrow": "Business travel transportation",
+      "title": "Corporate Transportation for Teams of Every Size",
+      "lead": "Relier supports corporate travel teams, executive assistants, event planners and procurement stakeholders with professionally coordinated ground transportation. The same service relationship can support one executive movement or an ongoing multi-city transportation program.",
+      "items": [
+        {
+          "title": "Corporate Ground Transportation",
+          "body": "One account for the daily movement of your people: meetings, client visits and office-to-office travel, coordinated through one point of contact."
+        },
+        {
+          "title": "Executive Transportation",
+          "body": "Discreet executive car service for leadership and VIP guests, with professional chauffeurs trained for business travel."
+        },
+        {
+          "title": "Corporate Airport Transfers",
+          "body": "Private airport transfers for executives, employees, clients and guests, coordinated around flight details and business schedules."
+        },
+        {
+          "title": "Roadshow & Event Transportation",
+          "body": "Multi-stop roadshows, investor meetings, conferences and corporate events where punctuality, communication and schedule changes matter."
+        }
+      ]
+    },
+    "program": {
+      "eyebrow": "One program. Every city.",
+      "title": "Corporate ground transportation, one operational standard across the program.",
+      "lead": "Executive travel is rarely just a ride. It is a chain of meetings, airports, client expectations, schedule changes and reporting requirements. Relier gives travel teams one operational standard across the program.",
+      "items": [
+        {
+          "title": "Centralized coordination",
+          "body": "Manage executive and guest transportation through one account and one service relationship."
+        },
+        {
+          "title": "Duty-of-care visibility",
+          "body": "Maintain clearer oversight with trip monitoring, service communication and professional chauffeur standards."
+        },
+        {
+          "title": "Billing that scales",
+          "body": "Reduce administrative friction with centralized billing and a consistent process across travelers and cities."
+        }
+      ]
+    },
+    "uses": {
+      "eyebrow": "Built around business travel",
+      "title": "From the airport to the boardroom, and everything in between.",
+      "items": [
+        {
+          "title": "Executive travel",
+          "body": "Discreet chauffeured transportation for daily executive movement and leadership travel."
+        },
+        {
+          "title": "Roadshows & client visits",
+          "body": "Coordinate multi-stop schedules where punctuality, communication and flexibility matter."
+        },
+        {
+          "title": "Conferences & guest programs",
+          "body": "Move employees, clients and guests with a consistent standard across airports, hotels and venues."
+        }
+      ]
+    },
+    "built": {
+      "eyebrow": "Operational consistency",
+      "title": "What corporate teams need to know is already built in.",
+      "items": [
+        {
+          "title": "500+ cities",
+          "body": "Global reach through Relier operations and selected partners."
+        },
+        {
+          "title": "Professional chauffeurs",
+          "body": "Service standards built for executive and client-facing travel."
+        },
+        {
+          "title": "Trip monitoring",
+          "body": "Operational visibility around scheduled movements."
+        },
+        {
+          "title": "One service standard",
+          "body": "One relationship across the cities where your business moves."
+        }
+      ]
+    },
+    "steps": {
+      "eyebrow": "Account workflow",
+      "title": "Easy for bookers. Predictable for travelers.",
+      "items": [
+        {
+          "title": "Define the program",
+          "body": "Share traveler profiles, common routes, billing needs and service expectations."
+        },
+        {
+          "title": "Book and coordinate",
+          "body": "Use one Relier relationship to manage rides for executives, employees, clients and guests."
+        },
+        {
+          "title": "Track and reconcile",
+          "body": "Keep visibility over transportation activity and simplify the close through centralized administration."
+        }
+      ]
+    },
+    "coverage": {
+      "eyebrow": "Global business travel",
+      "title": "Corporate Ground Transportation Across 500+ Cities",
+      "lead": "A single Relier relationship can support business travel across more than 500 cities. Centralized coordination helps corporate teams maintain a consistent passenger experience, clearer trip visibility and a simpler administrative workflow across markets.",
+      "badges": [
+        "Executive travel",
+        "Roadshows",
+        "Client transportation",
+        "Conferences",
+        "500+ cities"
+      ]
+    },
+    "faq": [
+      {
+        "q": "Can we centralize billing for multiple travelers?",
+        "a": "Yes. Relier can support centralized account and billing workflows for corporate transportation programs."
+      },
+      {
+        "q": "Can Relier support roadshows and multi-stop business travel?",
+        "a": "Yes. Corporate transportation can be coordinated for roadshows, client visits, conferences, airport movements and daily executive travel."
+      },
+      {
+        "q": "How do you support duty of care?",
+        "a": "Trip visibility, professional chauffeur standards and centralized coordination help corporate teams maintain oversight of passenger movements."
+      },
+      {
+        "q": "Can we use one account across multiple cities?",
+        "a": "Yes. Relier's model is designed to provide one service standard across more than 500 cities."
+      },
+      {
+        "q": "Can assistants or travel teams book on behalf of executives and guests?",
+        "a": "Yes. Corporate bookers can coordinate transportation on behalf of executives, employees, clients and guests."
+      }
+    ],
+    "closer": {
+      "eyebrow": "Start a conversation",
+      "title": "Build a ground transportation program your team can rely on.",
+      "body": "Tell us how your executives, employees and guests move today. We'll help simplify the program around your routes, travelers and reporting needs."
+    }
+  },
+  "affiliates": {
+    "meta": {
+      "title": "Limo Affiliate Network Partner in New York & Spain | Relier",
+      "description": "Relier is the limo affiliate network partner for New York, Barcelona and Madrid, with in-house 24/7 bilingual dispatch, licensed vehicles and large-event logistics for your clients."
+    },
+    "hero": {
+      "eyebrow": "For Business · Affiliates",
+      "title": "Your Limo Affiliate Network Partner in New York and Spain",
+      "subtitle": "Relier is the limo affiliate network partner that professional chauffeured transportation operators use for New York, Barcelona and Madrid. Our own operation, in-house 24/7 dispatch in English and Spanish, licensed vehicles for every group size and experience with large-scale events make these our strongest markets. Send us your clients here. Where you operate, we would like to send you ours."
+    },
+    "highlights": {
+      "items": [
+        "Own operation in New York and Spain",
+        "In-house 24/7 bilingual dispatch",
+        "Licensed fleet for every group size",
+        "On-site coordination for large events"
+      ],
+      "tagline": "New York. Barcelona. Madrid. Your clients, our operation."
+    },
+    "markets": {
+      "eyebrow": "Where we operate for you",
+      "title": "New York and Spain, operated by Relier.",
+      "lead": "These are our home markets. Relier is headquartered in New York and Barcelona and specializes in New York, Barcelona and Madrid. This is where we offer our most competitive rates and strongest fleet availability, with the Relier standard coordinated end to end.",
+      "items": [
+        {
+          "title": "New York",
+          "body": "Our own operation, professional chauffeurs and in-house dispatch for airport transfers, hourly service and large-scale event movements across the city and its airports."
+        },
+        {
+          "title": "Barcelona and Madrid",
+          "body": "Relier Spain coordinates both cities with a European fleet and the same dispatch standard, for transfers, hourly service and tours across Spain."
+        },
+        {
+          "title": "Everywhere else",
+          "body": "Beyond our home markets, Relier works with a carefully selected partner network across 500+ cities. If you operate where we do not, we would like to talk."
+        }
+      ]
+    },
+    "why": {
+      "eyebrow": "Why operators send us their New York and Spain work",
+      "title": "Competitive, available, and operated by the people you talk to.",
+      "items": [
+        {
+          "title": "Competitive rates in our home markets",
+          "body": "Operating directly in New York and Spain means we can quote our own service in the markets where Relier is strongest. Ask our team for affiliate rates."
+        },
+        {
+          "title": "Fleet availability",
+          "body": "Our New York operation and Spain team give affiliate partners direct access to vehicles and service capacity in the destinations we know best."
+        },
+        {
+          "title": "One point of contact, one standard",
+          "body": "Your request goes to Relier dispatch and is coordinated by our team. Your client experiences your standard, delivered by ours."
+        }
+      ]
+    },
+    "get": {
+      "eyebrow": "What you get",
+      "title": "Operational, not transactional.",
+      "lead": "What makes an affiliate relationship work is what happens on the ground. This is what Relier brings to every booking you send us.",
+      "items": [
+        {
+          "title": "In-house 24/7 dispatch",
+          "body": "A live Relier dispatch team on the other end, day and night, in English and Spanish."
+        },
+        {
+          "title": "Licensed vehicles and chauffeurs",
+          "body": "Professional chauffeured transportation operated under the licensing requirements that apply in each of our home markets."
+        },
+        {
+          "title": "The right fleet for each destination",
+          "body": "Our US and European fleets are different by design and held to the same Relier service standard."
+        },
+        {
+          "title": "On-site coordination",
+          "body": "For group and event movements, Relier can coordinate vehicles, chauffeurs and timing at the venue."
+        },
+        {
+          "title": "Large-event logistics",
+          "body": "Our Events team has experience coordinating artists, crews and large passenger groups across complex multi-vehicle operations."
+        }
+      ]
+    },
+    "standard": {
+      "eyebrow": "One standard, both ways",
+      "title": "The standard we deliver is the standard we expect.",
+      "lead": "When you send us your clients, this is what they get. When we send you ours, this is what we ask for.",
+      "items": [
+        {
+          "title": "Communication",
+          "body": "Responsive operational communication before, during and after the trip."
+        },
+        {
+          "title": "Reliability",
+          "body": "Professional execution that protects the passenger experience and the client relationship."
+        },
+        {
+          "title": "Discretion",
+          "body": "Passenger privacy and professional conduct appropriate for luxury, corporate and VIP travel."
+        },
+        {
+          "title": "Local knowledge",
+          "body": "Market expertise that helps each movement run smoothly in real conditions."
+        }
+      ]
+    },
+    "steps": {
+      "eyebrow": "Start working with Relier",
+      "title": "Three steps to your first booking with us.",
+      "items": [
+        {
+          "title": "Tell us about your clients in New York or Spain",
+          "body": "Share markets, typical movements, vehicle classes and volume. Our team comes back with affiliate rates and availability."
+        },
+        {
+          "title": "Book through our dispatch",
+          "body": "Send requests to our in-house dispatch team, available 24/7 in English or Spanish. Chauffeur and vehicle details come back before the pickup."
+        },
+        {
+          "title": "Grow it both ways",
+          "body": "If you operate where we do not, tell us. We would like to send you ours."
+        }
+      ]
+    },
+    "coverage": {
+      "eyebrow": "Operational bases",
+      "title": "New York. Barcelona. Madrid. And a network across 500+ cities.",
+      "lead": "Relier operates directly in New York and Spain and extends the same standard through carefully selected partners in more than 500 cities. For your clients, our home markets are where we are strongest: our own operation, our most competitive rates and our strongest fleet availability.",
+      "badges": [
+        "New York",
+        "Barcelona",
+        "Madrid",
+        "500+ cities worldwide"
+      ]
+    },
+    "faq": [
+      {
+        "q": "Where does Relier operate its own fleet and dispatch?",
+        "a": "Relier operates directly in New York and Spain, with headquarters in New York and Barcelona and service coordinated in Barcelona and Madrid. Everywhere else, we work with partners who meet our standard."
+      },
+      {
+        "q": "Why send our clients to Relier in New York or Spain?",
+        "a": "Because these are our home markets: our most competitive rates, strong fleet availability and the same Relier team coordinating the service from request through completion."
+      },
+      {
+        "q": "Can you handle large groups and event movements for our clients?",
+        "a": "Yes. Our Events team coordinates multi-vehicle operations, large passenger groups and on-site coordination, from motor coach transfers to artist and crew movements."
+      },
+      {
+        "q": "How do we reach your dispatch?",
+        "a": "Through our in-house dispatch team, available 24/7 in English and Spanish."
+      },
+      {
+        "q": "Do you also work with affiliates in other cities?",
+        "a": "Yes. Where we do not operate directly, we work with a carefully selected network of operators who share our standards for communication, reliability and passenger care. If that is you, we would like to talk."
+      }
+    ],
+    "closer": {
+      "eyebrow": "Start a conversation",
+      "title": "Partner with Relier in New York and Spain.",
+      "body": "Tell us where your clients travel and what they expect. Our team will come back with affiliate rates, availability and a direct line to our dispatch."
+    }
+  },
+  "travelAdvisors": {
+    "meta": {
+      "title": "Travel Agency Transportation | Luxury Ground Transport | Relier",
+      "description": "Travel agency transportation for luxury clients worldwide. Relier is a Virtuoso Preferred Partner offering chauffeured service across 500+ cities."
+    },
+    "hero": {
+      "eyebrow": "For Business · Travel Advisors & Agencies",
+      "title": "Luxury Ground Transportation for Travel Advisors & Agencies",
+      "subtitle": "Relier provides travel agency transportation for luxury clients across more than 500 cities. As a Virtuoso Preferred Partner, we coordinate private airport transfers, hourly chauffeur service and complex multi-day itineraries for travel advisors, agencies and hospitality partners through one point of contact."
+    },
+    "highlights": {
+      "items": [
+        "Virtuoso Preferred Partner",
+        "500+ cities",
+        "Real-time trip monitoring",
+        "One point of contact"
+      ],
+      "tagline": "One partner for the ground experience behind every itinerary."
+    },
+    "services": {
+      "eyebrow": "Luxury travel ground transportation",
+      "title": "Travel Agency Transportation for Luxury Clients",
+      "lead": "Relier works with travel advisors, agencies, hotel representatives and luxury travel professionals who need reliable ground transportation for their clients. Services can be coordinated for a single arrival or departure, an hourly booking, a full day of chauffeured travel or a multi-city itinerary.",
+      "items": [
+        {
+          "title": "Airport Transfers for Travel Clients",
+          "body": "Coordinate private airport transfers with professional chauffeurs, trip monitoring and a service experience designed for VIP and luxury travelers."
+        },
+        {
+          "title": "Hourly Chauffeur Service",
+          "body": "Arrange flexible chauffeured transportation for dining, shopping, meetings, sightseeing and schedules that may change during the day."
+        },
+        {
+          "title": "Multi-Day & Multi-City Itineraries",
+          "body": "Keep multiple ground movements connected through one Relier team instead of managing a different transportation supplier in every destination."
+        }
+      ]
+    },
+    "built": {
+      "eyebrow": "Built for advisors",
+      "title": "Make every ground movement feel considered.",
+      "lead": "Your client may experience the car for an hour. You experience everything behind it: confirmations, changes, flight delays, special requests and the need to know that someone is paying attention.",
+      "items": [
+        {
+          "title": "One point of contact",
+          "body": "Coordinate transportation across cities without rebuilding the supplier relationship at every destination."
+        },
+        {
+          "title": "Proactive trip oversight",
+          "body": "Real-time trip monitoring and service updates help you stay ahead of changes instead of reacting to them."
+        },
+        {
+          "title": "Discretion by default",
+          "body": "Professional chauffeurs, thoughtful communication and a service approach designed for discerning travelers."
+        }
+      ]
+    },
+    "recognition": {
+      "eyebrow": "Industry recognition",
+      "title": "A Virtuoso Preferred Partner, inside the luxury travel ecosystem.",
+      "lead": "Relier is a Virtuoso Preferred Partner, connecting our ground transportation operation with a global community of luxury travel advisors who value trusted relationships, personalized service and consistency.",
+      "eventsLabel": "Where to meet us",
+      "eventsNote": "The Relier team attends the luxury travel and events industry’s key trade shows: ILTM, M&I Forums, IMEX, Virtuoso On Tour and Virtuoso Travel Week."
+    },
+    "range": {
+      "eyebrow": "From simple to complex",
+      "title": "One standard across the itinerary.",
+      "items": [
+        {
+          "title": "Airport transfers",
+          "body": "Meet-and-greet transportation with trip monitoring and coordinated pickup."
+        },
+        {
+          "title": "Hourly service",
+          "body": "Flexible chauffeured service for dining, shopping, meetings and changing schedules."
+        },
+        {
+          "title": "Multi-day itineraries",
+          "body": "Keep multiple services, cities and passenger movements under one coordinated plan."
+        },
+        {
+          "title": "Groups & VIPs",
+          "body": "Adapt the vehicle plan and service approach around the traveler, party size and itinerary."
+        }
+      ]
+    },
+    "steps": {
+      "eyebrow": "Advisor workflow",
+      "title": "Designed to reduce follow-up.",
+      "items": [
+        {
+          "title": "Share the itinerary",
+          "body": "Send the movements, passenger details and service requirements you already have."
+        },
+        {
+          "title": "We coordinate the ground plan",
+          "body": "Relier organizes the transportation and keeps the service connected across destinations."
+        },
+        {
+          "title": "Stay informed",
+          "body": "Trip monitoring and proactive updates give you visibility while your client experiences a seamless journey."
+        }
+      ]
+    },
+    "coverage": {
+      "eyebrow": "Global coverage",
+      "title": "Ground Transportation Across 500+ Cities",
+      "lead": "Relier combines its own operations with carefully selected local partners to provide a consistent standard of service across more than 500 cities. Travel advisors work with one coordinating team while clients receive professional local transportation in each destination.",
+      "badges": [
+        "New York",
+        "Barcelona",
+        "500+ cities worldwide",
+        "One service standard"
+      ]
+    },
+    "faq": [
+      {
+        "q": "Do you offer commissions to travel agents?",
+        "a": "Yes, Relier offers commissionable rates for travel agents and travel agencies, with special commission rates available for Virtuoso members. We regularly work with travel industry professionals, providing booking updates to both agents and passengers to ensure clear communication throughout the service. We can also offer net rates for agencies that prefer to apply their own markup."
+      },
+      {
+        "q": "Do travel advisors get their own access to the booking platform?",
+        "a": "Yes. Travel advisors can request an agent account with personalized access to the booking platform and advisor benefits. Contact our team to set up access."
+      },
+      {
+        "q": "Can I book on behalf of my clients?",
+        "a": "Yes. Relier works with travel advisors and agencies booking transportation for their clients, from individual airport transfers to multi-day itineraries."
+      },
+      {
+        "q": "Where can Relier coordinate transportation?",
+        "a": "Relier provides service across more than 500 cities through its own operations and carefully selected local partners."
+      },
+      {
+        "q": "How do you keep advisors informed?",
+        "a": "The team monitors trips in real time and provides proactive service updates so advisors can stay informed without chasing multiple suppliers."
+      },
+      {
+        "q": "Is Relier part of Virtuoso?",
+        "a": "Yes. Relier is a Virtuoso Preferred Partner and works within the luxury travel advisor ecosystem."
+      },
+      {
+        "q": "Can you support complex or multi-city itineraries?",
+        "a": "Yes. Relier can coordinate airport transfers, hourly service, city-to-city movements and multi-day transportation plans through one point of contact."
+      }
+    ],
+    "closer": {
+      "eyebrow": "Start a conversation",
+      "title": "Give your clients one less thing to think about.",
+      "body": "Tell us where your clients are going and how you want the journey to feel. We'll help shape the ground transportation around the experience."
+    }
+  }
+}

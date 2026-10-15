@@ -144,7 +144,7 @@ const SERVICE_LANDINGS: Record<string, LandingConfig> = {
     parent: "services",
   },
   travelAdvisors: {
-    path: "/for-business/travel-advisors",
+    path: "/travel-advisors",
     ns: "services.travelAdvisors",
     serviceType: "Chauffeured transportation for travel advisors and agencies",
     audience: {
@@ -498,4 +498,94 @@ export async function postNodes(post: Post): Promise<SchemaNode[]> {
     homeName: labels.home,
     blogName: labels.blog,
   });
+}
+
+/**
+ * Landings B2B del equipo de SEO (oct-2026): Service + WebPage + Breadcrumb +
+ * FAQPage, como en sus HTML finales. Las cuatro cuelgan del hub /for-business
+ * en el breadcrumb aunque la URL viva en la raíz.
+ */
+export const LANDINGS = {
+  events: {
+    path: "/events",
+    crumb: "events",
+    serviceType: "Event transportation",
+    audience: {
+      "@type": "Audience",
+      audienceType: "Artists, crews, production teams and event planners",
+    },
+  },
+  corporate: {
+    path: "/corporate",
+    crumb: "corporate",
+    serviceType:
+      "Corporate transportation, executive car service and corporate chauffeur service",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Companies, business travelers and executive teams",
+    },
+  },
+  affiliates: {
+    path: "/affiliates",
+    crumb: "affiliates",
+    serviceType:
+      "Limo affiliate network and chauffeur partner services in New York and Spain",
+    areaServed: [
+      { "@type": "City", name: "New York" },
+      { "@type": "City", name: "Barcelona" },
+      { "@type": "City", name: "Madrid" },
+      ...WORLDWIDE,
+    ],
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Chauffeured transportation operators",
+    },
+  },
+  travelAdvisors: {
+    path: "/travel-advisors",
+    crumb: "travelAdvisors",
+    serviceType: "Travel agency transportation and luxury ground transportation",
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Travel advisors, travel agencies and hospitality teams",
+    },
+  },
+} as const satisfies Record<
+  string,
+  ServiceExtras & { path: string; crumb: keyof Awaited<ReturnType<typeof crumbLabels>> }
+>;
+
+export type LandingKey = keyof typeof LANDINGS;
+
+export async function landingNodes(
+  locale: string,
+  key: LandingKey
+): Promise<SchemaNode[]> {
+  const cfg = LANDINGS[key];
+  const labels = await crumbLabels(locale);
+  const t = await getTranslations({ locale, namespace: `landings.${key}` });
+  const faq = t.raw("faq") as { q: string; a: string }[];
+  return [
+    ...serviceSchema({
+      ...(cfg as ServiceExtras),
+      locale,
+      path: cfg.path,
+      name: t("hero.title"),
+      description: t("meta.description"),
+      homeName: labels.home,
+      trail: [
+        FOR_BUSINESS_CRUMB(labels.forBusiness),
+        { name: labels[cfg.crumb], path: cfg.path },
+      ],
+    }),
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl(locale, cfg.path)}#faq`,
+      mainEntity: faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
 }

@@ -1,66 +1,37 @@
-import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { localeAlternates } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import ServiceHero from "@/components/sections/ServiceHero";
-import ServiceBody, {
-  type ServiceBlock,
-} from "@/components/sections/ServiceBody";
 import ServiceCloser from "@/components/sections/ServiceCloser";
+import Faq, { type FaqItem } from "@/components/sections/Faq";
+import Button from "@/components/ui/Button";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
-import { serviceLandingNodes } from "@/lib/seo/pages";
+import { Badges, Band, Cards, Head, Highlights, Steps } from "@/components/landing/Landing";
+import { items, landingMetadata, strings } from "@/components/landing/landingPage";
+import { landingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
+
+// Landing de SEO (oct-2026, relier_corporate_seo_final.html). Contacto:
+// reservations@ (agencias y clientes directos, doc del cliente).
+const EMAIL = "mailto:reservations@relier.com";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps) {
   const { locale } = await params;
-  const t = await getTranslations({
-    locale,
-    namespace: "services.corporate.meta",
-  });
-  return {
-    title: t("title"),
-    description: t("description"),
-    alternates: localeAlternates("/corporate", locale),
-  };
+  return landingMetadata(locale, "corporate");
 }
 
 export default async function CorporatePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("services.corporate");
-
-  const blocks: ServiceBlock[] = [
-    {
-      title: t("blocks.onTime.title"),
-      paragraphs: [t("blocks.onTime.p1")],
-      image: "/images/services/corporate/arrive-on-time.webp",
-      imageAlt: t("blocks.onTime.imageAlt"),
-      links: [{ href: "/airport", label: t("links.airport") }],
-    },
-    {
-      title: t("blocks.impression.title"),
-      paragraphs: [t("blocks.impression.p1")],
-      image: "/images/services/corporate/lasting-impression.webp",
-      imageAlt: t("blocks.impression.imageAlt"),
-    },
-    {
-      title: t("blocks.workRelax.title"),
-      paragraphs: [t("blocks.workRelax.p1")],
-      image: "/images/services/corporate/work-relax.webp",
-      imageAlt: t("blocks.workRelax.imageAlt"),
-      links: [{ href: "/fleet", label: t("links.fleet") }],
-    },
-  ];
+  const t = await getTranslations("landings.corporate");
+  const c = await getTranslations("landings.common");
 
   return (
     <GsapProvider>
-      <PageSchema nodes={await serviceLandingNodes(locale, "corporate")} />
+      <PageSchema nodes={await landingNodes(locale, "corporate")} />
       <Nav />
       <main>
         <ServiceHero
@@ -69,13 +40,53 @@ export default async function CorporatePage({ params }: PageProps) {
           subtitle={t("hero.subtitle")}
           image="/images/services/corporate/hero.webp"
           className={styles.hero}
+          actions={
+            <>
+              <Button href={EMAIL} withArrow>{c("talk")}</Button>
+              <Button href="#why" variant="secondary">{c("why")}</Button>
+            </>
+          }
         />
-        <ServiceBody blocks={blocks} />
+        <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
+
+        <Band id="why">
+          <Head eyebrow={t("services.eyebrow")} title={t("services.title")} lead={t("services.lead")} />
+          <Cards items={items(t.raw("services.items"))} columns={4} />
+        </Band>
+
+        <Band tone="light">
+          <Head eyebrow={t("program.eyebrow")} title={t("program.title")} lead={t("program.lead")} />
+          <Steps items={items(t.raw("program.items"))} />
+        </Band>
+
+        <Band>
+          <Head eyebrow={t("uses.eyebrow")} title={t("uses.title")} />
+          <Cards items={items(t.raw("uses.items"))} />
+        </Band>
+
+        <Band tone="light">
+          <Head eyebrow={t("built.eyebrow")} title={t("built.title")} />
+          <Cards items={items(t.raw("built.items"))} columns={4} />
+        </Band>
+
+        <Band>
+          <Head eyebrow={t("steps.eyebrow")} title={t("steps.title")} />
+          <Steps items={items(t.raw("steps.items"))} />
+        </Band>
+
+        <Band tone="light">
+          <Head eyebrow={t("coverage.eyebrow")} title={t("coverage.title")} lead={t("coverage.lead")} />
+          <Badges items={strings(t.raw("coverage.badges"))} />
+        </Band>
+
+        <Faq eyebrow={c("faqEyebrow")} title={c("faqTitle")} items={t.raw("faq") as FaqItem[]} />
         <ServiceCloser
           title={t("closer.title")}
           body={t("closer.body")}
+          ctaLabel={c("contactRelier")}
+          ctaHref={EMAIL}
           secondaryHref="/for-business"
-          secondaryLabel={t("links.forBusiness")}
+          secondaryLabel={t("hero.eyebrow").split(" · ")[0]}
         />
       </main>
       <Footer />

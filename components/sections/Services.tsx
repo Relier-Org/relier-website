@@ -88,8 +88,9 @@ export default async function Services() {
                 <br />
                 <span className="muted">{t("services.titleLine2")}</span>
               </h2>
-              <p className={styles.lead}>{t("services.lead")}</p>
             </div>
+            {/* Título a la izquierda, descripción a la derecha (Figma oct-2026). */}
+            <p className={styles.lead}>{t("services.lead")}</p>
           </header>
         </Reveal>
 

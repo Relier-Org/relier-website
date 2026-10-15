@@ -27,6 +27,13 @@ const LEGACY_REDIRECTS = [
     destination: "/airport/",
   },
 
+  // Landing de SEO oct-2026: travel advisors pasa a la raíz (su canonical).
+  { source: "/for-business/travel-advisors", destination: "/travel-advisors/" },
+  {
+    source: "/:locale(es|pt)/for-business/travel-advisors",
+    destination: "/:locale/travel-advisors/",
+  },
+
   // /concierge no está acá: se recuperó como landing 200 (app/[locale]/concierge),
   // que es lo que pedía el audit en lugar de mandarla a /services/.
 
