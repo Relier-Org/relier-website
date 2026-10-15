@@ -32,6 +32,7 @@ export default async function FleetPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "fleet" });
+  const tc = await getTranslations({ locale, namespace: "common" });
 
   const smaller: FleetVehicle[] = [
     {
@@ -120,6 +121,7 @@ export default async function FleetPage({ params }: PageProps) {
             { href: "/events", label: t("useCases.events") },
             { href: "/airport", label: t("useCases.airport") },
           ]}
+          primary={{ href: "/online-reservation", label: tc("bookOnline") }}
         />
       </main>
       <Footer />

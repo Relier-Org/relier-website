@@ -74,7 +74,9 @@
     "titleLine1": "Eventos, cobertos",
     "titleLine2": "do início ao fim.",
     "lead": "Torneios, campeonatos, semanas de moda, assembleias. Quando milhares de pessoas se movem no mesmo horário, o transporte terrestre vira uma operação.",
-    "seeAll": "Ver todos os eventos"
+    "seeAll": "Ver todos os eventos",
+    "listUpcoming": "Próximos eventos",
+    "listRecent": "Eventos recentes"
   },
   "wc": {
     "titleLine1": "Quando o mundo",

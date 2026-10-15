@@ -23,23 +23,39 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  font-size: var(--type-h3);
   line-height: 1.12;
   letter-spacing: -0.018em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
+}
+
+/* Primario arriba, secundarios debajo; todo alineado a la derecha como los
+   cierres (ServiceCloser, EventsDossier). */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 28px;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
 @media (max-width: 1024px) {
   .inner {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+  .actions {
+    align-items: flex-start;
+  }
+  .list {
+    justify-content: flex-start;
   }
 }

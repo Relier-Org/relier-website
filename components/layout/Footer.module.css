@@ -25,8 +25,9 @@
   justify-content: flex-start;
 }
 
+/* Logo apilado: a la altura del horizontal (40px) el wordmark quedaba ilegible. */
 .logoImg {
-  height: 40px;
+  height: 88px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -69,9 +70,9 @@
    level. */
 .col h3 {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: var(--eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--color-champagne-500);
   text-align: left;

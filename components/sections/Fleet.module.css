@@ -26,9 +26,9 @@
 }
 
 .kicker {
-  font-size: 11px;
+  font-size: var(--eyebrow-size);
   font-weight: 600;
-  letter-spacing: 0.35em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--text-accent);
 }
@@ -37,10 +37,10 @@
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 350;
-  font-size: clamp(2.125rem, 3.8vw, 3.375rem);
+  font-size: var(--type-h2);
   line-height: 1.05;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   text-wrap: balance;
 }
 
@@ -117,7 +117,7 @@
   color: rgba(216, 205, 181, 0.09);
   pointer-events: none;
   user-select: none;
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   animation: wordIn 500ms ease both;
 }
 
@@ -272,12 +272,13 @@
   font-size: clamp(1.5625rem, 2.6vw, 2.375rem);
   line-height: 1.1;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
 }
 
 .orSimilar {
   font-family: var(--font-display);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 400;
   font-size: 16px;
   color: var(--text-tertiary);

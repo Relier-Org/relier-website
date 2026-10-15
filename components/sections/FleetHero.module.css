@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--color-obsidian-900);
+  background: var(--bg-canvas);
   padding-top: 84px;
   text-align: center;
 }
@@ -45,11 +45,11 @@
 .h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  font-size: var(--type-h1);
   line-height: 1.03;
   letter-spacing: -0.022em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   animation: fadeUp 1.2s var(--ease-out) 0.35s both;
@@ -58,6 +58,7 @@
 .muted {
   color: var(--color-silver-200);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 
@@ -82,8 +83,5 @@
   .hero {
     padding-top: 72px;
     min-height: clamp(440px, 64svh, 560px);
-  }
-  .h1 {
-    font-size: clamp(2rem, 8.5vw, 3rem);
   }
 }

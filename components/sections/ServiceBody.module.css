@@ -1,5 +1,5 @@
 .section {
-  background: var(--color-obsidian-900);
+  background: var(--ambient-left), var(--bg-canvas);
   padding: clamp(48px, 8vw, 96px) 0 clamp(96px, 14vw, 160px);
 }
 
@@ -36,11 +36,11 @@
 .heading {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  font-size: var(--type-h3);
   line-height: 1.1;
   letter-spacing: -0.018em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 120;
+  font-variation-settings: "opsz" 120, "WONK" 0;
   text-wrap: balance;
   margin-bottom: 24px;
 }

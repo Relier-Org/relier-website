@@ -84,6 +84,7 @@
 .testimonials :global(.muted) {
   color: var(--text-on-light-muted);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 

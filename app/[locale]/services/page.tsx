@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import ServiceHero from "@/components/sections/ServiceHero";
 import ServicesIntro from "@/components/sections/ServicesIntro";
 import ServicesGrid from "@/components/sections/ServicesGrid";
+import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { servicesHubNodes } from "@/lib/seo/pages";
@@ -43,6 +44,7 @@ export default async function ServicesPage({ params }: PageProps) {
         />
         <ServicesIntro />
         <ServicesGrid />
+        <ServiceCloser title={t("closer.title")} body={t("closer.body")} />
       </main>
       <Footer />
     </GsapProvider>

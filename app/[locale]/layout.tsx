@@ -24,7 +24,9 @@ const OG_LOCALES: Record<string, string> = {
 
 const fraunces = Fraunces({
   subsets: ["latin"],
-  axes: ["opsz"],
+  // WONK se carga para poder apagarlo: el default trae la "&" en forma "Et" que
+  // no se lee rápido (Figma oct-2026, Fraunces 72pt Light Italic).
+  axes: ["opsz", "WONK"],
   style: ["normal", "italic"],
   variable: "--font-fraunces",
   display: "swap",

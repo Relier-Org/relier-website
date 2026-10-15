@@ -6,6 +6,58 @@
 }
 
 .segments {
-  background: var(--color-obsidian-900);
-  padding: clamp(48px, 8vw, 96px) 0 clamp(72px, 10vw, 120px);
+  background: var(--ambient-left), var(--bg-canvas);
+  padding: clamp(64px, 8vw, 112px) 0 clamp(72px, 10vw, 120px);
+}
+
+/* Encabezado de la grilla, el mismo que "Core services" en /services pero
+   sobre oscuro. */
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 720px;
+  margin-bottom: 44px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--eyebrow-size);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--text-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h2);
+  line-height: 1.06;
+  letter-spacing: -0.018em;
+  color: var(--text-primary);
+  font-variation-settings: "opsz" 96, "WONK" 0;
+  text-wrap: balance;
+}
+
+/* 2×2 en el hub (pedido de Nico): con foto, cuatro en fila quedaban angostas. */
+.grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

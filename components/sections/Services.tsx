@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Reveal from "@/components/effects/Reveal";
-import TextCTA from "@/components/ui/TextCTA";
+import Button from "@/components/ui/Button";
 import styles from "./Services.module.css";
 
 // Versión B — "Disney+" layout (brief §2): every service is an equal-width
@@ -90,9 +90,6 @@ export default async function Services() {
               </h2>
               <p className={styles.lead}>{t("services.lead")}</p>
             </div>
-            <div className={styles.headCta}>
-              <TextCTA href="/services">{t("services.seeAll")}</TextCTA>
-            </div>
           </header>
         </Reveal>
 
@@ -121,6 +118,12 @@ export default async function Services() {
             </Link>
           ))}
         </Reveal>
+
+        <div className={styles.foot}>
+          <Button href="/services" variant="secondary">
+            {t("services.seeAll")}
+          </Button>
+        </div>
       </div>
     </section>
   );

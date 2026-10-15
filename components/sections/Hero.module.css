@@ -51,7 +51,7 @@
 .inner {
   position: relative;
   z-index: 2;
-  max-width: 880px;
+  max-width: 1120px;
   padding-top: 100px;
   padding-bottom: 56px;
 }
@@ -108,7 +108,7 @@
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin-bottom: 28px;
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   animation: fadeUp 1.2s var(--ease-out) 0.4s both;
@@ -117,7 +117,17 @@
 .muted {
   color: var(--color-silver-200);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
+  /* La segunda línea va entera, sin cortar (pedido de Nico, oct-2026). En
+     mobile no entra y vuelve a envolver. */
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .muted {
+    white-space: normal;
+  }
 }
 
 .subtitle {
@@ -156,8 +166,8 @@
     font-size: clamp(2.5rem, 9.5vw, 3.5rem);
   }
   .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    font-size: var(--eyebrow-size);
+    letter-spacing: var(--eyebrow-tracking);
   }
   .subtitle {
     font-size: 16px;

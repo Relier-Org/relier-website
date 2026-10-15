@@ -137,10 +137,10 @@ export default function Nav() {
         <div className={cn("container", styles.inner)}>
           <Link href="/" className={styles.logo} aria-label={t("nav.aria.home")}>
             <Image
-              src="/images/relier-logo.png"
+              src="/images/relier-logo-horizontal.png"
               alt="Relier"
-              width={200}
-              height={46}
+              width={683}
+              height={240}
               priority
               className={styles.logoImg}
             />
@@ -207,8 +207,11 @@ export default function Nav() {
           </ul>
           <div className={styles.right}>
             <LanguageSwitcher className={styles.lang} />
-            <Button href="/online-reservation/" variant="primary" className={styles.cta}>
-              {t("common.reserve")}
+            <Button href="/online-reservation/" variant="primary" size="sm" className={styles.cta}>
+              {/* "Reserve now" del Figma; entre 1025 y 1280 no entra (sobre todo
+                  en ES/PT) y queda "Reserve". */}
+              <span className={styles.ctaLong}>{t("common.reserve")}</span>
+              <span className={styles.ctaShort}>{t("common.reserveShort")}</span>
             </Button>
             <button
               type="button"
@@ -243,10 +246,10 @@ export default function Nav() {
               onClick={() => setIsOpen(false)}
             >
               <Image
-                src="/images/relier-logo.png"
+                src="/images/relier-logo-horizontal.png"
                 alt="Relier"
-                width={140}
-                height={32}
+                width={683}
+                height={240}
                 className={styles.logoImg}
               />
             </Link>

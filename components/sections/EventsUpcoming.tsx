@@ -105,14 +105,16 @@ export default function EventsUpcoming({
               >
                 {e.status}
               </p>
-              <h3 className={styles.name}>{e.name}</h3>
-              <p className={styles.edition}>{e.edition}</p>
-              {/* Both strings ship and CSS picks one: the compact mobile row
-                  shows the short range, everything else the full line. */}
+              {/* The date leads, before the name: it is what tells events
+                  apart at a glance (designer's note, oct-2026). Both strings
+                  ship and CSS picks one: the compact mobile row shows the
+                  short range, everything else the full line. */}
               <p className={styles.dates}>
                 <span className={styles.long}>{e.dates}</span>
                 <span className={styles.short}>{e.datesShort}</span>
               </p>
+              <h3 className={styles.name}>{e.name}</h3>
+              <p className={styles.edition}>{e.edition}</p>
               <p className={styles.venue}>{e.venue}</p>
               {e.note ? <p className={styles.note}>{e.note}</p> : null}
               {e.service ? <p className={styles.service}>{e.service}</p> : null}

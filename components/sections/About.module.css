@@ -18,11 +18,11 @@
 .heading {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
+  font-size: var(--type-h2);
   line-height: 1.02;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   margin-bottom: 48px;
   text-wrap: balance;
 }
@@ -30,6 +30,7 @@
 .heading em {
   color: var(--color-champagne-500);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 400;
 }
 

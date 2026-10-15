@@ -29,8 +29,8 @@
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: var(--eyebrow-size);
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   font-weight: 500;
 }

@@ -157,10 +157,10 @@ export default function Preloader({
             {/* Intrinsic dimensions declared, scaled down in CSS — passing the
                 display size instead makes next/image flag the aspect ratio. */}
             <Image
-              src="/images/relier-logo.png"
+              src="/images/relier-logo-horizontal.png"
               alt="Relier"
-              width={641}
-              height={230}
+              width={683}
+              height={240}
               priority
               className={styles.logoImg}
             />

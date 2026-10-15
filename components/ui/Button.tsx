@@ -3,10 +3,18 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 import { cn } from "@/lib/utils/cn";
 import styles from "./Button.module.css";
 
-type Variant = "primary";
+/** primary = relleno champagne (acción principal), secondary = outline (acción
+ *  de apoyo), quiet = outline plateado para acciones utilitarias (Log in del
+ *  nav). El terciario es `TextCTA`. Jerarquía del Figma de oct-2026. */
+type Variant = "primary" | "secondary" | "quiet";
+/** sm = pill compacta del nav. */
+type Size = "md" | "sm";
 
 interface CommonProps {
   variant?: Variant;
+  /** light = sobre las franjas crema: el champagne 500 no llega a AA ahí. */
+  tone?: "dark" | "light";
+  size?: Size;
   withArrow?: boolean;
   children: ReactNode;
   className?: string;
@@ -26,11 +34,15 @@ type ButtonAsLink = CommonProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 export default function Button(props: ButtonProps) {
-  const { variant = "primary", withArrow = false, children, className, ...rest } = props;
+  const { variant = "primary", tone = "dark", size = "md", withArrow = false, children, className, ...rest } = props;
 
   const classes = cn(
     styles.btn,
     variant === "primary" && styles.primary,
+    variant === "secondary" && styles.secondary,
+    variant === "quiet" && styles.quiet,
+    tone === "light" && styles.onLight,
+    size === "sm" && styles.sm,
     withArrow && styles.withArrow,
     className
   );

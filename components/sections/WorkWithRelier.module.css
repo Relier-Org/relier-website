@@ -1,8 +1,10 @@
 /* Same header grammar as the Services section above it (kicker, two-line
    display title, lead, text CTA on the right), so the two read as one system. */
+/* Mismo recurso que Services, espejado: la luz entra por la derecha. */
 .work {
   padding: 96px 0 110px;
   border-top: 0.5px solid var(--border-hairline);
+  background: var(--ambient-right), var(--ambient-floor);
 }
 
 .header {
@@ -17,16 +19,19 @@
   max-width: 640px;
 }
 
-.headCta {
-  flex-shrink: 0;
-  padding-bottom: 6px;
+/* El CTA al hub baja debajo de la grilla, centrado y como botón primario
+   (Figma oct-2026): es la acción principal de la sección. */
+.foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 .kicker {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: var(--eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--text-accent);
   margin-bottom: 18px;
@@ -35,11 +40,11 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  font-size: var(--type-h2);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
   margin: 0 0 18px;
 }
@@ -47,6 +52,7 @@
 .muted {
   color: var(--color-silver-300);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 
@@ -73,4 +79,18 @@
   .header {
     margin-bottom: 32px;
   }
+  .foot {
+    margin-top: 32px;
+  }
+  /* El anchor del hub es largo: en mobile envuelve en vez de desbordar. */
+  .foot a {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* About: la segunda línea en ES/PT ("cuatro formas de trabajar con nosotros.")
+   necesita más ancho para no partirse en dos. */
+.headTextWide {
+  max-width: 860px;
 }

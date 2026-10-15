@@ -1,5 +1,5 @@
 .section {
-  background: var(--color-obsidian-900);
+  background: var(--ambient-right), var(--bg-canvas);
   padding: clamp(72px, 11vw, 140px) 0;
   border-top: 0.5px solid var(--border-hairline);
 }
@@ -76,11 +76,11 @@
 .h2 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.85rem, 3.6vw, 2.85rem);
+  font-size: var(--type-h2);
   line-height: 1.08;
   letter-spacing: -0.018em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 120;
+  font-variation-settings: "opsz" 120, "WONK" 0;
   text-wrap: balance;
   margin-bottom: 28px;
 }
@@ -125,7 +125,6 @@
     aspect-ratio: 16 / 9;
   }
   .h2 {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
     margin-bottom: 22px;
   }
   .body p {

@@ -1,10 +1,12 @@
 .section {
-  background: var(--color-obsidian-900);
+  /* Sin luz ambiente: es una franja baja pegada al hero y el radial quedaba
+     como una mancha en la esquina. La luz la lleva la sección del form. */
+  background: var(--bg-canvas);
   padding: 40px 0 8px;
 }
 
 .content {
-  max-width: 620px;
+  max-width: 760px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -24,10 +26,11 @@
 .statement {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: 13px;
+  /* Era 13px en silver-400 (~4:1 sobre el canvas, casi no se leía). Mismo
+     cuerpo y color que el resto de los textos corridos sobre oscuro. */
+  font-size: 16px;
   line-height: 1.65;
-  letter-spacing: 0.005em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-wrap: pretty;
 }
 
@@ -39,7 +42,7 @@
     gap: 14px;
   }
   .statement {
-    font-size: 12.5px;
+    font-size: 15px;
     line-height: 1.6;
   }
 }

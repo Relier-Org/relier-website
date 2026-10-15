@@ -7,7 +7,11 @@
     "eyebrow": "Serviços",
     "title": "Nossos serviços",
     "subtitle": "Transporte sob medida, de nível concierge, adaptado a cada viajante, cada ocasião, cada cidade.",
-    "imageAlt": "Motorista da Relier abrindo a porta de um veículo de luxo"
+    "imageAlt": "Motorista da Relier abrindo a porta de um veículo de luxo",
+    "closer": {
+      "title": "Reserve seu motorista hoje.",
+      "body": "Preço fixo, motoristas profissionais e suporte 24/7 em mais de 500 cidades. Reserve sua viagem em minutos."
+    }
   },
   "intro": {
     "eyebrow": "Por que a Relier",
@@ -226,7 +230,7 @@
       "viewCards": "Ver em cartões",
       "viewRows": "Ver em linhas",
       "ctaShort": "Planejar transporte",
-      "ctaBook": "Reserve o transporte do seu próximo evento"
+      "ctaBook": "Reservar transporte"
     },
     "items": {
       "world-cup": {
@@ -426,6 +430,14 @@
       "title": "Vamos construir sua conta.",
       "body": "Conte-nos como sua empresa se movimenta e desenharemos um programa sob medida, com um único ponto de contato e o mesmo padrão em cada cidade.",
       "ctaLabel": "Fale com nossa equipe"
+    },
+    "intro": {
+      "eyebrow": "Por que a Relier",
+      "body": "A Relier opera transporte executivo com motorista a partir de Nova York desde 2012, com uma segunda base em Barcelona e o mesmo padrão em mais de 500 cidades. Seja para reservar em nome dos seus clientes, transportar uma equipe executiva, coordenar uma produção ou operar sua própria frota, você conta com um único ponto de contato, uma equipe de despacho 24/7 que acompanha cada viagem em tempo real e preços fixos confirmados com antecedência."
+    },
+    "segmentsHead": {
+      "eyebrow": "Formas de trabalhar conosco",
+      "title": "O mesmo padrão para cada negócio."
     }
   },
   "travelAdvisors": {

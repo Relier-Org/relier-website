@@ -10,9 +10,9 @@
 
 .kicker {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: var(--eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--text-accent);
   margin-bottom: 18px;
@@ -21,11 +21,11 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  font-size: var(--type-h2);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
   margin: 0 0 18px;
 }
@@ -33,6 +33,7 @@
 .title :global(.muted) {
   color: var(--color-silver-300);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 
@@ -198,9 +199,9 @@
   border: none;
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-accent);
   transition: color var(--duration-base) var(--ease-out);

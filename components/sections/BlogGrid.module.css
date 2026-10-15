@@ -24,8 +24,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: var(--eyebrow-size);
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   font-weight: 500;
   color: var(--text-on-light-muted);
@@ -42,11 +42,11 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-size: var(--type-h2);
   line-height: 1.06;
   letter-spacing: -0.018em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   margin: 0;
   text-wrap: balance;
 }
@@ -77,8 +77,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--text-on-light);

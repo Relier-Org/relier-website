@@ -7,7 +7,11 @@
     "eyebrow": "Services",
     "title": "Worldwide Chauffeured Transportation Services",
     "subtitle": "Tailored, concierge-grade transportation, adapted to each traveler, each occasion, each city.",
-    "imageAlt": "Relier chauffeur opening the door of a luxury vehicle"
+    "imageAlt": "Relier chauffeur opening the door of a luxury vehicle",
+    "closer": {
+      "title": "Book your chauffeur today.",
+      "body": "Fixed pricing, professional chauffeurs and 24/7 support in 500+ cities. Book your ride in minutes."
+    }
   },
   "intro": {
     "eyebrow": "Why Relier",
@@ -226,7 +230,7 @@
       "viewCards": "View as cards",
       "viewRows": "View as rows",
       "ctaShort": "Plan transport",
-      "ctaBook": "Book transport for your next event"
+      "ctaBook": "Book transport"
     },
     "items": {
       "world-cup": {
@@ -426,6 +430,14 @@
       "title": "Let's build your account.",
       "body": "Tell us how your business moves and we'll tailor a program around it, with one point of contact and the same standard in every city.",
       "ctaLabel": "Talk to our team"
+    },
+    "intro": {
+      "eyebrow": "Why Relier",
+      "body": "Relier has run chauffeured ground transportation from New York since 2012, with a second base in Barcelona and the same standard in 500+ cities. Whether you book on behalf of clients, move an executive team, run a production or operate a fleet of your own, you work with one point of contact, a 24/7 dispatch team that tracks every trip in real time, and fixed pricing confirmed in advance."
+    },
+    "segmentsHead": {
+      "eyebrow": "Ways to work with us",
+      "title": "One standard for every business."
     }
   },
   "travelAdvisors": {

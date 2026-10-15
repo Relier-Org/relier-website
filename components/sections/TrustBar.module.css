@@ -8,43 +8,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
 }
 
 .label {
-  font-size: 10px;
+  font-size: var(--eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-right: 16px;
+  margin-right: 24px;
 }
 
+/* Sin containers (Figma oct-2026, "reducir containers para que quede más
+   limpio"): logos sueltos separados por filetes verticales. */
 .badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 26px;
-  background: #1F1F22;
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-pill);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 8px 24px rgba(0, 0, 0, 0.45);
-  transition:
-    border-color var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+  padding: 4px 36px;
+  opacity: 0.85;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.badge + .badge {
+  border-left: 1px solid var(--border-default);
 }
 
 .badge:hover {
-  border-color: var(--border-glass-strong);
-  transform: translateY(-2px);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 12px 32px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(201, 169, 97, 0.22);
+  opacity: 1;
 }
 
 .logo {
@@ -63,42 +55,52 @@
   filter: invert(1) hue-rotate(180deg);
 }
 
+/* PAX es un sello redondo: a la altura de los wordmarks queda diminuto. */
+.logoSeal {
+  height: 48px;
+}
+
 @media (max-width: 1024px) {
   .inner {
-    gap: 14px;
+    row-gap: 24px;
   }
   .label {
     width: 100%;
     text-align: center;
     margin-right: 0;
-    margin-bottom: 8px;
   }
   .badge {
-    flex: 0 0 calc(50% - 7px);
-    justify-content: center;
+    padding: 4px 24px;
   }
   .logo {
     height: 28px;
     max-width: 170px;
   }
+  .logoSeal {
+    height: 42px;
+  }
 }
 
+/* Mobile: 2×2 sin filetes, que en grilla quedan cortados. */
 @media (max-width: 720px) {
   .inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 24px 12px;
   }
   .label {
     grid-column: 1 / -1;
-    margin-bottom: 0;
   }
-  .badge {
-    padding: 10px 18px;
-    width: 100%;
+  .badge,
+  .badge + .badge {
+    padding: 0;
+    border-left: 0;
   }
   .logo {
     height: 24px;
     max-width: 140px;
+  }
+  .logoSeal {
+    height: 36px;
   }
 }

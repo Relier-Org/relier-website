@@ -1,5 +1,5 @@
 .section {
-  background: var(--color-obsidian-900);
+  background: var(--ambient-left), var(--bg-canvas);
   padding: clamp(72px, 11vw, 128px) 0;
 }
 
@@ -28,7 +28,7 @@
   line-height: 1.32;
   letter-spacing: -0.012em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
   max-width: 720px;
   margin-bottom: 24px;
@@ -37,6 +37,7 @@
 .accent {
   color: var(--color-champagne-500);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 

@@ -8,6 +8,8 @@ import SegmentCards, {
   type SegmentCard,
 } from "@/components/sections/SegmentCards";
 import TrustBar from "@/components/sections/TrustBar";
+import ServicesIntro from "@/components/sections/ServicesIntro";
+import Reveal from "@/components/effects/Reveal";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
@@ -66,9 +68,20 @@ export default async function ForBusinessPage({ params }: PageProps) {
           image="/images/services/corporate/hero.webp"
           className={styles.hero}
         />
+        {/* Misma gramática que /services: franja crema con "Why Relier" y
+            después la grilla con su propio encabezado (pedido de Nico,
+            oct-2026: cuatro cards solas, sin título ni texto, se leían raro). */}
+        <ServicesIntro namespace="services.forBusiness.intro" />
         <section className={styles.segments}>
           <div className="container">
-            <SegmentCards items={items} />
+            <Reveal className={styles.head}>
+              <p className={styles.eyebrow}>
+                <span className={styles.dot} aria-hidden="true" />
+                {t("segmentsHead.eyebrow")}
+              </p>
+              <h2 className={styles.title}>{t("segmentsHead.title")}</h2>
+            </Reveal>
+            <SegmentCards items={items} className={styles.grid} />
           </div>
         </section>
         <TrustBar />

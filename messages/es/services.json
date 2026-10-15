@@ -7,7 +7,11 @@
     "eyebrow": "Servicios",
     "title": "Nuestros servicios",
     "subtitle": "Transporte a medida, de nivel concierge, adaptado a cada viajero, cada ocasión, cada ciudad.",
-    "imageAlt": "Chofer de Relier abriendo la puerta de un vehículo de lujo"
+    "imageAlt": "Chofer de Relier abriendo la puerta de un vehículo de lujo",
+    "closer": {
+      "title": "Reservá tu chofer hoy.",
+      "body": "Tarifa fija, choferes profesionales y soporte 24/7 en más de 500 ciudades. Reservá tu viaje en minutos."
+    }
   },
   "intro": {
     "eyebrow": "Por qué Relier",
@@ -226,7 +230,7 @@
       "viewCards": "Ver en tarjetas",
       "viewRows": "Ver en filas",
       "ctaShort": "Planificar traslado",
-      "ctaBook": "Reservá el transporte de tu próximo evento"
+      "ctaBook": "Reservar traslado"
     },
     "items": {
       "world-cup": {
@@ -426,6 +430,14 @@
       "title": "Construyamos tu cuenta.",
       "body": "Cuéntanos cómo se mueve tu empresa y diseñaremos un programa a su medida, con un único punto de contacto y el mismo estándar en cada ciudad.",
       "ctaLabel": "Habla con nuestro equipo"
+    },
+    "intro": {
+      "eyebrow": "Por qué Relier",
+      "body": "Relier opera transporte terrestre con chofer desde Nueva York desde 2012, con una segunda base en Barcelona y el mismo estándar en más de 500 ciudades. Ya sea que reserves para tus clientes, muevas a un equipo ejecutivo, coordines una producción o tengas tu propia flota, trabajás con un único punto de contacto, un equipo de despacho 24/7 que sigue cada viaje en tiempo real y tarifas fijas confirmadas de antemano."
+    },
+    "segmentsHead": {
+      "eyebrow": "Formas de trabajar con nosotros",
+      "title": "Un mismo estándar para cada negocio."
     }
   },
   "travelAdvisors": {

@@ -8,7 +8,8 @@ import { SOCIAL_PROFILES } from "@/lib/social/profiles";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Footer.module.css";
 
-// TODO: client to deliver SVG logo
+// Logo apilado (aro + RELIER) de la carpeta "logos relier" del cliente, oct-2026.
+// TODO: pedir SVG; hoy es PNG blanco con transparencia.
 // TODO: client to confirm Barcelona HQ address
 
 const SERVICE_LINKS = [
@@ -89,10 +90,10 @@ export default async function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label={t("footer.aria.home")}>
               <Image
-                src="/images/relier-logo.png"
+                src="/images/relier-logo-stacked.png"
                 alt="Relier"
-                width={140}
-                height={32}
+                width={256}
+                height={240}
                 className={styles.logoImg}
               />
             </Link>

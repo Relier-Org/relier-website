@@ -45,11 +45,11 @@
 .h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  font-size: var(--type-h1);
   line-height: 1.04;
   letter-spacing: -0.022em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   margin-bottom: 24px;
@@ -59,6 +59,7 @@
 .muted {
   color: var(--color-silver-300);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
 }
 
 .lead {
@@ -93,9 +94,6 @@
   .hero {
     padding-top: 72px;
     min-height: clamp(380px, 56svh, 480px);
-  }
-  .h1 {
-    font-size: clamp(2rem, 8.5vw, 3rem);
   }
   .lead {
     font-size: 15px;

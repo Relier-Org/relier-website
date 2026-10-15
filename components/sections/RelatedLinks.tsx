@@ -1,5 +1,5 @@
 import Reveal from "@/components/effects/Reveal";
-import TextCTA from "@/components/ui/TextCTA";
+import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils/cn";
 import styles from "./RelatedLinks.module.css";
 
@@ -9,6 +9,9 @@ interface RelatedLinksProps {
   eyebrow: string;
   title: string;
   links: RelatedLink[];
+  /** Acción principal de la página (p. ej. reservar). Los links van como
+      secundarios: nunca un grupo entero en el mismo nivel (jerarquía oct-2026). */
+  primary?: RelatedLink;
   className?: string;
 }
 
@@ -22,6 +25,7 @@ export default function RelatedLinks({
   eyebrow,
   title,
   links,
+  primary,
   className,
 }: RelatedLinksProps) {
   return (
@@ -32,13 +36,22 @@ export default function RelatedLinks({
             <p className={cn("eyebrow", styles.eyebrow)}>{eyebrow}</p>
             <h2 className={styles.title}>{title}</h2>
           </div>
-          <ul className={styles.list}>
-            {links.map((l) => (
-              <li key={l.href}>
-                <TextCTA href={l.href}>{l.label}</TextCTA>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.actions}>
+            {primary ? (
+              <Button href={primary.href} withArrow>
+                {primary.label}
+              </Button>
+            ) : null}
+            <ul className={styles.list}>
+              {links.map((l) => (
+                <li key={l.href}>
+                  <Button href={l.href} variant="secondary">
+                    {l.label}
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </div>
     </section>

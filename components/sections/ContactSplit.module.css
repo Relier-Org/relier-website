@@ -1,6 +1,6 @@
 .section {
   padding: 96px 0 80px;
-  background: var(--color-obsidian-900);
+  background: var(--ambient-right), var(--bg-canvas);
   color: var(--text-primary);
 }
 
@@ -28,12 +28,12 @@
 .h2 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-size: var(--type-h2);
   line-height: 1.1;
   letter-spacing: -0.015em;
   color: var(--text-primary);
   text-wrap: balance;
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
 }
 
 .form {
@@ -101,7 +101,7 @@
   font-size: 30px;
   line-height: 1.15;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
 }
 
 .successCard p {
@@ -114,9 +114,9 @@
   align-self: flex-start;
   margin-top: 8px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-accent);
   padding: 8px 0;
@@ -161,13 +161,13 @@
 .infoTitle {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 26px;
+  font-size: var(--type-h4);
   line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--text-primary);
   margin-top: -4px;
   text-wrap: balance;
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
 }
 
 .infoList {
@@ -239,7 +239,7 @@
   letter-spacing: -0.01em;
   color: var(--text-primary);
   transition: color var(--duration-fast) var(--ease-out);
-  font-variation-settings: "opsz" 72;
+  font-variation-settings: "opsz" 72, "WONK" 0;
 }
 
 a.infoValue:hover {
@@ -254,7 +254,7 @@ a.infoValue:hover {
   line-height: 1.35;
   letter-spacing: -0.005em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 72;
+  font-variation-settings: "opsz" 72, "WONK" 0;
 }
 
 .infoMeta {

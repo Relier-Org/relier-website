@@ -97,7 +97,7 @@
   letter-spacing: -0.035em;
   color: var(--text-primary);
   margin-bottom: 24px;
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   position: relative;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
   text-wrap: balance;
@@ -106,6 +106,7 @@
 .h2 em {
   color: var(--color-champagne-500);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 400;
 }
 
@@ -353,12 +354,13 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
 }
 
 .infoValue em {
   color: var(--color-champagne-500);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 

@@ -9,17 +9,18 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.5rem, 5.5vw, 3.25rem);
+  font-size: var(--type-h2);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
 }
 
 .title :global(.muted) {
   color: var(--color-silver-300);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 

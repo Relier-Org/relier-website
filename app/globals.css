@@ -54,9 +54,29 @@
        1. The canvas floor sits above the darkest step instead of on it.
        2. It carries a warm tint toward champagne. A pure R=G=B near-black reads
           dead; the tint is what makes dark read as "rich" rather than "off". */
-  --bg-canvas: #100F0C;
+  --bg-canvas: #141310; /* "negro compuesto" del Figma de oct-2026 */
   --bg-surface: #191713;
   --bg-tile: #12121A;
+
+  /* Luz ambiente de las secciones oscuras (Figma oct-2026, "un gradientecito
+     para levantar partes"): radiales cálidos muy suaves que entran por
+     esquinas alternadas, para que las secciones se lean conectadas. */
+  /* Centros por debajo del borde superior: si la luz pega en el borde, se ve
+     el escalón contra la sección de arriba. */
+  --ambient-left: radial-gradient(70% 55% at 18% 30%, rgba(255, 236, 200, 0.07), transparent 70%);
+  --ambient-right: radial-gradient(65% 50% at 85% 30%, rgba(255, 236, 200, 0.06), transparent 70%);
+  --ambient-floor: radial-gradient(60% 50% at 10% 100%, rgba(255, 236, 200, 0.035), transparent 70%);
+
+  /* ─── Escala de títulos (oct-2026, pedido de Nico: normalizar en toda la web) ───
+     Un solo tamaño por nivel; las secciones no eligen el suyo. El hero del home
+     queda aparte (Hero.module.css) y los tamaños editoriales (cifras, el h2 del
+     Mundial, la palabra gigante de Fleet) también.
+     h1 = hero de página interna · h2 = título de sección · h3 = bloque dentro
+     de una página, cierres y card destacada · h4 = título de card. */
+  --type-h1: clamp(2.4rem, 6vw, 4.5rem);
+  --type-h2: clamp(2.25rem, 4.6vw, 3.25rem);
+  --type-h3: clamp(1.75rem, 3vw, 2.5rem);
+  --type-h4: clamp(1.375rem, 2vw, 1.625rem);
 
   --bg-light: #F5F2EB;
   --bg-light-tile: #FFFFFF;
@@ -96,7 +116,7 @@
      was copy-paste noise, not art direction. The alphas live here so perceived
      luminance is one edit instead of fifty scattered literals.
      `--scrim-base` is RGB channels, not a color, so alpha can vary per stop. */
-  --scrim-base: 16, 15, 12;
+  --scrim-base: 20, 19, 16;
   /* Baked into --scrim-hero below, not overridable per element: a var() inside
      a custom property declared here resolves against :root. A hero that needs
      a different vignette centre composes the gradient locally from the alphas
@@ -117,7 +137,9 @@
       180deg,
       rgba(var(--scrim-base), var(--scrim-alpha-top)) 0%,
       rgba(var(--scrim-base), var(--scrim-alpha-mid)) 28%,
-      rgba(var(--scrim-base), var(--scrim-alpha-bottom)) 78%,
+      /* Cola larga hacia el canvas, igual que el hero del home. */
+      rgba(var(--scrim-base), var(--scrim-alpha-bottom)) 70%,
+      rgba(var(--scrim-base), 0.82) 88%,
       var(--bg-canvas) 100%
     );
 
@@ -141,7 +163,10 @@
       rgba(var(--scrim-base), var(--scrim-home-mid)) 22%,
       rgba(var(--scrim-base), var(--scrim-home-core)) 45%,
       rgba(var(--scrim-base), var(--scrim-home-mid)) 62%,
-      rgba(var(--scrim-base), var(--scrim-home-edge)) 84%,
+      /* Cola larga hacia el canvas (oct-2026): con un solo tramo de 84% a
+         100% el video se cortaba en seco contra la sección de abajo. */
+      rgba(var(--scrim-base), var(--scrim-home-edge)) 74%,
+      rgba(var(--scrim-base), 0.82) 90%,
       var(--bg-canvas) 100%
     );
 
@@ -168,6 +193,12 @@
   --lead-size: 16px;
   --lead-leading: 1.6;
   --lead-measure: 560px;
+
+  /* Eyebrows / kickers de sección. 14px es el mínimo de texto del Figma de
+     rediseño (oct-2026): a 10–12px no se leían. Un solo token para que no
+     vuelvan a derivar por sección. */
+  --eyebrow-size: 14px;
+  --eyebrow-tracking: 0.15em;
 }
 
 /* ─── Reset ─── */
@@ -192,6 +223,9 @@ body {
   line-height: 1.55;
   font-weight: 400;
   overflow-x: hidden;
+  /* Fraunces sin las formas "wonky": la "&" clásica en vez de la "Et" (Figma
+     oct-2026). Se hereda; cada override de opsz lo repite. */
+  font-variation-settings: "WONK" 0;
 }
 
 img { max-width: 100%; display: block; }
@@ -242,24 +276,25 @@ html[data-preloader="running"] .firstScreen * {
 .muted {
   color: var(--color-silver-300);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 
 /* ─── Eyebrow + section label (shared utility classes) ─── */
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: var(--eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--text-accent);
 }
 
 .section-label {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: var(--eyebrow-size);
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -276,5 +311,12 @@ html[data-preloader="running"] .firstScreen * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hero interno en mobile: el mismo ajuste que antes repetía cada hero. */
+@media (max-width: 720px) {
+  :root {
+    --type-h1: clamp(2rem, 8.5vw, 3rem);
   }
 }

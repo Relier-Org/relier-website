@@ -26,8 +26,8 @@
 }
 
 .sectionLabel {
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: var(--eyebrow-size);
+  letter-spacing: var(--eyebrow-tracking);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -102,11 +102,11 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  font-size: var(--type-h3);
   line-height: 1.1;
   letter-spacing: -0.018em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   text-wrap: balance;
   margin-bottom: 14px;
 }
@@ -166,9 +166,6 @@
 @media (max-width: 720px) {
   .imageWrap {
     aspect-ratio: 4 / 3;
-  }
-  .title {
-    font-size: clamp(1.5rem, 6.5vw, 2rem);
   }
   .excerpt {
     font-size: 14.5px;

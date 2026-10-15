@@ -1,6 +1,6 @@
 .section {
   padding: 80px 0 120px;
-  background: var(--color-obsidian-900);
+  background: var(--bg-canvas);
 }
 
 .header {
@@ -34,12 +34,12 @@
 .h2 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-size: var(--type-h2);
   line-height: 1.08;
   letter-spacing: -0.015em;
   color: var(--text-primary);
   text-wrap: balance;
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
 }
 
 .frameWrap {

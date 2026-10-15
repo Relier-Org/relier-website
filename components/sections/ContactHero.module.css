@@ -61,12 +61,12 @@
 .h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  font-size: var(--type-h1);
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   margin-bottom: 28px;
-  font-variation-settings: "opsz" 120;
+  font-variation-settings: "opsz" 120, "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   animation: fadeUp 1.2s var(--ease-out) 0.35s both;
@@ -75,6 +75,7 @@
 .muted {
   color: var(--color-silver-200);
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   font-weight: 300;
 }
 
@@ -114,9 +115,6 @@
   .img {
     object-position: 15% 55%;
     opacity: 0.55;
-  }
-  .h1 {
-    font-size: clamp(2rem, 8vw, 3rem);
   }
   .lead {
     font-size: 15px;

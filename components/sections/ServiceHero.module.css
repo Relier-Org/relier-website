@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--color-obsidian-900);
+  background: var(--bg-canvas);
   padding-top: 84px;
   text-align: center;
 }
@@ -45,11 +45,11 @@
 .h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.2rem, 5.6vw, 4.5rem);
+  font-size: var(--type-h1);
   line-height: 1.04;
   letter-spacing: -0.022em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   margin-bottom: 28px;
@@ -88,9 +88,6 @@
   .hero {
     padding-top: 72px;
     min-height: clamp(460px, 66svh, 580px);
-  }
-  .h1 {
-    font-size: clamp(2rem, 8.5vw, 3rem);
   }
   .lead {
     font-size: 15px;

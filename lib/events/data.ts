@@ -26,6 +26,11 @@ export interface EventEntry {
   /** Rendered large on the home teaser. One at most. */
   featured?: boolean;
   image?: string;
+  /**
+   * Licence attribution for `image`, when the licence asks for it (see
+   * `docs/image-credits.md`). Any surface that shows the photo shows this too.
+   */
+  photoCredit?: { author: string; licence: string };
   /** Secondary link, when the event has a page of its own. */
   href?: string;
   /** What Relier ran. Client figures — never estimates. */
@@ -71,6 +76,7 @@ export const EVENTS: EventEntry[] = [
     endDate: "2026-09-13",
     status: "operated",
     image: "/images/events/us-open.webp",
+    photoCredit: { author: "slgckgc", licence: "CC BY 2.0" },
   },
   {
     id: "fashion-week",
@@ -78,6 +84,7 @@ export const EVENTS: EventEntry[] = [
     endDate: "2026-09-15",
     status: "operated",
     image: "/images/events/fashion-week.webp",
+    photoCredit: { author: "Michiel", licence: "CC BY 2.0" },
   },
   {
     id: "spanish-gp",
@@ -85,6 +92,7 @@ export const EVENTS: EventEntry[] = [
     endDate: "2026-09-13",
     status: "operated",
     image: "/images/events/spanish-gp.webp",
+    photoCredit: { author: "Mypoorbrain", licence: "CC BY 2.0" },
   },
   {
     id: "un-assembly",
@@ -95,5 +103,5 @@ export const EVENTS: EventEntry[] = [
   },
 ];
 
-/** Home teaser: the featured recap plus this many upcoming events. */
-export const HOME_EVENTS_LIMIT = 4;
+/** Home teaser: the featured recap plus this many events in the list beside it. */
+export const HOME_EVENTS_LIMIT = 2;

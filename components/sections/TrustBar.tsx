@@ -29,6 +29,7 @@ const BADGES: {
     name: "PAX Professional Chauffeur Certification",
     src: "/images/partners/pax.webp",
     href: "https://paxtraining.com/courses/chauffeur-certification/",
+    modifier: "logoSeal",
   },
   // TODO (assets): sumar "Chauffeur Driven" cuando llegue el asset del cliente.
 ];

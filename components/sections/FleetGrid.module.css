@@ -1,6 +1,6 @@
 .section {
   padding: clamp(64px, 9vw, 112px) 0;
-  background: var(--color-obsidian-900);
+  background: var(--ambient-left), var(--bg-canvas);
 }
 
 .section + .section {
@@ -25,11 +25,11 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-size: var(--type-h2);
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 120;
+  font-variation-settings: "opsz" 120, "WONK" 0;
   text-wrap: balance;
 }
 
@@ -195,7 +195,7 @@
 .cardContent h3 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 20px;
+  font-size: var(--type-h4);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--text-primary);
@@ -209,6 +209,7 @@
   font-size: 11px;
   font-weight: 400;
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
   letter-spacing: 0.02em;
   color: var(--color-silver-400);
   vertical-align: baseline;
@@ -271,6 +272,5 @@
     padding: 16px 20px 20px;
   }
   .cardContent h3 {
-    font-size: 18px;
   }
 }

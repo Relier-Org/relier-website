@@ -32,8 +32,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--text-on-light);
@@ -82,11 +82,11 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  font-size: var(--type-h2);
   line-height: 1.06;
   letter-spacing: -0.022em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 144;
+  font-variation-settings: "opsz" 144, "WONK" 0;
   text-wrap: balance;
   margin: 0;
 }
@@ -137,7 +137,7 @@
   line-height: 1.15;
   letter-spacing: -0.014em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   margin: 2em 0 0.65em;
   text-wrap: balance;
 }
@@ -149,7 +149,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 96;
+  font-variation-settings: "opsz" 96, "WONK" 0;
   margin: 1.75em 0 0.5em;
 }
 
@@ -185,6 +185,7 @@
 
 .prose :global(em) {
   font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
 }
 
 .prose :global(a) {
@@ -202,9 +203,6 @@
 }
 
 @media (max-width: 720px) {
-  .title {
-    font-size: clamp(1.75rem, 7.5vw, 2.25rem);
-  }
   .lead {
     font-size: 16px;
   }
