@@ -13,7 +13,6 @@ export default function ServicesGrid() {
       <div className={cn("container", styles.container)}>
         <Reveal className={styles.header}>
           <p className={styles.eyebrow}>
-            <span className={styles.dot} aria-hidden="true" />
             {t("eyebrow")}
           </p>
           <h2 className={styles.title}>{t("title")}</h2>

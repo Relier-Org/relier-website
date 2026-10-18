@@ -38,7 +38,8 @@ export interface UpcomingLabels {
 type View = "cards" | "rows";
 
 /**
- * The events below the recap (upcoming, or recent once run), switchable between the card grid and full-width rows
+ * The events below the recap (upcoming, or recent once run), on the cream band
+ * under the banner as light cards (Figma oct-2026), switchable between the card grid and full-width rows
  * (client, 11-aug-2026). Cards are the default: the grid is what keeps the page
  * short. Rows give the same content more room to breathe for anyone who wants to
  * read it end to end.
@@ -55,7 +56,7 @@ export default function EventsUpcoming({
   return (
     <div className={styles.wrap}>
       <div className={styles.head}>
-        <p className={styles.kicker}>{labels.kicker}</p>
+        <h2 className={styles.kicker}>{labels.kicker}</h2>
         <div className={styles.toggle} role="group" aria-label={labels.kicker}>
           <button
             type="button"
@@ -118,7 +119,7 @@ export default function EventsUpcoming({
               <p className={styles.venue}>{e.venue}</p>
               {e.note ? <p className={styles.note}>{e.note}</p> : null}
               {e.service ? <p className={styles.service}>{e.service}</p> : null}
-              <TextCTA href="/online-reservation" className={styles.cta}>
+              <TextCTA href="/online-reservation" tone="light" className={styles.cta}>
                 <span className={styles.long}>{e.cta}</span>
                 <span className={styles.short}>{labels.ctaShort}</span>
               </TextCTA>

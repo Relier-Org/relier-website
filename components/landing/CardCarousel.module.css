@@ -1,0 +1,83 @@
+/* Mismo sistema que el carrusel de eventos que tuvo el home (EventsCarousel):
+   la pista va a sangre hasta los bordes de la ventana y el snap respeta el
+   borde del container, así la card activa se alinea con el texto de arriba. */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-on-light-strong);
+  color: var(--text-on-light);
+  background: transparent;
+  transition:
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.arrow:hover {
+  color: var(--accent-on-light);
+  border-color: var(--accent-on-light);
+}
+
+.track {
+  --gutter: 20px;
+  --basis: 40%;
+  --page-inset: max(
+    var(--inset),
+    calc(50vw - var(--container-width) / 2 + var(--inset))
+  );
+
+  display: flex;
+  gap: var(--gutter);
+  list-style: none;
+  margin: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  margin-inline: calc(50% - 50vw);
+  padding: 4px var(--page-inset) 8px;
+  scroll-padding-inline: var(--page-inset);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track:focus-visible {
+  outline: 2px solid var(--accent-on-light);
+  outline-offset: 4px;
+}
+
+.slide {
+  display: flex;
+  flex: 0 0 var(--basis);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.slide > * {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .track {
+    --basis: 62%;
+  }
+}
+
+@media (max-width: 720px) {
+  .track {
+    --basis: 86%;
+    --gutter: 14px;
+  }
+}

@@ -32,13 +32,6 @@
   margin: 0;
 }
 
-.dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--accent-on-light);
-}
 
 .title {
   font-family: var(--font-display);

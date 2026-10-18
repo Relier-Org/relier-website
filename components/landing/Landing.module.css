@@ -33,6 +33,19 @@
   max-width: 680px;
 }
 
+.headCenter {
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-inline: auto;
+  max-width: 760px;
+  text-align: center;
+}
+
+.headCenter .lead {
+  max-width: 560px;
+}
+
 .headSolo .headText {
   max-width: 820px;
 }
@@ -77,45 +90,46 @@
 /* ─── Highlights ─── */
 
 .highlights {
-  padding: 40px 0 44px;
+  padding: 72px 0;
   background: var(--bg-canvas);
   border-bottom: 0.5px solid var(--border-hairline);
-  text-align: center;
 }
 
-/* Cuatro columnas fijas: con flex-wrap el cuarto ítem caía solo a otra fila. */
 .hlList {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: center;
+  gap: 40px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.hlList li {
-  padding: 6px 20px;
-  line-height: 1.45;
-  text-wrap: balance;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
-.hlList li + li {
-  border-left: 1px solid var(--border-default);
-}
-
-.tagline {
-  margin-top: 22px;
+/* Ícono a la izquierda y el texto al lado, sin filetes verticales: con columnas
+   separadas por filetes cada texto quedaba en un hueco angosto. */
+.hlItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  color: var(--color-silver-300);
-  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.hlIcon {
+  flex-shrink: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: var(--text-accent);
+}
+
+.hlIcon[viewBox="0 0 24 24"] {
+  stroke-width: 1.7;
 }
 
 /* ─── Cards ─── */
@@ -407,15 +421,16 @@
   padding: 0;
 }
 
-.iconCols4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.iconCol {
+  border-top-color: var(--border-on-light-strong);
 }
+
 
 .iconCol {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 4px 36px;
+  padding: 4px 28px;
 }
 
 .iconCol:first-child {
@@ -450,6 +465,51 @@
 
 .light .colIcon {
   color: var(--accent-on-light);
+}
+
+/* ─── Cards con ícono: el degradé de estudio de /fleet como fondo ─── */
+
+/* Un solo espacio (sin la franja dividida de las cards de /fleet): el degradé
+   cubre toda la card y adentro van ícono, título y texto. Van en CardCarousel. */
+
+.iconCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 36px 36px 40px;
+  background: linear-gradient(121.58deg, #31302e 3.35%, #171717 48.7%, #494949 95.66%);
+  border: 1px solid #343434;
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.iconCard:hover {
+  border-color: rgba(201, 169, 97, 0.32);
+  transform: translateY(-4px);
+}
+
+.iconCardIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+  color: var(--color-champagne-500);
+}
+
+.iconCardIcon[viewBox="0 0 24 24"] {
+  stroke-width: 1.7;
+}
+
+.iconCard .cardTitle {
+  color: var(--text-primary);
+}
+
+.iconCard .cardBody,
+.light .iconCard .cardBody {
+  color: var(--color-silver-200);
+  max-width: 46ch;
 }
 
 /* ─── Foto + texto (como los bloques de las páginas de servicio) ─── */
@@ -602,10 +662,7 @@
 @media (max-width: 1024px) {
   .hlList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 12px;
-  }
-  .hlList li:nth-child(3) {
-    border-left: 0;
+    gap: 32px 48px;
   }
   .head {
     flex-direction: column;
@@ -634,14 +691,16 @@
   .photoContent {
     padding: 20px 18px 22px;
   }
-  .iconCols,
-  .iconCols4 {
+  .iconCols {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 40px;
   }
-  .iconCol,
-  .iconCol:first-child,
-  .iconCol:last-child {
+  .iconCard {
+    padding: 30px 26px 32px;
+  }
+  .iconCols > .iconCol,
+  .iconCols > .iconCol:first-child,
+  .iconCols > .iconCol:last-child {
     padding: 0 28px 0 0;
   }
   .iconCol + .iconCol {
@@ -681,9 +740,11 @@
   }
   .photo3,
   .photo4,
-  .iconCols,
-  .iconCols4 {
+  .iconCols {
     grid-template-columns: 1fr;
+  }
+  .iconCard {
+    padding: 26px 22px 28px;
   }
   /* En mobile la foto va arriba y el texto abajo sobre el canvas: con el
      texto encima de la foto, las zonas claras de la imagen no lo dejaban leer. */
@@ -709,9 +770,9 @@
   .photoContent .cardTitle {
     text-shadow: none;
   }
-  .iconCol,
-  .iconCol:first-child,
-  .iconCol:last-child {
+  .iconCols > .iconCol,
+  .iconCols > .iconCol:first-child,
+  .iconCols > .iconCol:last-child {
     padding: 0;
   }
   .hub {
@@ -725,14 +786,14 @@
     width: 9px;
     height: 9px;
   }
+  .highlights {
+    padding: 52px 0;
+  }
   .hlList {
     grid-template-columns: 1fr;
+    gap: 22px;
   }
-  .hlList li + li {
-    border-left: 0;
-    border-top: 1px solid var(--border-hairline);
-  }
-  .hlList li {
-    padding: 12px 0;
+  .hlItem {
+    font-size: 18px;
   }
 }

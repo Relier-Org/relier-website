@@ -17,13 +17,6 @@
   color: var(--text-on-light-muted);
 }
 
-.dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--accent-on-light);
-}
 
 .sectionLabel {
   font-size: var(--eyebrow-size);

@@ -9,11 +9,11 @@ import TextCTA from "@/components/ui/TextCTA";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { Band, CoverageBand, Head, Highlights, IconColumns, PhotoCards, Split, Steps } from "@/components/landing/Landing";
-import TrustBar from "@/components/sections/TrustBar";
 import { ShieldTickIcon } from "@/components/icons/PillarIcons";
 import { PassengerIcon } from "@/components/icons/FleetIcons";
 import { LocationIcon, PhoneIcon } from "@/components/icons/ContactIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
+import { BusIcon } from "@/components/icons/SegmentIcons";
 import { landingNodes } from "@/lib/seo/pages";
 
 // Landing de SEO (oct-2026, relier_affiliates_seo_final.html): vende a Relier
@@ -50,8 +50,7 @@ export default async function AffiliatesPage({ params }: PageProps) {
             </>
           }
         />
-        <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
-        <TrustBar />
+        <Highlights items={strings(t.raw("highlights.items"))} icons={[LocationIcon, PhoneIcon, ShieldTickIcon, BusIcon]} />
 
         <Band id="why">
           <Head eyebrow={t("markets.eyebrow")} title={t("markets.title")} lead={t("markets.lead")} />
@@ -88,9 +87,10 @@ export default async function AffiliatesPage({ params }: PageProps) {
         </Band>
 
         <Band tone="light">
-          <Head eyebrow={t("standard.eyebrow")} title={t("standard.title")} lead={t("standard.lead")} />
+          <Head eyebrow={t("standard.eyebrow")} title={t("standard.title")} lead={t("standard.lead")} center />
           <IconColumns
             items={items(t.raw("standard.items"))}
+            carouselLabel={t("standard.title")}
             icons={[PhoneIcon, ShieldTickIcon, PassengerIcon, LocationIcon]}
           />
         </Band>

@@ -320,3 +320,20 @@ html[data-preloader="running"] .firstScreen * {
     --type-h1: clamp(2rem, 8.5vw, 3rem);
   }
 }
+
+/* ─── Punto de foco de las fotos con personas (18-oct-2026) ───
+   Con object-fit: cover, en mobile y tablet las cards y heros recortan la foto
+   y el centro por defecto cortaba cabezas y cuerpos. Cada foto lleva acá su
+   encuadre, una sola vez para todas las páginas donde aparece. Se apunta al
+   `src` de next/image (que lleva la ruta codificada en `url=`). `:root` sube la
+   especificidad por encima de los `.x img` de los módulos. Si una foto nueva
+   con gente se recorta mal, se suma acá. */
+:root img[src*="home%2Fcorporate.webp"] { object-position: center top; }
+:root img[src*="home%2Fevents.webp"] { object-position: center 48%; }
+:root img[src*="home%2Fvehicle.webp"] { object-position: center 25%; }
+:root img[src*="hourly%2Fhero.webp"] { object-position: 85% center; }
+:root img[src*="transfers%2Fhero.webp"] { object-position: 15% center; }
+:root img[src*="images%2Fcontact-hero.webp"] { object-position: 85% center; }
+:root img[src*="transfers%2Fstress-free.webp"] { object-position: center 80%; }
+:root img[src*="airport%2Fprompt.webp"] { object-position: center 72%; }
+:root img[src*="corporate%2Fhero.webp"] { object-position: 38% center; }

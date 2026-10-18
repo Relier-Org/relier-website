@@ -11,46 +11,46 @@
   border-bottom: 0.5px solid var(--border-on-light);
 }
 
-.recapGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-  grid-template-areas:
-    "photo head"
-    "photo data";
-  grid-template-rows: auto auto;
-  gap: 0 clamp(32px, 4vw, 64px);
-  align-content: center;
-}
-
-.recapPhoto {
-  grid-area: photo;
-  align-self: center;
+/* Banner del destacado: la foto cubre la card y el texto va abajo a la
+   izquierda sobre un degradé al obsidian, como el banner del home. */
+.banner {
   position: relative;
-  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 560px;
   overflow: hidden;
-  border-radius: var(--radius-sm);
-  background: var(--bg-light-tile);
+  border-radius: var(--radius-md);
+  background: var(--color-obsidian-800);
+  color: var(--text-primary);
 }
 
-.recapPhoto img {
+.bannerMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.bannerMedia img {
   object-fit: cover;
+  object-position: center 40%;
 }
 
-.recapHead {
-  grid-area: head;
-  align-self: end;
+.bannerMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(var(--scrim-base), 0.78) 0%, rgba(var(--scrim-base), 0.2) 62%, rgba(var(--scrim-base), 0) 100%),
+    linear-gradient(180deg, rgba(var(--scrim-base), 0) 30%, rgba(var(--scrim-base), 0.9) 100%);
+}
+
+.bannerBody {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.recapData {
-  grid-area: data;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
+  max-width: 720px;
+  padding: 0 48px 44px;
 }
 
 .meta {
@@ -58,20 +58,20 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-on-light-tertiary);
+  color: var(--text-accent);
+  margin-bottom: 16px;
 }
 
 .statusOperated {
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-pill);
-  letter-spacing: 0.16em;
-  color: var(--accent-on-light-strong);
-  background: rgba(201, 169, 97, 0.14);
+  color: var(--text-accent);
+  border: 1px solid var(--border-glass-strong);
+  background: rgba(201, 169, 97, 0.08);
 }
 
 .recapName {
@@ -80,89 +80,74 @@
   font-size: var(--type-h2);
   line-height: 1.06;
   letter-spacing: -0.02em;
-  color: var(--text-on-light);
+  color: var(--text-primary);
   font-variation-settings: "WONK" 0;
   text-wrap: balance;
+  margin-bottom: 10px;
 }
 
 .where {
-  margin-top: 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--text-on-light-tertiary);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
 }
 
 .headline {
-  margin-top: 20px;
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 350;
-  font-size: clamp(1.25rem, 2.1vw, 1.625rem);
-  line-height: 1.25;
-  color: var(--text-on-light-muted);
+  font-weight: 300;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.3;
+  color: var(--text-secondary);
   font-variation-settings: "opsz" 72, "WONK" 0;
   text-wrap: balance;
 }
 
-/* Hairline rows, no panel: on cream a boxed tile reads as one more card and the
-   client's note was that the page felt loaded. */
+/* Cifras en una fila entre filetes: ícono, valor y etiqueta. */
 .figures {
-  width: 100%;
-  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  align-self: stretch;
+  margin-top: 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .figure {
-  display: grid;
-  grid-template-columns: minmax(0, 116px) minmax(0, 1fr);
-  grid-template-areas:
-    "value label"
-    "value desc";
-  align-items: baseline;
-  gap: 0 20px;
-  padding: 16px 0;
-  border-top: 0.5px solid var(--border-on-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.figure:last-child {
-  border-bottom: 0.5px solid var(--border-on-light);
+.figureIcon {
+  flex-shrink: 0;
+  color: var(--text-accent);
 }
 
 .figureValue {
-  grid-area: value;
-  align-self: center;
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.25rem, 3.6vw, 3rem);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
-  color: var(--text-on-light);
-  font-variation-settings: "WONK" 0;
+  font-size: 17px;
+  line-height: 1;
+  color: var(--text-accent);
+  font-variant-numeric: lining-nums;
 }
 
 .figureLabel {
-  grid-area: label;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-on-light);
-  margin-bottom: 5px;
-}
-
-.figureDesc {
-  grid-area: desc;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--text-on-light-muted);
-  text-wrap: pretty;
+  color: var(--text-secondary);
 }
 
 .ctaRow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 26px;
-  margin-top: 30px;
+  gap: 16px 28px;
+  margin-top: 28px;
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -171,9 +156,8 @@
    cards/rows switch.
    ════════════════════════════════════════════════════════════ */
 
-.upcoming {
-  padding: clamp(56px, 7vw, 88px) 0 clamp(64px, 8vw, 96px);
-  background: var(--ambient-left), var(--bg-canvas);
+.upcomingList {
+  margin-top: clamp(56px, 6vw, 80px);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -229,52 +213,46 @@
 }
 
 @media (max-width: 1024px) {
-  /* Single column, and the photo lands between the title block and the figures
-     (client, 11-aug) — the grid areas do the reordering. */
-  .recapGrid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "head"
-      "photo"
-      "data";
-    gap: 28px;
+  .banner {
+    min-height: 520px;
   }
-  .recapPhoto {
-    aspect-ratio: 16 / 9;
-  }
-  .recapHead,
-  .recapData {
-    align-self: auto;
+  .bannerBody {
+    padding: 0 32px 36px;
   }
 }
 
 @media (max-width: 720px) {
-  /* Both CTAs centred on mobile (client, 11-aug). */
-  .recapData {
-    align-items: center;
+  /* En mobile la foto va arriba y el texto debajo, sobre el obsidian: encima
+     de la foto no entraba sin tapar todo. */
+  .banner {
+    min-height: 0;
   }
-  /* The 28px grid gap already separates the photo from the figures; the block's
-     own margin on top of it left ~100px of dead space. */
+  .bannerMedia {
+    position: relative;
+    aspect-ratio: 4 / 3;
+  }
+  .bannerMedia::after {
+    background: linear-gradient(180deg, rgba(var(--scrim-base), 0) 55%, var(--color-obsidian-800) 100%);
+  }
+  .bannerBody {
+    margin-top: -40px;
+    padding: 0 22px 30px;
+  }
   .figures {
-    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
   .ctaRow {
-    justify-content: center;
+    gap: 18px;
+  }
+  /* Los botones tienen nowrap y los CTA largos (más en ES/PT) no entraban a
+     390, ni en el banner ni en el cierre. */
+  .closerLinks > *,
+  .ctaRow > :first-child {
     width: 100%;
-  }
-
-      .figure {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "value"
-      "label"
-      "desc";
-    gap: 5px;
-  }
-  .figureValue {
-    align-self: start;
-  }
-  .ctaRow {
-    gap: 20px;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
   }
 }

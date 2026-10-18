@@ -7,7 +7,8 @@ import { SOCIAL_PROFILES } from "@/lib/social/profiles";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Footer.module.css";
 
-// Logo horizontal (aro + RELIER en línea), como el nav — Figma oct-2026.
+// Logo vertical (aro arriba, RELIER abajo) en todos los breakpoints y en la
+// pantalla de carga (Nico, 18-oct-2026; el Figma lo pedía horizontal).
 // TODO: pedir SVG; hoy es PNG blanco con transparencia.
 // TODO: client to confirm Barcelona HQ address
 
@@ -72,9 +73,9 @@ export default async function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label={t("footer.aria.home")}>
               <Image
-                src="/images/relier-logo-horizontal.png"
+                src="/images/relier-logo-stacked.png"
                 alt="Relier"
-                width={683}
+                width={256}
                 height={240}
                 className={styles.logoImg}
               />

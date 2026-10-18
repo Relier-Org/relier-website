@@ -7,7 +7,6 @@ import Faq, { type FaqItem } from "@/components/sections/Faq";
 import Button from "@/components/ui/Button";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
-import TrustBar from "@/components/sections/TrustBar";
 import Testimonials from "@/components/sections/Testimonials";
 import {
   Band,
@@ -20,6 +19,9 @@ import {
   Steps,
 } from "@/components/landing/Landing";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
+import { CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
+import { PassengerIcon } from "@/components/icons/FleetIcons";
+import { PhoneIcon } from "@/components/icons/ContactIcons";
 import { landingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
@@ -58,8 +60,7 @@ export default async function EventsPage({ params }: PageProps) {
             </>
           }
         />
-        <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
-        <TrustBar />
+        <Highlights items={strings(t.raw("highlights.items"))} icons={[CalendarIcon, PassengerIcon, PhoneIcon, GlobeIcon]} />
 
         <Band id="why">
           <Head eyebrow={t("services.eyebrow")} title={t("services.title")} lead={t("services.lead")} />
@@ -110,14 +111,14 @@ export default async function EventsPage({ params }: PageProps) {
           badges={strings(t.raw("coverage.badges"))}
           hubLabels={[c("hubNy"), c("hubBcn")]}
         />
-        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
-        <Testimonials reviewPillMode="none" />
 
         <Faq
           eyebrow={c("faqEyebrow")}
           title={c("faqTitle")}
           items={t.raw("faq") as FaqItem[]}
         />
+        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
+        <Testimonials reviewPillMode="none" />
         <ServiceCloser
           title={t("closer.title")}
           body={t("closer.body")}

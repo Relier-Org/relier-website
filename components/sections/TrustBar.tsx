@@ -56,34 +56,52 @@ export default async function TrustBar({
     <section className={styles.trust}>
       <div className={cn("container", styles.inner)}>
         <span className={styles.label}>{label ?? t("trust.label")}</span>
-        {badges.map(({ name, src, href, modifier }) => {
-          const logo = (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={src}
-              alt={name}
-              className={cn(styles.logo, modifier && styles[modifier])}
-              loading="lazy"
-            />
-          );
-          return href ? (
-            <a
-              key={name}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.badge}
-              aria-label={name}
-              title={name}
-            >
-              {logo}
-            </a>
-          ) : (
-            <span key={name} className={styles.badge} title={name}>
-              {logo}
-            </span>
-          );
-        })}
+        {/* En mobile los logos corren como carrusel infinito (Nico, 18-oct-2026):
+            la segunda tanda es la copia que cierra el loop, fuera del árbol
+            accesible. En desktop la copia no se muestra y la pista no existe
+            como caja (display: contents). */}
+        <div className={styles.rail}>
+          <div className={styles.track}>
+            {[false, true].map((copy) =>
+              badges.map(({ name, src, href, modifier }) => {
+                const logo = (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={src}
+                    alt={copy ? "" : name}
+                    className={cn(styles.logo, modifier && styles[modifier])}
+                    loading="lazy"
+                  />
+                );
+                const cls = cn(styles.badge, copy && styles.copy);
+                return href ? (
+                  <a
+                    key={`${copy}-${name}`}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cls}
+                    aria-label={copy ? undefined : name}
+                    aria-hidden={copy || undefined}
+                    tabIndex={copy ? -1 : undefined}
+                    title={name}
+                  >
+                    {logo}
+                  </a>
+                ) : (
+                  <span
+                    key={`${copy}-${name}`}
+                    className={cls}
+                    title={name}
+                    aria-hidden={copy || undefined}
+                  >
+                    {logo}
+                  </span>
+                );
+              })
+            )}
+          </div>
+        </div>
         {note ? <p className={styles.note}>{note}</p> : null}
       </div>
     </section>

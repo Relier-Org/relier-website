@@ -22,7 +22,6 @@ export default function ServicesIntro({
     <section className={styles.section}>
       <div className={cn("container", styles.container)}>
         <Reveal className={styles.eyebrowRow}>
-          <span className={styles.dot} aria-hidden="true" />
           <span className={styles.eyebrow}>{t("eyebrow")}</span>
         </Reveal>
         <Reveal className={styles.body} delay={0.05}>

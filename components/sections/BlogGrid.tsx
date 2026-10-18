@@ -35,7 +35,6 @@ export default function BlogGrid({
         {showLead && (
           <Reveal className={styles.header}>
             <p className={styles.eyebrow}>
-              <span className={styles.dot} aria-hidden="true" />
               {t("listing.eyebrow")}
             </p>
             <h2 className={styles.title}>{t("listing.title")}</h2>

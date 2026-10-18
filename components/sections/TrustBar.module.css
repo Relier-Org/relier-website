@@ -92,20 +92,51 @@
   }
 }
 
-/* Mobile: 2×2 sin filetes, que en grilla quedan cortados. */
+/* Desktop: la pista no existe como caja, los logos quedan en la fila de
+   siempre y la copia del loop no se muestra. */
+.rail,
+.track {
+  display: contents;
+}
+
+.copy {
+  display: none;
+}
+
+/* Mobile: carrusel infinito. La pista lleva los logos dos veces y se desplaza
+   media pista en loop; se frena al tocarla o con el mouse encima. */
 @media (max-width: 720px) {
   .inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 12px;
+    flex-direction: column;
+    gap: 24px;
   }
-  .label,
-  .note {
-    grid-column: 1 / -1;
+  .label {
+    width: 100%;
+  }
+  .rail {
+    display: block;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: trustLoop 22s linear infinite;
+  }
+  .rail:hover .track,
+  .rail:active .track {
+    animation-play-state: paused;
+  }
+  .copy {
+    display: inline-flex;
   }
   .badge,
   .badge + .badge {
-    padding: 0;
+    padding: 0 26px;
     border-left: 0;
   }
   .logo {
@@ -114,5 +145,22 @@
   }
   .logoSeal {
     height: 36px;
+  }
+}
+
+@keyframes trustLoop {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Sin movimiento: la pista queda quieta y se recorre con el dedo. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+  .rail {
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 }

@@ -8,10 +8,9 @@ import Button from "@/components/ui/Button";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { Band, CoverageBand, Head, Highlights, IconColumns, PhotoCards, Split, Steps } from "@/components/landing/Landing";
-import TrustBar from "@/components/sections/TrustBar";
 import Testimonials from "@/components/sections/Testimonials";
-import { GlobeIcon, ShieldTickIcon } from "@/components/icons/PillarIcons";
-import { RouteIcon } from "@/components/icons/SegmentIcons";
+import { CalendarIcon, GlobeIcon, ShieldTickIcon } from "@/components/icons/PillarIcons";
+import { CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
 import { PassengerIcon } from "@/components/icons/FleetIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
 import { landingNodes } from "@/lib/seo/pages";
@@ -52,8 +51,7 @@ export default async function CorporatePage({ params }: PageProps) {
             </>
           }
         />
-        <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
-        <TrustBar />
+        <Highlights items={strings(t.raw("highlights.items"))} icons={[CarIcon, PassengerIcon, RouteIcon, CalendarIcon]} />
 
         <Band id="why">
           <Head eyebrow={t("services.eyebrow")} title={t("services.title")} lead={t("services.lead")} />
@@ -84,9 +82,10 @@ export default async function CorporatePage({ params }: PageProps) {
         </Band>
 
         <Band tone="light">
-          <Head eyebrow={t("built.eyebrow")} title={t("built.title")} />
+          <Head eyebrow={t("built.eyebrow")} title={t("built.title")} center />
           <IconColumns
             items={items(t.raw("built.items"))}
+            carouselLabel={t("built.title")}
             icons={[GlobeIcon, PassengerIcon, RouteIcon, ShieldTickIcon]}
           />
         </Band>
@@ -103,10 +102,10 @@ export default async function CorporatePage({ params }: PageProps) {
           badges={strings(t.raw("coverage.badges"))}
           hubLabels={[c("hubNy"), c("hubBcn")]}
         />
-        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
-        <Testimonials reviewPillMode="none" />
 
         <Faq eyebrow={c("faqEyebrow")} title={c("faqTitle")} items={t.raw("faq") as FaqItem[]} />
+        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
+        <Testimonials reviewPillMode="none" />
         <ServiceCloser
           title={t("closer.title")}
           body={t("closer.body")}

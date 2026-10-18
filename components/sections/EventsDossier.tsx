@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/effects/Reveal";
@@ -6,13 +7,23 @@ import TextCTA from "@/components/ui/TextCTA";
 import EventsUpcoming, {
   type UpcomingItem,
 } from "@/components/sections/EventsUpcoming";
+import { CarIcon } from "@/components/icons/SegmentIcons";
+import { BallIcon, FlagIcon } from "@/components/icons/EventMetricIcons";
+import type { IconProps } from "@/components/icons/types";
 import { EVENTS } from "@/lib/events/data";
 import styles from "./EventsDossier.module.css";
 
+// Los mismos íconos que las cifras del banner del home (Events.tsx).
+const METRIC_ICONS: Record<string, ComponentType<IconProps>> = {
+  trips: BallIcon,
+  suv: CarIcon,
+  final: FlagIcon,
+};
+
 /**
- * Body of /signature-events, in three bands: the featured recap on cream, the
- * rest of the events on obsidian (upcoming, or recent once they have all been
- * run), the closer on cream.
+ * Body of /signature-events, in two bands: the featured recap as a wide banner
+ * on cream with the rest of the events (upcoming, or recent once they have all
+ * been run) as light cards under it (Figma oct-2026), then the closer.
  *
  * Rebuilt 11-aug-2026. The first version was five identical full-width rows —
  * 5,692px of unbroken obsidian, 6.3 screens. The client asked for shorter, less
@@ -55,25 +66,24 @@ export default async function EventsDossier() {
 
   return (
     <>
+      {/* Destacado como banner a lo ancho (Figma oct-2026): foto de fondo y
+          el texto abajo a la izquierda sobre un degradé, con las cifras en una
+          fila con íconos, como el banner del home. */}
       {recap ? (
         <section className={styles.recap}>
           <div className="container">
-            <Reveal className={styles.recapGrid}>
+            <Reveal className={styles.banner}>
               {recap.image ? (
-                <div className={styles.recapPhoto}>
+                <div className={styles.bannerMedia}>
                   <Image
                     src={recap.image}
                     alt={t(`items.${recap.id}.imageAlt`)}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 44vw"
+                    sizes="(max-width: 1280px) 100vw, 1180px"
                   />
                 </div>
               ) : null}
-
-              {/* Split in two so the photo can sit between them on mobile
-                  (client, 11-aug): grid areas reorder head / photo / data
-                  without duplicating the image. */}
-              <div className={styles.recapHead}>
+              <div className={styles.bannerBody}>
                 <p className={styles.meta}>
                   <span className={styles.statusOperated}>
                     {t(`labels.status.${recap.status}`)}
@@ -92,22 +102,23 @@ export default async function EventsDossier() {
                     {t(`items.${recap.id}.title`)}
                   </p>
                 ) : null}
-              </div>
 
-              <div className={styles.recapData}>
                 {recap.metrics ? (
                   <dl className={styles.figures}>
-                    {recap.metrics.map((m) => (
-                      <div key={m.id} className={styles.figure}>
-                        <dd className={styles.figureValue}>{m.value}</dd>
-                        <dt className={styles.figureLabel}>
-                          {t(`items.${recap.id}.metrics.${m.id}.label`)}
-                        </dt>
-                        <dd className={styles.figureDesc}>
-                          {t(`items.${recap.id}.metrics.${m.id}.desc`)}
-                        </dd>
-                      </div>
-                    ))}
+                    {recap.metrics.map((m) => {
+                      const Icon = METRIC_ICONS[m.id];
+                      return (
+                        <div key={m.id} className={styles.figure}>
+                          {Icon ? (
+                            <Icon className={styles.figureIcon} aria-hidden="true" />
+                          ) : null}
+                          <dd className={styles.figureValue}>{m.value}</dd>
+                          <dt className={styles.figureLabel}>
+                            {t(`items.${recap.id}.metrics.${m.id}.label`)}
+                          </dt>
+                        </div>
+                      );
+                    })}
                   </dl>
                 ) : null}
 
@@ -116,20 +127,17 @@ export default async function EventsDossier() {
                     {t(`items.${recap.id}.cta`)}
                   </Button>
                   {recap.href && t.has(`items.${recap.id}.secondaryCta`) ? (
-                    <TextCTA href={recap.href} tone="light">
+                    <TextCTA href={recap.href}>
                       {t(`items.${recap.id}.secondaryCta`)}
                     </TextCTA>
                   ) : null}
                 </div>
               </div>
             </Reveal>
-          </div>
-        </section>
-      ) : null}
 
-      <section className={styles.upcoming}>
-        <div className="container">
-          <Reveal>
+            {/* El resto de los eventos sigue en la misma franja crema, debajo
+                del banner, como cards claras (Figma oct-2026). */}
+          <Reveal className={styles.upcomingList}>
             <EventsUpcoming
               items={upcoming}
               labels={{
@@ -140,8 +148,9 @@ export default async function EventsDossier() {
               }}
             />
           </Reveal>
-        </div>
-      </section>
+          </div>
+        </section>
+      ) : null}
 
       <section className={styles.closer}>
         <div className="container">

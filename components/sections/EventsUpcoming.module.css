@@ -9,13 +9,15 @@
   gap: 20px;
 }
 
+/* Va sobre la franja crema, debajo del banner (Figma oct-2026). */
 .kicker {
-  font-family: var(--font-sans);
-  font-size: var(--eyebrow-size);
-  font-weight: 600;
-  letter-spacing: var(--eyebrow-tracking);
-  text-transform: uppercase;
-  color: var(--text-accent);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h4);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-on-light);
+  font-variation-settings: "WONK" 0;
 }
 
 /* ─── View switch ─── */
@@ -24,7 +26,7 @@
   display: flex;
   gap: 2px;
   padding: 3px;
-  border: 0.5px solid var(--border-subtle);
+  border: 1px solid var(--border-on-light-strong);
   border-radius: var(--radius-pill);
 }
 
@@ -34,7 +36,7 @@
   width: 30px;
   height: 30px;
   border-radius: var(--radius-pill);
-  color: var(--text-muted);
+  color: var(--text-on-light-tertiary);
   background: transparent;
   transition:
     color var(--duration-fast) var(--ease-out),
@@ -42,7 +44,7 @@
 }
 
 .toggleBtn:hover {
-  color: var(--color-silver-100);
+  color: var(--text-on-light);
 }
 
 .active {
@@ -58,29 +60,32 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--bg-tile);
-  border: 0.5px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  transition: border-color var(--duration-base) var(--ease-out);
+  background: #efebe3;
+  border: 1px solid var(--border-on-light-strong);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
 }
 
 .card:hover {
-  border-color: var(--border-glass);
+  border-color: var(--accent-on-light);
+  transform: translateY(-3px);
 }
 
 .photo {
   position: relative;
-  aspect-ratio: 16 / 9;
-  background: var(--bg-surface);
+  aspect-ratio: 16 / 8.6;
+  background: var(--bg-light);
 }
 
 .photo img {
@@ -92,7 +97,7 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
-  padding: 26px 28px 28px;
+  padding: 20px 26px 24px;
 }
 
 .status {
@@ -107,22 +112,22 @@
 }
 
 .statusOperated {
-  color: var(--text-accent);
-  background: rgba(201, 169, 97, 0.14);
+  color: var(--accent-on-light-strong);
+  background: rgba(201, 169, 97, 0.24);
 }
 
 .statusUpcoming {
-  color: var(--text-primary);
-  border: 0.5px solid var(--border-glass-strong);
+  color: var(--text-on-light);
+  border: 1px solid var(--border-on-light-strong);
 }
 
 .name {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: var(--type-h4);
-  line-height: 1.14;
-  letter-spacing: -0.015em;
-  color: var(--text-primary);
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--text-on-light);
   font-variation-settings: "WONK" 0;
   text-wrap: balance;
 }
@@ -135,7 +140,7 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-on-light-tertiary);
 }
 
 .edition {
@@ -144,19 +149,19 @@
 
 /* Lead line of the card, champagne and heavier (oct-2026). */
 .dates {
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 6px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.12em;
-  color: var(--text-accent);
+  color: var(--accent-on-light);
 }
 
 .venue {
   margin-top: 12px;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--text-tertiary);
+  color: var(--text-on-light-muted);
   text-wrap: pretty;
 }
 
@@ -166,7 +171,7 @@
   padding-left: 18px;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--text-on-light-muted);
   text-wrap: pretty;
 }
 
@@ -182,17 +187,35 @@
 }
 
 .service {
-  margin-top: 16px;
+  margin-top: 10px;
   font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-tertiary);
+  line-height: 1.5;
+  color: var(--text-on-light-muted);
   text-wrap: pretty;
 }
 
 /* Pins every CTA to the same line regardless of how long the note runs. */
 .cta {
   margin-top: auto;
-  padding-top: 22px;
+  padding-top: 16px;
+}
+
+/* Vista de cards compacta, como el Figma: estado, fecha, nombre, servicio y CTA.
+   Edición, sede y nota quedan para la vista de filas. */
+.list:not(.listRows) .edition,
+.list:not(.listRows) .venue,
+.list:not(.listRows) .note {
+  display: none;
+}
+
+/* En la card va sólo el rango de fechas, como el Figma; el detalle ("Fan
+   Week from…") queda para la vista de filas. */
+.list:not(.listRows) .dates .long {
+  display: none;
+}
+
+.list:not(.listRows) .dates .short {
+  display: inline;
 }
 
 /* Long/short copy pairs. Only the compact mobile row uses the short ones, so the
@@ -235,10 +258,13 @@
 
 /* Cards go single-column here, but rows keep working side by side — a tablet at
    820px still has ~760px of container, which is plenty. */
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 1024px) {
   .listRows .photo {
     flex: 0 0 34%;
     min-height: 220px;

@@ -7,6 +7,10 @@ import Button from "@/components/ui/Button";
 import { ALL_CITIES, COVERAGE, project } from "@/lib/coverage/data";
 import styles from "./CoverageMap.module.css";
 
+// Etiqueta corta para pantallas angostas: "New York City" no entra a la
+// izquierda del punto a 390 sin salirse del mapa.
+const SHORT: Record<string, string> = { "New York City": "NYC" };
+
 export default function CoverageMap() {
   const t = useTranslations("home");
   const [showAll, setShowAll] = useState(false);
@@ -43,7 +47,16 @@ export default function CoverageMap() {
                   style={{ left: `${x}%`, top: `${y}%` }}
                 >
                   <span className={styles.pinDot} />
-                  <span className={styles.pinLabel}>{c.name}</span>
+                  <span className={styles.pinLabel}>
+                    {SHORT[c.name] ? (
+                      <>
+                        <span className={styles.labelLong}>{c.name}</span>
+                        <span className={styles.labelShort}>{SHORT[c.name]}</span>
+                      </>
+                    ) : (
+                      c.name
+                    )}
+                  </span>
                 </span>
               );
             })}

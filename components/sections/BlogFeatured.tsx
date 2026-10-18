@@ -19,7 +19,6 @@ export default function BlogFeatured({ post }: BlogFeaturedProps) {
     <section className={styles.section}>
       <div className={cn("container", styles.container)}>
         <Reveal className={styles.eyebrowRow}>
-          <span className={styles.dot} aria-hidden="true" />
           <span className={styles.sectionLabel}>{t("featured.label")}</span>
         </Reveal>
         <Reveal className={styles.card} delay={0.05}>

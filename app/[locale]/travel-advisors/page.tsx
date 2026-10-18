@@ -10,9 +10,10 @@ import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { Band, CoverageBand, Head, Highlights, IconColumns, PhotoCards, Steps } from "@/components/landing/Landing";
 import Testimonials from "@/components/sections/Testimonials";
-import { CalendarIcon } from "@/components/icons/PillarIcons";
+import { CalendarIcon, GlobeIcon, ShieldTickIcon } from "@/components/icons/PillarIcons";
 import { BusIcon, CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
+import { PhoneIcon } from "@/components/icons/ContactIcons";
 import { landingNodes } from "@/lib/seo/pages";
 
 // Landing de SEO (oct-2026, relier_travel_advisors_seo_final.html). URL nueva
@@ -64,8 +65,7 @@ export default async function TravelAdvisorsPage({ params }: PageProps) {
             </>
           }
         />
-        <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
-        <TrustBar />
+        <Highlights items={strings(t.raw("highlights.items"))} icons={[ShieldTickIcon, GlobeIcon, RouteIcon, PhoneIcon]} />
 
         <Band id="why">
           <Head eyebrow={t("services.eyebrow")} title={t("services.title")} lead={t("services.lead")} />
@@ -90,13 +90,13 @@ export default async function TravelAdvisorsPage({ params }: PageProps) {
         <TrustBar
           label={t("recognition.eventsLabel")}
           badges={TRADE_EVENTS}
-          note={t("recognition.eventsNote")}
         />
 
         <Band tone="light">
-          <Head eyebrow={t("range.eyebrow")} title={t("range.title")} />
+          <Head eyebrow={t("range.eyebrow")} title={t("range.title")} center />
           <IconColumns
             items={items(t.raw("range.items"))}
+            carouselLabel={t("range.title")}
             icons={[CarIcon, CalendarIcon, RouteIcon, BusIcon]}
           />
         </Band>
@@ -113,10 +113,10 @@ export default async function TravelAdvisorsPage({ params }: PageProps) {
           badges={strings(t.raw("coverage.badges"))}
           hubLabels={[c("hubNy"), c("hubBcn")]}
         />
-        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
-        <Testimonials reviewPillMode="none" />
 
         <Faq eyebrow={c("faqEyebrow")} title={c("faqTitle")} items={t.raw("faq") as FaqItem[]} />
+        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
+        <Testimonials reviewPillMode="none" />
         <ServiceCloser
           title={t("closer.title")}
           body={t("closer.body")}

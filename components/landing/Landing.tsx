@@ -4,6 +4,7 @@ import Reveal from "@/components/effects/Reveal";
 import type { IconProps } from "@/components/icons/types";
 import { project } from "@/lib/coverage/data";
 import NameMarquee from "./NameMarquee";
+import CardCarousel from "./CardCarousel";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Landing.module.css";
 
@@ -16,6 +17,7 @@ import styles from "./Landing.module.css";
 
 export type Tone = "dark" | "light";
 export type Item = { title: string; body: string };
+type Icon = ComponentType<IconProps>;
 
 export function Band({
   tone = "dark",
@@ -40,13 +42,16 @@ export function Head({
   eyebrow,
   title,
   lead,
+  center = false,
 }: {
   eyebrow: string;
   title: string;
   lead?: string;
+  /** Centrado, para las secciones con carrusel (Nico, 18-oct-2026). */
+  center?: boolean;
 }) {
   return (
-    <Reveal className={cn(styles.head, !lead && styles.headSolo)}>
+    <Reveal className={cn(styles.head, !lead && styles.headSolo, center && styles.headCenter)}>
       <div className={styles.headText}>
         <p className={styles.eyebrow}>{eyebrow}</p>
         <h2 className={styles.title}>{title}</h2>
@@ -56,23 +61,37 @@ export function Head({
   );
 }
 
-/** Franja bajo el hero: cuatro puntos fuertes y una frase de cierre. */
+/**
+ * Franja bajo el hero: los cuatro puntos fuertes como columnas con ícono y
+ * filetes, en el mismo idioma que "Reasons to choose Relier" pero chico
+ * (Nico, 18-oct-2026: antes eran mayúsculas espaciadas y quedaba comprimido).
+ */
 export function Highlights({
   items,
-  tagline,
+  icons,
 }: {
   items: string[];
-  tagline: string;
+  icons: Icon[];
 }) {
   return (
     <section className={styles.highlights}>
       <div className="container">
         <ul className={styles.hlList}>
-          {items.map((it) => (
-            <li key={it}>{it}</li>
-          ))}
+          {items.map((it, i) => {
+            const Glyph = icons[i % icons.length];
+            return (
+              <Reveal
+                as="li"
+                key={it}
+                className={styles.hlItem}
+                delay={Math.min(i * 0.06, 0.24)}
+              >
+                <Glyph className={styles.hlIcon} aria-hidden="true" />
+                <span>{it}</span>
+              </Reveal>
+            );
+          })}
         </ul>
-        <p className={styles.tagline}>{tagline}</p>
       </div>
     </section>
   );
@@ -90,7 +109,12 @@ export function Cards({
   return (
     <ul className={cn(styles.cards, styles[`cols${columns}`])}>
       {items.map((it, i) => (
-        <Reveal as="li" key={it.title} className={styles.card} delay={Math.min(i * 0.06, 0.24)}>
+        <Reveal
+          as="li"
+          key={it.title}
+          className={styles.card}
+          delay={Math.min(i * 0.06, 0.24)}
+        >
           {numbered ? (
             <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
           ) : null}
@@ -108,8 +132,15 @@ export function Steps({ items, note }: { items: Item[]; note?: string }) {
     <>
       <ol className={styles.steps}>
         {items.map((it, i) => (
-          <Reveal as="li" key={it.title} className={styles.step} delay={i * 0.08}>
-            <span className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</span>
+          <Reveal
+            as="li"
+            key={it.title}
+            className={styles.step}
+            delay={i * 0.08}
+          >
+            <span className={styles.stepNum}>
+              {String(i + 1).padStart(2, "0")}
+            </span>
             <h3 className={styles.cardTitle}>{it.title}</h3>
             <p className={styles.cardBody}>{it.body}</p>
           </Reveal>
@@ -154,8 +185,6 @@ export function NameList({
   );
 }
 
-type Icon = ComponentType<IconProps>;
-
 /**
  * Cards con foto, como las de Services del home: foto a sangre, scrim al tono
  * del canvas y el filo de luz champagne arriba. Para la primera grilla de
@@ -166,43 +195,93 @@ export function PhotoCards({
   images,
 }: {
   items: Item[];
-  /** Una foto por ítem, en el mismo orden del JSON. */
-  images: string[];
+  /** Una foto por ítem, en el mismo orden del JSON. Con `position` se elige
+      el encuadre cuando el sujeto no está centrado en la foto. */
+  images: (string | { src: string; position: string })[];
 }) {
   return (
-    <ul className={cn(styles.photoCards, styles[`photo${Math.min(items.length, 4)}`])}>
-      {items.map((it, i) => (
-        <Reveal as="li" key={it.title} className={styles.photoCard} delay={Math.min(i * 0.06, 0.24)}>
-          <div className={styles.photoImg}>
-            <Image
-              src={images[i % images.length]}
-              alt=""
-              fill
-              sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-          </div>
-          <div className={styles.photoContent}>
-            <h3 className={styles.cardTitle}>{it.title}</h3>
-            <p className={styles.photoBody}>{it.body}</p>
-          </div>
-        </Reveal>
-      ))}
+    <ul
+      className={cn(
+        styles.photoCards,
+        styles[`photo${Math.min(items.length, 4)}`],
+      )}
+    >
+      {items.map((it, i) => {
+        const img = images[i % images.length];
+        const { src, position } =
+          typeof img === "string" ? { src: img, position: undefined } : img;
+        return (
+          <Reveal
+            as="li"
+            key={it.title}
+            className={styles.photoCard}
+            delay={Math.min(i * 0.06, 0.24)}
+          >
+            <div className={styles.photoImg}>
+              <Image
+                src={src}
+                alt=""
+                fill
+                sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                style={position ? { objectPosition: position } : undefined}
+              />
+            </div>
+            <div className={styles.photoContent}>
+              <h3 className={styles.cardTitle}>{it.title}</h3>
+              <p className={styles.photoBody}>{it.body}</p>
+            </div>
+          </Reveal>
+        );
+      })}
     </ul>
   );
 }
 
 /**
  * Columnas con ícono separadas por filetes, como "Reasons to choose Relier"
- * del home. Sin cajas: alterna con las grillas de cards de las franjas
+ * del home (tres ítems; con cuatro van cards como las de /fleet). Sin cajas: alterna con las grillas de cards de las franjas
  * oscuras para que la página no sea una sucesión de cards iguales.
  */
-export function IconColumns({ items, icons }: { items: Item[]; icons: Icon[] }) {
+export function IconColumns({
+  items,
+  icons,
+  carouselLabel,
+}: {
+  items: Item[];
+  icons: Icon[];
+  /** Nombre accesible del carrusel (cuatro ítems o más): el título de la sección. */
+  carouselLabel?: string;
+}) {
+  // Cuatro ítems: cards simples con el degradé de estudio de /fleet de fondo,
+  // en un carrusel infinito con flechas (Nico, 18-oct-2026).
+  if (items.length >= 4) {
+    return (
+      <CardCarousel label={carouselLabel ?? items.map((it) => it.title).join(", ")}>
+        {items.map((it, i) => {
+          const Glyph = icons[i % icons.length];
+          return (
+            <article key={it.title} className={styles.iconCard}>
+              <Glyph className={styles.iconCardIcon} aria-hidden="true" />
+              <h3 className={styles.cardTitle}>{it.title}</h3>
+              <p className={styles.cardBody}>{it.body}</p>
+            </article>
+          );
+        })}
+      </CardCarousel>
+    );
+  }
+
   return (
-    <ul className={cn(styles.iconCols, items.length >= 4 && styles.iconCols4)}>
+    <ul className={styles.iconCols}>
       {items.map((it, i) => {
         const Glyph = icons[i % icons.length];
         return (
-          <Reveal as="li" key={it.title} className={styles.iconCol} delay={Math.min(i * 0.06, 0.24)}>
+          <Reveal
+            as="li"
+            key={it.title}
+            className={styles.iconCol}
+            delay={Math.min(i * 0.06, 0.24)}
+          >
             <Glyph className={styles.colIcon} aria-hidden="true" />
             <h3 className={styles.cardTitle}>{it.title}</h3>
             <p className={styles.cardBody}>{it.body}</p>

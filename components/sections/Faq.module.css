@@ -12,10 +12,14 @@
   align-items: start;
 }
 
+/* El encabezado acompaña el scroll mientras se leen las preguntas (Nico,
+   18-oct-2026); se suelta al terminar la lista. Debajo del nav fijo. */
 .head {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  position: sticky;
+  top: 128px;
 }
 
 .eyebrow {
@@ -84,6 +88,9 @@
 @media (max-width: 1024px) {
   .inner {
     grid-template-columns: 1fr;
+  }
+  .head {
+    position: static;
   }
 }
 

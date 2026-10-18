@@ -301,41 +301,44 @@
   }
 }
 
-/* Hasta 900px las pills de NY y Barcelona (14px) se pisan: los hubs vuelven a
-   punto con etiqueta abajo. */
+/* Hasta 900px: misma lectura que en desktop (pill oscura con el punto y halo),
+   más chica, y NY abre hacia la izquierda para no pisar a Barcelona. En touch
+   el :hover se dispara al tocar, así que tocar una ciudad muestra su pill. */
 @media (max-width: 900px) {
-  /* En mobile no hay hover y las pills de NY y Barcelona se pisan: los
-     hubs vuelven a punto con la etiqueta abajo, sin pill. */
-  .pin,
   .pinHub,
   .pin:hover {
-    --pin-pad: 0px;
-    flex-direction: column;
+    --pin-pad: 7px;
     gap: 6px;
-    padding: 0;
-    transform: translate(-50%, calc(var(--dot) / -2));
+    padding: 4px 10px 4px var(--pin-pad);
   }
-  .pin::after,
-  .pin::before {
-    display: none;
-  }
-  .pin:not(.pinHub):hover .pinLabel {
-    display: none;
-  }
-  /* Las etiquetas de los hubs se abren hacia afuera (NY a la izquierda,
-     Barcelona a la derecha) para no tocarse en el centro del Atlántico. */
   .pinHub {
-    align-items: flex-start;
-    transform: translate(calc(var(--dot) / -2), calc(var(--dot) / -2));
+    --dot: 9px;
   }
   .pinHub.pinWest {
-    align-items: flex-end;
-    transform: translate(calc(-100% + var(--dot) / 2), calc(var(--dot) / -2));
+    flex-direction: row-reverse;
+    padding: 4px var(--pin-pad) 4px 10px;
+    transform: translate(calc(-100% + var(--pin-pad) + var(--dot) / 2), -50%);
   }
-  .pinHub .pinLabel {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  .pinLabel {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  .pin::before {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.labelShort {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .labelLong {
+    display: none;
+  }
+  .labelShort {
+    display: inline;
   }
 }
 
