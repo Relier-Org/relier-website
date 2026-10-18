@@ -399,3 +399,60 @@ export function CoverageBand({
     </section>
   );
 }
+
+export type TourVehicle = { name: string; pax: string; image: string };
+export type Venue = { venue: string; event: string };
+
+/**
+ * "Event & Touring Experts" (Andy, checklist de cierre oct-2026): la flota
+ * grande de giras sobre el degradé de estudio de /fleet y las operaciones de
+ * Nueva York que el sitio ya respalda. Sólo datos confirmados: la lista de
+ * venues se completa cuando el cliente pase la suya.
+ */
+export function TouringBand({
+  eyebrow,
+  title,
+  lead,
+  vehicles,
+  venuesTitle,
+  venues,
+}: {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  vehicles: TourVehicle[];
+  venuesTitle: string;
+  venues: Venue[];
+}) {
+  return (
+    <section className={cn(styles.band, styles.dark, styles.touring)}>
+      <div className="container">
+        <Head eyebrow={eyebrow} title={title} lead={lead} />
+        <ul className={styles.tourFleet}>
+          {vehicles.map((v, i) => (
+            <Reveal as="li" key={v.name} className={styles.tourCard} delay={Math.min(i * 0.06, 0.24)}>
+              <div className={styles.tourPhoto}>
+                <Image src={v.image} alt={v.name} fill sizes="(max-width: 720px) 100vw, 33vw" />
+              </div>
+              <div className={styles.tourInfo}>
+                <h3 className={styles.cardTitle}>{v.name}</h3>
+                <p className={styles.tourPax}>{v.pax}</p>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+        <Reveal className={styles.venues}>
+          <h3 className={styles.venuesTitle}>{venuesTitle}</h3>
+          <ul className={styles.venueList}>
+            {venues.map((v) => (
+              <li key={v.venue}>
+                <span className={styles.venueName}>{v.venue}</span>
+                <span className={styles.venueEvent}>{v.event}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

@@ -18,7 +18,7 @@
       "description": "Transporte para artistas, equipes técnicas, eventos corporativos e produções no mundo todo, com traslados em grupo e ônibus executivos nos EUA e na Europa."
     },
     "hero": {
-      "eyebrow": "Para empresas · Eventos e produções",
+      "eyebrow": "Especialistas em eventos e turnês",
       "title": "Transporte para eventos",
       "subtitle": "A Relier oferece transporte para artistas, equipes de turnê, equipes técnicas, eventos corporativos, conferências e produções. Coordenamos traslados ponto a ponto, transporte em grupo, deslocamentos entre cidades e serviços de ônibus executivo, mantendo uma comunicação próxima com a equipe do evento ou da produção."
     },
@@ -216,6 +216,40 @@
       "title": "Conte-nos sobre seu evento.",
       "lead": "Datas, locais, tamanho do grupo e os deslocamentos que você precisa cobrir. Nossa equipe de Events responde com um plano, não com um formulário de cotação.",
       "placeholder": "Evento, datas, locais, número de convidados ou equipe, e requisitos de artistas ou produção."
+    },
+    "touring": {
+      "eyebrow": "Na estrada",
+      "title": "Feito para turnês, do primeiro show à última cidade.",
+      "lead": "Artistas, equipe e produção viajando juntos, no mesmo cronograma. Motorcoaches, micro-ônibus e vans executivas, coordenados por uma mesma equipe de Events em cada parada.",
+      "vehicles": [
+        {
+          "name": "Motorcoach",
+          "pax": "Até 56 passageiros"
+        },
+        {
+          "name": "Micro-ônibus",
+          "pax": "24–40 passageiros"
+        },
+        {
+          "name": "Van executiva",
+          "pax": "Até 13 passageiros"
+        }
+      ],
+      "venuesTitle": "Operações recentes em Nova York",
+      "venues": [
+        {
+          "venue": "MetLife Stadium",
+          "event": "Copa do Mundo FIFA 2026 · A final"
+        },
+        {
+          "venue": "USTA Billie Jean King National Tennis Center",
+          "event": "US Open 2026"
+        },
+        {
+          "venue": "Sede das Nações Unidas",
+          "event": "Assembleia Geral da ONU · Semana de alto nível"
+        }
+      ]
     }
   },
   "corporate": {

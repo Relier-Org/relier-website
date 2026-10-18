@@ -666,6 +666,110 @@
     0 0 12px rgba(201, 169, 97, 0.5);
 }
 
+/* ─── Giras: flota grande + operaciones de Nueva York ─── */
+
+.touring {
+  background:
+    radial-gradient(80% 70% at 70% 30%, rgba(255, 236, 200, 0.06), transparent 72%),
+    var(--bg-canvas);
+}
+
+.tourFleet {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tourCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #343434;
+  border-radius: var(--radius-md);
+  background: #1a1915;
+}
+
+.tourPhoto {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(121.58deg, #31302e 3.35%, #171717 48.7%, #494949 95.66%);
+  border-bottom: 1px solid #343434;
+}
+
+.tourPhoto img {
+  object-fit: contain;
+  padding: 6% 7% 4%;
+}
+
+.tourInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 26px 28px;
+}
+
+.tourPax {
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.venues {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 32px 56px;
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-default);
+}
+
+.venuesTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h4);
+  line-height: 1.2;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+}
+
+.venueList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.venueList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.venueList li:first-child {
+  padding-top: 0;
+}
+
+.venueName {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+}
+
+.venueEvent {
+  font-size: 14px;
+  color: var(--color-silver-300);
+}
+
 @media (max-width: 1024px) {
   .hlList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -713,6 +817,13 @@
   .iconCol + .iconCol {
     border-left: 0;
   }
+  .tourFleet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .venues {
+    grid-template-columns: 1fr;
+    margin-top: 56px;
+  }
   .split,
   .coverageGrid {
     grid-template-columns: 1fr;
@@ -744,6 +855,9 @@
   }
   .steps {
     gap: 28px;
+  }
+  .tourFleet {
+    grid-template-columns: 1fr;
   }
   .photo3,
   .photo4,

@@ -18,7 +18,7 @@
       "description": "Event transportation services for artists, crews, corporate events and productions worldwide, with group transfers, motor coaches and operational support across the U.S. and Europe."
     },
     "hero": {
-      "eyebrow": "For Business · Events & Productions",
+      "eyebrow": "Event & Touring Experts",
       "title": "Event Transportation Services",
       "subtitle": "Relier provides event transportation for artists, touring teams, crews, corporate events, conferences and productions. We coordinate point-to-point transfers, group transportation, city-to-city movements and motor coach services while keeping communication close to the event or production team."
     },
@@ -216,6 +216,40 @@
       "title": "Tell us about your event.",
       "lead": "Dates, venues, group size and the movements you need covered. Our Events team replies with a plan, not a quote form.",
       "placeholder": "Event, dates, venues, number of guests or crew, and any artist or production requirements."
+    },
+    "touring": {
+      "eyebrow": "On the road",
+      "title": "Built for tours, from the first show to the last city.",
+      "lead": "Artists, crew and production moving together on the same schedule. Motor coaches, minibuses and executive vans, coordinated by one Events team at every stop.",
+      "vehicles": [
+        {
+          "name": "Motor coach",
+          "pax": "Up to 56 passengers"
+        },
+        {
+          "name": "Minibus",
+          "pax": "24–40 passengers"
+        },
+        {
+          "name": "Executive van",
+          "pax": "Up to 13 passengers"
+        }
+      ],
+      "venuesTitle": "Recent New York operations",
+      "venues": [
+        {
+          "venue": "MetLife Stadium",
+          "event": "FIFA World Cup 2026 · The Final"
+        },
+        {
+          "venue": "USTA Billie Jean King National Tennis Center",
+          "event": "US Open 2026"
+        },
+        {
+          "venue": "United Nations Headquarters",
+          "event": "UN General Assembly · High-level week"
+        }
+      ]
     }
   },
   "corporate": {

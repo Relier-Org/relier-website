@@ -17,6 +17,8 @@ import {
   PhotoCards,
   Split,
   Steps,
+  TouringBand,
+  type Venue,
 } from "@/components/landing/Landing";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
 import { CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
@@ -101,6 +103,20 @@ export default async function EventsPage({ params }: PageProps) {
             }
           />
         </Band>
+
+        {/* "Event & Touring Experts" (Andy, checklist oct-2026): giras con la
+            flota grande y las operaciones confirmadas en Nueva York. */}
+        <TouringBand
+          eyebrow={t("touring.eyebrow")}
+          title={t("touring.title")}
+          lead={t("touring.lead")}
+          vehicles={(t.raw("touring.vehicles") as { name: string; pax: string }[]).map((v, i) => ({
+            ...v,
+            image: ["/images/fleet/motorcoach.webp", "/images/fleet/minibus.webp", "/images/fleet/sprinter.webp"][i],
+          }))}
+          venuesTitle={t("touring.venuesTitle")}
+          venues={t.raw("touring.venues") as Venue[]}
+        />
 
         <Band>
           <Split
