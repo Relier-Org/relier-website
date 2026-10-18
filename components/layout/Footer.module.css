@@ -25,9 +25,8 @@
   justify-content: flex-start;
 }
 
-/* Logo apilado: a la altura del horizontal (40px) el wordmark quedaba ilegible. */
 .logoImg {
-  height: 88px;
+  height: 40px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -122,15 +121,16 @@
   align-items: center;
   gap: 14px;
   padding: 14px 4px;
-  border-bottom: 0.5px solid var(--border-subtle);
+  /* Figma oct-2026: filetes más evidentes (1px, #343434 sobre el negro). */
+  border-bottom: 1px solid var(--border-default);
   color: inherit;
 }
 
 .contactItem:first-of-type {
-  border-top: 0.5px solid var(--border-subtle);
+  border-top: 1px solid var(--border-default);
 }
 
-a.contactItem:hover .contactChevron {
+a.contactItem:hover .contactArrow {
   transform: translateX(3px);
   color: var(--color-champagne-500);
 }
@@ -168,11 +168,12 @@ a.contactItem:hover .contactValue {
   text-align: left;
 }
 
+/* Figma oct-2026: al menos #A0A8B0, más oscuro no se lee. */
 .contactLabel {
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--color-silver-300);
 }
 
 .contactValue {
@@ -180,11 +181,11 @@ a.contactItem:hover .contactValue {
   color: var(--color-silver-100);
 }
 
-.contactChevron {
+.contactArrow {
   display: block;
-  width: 14px;
-  height: 14px;
-  color: var(--color-silver-400);
+  font-size: 17px;
+  line-height: 1;
+  color: var(--color-silver-300);
   flex-shrink: 0;
   transition:
     transform var(--duration-fast) var(--ease-out),
@@ -237,7 +238,7 @@ a.contactItem:hover .contactValue {
     justify-content: center;
   }
   .logoImg {
-    height: 56px;
+    height: 44px;
   }
   .brand p {
     text-align: center;
@@ -275,9 +276,8 @@ a.contactItem:hover .contactValue {
   .contactValue {
     font-size: 14px;
   }
-  .contactChevron {
-    width: 16px;
-    height: 16px;
+  .contactArrow {
+    font-size: 18px;
   }
   .ctaBtn {
     margin-top: 32px;
@@ -296,7 +296,7 @@ a.contactItem:hover .contactValue {
     gap: 48px;
   }
   .brand .logoImg {
-    height: 48px;
+    height: 40px;
   }
   .brand p {
     font-size: 14px;

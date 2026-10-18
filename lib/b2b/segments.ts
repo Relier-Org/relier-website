@@ -27,17 +27,17 @@ export const B2B_SEGMENTS: B2BSegment[] = [
   },
   {
     id: "accounts",
-    href: "/corporate",
+    href: "/corporate-transportation",
     image: "/images/services/corporate/arrive-on-time.webp",
   },
   {
     id: "events",
-    href: "/events",
+    href: "/event-transportation",
     image: "/images/events-nyc/guest-arrival.webp",
   },
   {
     id: "affiliates",
-    href: "/affiliates",
+    href: "/affiliate-partners",
     image: "/images/events-nyc/chauffeur-press.webp",
   },
 ];

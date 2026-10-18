@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
+import Button from "@/components/ui/Button";
 import { ALL_CITIES, COVERAGE, project } from "@/lib/coverage/data";
 import styles from "./CoverageMap.module.css";
 
@@ -38,7 +39,7 @@ export default function CoverageMap() {
               return (
                 <span
                   key={c.name}
-                  className={`${styles.pin} ${c.hub ? styles.pinHub : ""}`}
+                  className={`${styles.pin} ${c.hub ? styles.pinHub : ""} ${c.hub && c.lon < 0 ? styles.pinWest : ""}`}
                   style={{ left: `${x}%`, top: `${y}%` }}
                 >
                   <span className={styles.pinDot} />
@@ -50,18 +51,15 @@ export default function CoverageMap() {
 
           <div className={styles.bar}>
             <p className={styles.caption}>{t("coverage.caption")}</p>
-            <button
-              type="button"
+            {/* Figma oct-2026: el toggle pasa a botón primario, centrado. */}
+            <Button
               className={styles.toggle}
               onClick={() => setShowAll((v) => !v)}
               aria-expanded={showAll}
               aria-controls="coverage-full"
             >
               {showAll ? t("coverage.hide") : t("coverage.viewAll")}
-              <span className={styles.toggleIcon} aria-hidden="true">
-                {showAll ? "−" : "+"}
-              </span>
-            </button>
+            </Button>
           </div>
         </Reveal>
 

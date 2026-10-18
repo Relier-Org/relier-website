@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Reveal from "@/components/effects/Reveal";
 import SegmentCards, {
   type SegmentCard,
@@ -7,7 +8,7 @@ import styles from "./RelatedLinks.module.css";
 
 interface RelatedLinksProps {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   /** Las cards compactas de SegmentCards (ícono, título, texto, link): el
       `cta` de cada una es el anchor del plan de internal linking. */
   items: SegmentCard[];

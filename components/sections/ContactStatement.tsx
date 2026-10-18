@@ -9,7 +9,6 @@ export default function ContactStatement() {
       <div className="container">
         <Reveal>
           <div className={styles.content}>
-            <span className={styles.rule} aria-hidden="true" />
             <p className={styles.statement}>{t("contact.statement")}</p>
           </div>
         </Reveal>

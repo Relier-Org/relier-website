@@ -91,13 +91,13 @@
 
 .h2 {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(3rem, 7vw, 4.75rem);
   line-height: 1;
   letter-spacing: -0.035em;
   color: var(--text-primary);
   margin-bottom: 24px;
-  font-variation-settings: "opsz" 144, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   position: relative;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
   text-wrap: balance;
@@ -107,7 +107,7 @@
   color: var(--color-champagne-500);
   font-style: italic;
   font-variation-settings: "opsz" 72, "WONK" 0;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .lead {
@@ -354,7 +354,7 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 .infoValue em {

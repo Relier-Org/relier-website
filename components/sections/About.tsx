@@ -25,7 +25,7 @@ export default async function About() {
           <div className={styles.right}>
             <p>{t("about.p1")}</p>
             <p>{t("about.p2")}</p>
-            <Button href="/about" withArrow className={styles.btn}>
+            <Button href="/about" className={styles.btn}>
               {t("about.cta")}
             </Button>
           </div>

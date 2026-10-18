@@ -39,7 +39,7 @@
   letter-spacing: -0.015em;
   color: var(--text-primary);
   text-wrap: balance;
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 .frameWrap {

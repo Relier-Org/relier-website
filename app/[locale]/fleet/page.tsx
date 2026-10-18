@@ -8,7 +8,7 @@ import FleetGrid, {
   type FleetVehicle,
 } from "@/components/sections/FleetGrid";
 import RelatedLinks from "@/components/sections/RelatedLinks";
-import { CarIcon, RouteIcon, TruckIcon } from "@/components/icons/SegmentIcons";
+import { BusIcon, CarIcon, TruckIcon } from "@/components/icons/SegmentIcons";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import { fleetNodes } from "@/lib/seo/pages";
@@ -58,7 +58,8 @@ export default async function FleetPage({ params }: PageProps) {
     },
     {
       tier: t("vehicles.sClass.tier"),
-      label: t("vehicles.sClass.label"),
+      // Figma oct-2026: "S Class · Flagship sedan" en el label de la card.
+      label: `${t("vehicles.sClass.tier")} · ${t("vehicles.sClass.label")}`,
       year: "2024",
       name: "Mercedes-Benz S-Class",
       image: "/images/fleet/s-class.webp",
@@ -116,7 +117,7 @@ export default async function FleetPage({ params }: PageProps) {
         {/* Internal linking (roadmap SEO sep-2026): vehículos → money pages. */}
         <RelatedLinks
           eyebrow={t("useCases.eyebrow")}
-          title={t("useCases.title")}
+          title={t.rich("useCases.title", { em: (c) => <em>{c}</em> })}
           items={[
             {
               id: "corporate",
@@ -140,7 +141,7 @@ export default async function FleetPage({ params }: PageProps) {
               title: th("transfers.title"),
               body: th("transfers.tagline"),
               cta: t("useCases.airport"),
-              icon: RouteIcon,
+              icon: BusIcon,
             },
           ]}
         />

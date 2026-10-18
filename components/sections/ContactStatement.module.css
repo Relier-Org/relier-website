@@ -1,26 +1,17 @@
 .section {
-  /* Sin luz ambiente: es una franja baja pegada al hero y el radial quedaba
-     como una mancha en la esquina. La luz la lleva la sección del form. */
-  background: var(--bg-canvas);
-  padding: 40px 0 8px;
+  /* Mismo fondo que la banda del form (Figma oct-2026): leen como un bloque. */
+  background: #1e1c18;
+  padding: 72px 0 8px;
 }
 
 .content {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
   text-align: center;
-}
-
-.rule {
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: var(--color-champagne-500);
-  opacity: 0.5;
 }
 
 .statement {

@@ -24,13 +24,13 @@
 }
 
 .hasError .label {
-  color: #E67373;
+  color: var(--color-error, #E67373);
 }
 
 .error {
   font-family: var(--font-sans);
   font-size: 12px;
   letter-spacing: 0.01em;
-  color: #E67373;
+  color: var(--color-error, #E67373);
   margin-top: 2px;
 }

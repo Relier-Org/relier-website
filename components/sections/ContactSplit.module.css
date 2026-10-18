@@ -1,22 +1,71 @@
 .section {
-  padding: 96px 0 80px;
-  background: var(--ambient-right), var(--bg-canvas);
+  padding: 24px 0 112px;
+  background: #1e1c18;
   color: var(--text-primary);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: 64px;
-  align-items: start;
+/* ─── Form band (Figma oct-2026): foto full-bleed del S-Class y la card crema
+   del form encima, a la derecha, desbordando la foto 86px arriba y abajo. ─── */
+
+.formBand {
+  position: relative;
+  padding-block: 86px;
 }
 
-/* ─── Form column ─── */
+.photo {
+  position: absolute;
+  inset: 172px 0;
+  overflow: hidden;
+}
 
-.formCol {
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 19, 16, 0.3);
+}
+
+.photoImg {
+  object-fit: cover;
+  object-position: 30% 60%;
+}
+
+/* La card redefine los tokens de texto/borde para que Field, Input y Textarea
+   (pensados para fondo oscuro) se lean sobre crema sin otra variante. Los
+   labels van un punto más oscuros que el #A0A8B0 del Figma: sobre crema ese
+   gris no llega a 3:1. */
+.formCard {
+  --text-primary: var(--text-on-light);
+  --text-secondary: var(--text-on-light-muted);
+  --text-tertiary: var(--text-on-light-tertiary);
+  --text-muted: var(--text-on-light-tertiary);
+  --text-accent: var(--accent-on-light);
+  --border-default: rgba(26, 25, 22, 0.18);
+  --border-strong: rgba(26, 25, 22, 0.36);
+  --color-silver-500: var(--text-on-light-tertiary);
+  /* Errores sobre crema: el rojo claro del fondo oscuro no llegaba a 3:1. */
+  --color-error: #B3261E;
+  --color-error-soft: #9F1F18;
+  --color-error-bg: rgba(179, 38, 30, 0.06);
+  --color-error-border: rgba(179, 38, 30, 0.32);
+  position: relative;
+  z-index: 1;
+  width: min(682px, 100%);
+  margin-left: auto;
+  margin-right: calc(-1 * min(42px, var(--inset) - 16px));
+  padding: 64px 68px;
+  background: var(--bg-light);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+
+/* El champagne 500 del foco no llega a 3:1 sobre crema: va el 800. */
+.formCard input:focus,
+.formCard textarea:focus {
+  border-bottom-color: var(--accent-on-light);
 }
 
 .formHeader {
@@ -28,12 +77,12 @@
 .h2 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: var(--type-h2);
-  line-height: 1.1;
+  font-size: var(--type-h3);
+  line-height: 1.05;
   letter-spacing: -0.015em;
   color: var(--text-primary);
   text-wrap: balance;
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 .form {
@@ -45,7 +94,7 @@
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 40px;
 }
 
 .actions {
@@ -60,7 +109,7 @@
   font-size: 12px;
   color: var(--text-muted);
   line-height: 1.5;
-  max-width: 280px;
+  max-width: 260px;
 }
 
 /* Honeypot: off-screen for bots, invisible and unreachable for humans. */
@@ -76,10 +125,10 @@
 .formError {
   font-size: 13px;
   line-height: 1.55;
-  color: #E5A3A3;
+  color: var(--color-error-soft, #E5A3A3);
   padding: 14px 16px;
-  background: rgba(229, 163, 163, 0.07);
-  border: 0.5px solid rgba(229, 163, 163, 0.28);
+  background: var(--color-error-bg, rgba(229, 163, 163, 0.07));
+  border: 0.5px solid var(--color-error-border, rgba(229, 163, 163, 0.28));
   border-radius: var(--radius-sm);
 }
 
@@ -101,7 +150,7 @@
   font-size: 30px;
   line-height: 1.15;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 .successCard p {
@@ -139,53 +188,53 @@
   opacity: 1;
 }
 
-/* ─── Info column ─── */
+/* ─── Direct lines (Figma oct-2026): banda propia, tres columnas separadas por
+   filetes y "Follow us" con círculos dorados. ─── */
 
-.infoCol {
-  position: sticky;
-  top: 100px;
+.lines {
+  padding-top: 90px;
 }
 
-.infoCard {
-  background: rgba(255, 255, 255, 0.025);
-  border: 0.5px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 40px 36px;
+.linesHead {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  gap: 14px;
+  margin-bottom: 56px;
 }
 
-.infoTitle {
+.linesTitle {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: var(--type-h4);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: var(--type-h2);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-top: -4px;
+  font-variation-settings: "WONK" 0;
   text-wrap: balance;
-  font-variation-settings: "opsz" 96, "WONK" 0;
+}
+
+.linesTitle em {
+  color: var(--color-champagne-500);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-weight: 300;
 }
 
 .departments {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .department {
-  padding: 22px 0;
-  border-bottom: 0.5px solid var(--border-hairline);
+  padding: 4px 40px;
 }
 
 .department:first-child {
-  padding-top: 4px;
+  padding-left: 0;
 }
 
-.department:last-child {
-  border-bottom: none;
+.department + .department {
+  border-left: 1px solid var(--border-subtle);
 }
 
 .deptName {
@@ -193,7 +242,7 @@
   font-size: 22px;
   line-height: 1.2;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 .deptFor {
@@ -302,7 +351,7 @@
   letter-spacing: -0.01em;
   color: var(--text-primary);
   transition: color var(--duration-fast) var(--ease-out);
-  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 a.infoValue:hover {
@@ -317,7 +366,7 @@ a.infoValue:hover {
   line-height: 1.35;
   letter-spacing: -0.005em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-variation-settings: "WONK" 0;
 }
 
 .infoMeta {
@@ -330,33 +379,35 @@ a.infoValue:hover {
 .socialBar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding-top: 8px;
-  border-top: 0.5px solid var(--border-hairline);
-  margin-top: 4px;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.followLabel {
+  font-family: var(--font-sans);
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
 }
 
 .socials {
   display: flex;
-  /* Gap shrinks because each link now carries its own 44px box; the icons keep
-     roughly the same optical spacing they had at gap 18 with no box at all. */
-  gap: 0;
+  gap: 12px;
   align-items: center;
-  /* Pulls the first icon back to the label's left edge, since the box padding
-     would otherwise indent it. */
-  margin-left: -14px;
 }
 
 .socials a {
-  color: var(--text-tertiary);
-  transition: color var(--duration-fast) var(--ease-out);
-  /* 16px glyph, 44px target: the tap area was the glyph itself before. */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
+  border-radius: 50%;
+  background: var(--color-champagne-500);
+  color: var(--color-obsidian-900);
+  transition: background-color var(--duration-fast) var(--ease-out);
 }
 
 .socials a svg {
@@ -365,25 +416,55 @@ a.infoValue:hover {
 }
 
 .socials a:hover {
-  color: var(--text-accent);
+  background: var(--color-champagne-300);
 }
 
 /* ─── Responsive ─── */
 
 @media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
+  .department {
+    padding-inline: 28px;
   }
-  .infoCol {
-    position: static;
-    top: auto;
+  .formBand {
+    padding-block: 48px 0;
+  }
+  .photo {
+    position: relative;
+    inset: auto;
+    height: 320px;
+  }
+  .formCard {
+    width: 100%;
+    margin: -96px 0 0;
+    padding: 48px 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .departments {
+    grid-template-columns: 1fr;
+  }
+  .department,
+  .department:first-child {
+    padding: 28px 0;
+  }
+  .department + .department {
+    border-left: none;
+    border-top: 1px solid var(--border-subtle);
   }
 }
 
 @media (max-width: 720px) {
   .section {
-    padding: 64px 0 56px;
+    padding: 0 0 72px;
+  }
+  .photo {
+    height: 220px;
+  }
+  .formCard {
+    margin-top: -56px;
+    padding: 36px 24px;
+    gap: 32px;
   }
   .row {
     grid-template-columns: 1fr;
@@ -397,8 +478,15 @@ a.infoValue:hover {
   .fine {
     max-width: none;
   }
-  .infoCard {
-    padding: 32px 24px;
+  .lines {
+    padding-top: 64px;
+  }
+  .linesHead {
+    margin-bottom: 24px;
+  }
+  .socialBar {
+    flex-wrap: wrap;
+    margin-top: 32px;
   }
   .successCard {
     padding: 32px 24px;

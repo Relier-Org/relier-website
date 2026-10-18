@@ -25,7 +25,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   text-wrap: balance;
   margin: 0 0 18px;
 }
@@ -82,49 +82,115 @@
   mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
 }
 
+/* Pin = punto + etiqueta. El transform deja el centro del punto sobre la
+   coordenada aunque la etiqueta esté abierta (--pin-pad + mitad del punto).
+   Figma oct-2026: hubs y hover como pill oscura con el punto adentro y un halo
+   cálido detrás, para que el nombre se lea cuando los puntos se superponen.
+   Nada de esto se transiciona en tamaño (regla: no animar padding/gap en
+   :hover), sólo opacidades. */
 .pin {
+  --dot: 5px;
+  --pin-pad: 0px;
   position: absolute;
-  transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 0;
+  padding: 0;
+  transform: translate(calc(-1 * var(--pin-pad) - var(--dot) / 2), -50%);
   z-index: 2;
+}
+
+/* Fondo de la pill (::after) por encima del halo (::before). */
+.pin::before,
+.pin::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.pin::before {
+  z-index: -2;
+  left: calc(var(--pin-pad) + var(--dot) / 2);
+  top: 50%;
+  width: 280px;
+  height: 280px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(201, 169, 97, 0.3) 0%,
+    rgba(201, 169, 97, 0.12) 50%,
+    rgba(201, 169, 97, 0) 100%
+  );
+}
+
+.pin::after {
+  z-index: -1;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(14, 13, 11, 0.92);
+  border: 1px solid rgba(201, 169, 97, 0.28);
+  box-shadow: 0 0 18px rgba(201, 169, 97, 0.14);
 }
 
 /* Regular city dot — small + static (kept lightweight; the map carries 190+). */
 .pinDot {
-  width: 5px;
-  height: 5px;
+  flex-shrink: 0;
+  width: var(--dot);
+  height: var(--dot);
   border-radius: 50%;
   background: rgba(201, 169, 97, 0.85);
   box-shadow: 0 0 0 2.5px rgba(201, 169, 97, 0.12);
   position: relative;
-  transition:
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.pinLabel {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-silver-100);
+}
+
+/* Pill abierta: hubs siempre, el resto en hover. */
+.pinHub,
+.pin:hover {
+  --pin-pad: 10px;
+  gap: 9px;
+  padding: 7px 16px 7px var(--pin-pad);
+}
+
+.pinHub .pinLabel,
+.pin:hover .pinLabel {
+  display: block;
+}
+
+.pinHub::after,
+.pin:hover::after,
+.pin:hover::before {
+  opacity: 1;
 }
 
 .pin:hover {
-  z-index: 5;
-}
-
-.pin:hover .pinDot {
-  transform: scale(1.5);
-  box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.22);
+  z-index: 6;
 }
 
 /* Hub (NY + Barcelona) — larger, glowing, always above regular dots. */
 .pinHub {
+  --dot: 12px;
   z-index: 4;
 }
 
 .pinHub .pinDot {
-  width: 12px;
-  height: 12px;
   background: var(--color-champagne-500);
   box-shadow:
-    0 0 0 5px rgba(201, 169, 97, 0.2),
-    0 0 16px rgba(201, 169, 97, 0.55);
+    0 0 0 3px rgba(201, 169, 97, 0.25),
+    0 0 12px rgba(201, 169, 97, 0.5);
 }
 
 .pinHub .pinDot::after {
@@ -134,29 +200,6 @@
   border-radius: 50%;
   border: 1px solid rgba(201, 169, 97, 0.5);
   animation: pinPulse 2.8s var(--ease-out) infinite;
-}
-
-.pinLabel {
-  margin-top: 7px;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--color-silver-200);
-  opacity: 0;
-  transform: translateY(-4px);
-  transition:
-    opacity var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
-}
-
-.pinHub .pinLabel,
-.pin:hover .pinLabel {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 @keyframes pinPulse {
@@ -171,56 +214,26 @@
   }
 }
 
-/* Caption + toggle row under the map. */
+/* Caption + toggle row under the map. Figma oct-2026: caption a la
+   izquierda en dos líneas, botón primario centrado en el container. */
 .bar {
-  margin-top: 18px;
-  display: flex;
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
-  flex-wrap: wrap;
 }
 
 .caption {
-  font-size: 11px;
-  letter-spacing: 0.02em;
-  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-silver-300);
+  max-width: 280px;
   margin: 0;
 }
 
-/* ─── "View all destinations" toggle ─── */
 .toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  align-self: flex-start;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-accent);
-  transition: color var(--duration-base) var(--ease-out);
-}
-
-.toggle:hover {
-  color: var(--color-champagne-500);
-}
-
-.toggleIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 18px;
-  border: 0.5px solid var(--border-subtle);
-  border-radius: 50%;
-  font-size: 13px;
-  line-height: 1;
+  grid-column: 2;
 }
 
 /* ─── Full destination list (expanded) ─── */
@@ -288,15 +301,58 @@
   }
 }
 
+/* Hasta 900px las pills de NY y Barcelona (14px) se pisan: los hubs vuelven a
+   punto con etiqueta abajo. */
+@media (max-width: 900px) {
+  /* En mobile no hay hover y las pills de NY y Barcelona se pisan: los
+     hubs vuelven a punto con la etiqueta abajo, sin pill. */
+  .pin,
+  .pinHub,
+  .pin:hover {
+    --pin-pad: 0px;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+    transform: translate(-50%, calc(var(--dot) / -2));
+  }
+  .pin::after,
+  .pin::before {
+    display: none;
+  }
+  .pin:not(.pinHub):hover .pinLabel {
+    display: none;
+  }
+  /* Las etiquetas de los hubs se abren hacia afuera (NY a la izquierda,
+     Barcelona a la derecha) para no tocarse en el centro del Atlántico. */
+  .pinHub {
+    align-items: flex-start;
+    transform: translate(calc(var(--dot) / -2), calc(var(--dot) / -2));
+  }
+  .pinHub.pinWest {
+    align-items: flex-end;
+    transform: translate(calc(-100% + var(--dot) / 2), calc(var(--dot) / -2));
+  }
+  .pinHub .pinLabel {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  }
+}
+
 @media (max-width: 720px) {
   .coverage {
     padding: 72px 0;
   }
-  .pinLabel {
-    display: none;
+  .bar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
   }
-  .pinHub .pinLabel {
-    display: block;
+  .caption {
+    max-width: none;
+  }
+  .toggle {
+    grid-column: 1;
   }
   .fullGrid {
     grid-template-columns: 1fr;

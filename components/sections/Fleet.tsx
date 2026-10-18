@@ -112,7 +112,11 @@ export default function Fleet() {
       <div className={cn("container", styles.inner)}>
         <Reveal className={styles.head}>
           <p className={styles.kicker}>{t("showcase.kicker")}</p>
-          <h2 className={styles.title}>{t("showcase.title")}</h2>
+          <h2 className={styles.title}>
+            {t.rich("showcase.title", {
+              muted: (c) => <span className="muted">{c}</span>,
+            })}
+          </h2>
           <p className={styles.lead}>{t("showcase.lead")}</p>
         </Reveal>
 
@@ -169,7 +173,7 @@ export default function Fleet() {
             className={cn(styles.sideNav, styles.sidePrev)}
             onClick={() => go(-1)}
           >
-            <span aria-hidden="true">‹</span>
+            <span aria-hidden="true">←</span>
             {prevTier}
           </button>
           <button
@@ -178,7 +182,7 @@ export default function Fleet() {
             onClick={() => go(1)}
           >
             {nextTier}
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">→</span>
           </button>
         </div>
 
@@ -206,11 +210,6 @@ export default function Fleet() {
             </ul>
           </div>
 
-          <div className={styles.ctaRow}>
-            <Button href="#booking">{tc("reserve")}</Button>
-            <TextCTA href="/fleet">{t("showcase.exploreFull")}</TextCTA>
-          </div>
-
           <div className={styles.playback}>
             <button
               type="button"
@@ -218,7 +217,7 @@ export default function Fleet() {
               aria-label={t("showcase.previousVehicle")}
               onClick={() => go(-1)}
             >
-              ‹
+              ←
             </button>
             <div
               className={styles.dots}
@@ -243,8 +242,15 @@ export default function Fleet() {
               aria-label={t("showcase.nextVehicle")}
               onClick={() => go(1)}
             >
-              ›
+              →
             </button>
+          </div>
+
+          {/* Figma oct-2026: los dots quedan pegados al slider y el CTA (que es
+              el mismo para todos los autos) fijo debajo. */}
+          <div className={styles.ctaRow}>
+            <Button href="#booking">{tc("reserve")}</Button>
+            <TextCTA href="/fleet">{t("showcase.exploreFull")}</TextCTA>
           </div>
         </footer>
       </div>

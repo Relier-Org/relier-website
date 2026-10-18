@@ -1,7 +1,7 @@
 {
   "showcase": {
     "kicker": "La Flota",
-    "title": "Listos para cada viaje.",
+    "title": "Listos para <muted>cada viaje.</muted>",
     "lead": "Cada reserva garantiza una clase de vehículo. Nuestra flota se mantiene meticulosamente para exigencias ejecutivas:",
     "imageAlt": "{name} o similar",
     "previousVehicle": "Vehículo anterior",
@@ -63,7 +63,7 @@
   },
   "useCases": {
     "eyebrow": "Pensada para",
-    "title": "El vehículo indicado para cada tipo de viaje.",
+    "title": "El vehículo indicado para <em>cada tipo de viaje.</em>",
     "corporate": "transporte corporativo",
     "events": "transporte para eventos",
     "airport": "traslados al aeropuerto"

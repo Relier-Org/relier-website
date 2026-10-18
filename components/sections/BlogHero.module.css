@@ -49,7 +49,7 @@
   line-height: 1.04;
   letter-spacing: -0.022em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   /* `margin: 0 0` y no `margin-bottom`: el hero también se renderiza como <p>

@@ -13,7 +13,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   text-wrap: balance;
 }
 

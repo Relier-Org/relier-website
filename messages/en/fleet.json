@@ -1,7 +1,7 @@
 {
   "showcase": {
     "kicker": "The Fleet",
-    "title": "Ready for every journey.",
+    "title": "Ready for <muted>every journey.</muted>",
     "lead": "Every booking guarantees a class of vehicle. Our fleet is meticulously maintained for executive demands:",
     "imageAlt": "{name} or similar",
     "previousVehicle": "Previous vehicle",
@@ -63,7 +63,7 @@
   },
   "useCases": {
     "eyebrow": "Built for",
-    "title": "The right vehicle for every kind of trip.",
+    "title": "The right vehicle for <em>every kind of trip.</em>",
     "corporate": "corporate transportation",
     "events": "event transportation",
     "airport": "airport transfers"

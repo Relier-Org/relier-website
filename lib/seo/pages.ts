@@ -143,18 +143,7 @@ const SERVICE_LANDINGS: Record<string, LandingConfig> = {
     crumb: "concierge",
     parent: "services",
   },
-  travelAdvisors: {
-    path: "/travel-advisors",
-    ns: "services.travelAdvisors",
-    serviceType: "Chauffeured transportation for travel advisors and agencies",
-    audience: {
-      "@type": "BusinessAudience",
-      audienceType: "Travel advisors, travel agencies and hospitality teams",
-    },
-    crumb: "travelAdvisors",
-    parent: "forBusiness",
-    nameFromMeta: true,
-  },
+
 };
 
 const FOR_BUSINESS_CRUMB = (label: string): Crumb => ({
@@ -337,27 +326,6 @@ export async function forBusinessHubNodes(
   });
 }
 
-/**
- * /affiliates/ es un partner program, no un servicio: WebPage + BreadcrumbList
- * y nada de Service/Product (T05). Cuelga del hub en el breadcrumb aunque la
- * URL viva en la raíz, que es la que fijó el equipo de SEO.
- */
-export async function affiliatesNodes(locale: string): Promise<SchemaNode[]> {
-  const labels = await crumbLabels(locale);
-  const t = await getTranslations({ locale, namespace: "services.affiliates" });
-  return entityPageSchema("WebPage", {
-    locale,
-    path: "/affiliates",
-    name: stripBrand(t("meta.title")),
-    description: t("meta.description"),
-    homeName: labels.home,
-    trail: [
-      FOR_BUSINESS_CRUMB(labels.forBusiness),
-      { name: labels.affiliates, path: "/affiliates" },
-    ],
-  });
-}
-
 export async function fleetNodes(locale: string): Promise<SchemaNode[]> {
   const labels = await crumbLabels(locale);
   const t = await getTranslations({ locale, namespace: "fleet" });
@@ -502,12 +470,14 @@ export async function postNodes(post: Post): Promise<SchemaNode[]> {
 
 /**
  * Landings B2B del equipo de SEO (oct-2026): Service + WebPage + Breadcrumb +
- * FAQPage, como en sus HTML finales. Las cuatro cuelgan del hub /for-business
- * en el breadcrumb aunque la URL viva en la raíz.
+ * FAQPage, como en sus HTML finales. Son las páginas de For Business (nav, hub
+ * y footer; Nico, 18-oct-2026) y no se mezclan con Services: /events y
+ * /corporate conservan su contenido de servicio. /affiliates y
+ * /for-business/travel-advisors redirigen a su landing (next.config.mjs).
  */
 export const LANDINGS = {
   events: {
-    path: "/events",
+    path: "/event-transportation",
     crumb: "events",
     serviceType: "Event transportation",
     audience: {
@@ -516,7 +486,7 @@ export const LANDINGS = {
     },
   },
   corporate: {
-    path: "/corporate",
+    path: "/corporate-transportation",
     crumb: "corporate",
     serviceType:
       "Corporate transportation, executive car service and corporate chauffeur service",
@@ -526,7 +496,7 @@ export const LANDINGS = {
     },
   },
   affiliates: {
-    path: "/affiliates",
+    path: "/affiliate-partners",
     crumb: "affiliates",
     serviceType:
       "Limo affiliate network and chauffeur partner services in New York and Spain",

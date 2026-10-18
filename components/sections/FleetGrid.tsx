@@ -29,10 +29,9 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
   return (
     <section className={styles.section} id={id}>
       <div className="container">
-        <Reveal>
-          <header className={styles.header}>
-            <h2 className={styles.title}>{title}</h2>
-          </header>
+        {/* Figma oct-2026: título a la izquierda, lead a la derecha. */}
+        <Reveal className={styles.header}>
+          <h2 className={styles.title}>{title}</h2>
           {lead && <p className={styles.lead}>{lead}</p>}
         </Reveal>
 
@@ -61,14 +60,12 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
                       </span>
                     </div>
                   )}
-                  {v.label && (
-                    <span className={styles.photoLabel}>{v.label}</span>
-                  )}
-                  <div className={styles.glow} aria-hidden="true" />
                 </div>
 
+                {/* Un solo label de clase, en el bloque de info (Figma oct-2026).
+                    Los vehículos grandes no lo llevan: el nombre ya es la clase. */}
                 <div className={styles.cardContent}>
-                  <p className={styles.tier}>{v.tier}</p>
+                  {v.label && <p className={styles.tier}>{v.label}</p>}
                   <h3>
                     {v.name}
                     {v.orSimilar && (
@@ -85,6 +82,7 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
                     </span>
                     {v.bags !== undefined && (
                       <span className={styles.spec}>
+                        <span className={styles.specDivider} aria-hidden="true" />
                         <LuggageIcon className={styles.specIcon} />
                         <span className={styles.specValue}>{v.bags}</span>
                         <span className={styles.specUnit}>{tc("bags")}</span>

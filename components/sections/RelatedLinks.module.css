@@ -1,15 +1,17 @@
+/* Figma oct-2026: luz cálida difusa (la misma del About del home). */
 .section {
   padding: clamp(64px, 8vw, 104px) 0;
   border-top: 0.5px solid var(--border-hairline);
-  background: var(--ambient-right), var(--bg-canvas);
+  background:
+    radial-gradient(80% 75% at 62% 70%, rgba(255, 236, 200, 0.07), transparent 72%),
+    #191816;
 }
 
 .head {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-width: 720px;
-  margin-bottom: 44px;
+  margin-bottom: 28px;
 }
 
 .eyebrow {
@@ -23,8 +25,15 @@
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   text-wrap: balance;
+}
+
+.title em {
+  color: var(--color-champagne-500);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-weight: 300;
 }
 
 .section .grid3 {

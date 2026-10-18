@@ -49,7 +49,7 @@
   line-height: 1.03;
   letter-spacing: -0.022em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   text-shadow: var(--text-shadow-display);
   text-wrap: balance;
   animation: fadeUp 1.2s var(--ease-out) 0.35s both;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
@@ -81,9 +82,20 @@ export default function ContactSplit() {
 
   return (
     <section className={styles.section}>
-      <div className="container">
-        <div className={styles.grid}>
-          <Reveal className={styles.formCol}>
+      {/* Figma oct-2026: el form va en una card crema sobre una foto full-bleed
+          del S-Class; las líneas directas pasan a ser una banda propia abajo. */}
+      <div className={styles.formBand}>
+        <div className={styles.photo} aria-hidden="true">
+          <Image
+            src="/images/contact/sedan.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className={styles.photoImg}
+          />
+        </div>
+        <div className="container">
+          <Reveal className={styles.formCard}>
             <header className={styles.formHeader}>
               <p className="section-label">{t("contact.form.label")}</p>
               <h2 className={styles.h2}>{t("contact.form.title")}</h2>
@@ -221,7 +233,6 @@ export default function ContactSplit() {
                   <Button
                     type="submit"
                     variant="primary"
-                    withArrow
                     disabled={status === "sending"}
                   >
                     {status === "sending"
@@ -232,80 +243,82 @@ export default function ContactSplit() {
               </form>
             )}
           </Reveal>
-
-          <Reveal className={styles.infoCol}>
-            <aside className={styles.infoCard}>
-              <p className="section-label">{t("contact.info.label")}</p>
-              <h3 className={styles.infoTitle}>
-                {t("contact.info.titleLead")}{" "}
-                <span className="muted">{t("contact.info.titleMuted")}</span>
-              </h3>
-
-              {/* Un bloque por departamento con sus líneas oficiales (doc del
-                  cliente, oct-2026): cada consulta va directo al equipo que la
-                  atiende. */}
-              <div className={styles.departments}>
-                {DEPARTMENTS.map((d) => (
-                  <div key={d.id} className={styles.department}>
-                    <p className={styles.deptName}>
-                      {t(`contact.info.departments.${d.id}.name`)}
-                    </p>
-                    <p className={styles.deptFor}>
-                      {t(`contact.info.departments.${d.id}.for`)}
-                    </p>
-                    <ul className={styles.deptList}>
-                      <li>
-                        <MailIcon className={styles.deptIcon} aria-hidden="true" />
-                        <a href={`mailto:${d.email}`} className={styles.deptValue}>
-                          {d.email}
-                        </a>
-                      </li>
-                      <li>
-                        <PhoneIcon className={styles.deptIcon} aria-hidden="true" />
-                        <a href={`tel:${d.phone.tel}`} className={styles.deptValue}>
-                          {d.phone.display}
-                        </a>
-                      </li>
-                      {d.whatsapp ? (
-                        <li>
-                          <WhatsAppIcon className={styles.deptIcon} aria-hidden="true" />
-                          <a
-                            href={`https://wa.me/${d.whatsapp.number}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.deptValue}
-                            aria-label={`WhatsApp ${d.whatsapp.display}`}
-                          >
-                            {d.whatsapp.display}
-                          </a>
-                        </li>
-                      ) : null}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              <div className={styles.socialBar}>
-                <p className={styles.infoLabel}>
-                  {t("contact.info.followLabel")}
-                </p>
-                <div className={styles.socials}>
-                  {SOCIAL_PROFILES.map(({ href, label, Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      aria-label={label}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Icon />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </aside>
-          </Reveal>
         </div>
+      </div>
+
+      <div className="container">
+        <Reveal className={styles.lines}>
+          <header className={styles.linesHead}>
+            <p className="eyebrow">{t("contact.info.label")}</p>
+            <h2 className={styles.linesTitle}>
+              {t("contact.info.titleLead")}{" "}
+              <em>{t("contact.info.titleMuted")}</em>
+            </h2>
+          </header>
+
+          {/* Un bloque por departamento con sus líneas oficiales (doc del
+              cliente, oct-2026): cada consulta va directo al equipo que la
+              atiende. */}
+          <div className={styles.departments}>
+            {DEPARTMENTS.map((d) => (
+              <div key={d.id} className={styles.department}>
+                <p className={styles.deptName}>
+                  {t(`contact.info.departments.${d.id}.name`)}
+                </p>
+                <p className={styles.deptFor}>
+                  {t(`contact.info.departments.${d.id}.for`)}
+                </p>
+                <ul className={styles.deptList}>
+                  <li>
+                    <MailIcon className={styles.deptIcon} aria-hidden="true" />
+                    <a href={`mailto:${d.email}`} className={styles.deptValue}>
+                      {d.email}
+                    </a>
+                  </li>
+                  <li>
+                    <PhoneIcon className={styles.deptIcon} aria-hidden="true" />
+                    <a href={`tel:${d.phone.tel}`} className={styles.deptValue}>
+                      {d.phone.display}
+                    </a>
+                  </li>
+                  {d.whatsapp ? (
+                    <li>
+                      <WhatsAppIcon className={styles.deptIcon} aria-hidden="true" />
+                      <a
+                        href={`https://wa.me/${d.whatsapp.number}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.deptValue}
+                        aria-label={`WhatsApp ${d.whatsapp.display}`}
+                      >
+                        {d.whatsapp.display}
+                      </a>
+                    </li>
+                  ) : null}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.socialBar}>
+            <p className={styles.followLabel}>
+              {t("contact.info.followLabel")}
+            </p>
+            <div className={styles.socials}>
+              {SOCIAL_PROFILES.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon />
+                </a>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -196,11 +196,10 @@ export default function Testimonials({
               rel="noopener noreferrer"
               className={styles.reviewPill}
             >
-              <GoogleIcon size={18} />
-              <span>{t("testimonials.leaveReview")}</span>
-              <span className={styles.reviewPillArrow} aria-hidden="true">
-                ↗
+              <span className={styles.reviewPillG}>
+                <GoogleIcon size={20} />
               </span>
+              <span>{t("testimonials.leaveReview")}</span>
             </a>
           </div>
         )}
@@ -213,11 +212,10 @@ export default function Testimonials({
               rel="noopener noreferrer"
               className={styles.reviewPill}
             >
-              <GoogleIcon size={18} />
-              <span>{t("testimonials.leaveReview")}</span>
-              <span className={styles.reviewPillArrow} aria-hidden="true">
-                ↗
+              <span className={styles.reviewPillG}>
+                <GoogleIcon size={20} />
               </span>
+              <span>{t("testimonials.leaveReview")}</span>
             </a>
           </div>
         )}

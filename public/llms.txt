@@ -23,10 +23,10 @@
 
 ## Business segments
 
-- https://relier.com/for-business/travel-advisors/ — Travel advisors and agencies
-- https://relier.com/corporate/ — Corporate transportation accounts
-- https://relier.com/events/ — Artists, crews and productions
-- https://relier.com/affiliates/ — Chauffeured transportation affiliate partners
+- https://relier.com/travel-advisors/ — Travel advisors and agencies
+- https://relier.com/corporate-transportation/ — Corporate transportation accounts
+- https://relier.com/event-transportation/ — Artists, crews and productions
+- https://relier.com/affiliate-partners/ — Chauffeured transportation affiliate partners
 
 ## Coverage
 

@@ -1,6 +1,12 @@
+/* Figma oct-2026 ("sumé un gradientecito"): luz cálida difusa que levanta
+   el centro-derecha de la sección, más presente que el --ambient-* estándar. */
 .about {
   padding: 140px 0;
   border-top: 0.5px solid var(--border-subtle);
+  background:
+    radial-gradient(80% 75% at 68% 62%, rgba(255, 236, 200, 0.075), transparent 72%),
+    radial-gradient(55% 60% at 12% 95%, rgba(197, 205, 213, 0.035), transparent 70%),
+    var(--bg-canvas);
 }
 
 .grid {
@@ -11,19 +17,19 @@
 }
 
 .eyebrow {
-  margin-bottom: 32px;
+  margin-bottom: 26px;
   display: inline-block;
 }
 
 .heading {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--type-h2);
   line-height: 1.02;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  font-variation-settings: "opsz" 144, "WONK" 0;
-  margin-bottom: 48px;
+  font-variation-settings: "WONK" 0;
+  margin-bottom: 26px;
   text-wrap: balance;
 }
 
@@ -31,7 +37,7 @@
   color: var(--color-champagne-500);
   font-style: italic;
   font-variation-settings: "opsz" 72, "WONK" 0;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .right p {

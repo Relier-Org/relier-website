@@ -37,5 +37,5 @@
 
 .invalid,
 .invalid:focus {
-  border-bottom-color: #E67373;
+  border-bottom-color: var(--color-error, #E67373);
 }

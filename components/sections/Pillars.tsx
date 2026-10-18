@@ -1,14 +1,16 @@
 import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/effects/Reveal";
-import ShieldIcon from "@/components/icons/ShieldIcon";
-import ClockIcon from "@/components/icons/ClockIcon";
-import CalendarCheckIcon from "@/components/icons/CalendarCheckIcon";
+import {
+  CalendarIcon,
+  GlobeIcon,
+  ShieldTickIcon,
+} from "@/components/icons/PillarIcons";
 import styles from "./Pillars.module.css";
 
 const PILLARS = [
-  { icon: ShieldIcon, key: "safe" },
-  { icon: ClockIcon, key: "solutions" },
-  { icon: CalendarCheckIcon, key: "book" },
+  { icon: ShieldTickIcon, key: "safe" },
+  { icon: GlobeIcon, key: "solutions" },
+  { icon: CalendarIcon, key: "book" },
 ];
 
 export default async function Pillars() {
@@ -17,22 +19,23 @@ export default async function Pillars() {
   return (
     <section className={styles.pillars}>
       <div className="container">
+        {/* Figma oct-2026: título a la izquierda, lead a la derecha. */}
         <Reveal className={styles.head}>
-          <p className={styles.kicker}>{t("pillars.kicker")}</p>
-          <h2 className={styles.title}>
-            {t.rich("pillars.title", {
-              muted: (c) => <span className="muted">{c}</span>,
-            })}
-          </h2>
+          <div>
+            <p className={styles.kicker}>{t("pillars.kicker")}</p>
+            <h2 className={styles.title}>
+              {t.rich("pillars.title", {
+                muted: (c) => <span className="muted">{c}</span>,
+              })}
+            </h2>
+          </div>
           <p className={styles.lead}>{t("pillars.lead")}</p>
         </Reveal>
 
         <Reveal className={styles.cols}>
           {PILLARS.map(({ icon: Icon, key }) => (
             <div key={key} className={styles.col}>
-              <div className={styles.icon}>
-                <Icon size="100%" />
-              </div>
+              <Icon className={styles.icon} />
               <h3>{t(`pillars.items.${key}.title`)}</h3>
               <p>{t(`pillars.items.${key}.body`)}</p>
             </div>

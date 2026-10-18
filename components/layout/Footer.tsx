@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { SVGProps } from "react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LocationIcon, PhoneIcon, MailIcon } from "@/components/icons/ContactIcons";
@@ -8,7 +7,7 @@ import { SOCIAL_PROFILES } from "@/lib/social/profiles";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Footer.module.css";
 
-// Logo apilado (aro + RELIER) de la carpeta "logos relier" del cliente, oct-2026.
+// Logo horizontal (aro + RELIER en línea), como el nav — Figma oct-2026.
 // TODO: pedir SVG; hoy es PNG blanco con transparencia.
 // TODO: client to confirm Barcelona HQ address
 
@@ -26,29 +25,12 @@ const COMPANY_LINKS = [
   { href: "/fleet", labelKey: "footer.links.fleet" },
   { href: "/for-business", labelKey: "nav.links.forBusiness" },
   { href: "/travel-advisors", labelKey: "common.travelAdvisors" },
-  { href: "/affiliates", labelKey: "common.affiliates" },
+  { href: "/affiliate-partners", labelKey: "common.affiliates" },
   { href: "/signature-events", labelKey: "common.signatureEvents" },
   { href: "/testimonials", labelKey: "common.testimonials" },
   { href: "/blog", labelKey: "common.news" },
   { href: "https://relier.es", labelKey: "footer.links.relierEurope", external: true },
 ];
-
-function ChevronRight(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  );
-}
 
 const CONTACT_ITEMS: {
   icon: typeof LocationIcon;
@@ -90,9 +72,9 @@ export default async function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label={t("footer.aria.home")}>
               <Image
-                src="/images/relier-logo-stacked.png"
+                src="/images/relier-logo-horizontal.png"
                 alt="Relier"
-                width={256}
+                width={683}
                 height={240}
                 className={styles.logoImg}
               />
@@ -153,7 +135,10 @@ export default async function Footer() {
                     <span className={styles.contactLabel}>{t(labelKey)}</span>
                     <span className={styles.contactValue}>{value}</span>
                   </span>
-                  <ChevronRight className={styles.contactChevron} />
+                  {/* Figma oct-2026: la misma flecha que el resto del sitio. */}
+                  <span className={styles.contactArrow} aria-hidden="true">
+                    →
+                  </span>
                 </>
               );
               return (
@@ -172,7 +157,6 @@ export default async function Footer() {
             <Button
               href="/online-reservation/"
               variant="primary"
-              withArrow
               className={styles.ctaBtn}
             >
               {t("common.bookYourRide")}

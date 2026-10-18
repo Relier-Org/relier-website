@@ -27,11 +27,18 @@ const LEGACY_REDIRECTS = [
     destination: "/airport/",
   },
 
-  // Landing de SEO oct-2026: travel advisors pasa a la raíz (su canonical).
+  // For Business = landings de SEO (Nico, 18-oct-2026): las versiones
+  // anteriores de travel advisors y affiliates pasan a su landing, en los 3
+  // idiomas. /events y /corporate no: siguen siendo las páginas de Services.
   { source: "/for-business/travel-advisors", destination: "/travel-advisors/" },
   {
     source: "/:locale(es|pt)/for-business/travel-advisors",
     destination: "/:locale/travel-advisors/",
+  },
+  { source: "/affiliates", destination: "/affiliate-partners/" },
+  {
+    source: "/:locale(es|pt)/affiliates",
+    destination: "/:locale/affiliate-partners/",
   },
 
   // /concierge no está acá: se recuperó como landing 200 (app/[locale]/concierge),

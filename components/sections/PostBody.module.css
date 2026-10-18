@@ -86,7 +86,7 @@
   line-height: 1.06;
   letter-spacing: -0.022em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 144, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   text-wrap: balance;
   margin: 0;
 }
@@ -137,7 +137,7 @@
   line-height: 1.15;
   letter-spacing: -0.014em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   margin: 2em 0 0.65em;
   text-wrap: balance;
 }
@@ -149,7 +149,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--text-on-light);
-  font-variation-settings: "opsz" 96, "WONK" 0;
+  font-variation-settings: "WONK" 0;
   margin: 1.75em 0 0.5em;
 }
 
