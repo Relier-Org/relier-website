@@ -7,7 +7,12 @@ import Faq, { type FaqItem } from "@/components/sections/Faq";
 import Button from "@/components/ui/Button";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
-import { Badges, Band, Cards, Head, Highlights, Steps } from "@/components/landing/Landing";
+import { Band, CoverageBand, Head, Highlights, IconColumns, PhotoCards, Split, Steps } from "@/components/landing/Landing";
+import TrustBar from "@/components/sections/TrustBar";
+import Testimonials from "@/components/sections/Testimonials";
+import { GlobeIcon, ShieldTickIcon } from "@/components/icons/PillarIcons";
+import { RouteIcon } from "@/components/icons/SegmentIcons";
+import { PassengerIcon } from "@/components/icons/FleetIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
 import { landingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
@@ -48,10 +53,19 @@ export default async function CorporatePage({ params }: PageProps) {
           }
         />
         <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
+        <TrustBar />
 
         <Band id="why">
           <Head eyebrow={t("services.eyebrow")} title={t("services.title")} lead={t("services.lead")} />
-          <Cards items={items(t.raw("services.items"))} columns={4} />
+          <PhotoCards
+            items={items(t.raw("services.items"))}
+            images={[
+              "/images/services/corporate/work-relax.webp",
+              "/images/home/corporate.webp",
+              "/images/services/airport/prompt.webp",
+              "/images/services/events/conferences.webp",
+            ]}
+          />
         </Band>
 
         <Band tone="light">
@@ -60,13 +74,21 @@ export default async function CorporatePage({ params }: PageProps) {
         </Band>
 
         <Band>
-          <Head eyebrow={t("uses.eyebrow")} title={t("uses.title")} />
-          <Cards items={items(t.raw("uses.items"))} />
+          <Split
+            image="/images/services/transfers/maximize.webp"
+            reverse
+            eyebrow={t("uses.eyebrow")}
+            title={t("uses.title")}
+            items={items(t.raw("uses.items"))}
+          />
         </Band>
 
         <Band tone="light">
           <Head eyebrow={t("built.eyebrow")} title={t("built.title")} />
-          <Cards items={items(t.raw("built.items"))} columns={4} />
+          <IconColumns
+            items={items(t.raw("built.items"))}
+            icons={[GlobeIcon, PassengerIcon, RouteIcon, ShieldTickIcon]}
+          />
         </Band>
 
         <Band>
@@ -74,10 +96,15 @@ export default async function CorporatePage({ params }: PageProps) {
           <Steps items={items(t.raw("steps.items"))} />
         </Band>
 
-        <Band tone="light">
-          <Head eyebrow={t("coverage.eyebrow")} title={t("coverage.title")} lead={t("coverage.lead")} />
-          <Badges items={strings(t.raw("coverage.badges"))} />
-        </Band>
+        <CoverageBand
+          eyebrow={t("coverage.eyebrow")}
+          title={t("coverage.title")}
+          lead={t("coverage.lead")}
+          badges={strings(t.raw("coverage.badges"))}
+          hubLabels={[c("hubNy"), c("hubBcn")]}
+        />
+        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
+        <Testimonials reviewPillMode="none" />
 
         <Faq eyebrow={c("faqEyebrow")} title={c("faqTitle")} items={t.raw("faq") as FaqItem[]} />
         <ServiceCloser

@@ -8,7 +8,11 @@ import Button from "@/components/ui/Button";
 import TextCTA from "@/components/ui/TextCTA";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
-import { Badges, Band, Cards, Head, Highlights, Steps } from "@/components/landing/Landing";
+import { Band, CoverageBand, Head, Highlights, IconColumns, PhotoCards, Split, Steps } from "@/components/landing/Landing";
+import TrustBar from "@/components/sections/TrustBar";
+import { ShieldTickIcon } from "@/components/icons/PillarIcons";
+import { PassengerIcon } from "@/components/icons/FleetIcons";
+import { LocationIcon, PhoneIcon } from "@/components/icons/ContactIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
 import { landingNodes } from "@/lib/seo/pages";
 
@@ -47,10 +51,18 @@ export default async function AffiliatesPage({ params }: PageProps) {
           }
         />
         <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
+        <TrustBar />
 
         <Band id="why">
           <Head eyebrow={t("markets.eyebrow")} title={t("markets.title")} lead={t("markets.lead")} />
-          <Cards items={items(t.raw("markets.items"))} />
+          <PhotoCards
+            items={items(t.raw("markets.items"))}
+            images={[
+              "/images/events-nyc/suv-arrival.webp",
+              "/images/home/vehicle.webp",
+              "/images/services/airport/luxury.webp",
+            ]}
+          />
         </Band>
 
         <Band tone="light">
@@ -59,20 +71,28 @@ export default async function AffiliatesPage({ params }: PageProps) {
         </Band>
 
         <Band>
-          <Head eyebrow={t("get.eyebrow")} title={t("get.title")} lead={t("get.lead")} />
-          <Cards items={items(t.raw("get.items"))} columns={5} />
           {/* Experiencia en eventos grandes (pedido del cliente): link al
               dossier de eventos. */}
-          <div style={{ marginTop: 32 }}>
-            <TextCTA href="/signature-events">
-              {items(t.raw("get.items"))[4].title}
-            </TextCTA>
-          </div>
+          <Split
+            image="/images/events-nyc/chauffeur-press.webp"
+            eyebrow={t("get.eyebrow")}
+            title={t("get.title")}
+            lead={t("get.lead")}
+            items={items(t.raw("get.items"))}
+            footer={
+              <TextCTA href="/signature-events">
+                {items(t.raw("get.items"))[4].title}
+              </TextCTA>
+            }
+          />
         </Band>
 
         <Band tone="light">
           <Head eyebrow={t("standard.eyebrow")} title={t("standard.title")} lead={t("standard.lead")} />
-          <Cards items={items(t.raw("standard.items"))} columns={4} />
+          <IconColumns
+            items={items(t.raw("standard.items"))}
+            icons={[PhoneIcon, ShieldTickIcon, PassengerIcon, LocationIcon]}
+          />
         </Band>
 
         <Band>
@@ -80,10 +100,13 @@ export default async function AffiliatesPage({ params }: PageProps) {
           <Steps items={items(t.raw("steps.items"))} />
         </Band>
 
-        <Band tone="light">
-          <Head eyebrow={t("coverage.eyebrow")} title={t("coverage.title")} lead={t("coverage.lead")} />
-          <Badges items={strings(t.raw("coverage.badges"))} />
-        </Band>
+        <CoverageBand
+          eyebrow={t("coverage.eyebrow")}
+          title={t("coverage.title")}
+          lead={t("coverage.lead")}
+          badges={strings(t.raw("coverage.badges"))}
+          hubLabels={[c("hubNy"), c("hubBcn")]}
+        />
 
         <Faq eyebrow={c("faqEyebrow")} title={c("faqTitle")} items={t.raw("faq") as FaqItem[]} />
         <ServiceCloser

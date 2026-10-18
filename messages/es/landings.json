@@ -1,5 +1,7 @@
 {
   "common": {
+    "hubNy": "Nueva York",
+    "hubBcn": "Barcelona",
     "talk": "Habla con nuestro equipo",
     "why": "Por qué Relier",
     "faqEyebrow": "Preguntas",
@@ -50,7 +52,6 @@
       "eyebrow": "Experiencia seleccionada",
       "title": "Experiencia en eventos que genera confianza",
       "lead": "Relier cuenta con un equipo de Eventos dedicado, especializado en planificar y coordinar el transporte terrestre de eventos y producciones complejas. Nuestra experiencia incluye transporte para los siguientes artistas, producciones y eventos:",
-      "more": "Ver más experiencia",
       "note": "Las referencias de experiencia corresponden a trabajos de transporte vinculados al equipo de Eventos y no deben interpretarse como un respaldo de los artistas.",
       "link": "Conoce nuestros eventos destacados",
       "names": [

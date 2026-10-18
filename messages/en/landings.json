@@ -1,5 +1,7 @@
 {
   "common": {
+    "hubNy": "New York",
+    "hubBcn": "Barcelona",
     "talk": "Talk to our team",
     "why": "Why Relier",
     "faqEyebrow": "Questions",
@@ -50,7 +52,6 @@
       "eyebrow": "Selected experience",
       "title": "Trusted Event Experience",
       "lead": "Relier has a dedicated Events team specializing in the planning and coordination of ground transportation for complex events and productions. Our experience includes transportation for the following artists, productions, and events:",
-      "more": "See more experience",
       "note": "Experience references are presented as transportation work associated with the Events team and should not be read as artist endorsements.",
       "link": "See our signature events",
       "names": [

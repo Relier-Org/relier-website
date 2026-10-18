@@ -1,0 +1,63 @@
+/* Las filas salen del container y van a sangre, con un fundido en los bordes. */
+.marquee {
+  margin-inline: calc(50% - 50vw);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.row {
+  overflow: hidden;
+  padding-block: 6px;
+  cursor: grab;
+  /* El scroll vertical de la página sigue andando; el horizontal es nuestro. */
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.row:active {
+  cursor: grabbing;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-on-light);
+  font-variation-settings: "WONK" 0;
+}
+
+.italic .item {
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: "opsz" 72, "WONK" 0;
+  color: var(--accent-on-light);
+}
+
+.sep {
+  width: 0.16em;
+  height: 0.16em;
+  margin-inline: 0.55em;
+  border-radius: 50%;
+  background: var(--color-champagne-500);
+  flex-shrink: 0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

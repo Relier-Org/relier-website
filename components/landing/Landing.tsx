@@ -1,5 +1,9 @@
-import type { ReactNode } from "react";
+import Image from "next/image";
+import type { ComponentType, ReactNode } from "react";
 import Reveal from "@/components/effects/Reveal";
+import type { IconProps } from "@/components/icons/types";
+import { project } from "@/lib/coverage/data";
+import NameMarquee from "./NameMarquee";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Landing.module.css";
 
@@ -44,10 +48,7 @@ export function Head({
   return (
     <Reveal className={cn(styles.head, !lead && styles.headSolo)}>
       <div className={styles.headText}>
-        <p className={styles.eyebrow}>
-          <span className={styles.dot} aria-hidden="true" />
-          {eyebrow}
-        </p>
+        <p className={styles.eyebrow}>{eyebrow}</p>
         <h2 className={styles.title}>{title}</h2>
       </div>
       {lead ? <p className={styles.lead}>{lead}</p> : null}
@@ -129,33 +130,193 @@ export function Badges({ items }: { items: string[] }) {
   );
 }
 
-/** Nombres destacados en tags y el resto en un desplegable nativo. */
+/** Experiencia con artistas: marquee tipográfico con todos los nombres. */
 export function NameList({
   names,
   more,
-  moreLabel,
+  label,
   note,
   link,
 }: {
   names: string[];
   more: string[];
-  moreLabel: string;
+  /** Nombre accesible de la lista completa (el marquee es decorativo). */
+  label: string;
   note: string;
   link?: ReactNode;
 }) {
   return (
     <div className={styles.names}>
-      <Badges items={names} />
-      <details className={styles.more}>
-        <summary>{moreLabel}</summary>
-        <ul className={styles.moreList}>
-          {more.map((n) => (
-            <li key={n}>{n}</li>
-          ))}
-        </ul>
-      </details>
+      <NameMarquee names={[...names, ...more]} label={label} />
       <p className={styles.note}>{note}</p>
       {link ? <div className={styles.linkRow}>{link}</div> : null}
     </div>
+  );
+}
+
+type Icon = ComponentType<IconProps>;
+
+/**
+ * Cards con foto, como las de Services del home: foto a sangre, scrim al tono
+ * del canvas y el filo de luz champagne arriba. Para la primera grilla de
+ * servicios de cada landing.
+ */
+export function PhotoCards({
+  items,
+  images,
+}: {
+  items: Item[];
+  /** Una foto por ítem, en el mismo orden del JSON. */
+  images: string[];
+}) {
+  return (
+    <ul className={cn(styles.photoCards, styles[`photo${Math.min(items.length, 4)}`])}>
+      {items.map((it, i) => (
+        <Reveal as="li" key={it.title} className={styles.photoCard} delay={Math.min(i * 0.06, 0.24)}>
+          <div className={styles.photoImg}>
+            <Image
+              src={images[i % images.length]}
+              alt=""
+              fill
+              sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          </div>
+          <div className={styles.photoContent}>
+            <h3 className={styles.cardTitle}>{it.title}</h3>
+            <p className={styles.photoBody}>{it.body}</p>
+          </div>
+        </Reveal>
+      ))}
+    </ul>
+  );
+}
+
+/**
+ * Columnas con ícono separadas por filetes, como "Reasons to choose Relier"
+ * del home. Sin cajas: alterna con las grillas de cards de las franjas
+ * oscuras para que la página no sea una sucesión de cards iguales.
+ */
+export function IconColumns({ items, icons }: { items: Item[]; icons: Icon[] }) {
+  return (
+    <ul className={cn(styles.iconCols, items.length >= 4 && styles.iconCols4)}>
+      {items.map((it, i) => {
+        const Glyph = icons[i % icons.length];
+        return (
+          <Reveal as="li" key={it.title} className={styles.iconCol} delay={Math.min(i * 0.06, 0.24)}>
+            <Glyph className={styles.colIcon} aria-hidden="true" />
+            <h3 className={styles.cardTitle}>{it.title}</h3>
+            <p className={styles.cardBody}>{it.body}</p>
+          </Reveal>
+        );
+      })}
+    </ul>
+  );
+}
+
+/**
+ * Foto de un lado y el contenido del otro, como los bloques de las páginas de
+ * servicio (ServiceBody). Los ítems van como lista con filetes, sin cards.
+ */
+export function Split({
+  image,
+  imageAlt = "",
+  reverse = false,
+  eyebrow,
+  title,
+  lead,
+  items,
+  footer,
+}: {
+  image: string;
+  imageAlt?: string;
+  reverse?: boolean;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  items: Item[];
+  footer?: ReactNode;
+}) {
+  return (
+    <div className={cn(styles.split, reverse && styles.splitReverse)}>
+      <Reveal className={styles.splitMedia}>
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className={styles.splitImg}
+        />
+      </Reveal>
+      <Reveal className={styles.splitText}>
+        <p className={styles.eyebrow}>{eyebrow}</p>
+        <h2 className={styles.title}>{title}</h2>
+        {lead ? <p className={styles.splitLead}>{lead}</p> : null}
+        <ul className={styles.splitList}>
+          {items.map((it) => (
+            <li key={it.title}>
+              <h3 className={styles.splitItemTitle}>{it.title}</h3>
+              <p className={styles.cardBody}>{it.body}</p>
+            </li>
+          ))}
+        </ul>
+        {footer ? <div className={styles.linkRow}>{footer}</div> : null}
+      </Reveal>
+    </div>
+  );
+}
+
+// Los dos hubs de Relier, con las mismas coordenadas que el mapa del home.
+const HUBS = [
+  { lat: 40.71, lon: -74.01 },
+  { lat: 41.39, lon: 2.17 },
+];
+
+/**
+ * Cobertura: el texto y los alcances a la izquierda, el mapa de puntos del
+ * home a la derecha con los dos hubs (Nueva York y Barcelona) encendidos.
+ */
+export function CoverageBand({
+  eyebrow,
+  title,
+  lead,
+  badges,
+  hubLabels,
+}: {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  badges: string[];
+  hubLabels: [string, string];
+}) {
+  return (
+    <section className={cn(styles.band, styles.dark, styles.coverage)}>
+      <div className={cn("container", styles.coverageGrid)}>
+        <Reveal className={styles.coverageText}>
+          <p className={styles.eyebrow}>{eyebrow}</p>
+          <h2 className={styles.title}>{title}</h2>
+          {lead ? <p className={styles.splitLead}>{lead}</p> : null}
+          <Badges items={badges} />
+        </Reveal>
+        <Reveal className={styles.coverageMap}>
+          <div className={styles.mapArt} aria-hidden="true">
+            <span className={styles.mapLand} />
+            <span className={styles.mapDots} />
+            {HUBS.map((h, i) => {
+              const { x, y } = project(h.lat, h.lon);
+              return (
+                <span
+                  key={h.lat}
+                  className={cn(styles.hub, i === 0 && styles.hubWest)}
+                  style={{ left: `${x}%`, top: `${y}%` }}
+                >
+                  <span className={styles.hubDot} />
+                  {hubLabels[i]}
+                </span>
+              );
+            })}
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }

@@ -5,16 +5,18 @@ import ServiceHero from "@/components/sections/ServiceHero";
 import ServiceCloser from "@/components/sections/ServiceCloser";
 import Faq, { type FaqItem } from "@/components/sections/Faq";
 import Button from "@/components/ui/Button";
-import TextCTA from "@/components/ui/TextCTA";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
+import TrustBar from "@/components/sections/TrustBar";
+import Testimonials from "@/components/sections/Testimonials";
 import {
-  Badges,
   Band,
-  Cards,
+  CoverageBand,
   Head,
   Highlights,
   NameList,
+  PhotoCards,
+  Split,
   Steps,
 } from "@/components/landing/Landing";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
@@ -57,10 +59,18 @@ export default async function EventsPage({ params }: PageProps) {
           }
         />
         <Highlights items={strings(t.raw("highlights.items"))} tagline={t("highlights.tagline")} />
+        <TrustBar />
 
         <Band id="why">
           <Head eyebrow={t("services.eyebrow")} title={t("services.title")} lead={t("services.lead")} />
-          <Cards items={items(t.raw("services.items"))} />
+          <PhotoCards
+            items={items(t.raw("services.items"))}
+            images={[
+              "/images/events-nyc/door-press.webp",
+              "/images/services/events/entertainment.webp",
+              "/images/services/events/conferences.webp",
+            ]}
+          />
         </Band>
 
         <Band tone="light">
@@ -68,19 +78,24 @@ export default async function EventsPage({ params }: PageProps) {
           <NameList
             names={strings(t.raw("experience.names"))}
             more={strings(t.raw("experience.more_names"))}
-            moreLabel={t("experience.more")}
+            label={t("experience.title")}
             note={t("experience.note")}
             link={
-              <TextCTA href="/signature-events" tone="light">
+              <Button href="/signature-events" variant="secondary" tone="light">
                 {t("experience.link")}
-              </TextCTA>
+              </Button>
             }
           />
         </Band>
 
         <Band>
-          <Head eyebrow={t("how.eyebrow")} title={t("how.title")} lead={t("how.lead")} />
-          <Cards items={items(t.raw("how.items"))} />
+          <Split
+            image="/images/events-nyc/chauffeur-curbside.webp"
+            eyebrow={t("how.eyebrow")}
+            title={t("how.title")}
+            lead={t("how.lead")}
+            items={items(t.raw("how.items"))}
+          />
         </Band>
 
         <Band tone="light">
@@ -88,10 +103,15 @@ export default async function EventsPage({ params }: PageProps) {
           <Steps items={items(t.raw("steps.items"))} note={t("steps.note")} />
         </Band>
 
-        <Band>
-          <Head eyebrow={t("coverage.eyebrow")} title={t("coverage.title")} lead={t("coverage.lead")} />
-          <Badges items={strings(t.raw("coverage.badges"))} />
-        </Band>
+        <CoverageBand
+          eyebrow={t("coverage.eyebrow")}
+          title={t("coverage.title")}
+          lead={t("coverage.lead")}
+          badges={strings(t.raw("coverage.badges"))}
+          hubLabels={[c("hubNy"), c("hubBcn")]}
+        />
+        {/* Reseñas de Google del home: prueba social sin copy nuevo. */}
+        <Testimonials reviewPillMode="none" />
 
         <Faq
           eyebrow={c("faqEyebrow")}
