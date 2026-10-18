@@ -13,6 +13,7 @@ import { CalendarIcon, GlobeIcon, ShieldTickIcon } from "@/components/icons/Pill
 import { CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
 import { PassengerIcon } from "@/components/icons/FleetIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
+import LandingForm from "@/components/landing/LandingForm";
 import { landingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
@@ -46,10 +47,22 @@ export default async function CorporatePage({ params }: PageProps) {
           className={styles.hero}
           actions={
             <>
-              <Button href={EMAIL} withArrow>{c("talk")}</Button>
+              <Button href="#contact-form" withArrow>{c("talk")}</Button>
               <Button href="#why" variant="secondary">{c("why")}</Button>
             </>
           }
+        />
+        {/* Formulario al principio (checklist de cierre, oct-2026): llega al
+            departamento de la landing con la sección marcada en el asunto. */}
+        <LandingForm
+          segment="corporate"
+          eyebrow={t("form.eyebrow")}
+          title={t("form.title")}
+          lead={t("form.lead")}
+          messagePlaceholder={t("form.placeholder")}
+          companyLabel={c("formCompany")}
+          directLabel={c("formDirect")}
+          directEmail="reservations@relier.com"
         />
         <Highlights items={strings(t.raw("highlights.items"))} icons={[CarIcon, PassengerIcon, RouteIcon, CalendarIcon]} />
 

@@ -299,6 +299,13 @@
   margin-top: 24px;
 }
 
+/* El botón tiene nowrap y en ES/PT el CTA no entra a 390. */
+.names .linkRow > * {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
 .linkRow {
   margin-top: 28px;
 }

@@ -23,6 +23,26 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
+// Etiqueta de la sección en el asunto y el cuerpo: es lo que el equipo (y el
+// CRM, si filtra por asunto) usa para saber de qué landing vino el lead.
+const SEGMENT_LABELS: Record<string, string> = {
+  events: "Events & Productions",
+  corporate: "Corporate Accounts",
+  affiliates: "Affiliates",
+  travelAdvisors: "Travel Advisors",
+};
+
+export function segmentLabel(payload: ContactPayload) {
+  return payload.segment ? SEGMENT_LABELS[payload.segment] : "General contact";
+}
+
+function campaign(payload: ContactPayload) {
+  const a = payload.attribution;
+  if (!a) return "—";
+  const utm = [a.utmSource, a.utmMedium, a.utmCampaign].filter(Boolean).join(" / ");
+  return [utm, a.gclid ? `gclid ${a.gclid}` : ""].filter(Boolean).join(" · ") || "Direct / organic";
+}
+
 function fullName(payload: ContactPayload) {
   return [payload.firstName, payload.lastName].filter(Boolean).join(" ").trim();
 }
@@ -30,22 +50,30 @@ function fullName(payload: ContactPayload) {
 export function contactSubject(payload: ContactPayload) {
   const name = fullName(payload) || "Website visitor";
   const locale = payload.locale && payload.locale !== "en" ? payload.locale : "";
+  const tag = `[${segmentLabel(payload)}] `;
   return locale
-    ? `New website enquiry — ${name} (${locale.toUpperCase()})`
-    : `New website enquiry — ${name}`;
+    ? `${tag}New website enquiry — ${name} (${locale.toUpperCase()})`
+    : `${tag}New website enquiry — ${name}`;
 }
 
 export function contactText(payload: ContactPayload) {
   const lines = [
     "New enquiry from the relier.com contact form.",
     "",
+    `Section: ${segmentLabel(payload)}`,
     `Name:    ${fullName(payload) || "—"}`,
+    `Company: ${payload.company || "—"}`,
     `Email:   ${payload.email || "—"}`,
     `Phone:   ${payload.phone || "—"}`,
     `Language: ${LOCALE_LABELS[payload.locale ?? "en"] ?? payload.locale ?? "—"}`,
     "",
     "Message:",
     payload.message || "—",
+    "",
+    `Page:     ${payload.attribution?.page || "—"}`,
+    `Landing:  ${payload.attribution?.landingPage || "—"}`,
+    `Campaign: ${campaign(payload)}`,
+    `Referrer: ${payload.attribution?.referrer || "—"}`,
     "",
     "Reply directly to this email to answer the sender.",
   ];
@@ -95,7 +123,9 @@ export function contactHtml(payload: ContactPayload) {
           <tr>
             <td style="padding:32px 32px 8px;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+${row("Section", segmentLabel(payload))}
 ${row("Name", name)}
+${payload.company ? row("Company", payload.company) : ""}
 ${row("Email", payload.email || "—", payload.email ? "mailto" : undefined)}
 ${row("Phone", payload.phone || "—", payload.phone ? "tel" : undefined)}
 ${row("Language", language)}
@@ -105,6 +135,16 @@ ${row("Language", language)}
                 <tr>
                   <td style="padding:0;font:400 16px/1.6 Helvetica,Arial,sans-serif;color:${OBSIDIAN};border-left:2px solid ${CHAMPAGNE};padding-left:16px;">${message}</td>
                 </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 32px 0;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #E4E0D8;padding-top:18px;">
+${row("Page", payload.attribution?.page || "—")}
+${row("Entry page", payload.attribution?.landingPage || "—")}
+${row("Campaign", campaign(payload))}
+${row("Referrer", payload.attribution?.referrer || "—")}
               </table>
             </td>
           </tr>

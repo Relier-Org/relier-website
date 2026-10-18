@@ -14,13 +14,14 @@ import { CalendarIcon, GlobeIcon, ShieldTickIcon } from "@/components/icons/Pill
 import { BusIcon, CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
 import { PhoneIcon } from "@/components/icons/ContactIcons";
+import LandingForm from "@/components/landing/LandingForm";
 import { landingNodes } from "@/lib/seo/pages";
 
 // Landing de SEO (oct-2026, relier_travel_advisors_seo_final.html). URL nueva
 // en la raíz, como pide su canonical; /for-business/travel-advisors redirige
 // acá (next.config.mjs). La FAQ de comisiones usa el texto del cliente, no el
-// del borrador. Contacto: reservations@ (lista oficial del cliente).
-const EMAIL = "mailto:reservations@relier.com";
+// del borrador. Contacto: sales@ (Andrés confirmó "Sales", 17-oct-2026).
+const EMAIL = "mailto:sales@relier.com";
 
 const TRADE_EVENTS: TrustBadge[] = [
   { name: "ILTM", src: "/images/partners/events/iltm.png" },
@@ -60,10 +61,22 @@ export default async function TravelAdvisorsPage({ params }: PageProps) {
           image="/images/services/transfers/hero.webp"
           actions={
             <>
-              <Button href={EMAIL} withArrow>{c("talk")}</Button>
+              <Button href="#contact-form" withArrow>{c("talk")}</Button>
               <Button href="#why" variant="secondary">{c("why")}</Button>
             </>
           }
+        />
+        {/* Formulario al principio (checklist de cierre, oct-2026): llega al
+            departamento de la landing con la sección marcada en el asunto. */}
+        <LandingForm
+          segment="travelAdvisors"
+          eyebrow={t("form.eyebrow")}
+          title={t("form.title")}
+          lead={t("form.lead")}
+          messagePlaceholder={t("form.placeholder")}
+          companyLabel={c("formCompany")}
+          directLabel={c("formDirect")}
+          directEmail="sales@relier.com"
         />
         <Highlights items={strings(t.raw("highlights.items"))} icons={[ShieldTickIcon, GlobeIcon, RouteIcon, PhoneIcon]} />
 

@@ -14,6 +14,7 @@ import { PassengerIcon } from "@/components/icons/FleetIcons";
 import { LocationIcon, PhoneIcon } from "@/components/icons/ContactIcons";
 import { items, landingMetadata, strings } from "@/components/landing/landingPage";
 import { BusIcon } from "@/components/icons/SegmentIcons";
+import LandingForm from "@/components/landing/LandingForm";
 import { landingNodes } from "@/lib/seo/pages";
 
 // Landing de SEO (oct-2026, relier_affiliates_seo_final.html): vende a Relier
@@ -45,10 +46,22 @@ export default async function AffiliatesPage({ params }: PageProps) {
           image="/images/events-nyc/fleet-line.webp"
           actions={
             <>
-              <Button href={EMAIL} withArrow>{c("talk")}</Button>
+              <Button href="#contact-form" withArrow>{c("talk")}</Button>
               <Button href="#why" variant="secondary">{c("why")}</Button>
             </>
           }
+        />
+        {/* Formulario al principio (checklist de cierre, oct-2026): llega al
+            departamento de la landing con la sección marcada en el asunto. */}
+        <LandingForm
+          segment="affiliates"
+          eyebrow={t("form.eyebrow")}
+          title={t("form.title")}
+          lead={t("form.lead")}
+          messagePlaceholder={t("form.placeholder")}
+          companyLabel={c("formCompany")}
+          directLabel={c("formDirect")}
+          directEmail="info@relier.com"
         />
         <Highlights items={strings(t.raw("highlights.items"))} icons={[LocationIcon, PhoneIcon, ShieldTickIcon, BusIcon]} />
 

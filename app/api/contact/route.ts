@@ -6,6 +6,28 @@ import {
   contactText,
 } from "@/lib/email/contactTemplate";
 import { EmailError, sendEmail } from "@/lib/email/resend";
+import type { ContactSegment } from "@/lib/contact/schema";
+
+// Destinatario por landing de For Business (lista oficial de departamentos del
+// cliente; Travel Advisors a sales@, confirmado por Andrés el 17-oct-2026).
+// Cada uno se puede pisar con CONTACT_TO_EMAIL_<SEGMENTO> (p. ej.
+// CONTACT_TO_EMAIL_EVENTS). Sin segmento manda CONTACT_TO_EMAIL, como siempre.
+const SEGMENT_TO: Record<ContactSegment, { env: string; fallback: string }> = {
+  events: { env: "CONTACT_TO_EMAIL_EVENTS", fallback: "events@relier.com" },
+  corporate: { env: "CONTACT_TO_EMAIL_CORPORATE", fallback: "reservations@relier.com" },
+  affiliates: { env: "CONTACT_TO_EMAIL_AFFILIATES", fallback: "info@relier.com" },
+  travelAdvisors: { env: "CONTACT_TO_EMAIL_TRAVEL_ADVISORS", fallback: "sales@relier.com" },
+};
+
+function recipients(segment?: ContactSegment) {
+  if (!segment) return undefined;
+  const { env, fallback } = SEGMENT_TO[segment];
+  const list = (process.env[env] ?? fallback)
+    .split(",")
+    .map((a) => a.trim())
+    .filter(Boolean);
+  return list.length ? list : [fallback];
+}
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -72,6 +94,7 @@ export async function POST(req: Request) {
 
   try {
     const result = await sendEmail({
+      to: recipients(payload.segment),
       subject: contactSubject(payload),
       html: contactHtml(payload),
       text: contactText(payload),

@@ -12,6 +12,7 @@ import { MailIcon, PhoneIcon } from "@/components/icons/ContactIcons";
 import { WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { DEPARTMENTS } from "@/lib/contact/departments";
 import { ContactApiError, sendContactMessage } from "@/lib/contact/api";
+import { currentAttribution } from "@/lib/contact/attribution";
 import {
   CONTACT_LIMITS,
   INITIAL_CONTACT_VALUES,
@@ -61,7 +62,12 @@ export default function ContactSplit() {
     setSendError(null);
     setStatus("sending");
     try {
-      await sendContactMessage({ ...values, locale, referral });
+      await sendContactMessage({
+        ...values,
+        locale,
+        referral,
+        attribution: currentAttribution(),
+      });
       setStatus("sent");
       setValues(INITIAL_CONTACT_VALUES);
     } catch (error) {

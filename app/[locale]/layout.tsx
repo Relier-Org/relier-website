@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Fraunces, Manrope } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import AttributionCapture from "@/components/analytics/AttributionCapture";
 import {
   getMessages,
   getTranslations,
@@ -107,6 +108,7 @@ export default async function LocaleLayout({
         <JsonLd />
         <Analytics />
         <NextIntlClientProvider messages={clientMessages}>
+          <AttributionCapture />
           {children}
         </NextIntlClientProvider>
         <WhatsAppButton />

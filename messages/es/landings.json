@@ -8,7 +8,9 @@
     "faqTitle": "Preguntas frecuentes",
     "contactRelier": "Contacta a Relier",
     "advisorPrompt": "¿Eres asesor de viajes?",
-    "advisorLink": "Solicita tu cuenta de agente para acceder a los beneficios para asesores."
+    "advisorLink": "Solicita tu cuenta de agente para acceder a los beneficios para asesores.",
+    "formCompany": "Empresa (opcional)",
+    "formDirect": "¿Preferís el mail? Escribinos a"
   },
   "events": {
     "meta": {
@@ -208,6 +210,12 @@
       "eyebrow": "Empecemos a conversar",
       "title": "Hablemos de tu evento, gira o producción.",
       "body": "Si el plan ya está definido, envíanoslo. Si todavía está tomando forma, nuestro equipo de Eventos puede ayudarte a definir los requisitos de transporte."
+    },
+    "form": {
+      "eyebrow": "Planificá tu evento",
+      "title": "Contanos sobre tu evento.",
+      "lead": "Fechas, sedes, tamaño del grupo y los traslados que necesitás cubrir. Nuestro equipo de Events te responde con un plan, no con un formulario de cotización.",
+      "placeholder": "Evento, fechas, sedes, cantidad de invitados o crew, y requisitos de artistas o producción."
     }
   },
   "corporate": {
@@ -367,6 +375,12 @@
       "eyebrow": "Empecemos a conversar",
       "title": "Crea un programa de transporte terrestre en el que tu equipo pueda confiar.",
       "body": "Cuéntanos cómo se desplazan hoy tus ejecutivos, empleados e invitados. Te ayudaremos a simplificar el programa en torno a tus rutas, tus viajeros y tus necesidades de reporte."
+    },
+    "form": {
+      "eyebrow": "Cuentas corporativas",
+      "title": "Armemos el programa de tu empresa.",
+      "lead": "Contanos cómo viaja hoy tu equipo. Te proponemos una cuenta con facturación centralizada, un solo contacto y el mismo estándar en cada ciudad.",
+      "placeholder": "Empresa, ciudades a las que viajan, viajes aproximados por mes y quién reserva."
     }
   },
   "affiliates": {
@@ -530,6 +544,12 @@
       "eyebrow": "Empecemos a conversar",
       "title": "Asóciate con Relier en Nueva York y España.",
       "body": "Cuéntanos a dónde viajan tus clientes y qué esperan. Nuestro equipo te responderá con tarifas para afiliados, disponibilidad y una línea directa con nuestro despacho."
+    },
+    "form": {
+      "eyebrow": "Trabajá con Relier",
+      "title": "Sumate como socio afiliado.",
+      "lead": "Contanos sobre tu operación y los mercados que cubrís. Trabajamos con operadores seleccionados que sostienen nuestro estándar de servicio.",
+      "placeholder": "Empresa, mercados y flota que operás, y el tipo de trabajo que buscás derivar o recibir."
     }
   },
   "travelAdvisors": {
@@ -681,6 +701,12 @@
       "eyebrow": "Empecemos a conversar",
       "title": "Dale a tus clientes una preocupación menos.",
       "body": "Cuéntanos a dónde van tus clientes y cómo quieres que se sienta el viaje. Te ayudaremos a diseñar el transporte terrestre en torno a la experiencia."
+    },
+    "form": {
+      "eyebrow": "Para agentes de viajes",
+      "title": "Planificá la experiencia en tierra de tus clientes.",
+      "lead": "Compartí el itinerario o lo que necesita tu cliente. Nuestro equipo confirma disponibilidad, tarifas y comisiones, y te mantiene al tanto durante el viaje.",
+      "placeholder": "Agencia, fechas de viaje del cliente, ciudades y requisitos VIP o especiales."
     }
   }
 }

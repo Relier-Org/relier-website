@@ -1,0 +1,188 @@
+/* Formulario al principio de las landings de For Business: texto a la
+   izquierda y el form en la card crema de /contact a la derecha. */
+.section {
+  padding: clamp(64px, 8vw, 104px) 0;
+  background: var(--ambient-right), var(--bg-canvas);
+  border-bottom: 0.5px solid var(--border-hairline);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 128px;
+}
+
+.eyebrow {
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h2);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: var(--lead-size);
+  line-height: var(--lead-leading);
+  color: var(--color-silver-300);
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+.direct {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--color-silver-300);
+}
+
+.direct a {
+  color: var(--text-accent);
+  border-bottom: 1px solid currentColor;
+}
+
+/* Misma card que /contact: redefine los tokens para que Field/Input/Textarea
+   se lean sobre crema (ver ContactSplit.module.css). */
+.card {
+  --text-primary: var(--text-on-light);
+  --text-secondary: var(--text-on-light-muted);
+  --text-tertiary: var(--text-on-light-tertiary);
+  --text-muted: var(--text-on-light-tertiary);
+  --text-accent: var(--accent-on-light);
+  --border-default: rgba(26, 25, 22, 0.18);
+  --border-strong: rgba(26, 25, 22, 0.36);
+  --color-silver-500: var(--text-on-light-tertiary);
+  --color-error: #b3261e;
+  padding: 52px 56px;
+  background: var(--bg-light);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+}
+
+.card input:focus,
+.card textarea:focus {
+  border-bottom-color: var(--accent-on-light);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.formError {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #9f1f18;
+  padding: 14px 16px;
+  background: rgba(179, 38, 30, 0.06);
+  border: 0.5px solid rgba(179, 38, 30, 0.32);
+  border-radius: var(--radius-sm);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 4px;
+}
+
+.fine {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 260px;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.success h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h3);
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+}
+
+.success p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.again {
+  align-self: flex-start;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-on-light);
+  border-bottom: 1px solid currentColor;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .intro {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .card {
+    padding: 32px 22px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions > button {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -8,7 +8,9 @@
     "faqTitle": "Frequently asked questions",
     "contactRelier": "Contact Relier",
     "advisorPrompt": "Travel advisor?",
-    "advisorLink": "Ask for your agent account to access advisor benefits."
+    "advisorLink": "Ask for your agent account to access advisor benefits.",
+    "formCompany": "Company (optional)",
+    "formDirect": "Prefer email? Write to"
   },
   "events": {
     "meta": {
@@ -208,6 +210,12 @@
       "eyebrow": "Start a conversation",
       "title": "Discuss your event, tour or production.",
       "body": "If the plan is already defined, send it over. If it is still taking shape, our Events team can help work through the transportation requirements with you."
+    },
+    "form": {
+      "eyebrow": "Plan your event",
+      "title": "Tell us about your event.",
+      "lead": "Dates, venues, group size and the movements you need covered. Our Events team replies with a plan, not a quote form.",
+      "placeholder": "Event, dates, venues, number of guests or crew, and any artist or production requirements."
     }
   },
   "corporate": {
@@ -367,6 +375,12 @@
       "eyebrow": "Start a conversation",
       "title": "Build a ground transportation program your team can rely on.",
       "body": "Tell us how your executives, employees and guests move today. We'll help simplify the program around your routes, travelers and reporting needs."
+    },
+    "form": {
+      "eyebrow": "Corporate accounts",
+      "title": "Set up your company’s program.",
+      "lead": "Tell us how your team travels today. We will propose an account with centralized billing, one point of contact and the same standard in every city.",
+      "placeholder": "Company, cities you travel to, approximate trips per month and who books."
     }
   },
   "affiliates": {
@@ -530,6 +544,12 @@
       "eyebrow": "Start a conversation",
       "title": "Partner with Relier in New York and Spain.",
       "body": "Tell us where your clients travel and what they expect. Our team will come back with affiliate rates, availability and a direct line to our dispatch."
+    },
+    "form": {
+      "eyebrow": "Partner with Relier",
+      "title": "Become an affiliate partner.",
+      "lead": "Tell us about your operation and the markets you cover. We work with selected operators who hold our standard of service.",
+      "placeholder": "Company, markets and fleet you operate, and the type of work you are looking to send or receive."
     }
   },
   "travelAdvisors": {
@@ -681,6 +701,12 @@
       "eyebrow": "Start a conversation",
       "title": "Give your clients one less thing to think about.",
       "body": "Tell us where your clients are going and how you want the journey to feel. We'll help shape the ground transportation around the experience."
+    },
+    "form": {
+      "eyebrow": "For travel advisors",
+      "title": "Plan your clients’ ground experience.",
+      "lead": "Share the itinerary or the client’s needs. Our team confirms availability, rates and commissions, and keeps you updated through the trip.",
+      "placeholder": "Agency, client travel dates, cities and any VIP or special requirements."
     }
   }
 }

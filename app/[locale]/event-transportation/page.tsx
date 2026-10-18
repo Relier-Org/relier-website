@@ -22,6 +22,7 @@ import { items, landingMetadata, strings } from "@/components/landing/landingPag
 import { CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
 import { PassengerIcon } from "@/components/icons/FleetIcons";
 import { PhoneIcon } from "@/components/icons/ContactIcons";
+import LandingForm from "@/components/landing/LandingForm";
 import { landingNodes } from "@/lib/seo/pages";
 import styles from "./page.module.css";
 
@@ -55,10 +56,22 @@ export default async function EventsPage({ params }: PageProps) {
           className={styles.hero}
           actions={
             <>
-              <Button href={EMAIL} withArrow>{c("talk")}</Button>
+              <Button href="#contact-form" withArrow>{c("talk")}</Button>
               <Button href="#why" variant="secondary">{c("why")}</Button>
             </>
           }
+        />
+        {/* Formulario al principio (checklist de cierre, oct-2026): llega al
+            departamento de la landing con la sección marcada en el asunto. */}
+        <LandingForm
+          segment="events"
+          eyebrow={t("form.eyebrow")}
+          title={t("form.title")}
+          lead={t("form.lead")}
+          messagePlaceholder={t("form.placeholder")}
+          companyLabel={c("formCompany")}
+          directLabel={c("formDirect")}
+          directEmail="events@relier.com"
         />
         <Highlights items={strings(t.raw("highlights.items"))} icons={[CalendarIcon, PassengerIcon, PhoneIcon, GlobeIcon]} />
 

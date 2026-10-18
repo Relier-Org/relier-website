@@ -10,7 +10,38 @@ export type ContactValues = {
   message: string;
 };
 
+/**
+ * Landing de For Business desde la que llega el formulario (oct-2026). Decide
+ * el destinatario y va en el asunto para identificar la sección en el CRM.
+ * Sin segmento = formulario general de /contact.
+ */
+export const CONTACT_SEGMENTS = [
+  "events",
+  "corporate",
+  "affiliates",
+  "travelAdvisors",
+] as const;
+export type ContactSegment = (typeof CONTACT_SEGMENTS)[number];
+
+/** Atribución de campaña: primera visita de la sesión (UTM, gclid, entrada). */
+export type ContactAttribution = {
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmTerm?: string;
+  utmContent?: string;
+  gclid?: string;
+  landingPage?: string;
+  referrer?: string;
+  /** Página desde la que se envió el formulario. */
+  page?: string;
+};
+
 export type ContactPayload = ContactValues & {
+  segment?: ContactSegment;
+  /** Opcional en los formularios B2B. */
+  company?: string;
+  attribution?: ContactAttribution;
   /** Active locale, so the concierge team knows which language to reply in. */
   locale?: string;
   /**
@@ -73,13 +104,38 @@ export function validateContact(values: ContactValues): ContactFieldErrors {
   return errors;
 }
 
+const ATTRIBUTION_KEYS = [
+  "utmSource",
+  "utmMedium",
+  "utmCampaign",
+  "utmTerm",
+  "utmContent",
+  "gclid",
+  "landingPage",
+  "referrer",
+  "page",
+] as const satisfies readonly (keyof ContactAttribution)[];
+
 /** Trims every field and drops anything the client shouldn't be trusted with. */
 export function normalizeContact(input: unknown): ContactPayload {
   const raw = (input ?? {}) as Record<string, unknown>;
   const str = (key: string) =>
     typeof raw[key] === "string" ? (raw[key] as string).trim() : "";
 
+  const seg = str("segment");
+  const rawAttr = (raw.attribution ?? {}) as Record<string, unknown>;
+  const attr: ContactAttribution = {};
+  for (const key of ATTRIBUTION_KEYS) {
+    const v = rawAttr[key];
+    if (typeof v === "string" && v.trim()) attr[key] = v.trim().slice(0, 300);
+  }
+
   return {
+    segment: (CONTACT_SEGMENTS as readonly string[]).includes(seg)
+      ? (seg as ContactSegment)
+      : undefined,
+    company: str("company").slice(0, 120) || undefined,
+    attribution: Object.keys(attr).length ? attr : undefined,
     firstName: str("firstName"),
     lastName: str("lastName"),
     email: str("email"),
