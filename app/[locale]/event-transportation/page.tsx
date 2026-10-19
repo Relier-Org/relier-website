@@ -112,7 +112,7 @@ export default async function EventsPage({ params }: PageProps) {
           lead={t("touring.lead")}
           vehicles={(t.raw("touring.vehicles") as { name: string; pax: string }[]).map((v, i) => ({
             ...v,
-            image: ["/images/fleet/motorcoach.webp", "/images/fleet/minibus.webp", "/images/fleet/sprinter.webp"][i],
+            image: ["/images/fleet/motorcoach.webp", "/images/fleet/minibus-v2.webp", "/images/fleet/sprinter.webp"][i],
           }))}
           venuesTitle={t("touring.venuesTitle")}
           venues={t.raw("touring.venues") as Venue[]}

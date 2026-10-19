@@ -85,7 +85,7 @@ export default async function FleetPage({ params }: PageProps) {
     {
       tier: t("vehicles.minibus.tier"),
       name: t("vehicles.minibus.tier"),
-      image: "/images/fleet/minibus.webp",
+      image: "/images/fleet/minibus-v2.webp",
       passengers: "24–40",
     },
     {

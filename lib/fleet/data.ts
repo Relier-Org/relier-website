@@ -79,7 +79,7 @@ export const FLEET: Vehicle[] = [
   {
     id: "mini-coach",
     name: "Executive Mini-Bus",
-    image: "/images/fleet/minibus.webp",
+    image: "/images/fleet/minibus-v2.webp",
     width: 1600,
     height: 1000,
     passengers: "24–40",
