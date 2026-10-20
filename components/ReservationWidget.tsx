@@ -5,15 +5,12 @@ import { cn } from '@/lib/utils/cn';
 import { markEmbedReady } from '@/lib/booking/embedReady';
 import styles from './ReservationWidget.module.css';
 
-const SCRIPT_SRC = 'https://relier.mylimobiz.com/leads/new/forms/resize/expander.php';
+// Limo Anywhere's classic tag only runs once per document. The manual loader
+// registers <la-quote-form>, which mounts again after Next.js client navigation.
+const SCRIPT_SRC = 'https://relier.mylimobiz.com/leads/new/forms/resize/expander.php?manual=1&config=13';
+const SCRIPT_ID = 'la-embed-manual-loader';
 
-// expander.php pulls this in itself (we never load jQuery), and it is the single
-// biggest serial hop before the iframe is even requested. Hard-coded URL: if
-// Limo Anywhere ever moves it the preload is wasted, not broken.
-const EMBED_JQUERY = 'https://relier.addons.la/js/jquery-1.10.2.min.js';
-
-// The expander derives its shortname from its own script host and only talks to
-// these two origins; mirror that so no other frame can fake the ready signal.
+// Only messages from the tenant's iframe can mark this widget ready.
 const EMBED_ORIGINS = [
   'https://relier.addons.la',
   'https://relier.mylimobiz.com',
@@ -31,12 +28,8 @@ export default function ReservationWidget({
   const outerRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
 
-  // The whole chain — expander.php → jQuery → config.php → load.php → iframe →
-  // the form's own bundles — is cross-origin and strictly serial. These hints
-  // ship in the SSR head, so the download starts before React hydrates instead
-  // of after, which is most of the wait the curtain is covering.
+  // Begin downloading the loader before hydration starts.
   preload(SCRIPT_SRC, { as: 'script' });
-  preload(EMBED_JQUERY, { as: 'script' });
   preconnect('https://relier.addons.la');
   preconnect('https://cdn.addons.la');
 
@@ -63,27 +56,43 @@ export default function ReservationWidget({
       } catch {
         return;
       }
-      if (parseInt(String(data?.height ?? ''), 10) > 0) settle();
+      const frame = outer.querySelector('la-quote-form')?.shadowRoot?.querySelector('iframe');
+      if (frame && event.source === frame.contentWindow && parseInt(String(data?.height ?? ''), 10) > 0) {
+        settle();
+      }
     };
     window.addEventListener('message', onMessage);
 
-    // Fallback: the iframe's own load event. Cross-origin still fires it on the
-    // parent, it just says nothing about paint — hence the short grace period.
-    const observer = new MutationObserver(() => {
-      const frame = outer.querySelector<HTMLIFrameElement>('#artusmode_filecontainer');
-      if (!frame) return;
-      observer.disconnect();
-      frame.addEventListener('load', () => window.setTimeout(settle, 400), {
-        once: true,
-      });
+    // Fallback: wait for the custom element upgrade, then watch its shadow root.
+    let disposed = false;
+    let observer: MutationObserver | undefined;
+    let loadTimer: number | undefined;
+    void customElements.whenDefined('la-quote-form').then(() => {
+      if (disposed) return;
+      const host = outer.querySelector('la-quote-form');
+      if (!host?.shadowRoot) return;
+      const watchFrame = () => {
+        const frame = host.shadowRoot?.querySelector('iframe');
+        if (!frame) return;
+        observer?.disconnect();
+        frame.addEventListener('load', () => {
+          loadTimer = window.setTimeout(settle, 400);
+        }, {
+          once: true,
+        });
+      };
+      observer = new MutationObserver(watchFrame);
+      observer.observe(host.shadowRoot, { childList: true, subtree: true });
+      watchFrame();
     });
-    observer.observe(outer, { childList: true, subtree: true });
 
     const timeout = window.setTimeout(settle, REVEAL_FALLBACK_MS);
 
     return () => {
+      disposed = true;
       window.removeEventListener('message', onMessage);
-      observer.disconnect();
+      observer?.disconnect();
+      if (loadTimer !== undefined) window.clearTimeout(loadTimer);
       window.clearTimeout(timeout);
     };
   }, []);
@@ -91,29 +100,23 @@ export default function ReservationWidget({
   useEffect(() => {
     const outer = outerRef.current;
     if (!outer) return;
-    if (outer.dataset.laLoaded === 'true') return;
+    const inner = outer.querySelector('#addons_inner');
+    if (!inner) return;
 
-    outer.dataset.laLoaded = 'true';
+    const form = document.createElement('la-quote-form');
+    form.setAttribute('config', configId);
+    inner.appendChild(form);
 
-    // expander.php keeps `load_id` as a top-level global and its load() starts
-    // with `if (load_id) return`. On a client-side nav between two pages that
-    // both embed the form, the script is evaluated a second time in the same
-    // document, sees the old id and bails before injecting the iframe — the bar
-    // silently renders empty. Clearing it makes the re-run behave like a first
-    // run. (Assignment, not delete: `var` globals aren't configurable.)
-    (window as unknown as { load_id?: unknown }).load_id = undefined;
-
-    const script = document.createElement('script');
-    script.src = SCRIPT_SRC;
-    script.setAttribute('config', configId);
-    script.async = true;
-    outer.appendChild(script);
+    if (!document.getElementById(SCRIPT_ID)) {
+      const script = document.createElement('script');
+      script.id = SCRIPT_ID;
+      script.src = SCRIPT_SRC;
+      script.async = true;
+      document.head.appendChild(script);
+    }
 
     return () => {
-      const inner = outer.querySelector('#addons_inner');
-      if (inner) inner.innerHTML = '';
-      outer.removeAttribute('data-la-loaded');
-      script.remove();
+      form.remove();
     };
   }, [configId]);
 
@@ -123,8 +126,7 @@ export default function ReservationWidget({
       data-ready={ready ? 'true' : undefined}
     >
       <span className={styles.skeleton} aria-hidden="true" />
-      {/* Both ids come from the Limo Anywhere config (outer_selector /
-          inner_div) — renaming them breaks the injection and the resize. */}
+      {/* The outer selector is used by Limo Anywhere when the form expands. */}
       <div id="addons_outer" ref={outerRef} className={styles.root}>
         <div id="addons_inner" />
       </div>
