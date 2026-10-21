@@ -37,6 +37,11 @@
   "leaveGoogleReview": "Leave us a Google review",
   "whatsapp": "Chat with us on WhatsApp",
   "phone": "+1 (844) 735-4371",
+  "virtuoso": {
+    "label": "Virtuoso Preferred Partner",
+    "badge": "Preferred Partner",
+    "newTab": "(opens in a new tab)"
+  },
   "preloader": {
     "label": "Preparing your reservation"
   }

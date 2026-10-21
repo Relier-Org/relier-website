@@ -203,9 +203,11 @@ a.contactItem:hover .contactValue {
 
 .bottom {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
+  gap: 8px 40px;
+  text-align: left;
   border-top: 0.5px solid var(--border-subtle);
   margin-top: 64px;
   padding-top: 32px;
@@ -218,6 +220,44 @@ a.contactItem:hover .contactValue {
 }
 
 .bottom a:hover {
+  color: var(--color-champagne-500);
+}
+
+.bottom p {
+  margin: 0;
+}
+
+/* Fila legal (oct-2026). Mismo criterio de target que las columnas: 8px de
+   padding vertical llevan el texto de 12px a ~34px, sobre el mínimo AA (24). */
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legal a,
+.legalButton {
+  display: inline-block;
+  padding-block: 8px;
+  font: inherit;
+  color: var(--color-silver-300);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.legalButton {
+  border: 0;
+  background: none;
+  padding-inline: 0;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+.legal a:hover,
+.legalButton:hover {
   color: var(--color-champagne-500);
 }
 
@@ -286,6 +326,14 @@ a.contactItem:hover .contactValue {
   }
   .bottom {
     margin-top: 48px;
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .legal {
+    justify-content: center;
+    gap: 0 18px;
   }
 }
 

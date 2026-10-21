@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { ORIGIN, localeUrl } from "@/lib/i18n/seo";
 import { getAllPosts } from "@/lib/blog/posts";
+import { LEGAL_REVIEWED } from "@/lib/legal/entity";
+import { LEGAL_ROUTES } from "@/lib/legal/routes";
 
 // Locale-agnostic pathnames, same strings que se le pasan a `localeAlternates`
 // en cada page. Si nace una ruta nueva, va acá también — no hay descubrimiento
@@ -31,12 +33,21 @@ const ROUTES = [
   { path: "/blog", priority: 0.6 },
 ] as const;
 
+// Páginas legales: fuera del sitemap (y en noindex) hasta que un abogado
+// revise los textos y LEGAL_REVIEWED pase a true.
+const LEGAL_SITEMAP_ROUTES = LEGAL_REVIEWED
+  ? LEGAL_ROUTES.map(({ path }) => ({ path, priority: 0.2 }))
+  : [];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   // Una entrada por ruta traducida, cada una declarando el cluster hreflang
   // completo — el mismo que emiten los `alternates` de la page.
-  const pages: MetadataRoute.Sitemap = ROUTES.flatMap(({ path, priority }) =>
+  const pages: MetadataRoute.Sitemap = [
+    ...ROUTES,
+    ...LEGAL_SITEMAP_ROUTES,
+  ].flatMap(({ path, priority }) =>
     routing.locales.map((locale) => ({
       url: localeUrl(locale, path),
       lastModified: now,

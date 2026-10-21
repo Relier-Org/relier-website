@@ -145,6 +145,10 @@
 
 .edition {
   margin-top: 12px;
+  /* 1.4.3: el tertiary a 10px daba 4.47:1 sobre la card (#efebe3). El muted
+     da 5.12:1 y el cuerpo sube al mínimo de 12px. */
+  font-size: 12px;
+  color: var(--text-on-light-muted);
 }
 
 /* Lead line of the card, champagne and heavier (oct-2026). */

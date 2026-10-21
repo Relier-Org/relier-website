@@ -7,6 +7,8 @@
     "previousVehicle": "Previous vehicle",
     "nextVehicle": "Next vehicle",
     "categories": "Fleet categories",
+    "pauseAutoplay": "Pause slideshow",
+    "playAutoplay": "Play slideshow",
     "exploreFull": "Explore the full fleet"
   },
   "tiers": {

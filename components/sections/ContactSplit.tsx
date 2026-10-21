@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
 import Field from "@/components/ui/Field";
@@ -18,6 +19,7 @@ import {
   INITIAL_CONTACT_VALUES,
   validateContact,
   type ContactFieldErrors,
+  type ContactTextField,
   type ContactValues,
 } from "@/lib/contact/schema";
 import { SOCIAL_PROFILES } from "@/lib/social/profiles";
@@ -26,9 +28,23 @@ import styles from "./ContactSplit.module.css";
 type Status = "idle" | "sending" | "sent";
 type SendError = "generic" | "rateLimited";
 
+/** Orden visual de los campos: el foco va al primero con error. */
+const FIELD_ORDER: (keyof ContactValues)[] = [
+  "firstName",
+  "lastName",
+  "email",
+  "phone",
+  "message",
+  "privacyConsent",
+];
+
+function focusFirstError(errors: ContactFieldErrors) {
+  const first = FIELD_ORDER.find((key) => errors[key]);
+  if (first) document.getElementById(first)?.focus();
+}
+
 export default function ContactSplit() {
   const t = useTranslations("pages");
-  const tc = useTranslations("common");
   const locale = useLocale();
   const [values, setValues] = useState<ContactValues>(INITIAL_CONTACT_VALUES);
   // Errors travel as message codes so they re-render in the active locale.
@@ -37,13 +53,20 @@ export default function ContactSplit() {
   const [sendError, setSendError] = useState<SendError | null>(null);
   // Honeypot: hidden from humans, irresistible to bots.
   const [referral, setReferral] = useState("");
+  const successRef = useRef<HTMLHeadingElement>(null);
+
+  // El form se reemplaza por el estado de éxito: el foco va a su título para
+  // que no caiga en <body> y el lector lo anuncie.
+  useEffect(() => {
+    if (status === "sent") successRef.current?.focus();
+  }, [status]);
 
   const errorText = (key: keyof ContactValues) => {
     const code = errors[key];
     return code ? t(`contact.form.errors.${code}`) : undefined;
   };
 
-  const update = (key: keyof ContactValues) => (
+  const update = (key: ContactTextField) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setValues((v) => ({ ...v, [key]: e.target.value }));
@@ -56,6 +79,7 @@ export default function ContactSplit() {
     const nextErrors = validateContact(values);
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
+      focusFirstError(nextErrors);
       return;
     }
 
@@ -79,6 +103,7 @@ export default function ContactSplit() {
         }
         if (error.reason === "validation" && error.fields) {
           setErrors(error.fields);
+          focusFirstError(error.fields);
           return;
         }
       }
@@ -109,7 +134,13 @@ export default function ContactSplit() {
 
             {status === "sent" ? (
               <div className={styles.successCard} role="status">
-                <h3>{t("contact.form.success.title")}</h3>
+                <h3
+                  ref={successRef}
+                  tabIndex={-1}
+                  className={styles.successTitle}
+                >
+                  {t("contact.form.success.title")}
+                </h3>
                 <p>{t("contact.form.success.body")}</p>
                 <button
                   type="button"
@@ -134,6 +165,7 @@ export default function ContactSplit() {
                       type="text"
                       autoComplete="given-name"
                       maxLength={CONTACT_LIMITS.firstName}
+                      aria-required="true"
                       value={values.firstName}
                       onChange={update("firstName")}
                       invalid={Boolean(errors.firstName)}
@@ -152,6 +184,7 @@ export default function ContactSplit() {
                       type="text"
                       autoComplete="family-name"
                       maxLength={CONTACT_LIMITS.lastName}
+                      aria-required="true"
                       value={values.lastName}
                       onChange={update("lastName")}
                       invalid={Boolean(errors.lastName)}
@@ -173,6 +206,7 @@ export default function ContactSplit() {
                       type="email"
                       autoComplete="email"
                       maxLength={CONTACT_LIMITS.email}
+                      aria-required="true"
                       value={values.email}
                       onChange={update("email")}
                       invalid={Boolean(errors.email)}
@@ -208,12 +242,64 @@ export default function ContactSplit() {
                     id="message"
                     name="message"
                     maxLength={CONTACT_LIMITS.message}
+                    aria-required="true"
                     value={values.message}
                     onChange={update("message")}
                     invalid={Boolean(errors.message)}
                     placeholder={t("contact.form.placeholders.message")}
                   />
                 </Field>
+
+                <div className={styles.consent}>
+                  <div className={styles.consentRow}>
+                    <input
+                      id="privacyConsent"
+                      name="privacyConsent"
+                      type="checkbox"
+                      className={styles.consentInput}
+                      checked={values.privacyConsent}
+                      onChange={(e) => {
+                        const checked = e.target.checked;
+                        setValues((v) => ({ ...v, privacyConsent: checked }));
+                        if (errors.privacyConsent)
+                          setErrors((er) => ({ ...er, privacyConsent: undefined }));
+                        if (sendError) setSendError(null);
+                      }}
+                      aria-required="true"
+                      aria-invalid={errors.privacyConsent ? true : undefined}
+                      aria-describedby={
+                        errors.privacyConsent ? "privacyConsent-error" : undefined
+                      }
+                    />
+                    <label htmlFor="privacyConsent" className={styles.consentLabel}>
+                      {t.rich("contact.form.consent.label", {
+                        link: (chunks) => (
+                          // Pestaña nueva: el form no pierde lo tipeado.
+                          <Link
+                            href="/privacy-policy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {chunks}
+                            <span className={styles.srOnly}>
+                              {" "}
+                              {t("contact.form.consent.newTab")}
+                            </span>
+                          </Link>
+                        ),
+                      })}
+                    </label>
+                  </div>
+                  {errors.privacyConsent ? (
+                    <p
+                      id="privacyConsent-error"
+                      className={styles.consentError}
+                      role="alert"
+                    >
+                      {t(`contact.form.errors.${errors.privacyConsent}`)}
+                    </p>
+                  ) : null}
+                </div>
 
                 <div className={styles.honeypot} aria-hidden="true">
                   <label htmlFor="contact-referral">Referral code</label>

@@ -12,7 +12,8 @@
   resize: vertical;
   min-height: 140px;
   transition:
-    border-color var(--duration-fast) var(--ease-out);
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .textarea::placeholder {
@@ -24,12 +25,24 @@
   border-bottom-color: var(--border-strong);
 }
 
+/* Foco: el borde inferior pasa de 1px a 2px (box-shadow de 1px debajo, sin
+   mover el layout) en el acento del contexto. --text-accent es champagne-500
+   sobre oscuro y accent-on-light (6.57:1) dentro de las cards crema, que lo
+   redefinen. Reemplaza al outline global, no lo suprime sin alternativa. */
 .textarea:focus {
   outline: none;
-  border-bottom-color: var(--color-champagne-500);
+  border-bottom-color: var(--text-accent);
+  box-shadow: 0 1px 0 0 var(--text-accent);
 }
 
 .invalid,
 .invalid:focus {
   border-bottom-color: var(--color-error, #E67373);
+}
+
+/* Con error, el foco sigue en rojo a 2px. La especificidad (.textarea.invalid)
+   le gana al `.formCard input:focus` de las cards crema. */
+.textarea.invalid:focus {
+  border-bottom-color: var(--color-error, #E67373);
+  box-shadow: 0 1px 0 0 var(--color-error, #E67373);
 }

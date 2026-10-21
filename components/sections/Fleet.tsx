@@ -35,9 +35,13 @@ export default function Fleet() {
     dir: 1,
     tick: 0,
   });
-  // Sin botón de pausa: el autoplay frena mientras el mouse está sobre la
-  // escena o el focus dentro de la sección (equivalente al stopOnMouseEnter/
-  // stopOnFocusIn de la versión Embla — mantiene el mecanismo de pausa WCAG).
+  // El autoplay frena mientras el mouse está sobre la escena o el focus dentro
+  // de la sección (equivalente al stopOnMouseEnter/stopOnFocusIn de Embla).
+  // Además hay un botón explícito de pausa/reanudar (WCAG 2.2.2): `choice` es
+  // null hasta que el usuario lo usa; desde ahí manda su elección, también por
+  // encima de reduced-motion y de la pausa por focus (si no, al hacer click en
+  // "reanudar" el propio botón enfocado lo volvería a frenar).
+  const [choice, setChoice] = useState<"play" | "pause" | null>(null);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [reduced, setReduced] = useState(false);
@@ -69,7 +73,8 @@ export default function Fleet() {
 
   // Autoplay: un timeout por slide, se reagenda en cada cambio (tick) — la
   // navegación manual resetea el reloj, igual que el diseño original.
-  const playing = !hovered && !focused && !reduced;
+  const autoplayOn = choice ? choice === "play" : !reduced;
+  const playing = autoplayOn && !hovered && (choice !== null || !focused);
   useEffect(() => {
     if (!playing) return;
     const t = setTimeout(() => go(1), AUTOPLAY_MS);
@@ -221,15 +226,14 @@ export default function Fleet() {
             </button>
             <div
               className={styles.dots}
-              role="tablist"
+              role="group"
               aria-label={t("showcase.categories")}
             >
               {FLEET.map((c, i) => (
                 <button
                   key={c.id}
                   type="button"
-                  role="tab"
-                  aria-selected={i === active}
+                  aria-current={i === active ? "true" : undefined}
                   aria-label={tier(c.id)}
                   className={cn(styles.dot, i === active && styles.dotActive)}
                   onClick={() => goTo(i)}
@@ -243,6 +247,25 @@ export default function Fleet() {
               onClick={() => go(1)}
             >
               →
+            </button>
+            <button
+              type="button"
+              className={styles.autoplayToggle}
+              aria-label={
+                autoplayOn ? t("showcase.pauseAutoplay") : t("showcase.playAutoplay")
+              }
+              onClick={() => setChoice(autoplayOn ? "pause" : "play")}
+            >
+              {autoplayOn ? (
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true">
+                  <rect x="0" y="0" width="3" height="12" rx="0.5" />
+                  <rect x="7" y="0" width="3" height="12" rx="0.5" />
+                </svg>
+              ) : (
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true">
+                  <path d="M0 0.8v10.4a0.6 0.6 0 0 0 0.9 0.5l8.6-5.2a0.6 0.6 0 0 0 0-1L0.9 0.3A0.6 0.6 0 0 0 0 0.8z" />
+                </svg>
+              )}
             </button>
           </div>
 

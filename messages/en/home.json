@@ -8,7 +8,9 @@
     "eyebrow": "Worldwide Executive Car Service Company · Virtuoso Preferred",
     "titleLine1": "Worldwide Private Chauffeur",
     "titleLine2": "& Transportation Service",
-    "subtitle": "Where private transfers & transportation begins. From New York to the World. Operating more than 500 cities worldwide."
+    "subtitle": "Where private transfers & transportation begins. From New York to the World. Operating more than 500 cities worldwide.",
+    "pauseVideo": "Pause background video",
+    "playVideo": "Play background video"
   },
   "services": {
     "kicker": "Our services",
@@ -114,7 +116,7 @@
     "titleLine2": "one network worldwide.",
     "lead": "Headquartered in New York and Barcelona, with the same chauffeured standard across 500+ cities in Europe, the Americas, the Middle East, Africa and Asia.",
     "mapAria": "Map of Relier coverage across 500+ cities worldwide",
-    "caption": "500+ cities across 40+ countries. Hover the map to explore.",
+    "caption": "500+ cities across 40+ countries. Explore the map or open the full list of destinations below.",
     "viewAll": "View all destinations",
     "hide": "Hide destinations",
     "regions": {

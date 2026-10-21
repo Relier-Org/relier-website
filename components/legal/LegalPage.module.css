@@ -1,0 +1,211 @@
+/* Páginas legales: superficie oscura, lectura larga. Sin animaciones de
+   entrada a propósito (el contenido legal tiene que estar siempre visible). */
+
+.page {
+  background: var(--bg-canvas);
+  color: var(--text-secondary);
+}
+
+.hero {
+  padding-top: calc(84px + clamp(48px, 8vw, 112px));
+  padding-bottom: clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--ambient-left), var(--bg-canvas);
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h1);
+  line-height: 1.05;
+  letter-spacing: -0.022em;
+  color: var(--text-primary);
+  text-wrap: balance;
+  max-width: 18ch;
+}
+
+.lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+.updated {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  padding-block: clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+
+/* ─── Índice ─── */
+.toc {
+  position: sticky;
+  top: 112px;
+  max-height: calc(100svh - 136px);
+  overflow-y: auto;
+}
+
+.tocTitle {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.tocList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 1px solid var(--border-default);
+}
+
+.tocList a {
+  display: block;
+  padding: 7px 0 7px 16px;
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.tocList a:hover {
+  color: var(--text-primary);
+  border-left-color: var(--text-accent);
+}
+
+/* ─── Cuerpo ─── */
+.body {
+  max-width: 70ch;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.section + .section {
+  margin-top: clamp(48px, 5vw, 64px);
+  padding-top: clamp(48px, 5vw, 64px);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.section > * + * {
+  margin-top: 1em;
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h4);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  scroll-margin-top: 120px;
+  text-wrap: balance;
+}
+
+.section > .h2 + * {
+  margin-top: 20px;
+}
+
+.h3 {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.section > * + .h3 {
+  margin-top: 2em;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.list li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.8em;
+  width: 8px;
+  height: 1px;
+  background: var(--text-accent);
+}
+
+.body strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.body a,
+.lead a {
+  color: var(--text-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.body a:hover,
+.lead a:hover {
+  color: var(--color-champagne-300);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding-top: calc(72px + 40px);
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}

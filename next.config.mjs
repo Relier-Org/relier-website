@@ -119,13 +119,32 @@ const LEGACY_REDIRECTS = [
   },
 ];
 
+// Headers de seguridad (auditoría oct-2026): producción no mandaba ninguno salvo
+// el `upgrade-insecure-requests` que agrega Cloudflare. Sin CSP de scripts a
+// propósito: GTM inyecta lo que el equipo de performance configure en el
+// container y una allowlist rota en silencio los tags. `frame-ancestors` sí,
+// porque evita que los formularios se embeban en otro sitio (clickjacking).
+// geolocation/payment no se restringen: el iframe de Limo Anywhere puede usarlos.
+const SECURITY_HEADERS = [
+  { key: "Content-Security-Policy", value: "frame-ancestors 'self'" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), usb=(), browsing-topics=()" },
+  { key: "Strict-Transport-Security", value: "max-age=31536000" },
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  poweredByHeader: false,
   // Match relier.com legacy URLs (/about/, /<post-slug>/, etc.) for SEO continuity.
   trailingSlash: true,
   experimental: {
     optimizePackageImports: ["gsap"],
+  },
+  async headers() {
+    return [{ source: "/:path*", headers: SECURITY_HEADERS }];
   },
   async redirects() {
     return LEGACY_REDIRECTS.map((r) => ({ ...r, permanent: true }));

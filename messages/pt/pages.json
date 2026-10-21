@@ -49,6 +49,10 @@
       "email": "E-mail",
       "phone": "Telefone",
       "message": "Mensagem",
+      "consent": {
+        "label": "Li a <link>Política de Privacidade</link> e concordo que a Relier trate meus dados para responder à minha solicitação.",
+        "newTab": "(abre em uma nova aba)"
+      },
       "placeholders": {
         "firstName": "Ana",
         "lastName": "Silva",
@@ -59,7 +63,8 @@
       "errors": {
         "required": "Obrigatório",
         "email": "Insira um e-mail válido",
-        "tooLong": "Muito longo"
+        "tooLong": "Muito longo",
+        "consent": "Aceite a Política de Privacidade para enviar sua mensagem."
       },
       "error": {
         "generic": "Não conseguimos enviar sua mensagem. Tente novamente ou escreva para info@relier.com.",

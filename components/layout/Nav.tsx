@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FocusEvent, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -76,6 +76,28 @@ function isLinkActive(pathname: string, link: NavLink): boolean {
   return matches(link.href);
 }
 
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+const dropdownId = (labelKey: string) =>
+  `nav-dropdown-${labelKey.split(".").pop()}`;
+
+// Skip link (2.4.1). Las páginas tienen un <main> sin id: se enfoca por
+// selector (con tabIndex=-1 si no es enfocable) y se scrollea. El href="#main"
+// queda de fallback sin JS.
+function skipToMain(e: MouseEvent<HTMLAnchorElement>) {
+  const main = document.querySelector("main");
+  if (!main) return;
+  e.preventDefault();
+  if (!main.hasAttribute("tabindex")) {
+    main.setAttribute("tabindex", "-1");
+    // Enfocado por programa: sin el outline global alrededor de toda la página.
+    main.style.outline = "none";
+  }
+  main.focus({ preventScroll: true });
+  main.scrollIntoView({ block: "start" });
+}
+
 export default function Nav() {
   const t = useTranslations();
   const isScrolled = useNavScroll(24);
@@ -83,12 +105,52 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
+  const burgerRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const wasOpenRef = useRef(false);
 
+  // Dropdowns de desktop (disclosure): `openMenu` es el que abrió el teclado o
+  // un click en el chevron. El hover de CSS sigue funcionando aparte;
+  // `dismissed` lo esconde si se apretó Escape con el mouse encima (1.4.13),
+  // hasta que el puntero sale del item.
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [dismissed, setDismissed] = useState<string | null>(null);
+  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const groupRefs = useRef<Record<string, HTMLLIElement | null>>({});
+
+  // Menú mobile (dialog modal): foco al cerrar (X) al abrir, trap de Tab
+  // adentro y foco de vuelta al burger al cerrar por cualquier vía.
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) {
+      if (wasOpenRef.current) burgerRef.current?.focus();
+      wasOpenRef.current = false;
+      return;
+    }
+    wasOpenRef.current = true;
     document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
+      if (e.key === "Escape") {
+        setIsOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const overlay = overlayRef.current;
+      if (!overlay) return;
+      const nodes = Array.from(
+        overlay.querySelectorAll<HTMLElement>(FOCUSABLE)
+      ).filter((el) => el.offsetParent !== null || el === document.activeElement);
+      if (!nodes.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey && (active === first || !overlay.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (active === last || !overlay.contains(active))) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", onKey);
     return () => {
@@ -96,6 +158,75 @@ export default function Nav() {
       document.removeEventListener("keydown", onKey);
     };
   }, [isOpen]);
+
+  // Escape en los dropdowns y click afuera (Safari no enfoca botones al hacer
+  // click, así que el focusout no alcanza para cerrarlos).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (openMenu) {
+        const key = openMenu;
+        setOpenMenu(null);
+        triggerRefs.current[key]?.focus();
+        return;
+      }
+      const hovered = Object.entries(groupRefs.current).find(([, li]) =>
+        li?.matches(":hover")
+      );
+      if (hovered) setDismissed(hovered[0]);
+    };
+    const onPointerDown = (e: PointerEvent) => {
+      if (!openMenu) return;
+      const li = groupRefs.current[openMenu];
+      if (li && !li.contains(e.target as Node)) setOpenMenu(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [openMenu]);
+
+  const onTriggerKeyDown = (
+    e: ReactKeyboardEvent<HTMLButtonElement>,
+    key: string
+  ) => {
+    if (e.key !== "ArrowDown") return;
+    e.preventDefault();
+    setOpenMenu(key);
+    setDismissed(null);
+    // El dropdown pasa a visible en este render: se enfoca el primer link en
+    // el siguiente frame, cuando ya no tiene visibility: hidden.
+    requestAnimationFrame(() => {
+      groupRefs.current[key]
+        ?.querySelector<HTMLElement>(`#${dropdownId(key)} a`)
+        ?.focus();
+    });
+  };
+
+  const onDropdownKeyDown = (
+    e: ReactKeyboardEvent<HTMLUListElement>,
+    key: string
+  ) => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const links = Array.from(e.currentTarget.querySelectorAll<HTMLElement>("a"));
+    const i = links.indexOf(document.activeElement as HTMLElement);
+    if (i === -1) return;
+    e.preventDefault();
+    if (e.key === "ArrowUp" && i === 0) {
+      triggerRefs.current[key]?.focus();
+      return;
+    }
+    const next = e.key === "ArrowDown" ? Math.min(i + 1, links.length - 1) : i - 1;
+    links[next]?.focus();
+  };
+
+  const onGroupBlur = (e: FocusEvent<HTMLLIElement>, key: string) => {
+    if (openMenu === key && !e.currentTarget.contains(e.relatedTarget as Node)) {
+      setOpenMenu(null);
+    }
+  };
 
   useGSAP(
     () => {
@@ -132,6 +263,9 @@ export default function Nav() {
 
   return (
     <>
+      <a href="#main" className={styles.skipLink} onClick={skipToMain}>
+        {t("nav.skipToMain")}
+      </a>
       <nav className={cn(styles.nav, isScrolled && styles.isScrolled)}>
         <div className={cn("container", styles.inner)}>
           <Link href="/" className={styles.logo} aria-label={t("nav.aria.home")}>
@@ -151,17 +285,58 @@ export default function Nav() {
               return (
               <li
                 key={link.labelKey}
-                className={cn(link.children && styles.hasDropdown)}
+                ref={
+                  link.children
+                    ? (el) => {
+                        groupRefs.current[link.labelKey] = el;
+                      }
+                    : undefined
+                }
+                className={cn(
+                  link.children && styles.hasDropdown,
+                  openMenu === link.labelKey && styles.isOpen,
+                  dismissed === link.labelKey && styles.isDismissed
+                )}
+                onMouseLeave={
+                  link.children && dismissed === link.labelKey
+                    ? () => setDismissed(null)
+                    : undefined
+                }
+                onBlur={
+                  link.children ? (e) => onGroupBlur(e, link.labelKey) : undefined
+                }
               >
                 <LinkTag
                   href={link.href}
                   target={link.external ? "_blank" : undefined}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className={cn(styles.linkItem, active && styles.isActive)}
+                  className={cn(
+                    styles.linkItem,
+                    link.children && styles.linkWithToggle,
+                    active && styles.isActive
+                  )}
                   aria-current={active ? "page" : undefined}
                 >
                   {t(link.labelKey)}
-                  {link.children && (
+                </LinkTag>
+                {/* El label sigue siendo link al hub (/services, /for-business);
+                    el chevron pasa a ser un botón propio que abre el submenú. */}
+                {link.children && (
+                  <button
+                    type="button"
+                    ref={(el) => {
+                      triggerRefs.current[link.labelKey] = el;
+                    }}
+                    className={cn(styles.dropdownToggle, active && styles.isActive)}
+                    aria-expanded={openMenu === link.labelKey}
+                    aria-controls={dropdownId(link.labelKey)}
+                    aria-label={t("nav.aria.submenu", { label: t(link.labelKey) })}
+                    onClick={() => {
+                      setDismissed(null);
+                      setOpenMenu((k) => (k === link.labelKey ? null : link.labelKey));
+                    }}
+                    onKeyDown={(e) => onTriggerKeyDown(e, link.labelKey)}
+                  >
                     <svg
                       className={styles.caret}
                       width="8"
@@ -178,10 +353,14 @@ export default function Nav() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                  )}
-                </LinkTag>
+                  </button>
+                )}
                 {link.children && (
-                  <ul className={styles.dropdown}>
+                  <ul
+                    id={dropdownId(link.labelKey)}
+                    className={styles.dropdown}
+                    onKeyDown={(e) => onDropdownKeyDown(e, link.labelKey)}
+                  >
                     {link.children.map((child) => {
                       const childActive =
                         pathname === stripHash(child.href) ||
@@ -213,6 +392,7 @@ export default function Nav() {
               <span className={styles.ctaShort}>{t("common.reserveShort")}</span>
             </Button>
             <button
+              ref={burgerRef}
               type="button"
               className={cn(styles.burger, isOpen && styles.burgerOpen)}
               aria-label={isOpen ? t("nav.aria.closeMenu") : t("nav.aria.openMenu")}
@@ -253,6 +433,7 @@ export default function Nav() {
               />
             </Link>
             <button
+              ref={closeRef}
               type="button"
               className={styles.overlayClose}
               aria-label={t("nav.aria.closeMenu")}

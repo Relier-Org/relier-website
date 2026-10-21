@@ -1,0 +1,43 @@
+{
+  "banner": {
+    "title": "Sua privacidade, sua escolha",
+    "body": "Usamos cookies opcionais de análise e marketing somente com a sua permissão.",
+    "policies": "Saiba mais na nossa <cookies>Política de cookies</cookies> e <privacy>Política de privacidade</privacy>.",
+    "acceptAll": "Aceitar tudo",
+    "acceptShort": "Aceitar",
+    "rejectAll": "Recusar tudo",
+    "rejectShort": "Rejeitar",
+    "customize": "Personalizar"
+  },
+  "preferences": {
+    "title": "Preferências de cookies",
+    "intro": "Escolha quais cookies opcionais podemos usar. Você pode mudar de ideia quando quiser em Configurações de cookies, no rodapé de cada página.",
+    "close": "Fechar",
+    "save": "Salvar preferências",
+    "alwaysActive": "Sempre ativos",
+    "cookiesLabel": "Cookies e armazenamento:",
+    "policyLink": "Leia a Política de cookies completa",
+    "categories": {
+      "necessary": {
+        "title": "Estritamente necessários",
+        "description": "Mantêm o site funcionando: seu idioma, esta escolha e o formulário de reservas. Não podem ser desativados."
+      },
+      "analytics": {
+        "title": "Análise",
+        "description": "O Google Analytics 4 nos mostra, de forma agregada, quais páginas são visitadas e como são usadas."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "O Google Ads e o pixel da Meta medem nossas campanhas, e os formulários de contato lembram qual campanha trouxe você até aqui."
+      }
+    }
+  },
+  "map": {
+    "placeholderLabel": "Mapa do escritório da Relier em Nova York",
+    "address": "240 Kent Ave, Brooklyn, NY 11249",
+    "load": "Carregar mapa",
+    "notice": "Ao carregar o mapa, trazemos conteúdo do Google e se aplica a <link>Política de Privacidade do Google</link>.",
+    "open": "Abrir no Google Maps",
+    "newTab": "(abre em uma nova aba)"
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "common": {
+    "eyebrow": "Legal",
+    "lastUpdated": "Última atualização:",
+    "tocLabel": "Nesta página",
+    "cookieSettings": "Alterar configurações de cookies"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Política de Privacidade · Relier",
+      "description": "Quais dados pessoais a Relier coleta por meio de relier.com, para que os usa, com quem os compartilha e quais são os seus direitos."
+    },
+    "title": "Política de Privacidade",
+    "lead": "Esta política explica quais dados pessoais a Relier coleta por meio de relier.com, como os usamos e quais escolhas você tem. Ela se aplica ao site em inglês, espanhol e português.",
+    "sections": {
+      "controller": {
+        "title": "Quem somos",
+        "p1": "O controlador dos dados pessoais descritos nesta política é {controller}, {address}.",
+        "p2": "Você pode nos escrever em <infoMail>{infoEmail}</infoMail> ou ligar para <phoneLink>{phone}</phoneLink>, 24 horas por dia.",
+        "p3": "Nosso representante na União Europeia, nos termos do artigo 27 do RGPD, é {euRepresentative}."
+      },
+      "collect": {
+        "title": "Quais dados pessoais coletamos",
+        "h1": "Formulários de contato",
+        "p1": "Quando você envia uma mensagem pela nossa página de contato ou pelas nossas páginas para eventos, viagens corporativas, parceiros afiliados e agentes de viagens, recebemos:",
+        "ul1": {
+          "i1": "seu nome e sobrenome;",
+          "i2": "seu e-mail;",
+          "i3": "seu telefone, se você decidir informá-lo;",
+          "i4": "o nome da sua empresa, se você decidir informá-lo (apenas nos formulários para empresas);",
+          "i5": "sua mensagem;",
+          "i6": "o idioma do site e a página de onde você enviou o formulário;",
+          "i7": "sua aceitação desta Política de Privacidade, registrada com a data, a hora e a versão da política."
+        },
+        "p2": "Somente se você aceitou os cookies de marketing, o formulário inclui também como sua visita começou: os parâmetros de campanha da primeira página que você abriu (parâmetros utm e gclid), essa página de entrada e o site que indicou você, limitado ao domínio, sem a página específica.",
+        "p3": "Sua mensagem é enviada por e-mail à equipe da Relier que atende o seu tipo de solicitação, por meio do nosso provedor de envio de e-mails, a Resend (Estados Unidos). O site não mantém um banco de dados próprio de mensagens.",
+        "p4": "Para evitar abusos, nosso servidor mantém seu endereço IP na memória por 10 minutos para limitar envios repetidos, e não o armazena depois disso. Os formulários também incluem um campo oculto que bloqueia spam automatizado.",
+        "h2": "Reservas e cotações",
+        "p5": "O formulário de reserva da nossa página inicial e da nossa página de reserva online é fornecido pela Limo Anywhere (AddOns.LA) e carregado a partir de relier.addons.la e relier.mylimobiz.com. Nele você informa os dados da sua viagem (endereços de embarque e destino, data, horário, número de passageiros e dados do voo, quando houver), seus dados de contato e, ao reservar, seus dados de pagamento e sua assinatura de aceitação dos termos da reserva.",
+        "p6": "A Limo Anywhere trata essas informações em nome da Relier. relier.com não recebe nem armazena os dados do seu cartão. O formulário pode usar serviços do Google internamente, como o preenchimento automático de endereços. A Limo Anywhere também hospeda nosso portal de clientes em relier.mylimobiz.com, onde você pode gerenciar suas viagens.",
+        "h3": "Quando você entra em contato diretamente",
+        "p7": "Se você nos escreve ou liga, recebemos as informações que decidir compartilhar. Nosso botão de WhatsApp abre o WhatsApp, um serviço da Meta. O site não envia nada ao WhatsApp até você clicar, e a partir daí se aplicam os termos e a política de privacidade do WhatsApp.",
+        "h4": "Análise e marketing",
+        "p8": "Somente se você permitir, usamos o Google Analytics 4 (análise) e, por meio do Google Tag Manager, o Google Ads e o Meta Pixel (marketing). Essas ferramentas coletam informações sobre o seu dispositivo e sobre como você usa o site, como as páginas que visita, e, no caso do marketing, qual das nossas campanhas trouxe você até aqui. Sem o seu consentimento, elas não são carregadas. Usamos o Google Consent Mode v2 para repassar sua escolha às tags do Google.",
+        "p9": "Pedimos o seu consentimento com um banner em que você pode aceitar, recusar ou personalizar, e você pode mudar sua escolha a qualquer momento em Configurações de cookies, no rodapé de todas as páginas. Os detalhes estão na nossa <cookieLink>Política de Cookies</cookieLink>.",
+        "h5": "Mapa da página de contato",
+        "p10": "O mapa do Google da nossa página de contato só é carregado quando você clica em Carregar mapa. Depois de carregado, o Google pode definir seus próprios cookies, e a política de privacidade dele se aplica.",
+        "h6": "Dados técnicos",
+        "p11": "Nosso site é hospedado pela Hostinger e entregue e protegido pela Cloudflare. Ambas tratam seu endereço IP e dados técnicos da sua conexão, como o navegador e a data e hora da solicitação, para entregar o site e protegê-lo. Nossas fontes tipográficas são servidas pelo nosso próprio domínio, então carregar o site não faz contato com o Google Fonts.",
+        "h7": "Redes sociais",
+        "p12": "Nossos perfis no Instagram, Facebook, LinkedIn e TikTok aparecem como links simples; não incorporamos os widgets dessas plataformas. Se você seguir esses links, valem as políticas de cada plataforma."
+      },
+      "use": {
+        "title": "Para que usamos seus dados e com qual base legal",
+        "p1": "Usamos os dados pessoais para as finalidades abaixo. Se você está no Espaço Econômico Europeu ou no Reino Unido, cada finalidade se apoia na base legal indicada, nos termos do RGPD:",
+        "ul1": {
+          "i1": "<b>Responder às suas consultas e preparar cotações.</b> Procedimentos preliminares a um contrato, a seu pedido (artigo 6.1.b), junto com o consentimento que você dá ao marcar a caixa do formulário.",
+          "i2": "<b>Prestar o serviço que você reserva</b>, o que inclui gerenciar sua viagem e nos comunicar com você sobre ela. Execução de contrato (artigo 6.1.b).",
+          "i3": "<b>Análise e medição de marketing.</b> Seu consentimento (artigo 6.1.a), que você pode retirar a qualquer momento.",
+          "i4": "<b>Manter o site seguro e evitar abusos</b>, como spam e envios repetidos. Nosso interesse legítimo em proteger o site e seus usuários (artigo 6.1.f).",
+          "i5": "<b>Cumprir nossas obrigações legais</b>, como as contábeis e fiscais. Cumprimento de obrigação legal (artigo 6.1.c)."
+        }
+      },
+      "share": {
+        "title": "Quem recebe seus dados",
+        "p1": "Não vendemos dados pessoais em troca de dinheiro. Só os compartilhamos com os provedores que nos ajudam a operar o site e o serviço:",
+        "ul1": {
+          "i1": "<b>Resend</b> (Estados Unidos): envio por e-mail das mensagens dos formulários de contato.",
+          "i2": "<b>Limo Anywhere (AddOns.LA)</b>: formulário de reserva, cotações, pagamentos e portal de clientes.",
+          "i3": "<b>Hostinger</b>: hospedagem do site.",
+          "i4": "<b>Cloudflare</b>: entrega de conteúdo e segurança.",
+          "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager e Google Ads, se você os aceitar, o mapa da página de contato, se você carregá-lo, e os serviços usados dentro do formulário de reserva, como o preenchimento automático de endereços.",
+          "i6": "<b>Meta</b>: o Meta Pixel, se você aceitar os cookies de marketing, e o WhatsApp, se você escolher falar conosco por esse canal.",
+          "i7": "<b>Nossas ferramentas de e-mail e de gestão de clientes</b>, que usamos para responder e dar seguimento às suas solicitações."
+        }
+      },
+      "transfers": {
+        "title": "Transferências internacionais",
+        "p1": "A Relier tem base em Nova York e Barcelona, e nossos provedores podem tratar dados nos Estados Unidos e em outros países. Quando dados pessoais do Espaço Econômico Europeu ou do Reino Unido são transferidos para um país que não oferece um nível de proteção equivalente, a transferência se apoia em um mecanismo válido, como uma decisão de adequação (incluindo o EU-US Data Privacy Framework, quando o provedor é certificado) ou cláusulas contratuais padrão."
+      },
+      "retention": {
+        "title": "Por quanto tempo guardamos seus dados",
+        "p1": "Guardamos os dados das suas consultas pelo tempo necessário para respondê-las e dar a elas um acompanhamento comercial razoável. Guardamos os dados das reservas pelo tempo exigido pelas nossas obrigações legais, contábeis e fiscais.",
+        "p2": "Os cookies de análise e de marketing duram os prazos indicados na nossa <cookieLink>Política de Cookies</cookieLink>."
+      },
+      "security": {
+        "title": "Segurança",
+        "p1": "Protegemos os dados pessoais com medidas adequadas ao risco, entre elas conexões criptografadas HTTPS em todo o site e acesso restrito às pessoas que precisam dele. Nenhum método de transmissão ou armazenamento é totalmente seguro, por isso não podemos garantir segurança absoluta."
+      },
+      "rights": {
+        "title": "Seus direitos no EEE e no Reino Unido",
+        "p1": "Se o RGPD ou o RGPD do Reino Unido se aplica a você, você tem direito a:",
+        "ul1": {
+          "i1": "acessar seus dados pessoais;",
+          "i2": "pedir que sejam corrigidos (retificação);",
+          "i3": "pedir que sejam excluídos (apagamento);",
+          "i4": "limitar o tratamento;",
+          "i5": "recebê-los em formato portável (portabilidade);",
+          "i6": "se opor ao tratamento;",
+          "i7": "retirar seu consentimento a qualquer momento, sem afetar o tratamento feito antes;",
+          "i8": "apresentar uma reclamação a uma autoridade de controle de proteção de dados."
+        },
+        "p2": "Para exercer qualquer um desses direitos, escreva para <privacyMail>{privacyEmail}</privacyMail>. Você também pode reclamar à autoridade de controle do seu país. Na Espanha, é a Agencia Española de Protección de Datos (<aepd>aepd.es</aepd>)."
+      },
+      "us": {
+        "title": "Direitos de privacidade nos estados dos EUA",
+        "p1": "Dependendo do estado onde você mora, você pode ter o direito de acessar, corrigir e excluir seus dados pessoais, e de se opor à sua “venda” ou “compartilhamento” para publicidade comportamental entre contextos.",
+        "p2": "Não vendemos dados pessoais em troca de dinheiro. Neste site, o compartilhamento para publicidade comportamental só acontece se você aceitar os cookies de marketing, e você pode retirar esse consentimento a qualquer momento em Configurações de cookies, no rodapé de todas as páginas. Para qualquer outra solicitação, escreva para <privacyMail>{privacyEmail}</privacyMail>."
+      },
+      "children": {
+        "title": "Menores",
+        "p1": "Este site não é direcionado a menores de 16 anos, e não coletamos seus dados pessoais intencionalmente. Se você acredita que um menor nos enviou dados pessoais, entre em contato para que possamos excluí-los."
+      },
+      "changes": {
+        "title": "Alterações nesta política",
+        "p1": "Podemos atualizar esta política. Publicaremos qualquer alteração nesta página e atualizaremos a data indicada no topo."
+      },
+      "contact": {
+        "title": "Contato",
+        "p1": "Para qualquer dúvida sobre esta política ou sobre seus dados, escreva para <privacyMail>{privacyEmail}</privacyMail> ou envie uma carta para {address}."
+      }
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Termos e Condições · Relier",
+      "description": "Os termos que regem o uso de relier.com e os serviços de transporte com motorista que você reserva com a Relier."
+    },
+    "title": "Termos e Condições",
+    "lead": "Estes termos regem o uso de relier.com e os serviços de transporte com motorista que você reserva com a Relier.",
+    "sections": {
+      "acceptance": {
+        "title": "Aceitação",
+        "p1": "Ao usar este site ou reservar um serviço conosco, você concorda com estes Termos e Condições. Se não concordar com eles, pedimos que não use o site nem nossos serviços."
+      },
+      "about": {
+        "title": "Quem somos",
+        "p1": "A Relier é um serviço de transporte com motorista com base em Nova York e Barcelona que opera no mundo todo.",
+        "p2": "O serviço é prestado por {controller}, {address}.",
+        "p3": "{controller} é {incorporation}."
+      },
+      "booking": {
+        "title": "Serviços e reservas",
+        "p1": "Você pode pedir uma cotação ou reservar pelo formulário de reserva do nosso site, fornecido pela Limo Anywhere (AddOns.LA), ou falando conosco por telefone ou e-mail. Reservar pelo formulário também exige aceitar os termos de reserva exibidos nele.",
+        "p2": "Depois de reservar online, você receberá uma confirmação. Confira os dados e fale com nosso escritório imediatamente se algum estiver incorreto."
+      },
+      "rates": {
+        "title": "Tarifas e pagamento",
+        "p1": "Todas as tarifas são estimadas com base em tempos de traslado padrão. Podem ser aplicadas taxas adicionais. As tarifas podem mudar sem aviso prévio até que sua reserva seja confirmada.",
+        "p2": "O pagamento integral é exigido antes do início do serviço, salvo acordo em contrário."
+      },
+      "cancellation": {
+        "title": "Cancelamentos e tempo de espera",
+        "p1": "O tempo de espera de cortesia, os períodos de tolerância no embarque, a antecedência para cancelar e os depósitos dependem da cidade e do veículo, e estão descritos na nossa <refundLink>Política de Reembolso e Cancelamento</refundLink>.",
+        "p2": "Terminado o tempo de espera de cortesia, são cobradas horas adicionais. Os depósitos não são reembolsáveis."
+      },
+      "vehicles": {
+        "title": "Veículos",
+        "p1": "Os veículos exibidos no nosso site, incluindo a nossa <fleetLink>página de frota</fleetLink>, são modelos representativos (“ou similar”). Podemos designar um veículo equivalente da mesma categoria.",
+        "p2": "O número de passageiros e a quantidade de bagagem não podem exceder a capacidade legal do veículo reservado."
+      },
+      "conduct": {
+        "title": "Conduta e danos",
+        "h1": "Nova York",
+        "ul1": {
+          "i1": "O consumo de álcool e drogas é estritamente proibido. Não é permitido fumar.",
+          "i2": "Você é financeiramente responsável por qualquer dano ao veículo, incluindo $100 por queimadura em carpete ou assento e uma taxa de higienização de $250.",
+          "i3": "Os motoristas podem encerrar o serviço sem reembolso em caso de má conduta."
+        },
+        "h2": "Espanha",
+        "ul2": {
+          "i1": "É estritamente proibido fumar, usar drogas ilegais e consumir álcool em excesso dentro do veículo.",
+          "i2": "Você é financeiramente responsável por qualquer dano. Pode ser cobrada uma taxa de limpeza de €100 por queimaduras ou danos excessivos no interior, e será cobrada uma taxa de higienização de €250 em caso de sujeira excessiva ou fluidos corporais.",
+          "i3": "Os motoristas podem encerrar o serviço sem reembolso diante de comportamento inseguro ou inadequado do passageiro."
+        }
+      },
+      "pets": {
+        "title": "Animais de estimação",
+        "p1": "Animais de estimação só podem viajar em uma caixa de transporte segura e adequada, e devem permanecer dentro dela durante todo o serviço."
+      },
+      "liability": {
+        "title": "Limitação de responsabilidade",
+        "ul1": {
+          "i1": "Não somos responsáveis por falhas mecânicas, mas vamos reagendar o tempo perdido. Na Espanha, faremos todo o possível para oferecer um veículo substituto ou recuperar o tempo perdido sempre que possível.",
+          "i2": "Não somos responsáveis por atrasos causados por trânsito, interdição de vias, condições climáticas ou outras circunstâncias fora do nosso controle.",
+          "i3": "Não somos responsáveis por objetos pessoais perdidos ou esquecidos.",
+          "i4": "Nos embarques em aeroportos, se você não encontrar seu motorista, fale conosco antes de providenciar outro transporte, para evitar a cobrança integral."
+        }
+      },
+      "site": {
+        "title": "Uso do site e propriedade intelectual",
+        "p1": "O conteúdo deste site, incluindo textos, fotografias, logotipos e marcas, pertence à Relier ou é usado sob licença. Você não pode copiá-lo, reproduzi-lo ou usá-lo sem nossa autorização.",
+        "p2": "Use o site de forma lícita e não tente interrompê-lo, acessá-lo sem autorização ou enviar mensagens automatizadas ou abusivas pelos formulários."
+      },
+      "links": {
+        "title": "Links e serviços de terceiros",
+        "p1": "Nosso site tem links para serviços de terceiros ou os incorpora, como o formulário de reserva da Limo Anywhere, o Google Maps, o WhatsApp e nossos perfis em redes sociais. Valem os termos e políticas de cada um, e não somos responsáveis pelo conteúdo deles."
+      },
+      "privacy": {
+        "title": "Privacidade",
+        "p1": "A forma como tratamos dados pessoais está explicada na nossa <privacyLink>Política de Privacidade</privacyLink> e na nossa <cookieLink>Política de Cookies</cookieLink>."
+      },
+      "changes": {
+        "title": "Alterações nestes termos",
+        "p1": "Podemos atualizar estes termos. A versão publicada nesta página, com a data indicada no topo, é a que se aplica."
+      },
+      "law": {
+        "title": "Lei aplicável",
+        "p1": "Estes termos são regidos por {law}."
+      },
+      "contact": {
+        "title": "Contato",
+        "p1": "Para qualquer dúvida sobre estes termos, escreva para <infoMail>{infoEmail}</infoMail>, ligue para <phoneLink>{phone}</phoneLink>, 24 horas por dia, ou visite-nos em {officeAddress}."
+      }
+    }
+  },
+  "cookies": {
+    "meta": {
+      "title": "Política de Cookies · Relier",
+      "description": "Quais cookies e tecnologias semelhantes o relier.com usa, para que servem e como mudar sua escolha a qualquer momento."
+    },
+    "title": "Política de Cookies",
+    "lead": "Esta política explica quais cookies e tecnologias semelhantes o relier.com usa, para que servem e como você pode controlá-los.",
+    "sections": {
+      "what": {
+        "title": "O que são cookies",
+        "p1": "Cookies são pequenos arquivos de texto que um site armazena no seu navegador. Tecnologias semelhantes, como o armazenamento de sessão do navegador, funcionam de forma parecida. Alguns são necessários para o site funcionar; outros são opcionais e só são usados se você concordar."
+      },
+      "categories": {
+        "title": "Categorias que usamos",
+        "ul1": {
+          "i1": "<b>Estritamente necessários.</b> Mantêm o site funcionando: seu idioma, sua escolha sobre cookies e o formulário de reserva. Não exigem consentimento e não podem ser desativados.",
+          "i2": "<b>Análise.</b> O Google Analytics 4 nos mostra, de forma agregada, quais páginas são visitadas e como são usadas. Somente com o seu consentimento.",
+          "i3": "<b>Marketing.</b> O Google Ads e o Meta Pixel, carregados pelo Google Tag Manager, medem nossas campanhas, e os formulários de contato lembram qual campanha trouxe você até aqui. Somente com o seu consentimento."
+        },
+        "p1": "Sem o seu consentimento, nenhuma ferramenta de análise ou de marketing é carregada. Usamos o Google Consent Mode v2 para que as tags do Google respeitem sua escolha."
+      },
+      "list": {
+        "title": "Cookies e armazenamento neste site",
+        "p1": "As tabelas abaixo mostram o que o site usa em cada categoria. Um asterisco em um nome indica uma parte que varia. Quando a duração é definida pelo provedor, ela depende desse provedor e pode mudar."
+      },
+      "thirdParty": {
+        "title": "Conteúdo de terceiros",
+        "ul1": {
+          "i1": "<b>Formulário de reserva.</b> É fornecido pela Limo Anywhere (AddOns.LA) e é necessário para o serviço que você solicita, por isso o tratamos como estritamente necessário. A Limo Anywhere define seus próprios cookies nos domínios dela e pode usar serviços do Google dentro do formulário, como o preenchimento automático de endereços.",
+          "i2": "<b>Google Maps.</b> O mapa da nossa página de contato só é carregado quando você clica em Carregar mapa. A partir daí, o Google pode definir seus próprios cookies, e a política de privacidade dele se aplica.",
+          "i3": "<b>WhatsApp e redes sociais.</b> Nosso botão de WhatsApp e nossos perfis no Instagram, Facebook, LinkedIn e TikTok são links simples. Nada desses serviços é carregado até você clicar, e então valem as políticas de cada um."
+        }
+      },
+      "manage": {
+        "title": "Como mudar sua escolha",
+        "p1": "Você pode mudar ou retirar seu consentimento a qualquer momento com o botão abaixo ou em Configurações de cookies, no rodapé de todas as páginas. Quando você o retira, deixamos de carregar essas ferramentas e apagamos os cookies de análise e de marketing que elas definiram no nosso domínio.",
+        "p2": "Você também pode apagar ou bloquear cookies nas configurações do seu navegador; cada navegador explica como fazer isso nas páginas de ajuda. Se você bloquear todos os cookies, algumas partes do site, como o formulário de reserva, podem não funcionar."
+      },
+      "changes": {
+        "title": "Alterações nesta política",
+        "p1": "Se adicionarmos ou mudarmos ferramentas, atualizaremos esta política e a data indicada no topo, e pediremos seu consentimento novamente quando necessário."
+      },
+      "contact": {
+        "title": "Contato",
+        "p1": "Dúvidas sobre cookies: <privacyMail>{privacyEmail}</privacyMail>. Saiba mais sobre como tratamos dados pessoais na nossa <privacyLink>Política de Privacidade</privacyLink>."
+      }
+    },
+    "table": {
+      "category": {
+        "necessary": "Estritamente necessários",
+        "analytics": "Análise",
+        "marketing": "Marketing"
+      },
+      "name": "Nome",
+      "provider": "Provedor",
+      "purpose": "Finalidade",
+      "duration": "Duração",
+      "type": "Tipo",
+      "kind": {
+        "firstParty": "Cookie próprio",
+        "thirdParty": "Cookie de terceiros",
+        "sessionStorage": "Armazenamento de sessão"
+      }
+    },
+    "purpose": {
+      "consent": "Lembra sua escolha sobre cookies para não perguntar de novo em cada página.",
+      "locale": "Lembra o idioma que você escolheu para o site.",
+      "preloader": "Mostra a animação de abertura uma única vez por visita.",
+      "booking": "Faz o formulário de reserva funcionar. Definido pelo provedor nos próprios domínios.",
+      "ga": "Distingue visitantes e sessões para gerar estatísticas de uso agregadas.",
+      "ads": "Mede as conversões das nossas campanhas no Google Ads.",
+      "meta": "Mede as visitas e conversões das nossas campanhas na Meta.",
+      "attribution": "Lembra a campanha e a primeira página da sua visita para que o formulário de contato possa incluí-las."
+    },
+    "duration": {
+      "days180": "180 dias",
+      "session": "Até o fim da sua sessão",
+      "provider": "Definida pelo provedor",
+      "months24": "24 meses",
+      "days90": "90 dias"
+    }
+  },
+  "refund": {
+    "meta": {
+      "title": "Política de Reembolso e Cancelamento · Relier",
+      "description": "Políticas de tempo de espera, embarque, cancelamento e depósitos dos serviços da Relier em Nova York e na Espanha."
+    },
+    "title": "Política de Reembolso e Cancelamento",
+    "lead": "Políticas de tempo de espera, embarque, cancelamento e depósitos dos nossos serviços em Nova York e na Espanha.",
+    "sections": {
+      "scope": {
+        "title": "Como esta política se aplica",
+        "p1": "Os termos que se aplicam a cada reserva são os que são mostrados a você e que você aceita ao pedir uma cotação ou reservar. Esta página os resume. Se houver diferença, prevalecem os termos que você aceitou na sua reserva."
+      },
+      "ny": {
+        "title": "Nova York",
+        "h1": "Tempo de espera",
+        "ul1": {
+          "i1": "Chegadas internacionais: a primeira hora é cortesia.",
+          "i2": "Chegadas domésticas: 40 minutos de cortesia.",
+          "i3": "Aviação privada: 30 minutos após o pouso."
+        },
+        "h2": "Embarques em residências, hotéis e escritórios",
+        "ul2": {
+          "i1": "Os primeiros 15 minutos são gratuitos (período de tolerância).",
+          "i2": "Do minuto 16 ao minuto 30: 50% da tarifa por hora.",
+          "i3": "A partir do minuto 31: 100% da tarifa por hora, com a tarifa por hora integral para cada hora adicional."
+        },
+        "h3": "Embarque na calçada e Meet & Greet",
+        "p1": "Todos os serviços nos EUA são com embarque na calçada, a menos que você solicite outra opção. O Meet & Greet está disponível sob solicitação por $25, sujeito à disponibilidade de motoristas e às normas do aeroporto.",
+        "h4": "Cancelamentos",
+        "p2": "Para evitar a cobrança integral, cancele com pelo menos:",
+        "ul3": {
+          "i1": "SUVs e sedãs: 4 horas de antecedência.",
+          "i2": "Vans e Classe S: 24 horas de antecedência.",
+          "i3": "Ônibus: 1 semana de antecedência."
+        },
+        "p3": "As políticas podem variar para serviços fora da cidade de Nova York e para eventos especiais.",
+        "h5": "Embarques em aeroportos",
+        "p4": "Se você não encontrar seu motorista, ligue para nós antes de providenciar outro transporte, para evitar a cobrança integral.",
+        "h6": "Depósitos",
+        "p5": "Os depósitos não são reembolsáveis.",
+        "h7": "Dúvidas",
+        "p6": "Ligue para <nyPhoneLink>{nyPhone}</nyPhoneLink>."
+      },
+      "spain": {
+        "title": "Espanha",
+        "h1": "Tempo de espera",
+        "ul1": {
+          "i1": "Chegadas ao aeroporto: os primeiros 60 minutos após o pouso do voo são cortesia.",
+          "i2": "Aviação privada: 20 minutos de cortesia após o pouso."
+        },
+        "h2": "Embarques em residências e escritórios",
+        "ul2": {
+          "i1": "Os primeiros 15 minutos são cortesia (período de tolerância).",
+          "i2": "A partir do minuto 16: 100% da tarifa por hora, com a tarifa por hora integral para cada hora adicional."
+        },
+        "h3": "Meet & Greet",
+        "p1": "Disponível para chegadas ao aeroporto, sujeito às normas do aeroporto, e oferecido exclusivamente para veículos pequenos.",
+        "h4": "Cancelamentos",
+        "p2": "Para evitar a cobrança integral, cancele com pelo menos:",
+        "ul3": {
+          "i1": "Sedãs e Mercedes Classe V: 48 horas antes do serviço.",
+          "i2": "Mercedes Sprinter: 72 horas antes do serviço.",
+          "i3": "Ônibus e micro-ônibus de turismo: 1 semana antes do serviço."
+        },
+        "p3": "As políticas podem variar para eventos especiais e para serviços fora das nossas áreas habituais de operação.",
+        "h5": "Embarques em aeroportos",
+        "p4": "Se você não encontrar seu motorista, fale conosco imediatamente, antes de providenciar outro transporte, para evitar a cobrança integral.",
+        "h6": "Depósitos",
+        "p5": "Os depósitos não são reembolsáveis.",
+        "h7": "Dúvidas",
+        "p6": "Escreva para <esMail>{esEmail}</esMail>."
+      },
+      "other": {
+        "title": "Outras cidades e eventos especiais",
+        "p1": "As políticas de cancelamento podem variar em outras cidades e para eventos especiais. Nesses casos, valem os termos mostrados a você no momento da reserva."
+      },
+      "cancel": {
+        "title": "Como cancelar",
+        "p1": "Para cancelar uma reserva, fale conosco por telefone ou e-mail. Para serviços nos Estados Unidos, escreva para <reservationsMail>{reservationsEmail}</reservationsMail> ou ligue para <phoneLink>{phone}</phoneLink>. Para serviços na Espanha, escreva para <esMail>{esEmail}</esMail>."
+      },
+      "eu": {
+        "title": "Consumidores na União Europeia",
+        "p1": "De acordo com a legislação de defesa do consumidor da UE, o direito de arrependimento não se aplica a serviços de transporte de passageiros contratados para uma data ou um período específicos. Os cancelamentos seguem a política descrita nesta página."
+      }
+    }
+  },
+  "accessibility": {
+    "meta": {
+      "title": "Declaração de Acessibilidade · Relier",
+      "description": "Como trabalhamos para que o relier.com possa ser usado por todas as pessoas, as limitações que conhecemos e como nos avisar de uma barreira."
+    },
+    "title": "Declaração de Acessibilidade",
+    "lead": "Queremos que todas as pessoas possam encontrar informações e reservar com a Relier, qualquer que seja o dispositivo ou a tecnologia assistiva que usem.",
+    "sections": {
+      "commitment": {
+        "title": "Nosso compromisso",
+        "p1": "Adotamos as Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.2, nível AA, como referência ao projetar e construir este site. Seguimos trabalhando para atendê-las, mas não afirmamos que todas as páginas estejam totalmente em conformidade."
+      },
+      "measures": {
+        "title": "O que fazemos",
+        "ul1": {
+          "i1": "O site pode ser navegado pelo teclado.",
+          "i2": "Os elementos interativos mostram um indicador de foco visível.",
+          "i3": "As imagens com conteúdo têm textos alternativos.",
+          "i4": "Revisamos o contraste entre as cores do texto e do fundo.",
+          "i5": "Respeitamos a preferência de movimento reduzido do seu dispositivo.",
+          "i6": "Os campos dos formulários têm rótulos, e as mensagens de erro estão associadas ao campo a que se referem.",
+          "i7": "O site está disponível em inglês, espanhol e português."
+        }
+      },
+      "limitations": {
+        "title": "Limitações conhecidas",
+        "ul1": {
+          "i1": "O formulário de reserva é fornecido por um terceiro, a Limo Anywhere, e não podemos controlar totalmente sua acessibilidade.",
+          "i2": "O mapa da nossa página de contato é um mapa incorporado do Google Maps. O endereço do nosso escritório é {officeAddress}.",
+          "i3": "Algumas páginas usam vídeos de fundo decorativos e sem som.",
+          "i4": "O carrossel da frota avança sozinho. Ele pausa quando você passa o cursor sobre ele ou move o foco do teclado para dentro dele."
+        }
+      },
+      "feedback": {
+        "title": "Avise-nos sobre uma barreira",
+        "p1": "Se algo no site não funcionar para você, ou se precisar de informações em outro formato, escreva para <infoMail>{infoEmail}</infoMail> ou ligue para <phoneLink>{phone}</phoneLink>, 24 horas por dia. Conte qual página e qual problema você encontrou.",
+        "p2": "Você sempre pode reservar por telefone ou e-mail em vez de usar o formulário online."
+      },
+      "review": {
+        "title": "Sobre esta declaração",
+        "p1": "Esta declaração foi revisada pela última vez em {date}."
+      }
+    }
+  }
+}

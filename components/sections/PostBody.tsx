@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useFormatter, useTranslations } from "next-intl";
+import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
@@ -17,6 +17,10 @@ export default function PostBody({ post, siteUrl }: PostBodyProps) {
   const t = useTranslations("blog");
   const format = useFormatter();
   const shareUrl = siteUrl ?? post.sourceUrl;
+  // Los posts existen solo en inglés y se sirven también bajo /es y /pt
+  // (3.1.2): el contenido del artículo se marca en inglés; la UI que lo rodea
+  // (tag, fecha, compartir, volver) queda en el idioma de la página.
+  const contentLang = useLocale() === "en" ? undefined : "en";
 
   return (
     <section className={styles.section}>
@@ -33,8 +37,14 @@ export default function PostBody({ post, siteUrl }: PostBodyProps) {
               })}
             </time>
           </div>
-          <h1 className={styles.title}>{post.title}</h1>
-          {post.excerpt && <p className={styles.lead}>{post.excerpt}</p>}
+          <h1 className={styles.title} lang={contentLang}>
+            {post.title}
+          </h1>
+          {post.excerpt && (
+            <p className={styles.lead} lang={contentLang}>
+              {post.excerpt}
+            </p>
+          )}
         </Reveal>
 
         {post.cover && (
@@ -42,6 +52,7 @@ export default function PostBody({ post, siteUrl }: PostBodyProps) {
             <Image
               src={post.cover}
               alt={post.coverAlt ?? post.title}
+              lang={contentLang}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 1024px"
@@ -51,7 +62,9 @@ export default function PostBody({ post, siteUrl }: PostBodyProps) {
         )}
 
         <Reveal className={styles.prose} as="article" delay={0.1}>
-          <Markdown source={post.body} />
+          <div lang={contentLang}>
+            <Markdown source={post.body} />
+          </div>
         </Reveal>
 
         <PostShare title={post.title} url={shareUrl} />

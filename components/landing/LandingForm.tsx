@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
 import Field from "@/components/ui/Field";
@@ -15,12 +16,23 @@ import {
   validateContact,
   type ContactFieldErrors,
   type ContactSegment,
+  type ContactTextField,
   type ContactValues,
 } from "@/lib/contact/schema";
 import styles from "./LandingForm.module.css";
 
 type Status = "idle" | "sending" | "sent";
 type SendError = "generic" | "rateLimited";
+
+/** Orden visual de los campos con validación: el foco va al primero con error. */
+const FIELD_ORDER: (keyof ContactValues)[] = [
+  "firstName",
+  "lastName",
+  "email",
+  "phone",
+  "message",
+  "privacyConsent",
+];
 
 /**
  * Formulario al principio de cada landing de For Business (checklist de cierre,
@@ -62,8 +74,23 @@ export default function LandingForm({
   const [status, setStatus] = useState<Status>("idle");
   const [sendError, setSendError] = useState<SendError | null>(null);
   const [referral, setReferral] = useState("");
+  const successRef = useRef<HTMLHeadingElement>(null);
 
+  // captureAttribution no escribe nada sin consentimiento `marketing`.
   useEffect(() => captureAttribution(), []);
+
+  // El form se reemplaza por el estado de éxito: el foco va a su título para
+  // que no caiga en <body> y el lector lo anuncie.
+  useEffect(() => {
+    if (status === "sent") successRef.current?.focus();
+  }, [status]);
+
+  const fid = (name: string) => `${segment}-${name}`;
+
+  const focusFirstError = (errs: ContactFieldErrors) => {
+    const first = FIELD_ORDER.find((key) => errs[key]);
+    if (first) document.getElementById(fid(first))?.focus();
+  };
 
   const errorText = (key: keyof ContactValues) => {
     const code = errors[key];
@@ -71,7 +98,7 @@ export default function LandingForm({
   };
 
   const update =
-    (key: keyof ContactValues) =>
+    (key: ContactTextField) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setValues((v) => ({ ...v, [key]: e.target.value }));
       if (errors[key]) setErrors((er) => ({ ...er, [key]: undefined }));
@@ -83,6 +110,7 @@ export default function LandingForm({
     const nextErrors = validateContact(values);
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
+      focusFirstError(nextErrors);
       return;
     }
     setSendError(null);
@@ -103,13 +131,15 @@ export default function LandingForm({
       setStatus("idle");
       if (error instanceof ContactApiError) {
         if (error.reason === "rate_limited") return setSendError("rateLimited");
-        if (error.reason === "validation" && error.fields) return setErrors(error.fields);
+        if (error.reason === "validation" && error.fields) {
+          setErrors(error.fields);
+          focusFirstError(error.fields);
+          return;
+        }
       }
       setSendError("generic");
     }
   }
-
-  const fid = (name: string) => `${segment}-${name}`;
 
   return (
     <section className={styles.section} id={id}>
@@ -127,7 +157,9 @@ export default function LandingForm({
         <Reveal className={styles.card} delay={0.05}>
           {status === "sent" ? (
             <div className={styles.success} role="status">
-              <h3>{t("contact.form.success.title")}</h3>
+              <h3 ref={successRef} tabIndex={-1} className={styles.successTitle}>
+                {t("contact.form.success.title")}
+              </h3>
               <p>{t("contact.form.success.body")}</p>
               <button type="button" className={styles.again} onClick={() => setStatus("idle")}>
                 {t("contact.form.success.again")}
@@ -142,6 +174,7 @@ export default function LandingForm({
                     name="firstName"
                     autoComplete="given-name"
                     maxLength={CONTACT_LIMITS.firstName}
+                    aria-required="true"
                     value={values.firstName}
                     onChange={update("firstName")}
                     invalid={Boolean(errors.firstName)}
@@ -154,6 +187,7 @@ export default function LandingForm({
                     name="lastName"
                     autoComplete="family-name"
                     maxLength={CONTACT_LIMITS.lastName}
+                    aria-required="true"
                     value={values.lastName}
                     onChange={update("lastName")}
                     invalid={Boolean(errors.lastName)}
@@ -169,6 +203,7 @@ export default function LandingForm({
                     type="email"
                     autoComplete="email"
                     maxLength={CONTACT_LIMITS.email}
+                    aria-required="true"
                     value={values.email}
                     onChange={update("email")}
                     invalid={Boolean(errors.email)}
@@ -204,12 +239,53 @@ export default function LandingForm({
                   id={fid("message")}
                   name="message"
                   maxLength={CONTACT_LIMITS.message}
+                  aria-required="true"
                   value={values.message}
                   onChange={update("message")}
                   invalid={Boolean(errors.message)}
                   placeholder={messagePlaceholder}
                 />
               </Field>
+
+              <div className={styles.consent}>
+                <div className={styles.consentRow}>
+                  <input
+                    id={fid("privacyConsent")}
+                    name="privacyConsent"
+                    type="checkbox"
+                    className={styles.consentInput}
+                    checked={values.privacyConsent}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setValues((v) => ({ ...v, privacyConsent: checked }));
+                      if (errors.privacyConsent)
+                        setErrors((er) => ({ ...er, privacyConsent: undefined }));
+                      if (sendError) setSendError(null);
+                    }}
+                    aria-required="true"
+                    aria-invalid={errors.privacyConsent ? true : undefined}
+                    aria-describedby={
+                      errors.privacyConsent ? fid("privacyConsent-error") : undefined
+                    }
+                  />
+                  <label htmlFor={fid("privacyConsent")} className={styles.consentLabel}>
+                    {t.rich("contact.form.consent.label", {
+                      link: (chunks) => (
+                        // Pestaña nueva: el form no pierde lo tipeado.
+                        <Link href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                          {chunks}
+                          <span className={styles.srOnly}> {t("contact.form.consent.newTab")}</span>
+                        </Link>
+                      ),
+                    })}
+                  </label>
+                </div>
+                {errors.privacyConsent ? (
+                  <p id={fid("privacyConsent-error")} className={styles.consentError} role="alert">
+                    {t(`contact.form.errors.${errors.privacyConsent}`)}
+                  </p>
+                ) : null}
+              </div>
 
               <div className={styles.honeypot} aria-hidden="true">
                 <label htmlFor={fid("referral")}>Referral code</label>

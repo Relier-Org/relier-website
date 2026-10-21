@@ -12,8 +12,10 @@
     "home": "Inicio de Relier",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "menu": "Menú de navegación"
+    "menu": "Menú de navegación",
+    "submenu": "Submenú de {label}"
   },
+  "skipToMain": "Saltar al contenido principal",
   "lang": {
     "label": "Cambiar idioma",
     "en": "English",

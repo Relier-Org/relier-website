@@ -1,0 +1,6 @@
+/* El label en es/pt no entra en una línea a 390px y Button trae nowrap. */
+button.button {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}

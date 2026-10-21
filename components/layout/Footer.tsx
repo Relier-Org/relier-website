@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LocationIcon, PhoneIcon, MailIcon } from "@/components/icons/ContactIcons";
 import Button from "@/components/ui/Button";
+import CookieSettingsButton from "@/components/consent/CookieSettingsButton";
 import { SOCIAL_PROFILES } from "@/lib/social/profiles";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Footer.module.css";
@@ -31,6 +32,15 @@ const COMPANY_LINKS = [
   { href: "/testimonials", labelKey: "common.testimonials" },
   { href: "/blog", labelKey: "common.news" },
   { href: "https://relier.es", labelKey: "footer.links.relierEurope", external: true },
+];
+
+// Rutas legales (oct-2026). Las páginas viven en app/[locale]/(legal).
+const LEGAL_LINKS = [
+  { href: "/privacy-policy", labelKey: "footer.legal.privacy" },
+  { href: "/terms-and-conditions", labelKey: "footer.legal.terms" },
+  { href: "/cookie-policy", labelKey: "footer.legal.cookies" },
+  { href: "/refund-policy", labelKey: "footer.legal.refund" },
+  { href: "/accessibility", labelKey: "footer.legal.accessibility" },
 ];
 
 const CONTACT_ITEMS: {
@@ -166,7 +176,23 @@ export default async function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <p>{t("footer.copyright")}</p>
+          {/* Año del server: en las páginas estáticas es el del último build. */}
+          <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
+          <nav aria-label={t("footer.legal.aria")}>
+            <ul className={styles.legal}>
+              {LEGAL_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{t(l.labelKey)}</Link>
+                </li>
+              ))}
+              <li>
+                <CookieSettingsButton
+                  label={t("footer.legal.settings")}
+                  className={styles.legalButton}
+                />
+              </li>
+            </ul>
+          </nav>
           <div className={styles.socials}>
             {SOCIAL_PROFILES.map(({ href, label, Icon }) => (
               <a

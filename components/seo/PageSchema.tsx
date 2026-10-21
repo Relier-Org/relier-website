@@ -11,8 +11,11 @@ export default function PageSchema({ nodes }: { nodes: SchemaNode[] }) {
     <script
       type="application/ld+json"
       // El grafo se arma con datos del repo y las traducciones, no con input
-      // del usuario, así que no hay superficie de inyección acá.
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph(nodes)) }}
+      // del usuario. Igual se escapa `<` (\u003c, JSON válido): un string con
+      // "</script>" o "<!--" cerraría o rompería el bloque.
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(graph(nodes)).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }

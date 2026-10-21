@@ -7,6 +7,8 @@
     "previousVehicle": "Vehículo anterior",
     "nextVehicle": "Vehículo siguiente",
     "categories": "Categorías de la flota",
+    "pauseAutoplay": "Pausar carrusel",
+    "playAutoplay": "Reproducir carrusel",
     "exploreFull": "Explora la flota completa"
   },
   "tiers": {

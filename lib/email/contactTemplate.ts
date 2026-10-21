@@ -4,6 +4,24 @@
 // concierge team reads these to reply, not to admire them.
 
 import type { ContactPayload } from "@/lib/contact/schema";
+import { LEGAL_LAST_UPDATED } from "@/lib/legal/entity";
+
+/** Datos que pone el servidor (no el cliente) al registrar el envío. */
+export type ContactRecord = {
+  /** ISO 8601 del servidor al aceptar el envío. */
+  consentAt: string;
+};
+
+/**
+ * Registro del consentimiento informado: qué versión de la Privacy Policy se
+ * aceptó y cuándo. Solo se arma cuando el payload trae `privacyConsent: true`
+ * (el endpoint rechaza antes cualquier otro caso).
+ */
+export function consentLine(payload: ContactPayload, record: ContactRecord) {
+  return payload.privacyConsent === true
+    ? `Privacy consent: accepted · ${record.consentAt} · policy version ${LEGAL_LAST_UPDATED}`
+    : "Privacy consent: NOT RECORDED";
+}
 
 const OBSIDIAN = "#0A0A0A";
 const CHAMPAGNE = "#C9A961";
@@ -43,8 +61,16 @@ function campaign(payload: ContactPayload) {
   return [utm, a.gclid ? `gclid ${a.gclid}` : ""].filter(Boolean).join(" · ") || "Direct / organic";
 }
 
+/** Sin saltos de línea ni tabs: el asunto es una cabecera de una sola línea. */
+function singleLine(value: string | undefined) {
+  return (value ?? "").replace(/[\r\n\t]+/g, " ").trim();
+}
+
 function fullName(payload: ContactPayload) {
-  return [payload.firstName, payload.lastName].filter(Boolean).join(" ").trim();
+  return [singleLine(payload.firstName), singleLine(payload.lastName)]
+    .filter(Boolean)
+    .join(" ")
+    .trim();
 }
 
 export function contactSubject(payload: ContactPayload) {
@@ -56,7 +82,7 @@ export function contactSubject(payload: ContactPayload) {
     : `${tag}New website enquiry — ${name}`;
 }
 
-export function contactText(payload: ContactPayload) {
+export function contactText(payload: ContactPayload, record: ContactRecord) {
   const lines = [
     "New enquiry from the relier.com contact form.",
     "",
@@ -66,6 +92,7 @@ export function contactText(payload: ContactPayload) {
     `Email:   ${payload.email || "—"}`,
     `Phone:   ${payload.phone || "—"}`,
     `Language: ${LOCALE_LABELS[payload.locale ?? "en"] ?? payload.locale ?? "—"}`,
+    consentLine(payload, record),
     "",
     "Message:",
     payload.message || "—",
@@ -95,7 +122,7 @@ function row(label: string, value: string, isLink?: "mailto" | "tel") {
         </tr>`;
 }
 
-export function contactHtml(payload: ContactPayload) {
+export function contactHtml(payload: ContactPayload, record: ContactRecord) {
   const name = fullName(payload) || "Website visitor";
   const language =
     LOCALE_LABELS[payload.locale ?? "en"] ?? payload.locale ?? "English";
@@ -129,6 +156,7 @@ ${payload.company ? row("Company", payload.company) : ""}
 ${row("Email", payload.email || "—", payload.email ? "mailto" : undefined)}
 ${row("Phone", payload.phone || "—", payload.phone ? "tel" : undefined)}
 ${row("Language", language)}
+${row("Privacy consent", consentLine(payload, record).replace(/^Privacy consent: /, ""))}
                 <tr>
                   <td style="padding:0 0 4px;font:500 11px/1.4 Helvetica,Arial,sans-serif;letter-spacing:0.14em;text-transform:uppercase;color:#8A8A8A;">Message</td>
                 </tr>

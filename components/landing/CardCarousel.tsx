@@ -89,13 +89,12 @@ export default function CardCarousel({
 
   return (
     <div className={styles.wrap}>
-      <ul
-        className={styles.track}
-        ref={trackRef}
-        role="region"
-        aria-label={label}
-        tabIndex={0}
-      >
+      {/* La región nombrada envuelve la lista y el <ul> conserva su semántica
+          de lista. El tabIndex queda en el <ul> porque es el contenedor que
+          scrollea: las flechas del teclado desplazan el elemento enfocado, no
+          un descendiente. */}
+      <div role="region" aria-label={label}>
+      <ul className={styles.track} ref={trackRef} tabIndex={0}>
         {[0, 1, 2].flatMap((copy) =>
           items.map((item, i) => (
             <li
@@ -109,6 +108,7 @@ export default function CardCarousel({
           ))
         )}
       </ul>
+      </div>
 
       <div className={styles.controls}>
         <button

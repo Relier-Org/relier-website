@@ -22,7 +22,21 @@
 
   transition:
     transform 0.3s var(--ease-out),
-    box-shadow 0.3s var(--ease-out);
+    box-shadow 0.3s var(--ease-out),
+    opacity 0.3s var(--ease-out),
+    visibility 0.3s;
+}
+
+/* Hasta 1279px el banner de cookies ocupa el borde inferior: el botón aparece
+   recién cuando el visitante decide (Nico, 21-oct-2026). En desktop la barra
+   deja libre su columna y conviven. El atributo lo pone el script inline del
+   componente antes de pintar y lo saca CookieBanner al decidir. */
+@media (max-width: 1279px) {
+  :global(html[data-consent-banner="open"]) .button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .button:hover {

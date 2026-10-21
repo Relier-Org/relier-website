@@ -69,6 +69,7 @@ export default function LanguageSwitcher({
             key={l}
             href={hrefFor(l)}
             hrefLang={l}
+            lang={l}
             className={cn(styles.inlineItem, l === locale && styles.isActive)}
             aria-current={l === locale ? "true" : undefined}
             onClick={onNavigate}
@@ -116,6 +117,7 @@ export default function LanguageSwitcher({
             <a
               href={hrefFor(l)}
               hrefLang={l}
+              lang={l}
               className={cn(l === locale && styles.isActive)}
               aria-current={l === locale ? "true" : undefined}
               onClick={() => {

@@ -48,7 +48,7 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
                   {v.image ? (
                     <Image
                       src={v.image}
-                      alt={v.name}
+                      alt=""
                       fill
                       sizes="(max-width: 720px) 90vw, (max-width: 1024px) 46vw, 320px"
                       className={styles.photoImg}

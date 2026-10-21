@@ -1,3 +1,27 @@
+/* Skip link (2.4.1): primer tabeable de la página, fuera de pantalla hasta
+   recibir foco. Champagne-500 sobre obsidian: 8.8:1. */
+.skipLink {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 60;
+  padding: 12px 18px;
+  background: var(--color-champagne-500);
+  color: var(--color-obsidian-900);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-xs);
+  transform: translateY(calc(-100% - 24px));
+}
+
+.skipLink:focus {
+  transform: none;
+  outline: 2px solid var(--color-obsidian-900);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-champagne-500);
+}
+
 .nav {
   position: fixed;
   top: 0;
@@ -10,8 +34,12 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* 1.4.3: los links (11px) pasan por encima de secciones crema. Peor caso,
+   backdrop #F5F2EB: a 0.55 el silver-200 daba 2.98:1. A 0.78 el fondo
+   efectivo es #3E3D3C: silver-200 6.74:1, champagne-500 (hover/activo)
+   4.82:1. */
 .isScrolled {
-  background: rgba(10, 10, 10, 0.55);
+  background: rgba(10, 10, 10, 0.78);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-bottom-color: var(--border-glass);
@@ -81,13 +109,46 @@
   color: var(--text-accent);
 }
 
+/* Items con submenú: el label es link al hub y el chevron un botón aparte
+   (disclosure, aria-expanded). El padding derecho del link pasa al botón y el
+   gap de 6px queda igual, así el conjunto mide y se ve como antes. */
+.linkWithToggle {
+  padding-right: 0;
+}
+
+.dropdownToggle {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 20px 0 6px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--color-silver-200);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.dropdownToggle.isActive,
+.dropdownToggle:hover,
+.linkWithToggle:hover + .dropdownToggle,
+.hasDropdown:has(> .dropdownToggle:hover) > .linkItem,
+.isOpen > .linkItem,
+.isOpen > .dropdownToggle {
+  color: var(--text-accent);
+}
+
 .caret {
   display: block;
   transition: transform var(--duration-fast) var(--ease-out);
 }
 
-.hasDropdown:hover .caret {
+.hasDropdown:hover .caret,
+.isOpen .caret {
   transform: rotate(180deg);
+}
+
+.isDismissed .caret {
+  transform: none;
 }
 
 .dropdown {
@@ -112,12 +173,30 @@
     visibility var(--duration-base) var(--ease-out);
 }
 
+/* Hover de desktop como siempre; teclado/click vía .isOpen (aria-expanded).
+   Ya no abre por :focus-within: así el estado visible coincide con
+   aria-expanded y los links ocultos no entran al orden de Tab. */
 .hasDropdown:hover .dropdown,
-.hasDropdown:focus-within .dropdown {
+.isOpen .dropdown {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+/* Abierto por teclado: visibility sin transición, así el primer link ya es
+   enfocable en el frame siguiente a la flecha abajo. */
+.isOpen .dropdown {
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+/* Escape con el mouse encima (1.4.13): se esconde hasta que el puntero sale. */
+.hasDropdown.isDismissed:not(.isOpen) .dropdown {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .dropdown li {
@@ -182,6 +261,12 @@
   .linkItem {
     padding: 0 13px;
   }
+  .linkWithToggle {
+    padding-right: 0;
+  }
+  .dropdownToggle {
+    padding-right: 13px;
+  }
   .right {
     gap: 20px;
   }
@@ -206,6 +291,12 @@
 @media (max-width: 1180px) {
   .linkItem {
     padding: 0 8px;
+  }
+  .linkWithToggle {
+    padding-right: 0;
+  }
+  .dropdownToggle {
+    padding-right: 8px;
   }
   .right {
     gap: 14px;

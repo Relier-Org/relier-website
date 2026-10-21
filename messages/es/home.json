@@ -8,7 +8,9 @@
     "eyebrow": "Compañía global de servicio de autos ejecutivos · Virtuoso Preferred",
     "titleLine1": "Viaja premium,",
     "titleLine2": "llega con estilo.",
-    "subtitle": "Donde comienzan los traslados y el transporte privado. De Nueva York al mundo. Operamos en más de 500 ciudades en todo el mundo."
+    "subtitle": "Donde comienzan los traslados y el transporte privado. De Nueva York al mundo. Operamos en más de 500 ciudades en todo el mundo.",
+    "pauseVideo": "Pausar video de fondo",
+    "playVideo": "Reproducir video de fondo"
   },
   "services": {
     "kicker": "Nuestros servicios",
@@ -114,7 +116,7 @@
     "titleLine2": "una red en todo el mundo.",
     "lead": "Con sede en Nueva York y Barcelona, con el mismo estándar de servicio con chofer en más de 500 ciudades de Europa, las Américas, Medio Oriente, África y Asia.",
     "mapAria": "Mapa de la cobertura de Relier en más de 500 ciudades del mundo",
-    "caption": "Más de 500 ciudades en más de 40 países: pasa el cursor por el mapa para explorar.",
+    "caption": "Más de 500 ciudades en más de 40 países. Explora el mapa o abre abajo la lista completa de destinos.",
     "viewAll": "Ver todos los destinos",
     "hide": "Ocultar destinos",
     "regions": {

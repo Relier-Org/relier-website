@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils/cn";
 import Reveal from "@/components/effects/Reveal";
+import AmbientVideo from "@/components/ui/AmbientVideo";
 import styles from "./AboutBento.module.css";
 
 export default function AboutBento() {
@@ -22,29 +23,17 @@ export default function AboutBento() {
               />
             </div>
             <div className={cn(styles.tile, styles.videoTile)}>
-              <video
+              <AmbientVideo
                 className={styles.video}
                 src="/videos/reel-1.mp4"
                 poster="/videos/reel-1-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
               />
             </div>
             <div className={cn(styles.tile, styles.videoTile)}>
-              <video
+              <AmbientVideo
                 className={styles.video}
                 src="/videos/reel-3.mp4"
                 poster="/videos/reel-3-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
               />
             </div>
           </Reveal>

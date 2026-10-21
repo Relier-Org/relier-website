@@ -12,6 +12,7 @@ import { routing } from "@/i18n/routing";
 import { clientNamespaces } from "@/i18n/request";
 import Analytics from "@/components/analytics/Analytics";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import CookieBanner from "@/components/consent/CookieBanner";
 import { ORIGIN } from "@/lib/i18n/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import "../globals.css";
@@ -109,6 +110,10 @@ export default async function LocaleLayout({
         <Analytics />
         <NextIntlClientProvider messages={clientMessages}>
           <AttributionCapture />
+          {/* Opt-in global: sin decisión no carga ningún tag (ver Analytics).
+              Va antes del contenido para ser lo primero del orden de Tab: al
+              final del DOM quedaba a ~80 tabs y tapaba controles enfocados. */}
+          <CookieBanner />
           {children}
         </NextIntlClientProvider>
         <WhatsAppButton />

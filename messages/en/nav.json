@@ -12,8 +12,10 @@
     "home": "Relier home",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "menu": "Navigation menu"
+    "menu": "Navigation menu",
+    "submenu": "{label} submenu"
   },
+  "skipToMain": "Skip to main content",
   "lang": {
     "label": "Change language",
     "en": "English",

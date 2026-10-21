@@ -67,8 +67,10 @@
   --text-tertiary: var(--text-on-light-tertiary);
   --text-muted: var(--text-on-light-tertiary);
   --text-accent: var(--accent-on-light);
-  --border-default: rgba(26, 25, 22, 0.18);
-  --border-strong: rgba(26, 25, 22, 0.36);
+  /* 1.4.11: borde de reposo 3.78:1 sobre #F5F2EB (antes 0.18 = 1.45:1);
+     hover 8.68:1; foco accent-on-light 6.57:1. */
+  --border-default: rgba(26, 25, 22, 0.55);
+  --border-strong: rgba(26, 25, 22, 0.8);
   --color-silver-500: var(--text-on-light-tertiary);
   --color-error: #b3261e;
   padding: 52px 56px;
@@ -126,6 +128,80 @@
   line-height: 1.5;
   color: var(--text-muted);
   max-width: 260px;
+}
+
+/* ─── Consentimiento a la Privacy Policy (oct-2026). Checkbox nativo: Space lo
+   tilda, el label lo activa con click y el lector lo anuncia sin ARIA extra.
+   Sobre crema: accent-on-light 6.57:1, texto muted 5.45:1, error 5.85:1. ─── */
+.consent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.consentRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.consentInput {
+  appearance: auto;
+  color-scheme: light;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--accent-on-light);
+  cursor: pointer;
+}
+
+.consentInput[aria-invalid="true"] {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+.consentInput:focus-visible {
+  outline: 2px solid var(--accent-on-light);
+  outline-offset: 2px;
+}
+
+.consentLabel {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.consentLabel a {
+  color: var(--accent-on-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.consentLabel a:focus-visible {
+  outline-color: var(--accent-on-light);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.consentError {
+  padding-left: 30px;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: var(--color-error);
+}
+
+/* Foco programático en el título del estado de éxito: sin anillo visible. */
+.successTitle:focus {
+  outline: none;
 }
 
 .success {

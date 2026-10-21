@@ -432,7 +432,7 @@ export function TouringBand({
           {vehicles.map((v, i) => (
             <Reveal as="li" key={v.name} className={styles.tourCard} delay={Math.min(i * 0.06, 0.24)}>
               <div className={styles.tourPhoto}>
-                <Image src={v.image} alt={v.name} fill sizes="(max-width: 720px) 100vw, 33vw" />
+                <Image src={v.image} alt="" fill sizes="(max-width: 720px) 100vw, 33vw" />
               </div>
               <div className={styles.tourInfo}>
                 <h3 className={styles.cardTitle}>{v.name}</h3>

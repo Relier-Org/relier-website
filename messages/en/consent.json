@@ -1,0 +1,43 @@
+{
+  "banner": {
+    "title": "Your privacy, your choice",
+    "body": "We use optional analytics and marketing cookies only with your permission.",
+    "policies": "More in our <cookies>Cookie Policy</cookies> and <privacy>Privacy Policy</privacy>.",
+    "acceptAll": "Accept all",
+    "acceptShort": "Accept",
+    "rejectAll": "Reject all",
+    "rejectShort": "Reject",
+    "customize": "Customize"
+  },
+  "preferences": {
+    "title": "Cookie preferences",
+    "intro": "Choose which optional cookies we may use. You can change your mind at any time from Cookie settings, at the foot of every page.",
+    "close": "Close",
+    "save": "Save preferences",
+    "alwaysActive": "Always active",
+    "cookiesLabel": "Cookies and storage:",
+    "policyLink": "Read the full Cookie Policy",
+    "categories": {
+      "necessary": {
+        "title": "Strictly necessary",
+        "description": "Keep the site working: your language, this choice and the booking form. They cannot be turned off."
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Google Analytics 4 tells us, in aggregate, which pages are visited and how they are used."
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Google Ads and the Meta pixel measure our campaigns, and the contact forms remember which campaign brought you here."
+      }
+    }
+  },
+  "map": {
+    "placeholderLabel": "Map of Relier's New York office",
+    "address": "240 Kent Ave, Brooklyn, NY 11249",
+    "load": "Load map",
+    "notice": "Loading the map brings in content from Google, and <link>Google's Privacy Policy</link> applies.",
+    "open": "Open in Google Maps",
+    "newTab": "(opens in a new tab)"
+  }
+}

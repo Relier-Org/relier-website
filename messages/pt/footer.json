@@ -19,5 +19,14 @@
   "aria": {
     "home": "Início da Relier"
   },
-  "copyright": "© 2026 Relier · Todos os direitos reservados"
+  "copyright": "© {year} Relier · Todos os direitos reservados",
+  "legal": {
+    "aria": "Legal",
+    "privacy": "Política de privacidade",
+    "terms": "Termos e condições",
+    "cookies": "Política de cookies",
+    "refund": "Política de reembolso e cancelamento",
+    "accessibility": "Acessibilidade",
+    "settings": "Configurações de cookies"
+  }
 }

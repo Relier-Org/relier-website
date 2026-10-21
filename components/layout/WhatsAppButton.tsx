@@ -1,6 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { WHATSAPP_HREF } from "@/lib/social/profiles";
+import { CONSENT_COOKIE, CONSENT_VERSION } from "@/lib/consent/state";
 import styles from "./WhatsAppButton.module.css";
+
+// Marca <html> antes del primer paint si el banner de cookies va a aparecer
+// (sin cookie de consentimiento vigente), para que el botón no se vea un
+// instante y desaparezca al hidratar. Mismo criterio que readConsent(): la
+// cookie es JSON con encodeURIComponent y vale solo con la versión actual.
+const CONSENT_PENDING_SCRIPT = `try{if(!/(?:^|; )${CONSENT_COOKIE}=[^;]*%22version%22%3A${CONSENT_VERSION}(?:%2C|%7D)/.test(document.cookie))document.documentElement.dataset.consentBanner="open"}catch(e){}`;
 
 // El glifo oficial relleno vive acá y no en SocialIcons: aquellos son trazos
 // de 1.5px pensados para 14px; a 28px sobre el verde de marca el outline se ve
@@ -23,14 +30,17 @@ export default async function WhatsAppButton() {
   const t = await getTranslations("common");
 
   return (
-    <a
-      href={WHATSAPP_HREF}
-      className={styles.button}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={t("whatsapp")}
-    >
-      <WhatsAppGlyph />
-    </a>
+    <>
+      <script dangerouslySetInnerHTML={{ __html: CONSENT_PENDING_SCRIPT }} />
+      <a
+        href={WHATSAPP_HREF}
+        className={styles.button}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t("whatsapp")}
+      >
+        <WhatsAppGlyph />
+      </a>
+    </>
   );
 }

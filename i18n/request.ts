@@ -14,6 +14,8 @@ export const namespaces = [
   "pages",
   "blog",
   "landings",
+  "consent",
+  "legal",
 ] as const;
 
 /**
@@ -31,6 +33,7 @@ export const clientNamespaces = [
   "fleet",
   "pages",
   "blog",
+  "consent",
 ] as const satisfies readonly (typeof namespaces)[number][];
 
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -48,6 +51,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale,
+    // Fijo para que server y cliente formateen igual (sin esto next-intl avisa
+    // ENVIRONMENT_FALLBACK). Las fechas del blog y de las legales ya pasan UTC.
+    timeZone: "America/New_York",
     messages: Object.fromEntries(entries),
   };
 });

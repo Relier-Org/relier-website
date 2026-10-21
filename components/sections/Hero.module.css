@@ -48,6 +48,40 @@
   opacity: var(--media-opacity-video);
 }
 
+/* Pausa/reanudar del video (WCAG 2.2.2). Abajo a la derecha, dentro del
+   padding-bottom que reserva el solape de la barra de reserva (68px) y por
+   encima de ella (que sube 60px / 36px en mobile): ahí no hay copy ni widget.
+   Absoluto: no cambia las dimensiones del hero. Fondo con el scrim para que el
+   glifo no dependa del frame del video. */
+.videoToggle {
+  position: absolute;
+  z-index: 3;
+  right: var(--inset);
+  bottom: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 0.5px solid var(--border-default);
+  background: rgba(var(--scrim-base), 0.55);
+  color: var(--color-silver-100);
+  opacity: 0.8;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    opacity var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.videoToggle:hover,
+.videoToggle:focus-visible {
+  opacity: 1;
+  color: var(--text-accent);
+  border-color: var(--border-glass-strong);
+}
+
 .inner {
   position: relative;
   z-index: 2;

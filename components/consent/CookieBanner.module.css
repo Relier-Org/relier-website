@@ -1,0 +1,625 @@
+/* Banner de consentimiento (oct-2026). Superficie canvas con filete champagne,
+   abajo a la izquierda en desktop. No es modal: no bloquea ni toma el foco.
+   El botón de WhatsApp (fixed, abajo a la derecha, z 30) queda siempre libre:
+   en desktop el banner no llega a su columna y en mobile flota por encima. */
+
+.banner {
+  --wa-size: 3.5rem;
+  --wa-inset: 1.25rem;
+  --gap: 1.25rem;
+
+  position: fixed;
+  z-index: 35; /* sobre WhatsApp (30), bajo el nav (40) y el preloader (90) */
+  left: max(var(--gap), env(safe-area-inset-left));
+  bottom: max(var(--gap), env(safe-area-inset-bottom));
+  /* Reserva la columna de WhatsApp a la derecha: ancho de pantalla menos los
+     dos márgenes, el botón y un respiro de 1rem. */
+  width: min(40rem, calc(100vw - var(--gap) - var(--wa-inset) - var(--wa-size) - 1rem));
+  max-height: calc(100dvh - 2 * var(--gap));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  container-type: inline-size;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px -24px rgba(0, 0, 0, 0.7);
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+
+  animation: rise var(--duration-slow) var(--ease-out) both;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Mismo rol que los títulos de columna del footer: eyebrow champagne. */
+.title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--color-champagne-500);
+}
+
+.body,
+.links {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-silver-200);
+}
+
+.links {
+  font-size: 13px;
+  color: var(--color-silver-300);
+}
+
+.links a,
+.policyLink {
+  color: var(--color-champagne-500);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.links a:hover,
+.policyLink:hover {
+  color: var(--color-champagne-300);
+}
+
+/* Aceptar y Rechazar: misma variante y mismo ancho (1fr cada uno). */
+.actions {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 8px;
+}
+
+/* Tipo oración, sin mayúsculas (Nico, 21-oct-2026): en todos los breakpoints,
+   a diferencia del resto de los botones del sitio. */
+.banner .action {
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.action {
+  min-height: 44px;
+  padding-inline: 16px;
+  /* Con español/portugués en pantallas chicas la etiqueta puede partirse en
+     dos líneas antes que desbordar. */
+  white-space: normal;
+  text-align: center;
+}
+
+@container (max-width: 34rem) {
+  .actions {
+    grid-template-columns: 1fr 1fr;
+  }
+  .customize {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+}
+
+@container (max-width: 15rem) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1279px) {
+  /* Compacto (Nico, 21-oct-2026): como card alta tapaba medio viewport y el
+     iframe de reservas. Título solo para lectores de pantalla, texto corrido y
+     los tres botones en una fila. WhatsApp se oculta mientras el banner está
+     abierto (WhatsAppButton.module.css), así que el banner baja al borde. */
+  .banner {
+    --gap: 0.75rem;
+    bottom: max(var(--gap), env(safe-area-inset-bottom));
+    width: min(40rem, calc(100vw - 2 * var(--gap)));
+    max-height: calc(100dvh - 2 * var(--gap));
+    gap: 10px;
+    padding: 12px;
+  }
+  .title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  /* El line-height va en el bloque: con los <p> inline, el de cada uno no
+     cuenta y el renglón heredaba el 1.6 del body. */
+  .copy {
+    display: block;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .copy .body,
+  .copy .links {
+    display: inline;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  .copy .body::after {
+    content: " ";
+  }
+  /* Los tres en una fila. Misma tipografía que en desktop: para que entren en
+     mobile se acortan las etiquetas, no se achica la letra. */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .banner .action {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 38px;
+    padding: 0 12px;
+  }
+  /* Mismo orden que en desktop: pisa el del container query de arriba. */
+  .banner .customize {
+    order: 0;
+    grid-column: auto;
+  }
+}
+
+/* Etiqueta completa ("Reject all") salvo en mobile, donde va la corta. */
+.labelShort {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .labelLong {
+    display: none;
+  }
+  .labelShort {
+    display: inline;
+  }
+  .banner .action {
+    flex: 1 1 0;
+    padding: 0 6px;
+  }
+  .banner {
+    left: max(var(--gap), env(safe-area-inset-left));
+    right: max(var(--gap), env(safe-area-inset-right));
+    width: auto;
+  }
+}
+
+/* Desktop: barra fina de una fila pegada abajo. Como card tapaba el iframe de
+   reservas del hero (Nico, 21-oct-2026). Mide lo mismo que el botón de
+   WhatsApp y comparte su línea de base y su margen, así quedan simétricos.
+   Desde 1280: más angosto el texto pasaba a tres líneas y no entraba. */
+@media (max-width: 1279px) {
+  /* Compacto (Nico, 21-oct-2026): como card alta tapaba medio viewport y el
+     iframe de reservas. Título solo para lectores de pantalla, texto corrido y
+     los tres botones en una fila. WhatsApp se oculta mientras el banner está
+     abierto (WhatsAppButton.module.css), así que el banner baja al borde. */
+  .banner {
+    --gap: 0.75rem;
+    bottom: max(var(--gap), env(safe-area-inset-bottom));
+    width: min(40rem, calc(100vw - 2 * var(--gap)));
+    max-height: calc(100dvh - 2 * var(--gap));
+    gap: 10px;
+    padding: 12px;
+  }
+  .title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  /* El line-height va en el bloque: con los <p> inline, el de cada uno no
+     cuenta y el renglón heredaba el 1.6 del body. */
+  .copy {
+    display: block;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .copy .body,
+  .copy .links {
+    display: inline;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  .copy .body::after {
+    content: " ";
+  }
+  /* Los tres en una fila. Misma tipografía que en desktop: para que entren en
+     mobile se acortan las etiquetas, no se achica la letra. */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .banner .action {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 38px;
+    padding: 0 12px;
+  }
+  /* Mismo orden que en desktop: pisa el del container query de arriba. */
+  .banner .customize {
+    order: 0;
+    grid-column: auto;
+  }
+}
+
+/* Etiqueta completa ("Reject all") salvo en mobile, donde va la corta. */
+.labelShort {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .labelLong {
+    display: none;
+  }
+  .labelShort {
+    display: inline;
+  }
+  .banner .action {
+    flex: 1 1 0;
+    padding: 0 6px;
+  }
+  .banner {
+    left: max(var(--gap), env(safe-area-inset-left));
+    right: max(var(--gap), env(safe-area-inset-right));
+    width: auto;
+  }
+}
+
+/* Desktop: barra fina de una fila pegada abajo. Como card tapaba el iframe de
+   reservas del hero (Nico, 21-oct-2026). Mide lo mismo que el botón de
+   WhatsApp y comparte su línea de base y su margen, así quedan simétricos.
+   Desde 1280: más angosto el texto pasaba a tres líneas y no entraba. */
+@media (min-width: 1280px) {
+  .banner {
+    --gap: var(--wa-inset);
+    /* Al ancho del contenido (Nico, 21-oct-2026): estirada hasta WhatsApp
+       quedaba un hueco grande entre el texto y los botones. El tope deja libre
+       la columna de WhatsApp; si no entra, el texto pasa a dos líneas. */
+    right: auto;
+    width: fit-content;
+    /* Con inline-size containment el ancho no puede salir del contenido. */
+    container-type: normal;
+    max-width: calc(100vw - 2 * var(--wa-inset) - var(--wa-size) - 0.75rem);
+    height: var(--wa-size);
+    max-height: none;
+    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 0 9px 0 22px;
+    border-radius: var(--radius-pill);
+  }
+  /* Texto corrido: el cuerpo y los links en la misma línea cuando entran. */
+  .copy {
+    display: block;
+    flex: 0 1 auto;
+    min-width: 0;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .copy .body,
+  .copy .links {
+    display: inline;
+  }
+  .copy .body::after {
+    content: " ";
+  }
+  /* El título queda para lectores de pantalla (aria-labelledby). */
+  .title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .body,
+  .links {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  /* Con ancho max-content, los dos tracks 1fr toman el del label más largo:
+     Aceptar y Rechazar miden lo mismo en cualquier idioma. */
+  .actions {
+    flex-shrink: 0;
+    width: max-content;
+    grid-template-columns: auto 1fr 1fr;
+  }
+  .customize {
+    grid-column: auto;
+    order: 0;
+  }
+  /* 36px en una barra de 56: queda el mismo aire arriba, abajo y a la
+     derecha (9px + borde). */
+  .banner .action {
+    min-height: 0;
+    height: 36px;
+    padding-block: 0;
+    padding-inline: 16px;
+  }
+  .actions {
+    gap: 6px;
+  }
+}
+
+/* ─── Panel de preferencias (modal) ─── */
+
+.dialog {
+  width: min(36rem, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 32px 96px -24px rgba(0, 0, 0, 0.8);
+  font-family: var(--font-sans);
+  color: var(--color-silver-200);
+}
+
+.dialog[open] {
+  animation: rise var(--duration-base) var(--ease-out) both;
+}
+
+.dialog::backdrop {
+  background: rgba(10, 10, 10, 0.72);
+}
+
+.dialogInner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+}
+
+.dialogHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dialogTitle {
+  margin: 0;
+  padding-top: 8px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+}
+
+.close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: -4px -8px 0 0;
+  border: 1px solid var(--border-default);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-silver-200);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.close:hover {
+  border-color: var(--color-champagne-500);
+  color: var(--color-champagne-500);
+}
+
+.close:focus-visible {
+  border-radius: 50%;
+}
+
+.intro {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.categories {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-default);
+}
+
+.category {
+  padding: 12px 0 16px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+/* Toda la fila es el label: el target de cada switch mide 44px de alto y el
+   ancho del panel, no los 44x26 del switch. */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.row:has(:disabled) {
+  cursor: default;
+}
+
+.catTitle {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.always {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-silver-300);
+}
+
+.switch {
+  appearance: none;
+  flex-shrink: 0;
+  position: relative;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  border: 1px solid var(--color-silver-400);
+  border-radius: var(--radius-pill);
+  background: var(--color-obsidian-700);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-silver-300);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.switch:checked {
+  background: var(--color-champagne-500);
+  border-color: var(--color-champagne-500);
+}
+
+.switch:checked::before {
+  transform: translateX(18px);
+  background: var(--color-obsidian-900);
+}
+
+.switch:focus-visible {
+  border-radius: var(--radius-pill);
+  outline-offset: 3px;
+}
+
+/* Fijo, no apagado: se atenúa sin perder la lectura de "encendido". */
+.switch:disabled {
+  cursor: default;
+  background: var(--color-champagne-700);
+  border-color: var(--color-champagne-700);
+}
+
+.catDesc,
+.cookieNames {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-silver-300);
+}
+
+.cookieNames {
+  font-size: 12px;
+  color: var(--color-silver-300);
+  overflow-wrap: anywhere;
+}
+
+.cookieNames span {
+  color: var(--color-silver-200);
+}
+
+.dialogFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding-top: 8px;
+}
+
+.policyLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+}
+
+.save {
+  min-height: 44px;
+}
+
+@media (max-width: 640px) {
+  .dialogInner {
+    padding: 20px 18px;
+  }
+  .dialogTitle {
+    font-size: 24px;
+  }
+  .save {
+    width: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  .switch {
+    appearance: auto;
+  }
+  .switch::before {
+    display: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner,
+  .dialog[open] {
+    animation: none;
+  }
+  .switch,
+  .switch::before {
+    transition: none;
+  }
+}
+
+@media print {
+  .banner {
+    display: none;
+  }
+}

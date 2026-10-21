@@ -72,13 +72,14 @@ export async function sendEmail(
     if (process.env.NODE_ENV === "production" && !config.apiKey) {
       throw new EmailError("RESEND_API_KEY is not configured", 503);
     }
+    // Sin el cuerpo ni el reply-to: traen los datos personales del lead y, con
+    // EMAIL_DRY_RUN=true en un server real, terminarían en los logs del hosting.
     // eslint-disable-next-line no-console
     console.log("[email:dry-run]", {
       from: config.from,
       to,
-      replyTo: input.replyTo,
       subject: input.subject,
-      text: input.text,
+      textLength: input.text?.length ?? 0,
     });
     return { id: null, delivered: false };
   }

@@ -1,0 +1,67 @@
+/* Tablas de la Cookie Policy. El scroll horizontal vive en el wrapper (con
+   foco de teclado), nunca en la página. */
+
+.tables {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 28px;
+}
+
+.scroller {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.caption {
+  caption-side: top;
+  text-align: left;
+  padding: 16px 18px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.table th,
+.table td {
+  padding: 12px 18px;
+  vertical-align: top;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.table thead th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.table tbody th {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.table code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.table td {
+  color: var(--text-secondary);
+}
