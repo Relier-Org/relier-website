@@ -199,6 +199,27 @@
     "verified": "Verified Google review",
     "leaveReview": "Leave us a Google review"
   },
+  "social": {
+    "eyebrow": "On Instagram",
+    "title": "Life on <em>the road.</em>",
+    "lead": "Arrivals, cities and the details in between, from New York to the world. Follow along at @relier.",
+    "profileLabel": "Relier on {network} (opens in a new tab)",
+    "watch": "Watch on Instagram",
+    "newTab": "(opens in a new tab)",
+    "pause": "Pause video: {reel}",
+    "play": "Play video: {reel}",
+    "reels": {
+      "landing": {
+        "caption": "Your journey begins the moment you land."
+      },
+      "details": {
+        "caption": "The difference is in the details."
+      },
+      "new-york": {
+        "caption": "New York never slows down."
+      }
+    }
+  },
   "about": {
     "eyebrow": "Who we are",
     "titleLine1": "Turn your trip",

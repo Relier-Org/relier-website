@@ -1,0 +1,301 @@
+/* Franja oscura entre Testimonials (crema) y About. Misma luz cálida difusa
+   que About, pero arriba al centro, donde están los reels. */
+.social {
+  padding: 120px 0 128px;
+  background:
+    radial-gradient(60% 55% at 50% 58%, rgba(255, 236, 200, 0.06), transparent 72%),
+    var(--bg-canvas);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 22px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h2);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.title em {
+  color: var(--color-champagne-500);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "WONK" 0;
+  font-weight: 300;
+}
+
+.lead {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.profiles {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  list-style: none;
+  padding: 0;
+}
+
+.profile {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  transition:
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.profile:hover {
+  color: var(--color-champagne-500);
+  border-color: var(--color-champagne-500);
+}
+
+/* ─── Reels ─── */
+
+.reelsWrap {
+  margin-top: 64px;
+}
+
+/* Tres columnas, la del medio un 20% más ancha, como la de Rreal Tacos
+   (Nico, 22-oct-2026: las primeras salieron gigantes). */
+.reels {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: center;
+  gap: 28px;
+  max-width: 820px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.reel {
+  position: relative;
+  overflow: hidden;
+  /* Más bajo que el 9:16 del reel, como la referencia: el video recorta un
+     poco arriba y abajo con object-fit cover. */
+  aspect-ratio: 11 / 16;
+  /* Más redondeado que las cards del sitio: es el marco de un teléfono. */
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: #0c0b09;
+  isolation: isolate;
+}
+
+.reel:nth-child(2) {
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+}
+
+.media,
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video {
+  object-fit: cover;
+}
+
+.focusBottom {
+  object-position: center bottom;
+}
+
+/* Degradés arriba y abajo, como la UI de un reel: leen el ícono y el pie. */
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 9, 7, 0.45) 0%, transparent 16%),
+    linear-gradient(180deg, transparent 70%, rgba(10, 9, 7, 0.82) 100%);
+  pointer-events: none;
+}
+
+.glyph {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+  color: #fff;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 0 16px 16px;
+  color: #fff;
+}
+
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+}
+
+.handle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.author:hover .handle {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Una sola línea, cortada con "…", como el caption plegado de un reel. */
+.captionText {
+  margin-top: 8px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.toggle {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  background: rgba(10, 9, 7, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+.toggle:hover {
+  border-color: var(--color-champagne-500);
+}
+
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Tablet y mobile: las tres apiladas en abanico, como Rreal Tacos (Nico,
+   22-oct-2026). Comparten la misma celda: la del medio adelante y más grande,
+   las de los costados asomando detrás. Sin scroll horizontal. */
+@media (max-width: 860px) {
+  .social {
+    padding: 88px 0 96px;
+  }
+
+  .reelsWrap {
+    margin-top: 44px;
+  }
+
+  .reels {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 440px;
+  }
+
+  .reel {
+    grid-area: 1 / 1;
+    width: 44%;
+  }
+
+  .reel:nth-child(1) {
+    justify-self: start;
+  }
+
+  .reel:nth-child(2) {
+    z-index: 1;
+    justify-self: center;
+    width: 54%;
+    box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.9);
+  }
+
+  .reel:nth-child(3) {
+    justify-self: end;
+  }
+
+  /* En las de atrás no entra el pie ni el ícono: la del medio tapa la mitad.
+     La pausa sigue (WCAG 2.2.2) y en la izquierda pasa al lado que se ve. */
+  .reel:not(:nth-child(2)) .caption,
+  .reel:not(:nth-child(2)) .glyph {
+    display: none;
+  }
+
+  .reel:nth-child(1) .toggle {
+    left: 10px;
+    right: auto;
+  }
+
+  .toggle {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .glyph {
+    top: 12px;
+    left: 12px;
+  }
+
+  .caption {
+    padding: 0 12px 14px;
+  }
+
+  .avatar {
+    width: 26px;
+    height: 26px;
+  }
+
+  .handle {
+    font-size: 13px;
+  }
+
+  .captionText {
+    font-size: 12px;
+  }
+}

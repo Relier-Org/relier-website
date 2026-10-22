@@ -12,6 +12,7 @@ import Pillars from "@/components/sections/Pillars";
 import Events from "@/components/sections/Events";
 import CoverageMap from "@/components/sections/CoverageMap";
 import Testimonials from "@/components/sections/Testimonials";
+import Social from "@/components/sections/Social";
 import About from "@/components/sections/About";
 import GsapProvider from "@/components/effects/GsapProvider";
 import Preloader from "@/components/effects/Preloader";
@@ -22,7 +23,7 @@ import { homeNodes } from "@/lib/seo/pages";
 //  1 Hero + booking · 2 Services · 3 "In service of" credential band
 //  3b Work with Relier (B2B cards, roadmap SEO sep-2026 R08: after Services,
 //     before Events) · 4 Events · 5 Fleet · 6 Reasons / Concierge on the Road · 7 Coverage map
-//  8 Testimonials · 9 About, last of all.
+//  8 Testimonials · 8b Social (reels de @relier, 22-oct-2026) · 9 About, last of all.
 // Events sits above Fleet deliberately: show the service before the vehicles.
 // It also replaces the standalone World Cup section, which is now the first
 // entry inside it (the section component is kept, unused, in case it comes back).
@@ -61,6 +62,7 @@ export default async function HomePage({ params }: PageProps) {
         <Pillars />
         <CoverageMap />
         <Testimonials />
+        <Social />
         <About />
       </main>
       <Footer />

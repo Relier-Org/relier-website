@@ -199,6 +199,27 @@
     "verified": "Avaliação verificada do Google",
     "leaveReview": "Deixe-nos uma avaliação no Google"
   },
+  "social": {
+    "eyebrow": "No Instagram",
+    "title": "A vida <em>na estrada.</em>",
+    "lead": "Chegadas, cidades e os detalhes de cada viagem, de Nova York para o mundo. Siga a gente em @relier.",
+    "profileLabel": "Relier no {network} (abre em uma nova aba)",
+    "watch": "Ver no Instagram",
+    "newTab": "(abre em uma nova aba)",
+    "pause": "Pausar vídeo: {reel}",
+    "play": "Reproduzir vídeo: {reel}",
+    "reels": {
+      "landing": {
+        "caption": "Sua viagem começa assim que você pousa."
+      },
+      "details": {
+        "caption": "A diferença está nos detalhes."
+      },
+      "new-york": {
+        "caption": "Nova York nunca desacelera."
+      }
+    }
+  },
   "about": {
     "eyebrow": "Quem somos",
     "titleLine1": "Transforme sua viagem",

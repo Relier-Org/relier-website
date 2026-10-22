@@ -11,6 +11,10 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 // `toggle` agrega un botón de pausa/reanudar (WCAG 2.2.2: loop de más de 5 s).
 // Una vez que el usuario lo usa, su elección manda también sobre la
 // preferencia de movimiento reducido.
+//
+// `playInView`: sólo reproduce mientras el video está en pantalla (los reels
+// de la sección social del home: tres videos a la vez no tienen que correr ni
+// bajar datos fuera de vista).
 
 interface AmbientVideoProps {
   className?: string;
@@ -21,6 +25,7 @@ interface AmbientVideoProps {
    *  hermano, para poder apilarse por encima del contenido de la sección. */
   wrapClassName?: string;
   toggle?: { pauseLabel: string; playLabel: string; className?: string };
+  playInView?: boolean;
   children?: ReactNode;
 }
 
@@ -31,6 +36,7 @@ export default function AmbientVideo({
   preload = "metadata",
   wrapClassName,
   toggle,
+  playInView = false,
   children,
 }: AmbientVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -46,7 +52,22 @@ export default function AmbientVideo({
     return () => mq.removeEventListener("change", sync);
   }, []);
 
-  const shouldPlay = choice ? choice === "play" : reduced === false;
+  // Sin `playInView` cuenta como siempre visible.
+  const [inView, setInView] = useState(!playInView);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!playInView || !video) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.25 }
+    );
+    io.observe(video);
+    return () => io.disconnect();
+  }, [playInView]);
+
+  const wantsPlay = choice ? choice === "play" : reduced === false;
+  const shouldPlay = wantsPlay && inView;
   const hasToggle = Boolean(toggle);
 
   useEffect(() => {
@@ -93,10 +114,10 @@ export default function AmbientVideo({
         <button
           type="button"
           className={toggle.className}
-          aria-label={shouldPlay ? toggle.pauseLabel : toggle.playLabel}
-          onClick={() => setChoice(shouldPlay ? "pause" : "play")}
+          aria-label={wantsPlay ? toggle.pauseLabel : toggle.playLabel}
+          onClick={() => setChoice(wantsPlay ? "pause" : "play")}
         >
-          {shouldPlay ? (
+          {wantsPlay ? (
             <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true">
               <rect x="0" y="0" width="3" height="12" rx="0.5" />
               <rect x="7" y="0" width="3" height="12" rx="0.5" />

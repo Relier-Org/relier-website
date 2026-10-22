@@ -1,8 +1,9 @@
 /* Figma oct-2026 ("sumé un gradientecito"): luz cálida difusa que levanta
    el centro-derecha de la sección, más presente que el --ambient-* estándar. */
+/* Sin borde arriba: desde oct-2026 la precede la sección social, oscura como
+   ésta, y la línea cortaba la continuidad. */
 .about {
   padding: 140px 0;
-  border-top: 0.5px solid var(--border-subtle);
   background:
     radial-gradient(80% 75% at 68% 62%, rgba(255, 236, 200, 0.075), transparent 72%),
     radial-gradient(55% 60% at 12% 95%, rgba(197, 205, 213, 0.035), transparent 70%),
