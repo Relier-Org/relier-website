@@ -14,6 +14,7 @@ import { WhatsAppIcon } from "@/components/icons/SocialIcons";
 import { DEPARTMENTS } from "@/lib/contact/departments";
 import { ContactApiError, sendContactMessage } from "@/lib/contact/api";
 import { currentAttribution } from "@/lib/contact/attribution";
+import { SUCCESS_CLASS, successId, trackLead } from "@/lib/analytics/conversion";
 import {
   CONTACT_LIMITS,
   INITIAL_CONTACT_VALUES,
@@ -93,6 +94,7 @@ export default function ContactSplit() {
         attribution: currentAttribution(),
       });
       setStatus("sent");
+      trackLead("contact", locale);
       setValues(INITIAL_CONTACT_VALUES);
     } catch (error) {
       setStatus("idle");
@@ -133,7 +135,12 @@ export default function ContactSplit() {
             </header>
 
             {status === "sent" ? (
-              <div className={styles.successCard} role="status">
+              <div
+                id={successId("contact")}
+                className={`${styles.successCard} ${SUCCESS_CLASS}`}
+                data-form="contact"
+                role="status"
+              >
                 <h3
                   ref={successRef}
                   tabIndex={-1}

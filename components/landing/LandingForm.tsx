@@ -10,6 +10,7 @@ import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import { ContactApiError, sendContactMessage } from "@/lib/contact/api";
 import { captureAttribution, currentAttribution } from "@/lib/contact/attribution";
+import { SUCCESS_CLASS, successId, trackLead } from "@/lib/analytics/conversion";
 import {
   CONTACT_LIMITS,
   INITIAL_CONTACT_VALUES,
@@ -125,6 +126,7 @@ export default function LandingForm({
         attribution: currentAttribution(),
       });
       setStatus("sent");
+      trackLead(segment, locale);
       setValues(INITIAL_CONTACT_VALUES);
       setCompany("");
     } catch (error) {
@@ -156,7 +158,12 @@ export default function LandingForm({
 
         <Reveal className={styles.card} delay={0.05}>
           {status === "sent" ? (
-            <div className={styles.success} role="status">
+            <div
+              id={successId(segment)}
+              className={`${styles.success} ${SUCCESS_CLASS}`}
+              data-form={segment}
+              role="status"
+            >
               <h3 ref={successRef} tabIndex={-1} className={styles.successTitle}>
                 {t("contact.form.success.title")}
               </h3>
