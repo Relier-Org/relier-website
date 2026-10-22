@@ -66,12 +66,12 @@
         "p1": "Não vendemos dados pessoais em troca de dinheiro. Só os compartilhamos com os provedores que nos ajudam a operar o site e o serviço:",
         "ul1": {
           "i1": "<b>Resend</b> (Estados Unidos): envio por e-mail das mensagens dos formulários de contato.",
-          "i2": "<b>Limo Anywhere (AddOns.LA)</b>: formulário de reserva, cotações, pagamentos e portal de clientes.",
+          "i2": "<b>Limo Anywhere (AddOns.LA)</b>: formulário de reserva, cotações, pagamentos, portal de clientes e gestão das solicitações que recebemos pelo site.",
           "i3": "<b>Hostinger</b>: hospedagem do site.",
           "i4": "<b>Cloudflare</b>: entrega de conteúdo e segurança.",
           "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager e Google Ads, se você os aceitar, o mapa da página de contato, se você carregá-lo, e os serviços usados dentro do formulário de reserva, como o preenchimento automático de endereços.",
           "i6": "<b>Meta</b>: o Meta Pixel, se você aceitar os cookies de marketing, e o WhatsApp, se você escolher falar conosco por esse canal.",
-          "i7": "<b>Nossas ferramentas de e-mail e de gestão de clientes</b>, que usamos para responder e dar seguimento às suas solicitações."
+          "i7": "<b>Nosso provedor de e-mail</b>, que usamos para responder e dar seguimento às suas solicitações."
         }
       },
       "transfers": {
@@ -80,7 +80,7 @@
       },
       "retention": {
         "title": "Por quanto tempo guardamos seus dados",
-        "p1": "Guardamos os dados das suas consultas pelo tempo necessário para respondê-las e dar a elas um acompanhamento comercial razoável. Guardamos os dados das reservas pelo tempo exigido pelas nossas obrigações legais, contábeis e fiscais.",
+        "p1": "Guardamos os dados das suas consultas e das suas reservas por sete anos a partir da data da consulta ou do serviço, para cumprir nossas obrigações legais, contábeis e fiscais e atender a eventuais reclamações. Depois desse prazo, nós os excluímos ou anonimizamos.",
         "p2": "Os cookies de análise e de marketing duram os prazos indicados na nossa <cookieLink>Política de Cookies</cookieLink>."
       },
       "security": {
@@ -137,7 +137,7 @@
         "title": "Quem somos",
         "p1": "A Relier é um serviço de transporte com motorista com base em Nova York e Barcelona que opera no mundo todo.",
         "p2": "O serviço é prestado por {controller}, {address}.",
-        "p3": "{controller} é {incorporation}."
+        "p3": "A {controller} é uma sociedade de responsabilidade limitada (limited liability company) registrada no Estado de Nova York."
       },
       "booking": {
         "title": "Serviços e reservas",
@@ -206,7 +206,7 @@
       },
       "law": {
         "title": "Lei aplicável",
-        "p1": "Estes termos são regidos por {law}."
+        "p1": "Estes termos são regidos pelas leis do Estado de Nova York. Qualquer controvérsia decorrente deles será submetida aos tribunais do condado de Kings, Nova York. Isso não priva você da proteção das normas obrigatórias de defesa do consumidor do seu país de residência."
       },
       "contact": {
         "title": "Contato",

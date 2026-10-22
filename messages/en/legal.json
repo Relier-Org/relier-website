@@ -66,12 +66,12 @@
         "p1": "We do not sell personal data for money. We share it only with the providers that help us run the site and the service:",
         "ul1": {
           "i1": "<b>Resend</b> (United States): delivery of contact form messages by email.",
-          "i2": "<b>Limo Anywhere (AddOns.LA)</b>: booking form, quotes, payments and customer portal.",
+          "i2": "<b>Limo Anywhere (AddOns.LA)</b>: booking form, quotes, payments, customer portal and management of the requests we receive through the site.",
           "i3": "<b>Hostinger</b>: hosting of the site.",
           "i4": "<b>Cloudflare</b>: content delivery and security.",
           "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager and Google Ads if you accept them, the map on the contact page if you load it, and services used inside the booking form, such as address autocomplete.",
           "i6": "<b>Meta</b>: the Meta Pixel, if you accept marketing cookies, and WhatsApp, if you choose to contact us that way.",
-          "i7": "<b>Our email and customer management tools</b>, which we use to answer and follow up on your requests."
+          "i7": "<b>Our email provider</b>, which we use to answer and follow up on your requests."
         }
       },
       "transfers": {
@@ -80,7 +80,7 @@
       },
       "retention": {
         "title": "How long we keep your data",
-        "p1": "We keep the data from your inquiries for as long as we need to answer them and for a reasonable period of commercial follow-up. We keep booking data for as long as our legal, accounting and tax obligations require.",
+        "p1": "We keep the data from your inquiries and from your bookings for seven years from the date of the inquiry or the service, to meet our legal, accounting and tax obligations and to handle any claim. After that period, we delete it or anonymize it.",
         "p2": "Analytics and marketing cookies last for the periods listed in our <cookieLink>Cookie Policy</cookieLink>."
       },
       "security": {
@@ -137,7 +137,7 @@
         "title": "Who we are",
         "p1": "Relier is a chauffeured transportation service based in New York and Barcelona that operates worldwide.",
         "p2": "The service is provided by {controller}, {address}.",
-        "p3": "{controller} is {incorporation}."
+        "p3": "{controller} is a limited liability company registered in the State of New York."
       },
       "booking": {
         "title": "Services and bookings",
@@ -206,7 +206,7 @@
       },
       "law": {
         "title": "Governing law",
-        "p1": "These terms are governed by {law}."
+        "p1": "These terms are governed by the laws of the State of New York. Any dispute arising from them will be submitted to the courts located in Kings County, New York. This does not deprive you of the protection of the mandatory consumer laws of your country of residence."
       },
       "contact": {
         "title": "Contact",

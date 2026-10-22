@@ -13,11 +13,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return legalMetadata("privacy", locale);
 }
 
-// TODO(cliente): períodos exactos de conservación (consultas y reservas); hoy
-// la sección "retention" los describe por criterio, sin plazos.
-// TODO(cliente): confirmar si la entidad o sus proveedores están certificados
-// en el EU-US Data Privacy Framework y nombrar la herramienta de email/CRM
-// si se quiere listarla en "share".
+// Confirmado por el cliente (22-oct-2026): conservación de 7 años para
+// consultas y reservas, Limo Anywhere como CRM de leads, sin certificación
+// propia en el EU-US Data Privacy Framework y sin representante art. 27.
 export default async function PrivacyPolicyPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);

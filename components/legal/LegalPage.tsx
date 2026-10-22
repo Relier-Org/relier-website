@@ -72,8 +72,6 @@ function richValues(locale: string) {
     controller: LEGAL_ENTITY.legalName ?? LEGAL_ENTITY.tradeName,
     address: LEGAL_ENTITY.registeredAddress ?? LEGAL_ENTITY.officeAddress,
     officeAddress: LEGAL_ENTITY.officeAddress,
-    incorporation: LEGAL_ENTITY.incorporation ?? "",
-    law: LEGAL_ENTITY.governingLaw ?? "",
     euRepresentative: LEGAL_ENTITY.euRepresentative ?? "",
     infoEmail: LEGAL_ENTITY.contactEmail,
     privacyEmail: privacyContact(),
