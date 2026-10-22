@@ -3,6 +3,13 @@ import { routing, type Locale } from "@/i18n/routing";
 
 export const ORIGIN = "https://relier.com";
 
+// OG locale tags (BCP 47 with region) per site locale.
+export const OG_LOCALES: Record<string, string> = {
+  en: "en_US",
+  es: "es_ES",
+  pt: "pt_BR",
+};
+
 export function localeUrl(locale: Locale, path: string) {
   const clean = path.replace(/^\/+|\/+$/g, "");
   const prefix = locale === routing.defaultLocale ? "" : `/${locale}`;

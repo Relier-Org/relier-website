@@ -36,8 +36,11 @@ export default async function EventsDossier() {
   const recap =
     EVENTS.find((e) => e.featured) ??
     EVENTS.find((e) => e.status === "operated");
-  const rest = EVENTS.filter((e) => e !== recap);
-  const anyUpcoming = rest.some((e) => e.status === "upcoming");
+  // Operated with client figures first, the rest after, each in date order
+  // (EVENTS is already chronological; the sort is stable). Nico, 22-oct-2026.
+  const rest = EVENTS.filter((e) => e !== recap).sort(
+    (a, b) => Number(!a.metrics) - Number(!b.metrics)
+  );
 
   // Translated here and handed down as plain strings: the switch below needs
   // client state, but the `services` namespace stays off the wire.
@@ -55,11 +58,16 @@ export default async function EventsDossier() {
       ? t(`items.${e.id}.service`)
       : undefined,
     // The per-event CTA ("Plan your US Open transport") only makes sense
-    // before the event; once run, the card points to booking in general.
+    // before the event; once run, the card points to booking in general. The
+    // oct-2026 upcoming cards carry no CTA of their own and use the generic one.
     cta:
-      e.status === "operated"
-        ? t("labels.ctaBook")
-        : t(`items.${e.id}.cta`),
+      e.status === "upcoming" && t.has(`items.${e.id}.cta`)
+        ? t(`items.${e.id}.cta`)
+        : t("labels.ctaBook"),
+    metrics: e.metrics?.map((m) => ({
+      value: m.value,
+      label: t(`items.${e.id}.metrics.${m.id}.label`),
+    })),
     image: e.image,
     imageAlt: t(`items.${e.id}.imageAlt`),
   }));
@@ -141,7 +149,8 @@ export default async function EventsDossier() {
             <EventsUpcoming
               items={upcoming}
               labels={{
-                kicker: anyUpcoming ? t("labels.upcoming") : t("labels.recent"),
+                recent: t("labels.recent"),
+                upcoming: t("labels.upcoming"),
                 viewCards: t("labels.viewCards"),
                 viewRows: t("labels.viewRows"),
                 ctaShort: t("labels.ctaShort"),

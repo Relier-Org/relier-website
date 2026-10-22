@@ -28,6 +28,10 @@ import { homeNodes } from "@/lib/seo/pages";
 // entry inside it (the section component is kept, unused, in case it comes back).
 type PageProps = { params: Promise<{ locale: string }> };
 
+// Rebuilt once a day so the Events list moves on to the next upcoming events
+// as each one ends (`homeEvents` filters by date at render).
+export const revalidate = 86400;
+
 // Title/description come from the locale layout; this only adds the
 // self-referencing canonical + hreflang set, which needs the locale.
 export async function generateMetadata({ params }: PageProps) {

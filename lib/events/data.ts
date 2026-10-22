@@ -9,7 +9,8 @@
  *
  * When an upcoming event finishes, flip `status` to `operated` (client, 05-oct-2026:
  * the four September events were run by Relier). Add `metrics` only with client
- * figures. With nothing upcoming, the /signature-events grid reads "Recent events"
+ * figures; on the /signature-events cards only the label shows, the `desc` is
+ * for the recap banner. With nothing upcoming, the /signature-events grid reads "Recent events"
  * and each card's CTA switches to the generic booking one.
  */
 
@@ -41,6 +42,8 @@ export interface EventEntry {
    */
   startDate: string;
   endDate: string;
+  /** City for the Service's `areaServed` in the JSON-LD. Defaults to the business area. */
+  city?: string;
 }
 
 /**
@@ -70,6 +73,98 @@ export const EVENTS: EventEntry[] = [
       { id: "final", value: "205" },
     ],
   },
+  // Upcoming, oct-2026 to jun-2027 (Andrés, 21-oct-2026): US first, then
+  // Europe, ahead of the operated ones. Photos from Wikimedia Commons (22-oct,
+  // see docs/image-credits.md) until Andrés sends the client's own.
+  {
+    id: "nyc-marathon",
+    startDate: "2026-11-01",
+    endDate: "2026-11-01",
+    status: "upcoming",
+    city: "New York",
+    image: "/images/events/nyc-marathon.webp",
+    photoCredit: { author: "Metropolitan Transportation Authority of the State of New York", licence: "CC BY 2.0" },
+  },
+  {
+    id: "holidays-new-york",
+    startDate: "2026-11-04",
+    endDate: "2027-01-04",
+    status: "upcoming",
+    city: "New York",
+    image: "/images/events/holidays-new-york.webp",
+    photoCredit: { author: "Mack Male", licence: "CC BY-SA 2.0" },
+  },
+  {
+    id: "las-vegas-grand-prix",
+    startDate: "2026-11-19",
+    endDate: "2026-11-21",
+    status: "upcoming",
+    city: "Las Vegas",
+    image: "/images/events/las-vegas-grand-prix.webp",
+    photoCredit: { author: "YosemiteYamper", licence: "CC BY-SA 4.0" },
+  },
+  {
+    id: "thanksgiving-parade",
+    startDate: "2026-11-26",
+    endDate: "2026-11-26",
+    status: "upcoming",
+    city: "New York",
+    image: "/images/events/thanksgiving-parade.webp",
+    photoCredit: { author: "Phil Roeder", licence: "CC BY 2.0" },
+  },
+  {
+    id: "art-basel-miami-beach",
+    startDate: "2026-12-02",
+    endDate: "2026-12-06",
+    status: "upcoming",
+    city: "Miami Beach",
+    image: "/images/events/art-basel-miami-beach.webp",
+    photoCredit: { author: "Jennifer 8. Lee", licence: "CC BY-SA 4.0" },
+  },
+  {
+    id: "new-years-eve-nyc",
+    startDate: "2026-12-31",
+    endDate: "2026-12-31",
+    status: "upcoming",
+    city: "New York",
+    image: "/images/events/new-years-eve-nyc.webp",
+    photoCredit: { author: "Anthony Quintano", licence: "CC BY 2.0" },
+  },
+  {
+    id: "super-bowl-lxi",
+    startDate: "2027-02-14",
+    endDate: "2027-02-14",
+    status: "upcoming",
+    city: "Los Angeles",
+    image: "/images/events/super-bowl-lxi.webp",
+    photoCredit: { author: "Don Norris", licence: "CC BY 2.0" },
+  },
+  {
+    id: "champions-league-madrid",
+    startDate: "2026-11-03",
+    endDate: "2027-01-27",
+    status: "upcoming",
+    city: "Madrid",
+    image: "/images/events/champions-league-madrid.webp",
+    photoCredit: { author: "miguelangelgc", licence: "CC BY-SA 3.0" },
+  },
+  {
+    id: "champions-league-barcelona",
+    startDate: "2026-11-03",
+    endDate: "2027-01-27",
+    status: "upcoming",
+    city: "Barcelona",
+    image: "/images/events/champions-league-barcelona.webp",
+    photoCredit: { author: "Niels Elgaard Larsen", licence: "CC BY-SA 3.0" },
+  },
+  {
+    id: "champions-league-final-2027",
+    startDate: "2027-06-05",
+    endDate: "2027-06-05",
+    status: "upcoming",
+    city: "Madrid",
+    image: "/images/events/champions-league-final-2027.webp",
+  },
   {
     id: "us-open",
     startDate: "2026-08-30",
@@ -77,6 +172,8 @@ export const EVENTS: EventEntry[] = [
     status: "operated",
     image: "/images/events/us-open.webp",
     photoCredit: { author: "slgckgc", licence: "CC BY 2.0" },
+    // Client figures (22-oct-2026): services in New York, mostly Escalades.
+    metrics: [{ id: "services", value: "168" }],
   },
   {
     id: "fashion-week",
@@ -93,6 +190,8 @@ export const EVENTS: EventEntry[] = [
     status: "operated",
     image: "/images/events/spanish-gp.webp",
     photoCredit: { author: "Mypoorbrain", licence: "CC BY 2.0" },
+    // Client figures (22-oct-2026): every trip of the weekend, V-Class and E-Class.
+    metrics: [{ id: "trips", value: "387" }],
   },
   {
     id: "un-assembly",
@@ -105,3 +204,20 @@ export const EVENTS: EventEntry[] = [
 
 /** Home teaser: the featured recap plus this many events in the list beside it. */
 export const HOME_EVENTS_LIMIT = 2;
+
+/**
+ * The events beside the recap on the home: the next upcoming ones that have not
+ * ended yet, soonest first, so the list rolls forward on its own as events pass
+ * (Nico, 22-oct-2026). The home revalidates daily for that. If fewer are left
+ * than the limit, the most recent operated ones fill in.
+ */
+export function homeEvents(now = new Date()): EventEntry[] {
+  const today = now.toISOString().slice(0, 10);
+  const next = EVENTS.filter(
+    (e) => !e.featured && e.status === "upcoming" && e.endDate >= today
+  ).sort((a, b) => a.startDate.localeCompare(b.startDate));
+  const recent = EVENTS.filter(
+    (e) => !e.featured && e.status === "operated"
+  ).sort((a, b) => b.endDate.localeCompare(a.endDate));
+  return [...next, ...recent].slice(0, HOME_EVENTS_LIMIT);
+}

@@ -267,14 +267,18 @@ export async function signatureEventsNodes(
             : t(`items.${e.id}.title`),
           {
             serviceType: "Event transportation",
+            ...(e.city
+              ? { areaServed: [{ "@type": "City", name: e.city }] }
+              : {}),
             about: {
               "@type": "Event",
               name: eventName,
               startDate: e.startDate,
               endDate: e.endDate,
-              ...(e.status === "operated"
-                ? { eventStatus: "https://schema.org/EventCompleted" }
-                : {}),
+              eventStatus:
+                e.status === "operated"
+                  ? "https://schema.org/EventCompleted"
+                  : "https://schema.org/EventScheduled",
               location: { "@type": "Place", name: t(`items.${e.id}.venue`) },
             },
           }

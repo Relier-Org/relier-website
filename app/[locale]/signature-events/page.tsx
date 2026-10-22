@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { localeAlternates } from "@/lib/i18n/seo";
+import { localeAlternates, OG_LOCALES } from "@/lib/i18n/seo";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import ServiceHero from "@/components/sections/ServiceHero";
@@ -25,10 +25,23 @@ export async function generateMetadata({
     locale,
     namespace: "services.signatureEvents.meta",
   });
+  // og propio (Andrés, 21-oct-2026): antes heredaba el de la home del layout.
+  // Next reemplaza `openGraph` entero, así que type y locale van de nuevo.
   return {
     title: t("title"),
     description: t("description"),
     alternates: localeAlternates("/signature-events", locale),
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      type: "website",
+      locale: OG_LOCALES[locale] ?? OG_LOCALES.en,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+    },
   };
 }
 
@@ -47,6 +60,7 @@ export default async function SignatureEventsPage({ params }: PageProps) {
           title={t("hero.title")}
           subtitle={t("hero.subtitle")}
           image="/images/services/world-cup/hero.webp"
+          imageAlt={t("hero.imageAlt")}
           className={styles.hero}
         />
         <EventsDossier />

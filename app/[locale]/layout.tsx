@@ -13,16 +13,9 @@ import { clientNamespaces } from "@/i18n/request";
 import Analytics from "@/components/analytics/Analytics";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import CookieBanner from "@/components/consent/CookieBanner";
-import { ORIGIN } from "@/lib/i18n/seo";
+import { OG_LOCALES, ORIGIN } from "@/lib/i18n/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import "../globals.css";
-
-// OG locale tags (BCP 47 with region) per site locale.
-const OG_LOCALES: Record<string, string> = {
-  en: "en_US",
-  es: "es_ES",
-  pt: "pt_BR",
-};
 
 const fraunces = Fraunces({
   subsets: ["latin"],

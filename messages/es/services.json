@@ -206,18 +206,21 @@
   },
   "signatureEvents": {
     "meta": {
-      "title": "Experiencia en transporte para grandes eventos | Relier",
-      "description": "Conoce la experiencia de Relier en transporte para grandes eventos: casos seleccionados, pruebas operativas y métricas de servicio verificadas."
+      "title": "Servicio de chofer para grandes eventos | Relier",
+      "description": "Conoce la experiencia de Relier en transporte para grandes eventos: casos seleccionados, pruebas operativas y métricas de servicio verificadas.",
+      "ogTitle": "Servicio de chofer para grandes eventos · Relier",
+      "ogDescription": "Servicio de chofer para los grandes eventos de Nueva York, Las Vegas, Miami, Los Ángeles, Madrid y Barcelona. Mirá los eventos que operamos y los que vienen."
     },
     "hero": {
       "eyebrow": "Eventos Signature",
       "title": "Experiencia en transporte para grandes eventos",
-      "subtitle": "Torneos, campeonatos, semanas de la moda, asambleas. Cuando miles de personas se mueven con el mismo horario, el transporte terrestre deja de ser una reserva y pasa a ser una operación."
+      "subtitle": "Torneos, campeonatos, semanas de la moda, asambleas. Cuando miles de personas se mueven con el mismo horario, el transporte terrestre deja de ser una reserva y pasa a ser una operación.",
+      "imageAlt": "SUV de Relier en movimiento durante la Copa Mundial de la FIFA 2026"
     },
     "labels": {
       "ourOperation": "Nuestra operación",
       "theEvent": "El evento",
-      "upcoming": "Lo que viene",
+      "upcoming": "Próximos eventos",
       "recent": "Eventos recientes",
       "service": "Servicio",
       "edition": "Edición",
@@ -257,6 +260,106 @@
           }
         }
       },
+      "nyc-marathon": {
+        "name": "Maratón de Nueva York 2026",
+        "edition": "Cinco distritos, una sola meta",
+        "dates": "Domingo 1 de noviembre, 2026 · De Staten Island a Central Park",
+        "datesShort": "1 nov, 2026",
+        "venue": "De Staten Island a Central Park · Nueva York",
+        "note": "Cinco puentes y 42 kilómetros de calles cortadas la misma mañana. Cruzar la ciudad el día de la carrera pide una ruta planificada de antemano.",
+        "service": "Servicio de chofer para el día de la carrera: del hotel a la zona de largada, traslados de la familia y un punto de encuentro en la meta.",
+        "imageAlt": "Corredores en el recorrido del Maratón de Nueva York con el puente Verrazzano-Narrows de fondo"
+      },
+      "holidays-new-york": {
+        "name": "Las fiestas en Nueva York",
+        "edition": "Rockefeller Center, Radio City, Bryant Park y las vidrieras de la Quinta Avenida",
+        "dates": "Nov 2026 a ene 2027 · Encendido del árbol del Rockefeller Center el miércoles 2 de diciembre",
+        "datesShort": "Nov 2026 – ene 2027",
+        "venue": "Midtown Manhattan · Nueva York",
+        "note": "El show navideño de Radio City va del 4 de noviembre al 4 de enero y el Winter Village de Bryant Park abre el 28 de octubre. Todo queda a pocas cuadras y casi nada es fácil de recorrer en auto.",
+        "service": "Servicio de chofer por hora para las fiestas: shows, cenas y paseos por las vidrieras, con tu chofer esperando.",
+        "imageAlt": "El árbol de Navidad del Rockefeller Center iluminado de noche sobre la pista de patinaje"
+      },
+      "las-vegas-grand-prix": {
+        "name": "Gran Premio de Las Vegas 2026",
+        "edition": "El Gran Premio de Las Vegas, una carrera nocturna sobre el Strip",
+        "dates": "19 al 21 nov, 2026 · Carrera el sábado 21, 20 h hora local",
+        "datesShort": "19 – 21 nov, 2026",
+        "venue": "Las Vegas Strip Circuit · Las Vegas, Nevada",
+        "note": "El circuito corre sobre el mismo Strip, frente a los casinos, y la carrera larga a las 20 h. Con el circuito cerrado, cada hotel tiene su propio acceso.",
+        "service": "Servicio de chofer para el Gran Premio de Las Vegas: del aeropuerto al hotel, del hotel al hospitality y regresos tarde después de la bandera a cuadros.",
+        "imageAlt": "El Strip de Las Vegas iluminado de noche"
+      },
+      "thanksgiving-parade": {
+        "name": "Desfile de Acción de Gracias",
+        "edition": "El desfile número 100 de Macy's por Acción de Gracias · desde 1924",
+        "dates": "Jueves 26 de noviembre, 2026 · Arranca a las 8:30",
+        "datesShort": "26 nov, 2026",
+        "venue": "De Central Park West a Herald Square · Manhattan, Nueva York",
+        "note": "El desfile va de la calle 77 y Central Park West hasta Herald Square, y las calles del recorrido se cortan toda la mañana. El horario lo es todo.",
+        "service": "Servicio de chofer para Acción de Gracias: te dejamos temprano cerca de tu lugar para verlo y salís con un plan antes del mediodía.",
+        "imageAlt": "Un globo gigante sobre el público en el desfile de Macy's por Acción de Gracias"
+      },
+      "art-basel-miami-beach": {
+        "name": "Art Basel Miami Beach 2026",
+        "edition": "272 galerías de más de 40 países · Miami Art Week",
+        "dates": "4 al 6 dic, 2026 · Días VIP el 2 y el 3 de diciembre",
+        "datesShort": "2 – 6 dic, 2026",
+        "venue": "Miami Beach Convention Center · Miami Beach, Florida",
+        "note": "Los coleccionistas cruzan los puentes varias veces por día, entre el centro de convenciones, las ferias satélite y las cenas privadas.",
+        "service": "Servicio de chofer para Art Basel Miami Beach: recogidas en el aeropuerto y en aviación privada, chofer a disposición en los días VIP y traslados nocturnos entre Miami y Miami Beach.",
+        "imageAlt": "El cartel de Art Basel en el Miami Beach Convention Center de noche"
+      },
+      "new-years-eve-nyc": {
+        "name": "Año Nuevo en Times Square",
+        "edition": "La bajada de la bola en One Times Square",
+        "dates": "Jueves 31 de diciembre, 2026 · La bola baja a las 23:59",
+        "datesShort": "31 dic, 2026",
+        "venue": "Times Square · Midtown Manhattan, Nueva York",
+        "note": "Las calles alrededor de Times Square se cortan mucho antes de la medianoche. Las fiestas se reservan con meses de anticipación, y los autos también.",
+        "service": "Servicio de chofer para Año Nuevo: puerta a puerta a cenas y fiestas, con la vuelta a casa planificada después de la medianoche.",
+        "imageAlt": "Los números de Año Nuevo iluminados en Times Square de noche"
+      },
+      "super-bowl-lxi": {
+        "name": "Super Bowl LXI",
+        "edition": "La final de la NFL, en Los Ángeles",
+        "dates": "Domingo 14 de febrero, 2027 · Horario a confirmar",
+        "datesShort": "14 feb, 2027",
+        "venue": "SoFi Stadium · Inglewood, Los Ángeles, California",
+        "note": "El día del partido todas las rutas hacia el SoFi se ponen lentas. Hospitality, fiestas y partido corren sobre un mismo horario.",
+        "service": "Servicio de chofer para el Super Bowl LXI: llegadas a LAX, del hotel al estadio y regresos después del partido por todo Los Ángeles.",
+        "imageAlt": "El SoFi Stadium de Inglewood iluminado de noche"
+      },
+      "champions-league-madrid": {
+        "name": "Noches de Champions League en Madrid",
+        "edition": "Atlético vs Bayern (3 nov) · Real Madrid vs PSV (24 nov) · Atlético vs Viking (25 nov) · Real Madrid vs LASK (19 ene) · Atlético vs Fenerbahçe (27 ene)",
+        "dates": "3, 24 y 25 nov, 2026 · 19 y 27 ene, 2027 · Partidos a las 21 h (CET)",
+        "datesShort": "3 nov, 2026 – 27 ene, 2027",
+        "venue": "Santiago Bernabéu · Riyadh Air Metropolitano · Madrid",
+        "note": "Las noches europeas empiezan a las 21 h, así que las calles alrededor del estadio están en su peor momento después del pitazo final.",
+        "service": "Servicio de chofer para la Champions League en Madrid: del hotel al estadio y un auto esperándote al pitazo final.",
+        "imageAlt": "El Santiago Bernabéu lleno en una noche de partido"
+      },
+      "champions-league-barcelona": {
+        "name": "Noches de Champions League en Barcelona",
+        "edition": "FC Barcelona vs Aston Villa (3 nov) · vs Manchester City (8 dic) · vs Como (27 ene)",
+        "dates": "3 nov y 8 dic, 2026 · 27 ene, 2027 · Partidos a las 21 h (CET)",
+        "datesShort": "3 nov, 2026 – 27 ene, 2027",
+        "venue": "Spotify Camp Nou · Les Corts, Barcelona",
+        "note": "Tres noches europeas en el Camp Nou, todas a las 21 h y con las calles más cargadas después del pitazo final.",
+        "service": "Servicio de chofer para la Champions League en Barcelona: del hotel al estadio y un auto esperándote al pitazo final.",
+        "imageAlt": "El Spotify Camp Nou lleno bajo las luces en una noche de partido"
+      },
+      "champions-league-final-2027": {
+        "name": "Final de la Champions League · Madrid 2027",
+        "edition": "La final vuelve al Riyadh Air Metropolitano",
+        "dates": "Sábado 5 de junio, 2027 · Fin de semana de la final en Madrid",
+        "datesShort": "5 jun, 2027",
+        "venue": "Riyadh Air Metropolitano · Madrid",
+        "note": "Toda la ciudad se llena para el fin de semana de la final, y los hoteles y los autos son lo primero que se agota.",
+        "service": "Servicio de chofer para el fin de semana de la final: del aeropuerto al hotel, del hotel al estadio y chofer a disposición todo el fin de semana. Ya podés planificarlo.",
+        "imageAlt": "El Riyadh Air Metropolitano lleno bajo las luces rojas del techo"
+      },
       "us-open": {
         "name": "US Open 2026",
         "edition": "146.º US Open",
@@ -266,7 +369,13 @@
         "note": "Las canchas están bajo la trayectoria de aproximación de LaGuardia. Es el único Grand Slam donde escuchás aterrizar los aviones.",
         "service": "Traslados desde el aeropuerto y del hotel a la cancha, sesiones nocturnas incluidas.",
         "cta": "Planificá tu transporte para el US Open",
-        "imageAlt": "El Arthur Ashe Stadium lleno durante una sesión del US Open"
+        "imageAlt": "El Arthur Ashe Stadium lleno durante una sesión del US Open",
+        "metrics": {
+          "services": {
+            "label": "Servicios en Nueva York, la mayoría en Cadillac Escalade",
+            "desc": "Todos los servicios que hicimos en Nueva York durante el torneo."
+          }
+        }
       },
       "fashion-week": {
         "name": "New York Fashion Week",
@@ -288,7 +397,13 @@
         "note": "A cinco minutos del aeropuerto de Barajas. El único Gran Premio al que llegás desde la terminal antes de que se apaguen los semáforos.",
         "service": "Del aeropuerto al circuito y del hotel al paddock, todo el fin de semana de carrera.",
         "cta": "Planificá tu transporte para el Gran Premio",
-        "imageAlt": "Un auto de Fórmula 1 a toda velocidad en el circuito"
+        "imageAlt": "Un auto de Fórmula 1 a toda velocidad en el circuito",
+        "metrics": {
+          "trips": {
+            "label": "Viajes en total, en V-Class y E-Class",
+            "desc": "Todos los viajes del fin de semana de carrera en Madrid."
+          }
+        }
       },
       "un-assembly": {
         "name": "Asamblea General de la ONU",

@@ -7,7 +7,7 @@ import TextCTA from "@/components/ui/TextCTA";
 import { CarIcon } from "@/components/icons/SegmentIcons";
 import { BallIcon, FlagIcon } from "@/components/icons/EventMetricIcons";
 import type { IconProps } from "@/components/icons/types";
-import { EVENTS, HOME_EVENTS_LIMIT } from "@/lib/events/data";
+import { EVENTS, homeEvents } from "@/lib/events/data";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Events.module.css";
 
@@ -36,7 +36,7 @@ export default async function Events() {
   const te = await getTranslations("services.signatureEvents");
 
   const featured = EVENTS.find((e) => e.featured);
-  const list = EVENTS.filter((e) => !e.featured).slice(0, HOME_EVENTS_LIMIT);
+  const list = homeEvents();
   const anyUpcoming = list.some((e) => e.status === "upcoming");
 
   return (
@@ -157,9 +157,9 @@ export default async function Events() {
                         tone="light"
                         className={styles.itemCta}
                       >
-                        {e.status === "operated"
-                          ? te("labels.ctaBook")
-                          : te(`items.${e.id}.cta`)}
+                        {e.status === "upcoming" && te.has(`items.${e.id}.cta`)
+                          ? te(`items.${e.id}.cta`)
+                          : te("labels.ctaBook")}
                       </TextCTA>
                     </div>
                   </li>

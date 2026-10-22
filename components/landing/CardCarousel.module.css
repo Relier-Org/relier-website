@@ -22,9 +22,15 @@
     border-color var(--duration-base) var(--ease-out);
 }
 
-.arrow:hover {
+.arrow:hover:not(:disabled) {
   color: var(--accent-on-light);
   border-color: var(--accent-on-light);
+}
+
+/* Extremos del carrusel sin loop. */
+.arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .track {

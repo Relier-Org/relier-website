@@ -2,6 +2,40 @@
   width: 100%;
 }
 
+/* Recientes (carrusel) y próximos (lista), cada uno con su título. */
+.block + .block {
+  margin-top: 72px;
+}
+
+.carousel {
+  margin-top: 24px;
+}
+
+/* Tres cards por vista en desktop, dos en tablet y una con asomo de la
+   siguiente en mobile. El % es del ancho del container (la pista lleva el
+   inset como padding). */
+/* Doble clase para ganarle al `--basis` del propio carrusel. */
+.carousel .carouselTrack {
+  --basis: calc((100% - 2 * var(--gutter)) / 3);
+}
+
+@media (max-width: 1024px) {
+  .carousel .carouselTrack {
+    --basis: calc((100% - var(--gutter)) / 2);
+  }
+}
+
+@media (max-width: 720px) {
+  .carousel .carouselTrack {
+    --basis: 86%;
+  }
+}
+
+/* En el carrusel la card ocupa el alto de la slide, así los CTA se alinean. */
+.carousel .card {
+  height: 100%;
+}
+
 .head {
   display: flex;
   align-items: center;
@@ -66,6 +100,8 @@
 }
 
 .card {
+  /* Cada card es un ancla (#<id>): que el nav fijo no tape el arranque. */
+  scroll-margin-top: 96px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -198,6 +234,40 @@
   text-wrap: pretty;
 }
 
+/* Cifras del cliente en las operadas: el número en display, como el banner,
+   y la etiqueta en el micro-label de la card. */
+.figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-top: 16px;
+}
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.figureValue {
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--text-on-light);
+  font-variation-settings: "WONK" 0;
+}
+
+.figureLabel {
+  order: 2;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--text-on-light-muted);
+  text-wrap: pretty;
+}
+
 /* Pins every CTA to the same line regardless of how long the note runs. */
 .cta {
   margin-top: auto;
@@ -205,20 +275,21 @@
 }
 
 /* Vista de cards compacta, como el Figma: estado, fecha, nombre, servicio y CTA.
-   Edición, sede y nota quedan para la vista de filas. */
-.list:not(.listRows) .edition,
-.list:not(.listRows) .venue,
-.list:not(.listRows) .note {
+   Edición, sede y nota quedan para la vista de filas. `.compact` va en la grilla
+   de próximos (vista cards) y en el carrusel de recientes. */
+.compact .edition,
+.compact .venue,
+.compact .note {
   display: none;
 }
 
 /* En la card va sólo el rango de fechas, como el Figma; el detalle ("Fan
    Week from…") queda para la vista de filas. */
-.list:not(.listRows) .dates .long {
+.compact .dates .long {
   display: none;
 }
 
-.list:not(.listRows) .dates .short {
+.compact .dates .short {
   display: inline;
 }
 
@@ -315,7 +386,8 @@
   .listRows .edition,
   .listRows .venue,
   .listRows .note,
-  .listRows .service {
+  .listRows .service,
+  .listRows .figures {
     display: none;
   }
   .listRows .dates {

@@ -206,18 +206,21 @@
   },
   "signatureEvents": {
     "meta": {
-      "title": "Major Event Transportation Experience | Relier",
-      "description": "See selected major-event transportation experience, operational proof points and verified service metrics from Relier."
+      "title": "Major Event Chauffeur Service | Relier",
+      "description": "See selected major-event transportation experience, operational proof points and verified service metrics from Relier.",
+      "ogTitle": "Major event chauffeur service · Relier",
+      "ogDescription": "Chauffeur service for the biggest events in New York, Las Vegas, Miami, Los Angeles, Madrid and Barcelona. See the events we have run and the ones coming next."
     },
     "hero": {
       "eyebrow": "Signature Events",
       "title": "Transportation experience for major events",
-      "subtitle": "Tournaments, championships, fashion weeks, assemblies. When thousands of people move on the same schedule, ground transport stops being a booking and becomes an operation."
+      "subtitle": "Tournaments, championships, fashion weeks, assemblies. When thousands of people move on the same schedule, ground transport stops being a booking and becomes an operation.",
+      "imageAlt": "Relier SUV on the move during the FIFA World Cup 2026"
     },
     "labels": {
       "ourOperation": "Our operation",
       "theEvent": "The event",
-      "upcoming": "What's coming",
+      "upcoming": "Upcoming events",
       "recent": "Recent events",
       "service": "Service",
       "edition": "Edition",
@@ -257,6 +260,106 @@
           }
         }
       },
+      "nyc-marathon": {
+        "name": "NYC Marathon 2026",
+        "edition": "Five boroughs, one finish line",
+        "dates": "Sunday, Nov 1, 2026 · Staten Island to Central Park",
+        "datesShort": "Nov 1, 2026",
+        "venue": "Staten Island to Central Park · New York",
+        "note": "Five bridges and 26.2 miles of closed streets on the same morning. Crossing town on race day takes a route planned in advance.",
+        "service": "Chauffeur service for race day: hotel to the start area, family moves and a finish-line meet point.",
+        "imageAlt": "Runners on the NYC Marathon course with the Verrazzano-Narrows Bridge behind them"
+      },
+      "holidays-new-york": {
+        "name": "The holidays in New York",
+        "edition": "Rockefeller Center, Radio City, Bryant Park and the Fifth Avenue windows",
+        "dates": "Nov 2026 to Jan 2027 · Rockefeller Center tree lighting Wednesday, Dec 2",
+        "datesShort": "Nov 2026 – Jan 2027",
+        "venue": "Midtown Manhattan · New York",
+        "note": "Radio City's holiday show runs Nov 4 to Jan 4 and Bryant Park's Winter Village opens Oct 28. All of it sits within walking distance and almost none of it is easy to drive.",
+        "service": "Holiday chauffeur service by the hour: shows, dinners and window walks, with your chauffeur waiting.",
+        "imageAlt": "The Rockefeller Center Christmas tree lit at night above the skating rink"
+      },
+      "las-vegas-grand-prix": {
+        "name": "Las Vegas Grand Prix 2026",
+        "edition": "The Las Vegas Grand Prix, a night race on the Strip",
+        "dates": "Nov 19 to Nov 21, 2026 · Race night Saturday 21, 8 p.m. local time",
+        "datesShort": "Nov 19 – 21, 2026",
+        "venue": "Las Vegas Strip Circuit · Las Vegas, Nevada",
+        "note": "The track runs on the Strip itself, past the casinos, and the race starts at 8 p.m. Each hotel has its own way in while the circuit is closed.",
+        "service": "Las Vegas Grand Prix chauffeur service: airport to hotel, hotel to hospitality, and late returns after the checkered flag.",
+        "imageAlt": "The Las Vegas Strip lit up at night"
+      },
+      "thanksgiving-parade": {
+        "name": "Thanksgiving Day Parade",
+        "edition": "The 100th Macy's Thanksgiving Day Parade · since 1924",
+        "dates": "Thursday, Nov 26, 2026 · Steps off 8:30 a.m.",
+        "datesShort": "Nov 26, 2026",
+        "venue": "Central Park West to Herald Square · Manhattan, New York",
+        "note": "The parade runs from 77th Street and Central Park West to Herald Square, and the streets along the route close for the morning. Timing is everything.",
+        "service": "Thanksgiving chauffeur service: early drop-off near your viewing spot and a planned exit before noon.",
+        "imageAlt": "A giant balloon above the crowd at the Macy's Thanksgiving Day Parade"
+      },
+      "art-basel-miami-beach": {
+        "name": "Art Basel Miami Beach 2026",
+        "edition": "272 galleries from more than 40 countries · Miami Art Week",
+        "dates": "Dec 4 to Dec 6, 2026 · VIP Days Dec 2 and 3",
+        "datesShort": "Dec 2 – 6, 2026",
+        "venue": "Miami Beach Convention Center · Miami Beach, Florida",
+        "note": "Collectors cross the causeways several times a day, between the convention center, satellite fairs and private dinners.",
+        "service": "Art Basel Miami Beach chauffeur service: airport and private aviation pickups, VIP-day standby and evening runs between Miami and the Beach.",
+        "imageAlt": "The Art Basel sign on the Miami Beach Convention Center at night"
+      },
+      "new-years-eve-nyc": {
+        "name": "New Year's Eve in Times Square",
+        "edition": "The ball drop at One Times Square",
+        "dates": "Thursday, Dec 31, 2026 · Ball drop 11:59 p.m.",
+        "datesShort": "Dec 31, 2026",
+        "venue": "Times Square · Midtown Manhattan, New York",
+        "note": "Streets around Times Square close well before midnight. Parties are booked months ahead, and so are the cars.",
+        "service": "New Year's Eve chauffeur service: door to door to dinners and parties, with a planned way home after midnight.",
+        "imageAlt": "The New Year's numerals lit up in Times Square at night"
+      },
+      "super-bowl-lxi": {
+        "name": "Super Bowl LXI",
+        "edition": "The NFL championship game, in Los Angeles",
+        "dates": "Sunday, Feb 14, 2027 · Kickoff time to be announced",
+        "datesShort": "Feb 14, 2027",
+        "venue": "SoFi Stadium · Inglewood, Los Angeles, California",
+        "note": "On game day every route to SoFi slows down. Hospitality, parties and the game all run on a single timetable.",
+        "service": "Super Bowl LXI chauffeur service: LAX arrivals, hotel to stadium and post-game returns across Los Angeles.",
+        "imageAlt": "SoFi Stadium in Inglewood lit up at night"
+      },
+      "champions-league-madrid": {
+        "name": "Champions League nights in Madrid",
+        "edition": "Atlético vs Bayern (Nov 3) · Real Madrid vs PSV (Nov 24) · Atlético vs Viking (Nov 25) · Real Madrid vs LASK (Jan 19) · Atlético vs Fenerbahçe (Jan 27)",
+        "dates": "Nov 3, Nov 24 and 25, 2026 · Jan 19 and 27, 2027 · 9 p.m. CET kickoffs",
+        "datesShort": "Nov 3, 2026 – Jan 27, 2027",
+        "venue": "Santiago Bernabéu · Riyadh Air Metropolitano · Madrid",
+        "note": "European nights kick off at 9 p.m., so the streets around the stadium are at their busiest after the final whistle.",
+        "service": "Champions League chauffeur service in Madrid: hotel to stadium and a car waiting at the final whistle.",
+        "imageAlt": "The Santiago Bernabéu full on a match night"
+      },
+      "champions-league-barcelona": {
+        "name": "Champions League nights in Barcelona",
+        "edition": "FC Barcelona vs Aston Villa (Nov 3) · vs Manchester City (Dec 8) · vs Como (Jan 27)",
+        "dates": "Nov 3 and Dec 8, 2026 · Jan 27, 2027 · 9 p.m. CET kickoffs",
+        "datesShort": "Nov 3, 2026 – Jan 27, 2027",
+        "venue": "Spotify Camp Nou · Les Corts, Barcelona",
+        "note": "Three European nights at the Camp Nou, each with a 9 p.m. kickoff and the busiest streets after the final whistle.",
+        "service": "Champions League chauffeur service in Barcelona: hotel to stadium and a car waiting at the final whistle.",
+        "imageAlt": "The Spotify Camp Nou full under the lights on a match night"
+      },
+      "champions-league-final-2027": {
+        "name": "Champions League final · Madrid 2027",
+        "edition": "The final returns to the Riyadh Air Metropolitano",
+        "dates": "Saturday, Jun 5, 2027 · Final weekend in Madrid",
+        "datesShort": "Jun 5, 2027",
+        "venue": "Riyadh Air Metropolitano · Madrid",
+        "note": "The whole city fills up for the final weekend, and hotels and cars go first.",
+        "service": "Final weekend chauffeur service: airport to hotel, hotel to stadium, and standby across the weekend. Planning opens now.",
+        "imageAlt": "The Riyadh Air Metropolitano full under its red roof lights"
+      },
       "us-open": {
         "name": "US Open 2026",
         "edition": "146th US Open",
@@ -266,7 +369,13 @@
         "note": "The courts sit under LaGuardia's approach path. It is the only Grand Slam where you hear the planes land.",
         "service": "Airport transfers and hotel-to-court service, night sessions included.",
         "cta": "Plan your US Open transport",
-        "imageAlt": "Arthur Ashe Stadium filled for a US Open session"
+        "imageAlt": "Arthur Ashe Stadium filled for a US Open session",
+        "metrics": {
+          "services": {
+            "label": "Services in New York, mostly in Cadillac Escalades",
+            "desc": "Every service we ran in New York during the tournament."
+          }
+        }
       },
       "fashion-week": {
         "name": "New York Fashion Week",
@@ -288,7 +397,13 @@
         "note": "Five minutes from Barajas airport. The only Grand Prix you reach from the terminal before the lights go out.",
         "service": "Airport to circuit and hotel to paddock, across the full race weekend.",
         "cta": "Plan your Grand Prix transport",
-        "imageAlt": "A Formula 1 car at speed on the circuit"
+        "imageAlt": "A Formula 1 car at speed on the circuit",
+        "metrics": {
+          "trips": {
+            "label": "Total trips, in V-Class and E-Class",
+            "desc": "Every trip of the race weekend in Madrid."
+          }
+        }
       },
       "un-assembly": {
         "name": "UN General Assembly",
