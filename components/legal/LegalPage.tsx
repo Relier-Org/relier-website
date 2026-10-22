@@ -9,6 +9,7 @@ import {
   LEGAL_LAST_UPDATED,
   privacyContact,
 } from "@/lib/legal/entity";
+import { DEPARTMENTS } from "@/lib/contact/departments";
 import { legalPath, type LegalPageKey } from "@/lib/legal/routes";
 import styles from "./LegalPage.module.css";
 
@@ -35,12 +36,12 @@ interface LegalPageProps {
 
 // Teléfonos y casillas fuera del JSON: las strings los reciben como parámetros
 // ICU, así un cambio de dato no toca los tres idiomas.
-// TODO(cliente): +1 (347) 855-0000 figura como WhatsApp de Affiliates en
-// lib/contact/departments.ts; confirmar que es el número para consultas de
-// clientes que trae el doc "NYC Services & Policies".
-const NY_POLICY_PHONE = { display: "+1 (347) 855-0000", tel: "+13478550000" };
-// TODO(cliente): el doc de España trae "+34 638 00 00 00", que es un
-// placeholder. Hasta tener el número real se publica solo el email.
+// Consultas de clientes en NY: la línea de Reservations, la misma que publica
+// /contact. El +1 (347) 855-0000 del doc "NYC Services & Policies" es el
+// WhatsApp de Affiliates.
+const NY_POLICY_PHONE = DEPARTMENTS.find((d) => d.id === "reservations")!.phone;
+// España: relier.es tampoco publica un número real (solo el placeholder
+// "+34 638 00 00 00"), así que va solo el email.
 const ES_EMAIL = "info@relier.es";
 const RESERVATIONS_EMAIL = "reservations@relier.com";
 
