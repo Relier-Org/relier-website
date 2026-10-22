@@ -1,0 +1,43 @@
+/* Cotizador bajo el hero, sobre el mismo canvas oscuro que /online-reservation. */
+.booking {
+  padding: clamp(72px, 9vw, 112px) 0 clamp(56px, 7vw, 88px);
+  background: var(--ambient-left), var(--bg-canvas);
+  color: var(--text-primary);
+  scroll-margin-top: 72px;
+}
+
+.contact {
+  margin-top: 28px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--color-silver-300);
+}
+
+.contact a {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.contact a:hover {
+  color: var(--text-accent);
+  border-color: currentColor;
+}
+
+/* Cierre de bloque: aclaración chica y centrada con su acción debajo. */
+.after {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.note {
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-silver-300);
+  text-wrap: pretty;
+}

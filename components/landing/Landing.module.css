@@ -224,6 +224,10 @@
   padding: 0;
 }
 
+.steps4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .step {
   display: flex;
   flex-direction: column;
@@ -916,5 +920,229 @@
   }
   .hlItem {
     font-size: 18px;
+  }
+}
+
+/* ─── Stats (Airports, oct-2026) ─── */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-default);
+}
+
+.light .stat {
+  border-top-color: var(--border-on-light-strong);
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-accent);
+  font-variation-settings: "WONK" 0;
+}
+
+.light .statValue {
+  color: var(--accent-on-light);
+}
+
+.statLabel {
+  font-family: var(--font-display);
+  font-size: var(--type-h4);
+  line-height: 1.25;
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+/* ─── Tablero de aeropuertos ─── */
+
+.board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.boardMain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-default);
+}
+
+.boardRow {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.boardCode {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 4.4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--text-accent);
+  font-variation-settings: "WONK" 0;
+}
+
+.boardName {
+  font-family: var(--font-display);
+  font-size: var(--type-h4);
+  line-height: 1.25;
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.boardData {
+  display: flex;
+  gap: 28px;
+  margin: 0;
+}
+
+.boardData dt {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.boardData dd {
+  margin: 6px 0 0;
+  font-size: 15px;
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+
+.boardRegional {
+  padding: 28px 28px 30px;
+  border-radius: var(--radius-md);
+  background: #191713;
+  border: 1px solid #343434;
+}
+
+.boardRegionalTitle {
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.boardRegionalList {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.boardRegionalList li {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.boardCodeSm {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--text-accent);
+  font-variation-settings: "WONK" 0;
+}
+
+.boardRegionalName {
+  margin-bottom: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ─── Zona de servicio ─── */
+
+.areas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.area {
+  padding-top: 20px;
+  border-top: 1px solid var(--border-default);
+}
+
+.light .area {
+  border-top-color: var(--border-on-light-strong);
+}
+
+.areaName {
+  font-family: var(--font-display);
+  font-size: var(--type-h4);
+  line-height: 1.2;
+  font-variation-settings: "WONK" 0;
+}
+
+.areaPlaces {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-silver-300);
+  text-wrap: pretty;
+}
+
+.light .areaPlaces {
+  color: var(--text-on-light-muted);
+}
+
+@media (max-width: 1024px) {
+  .steps4,
+  .stats,
+  .areas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .steps4,
+  .stats,
+  .areas {
+    grid-template-columns: 1fr;
+  }
+  .stats {
+    gap: 28px;
+  }
+  .boardRow {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 8px 16px;
+  }
+  .boardData {
+    grid-column: 2;
+  }
+  .boardRegional {
+    padding: 22px 20px 24px;
   }
 }

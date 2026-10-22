@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
@@ -21,9 +22,11 @@ interface FleetGridProps {
   vehicles: FleetVehicle[];
   lead?: string;
   id?: string;
+  /** Link al pie de la grilla (p. ej. "Explore the full fleet" en Airports). */
+  footer?: ReactNode;
 }
 
-export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps) {
+export default function FleetGrid({ title, vehicles, lead, id, footer }: FleetGridProps) {
   const t = useTranslations("fleet");
   const tc = useTranslations("common");
   return (
@@ -94,6 +97,7 @@ export default function FleetGrid({ title, vehicles, lead, id }: FleetGridProps)
             </Reveal>
           ))}
         </div>
+        {footer ? <div className={styles.footer}>{footer}</div> : null}
       </div>
     </section>
   );

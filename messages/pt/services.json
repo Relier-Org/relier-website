@@ -426,38 +426,363 @@
   },
   "airport": {
     "meta": {
-      "title": "Traslados privados para o aeroporto em Nova York e no mundo | Relier",
-      "description": "Reserve traslados privados para o aeroporto com motoristas profissionais em Nova York e em mais de 500 cidades do mundo, incluindo JFK, LaGuardia e Newark."
+      "title": "Transfer aeroporto NYC | JFK, LaGuardia e Newark | Relier",
+      "description": "Transfer privado para aeroportos em Nova York. Traslados com motorista de e para JFK, LaGuardia e Newark, preço fixo antes de reservar, tempo de espera incluído."
     },
     "hero": {
-      "eyebrow": "Traslados para o aeroporto",
-      "title": "Traslados privados para o aeroporto em todo o mundo",
-      "subtitle": "Viagens confiáveis e confortáveis de e para qualquer aeroporto importante, de JFK, LaGuardia e Newark a mais de 500 cidades em todo o mundo."
+      "eyebrow": "Transfer aeroporto · Nova York",
+      "title": "Transfer para aeroportos em Nova York",
+      "subtitle": "Seu motorista chega antes de você. Traslados com motorista de e para JFK, LaGuardia e Newark, com preço fixo exibido antes de reservar.",
+      "ctaPrice": "Veja seu preço fixo",
+      "ctaCall": "Ligue 24/7"
     },
-    "blocks": {
-      "prompt": {
-        "title": "Pontual e seguro",
-        "p1": "Um transporte terrestre para o aeroporto capaz de oferecer um serviço seguro e rápido é a solução para as dores de cabeça causadas pelo tempo de espera e pelo transporte público confuso. Por que se contentar com menos quando você pode ter acesso a um meio de transporte impecável onde quer que você esteja?",
-        "imageAlt": "Embarque no aeroporto com a Relier"
+    "highlights": [
+      "Preço fixo online",
+      "Tempo de espera incluído",
+      "Dez minutos antes",
+      "Despacho 24/7"
+    ],
+    "booking": {
+      "eyebrow": "Veja seu preço fixo",
+      "title": "Busca no aeroporto? Informe o número do seu voo.",
+      "lead": "Informe o local de busca, o destino e a data, veja o preço fixo e reserve. Toda busca no aeroporto inclui tempo de espera: 60 minutos em chegadas internacionais e 40 em domésticas.",
+      "contact": "Prefere falar com alguém? Ligue para <phone>+1 (844) 735-4371</phone>, 24/7, ou escreva para <mail>info@relier.com</mail>."
+    },
+    "trust": [
+      {
+        "value": "5.0 ★",
+        "label": "412 avaliações verificadas"
       },
-      "noWaiting": {
-        "title": "Sem tempo de espera",
-        "p1": "Evite as longas filas e pegue a estrada assim que sair do aeroporto. Não é preciso se estressar tentando entender o transporte público, pedir uma corrida por aplicativo ou esperar por um táxi. Com um serviço de transporte para o aeroporto, nenhum tempo é desperdiçado e as preocupações desaparecem.",
-        "imageAlt": "Sem espera no aeroporto"
+      {
+        "value": "2012",
+        "label": "Em operação desde"
       },
-      "luxury": {
-        "title": "Luxo em sua melhor forma",
-        "p1": "Além da conveniência de ter um veículo e um motorista para levar você de e para o aeroporto, nosso transporte não para por aí. Nossos carros são equipados com interiores e comodidades de última geração para garantir um trajeto confortável. Aproveite um ambiente com temperatura controlada onde você pode recostar e relaxar.",
-        "imageAlt": "Interior de veículo de luxo"
+      {
+        "value": "24/7",
+        "label": "Central em inglês e espanhol"
+      },
+      {
+        "value": "500+",
+        "label": "Cidades com nossos parceiros"
       }
+    ],
+    "airports": {
+      "eyebrow": "Aeroportos de Nova York",
+      "title": "Transfer para JFK, LaGuardia e Newark",
+      "lead": "Três aeroportos, um único padrão na calçada. A Relier atende JFK, LaGuardia (LGA) e Newark (EWR) com o mesmo padrão de motorista, além dos aeroportos regionais e de aviação privada ao redor da cidade. As distâncias são a partir de Midtown Manhattan e variam conforme o trânsito; seu preço fica fixo no momento da reserva.",
+      "main": [
+        {
+          "code": "JFK",
+          "name": "John F. Kennedy International",
+          "distance": "Cerca de 15 milhas",
+          "time": "40 a 60 min"
+        },
+        {
+          "code": "LGA",
+          "name": "LaGuardia, o aeroporto mais próximo de Midtown",
+          "distance": "Cerca de 8 milhas",
+          "time": "20 a 45 min"
+        },
+        {
+          "code": "EWR",
+          "name": "Newark Liberty International",
+          "distance": "Cerca de 16 milhas",
+          "time": "45 a 60 min"
+        }
+      ],
+      "regionalTitle": "Aeroportos regionais e de aviação privada",
+      "regional": [
+        {
+          "code": "TEB",
+          "name": "Teterboro, aviação privada",
+          "detail": "A 12 milhas ao norte-noroeste de Midtown Manhattan. Buscas em aviação privada incluem 30 minutos de tempo de espera."
+        },
+        {
+          "code": "HPN",
+          "name": "Westchester County Airport, White Plains",
+          "detail": "Cerca de 30 milhas ao norte da cidade de Nova York. Chegadas para Westchester, Greenwich e o litoral de Connecticut."
+        },
+        {
+          "code": "ISP",
+          "name": "Long Island MacArthur, Ronkonkoma",
+          "detail": "A 50 milhas de Manhattan. Chegadas em Long Island, com The Hamptons e North Fork por perto."
+        },
+        {
+          "code": "SWF",
+          "name": "New York Stewart International",
+          "detail": "Cerca de 60 milhas ao norte da cidade de Nova York. Chegadas regionais, com o mesmo padrão de motorista dos aeroportos da cidade."
+        }
+      ],
+      "distanceLabel": "A partir de Midtown",
+      "timeLabel": "Tempo de trajeto",
+      "note": "Os aeroportos regionais e de aviação privada são atendidos com as mesmas políticas de JFK, LaGuardia e Newark. Vai para outro lugar? Qualquer endereço é cotado da mesma forma no formulário acima.",
+      "cta": "Ver meu preço"
+    },
+    "how": {
+      "eyebrow": "Como funciona",
+      "title": "Como funciona nosso serviço de busca no aeroporto",
+      "lead": "Do portão à calçada. Um motorista reservado com antecedência, uma categoria de veículo garantida e um número que atende a qualquer hora.",
+      "steps": [
+        {
+          "title": "Veja o preço e reserve",
+          "body": "Informe o local de busca, o destino e a data, veja o preço fixo e reserve. Não é preciso ligar nem enviar e-mail para pedir um orçamento."
+        },
+        {
+          "title": "Informe o número do seu voo",
+          "body": "Informe-o ao reservar para que o despacho tenha os dados da sua chegada. Se seus planos mudarem, a equipe 24/7 está a uma ligação de distância."
+        },
+        {
+          "title": "Seu motorista chega antes",
+          "body": "Dez minutos antes da busca, na sua porta. No aeroporto, na calçada assim que você estiver com a bagagem, ou na área de retirada de bagagem com recepção personalizada, sob solicitação."
+        },
+        {
+          "title": "O tempo de espera está incluído",
+          "body": "Toda busca inclui tempo de espera, conforme o tipo de chegada. Depois, direto para o seu destino."
+        }
+      ]
+    },
+    "wait": {
+      "eyebrow": "Tempo de espera incluído",
+      "title": "Buscas em Nova York",
+      "lead": "Na calçada assim que você estiver com a bagagem, ou com recepção personalizada na área de retirada de bagagem, sob solicitação.",
+      "items": [
+        {
+          "title": "Chegada internacional · 60 min",
+          "body": "A primeira hora após o pouso está incluída."
+        },
+        {
+          "title": "Chegada doméstica · 40 min",
+          "body": "Quarenta minutos após o pouso, incluídos."
+        },
+        {
+          "title": "Terminal de aviação privada · 30 min",
+          "body": "Trinta minutos após o pouso, incluídos."
+        },
+        {
+          "title": "Casa, hotel ou escritório · 15 min",
+          "body": "Quinze minutos de tolerância na porta."
+        }
+      ],
+      "imageAlt": ""
+    },
+    "included": {
+      "eyebrow": "Política de serviço em Nova York",
+      "title": "O que inclui seu serviço de motorista para o aeroporto, por escrito.",
+      "lead": "Nossa política em Nova York, em quatro números. O que a página de reserva diz é o que chega à calçada.",
+      "items": [
+        {
+          "value": "10 min",
+          "title": "Seu motorista, dez minutos antes",
+          "body": "Na sua porta dez minutos antes da busca. No aeroporto, na calçada assim que você estiver com a bagagem, ou com recepção personalizada na área de retirada de bagagem, sob solicitação."
+        },
+        {
+          "value": "Fixo",
+          "title": "Preço exibido antes de reservar",
+          "body": "Informe os dados da sua viagem, veja o preço fixo e reserve. É simples assim."
+        },
+        {
+          "value": "24/7",
+          "title": "Nossa própria equipe de despacho",
+          "body": "Atende às 3 da manhã do mesmo jeito que às 3 da tarde, em inglês e em espanhol."
+        },
+        {
+          "value": "4 h",
+          "title": "Cancelamento gratuito, sedãs e SUVs",
+          "body": "24 horas para vans e o S-Class, uma semana para ônibus. Os depósitos não são reembolsáveis."
+        }
+      ]
+    },
+    "fleet": {
+      "title": "Frota para o aeroporto: escolha por passageiros e bagagem.",
+      "lead": "Toda reserva garante uma categoria de veículo, o modelo exibido ou similar. Grupos de 24 pessoas ou mais viajam em micro-ônibus de 24 a 40 passageiros ou em um ônibus executivo de 56 passageiros.",
+      "link": "Conheça a frota completa"
+    },
+    "routes": {
+      "eyebrow": "Rotas",
+      "title": "Rotas de aeroporto mais procuradas em Nova York",
+      "lead": "Do terminal à sua porta. Seis rotas frequentes, cada uma nos dois sentidos. Qualquer outro endereço é cotado da mesma forma no formulário acima.",
+      "items": [
+        {
+          "title": "JFK › Manhattan",
+          "body": "Midtown, Downtown, Upper East e Upper West Side. Informe o número do seu voo ao reservar; um sedã leva duas malas, um SUV seis."
+        },
+        {
+          "title": "JFK › Brooklyn & Williamsburg",
+          "body": "Nossa base fica na Kent Avenue, em Williamsburg. De DUMBO, Brooklyn Heights, Park Slope e Greenpoint até JFK, com o motorista na sua porta dez minutos antes da busca."
+        },
+        {
+          "title": "JFK · LGA · EWR › Long Island & The Hamptons",
+          "body": "East Hampton, Southampton, Montauk e North Fork a partir de qualquer um dos três aeroportos. Escolha o SUV para a bagagem, a Sprinter para o grupo todo."
+        },
+        {
+          "title": "JFK · LGA · EWR › Westchester & Connecticut",
+          "body": "White Plains, Scarsdale, Rye, Greenwich, Stamford e New Haven, de porta a porta. O Westchester County Airport (HPN) também é atendido, para chegadas mais perto de casa."
+        },
+        {
+          "title": "EWR › New Jersey",
+          "body": "De Newark a Hoboken, Jersey City e Short Hills, ou do outro lado do rio, a partir de JFK e LaGuardia. Um carro, um preço fixo."
+        },
+        {
+          "title": "Aeroporto › Aeroporto",
+          "body": "Conexões entre JFK, LaGuardia e Newark com pouco tempo. O preço é fixo, o tempo de espera está incluído na chegada e o motorista é agendado para dez minutos antes da busca."
+        }
+      ],
+      "jfkLink": "Por que quem viaja a partir do Brooklyn reserva com a Relier para o JFK"
+    },
+    "areas": {
+      "eyebrow": "Área de atendimento",
+      "title": "Onde buscamos e deixamos você, em Nova York e além.",
+      "lead": "Do Harlem a Montauk e de Hoboken a New Haven, todos os endereços abaixo são atendidos de porta a porta, nos dois sentidos.",
+      "regions": [
+        {
+          "name": "Manhattan",
+          "places": [
+            "Midtown",
+            "Times Square",
+            "Upper East Side",
+            "Upper West Side",
+            "Chelsea",
+            "Tribeca",
+            "SoHo",
+            "West Village",
+            "Hudson Yards",
+            "Financial District",
+            "Harlem"
+          ]
+        },
+        {
+          "name": "Brooklyn",
+          "places": [
+            "Williamsburg",
+            "DUMBO",
+            "Brooklyn Heights",
+            "Park Slope",
+            "Greenpoint",
+            "Bushwick"
+          ]
+        },
+        {
+          "name": "Queens",
+          "places": [
+            "Astoria",
+            "Long Island City",
+            "Flushing"
+          ]
+        },
+        {
+          "name": "Bronx e Staten Island",
+          "places": [
+            "Riverdale"
+          ]
+        },
+        {
+          "name": "Westchester",
+          "places": [
+            "White Plains",
+            "Scarsdale",
+            "Rye"
+          ]
+        },
+        {
+          "name": "Long Island e The Hamptons",
+          "places": [
+            "Nassau County",
+            "Garden City",
+            "East Hampton",
+            "Southampton",
+            "Montauk"
+          ]
+        },
+        {
+          "name": "New Jersey",
+          "places": [
+            "Hoboken",
+            "Jersey City",
+            "Short Hills"
+          ]
+        },
+        {
+          "name": "Connecticut",
+          "places": [
+            "Greenwich",
+            "Stamford",
+            "New Haven"
+          ]
+        }
+      ]
+    },
+    "beyond": {
+      "eyebrow": "Além do aeroporto",
+      "title": "O aeroporto é só a primeira viagem.",
+      "items": [
+        {
+          "id": "hotel",
+          "title": "Do aeroporto ao hotel",
+          "body": "Direto do terminal ao lobby, com a mesma equipe de Nova York e despacho 24/7.",
+          "cta": "Transfer do aeroporto ao hotel"
+        },
+        {
+          "id": "corporate",
+          "title": "Viagens corporativas",
+          "body": "Do hotel à reunião, um motorista por hora para o dia todo ou um programa corporativo completo.",
+          "cta": "Serviço de motorista corporativo"
+        },
+        {
+          "id": "advisors",
+          "title": "Consultores de viagens",
+          "body": "Traslados de aeroporto reservados por consultores de viagens para seus clientes, atendidos pela mesma equipe.",
+          "cta": "Transfer de aeroporto para consultores de viagens"
+        },
+        {
+          "id": "europe",
+          "title": "Seguindo viagem para a Europa?",
+          "body": "Os traslados de aeroporto em Barcelona e em toda a Europa são reservados pela Relier Europe.",
+          "cta": "Relier Europe"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Perguntas",
+      "title": "Perguntas frequentes sobre transfer de aeroporto",
+      "items": [
+        {
+          "q": "Quais aeroportos de Nova York a Relier atende?",
+          "a": "O serviço de transfer de aeroporto da Relier atende JFK, LaGuardia (LGA) e Newark (EWR), além de Westchester County (HPN), Teterboro (TEB) para aviação privada, Long Island MacArthur (ISP) e New York Stewart (SWF), todos com motorista e preço fixo exibido antes de reservar."
+        },
+        {
+          "q": "Quanto tempo de espera está incluído em uma busca no aeroporto?",
+          "a": "Toda busca da Relier em aeroportos de Nova York inclui 60 minutos de tempo de espera em chegadas internacionais, 40 minutos em chegadas domésticas e 30 minutos em terminais de aviação privada. Buscas em casa, hotel ou escritório incluem 15 minutos."
+        },
+        {
+          "q": "E se o meu voo atrasar ou pousar mais cedo?",
+          "a": "Informe o número do seu voo ao reservar para que o despacho tenha os dados da sua chegada. O tempo de espera está incluído em toda chegada, 60 minutos em voos internacionais e 40 em domésticos, e a equipe de despacho 24/7 atende pelo +1 (844) 735-4371 se seus planos mudarem."
+        },
+        {
+          "q": "Onde o motorista vai me encontrar no aeroporto?",
+          "a": "Por padrão, na calçada, assim que você estiver com a bagagem. Se preferir ser recebido dentro do terminal, é possível solicitar ao reservar uma recepção personalizada na área de retirada de bagagem."
+        },
+        {
+          "q": "O preço é fixo antes de reservar?",
+          "a": "Sim. Informe os dados da sua viagem, veja o preço fixo e reserve; não é preciso ligar nem enviar e-mail para pedir um orçamento. Toda reserva garante uma categoria de veículo."
+        },
+        {
+          "q": "Posso cancelar um transfer de aeroporto sem custo?",
+          "a": "Sim, dentro do prazo de aviso do seu veículo: 4 horas ou mais para o sedã executivo e o SUV, 24 horas ou mais para a van executiva e o Mercedes-Benz S-Class, uma semana ou mais para ônibus. Os depósitos não são reembolsáveis."
+        },
+        {
+          "q": "Vocês atendem The Hamptons, Westchester, New Jersey e Connecticut?",
+          "a": "Sim. A Relier faz traslados de aeroporto de porta a porta, nos dois sentidos, entre JFK, LaGuardia ou Newark e Manhattan, Brooklyn, Queens, o Bronx, Staten Island, Long Island e The Hamptons, Westchester, New Jersey e Connecticut."
+        },
+        {
+          "q": "Vocês oferecem transfer de aeroporto fora de Nova York?",
+          "a": "Sim. A Relier tem sede em Nova York e Barcelona e chega a mais de 500 cidades no mundo todo, com operação própria em Nova York e parceiros selecionados em outros destinos. Os traslados de aeroporto em Barcelona e em toda a Europa são reservados pela Relier Europe em relier.es."
+        }
+      ]
     },
     "closer": {
-      "title": "Reserve hoje seu traslado para o aeroporto.",
-      "body": "De JFK e Newark a qualquer aeroporto que atendemos. Sem espera, sem estresse. Reserve online e estaremos lá dez minutos antes do embarque."
-    },
-    "links": {
-      "airportToHotel": "transporte do aeroporto ao hotel",
-      "jfk": "traslados para o aeroporto JFK"
+      "title": "Reserve o carro antes de embarcar.",
+      "body": "JFK, LaGuardia, Newark ou qualquer aeroporto que atendemos: informe os dados da sua viagem, veja o preço fixo e reserve. Para qualquer outra coisa, o despacho atende 24/7 pelo +1 (844) 735-4371.",
+      "cta": "Ver meu preço"
     }
   },
   "concierge": {

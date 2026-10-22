@@ -426,38 +426,363 @@
   },
   "airport": {
     "meta": {
-      "title": "Private Airport Transfers in New York & Worldwide | Relier",
-      "description": "Book private airport transfers with professional chauffeurs in New York and 500+ cities worldwide, including JFK, LaGuardia and Newark."
+      "title": "Airport Car Service NYC | JFK, LaGuardia & Newark | Relier",
+      "description": "Private airport car service in New York. Chauffeured transfers to and from JFK, LaGuardia and Newark, fixed price before you book, wait time included."
     },
     "hero": {
-      "eyebrow": "Airport Transfers",
-      "title": "Private Airport Transfers Worldwide",
-      "subtitle": "Reliable and comfortable rides to and from every major airport, from JFK, LaGuardia and Newark to 500+ cities worldwide."
+      "eyebrow": "Airport transfers · New York",
+      "title": "Airport car service in New York",
+      "subtitle": "Your chauffeur is there before you are. Chauffeured transfers to and from JFK, LaGuardia and Newark, with a fixed price shown before you book.",
+      "ctaPrice": "Get your fixed price",
+      "ctaCall": "Call 24/7"
     },
-    "blocks": {
-      "prompt": {
-        "title": "Prompt And Secure",
-        "p1": "An airport ground transportation that can deliver a safe and fast service is the solution to the headaches brought about by the waiting time and confusing public transport. Why settle for less when you can get access to a seamless mode of transportation wherever you are traveling?",
-        "imageAlt": "Relier airport pickup"
+    "highlights": [
+      "Fixed price online",
+      "Wait time included",
+      "Ten minutes early",
+      "24/7 dispatch"
+    ],
+    "booking": {
+      "eyebrow": "Get your fixed price",
+      "title": "Airport pickup? Add your flight number.",
+      "lead": "Enter pickup, destination and date, see the fixed price, and book. Every airport pickup includes wait time: 60 minutes on international arrivals and 40 on domestic.",
+      "contact": "Prefer to talk? Call <phone>+1 (844) 735-4371</phone>, 24/7, or write to <mail>info@relier.com</mail>."
+    },
+    "trust": [
+      {
+        "value": "5.0 ★",
+        "label": "412 verified reviews"
       },
-      "noWaiting": {
-        "title": "No Waiting Time",
-        "p1": "Skip the long lines and get on the road as soon as you step out of the airport. No need to stress about figuring out the public transport or booking a rideshare and even waiting for a cab. With an airport transportation service, no time is wasted and worry lines will fade away.",
-        "imageAlt": "No waiting at the airport"
+      {
+        "value": "2012",
+        "label": "In service since"
       },
-      "luxury": {
-        "title": "Luxury At Its Finest",
-        "p1": "Aside from the convenience of having a vehicle and chauffeur to take you to and from the airport, our airport transportation doesn't stop there. Our cars are equipped with state-of-the-art interiors and amenities to ensure a comfortable time on the road. Enjoy a temperature-controlled environment where you can sit back and relax.",
-        "imageAlt": "Luxury vehicle interior"
+      {
+        "value": "24/7",
+        "label": "Dispatch in English and Spanish"
+      },
+      {
+        "value": "500+",
+        "label": "Cities with our partners"
       }
+    ],
+    "airports": {
+      "eyebrow": "New York airports",
+      "title": "Airport transfers to JFK, LaGuardia and Newark",
+      "lead": "Three airports, one standard at the curb. Relier serves JFK, LaGuardia (LGA) and Newark (EWR) with the same chauffeur standard, plus the regional and private aviation airports around the city. Distances are from Midtown Manhattan and vary with traffic; your price is fixed when you book.",
+      "main": [
+        {
+          "code": "JFK",
+          "name": "John F. Kennedy International",
+          "distance": "About 15 miles",
+          "time": "40 to 60 min"
+        },
+        {
+          "code": "LGA",
+          "name": "LaGuardia, the closest airport to Midtown",
+          "distance": "About 8 miles",
+          "time": "20 to 45 min"
+        },
+        {
+          "code": "EWR",
+          "name": "Newark Liberty International",
+          "distance": "About 16 miles",
+          "time": "45 to 60 min"
+        }
+      ],
+      "regionalTitle": "Regional and private aviation airports",
+      "regional": [
+        {
+          "code": "TEB",
+          "name": "Teterboro, private aviation",
+          "detail": "12 miles north-northwest of Midtown Manhattan. Private aviation pickups include 30 minutes of wait time."
+        },
+        {
+          "code": "HPN",
+          "name": "Westchester County Airport, White Plains",
+          "detail": "About 30 miles north of New York City. Arrivals for Westchester, Greenwich and the Connecticut coast."
+        },
+        {
+          "code": "ISP",
+          "name": "Long Island MacArthur, Ronkonkoma",
+          "detail": "50 miles from Manhattan. Long Island arrivals, with The Hamptons and the North Fork within reach."
+        },
+        {
+          "code": "SWF",
+          "name": "New York Stewart International",
+          "detail": "About 60 miles north of New York City. Regional arrivals, same chauffeur standard as the city airports."
+        }
+      ],
+      "distanceLabel": "From Midtown",
+      "timeLabel": "Drive time",
+      "note": "Private aviation and regional airports are served with the same policies as JFK, LaGuardia and Newark. Going somewhere else? Any address is priced the same way in the form above.",
+      "cta": "Get my price"
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "How our airport pickup service works",
+      "lead": "From the gate to the curb. A chauffeur booked in advance, a class of vehicle guaranteed, and one number that answers at any hour.",
+      "steps": [
+        {
+          "title": "See the price, then book",
+          "body": "Enter pickup, destination and date, see the fixed price, and book. No need to call or email for a quote."
+        },
+        {
+          "title": "Add your flight number",
+          "body": "Add it when you book so dispatch has your arrival details on file. If your plans change, the 24/7 team is one call away."
+        },
+        {
+          "title": "Your chauffeur arrives early",
+          "body": "Ten minutes before pickup at your door. At the airport, curbside once you have your luggage, or at baggage claim with a meet and greet on request."
+        },
+        {
+          "title": "Wait time is included",
+          "body": "Every pickup includes wait time, by type of arrival. Then straight to your destination."
+        }
+      ]
+    },
+    "wait": {
+      "eyebrow": "Wait time included",
+      "title": "New York pickups",
+      "lead": "Curbside once you have your luggage, or a meet and greet at baggage claim on request.",
+      "items": [
+        {
+          "title": "International arrival · 60 min",
+          "body": "The first hour after landing is included."
+        },
+        {
+          "title": "Domestic arrival · 40 min",
+          "body": "Forty minutes after landing, included."
+        },
+        {
+          "title": "Private aviation terminal · 30 min",
+          "body": "Thirty minutes after wheels down, included."
+        },
+        {
+          "title": "Home, hotel or office · 15 min",
+          "body": "A fifteen-minute grace period at the door."
+        }
+      ],
+      "imageAlt": ""
+    },
+    "included": {
+      "eyebrow": "New York service policy",
+      "title": "What your airport chauffeur service includes, in writing.",
+      "lead": "Our New York policy, in four numbers. What the booking page says is what arrives at the curb.",
+      "items": [
+        {
+          "value": "10 min",
+          "title": "Your chauffeur, ten minutes early",
+          "body": "At your door ten minutes before pickup. At the airport, curbside once you have your luggage, or a meet and greet at baggage claim on request."
+        },
+        {
+          "value": "Fixed",
+          "title": "Price shown before you book",
+          "body": "Enter your ride details, see the fixed price, and book. It's really that simple."
+        },
+        {
+          "value": "24/7",
+          "title": "Our own dispatch team",
+          "body": "Answers at 3 a.m. the way it does at 3 p.m., in English and Spanish."
+        },
+        {
+          "value": "4 h",
+          "title": "Free cancellation, sedans and SUVs",
+          "body": "24 hours for vans and the S-Class, one week for buses. Deposits are non-refundable."
+        }
+      ]
+    },
+    "fleet": {
+      "title": "Airport fleet: choose by passengers and luggage.",
+      "lead": "Every booking guarantees a class of vehicle, the model shown or similar. Groups of 24 or more travel in minibuses for 24 to 40 passengers or a 56-passenger motorcoach.",
+      "link": "Explore the full fleet"
+    },
+    "routes": {
+      "eyebrow": "Routes",
+      "title": "Popular airport routes in New York",
+      "lead": "From the terminal to your door. Six common routes, each in both directions. Any other address is priced the same way in the form above.",
+      "items": [
+        {
+          "title": "JFK › Manhattan",
+          "body": "Midtown, Downtown, Upper East and Upper West Side. Add your flight number when you book; a sedan takes two bags, an SUV six."
+        },
+        {
+          "title": "JFK › Brooklyn & Williamsburg",
+          "body": "Our base is on Kent Avenue in Williamsburg. DUMBO, Brooklyn Heights, Park Slope and Greenpoint to JFK, with the chauffeur at your door ten minutes before pickup."
+        },
+        {
+          "title": "JFK · LGA · EWR › Long Island & The Hamptons",
+          "body": "East Hampton, Southampton, Montauk and the North Fork from any of the three airports. Choose the SUV for luggage, the Sprinter for the whole group."
+        },
+        {
+          "title": "JFK · LGA · EWR › Westchester & Connecticut",
+          "body": "White Plains, Scarsdale, Rye, Greenwich, Stamford and New Haven, door to door. Westchester County Airport (HPN) is covered as well for arrivals closer to home."
+        },
+        {
+          "title": "EWR › New Jersey",
+          "body": "Newark to Hoboken, Jersey City and Short Hills, or across the river from JFK and LaGuardia. One car, one fixed price."
+        },
+        {
+          "title": "Airport › Airport",
+          "body": "Connecting between JFK, LaGuardia and Newark on a tight window. The price is fixed, wait time is included on arrival, and the chauffeur is scheduled ten minutes before pickup."
+        }
+      ],
+      "jfkLink": "Why Brooklyn travelers book Relier for JFK"
+    },
+    "areas": {
+      "eyebrow": "Service area",
+      "title": "Where we pick up and drop off, in New York and beyond.",
+      "lead": "From Harlem to Montauk and Hoboken to New Haven, every address below is served door to door, in both directions.",
+      "regions": [
+        {
+          "name": "Manhattan",
+          "places": [
+            "Midtown",
+            "Times Square",
+            "Upper East Side",
+            "Upper West Side",
+            "Chelsea",
+            "Tribeca",
+            "SoHo",
+            "West Village",
+            "Hudson Yards",
+            "Financial District",
+            "Harlem"
+          ]
+        },
+        {
+          "name": "Brooklyn",
+          "places": [
+            "Williamsburg",
+            "DUMBO",
+            "Brooklyn Heights",
+            "Park Slope",
+            "Greenpoint",
+            "Bushwick"
+          ]
+        },
+        {
+          "name": "Queens",
+          "places": [
+            "Astoria",
+            "Long Island City",
+            "Flushing"
+          ]
+        },
+        {
+          "name": "Bronx and Staten Island",
+          "places": [
+            "Riverdale"
+          ]
+        },
+        {
+          "name": "Westchester",
+          "places": [
+            "White Plains",
+            "Scarsdale",
+            "Rye"
+          ]
+        },
+        {
+          "name": "Long Island and The Hamptons",
+          "places": [
+            "Nassau County",
+            "Garden City",
+            "East Hampton",
+            "Southampton",
+            "Montauk"
+          ]
+        },
+        {
+          "name": "New Jersey",
+          "places": [
+            "Hoboken",
+            "Jersey City",
+            "Short Hills"
+          ]
+        },
+        {
+          "name": "Connecticut",
+          "places": [
+            "Greenwich",
+            "Stamford",
+            "New Haven"
+          ]
+        }
+      ]
+    },
+    "beyond": {
+      "eyebrow": "Beyond the airport",
+      "title": "The airport is only the first ride.",
+      "items": [
+        {
+          "id": "hotel",
+          "title": "Airport to hotel",
+          "body": "Straight from the terminal to the lobby, with the same New York team and 24/7 dispatch.",
+          "cta": "Airport to hotel transportation"
+        },
+        {
+          "id": "corporate",
+          "title": "Corporate travel",
+          "body": "Hotel to the meeting, an hourly chauffeur for the day, or a full corporate program.",
+          "cta": "Corporate chauffeur service"
+        },
+        {
+          "id": "advisors",
+          "title": "Travel advisors",
+          "body": "Airport transfers placed by travel advisors for their clients, handled by the same team.",
+          "cta": "Airport transfers for travel advisors"
+        },
+        {
+          "id": "europe",
+          "title": "Flying on to Europe?",
+          "body": "Airport transfers in Barcelona and across Europe are booked through Relier Europe.",
+          "cta": "Relier Europe"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Airport car service FAQ",
+      "items": [
+        {
+          "q": "Which New York airports does Relier serve?",
+          "a": "Relier's airport car service covers JFK, LaGuardia (LGA) and Newark (EWR), plus Westchester County (HPN), Teterboro (TEB) for private aviation, Long Island MacArthur (ISP) and New York Stewart (SWF), all with a chauffeur and a fixed price shown before you book."
+        },
+        {
+          "q": "How much wait time is included in an airport pickup?",
+          "a": "Every Relier airport pickup in New York includes 60 minutes of wait time on international arrivals, 40 minutes on domestic arrivals and 30 minutes at private aviation terminals. Pickups at a home, hotel or office include 15 minutes."
+        },
+        {
+          "q": "What happens if my flight is delayed or lands early?",
+          "a": "Add your flight number when you book so dispatch has your arrival details. Wait time is included on every arrival, 60 minutes international and 40 domestic, and the 24/7 dispatch team is reachable at +1 (844) 735-4371 if your plans change."
+        },
+        {
+          "q": "Where will my chauffeur meet me at the airport?",
+          "a": "Curbside, by default, once you have your luggage. If you prefer to be met inside the terminal, a meet and greet at baggage claim is available on request when you book."
+        },
+        {
+          "q": "Is the price fixed before I book?",
+          "a": "Yes. Enter your ride details, see the fixed price, and book; no need to call or email for a quote. Every booking guarantees a class of vehicle."
+        },
+        {
+          "q": "Can I cancel an airport transfer free of charge?",
+          "a": "Yes, within the notice window for your vehicle: 4 or more hours for the executive sedan and the SUV, 24 or more hours for the executive van and the Mercedes-Benz S-Class, one week or more for buses. Deposits are non-refundable."
+        },
+        {
+          "q": "Do you cover the Hamptons, Westchester, New Jersey and Connecticut?",
+          "a": "Yes. Relier runs airport transfers door to door, in both directions, between JFK, LaGuardia or Newark and Manhattan, Brooklyn, Queens, the Bronx, Staten Island, Long Island and the Hamptons, Westchester, New Jersey and Connecticut."
+        },
+        {
+          "q": "Do you offer airport transfers outside New York?",
+          "a": "Yes. Relier is headquartered in New York and Barcelona and reaches more than 500 cities worldwide through its own New York operation and selected partners elsewhere. Airport transfers in Barcelona and across Europe are booked through Relier Europe at relier.es."
+        }
+      ]
     },
     "closer": {
-      "title": "Reserve your airport transfer today.",
-      "body": "From JFK and Newark to any airport we cover. No waiting, no stress. Book online and we'll be there ten minutes before pickup."
-    },
-    "links": {
-      "airportToHotel": "airport to hotel transportation",
-      "jfk": "JFK airport transfers"
+      "title": "Book the car before you board.",
+      "body": "JFK, LaGuardia, Newark or any airport we serve: enter your ride details, see the fixed price, and book. For anything else, dispatch answers 24/7 at +1 (844) 735-4371.",
+      "cta": "Get my price"
     }
   },
   "concierge": {

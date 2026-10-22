@@ -131,6 +131,8 @@ const SERVICE_LANDINGS: Record<string, LandingConfig> = {
     path: "/airport",
     ns: "services.airport",
     serviceType: "Airport transfers",
+    // Landing de Airports (oct-2026): Nueva York, con los tres aeropuertos.
+    areaServed: [{ "@type": "City", name: "New York" }],
     crumb: "airport",
     parent: "services",
   },
@@ -552,14 +554,23 @@ export async function landingNodes(
         { name: labels[cfg.crumb], path: cfg.path },
       ],
     }),
-    {
-      "@type": "FAQPage",
-      "@id": `${pageUrl(locale, cfg.path)}#faq`,
-      mainEntity: faq.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
+    faqPageNode(locale, cfg.path, faq),
   ];
+}
+
+/** FAQPage con las mismas preguntas que la sección visible (criterio T04). */
+export function faqPageNode(
+  locale: string,
+  path: string,
+  faq: { q: string; a: string }[]
+): SchemaNode {
+  return {
+    "@type": "FAQPage",
+    "@id": `${pageUrl(locale, path)}#faq`,
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 }
