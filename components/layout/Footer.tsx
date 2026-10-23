@@ -83,7 +83,7 @@ export default async function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.logo} aria-label={t("footer.aria.home")}>
               <Image
-                src="/images/relier-logo-stacked.png"
+                src="/images/relier-logo-stacked-v2.png"
                 alt="Relier"
                 width={256}
                 height={240}

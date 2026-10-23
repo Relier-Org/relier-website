@@ -27,7 +27,7 @@ export default function NotFound() {
       <main className={styles.page}>
         <section className={styles.card}>
           <Image
-            src="/images/relier-logo-stacked.png"
+            src="/images/relier-logo-stacked-v2.png"
             alt="Relier"
             width={256}
             height={240}

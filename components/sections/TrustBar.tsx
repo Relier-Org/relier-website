@@ -9,6 +9,9 @@ export type TrustBadge = {
   modifier?: keyof typeof styles;
 };
 
+// Los -v2 son los logos re-encodeados a la medida (perf oct-2026). Con caché
+// larga y sin hash en el nombre, un archivo reemplazado se renombra: si no,
+// Cloudflare sigue sirviendo el viejo.
 const BADGES: TrustBadge[] = [
   {
     name: "Virtuoso Preferred Partner",
@@ -17,19 +20,19 @@ const BADGES: TrustBadge[] = [
   },
   {
     name: "National Limousine Association",
-    src: "/images/partners/nla.webp",
+    src: "/images/partners/nla-v2.webp",
     href: "https://www.limo.org/",
     modifier: "logoFlip",
   },
   {
     name: "NYC Association of Hotel Concierges",
-    src: "/images/partners/nycahc.webp",
+    src: "/images/partners/nycahc-v2.webp",
     href: "https://nycahc.org/",
     modifier: "logoFlip",
   },
   {
     name: "PAX Professional Chauffeur Certification",
-    src: "/images/partners/pax.webp",
+    src: "/images/partners/pax-v2.webp",
     href: "https://paxtraining.com/courses/chauffeur-certification/",
     modifier: "logoSeal",
   },
