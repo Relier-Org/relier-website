@@ -79,7 +79,6 @@ export default async function AirportPage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("services.airport");
   const tf = await getTranslations("fleet");
-  const th = await getTranslations("home.hero");
 
   const faq = t.raw("faq.items") as FaqItem[];
 
@@ -218,19 +217,14 @@ export default async function AirportPage({ params }: PageProps) {
           <Steps items={items(t.raw("how.steps"))} columns={4} rail />
         </Band>
 
-        {/* El reel propio de Relier de una recogida en aeropuerto (terminal,
-            valijas, vereda, hotel): es literalmente lo que cuenta el bloque.
-            Reemplaza a la foto de la pasajera en la calle (revisión de la
-            landing, oct-2026). La foto queda de poster. */}
+        {/* Foto de Nueva York. El reel de recogida en aeropuerto que hay en el
+            IG está filmado en Ezeiza y no puede ir en "New York pickups"
+            (Nico, 23-oct-2026); cuando llegue un video de aeropuerto de NY,
+            va con la prop `video` de Split. */}
         <Band>
           <Split
-            image="/images/socials/landing.webp"
-            imageAlt=""
-            video={{
-              src: "/videos/socials/landing.mp4",
-              pauseLabel: th("pauseVideo"),
-              playLabel: th("playVideo"),
-            }}
+            image="/images/services/airport/no-waiting.webp"
+            imageAlt={t("wait.imageAlt")}
             eyebrow={t("wait.eyebrow")}
             title={t("wait.title")}
             lead={t("wait.lead")}
