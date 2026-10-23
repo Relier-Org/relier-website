@@ -4,29 +4,29 @@
 
 ## Core pages
 
-- https://relier.com/ — Main site and company overview
-- https://relier.com/about/ — Company, operations, memberships and track record
-- https://relier.com/services/ — Chauffeured transportation services
-- https://relier.com/fleet/ — Vehicle classes and group transportation options
-- https://relier.com/for-business/ — Business transportation hub
-- https://relier.com/signature-events/ — Major event transportation experience
-- https://relier.com/contact/ — Contact and inquiry routing
+- [Home](https://relier.com/): Main site and company overview
+- [About](https://relier.com/about/): Company, operations, memberships and track record
+- [Services](https://relier.com/services/): Chauffeured transportation services
+- [Fleet](https://relier.com/fleet/): Vehicle classes and group transportation options
+- [For Business](https://relier.com/for-business/): Business transportation hub
+- [Signature Events](https://relier.com/signature-events/): Major event transportation experience
+- [Contact](https://relier.com/contact/): Contact and inquiry routing
 
 ## Core services
 
-- https://relier.com/transfers/ — Private point-to-point transfers
-- https://relier.com/hourly/ — Hourly / as-directed chauffeur service
-- https://relier.com/airport/ — Airport transfers
-- https://relier.com/corporate/ — Corporate chauffeur service
-- https://relier.com/events/ — Event and production transportation
-- https://relier.com/concierge/ — Concierge transportation
+- [Transfers](https://relier.com/transfers/): Private point-to-point transfers
+- [Hourly](https://relier.com/hourly/): Hourly / as-directed chauffeur service
+- [Airport transfers](https://relier.com/airport/): Airport transfers
+- [Corporate](https://relier.com/corporate/): Corporate chauffeur service
+- [Events](https://relier.com/events/): Event and production transportation
+- [Concierge](https://relier.com/concierge/): Concierge transportation
 
 ## Business segments
 
-- https://relier.com/travel-advisors/ — Travel advisors and agencies
-- https://relier.com/corporate-transportation/ — Corporate transportation accounts
-- https://relier.com/event-transportation/ — Artists, crews and productions
-- https://relier.com/affiliate-partners/ — Chauffeured transportation affiliate partners
+- [Travel advisors](https://relier.com/travel-advisors/): Travel advisors and agencies
+- [Corporate transportation](https://relier.com/corporate-transportation/): Corporate transportation accounts
+- [Event transportation](https://relier.com/event-transportation/): Artists, crews and productions
+- [Affiliate partners](https://relier.com/affiliate-partners/): Chauffeured transportation affiliate partners
 
 ## Coverage
 
@@ -36,8 +36,8 @@
 
 ## Contact
 
-- Website: https://relier.com/
-- Contact: https://relier.com/contact/
+- [Website](https://relier.com/)
+- [Contact](https://relier.com/contact/)
 - Phone: +1 844 735 4371
 
 ## Notes for assistants and crawlers
