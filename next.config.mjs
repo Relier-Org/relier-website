@@ -140,6 +140,10 @@ const nextConfig = {
   poweredByHeader: false,
   // Match relier.com legacy URLs (/about/, /<post-slug>/, etc.) for SEO continuity.
   trailingSlash: true,
+  // AVIF primero, WebP de respaldo (perf oct-2026): mismo aspecto, menos bytes.
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   experimental: {
     optimizePackageImports: ["gsap"],
   },

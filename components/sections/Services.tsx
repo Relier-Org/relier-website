@@ -27,7 +27,8 @@ const SERVICES = [
     key: "transfers",
     image: "/images/home/vehicle.webp",
     slot: "slotHero",
-    sizes: "(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 25vw",
+    // Medidos (oct-2026): ~90vw de ancho en mobile, 40vw los del bento.
+    sizes: "(max-width: 720px) 90vw, (max-width: 1024px) 50vw, 25vw",
   },
   {
     href: "/hourly",
@@ -35,7 +36,7 @@ const SERVICES = [
     key: "hourly",
     image: "/images/home/airport.webp",
     slot: "slotTall",
-    sizes: "(max-width: 1024px) 50vw, 25vw",
+    sizes: "(max-width: 720px) 40vw, (max-width: 1024px) 50vw, 25vw",
   },
   {
     href: "/corporate",
@@ -43,7 +44,7 @@ const SERVICES = [
     key: "corporate",
     image: "/images/home/corporate.webp",
     slot: "slotA",
-    sizes: "(max-width: 1024px) 50vw, 25vw",
+    sizes: "(max-width: 720px) 40vw, (max-width: 1024px) 50vw, 25vw",
   },
   {
     href: "/events",
@@ -51,7 +52,7 @@ const SERVICES = [
     key: "events",
     image: "/images/home/events.webp",
     slot: "slotB",
-    sizes: "(max-width: 1024px) 50vw, 25vw",
+    sizes: "(max-width: 720px) 40vw, (max-width: 1024px) 50vw, 25vw",
   },
 ] as const;
 

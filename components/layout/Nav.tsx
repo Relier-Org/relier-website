@@ -275,6 +275,8 @@ export default function Nav() {
               width={683}
               height={240}
               priority
+              // Se ve a 68-131px de ancho: sin sizes bajaba la variante de 750.
+              sizes="(max-width: 720px) 110px, 132px"
               className={styles.logoImg}
             />
           </Link>
@@ -429,6 +431,7 @@ export default function Nav() {
                 alt="Relier"
                 width={683}
                 height={240}
+                sizes="(max-width: 720px) 110px, 132px"
                 className={styles.logoImg}
               />
             </Link>
