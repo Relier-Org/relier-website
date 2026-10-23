@@ -1,10 +1,12 @@
 .frame {
-  /* Rendered height of the horizontalv2 bar, measured 2026-08-05 on config 13
-     (329px from ~601px up, 665px once the form's own CSS stacks the fields at
-     600px). Only reserves space until the embed reports its real height, so a
-     drift after a panel CSS change is cosmetic. Override per consumer with
+  /* Alto de la caja del horizontalv2 (config 13, CSS #7) por tramo de ancho,
+     medido en producción el 23-oct-2026 (alto informado + 3px de línea base):
+     761 hasta ~700px, 488 ~720, 402 ~767-1060, 316 ~1100-1180 y 278 desde
+     ~1200. Los cortes del form dependen del ancho del iframe, no del viewport,
+     así que en los bordes puede quedar un salto chico; desde el primer mensaje
+     del form manda su alto real (data-locked). Override per consumer with
      --embed-placeholder. */
-  --embed-placeholder-fallback: 329px;
+  --embed-placeholder-fallback: 278px;
 
   position: relative;
 }
@@ -13,7 +15,8 @@
    only shrinks it once the form measures itself and posts its real height. Hold
    the collapsed height until then, so the resize never lands as a layout jump
    and the skeleton has a box to fill. */
-.frame:not([data-ready="true"]) {
+.frame:not([data-ready="true"]),
+.frame[data-locked="true"] {
   min-height: var(--embed-placeholder, var(--embed-placeholder-fallback));
   max-height: var(--embed-placeholder, var(--embed-placeholder-fallback));
   overflow: hidden;
@@ -82,9 +85,27 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1190px) {
   .frame {
-    --embed-placeholder-fallback: 665px;
+    --embed-placeholder-fallback: 316px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .frame {
+    --embed-placeholder-fallback: 402px;
+  }
+}
+
+@media (max-width: 740px) {
+  .frame {
+    --embed-placeholder-fallback: 488px;
+  }
+}
+
+@media (max-width: 700px) {
+  .frame {
+    --embed-placeholder-fallback: 761px;
   }
 }
 

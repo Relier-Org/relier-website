@@ -23,6 +23,7 @@ export default function ReservationWidget({
   className,
 }: { configId?: string; className?: string }) {
   const outerRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
 
   // Begin downloading the loader before hydration starts.
@@ -63,7 +64,14 @@ export default function ReservationWidget({
       } catch {
         return;
       }
-      if (parseInt(String(data?.height ?? ''), 10) > 0) {
+      const height = parseFloat(String(data?.height ?? ''));
+      if (height > 0) {
+        // La caja toma el alto que informa el form y lo sostiene (perf
+        // oct-2026, CLS): el iframe arranca más alto y se achica animado, y
+        // sin este tope cada paso de esa animación empujaba al hero. +3px: el
+        // hueco de línea base del iframe inline, medido igual en todos los anchos.
+        frameRef.current?.style.setProperty('--embed-placeholder', `${Math.ceil(height) + 3}px`);
+        frameRef.current?.setAttribute('data-locked', 'true');
         settle();
       }
     };
@@ -128,6 +136,7 @@ export default function ReservationWidget({
 
   return (
     <div
+      ref={frameRef}
       className={cn(styles.frame, className)}
       data-ready={ready ? 'true' : undefined}
     >
