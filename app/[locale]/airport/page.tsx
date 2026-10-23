@@ -188,10 +188,6 @@ export default async function AirportPage({ params }: PageProps) {
           icons={[ShieldTickIcon, CalendarIcon, CarIcon, PhoneIcon]}
         />
 
-        <Band>
-          <Stats items={t.raw("trust") as Stat[]} />
-        </Band>
-
         <Band id="airports">
           <Head
             eyebrow={t("airports.eyebrow")}
@@ -300,7 +296,11 @@ export default async function AirportPage({ params }: PageProps) {
           reviewPillMode="none"
         />
 
+        {/* Las cifras de Relier van en la sección que habla de Relier más allá
+            del aeropuerto; debajo del cotizador quedaban pegadas a la franja
+            de puntos fuertes (Nico, oct-2026). */}
         <RelatedLinks
+          intro={<Stats items={t.raw("trust") as Stat[]} rail />}
           gridClassName="mobileRail"
           eyebrow={t("beyond.eyebrow")}
           title={t("beyond.title")}
