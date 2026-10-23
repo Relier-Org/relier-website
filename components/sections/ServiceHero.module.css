@@ -76,6 +76,38 @@
   animation: fadeUp 1.2s var(--ease-out) 0.7s both;
 }
 
+/* Etiquetas de puntos fuertes (Airports, oct-2026): reemplazan a la franja
+   de 4 columnas que quedaba pegada a la de cifras. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+  animation: fadeUp 1.2s var(--ease-out) 0.85s both;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-silver-200);
+  text-shadow: var(--text-shadow-lead);
+}
+
+.chip svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-accent);
+  flex-shrink: 0;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -100,5 +132,13 @@
   }
   .lead {
     font-size: 15px;
+  }
+  .chips {
+    gap: 10px 16px;
+    margin-top: 26px;
+  }
+  .chip {
+    font-size: 11px;
+    letter-spacing: 0.1em;
   }
 }

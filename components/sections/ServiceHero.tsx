@@ -13,6 +13,8 @@ interface ServiceHeroProps {
   className?: string;
   /** Botones bajo el subtítulo (landings B2B, oct-2026). */
   actions?: ReactNode;
+  /** Puntos fuertes cortos bajo los botones, como etiquetas (Airports). */
+  chips?: { label: string; icon?: ReactNode }[];
 }
 
 export default function ServiceHero({
@@ -23,6 +25,7 @@ export default function ServiceHero({
   imageAlt = "",
   className,
   actions,
+  chips,
 }: ServiceHeroProps) {
   return (
     <section className={cn(styles.hero, className)}>
@@ -41,6 +44,16 @@ export default function ServiceHero({
         <h1 className={styles.h1}>{title}</h1>
         {subtitle && <p className={styles.lead}>{subtitle}</p>}
         {actions ? <div className={styles.actions}>{actions}</div> : null}
+        {chips?.length ? (
+          <ul className={styles.chips}>
+            {chips.map((c) => (
+              <li key={c.label} className={styles.chip}>
+                {c.icon}
+                {c.label}
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </div>
     </section>
   );
