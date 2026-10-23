@@ -323,3 +323,32 @@ input, select { font: inherit; color: inherit; outline: none; }
 :root img[src*="transfers%2Fstress-free.webp"] { object-position: center 80%; }
 :root img[src*="airport%2Fprompt.webp"] { object-position: center 72%; }
 :root img[src*="corporate%2Fhero.webp"] { object-position: 38% center; }
+
+/* ─── Riel horizontal en mobile (Airports, oct-2026) ───
+   Grillas de tarjetas que en mobile se apilaban en columnas larguísimas pasan
+   a una fila deslizable con la siguiente tarjeta asomando, como los reels del
+   home. Desde 721px no hace nada: manda la grilla del componente. Va con
+   !important porque pisa el display/gap de cada módulo. */
+@media (max-width: 720px) {
+  .mobileRail {
+    display: flex !important;
+    gap: 14px !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    margin-inline: calc(50% - 50vw);
+    padding-inline: var(--inset);
+    scroll-padding-inline: var(--inset);
+    scrollbar-width: none;
+  }
+
+  .mobileRail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobileRail > * {
+    flex: 0 0 82%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+}

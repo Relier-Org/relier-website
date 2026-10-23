@@ -9,6 +9,7 @@ import Faq, { type FaqItem } from "@/components/sections/Faq";
 import FleetGrid, { type FleetVehicle } from "@/components/sections/FleetGrid";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import Testimonials from "@/components/sections/Testimonials";
+import Image from "next/image";
 import ReservationWidget from "@/components/ReservationWidget";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
@@ -78,6 +79,7 @@ export default async function AirportPage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("services.airport");
   const tf = await getTranslations("fleet");
+  const th = await getTranslations("home.hero");
 
   const faq = t.raw("faq.items") as FaqItem[];
 
@@ -213,13 +215,22 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Band tone="light" id="how">
           <Head eyebrow={t("how.eyebrow")} title={t("how.title")} lead={t("how.lead")} />
-          <Steps items={items(t.raw("how.steps"))} columns={4} />
+          <Steps items={items(t.raw("how.steps"))} columns={4} rail />
         </Band>
 
+        {/* El reel propio de Relier de una recogida en aeropuerto (terminal,
+            valijas, vereda, hotel): es literalmente lo que cuenta el bloque.
+            Reemplaza a la foto de la pasajera en la calle (revisión de la
+            landing, oct-2026). La foto queda de poster. */}
         <Band>
           <Split
-            image="/images/services/airport/no-waiting.webp"
-            imageAlt={t("wait.imageAlt")}
+            image="/images/socials/landing.webp"
+            imageAlt=""
+            video={{
+              src: "/videos/socials/landing.mp4",
+              pauseLabel: th("pauseVideo"),
+              playLabel: th("playVideo"),
+            }}
             eyebrow={t("wait.eyebrow")}
             title={t("wait.title")}
             lead={t("wait.lead")}
@@ -233,11 +244,25 @@ export default async function AirportPage({ params }: PageProps) {
             title={t("included.title")}
             lead={t("included.lead")}
           />
-          <Stats
-            items={(t.raw("included.items") as (Stat & { title: string })[]).map(
-              (it) => ({ value: it.value, label: it.title, body: it.body })
-            )}
-          />
+          {/* Cifras en 2×2 con una foto al lado: la sección era sólo texto.
+              Choferes esperando junto a la flota, la que la v3 asignaba acá. */}
+          <div className={styles.included}>
+            <Stats
+              columns={2}
+              rail
+              items={(t.raw("included.items") as (Stat & { title: string })[]).map(
+                (it) => ({ value: it.value, label: it.title, body: it.body })
+              )}
+            />
+            <Reveal className={styles.includedPhoto}>
+              <Image
+                src="/images/services/airport/prompt.webp"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </Reveal>
+          </div>
         </Band>
 
         <FleetGrid
@@ -245,6 +270,7 @@ export default async function AirportPage({ params }: PageProps) {
           lead={t("fleet.lead")}
           vehicles={fleet}
           id="fleet"
+          gridClassName={`${styles.fleetRow} mobileRail`}
           footer={
             <Button href="/fleet" variant="secondary">
               {t("fleet.link")}
@@ -254,7 +280,7 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Band id="routes">
           <Head eyebrow={t("routes.eyebrow")} title={t("routes.title")} lead={t("routes.lead")} />
-          <Cards items={items(t.raw("routes.items"))} columns={3} />
+          <Cards items={items(t.raw("routes.items"))} columns={3} rail />
           {/* Hub → child del roadmap SEO (sep-2026): este link venía de la
               página anterior y no se pierde. */}
           <div className={styles.after}>
@@ -275,6 +301,7 @@ export default async function AirportPage({ params }: PageProps) {
         />
 
         <RelatedLinks
+          gridClassName="mobileRail"
           eyebrow={t("beyond.eyebrow")}
           title={t("beyond.title")}
           items={beyond

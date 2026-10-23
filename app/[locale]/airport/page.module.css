@@ -41,3 +41,49 @@
   color: var(--color-silver-300);
   text-wrap: pretty;
 }
+
+/* "What's included": cifras 2×2 a la izquierda y foto a la derecha. */
+.included {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: stretch;
+}
+
+.includedPhoto {
+  position: relative;
+  min-height: 420px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-on-light);
+}
+
+.includedPhoto img {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Flota en una fila de cuatro en desktop (era un 2×2 de 1.600px de alto). */
+@media (min-width: 1100px) {
+  .fleetRow {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .included {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .includedPhoto {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 720px) {
+  /* En mobile la foto va primero, como en los Split. */
+  .includedPhoto {
+    order: -1;
+  }
+}

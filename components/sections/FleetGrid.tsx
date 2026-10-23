@@ -24,9 +24,11 @@ interface FleetGridProps {
   id?: string;
   /** Link al pie de la grilla (p. ej. "Explore the full fleet" en Airports). */
   footer?: ReactNode;
+  /** Clase extra para la grilla (otra cantidad de columnas, riel en mobile). */
+  gridClassName?: string;
 }
 
-export default function FleetGrid({ title, vehicles, lead, id, footer }: FleetGridProps) {
+export default function FleetGrid({ title, vehicles, lead, id, footer, gridClassName }: FleetGridProps) {
   const t = useTranslations("fleet");
   const tc = useTranslations("common");
   return (
@@ -38,7 +40,10 @@ export default function FleetGrid({ title, vehicles, lead, id, footer }: FleetGr
           {lead && <p className={styles.lead}>{lead}</p>}
         </Reveal>
 
-        <div className={styles.grid} data-count={vehicles.length}>
+        <div
+          className={gridClassName ? `${styles.grid} ${gridClassName}` : styles.grid}
+          data-count={vehicles.length}
+        >
           {vehicles.map((v, i) => (
             <Reveal
               key={v.name}

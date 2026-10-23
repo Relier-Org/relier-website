@@ -13,6 +13,8 @@ interface RelatedLinksProps {
       `cta` de cada una es el anchor del plan de internal linking. */
   items: SegmentCard[];
   className?: string;
+  /** Clase extra para la grilla de cards (p. ej. riel en mobile). */
+  gridClassName?: string;
 }
 
 /**
@@ -26,6 +28,7 @@ export default function RelatedLinks({
   title,
   items,
   className,
+  gridClassName,
 }: RelatedLinksProps) {
   return (
     <section className={cn(styles.section, className)}>
@@ -36,7 +39,7 @@ export default function RelatedLinks({
         </Reveal>
         <SegmentCards
           items={items}
-          className={items.length === 3 ? styles.grid3 : undefined}
+          className={cn(items.length === 3 && styles.grid3, gridClassName)}
         />
       </div>
     </section>

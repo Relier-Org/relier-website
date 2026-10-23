@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ComponentType, ReactNode } from "react";
 import Reveal from "@/components/effects/Reveal";
+import AmbientVideo from "@/components/ui/AmbientVideo";
 import type { IconProps } from "@/components/icons/types";
 import { project } from "@/lib/coverage/data";
 import NameMarquee from "./NameMarquee";
@@ -102,13 +103,16 @@ export function Cards({
   items,
   columns = 3,
   numbered = false,
+  rail = false,
 }: {
   items: Item[];
   columns?: 3 | 4 | 5;
   numbered?: boolean;
+  /** En mobile, fila deslizable en vez de columna (utilidad .mobileRail). */
+  rail?: boolean;
 }) {
   return (
-    <ul className={cn(styles.cards, styles[`cols${columns}`])}>
+    <ul className={cn(styles.cards, styles[`cols${columns}`], rail && "mobileRail")}>
       {items.map((it, i) => (
         <Reveal
           as="li"
@@ -132,14 +136,16 @@ export function Steps({
   items,
   note,
   columns = 3,
+  rail = false,
 }: {
   items: Item[];
   note?: string;
   columns?: 3 | 4;
+  rail?: boolean;
 }) {
   return (
     <>
-      <ol className={cn(styles.steps, columns === 4 && styles.steps4)}>
+      <ol className={cn(styles.steps, columns === 4 && styles.steps4, rail && "mobileRail")}>
         {items.map((it, i) => (
           <Reveal
             as="li"
@@ -308,6 +314,7 @@ export function IconColumns({
 export function Split({
   image,
   imageAlt = "",
+  video,
   reverse = false,
   eyebrow,
   title,
@@ -317,6 +324,8 @@ export function Split({
 }: {
   image: string;
   imageAlt?: string;
+  /** Video mudo en loop en lugar de la foto (`image` queda como poster). */
+  video?: { src: string; pauseLabel: string; playLabel: string };
   reverse?: boolean;
   eyebrow: string;
   title: string;
@@ -326,14 +335,38 @@ export function Split({
 }) {
   return (
     <div className={cn(styles.split, reverse && styles.splitReverse)}>
-      <Reveal className={styles.splitMedia}>
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className={styles.splitImg}
-        />
+      <Reveal className={cn(styles.splitMedia, video && styles.splitMediaVideo)}>
+        {video ? (
+          <AmbientVideo
+            src={video.src}
+            preload="none"
+            playInView
+            wrapClassName={styles.splitVideoWrap}
+            className={styles.splitVideo}
+            before={
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className={styles.splitImg}
+              />
+            }
+            toggle={{
+              pauseLabel: video.pauseLabel,
+              playLabel: video.playLabel,
+              className: styles.splitToggle,
+            }}
+          />
+        ) : (
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className={styles.splitImg}
+          />
+        )}
       </Reveal>
       <Reveal className={styles.splitText}>
         <p className={styles.eyebrow}>{eyebrow}</p>
@@ -472,9 +505,18 @@ export type Stat = { value: string; label: string; body?: string };
  * oct-2026: la franja de confianza y la política en cuatro números). Sin
  * cajas, como Steps, para alternar con las grillas de cards.
  */
-export function Stats({ items }: { items: Stat[] }) {
+export function Stats({
+  items,
+  columns = 4,
+  rail = false,
+}: {
+  items: Stat[];
+  /** 2: grilla de 2×2, para cuando comparte la fila con una foto. */
+  columns?: 2 | 4;
+  rail?: boolean;
+}) {
   return (
-    <ul className={styles.stats}>
+    <ul className={cn(styles.stats, columns === 2 && styles.stats2, rail && "mobileRail")}>
       {items.map((it, i) => (
         <Reveal as="li" key={it.label} className={styles.stat} delay={Math.min(i * 0.06, 0.24)}>
           <span className={styles.statValue}>{it.value}</span>
@@ -535,7 +577,7 @@ export function AirportBoard({
       </ul>
       <Reveal className={styles.boardRegional}>
         <h3 className={styles.boardRegionalTitle}>{regionalTitle}</h3>
-        <ul className={styles.boardRegionalList}>
+        <ul className={cn(styles.boardRegionalList, "mobileRail")}>
           {regional.map((a) => (
             <li key={a.code}>
               <span className={styles.boardCodeSm}>{a.code}</span>
