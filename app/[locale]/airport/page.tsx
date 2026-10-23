@@ -79,6 +79,7 @@ export default async function AirportPage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("services.airport");
   const tf = await getTranslations("fleet");
+  const th = await getTranslations("home.hero");
 
   const faq = t.raw("faq.items") as FaqItem[];
 
@@ -217,14 +218,19 @@ export default async function AirportPage({ params }: PageProps) {
           <Steps items={items(t.raw("how.steps"))} columns={4} rail />
         </Band>
 
-        {/* Foto de Nueva York. El reel de recogida en aeropuerto que hay en el
-            IG está filmado en Ezeiza y no puede ir en "New York pickups"
-            (Nico, 23-oct-2026); cuando llegue un video de aeropuerto de NY,
-            va con la prop `video` de Split. */}
+        {/* Reel propio de Relier manejando por Manhattan (IG DcjaxloRSQt,
+            recortado antes del logo de cierre). El de recogida en aeropuerto
+            del IG es de Ezeiza y no va acá (Nico, 23-oct-2026); cuando haya un
+            video de aeropuerto de NY, reemplaza a este. */}
         <Band>
           <Split
-            image="/images/services/airport/no-waiting.webp"
-            imageAlt={t("wait.imageAlt")}
+            image="/images/services/airport/manhattan-drive-poster.webp"
+            imageAlt=""
+            video={{
+              src: "/videos/airport/manhattan-drive.mp4",
+              pauseLabel: th("pauseVideo"),
+              playLabel: th("playVideo"),
+            }}
             eyebrow={t("wait.eyebrow")}
             title={t("wait.title")}
             lead={t("wait.lead")}
