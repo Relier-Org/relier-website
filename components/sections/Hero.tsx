@@ -8,7 +8,10 @@ import styles from "./Hero.module.css";
 // tiene que pintarse en el primer frame, en AVIF/WebP y a la medida. En mobile
 // va el vertical, el mismo encuadre que el video de mobile.
 function posterProps() {
-  const common = { alt: "", sizes: "100vw" };
+  // Calidad 50: el poster se ve atenuado bajo el degradé y sólo hasta que
+  // arranca el video; en AVIF baja de 42 a 20 kB sin diferencia visible
+  // (diferencia media 2,9/255 sin atenuar).
+  const common = { alt: "", sizes: "100vw", quality: 50 };
   const mobile = getImageProps({
     ...common,
     src: "/videos/hero/vertical-poster.jpg",
