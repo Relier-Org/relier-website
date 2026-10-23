@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { preconnect, preload } from 'react-dom';
 import { cn } from '@/lib/utils/cn';
-import { markEmbedReady } from '@/lib/booking/embedReady';
 import { isBookingMessage, readBookingPurchase, trackBookingConversion } from '@/lib/booking/conversion';
 import { hasConsent } from '@/lib/consent/state';
 import { GTM_ID } from '@/lib/analytics/config';
@@ -42,7 +41,6 @@ export default function ReservationWidget({
       if (done) return;
       done = true;
       setReady(true);
-      markEmbedReady();
     };
 
     // Primary signal: the form posts its measured height once it has painted.

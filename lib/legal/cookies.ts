@@ -38,14 +38,6 @@ export const COOKIES: CookieEntry[] = [
     kind: "firstParty",
   },
   {
-    name: "relier:curtain",
-    provider: "Relier",
-    category: "necessary",
-    purposeKey: "preloader",
-    durationKey: "session",
-    kind: "sessionStorage",
-  },
-  {
     // El formulario de reservas embebido (iframe de Limo Anywhere / AddOns.LA).
     // Sus cookies las fija el proveedor; no controlamos nombres ni duración.
     name: "relier.addons.la, relier.mylimobiz.com",

@@ -23,9 +23,9 @@ interface RevealProps {
  * settled afterwards left those positions stale, and a trigger that never fires
  * leaves its content at `opacity: 0` **forever** — the section simply never
  * appears. Two reproducible cases before the fix, both from the same root cause:
- * the preloader holds `overflow: hidden` on <html> while these mount, so the
- * scroller is not scrollable and every position is computed against a zero-height
- * scroll range.
+ * the preloader (removed oct-2026) held `overflow: hidden` on <html> while these
+ * mounted, so the scroller was not scrollable and every position was computed
+ * against a zero-height scroll range.
  *
  *   · reload while scrolled halfway down  → 9 blocks invisible
  *   · land on /#fleet directly            → 11 blocks invisible

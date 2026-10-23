@@ -244,20 +244,6 @@ input, select { font: inherit; color: inherit; outline: none; }
   padding-inline: var(--inset);
 }
 
-/* ─── Preloader curtain (components/effects/Preloader.tsx) ─── */
-/* `!important`: the Limo Anywhere expander sets an inline `overflow-y: scroll`
-   on <html> 200ms and 2s after it boots, which would unlock the scroll. */
-html.curtainUp {
-  overflow: hidden !important;
-}
-
-/* Hold the first-screen entrances at frame 0 while the curtain is up, so they
-   play as it lifts instead of finishing behind it. */
-html[data-preloader="running"] .firstScreen,
-html[data-preloader="running"] .firstScreen * {
-  animation-play-state: paused;
-}
-
 /* ─── First-screen wrapper: Hero + Booking fit 100vh ─── */
 .firstScreen {
   min-height: 100vh;

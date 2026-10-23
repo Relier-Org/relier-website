@@ -42,9 +42,6 @@
     "badge": "Parceiro preferencial",
     "newTab": "(abre em uma nova aba)"
   },
-  "preloader": {
-    "label": "Preparando sua reserva"
-  },
   "notFound": {
     "eyebrow": "Erro 404",
     "title": "Página não encontrada",

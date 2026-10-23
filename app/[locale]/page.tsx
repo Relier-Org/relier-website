@@ -15,7 +15,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import Social from "@/components/sections/Social";
 import About from "@/components/sections/About";
 import GsapProvider from "@/components/effects/GsapProvider";
-import Preloader from "@/components/effects/Preloader";
 import PageSchema from "@/components/seo/PageSchema";
 import { homeNodes } from "@/lib/seo/pages";
 
@@ -47,7 +46,6 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <GsapProvider>
       <PageSchema nodes={await homeNodes(locale)} />
-      <Preloader />
       <Nav />
       <main>
         <section className="firstScreen">

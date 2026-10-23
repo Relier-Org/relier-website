@@ -91,8 +91,8 @@ export default async function LocaleLayout({
   );
 
   return (
-    // suppressHydrationWarning: the preloader's inline script stamps
-    // `data-preloader` (and the scroll lock class) on <html> before hydration.
+    // suppressHydrationWarning: el script inline de WhatsAppButton marca
+    // `data-consent-banner` en <html> antes de hidratar.
     <html
       lang={locale}
       className={`${fraunces.variable} ${manrope.variable}`}

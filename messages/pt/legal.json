@@ -281,7 +281,6 @@
     "purpose": {
       "consent": "Lembra sua escolha sobre cookies para não perguntar de novo em cada página.",
       "locale": "Lembra o idioma que você escolheu para o site.",
-      "preloader": "Mostra a animação de abertura uma única vez por visita.",
       "booking": "Faz o formulário de reserva funcionar. Definido pelo provedor nos próprios domínios.",
       "ga": "Distingue visitantes e sessões para gerar estatísticas de uso agregadas.",
       "ads": "Mede as conversões das nossas campanhas no Google Ads.",

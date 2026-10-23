@@ -42,9 +42,6 @@
     "badge": "Socio preferente",
     "newTab": "(se abre en una pestaña nueva)"
   },
-  "preloader": {
-    "label": "Preparando tu reserva"
-  },
   "notFound": {
     "eyebrow": "Error 404",
     "title": "Página no encontrada",
