@@ -134,6 +134,11 @@ const SECURITY_HEADERS = [
   { key: "Strict-Transport-Security", value: "max-age=31536000" },
 ];
 
+const MEDIA_CACHE = {
+  key: "Cache-Control",
+  value: "public, max-age=2592000, stale-while-revalidate=604800",
+};
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
@@ -148,7 +153,14 @@ const nextConfig = {
     optimizePackageImports: ["gsap"],
   },
   async headers() {
-    return [{ source: "/:path*", headers: SECURITY_HEADERS }];
+    return [
+      { source: "/:path*", headers: SECURITY_HEADERS },
+      // Media de /public (perf oct-2026): Cloudflare la servía con max-age de
+      // 4 h. 30 días + revalidación en segundo plano. Los nombres no llevan
+      // hash: al reemplazar una imagen o un video, cambiarle el nombre.
+      { source: "/images/:path*", headers: [MEDIA_CACHE] },
+      { source: "/videos/:path*", headers: [MEDIA_CACHE] },
+    ];
   },
   async redirects() {
     return LEGACY_REDIRECTS.map((r) => ({ ...r, permanent: true }));
