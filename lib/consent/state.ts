@@ -1,6 +1,11 @@
-// Estado del consentimiento de cookies (opt-in global, oct-2026). Única fuente
-// de verdad para el banner, los tags de analytics y la atribución de los forms:
-// nada que escriba cookies o storage no esencial corre sin pasar por acá.
+// Estado del consentimiento de cookies. Única fuente de verdad para el banner,
+// los tags de analytics y la atribución de los forms: nada que escriba cookies o
+// storage no esencial corre sin pasar por acá.
+//
+// Modelo opt-out global desde el 23-oct-2026 (OK de Relier; antes, opt-in desde
+// el 21-oct): sin una elección guardada, analytics y marketing están activos y
+// el banner es un aviso con la opción de desactivarlos. Excepción: con Global
+// Privacy Control en el navegador, marketing arranca apagado (CCPA/CPRA).
 //
 // Se guarda en una cookie propia de primera parte (no localStorage) para que el
 // script inline del layout pueda leerla antes de hidratar si algún día hace
@@ -11,7 +16,7 @@ export type ConsentCategory = "analytics" | "marketing";
 export type ConsentChoice = Record<ConsentCategory, boolean>;
 
 export type ConsentRecord = ConsentChoice & {
-  /** Versión de la política aceptada. Si cambia, se vuelve a preguntar. */
+  /** Versión de la política aceptada. Si cambia, la elección anterior deja de valer. */
   version: number;
   /** ISO 8601 de cuándo se decidió. */
   at: string;
@@ -22,6 +27,9 @@ export const CONSENT_COOKIE = "relier_consent";
 /**
  * Subirlo cuando cambien las categorías o los proveedores de la Cookie Policy:
  * los consentimientos anteriores dejan de valer y el banner vuelve a salir.
+ *
+ * No se subió al pasar a opt-out (23-oct-2026) a propósito: quien había
+ * rechazado con el modelo anterior conserva su rechazo.
  */
 export const CONSENT_VERSION = 1;
 
@@ -55,8 +63,29 @@ export function readConsent(): ConsentRecord | null {
   return parse(match?.slice(CONSENT_COOKIE.length + 1));
 }
 
+/** Señal Global Privacy Control del navegador (opt-out de venta/uso compartido). */
+function hasGpc(): boolean {
+  return (
+    typeof navigator !== "undefined" &&
+    (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl === true
+  );
+}
+
+/** Lo que rige sin elección guardada: todo activo, salvo marketing con GPC. */
+export function defaultConsent(): ConsentChoice {
+  return { analytics: true, marketing: !hasGpc() };
+}
+
+/** Elección vigente si la hay; si no, el default del modelo opt-out. */
+export function effectiveConsent(): ConsentChoice {
+  const record = readConsent();
+  return record
+    ? { analytics: record.analytics, marketing: record.marketing }
+    : defaultConsent();
+}
+
 export function hasConsent(category: ConsentCategory): boolean {
-  return readConsent()?.[category] === true;
+  return effectiveConsent()[category];
 }
 
 export function writeConsent(choice: ConsentChoice): ConsentRecord {

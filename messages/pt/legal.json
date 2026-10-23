@@ -56,7 +56,7 @@
         "ul1": {
           "i1": "<b>Responder às suas consultas e preparar cotações.</b> Procedimentos preliminares a um contrato, a seu pedido (artigo 6.1.b), junto com o consentimento que você dá ao marcar a caixa do formulário.",
           "i2": "<b>Prestar o serviço que você reserva</b>, o que inclui gerenciar sua viagem e nos comunicar com você sobre ela. Execução de contrato (artigo 6.1.b).",
-          "i3": "<b>Análise e medição de marketing.</b> Seu consentimento (artigo 6.1.a), que você pode retirar a qualquer momento.",
+          "i3": "<b>Medição de análise e marketing.</b> Nosso legítimo interesse em medir e melhorar nosso serviço e nossas campanhas (artigo 6(1)(f)). Você pode se opor a qualquer momento desativando esses cookies em Configurações de cookies.",
           "i4": "<b>Manter o site seguro e evitar abusos</b>, como spam e envios repetidos. Nosso interesse legítimo em proteger o site e seus usuários (artigo 6.1.f).",
           "i5": "<b>Cumprir nossas obrigações legais</b>, como as contábeis e fiscais. Cumprimento de obrigação legal (artigo 6.1.c)."
         }
@@ -69,8 +69,8 @@
           "i2": "<b>Limo Anywhere (AddOns.LA)</b>: formulário de reserva, cotações, pagamentos, portal de clientes e gestão das solicitações que recebemos pelo site.",
           "i3": "<b>Hostinger</b>: hospedagem do site.",
           "i4": "<b>Cloudflare</b>: entrega de conteúdo e segurança.",
-          "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager e Google Ads, se você os aceitar, o mapa da página de contato, se você carregá-lo, e os serviços usados dentro do formulário de reserva, como o preenchimento automático de endereços.",
-          "i6": "<b>Meta</b>: o Meta Pixel, se você aceitar os cookies de marketing, e o WhatsApp, se você escolher falar conosco por esse canal.",
+          "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager e Google Ads, a menos que você os desative, o mapa da página de contato se você o carregar, e serviços usados dentro do formulário de reserva, como o preenchimento automático de endereços.",
+          "i6": "<b>Meta</b>: o Meta Pixel, a menos que você desative os cookies de marketing, e o WhatsApp, se você escolher falar conosco por esse canal.",
           "i7": "<b>Nosso provedor de e-mail</b>, que usamos para responder e dar seguimento às suas solicitações."
         }
       },
@@ -105,7 +105,7 @@
       "us": {
         "title": "Direitos de privacidade nos estados dos EUA",
         "p1": "Dependendo do estado onde você mora, você pode ter o direito de acessar, corrigir e excluir seus dados pessoais, e de se opor à sua “venda” ou “compartilhamento” para publicidade comportamental entre contextos.",
-        "p2": "Não vendemos dados pessoais em troca de dinheiro. Neste site, o compartilhamento para publicidade comportamental só acontece se você aceitar os cookies de marketing, e você pode retirar esse consentimento a qualquer momento em Configurações de cookies, no rodapé de todas as páginas. Para qualquer outra solicitação, escreva para <privacyMail>{privacyEmail}</privacyMail>."
+        "p2": "Não vendemos dados pessoais em troca de dinheiro. Neste site, o compartilhamento para publicidade comportamental acontece por meio dos cookies de marketing, que ficam ativos por padrão. Você pode se excluir a qualquer momento em Configurações de cookies, no rodapé de cada página, e respeitamos o sinal Global Privacy Control do seu navegador como uma exclusão. Para qualquer outro pedido, escreva para <privacyMail>{privacyEmail}</privacyMail>."
       },
       "children": {
         "title": "Menores",
@@ -224,16 +224,16 @@
     "sections": {
       "what": {
         "title": "O que são cookies",
-        "p1": "Cookies são pequenos arquivos de texto que um site armazena no seu navegador. Tecnologias semelhantes, como o armazenamento de sessão do navegador, funcionam de forma parecida. Alguns são necessários para o site funcionar; outros são opcionais e só são usados se você concordar."
+        "p1": "Cookies são pequenos arquivos de texto que um site guarda no seu navegador. Tecnologias semelhantes, como o armazenamento de sessão do navegador, funcionam de forma parecida. Alguns são necessários para o site funcionar; outros são opcionais e você pode desativá-los quando quiser."
       },
       "categories": {
         "title": "Categorias que usamos",
         "ul1": {
           "i1": "<b>Estritamente necessários.</b> Mantêm o site funcionando: seu idioma, sua escolha sobre cookies e o formulário de reserva. Não exigem consentimento e não podem ser desativados.",
-          "i2": "<b>Análise.</b> O Google Analytics 4 nos mostra, de forma agregada, quais páginas são visitadas e como são usadas. Somente com o seu consentimento.",
-          "i3": "<b>Marketing.</b> O Google Ads e o Meta Pixel, carregados pelo Google Tag Manager, medem nossas campanhas, e os formulários de contato lembram qual campanha trouxe você até aqui. Somente com o seu consentimento."
+          "i2": "<b>Análise.</b> O Google Analytics 4 nos mostra, de forma agregada, quais páginas são visitadas e como são usadas. Ativo, a menos que você o desative.",
+          "i3": "<b>Marketing.</b> O Google Ads e o Meta Pixel, carregados pelo Google Tag Manager, medem nossas campanhas, e os formulários de contato lembram qual campanha trouxe você até aqui. Ativos, a menos que você os desative ou que o seu navegador envie o sinal Global Privacy Control."
         },
-        "p1": "Sem o seu consentimento, nenhuma ferramenta de análise ou de marketing é carregada. Usamos o Google Consent Mode v2 para que as tags do Google respeitem sua escolha."
+        "p1": "As ferramentas de análise e marketing carregam por padrão e deixam de carregar assim que você as desativa. Usamos o Google Consent Mode v2 para que as tags do Google respeitem a sua escolha."
       },
       "list": {
         "title": "Cookies e armazenamento neste site",
@@ -249,7 +249,7 @@
       },
       "manage": {
         "title": "Como mudar sua escolha",
-        "p1": "Você pode mudar ou retirar seu consentimento a qualquer momento com o botão abaixo ou em Configurações de cookies, no rodapé de todas as páginas. Quando você o retira, deixamos de carregar essas ferramentas e apagamos os cookies de análise e de marketing que elas definiram no nosso domínio.",
+        "p1": "Você pode desativar os cookies de análise e marketing, ou ativá-los de novo, quando quiser pelo botão abaixo ou em Configurações de cookies, no rodapé de cada página. Ao desativá-los, deixamos de carregar essas ferramentas e apagamos os cookies de análise e marketing que elas tenham gravado no nosso domínio. Tratamos o sinal Global Privacy Control do seu navegador como um pedido para desativar os cookies de marketing.",
         "p2": "Você também pode apagar ou bloquear cookies nas configurações do seu navegador; cada navegador explica como fazer isso nas páginas de ajuda. Se você bloquear todos os cookies, algumas partes do site, como o formulário de reserva, podem não funcionar."
       },
       "changes": {

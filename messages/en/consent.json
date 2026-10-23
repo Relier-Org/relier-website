@@ -1,17 +1,17 @@
 {
   "banner": {
-    "title": "Your privacy, your choice",
-    "body": "We use optional analytics and marketing cookies only with your permission.",
+    "title": "Cookies on Relier",
+    "body": "We use analytics and marketing cookies to measure and improve our service and our campaigns. You can turn them off at any time.",
     "policies": "More in our <cookies>Cookie Policy</cookies> and <privacy>Privacy Policy</privacy>.",
-    "acceptAll": "Accept all",
-    "acceptShort": "Accept",
+    "acceptAll": "OK",
+    "acceptShort": "OK",
     "rejectAll": "Reject all",
     "rejectShort": "Reject",
     "customize": "Customize"
   },
   "preferences": {
     "title": "Cookie preferences",
-    "intro": "Choose which optional cookies we may use. You can change your mind at any time from Cookie settings, at the foot of every page.",
+    "intro": "Analytics and marketing cookies are on unless you turn them off. If your browser sends a Global Privacy Control signal, marketing cookies start off. You can change this at any time from Cookie settings, at the foot of every page.",
     "close": "Close",
     "save": "Save preferences",
     "alwaysActive": "Always active",

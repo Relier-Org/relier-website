@@ -8,7 +8,7 @@
 export const LEGAL_REVIEWED = false;
 
 /** Fecha de vigencia de los textos (ISO). Cambiarla cada vez que se edite una política. */
-export const LEGAL_LAST_UPDATED = "2026-10-22";
+export const LEGAL_LAST_UPDATED = "2026-10-23";
 
 export const LEGAL_ENTITY = {
   /** Nombre comercial. */

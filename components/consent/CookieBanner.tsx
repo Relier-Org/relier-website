@@ -14,6 +14,8 @@ import { Link } from "@/i18n/navigation";
 import Button from "@/components/ui/Button";
 import {
   OPEN_PREFERENCES_EVENT,
+  defaultConsent,
+  effectiveConsent,
   onConsentChange,
   readConsent,
   writeConsent,
@@ -25,7 +27,8 @@ import styles from "./CookieBanner.module.css";
 
 // Estado del banner leído de la cookie. En el server (y en la hidratación) es
 // "server" y no se renderiza nada: el banner se decide recién en el cliente,
-// sin flash para quien ya eligió.
+// sin flash para quien ya eligió. Con el modelo opt-out (23-oct-2026) el banner
+// es un aviso: los tags ya corren mientras está abierto.
 type Status = "server" | "pending" | "decided";
 const subscribe = (cb: () => void) => onConsentChange(cb);
 const getStatus = (): Status => (readConsent() ? "decided" : "pending");
@@ -43,7 +46,6 @@ const COOKIE_NAMES = Object.fromEntries(
 ) as Record<CookieCategory, string>;
 
 const NONE: ConsentChoice = { analytics: false, marketing: false };
-const ALL: ConsentChoice = { analytics: true, marketing: true };
 
 function CloseIcon() {
   return (
@@ -66,8 +68,8 @@ export default function CookieBanner() {
     if (!dialog || dialog.open) return;
     returnFocusRef.current =
       document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    const current = readConsent();
-    setDraft(current ? { analytics: current.analytics, marketing: current.marketing } : NONE);
+    // Sin elección guardada, los interruptores muestran lo que rige (opt-out).
+    setDraft(effectiveConsent());
     dialog.showModal();
   }, []);
 
@@ -174,10 +176,12 @@ export default function CookieBanner() {
               <span className={styles.labelLong}>{t("banner.rejectAll")}</span>
               <span className={styles.labelShort}>{t("banner.rejectShort")}</span>
             </Button>
+            {/* Opt-out (23-oct-2026): "OK" confirma lo que ya rige, con GPC
+                incluido; no activa marketing si el navegador lo pidió apagado. */}
             <Button
               variant="secondary"
               className={styles.action}
-              onClick={() => decide(ALL)}
+              onClick={() => decide(defaultConsent())}
             >
               <span className={styles.labelLong}>{t("banner.acceptAll")}</span>
               <span className={styles.labelShort}>{t("banner.acceptShort")}</span>

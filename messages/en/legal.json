@@ -56,7 +56,7 @@
         "ul1": {
           "i1": "<b>Answering your inquiries and preparing quotes.</b> Steps taken at your request before entering into a contract (Article 6(1)(b)), together with the consent you give by ticking the box on the form.",
           "i2": "<b>Providing the service you book</b>, including managing your trip and communicating with you about it. Performance of a contract (Article 6(1)(b)).",
-          "i3": "<b>Analytics and marketing measurement.</b> Your consent (Article 6(1)(a)), which you can withdraw at any time.",
+          "i3": "<b>Analytics and marketing measurement.</b> Our legitimate interest in measuring and improving our service and our campaigns (Article 6(1)(f)). You can object at any time by turning these cookies off from Cookie settings.",
           "i4": "<b>Keeping the site secure and preventing abuse</b>, such as spam and repeated submissions. Our legitimate interest in protecting the site and its users (Article 6(1)(f)).",
           "i5": "<b>Meeting our legal obligations</b>, such as accounting and tax requirements. Compliance with a legal obligation (Article 6(1)(c))."
         }
@@ -69,8 +69,8 @@
           "i2": "<b>Limo Anywhere (AddOns.LA)</b>: booking form, quotes, payments, customer portal and management of the requests we receive through the site.",
           "i3": "<b>Hostinger</b>: hosting of the site.",
           "i4": "<b>Cloudflare</b>: content delivery and security.",
-          "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager and Google Ads if you accept them, the map on the contact page if you load it, and services used inside the booking form, such as address autocomplete.",
-          "i6": "<b>Meta</b>: the Meta Pixel, if you accept marketing cookies, and WhatsApp, if you choose to contact us that way.",
+          "i5": "<b>Google</b>: Google Analytics 4, Google Tag Manager and Google Ads unless you turn them off, the map on the contact page if you load it, and services used inside the booking form, such as address autocomplete.",
+          "i6": "<b>Meta</b>: the Meta Pixel, unless you turn marketing cookies off, and WhatsApp, if you choose to contact us that way.",
           "i7": "<b>Our email provider</b>, which we use to answer and follow up on your requests."
         }
       },
@@ -105,7 +105,7 @@
       "us": {
         "title": "U.S. state privacy rights",
         "p1": "Depending on the state where you live, you may have the right to access, correct and delete your personal data, and to opt out of its “sale” or “sharing” for cross-context behavioral advertising.",
-        "p2": "We do not sell personal data for money. On this site, sharing for behavioral advertising only happens if you accept marketing cookies, and you can withdraw that consent at any time from Cookie settings, at the foot of every page. For any other request, write to <privacyMail>{privacyEmail}</privacyMail>."
+        "p2": "We do not sell personal data for money. On this site, sharing for behavioral advertising happens through marketing cookies, which are on by default. You can opt out at any time from Cookie settings, at the foot of every page, and we honor Global Privacy Control signals from your browser as an opt-out. For any other request, write to <privacyMail>{privacyEmail}</privacyMail>."
       },
       "children": {
         "title": "Children",
@@ -224,16 +224,16 @@
     "sections": {
       "what": {
         "title": "What cookies are",
-        "p1": "Cookies are small text files that a website stores in your browser. Similar technologies, such as the browser session storage, work in a comparable way. Some are needed for the site to work; others are optional and are only used if you agree."
+        "p1": "Cookies are small text files that a website stores in your browser. Similar technologies, such as the browser session storage, work in a comparable way. Some are needed for the site to work; others are optional, and you can turn them off at any time."
       },
       "categories": {
         "title": "Categories we use",
         "ul1": {
           "i1": "<b>Strictly necessary.</b> They keep the site working: your language, your cookie choice and the booking form. They do not require consent and cannot be turned off.",
-          "i2": "<b>Analytics.</b> Google Analytics 4 tells us, in aggregate, which pages are visited and how they are used. Only with your consent.",
-          "i3": "<b>Marketing.</b> Google Ads and the Meta Pixel, loaded through Google Tag Manager, measure our campaigns, and the contact forms remember which campaign brought you here. Only with your consent."
+          "i2": "<b>Analytics.</b> Google Analytics 4 tells us, in aggregate, which pages are visited and how they are used. On unless you turn it off.",
+          "i3": "<b>Marketing.</b> Google Ads and the Meta Pixel, loaded through Google Tag Manager, measure our campaigns, and the contact forms remember which campaign brought you here. On unless you turn it off, or if your browser sends a Global Privacy Control signal."
         },
-        "p1": "Without your consent, no analytics or marketing tool loads. We use Google Consent Mode v2 so that Google tags respect your choice."
+        "p1": "Analytics and marketing tools load by default, and stop loading as soon as you turn them off. We use Google Consent Mode v2 so that Google tags respect your choice."
       },
       "list": {
         "title": "Cookies and storage on this site",
@@ -249,7 +249,7 @@
       },
       "manage": {
         "title": "How to change your choice",
-        "p1": "You can change or withdraw your consent at any time with the button below or from Cookie settings, at the foot of every page. When you withdraw it, we stop loading those tools and delete the analytics and marketing cookies they set on our domain.",
+        "p1": "You can turn analytics and marketing cookies off, or back on, at any time with the button below or from Cookie settings, at the foot of every page. When you turn them off, we stop loading those tools and delete the analytics and marketing cookies they set on our domain. We treat a Global Privacy Control signal from your browser as a request to turn marketing cookies off.",
         "p2": "You can also delete or block cookies in your browser settings; each browser explains how in its help pages. If you block all cookies, some parts of the site, such as the booking form, may not work."
       },
       "changes": {

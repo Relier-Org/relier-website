@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import {
+  effectiveConsent,
   onConsentChange,
-  readConsent,
   type ConsentCategory,
   type ConsentChoice,
 } from "@/lib/consent/state";
@@ -12,9 +12,10 @@ import { clearCategoryCookies, loadGA4, loadGTM, pushConsent } from "./tags";
 const CATEGORIES: ConsentCategory[] = ["analytics", "marketing"];
 
 /**
- * Inyecta GA4 (analytics) y GTM (marketing: Ads + Meta) sólo con la categoría
- * concedida. No renderiza nada: todo pasa después de montar, así el HTML
- * estático de las páginas no cambia ni lee la cookie en el server.
+ * Inyecta GA4 (analytics) y GTM (marketing: Ads + Meta) según la categoría
+ * vigente: la elegida o, sin elección, el default opt-out (todo activo salvo
+ * marketing con GPC). No renderiza nada: todo pasa después de montar, así el
+ * HTML estático de las páginas no cambia ni lee la cookie en el server.
  *
  * - Concedido en caliente: se carga lo que falta, sin recargar.
  * - Retirado algo ya cargado: `consent update` a denied, se borran sus cookies
@@ -48,13 +49,13 @@ export default function ConsentTags({
       }
     };
 
-    const initial = readConsent();
-    // Higiene: cookies de una categoría no concedida (consentimiento vencido,
-    // versión nueva de la política, rechazo previo) no tienen por qué seguir.
+    const initial = effectiveConsent();
+    // Higiene: cookies de una categoría desactivada (rechazo previo, GPC) no
+    // tienen por qué seguir.
     for (const c of CATEGORIES) {
-      if (!initial?.[c]) clearCategoryCookies(c);
+      if (!initial[c]) clearCategoryCookies(c);
     }
-    if (initial) apply(initial);
+    apply(initial);
 
     return onConsentChange((record) => {
       const revoked = CATEGORIES.some((c) => loaded[c] && !record[c]);
