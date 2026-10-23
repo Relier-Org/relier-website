@@ -240,25 +240,41 @@ export default async function AirportPage({ params }: PageProps) {
             title={t("included.title")}
             lead={t("included.lead")}
           />
-          {/* Cifras en 2×2 con una foto al lado: la sección era sólo texto.
-              Choferes esperando junto a la flota, la que la v3 asignaba acá. */}
-          <div className={styles.included}>
-            <Stats
-              columns={2}
-              rail
-              items={(t.raw("included.items") as (Stat & { title: string })[]).map(
-                (it) => ({ value: it.value, label: it.title, body: it.body })
-              )}
-            />
-            <Reveal className={styles.includedPhoto}>
-              <Image
-                src="/images/services/airport/prompt.webp"
-                alt=""
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
-            </Reveal>
-          </div>
+          {/* Como el teaser de eventos del home (Nico, oct-2026): el primer
+              punto como banner con foto y los otros tres como tarjetas. */}
+          {(() => {
+            const [first, ...rest] = t.raw("included.items") as (Stat & {
+              title: string;
+            })[];
+            return (
+              <>
+                <Reveal className={styles.incBanner}>
+                  <div className={styles.incMedia}>
+                    <Image
+                      src="/images/services/airport/prompt.webp"
+                      alt=""
+                      fill
+                      sizes="(max-width: 1280px) 100vw, 1180px"
+                    />
+                  </div>
+                  <div className={styles.incBody}>
+                    <p className={styles.incPill}>{first.value}</p>
+                    <h3 className={styles.incTitle}>{first.title}</h3>
+                    <p className={styles.incText}>{first.body}</p>
+                  </div>
+                </Reveal>
+                <ul className={`${styles.incCards} mobileRail`}>
+                  {rest.map((it, i) => (
+                    <Reveal as="li" key={it.title} className={styles.incCard} delay={i * 0.06}>
+                      <p className={styles.incCardPill}>{it.value}</p>
+                      <h3 className={styles.incCardTitle}>{it.title}</h3>
+                      <p className={styles.incCardText}>{it.body}</p>
+                    </Reveal>
+                  ))}
+                </ul>
+              </>
+            );
+          })()}
         </Band>
 
         <FleetGrid

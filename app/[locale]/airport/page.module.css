@@ -42,48 +42,141 @@
   text-wrap: pretty;
 }
 
-/* "What's included": cifras 2×2 a la izquierda y foto a la derecha. */
-.included {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 56px;
-  align-items: stretch;
-}
-
-.includedPhoto {
+/* "What's included" con el lenguaje del teaser de eventos: banner oscuro
+   con foto y texto abajo a la izquierda, y tarjetas claras debajo. */
+.incBanner {
   position: relative;
-  min-height: 420px;
-  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 460px;
   overflow: hidden;
-  border: 1px solid var(--border-on-light);
+  border-radius: var(--radius-md);
+  background: var(--color-obsidian-800);
+  color: var(--text-primary);
 }
 
-.includedPhoto img {
+.incMedia {
+  position: absolute;
+  inset: 0;
+}
+
+.incMedia img {
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 35%;
+}
+
+.incMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(var(--scrim-base), 0.78) 0%, rgba(var(--scrim-base), 0.2) 62%, rgba(var(--scrim-base), 0) 100%),
+    linear-gradient(180deg, rgba(var(--scrim-base), 0) 30%, rgba(var(--scrim-base), 0.9) 100%);
+}
+
+.incBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+  padding: 0 48px 44px;
+}
+
+.incPill {
+  margin-bottom: 16px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-glass-strong);
+  background: rgba(201, 169, 97, 0.08);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.incTitle {
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h2);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.incText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.incCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.incCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 26px 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-on-light-strong);
+  background: #efebe3;
+}
+
+.incCardPill {
+  margin-bottom: 14px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(201, 169, 97, 0.24);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-on-light-strong);
+}
+
+.incCardTitle {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--text-on-light);
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.incCardText {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-on-light-muted);
+  text-wrap: pretty;
+}
+
+@media (max-width: 720px) {
+  .incBanner {
+    min-height: 420px;
+  }
+  .incBody {
+    padding: 0 22px 26px;
+  }
 }
 
 /* Flota en una fila de cuatro en desktop (era un 2×2 de 1.600px de alto). */
 @media (min-width: 1100px) {
   .fleetRow {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 1024px) {
-  .included {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .includedPhoto {
-    min-height: 0;
-    aspect-ratio: 16 / 10;
-  }
-}
-
-@media (max-width: 720px) {
-  /* En mobile la foto va primero, como en los Split. */
-  .includedPhoto {
-    order: -1;
   }
 }
