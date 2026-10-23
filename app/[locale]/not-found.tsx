@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import Nav from "@/components/layout/Nav";
 import Button from "@/components/ui/Button";
 import styles from "./not-found.module.css";
@@ -9,14 +9,17 @@ import styles from "./not-found.module.css";
  * 404 del sitio (Nico, 23-oct-2026): a propósito mínima, una tarjeta con el
  * logo, el error y dos salidas (home y reserva). Next responde 404 y agrega
  * noindex solo.
+ *
+ * Sin getTranslations ni generateMetadata a propósito: not-found no recibe
+ * params, y leer el idioma por fuera del árbol del layout cae en headers().
+ * En las rutas estáticas ([slug] del blog) eso rompe con 500 ("static to
+ * dynamic"). El texto usa useTranslations (idioma del layout) y el título es
+ * fijo.
  */
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("common.notFound");
-  return { title: t("metaTitle") };
-}
+export const metadata: Metadata = { title: "Page not found | Relier" };
 
-export default async function NotFound() {
-  const t = await getTranslations("common.notFound");
+export default function NotFound() {
+  const t = useTranslations("common.notFound");
 
   return (
     <>
