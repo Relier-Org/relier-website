@@ -48,6 +48,26 @@
   opacity: var(--media-opacity-video);
 }
 
+/* Poster debajo del video, con el mismo encuadre y la misma atenuación. Se
+   oculta cuando el video ya reproduce: los dos van con opacidad parcial y
+   superpuestos se verían doble. */
+.poster {
+  position: absolute;
+  inset: 0;
+}
+
+.posterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  opacity: var(--media-opacity-video);
+}
+
+.bg[data-started] .poster {
+  visibility: hidden;
+}
+
 /* Pausa/reanudar del video (WCAG 2.2.2). Abajo a la derecha, dentro del
    padding-bottom que reserva el solape de la barra de reserva (68px) y por
    encima de ella (que sube 60px / 36px en mobile): ahí no hay copy ni widget.
