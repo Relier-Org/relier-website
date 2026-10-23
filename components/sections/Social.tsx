@@ -72,9 +72,26 @@ export default async function Social() {
           <ul className={styles.reels}>
             {REELS.map((r) => (
               <li key={r.id} className={styles.reel}>
+                {/* Poster como <img loading="lazy"> debajo del video y no como
+                    atributo poster, que se descarga siempre (perf oct-2026: eran
+                    154 kB en la carga inicial de la home). El video lo tapa al
+                    arrancar. */}
                 <AmbientVideo
                   src={r.video}
-                  poster={r.poster}
+                  before={
+                    // eslint-disable-next-line @next/next/no-img-element -- poster ya optimizado (540px), a la medida del reel
+                    <img
+                      src={r.poster}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className={
+                        r.focus === "bottom"
+                          ? `${styles.video} ${styles.focusBottom}`
+                          : styles.video
+                      }
+                    />
+                  }
                   preload="none"
                   playInView
                   wrapClassName={styles.media}
