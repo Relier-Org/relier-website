@@ -44,5 +44,13 @@
   },
   "preloader": {
     "label": "Preparing your reservation"
+  },
+  "notFound": {
+    "metaTitle": "Page not found | Relier",
+    "eyebrow": "Error 404",
+    "title": "Page not found",
+    "body": "The page you're looking for doesn't exist or has moved.",
+    "home": "Back to home",
+    "book": "Book a ride"
   }
 }

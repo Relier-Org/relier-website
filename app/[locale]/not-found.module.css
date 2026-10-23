@@ -1,0 +1,68 @@
+/* Fondo del sitio con la luz ambiente de los heroes y la tarjeta centrada. */
+.page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 120px var(--inset) 72px;
+  background: var(--ambient-left), var(--bg-canvas);
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  padding: 56px 40px 48px;
+  text-align: center;
+  background: #191713;
+  border: 1px solid #343434;
+  border-radius: var(--radius-lg);
+}
+
+.logo {
+  display: block;
+  width: 72px;
+  height: auto;
+  margin: 0 auto 28px;
+}
+
+.eyebrow {
+  margin-bottom: 14px;
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 7vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+}
+
+.body {
+  max-width: 380px;
+  margin: 18px auto 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-silver-300);
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+@media (max-width: 720px) {
+  .card {
+    padding: 44px 24px 36px;
+  }
+}

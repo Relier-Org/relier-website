@@ -44,5 +44,13 @@
   },
   "preloader": {
     "label": "Preparando sua reserva"
+  },
+  "notFound": {
+    "metaTitle": "Página não encontrada | Relier",
+    "eyebrow": "Erro 404",
+    "title": "Página não encontrada",
+    "body": "A página que você procura não existe ou mudou de endereço.",
+    "home": "Voltar ao início",
+    "book": "Reservar uma viagem"
   }
 }
