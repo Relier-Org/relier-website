@@ -434,7 +434,8 @@
       "title": "Transfer para aeroportos em Nova York",
       "subtitle": "Seu motorista chega antes de você. Traslados com motorista de e para JFK, LaGuardia e Newark, com preço fixo exibido antes de reservar.",
       "ctaPrice": "Veja seu preço fixo",
-      "ctaCall": "Ligue 24/7"
+      "ctaCall": "Ligue 24/7",
+      "imageAlt": "A frota da Relier, com vans, sedãs e SUVs alinhados ao lado dos motoristas na orla do Brooklyn, com o skyline de Manhattan ao fundo"
     },
     "highlights": [
       "Preço fixo online",
@@ -563,7 +564,7 @@
           "body": "Quinze minutos de tolerância na porta."
         }
       ],
-      "imageAlt": ""
+      "imageAlt": "Uma passageira descendo de um Cadillac Lyriq preto em uma rua de Nova York"
     },
     "included": {
       "eyebrow": "Política de serviço em Nova York",

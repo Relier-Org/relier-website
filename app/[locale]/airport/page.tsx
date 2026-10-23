@@ -47,8 +47,9 @@ import styles from "./page.module.css";
 // EWR car service), que todavía no existen. "Since 2012" sí entra: lo dice el
 // footer del sitio.
 //
-// TODO(cliente): fotos. Hero y arribos llevan placeholders marcados
-// (public/images/services/airport/placeholder-*.webp) hasta que lleguen.
+// Fotos: las que indica la v3 (paquete del 22-oct-2026), que son las de la
+// página anterior: hero.webp en el hero y no-waiting.webp en la espera. Los alt
+// de la v3 no describían estas fotos; los de messages sí.
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -147,7 +148,8 @@ export default async function AirportPage({ params }: PageProps) {
           eyebrow={t("hero.eyebrow")}
           title={t("hero.title")}
           subtitle={t("hero.subtitle")}
-          image="/images/services/airport/placeholder-hero.webp"
+          image="/images/services/airport/hero.webp"
+          imageAlt={t("hero.imageAlt")}
           actions={
             <>
               <Button href="#booking" withArrow>
@@ -216,7 +218,7 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Band>
           <Split
-            image="/images/services/airport/placeholder-arrivals.webp"
+            image="/images/services/airport/no-waiting.webp"
             imageAlt={t("wait.imageAlt")}
             eyebrow={t("wait.eyebrow")}
             title={t("wait.title")}

@@ -434,7 +434,8 @@
       "title": "Traslados al aeropuerto en Nueva York",
       "subtitle": "Tu chofer llega antes que tú. Traslados con chofer desde y hacia JFK, LaGuardia y Newark, con un precio fijo que ves antes de reservar.",
       "ctaPrice": "Consulta tu precio fijo",
-      "ctaCall": "Llama 24/7"
+      "ctaCall": "Llama 24/7",
+      "imageAlt": "La flota de Relier, con vans, sedanes y SUVs alineados junto a sus choferes en la costa de Brooklyn, con el skyline de Manhattan detrás"
     },
     "highlights": [
       "Precio fijo online",
@@ -563,7 +564,7 @@
           "body": "Quince minutos de tolerancia en la puerta."
         }
       ],
-      "imageAlt": ""
+      "imageAlt": "Una pasajera bajando de un Cadillac Lyriq negro en una calle de Nueva York"
     },
     "included": {
       "eyebrow": "Política de servicio en Nueva York",

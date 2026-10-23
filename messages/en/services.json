@@ -434,7 +434,8 @@
       "title": "Airport car service in New York",
       "subtitle": "Your chauffeur is there before you are. Chauffeured transfers to and from JFK, LaGuardia and Newark, with a fixed price shown before you book.",
       "ctaPrice": "Get your fixed price",
-      "ctaCall": "Call 24/7"
+      "ctaCall": "Call 24/7",
+      "imageAlt": "Relier's fleet of vans, sedans and SUVs lined up with their chauffeurs on the Brooklyn waterfront, with the Manhattan skyline behind"
     },
     "highlights": [
       "Fixed price online",
@@ -563,7 +564,7 @@
           "body": "A fifteen-minute grace period at the door."
         }
       ],
-      "imageAlt": ""
+      "imageAlt": "A passenger stepping out of a black Cadillac Lyriq on a New York street"
     },
     "included": {
       "eyebrow": "New York service policy",
