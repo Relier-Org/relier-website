@@ -1,0 +1,20 @@
+<!-- AddOns > Lead Quote Close > Settings > Booking Quote Config > Secure (#2) > Thank You Page.
+     HTML fragment only. Preserve the provider variables; do not add tracking scripts here. -->
+<div id="relier-reservation-confirmed" class="relier-reservation-success" style="box-sizing: border-box; width: 100%; padding: 24px 12px; background: transparent !important;">
+  <div style="box-sizing: border-box; width: 100%; max-width: 680px; margin: 0 auto; padding: 36px 24px; border: 1px solid #c9a96152; border-radius: 8px; background: #121212 !important; color: #f5f7f9 !important; text-align: center; font-family: Manrope, Arial, sans-serif;">
+    <p aria-hidden="true" style="box-sizing: border-box; width: 52px; height: 52px; margin: 0 auto 20px; border: 1px solid #c9a961; border-radius: 50%; color: #c9a961 !important; font-size: 28px; line-height: 50px;">&#10003;</p>
+    <p style="margin: 0 0 12px; color: #c9a961 !important; font-size: 10px; font-weight: 600; letter-spacing: 3px; line-height: 1.6; text-transform: uppercase;">Reservation confirmed</p>
+    <h1 style="margin: 0 0 12px; color: #f5f7f9 !important; font-family: Fraunces, Georgia, serif; font-size: 40px; font-weight: 400; line-height: 1.2; letter-spacing: -1px;">Thank you.</h1>
+    <p style="margin: 0 0 24px; color: #c5cdd5 !important; font-size: 15px; line-height: 1.7;">Your reservation is complete.<br />We look forward to welcoming you on board.</p>
+    <div style="box-sizing: border-box; padding: 20px 12px; border: 1px solid #c5cdd52e; border-radius: 4px; background: #1a1a1a !important;">
+      <p style="margin: 0 0 8px; color: #a0a8b0 !important; font-size: 10px; letter-spacing: 2px; line-height: 1.6; text-transform: uppercase;">Confirmation code</p>
+      <p id="relier-confirmation-code" style="margin: 0; color: #c9a961 !important; font-family: Manrope, Arial, sans-serif; font-size: 26px; font-weight: 500; line-height: 1.4; overflow-wrap: anywhere;">%LA-CONF-CODE%</p>
+    </div>
+    <p style="margin: 24px 0 12px; color: #c5cdd5 !important; font-size: 13px; line-height: 1.7;">Your ride &middot; %MONTH% %DAY%<br />Keep your trip details close. Add your ride to your calendar.</p>
+    <div id="calendar" style="text-align: center;">
+      <a style="box-sizing: border-box; display: inline-block; max-width: 100%; margin: 6px 4px; padding: 13px 18px; border: 1px solid #c9a961; border-radius: 4px; background: #c9a961 !important; color: #0a0a0a !important; font-family: Manrope, Arial, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.5; text-decoration: none !important;" href="/trips/export/ics/?trip=%TRIP-LA-CONF-CODE%&amp;date=%PICKUP-DATE%&amp;time=%PICKUP-TIME%">Download calendar invite</a>
+      <a style="box-sizing: border-box; display: inline-block; max-width: 100%; margin: 6px 4px; padding: 13px 18px; border: 1px solid #c5cdd552; border-radius: 4px; background: #121212 !important; color: #f5f7f9 !important; font-family: Manrope, Arial, sans-serif; font-size: 12px; font-weight: 500; line-height: 1.5; text-decoration: none !important;" href="https://www.google.com/calendar/event?action=TEMPLATE&amp;dates=%PICKUP-TIME-ZULU-FORMATTED%/%DROPOFF-TIME-ZULU-FORMATTED%&amp;text=Chauffeured%20Ride%20with%20%COMPANY%&amp;location=%PICKUP-ADDRESS%%2C%20%PICKUP-CITY%%2C%20%PICKUP-STATE%%20%PICKUP-ZIP%" target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>
+    </div>
+    <p style="margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #c5cdd51a; color: #a0a8b0 !important; font-size: 12px; line-height: 1.8;">Questions about your ride? Our team is available 24/7.<br /><a href="tel:+18447354371" style="color: #c9a961 !important; text-decoration: underline;">+1 (844) 735-4371</a></p>
+  </div>
+</div>

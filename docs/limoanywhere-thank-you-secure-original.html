@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div style="background-color: white; width: 100%;">
+<h3 style="text-align: center;">THANK YOU</h3>
+<h1 style="text-align: center;">Your reservation is complete.</h1>
+<h3 style="text-align: center;">Confirmation Code: %LA-CONF-CODE%</h3>
+</div>
+<div style="background-color: #eeeeee; width: calc(100% - 40px); padding: 20px;">
+<p style="text-align: center;">We are looking forward to providing you the best service possible. If you have any questions please do not hesitate to ask. We want to ensure you the best service possible!</p>
+<div style="width: 150px; margin-left: calc(50% - 75px); text-align: center;"><span style="background-color: #333333; color: white; display: block; padding: 3px; font-size: 12pt;">%MONTH%</span><span style="background-color: white; color: black; display: block; padding: 20px; font-size: 24pt;">%DAY%</span></div>
+<span id="calendar" style="text-align: center; width: 100%; display: block;"><br /> <a style="background-color: white; border: solid 1px grey; padding: 5px; border-radius: 6px; margin: 5px; display: inline-block; width: 150px;" href="/trips/export/ics/?trip=%TRIP-LA-CONF-CODE%&amp;date=%PICKUP-DATE%&amp;time=%PICKUP-TIME%">Download<br />as ICS</a> <a style="background-color: white; border: solid 1px grey; padding: 5px; border-radius: 6px; margin: 5px; display: inline-block; width: 150px;" href="http://www.google.com/calendar/event?action=TEMPLATE&amp;dates=%PICKUP-TIME-ZULU-FORMATTED%/%DROPOFF-TIME-ZULU-FORMATTED%&amp;text=Chauffeured%20Ride%20with%20%COMPANY%&amp;location=%PICKUP-ADDRESS%%2C%20%PICKUP-CITY%%2C%20%PICKUP-STATE%%20%PICKUP-ZIP%">Add to<br />Google Calendar</a> </span></div>
+</body>
+</html>

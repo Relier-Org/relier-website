@@ -12,8 +12,8 @@
 // `gtag("event")`, que sólo existe si el visitante aceptó analytics. GA4 no lee
 // los push de objetos, así que no hay doble conteo.
 //
-// La reserva del iframe de Limo Anywhere no pasa por acá: su confirmación vive
-// dentro del iframe y se mide con lo que configuró Andrew en GTM/GA4.
+// Reservas: ReservationWidget recibe el purchase nativo del iframe y expone
+// relier_reservation_complete para GTM; ver lib/booking/conversion.ts.
 
 /** `contact` = /contact; el resto, el segmento de la landing de For Business. */
 export type LeadForm = "contact" | "events" | "corporate" | "affiliates" | "travelAdvisors";

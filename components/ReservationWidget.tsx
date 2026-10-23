@@ -3,18 +3,15 @@ import { useEffect, useRef, useState } from 'react';
 import { preconnect, preload } from 'react-dom';
 import { cn } from '@/lib/utils/cn';
 import { markEmbedReady } from '@/lib/booking/embedReady';
+import { isBookingMessage, readBookingPurchase, trackBookingConversion } from '@/lib/booking/conversion';
+import { hasConsent } from '@/lib/consent/state';
+import { GTM_ID } from '@/lib/analytics/config';
 import styles from './ReservationWidget.module.css';
 
 // Limo Anywhere's classic tag only runs once per document. The manual loader
 // registers <la-quote-form>, which mounts again after Next.js client navigation.
 const SCRIPT_SRC = 'https://relier.mylimobiz.com/leads/new/forms/resize/expander.php?manual=1&config=13';
 const SCRIPT_ID = 'la-embed-manual-loader';
-
-// Only messages from the tenant's iframe can mark this widget ready.
-const EMBED_ORIGINS = [
-  'https://relier.addons.la',
-  'https://relier.mylimobiz.com',
-];
 
 // If the embed never reports in (host missing from Limo Anywhere's whitelist →
 // 403 on config.php, or plain network failure) reveal the container anyway
@@ -49,15 +46,24 @@ export default function ReservationWidget({
 
     // Primary signal: the form posts its measured height once it has painted.
     const onMessage = (event: MessageEvent) => {
-      if (!EMBED_ORIGINS.includes(event.origin)) return;
+      const frame = outer.querySelector('la-quote-form')?.shadowRoot?.querySelector('iframe');
+      if (!isBookingMessage(event, frame)) return;
+
+      const purchase = readBookingPurchase(event.data);
+      if (purchase && GTM_ID && hasConsent("marketing")) {
+        trackBookingConversion(purchase, (conversion) => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(conversion);
+        });
+      }
+
       let data: { height?: string };
       try {
         data = JSON.parse(event.data?.message);
       } catch {
         return;
       }
-      const frame = outer.querySelector('la-quote-form')?.shadowRoot?.querySelector('iframe');
-      if (frame && event.source === frame.contentWindow && parseInt(String(data?.height ?? ''), 10) > 0) {
+      if (parseInt(String(data?.height ?? ''), 10) > 0) {
         settle();
       }
     };
