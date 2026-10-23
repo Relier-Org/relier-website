@@ -64,8 +64,8 @@
   position: absolute;
   inset: 0;
   background: rgba(197, 205, 213, 0.05);
-  -webkit-mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
-  mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
+  -webkit-mask: var(--world-map) 0 0 / 100% 100% no-repeat;
+  mask: var(--world-map) 0 0 / 100% 100% no-repeat;
 }
 
 /* Dot-matrix masked to land → continents made of dots (Rolso-style). */
@@ -78,8 +78,8 @@
   );
   background-size: 9px 9px;
   background-position: center;
-  -webkit-mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
-  mask: url("/images/world-map.svg") 0 0 / 100% 100% no-repeat;
+  -webkit-mask: var(--world-map) 0 0 / 100% 100% no-repeat;
+  mask: var(--world-map) 0 0 / 100% 100% no-repeat;
 }
 
 /* Pin = punto + etiqueta. El transform deja el centro del punto sobre la

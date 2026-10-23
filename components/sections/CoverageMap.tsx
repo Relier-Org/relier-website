@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
 import Button from "@/components/ui/Button";
+import WorldMapLayers from "@/components/ui/WorldMapLayers";
 import { ALL_CITIES, COVERAGE, project } from "@/lib/coverage/data";
 import styles from "./CoverageMap.module.css";
 
@@ -36,8 +37,8 @@ export default function CoverageMap() {
             role="img"
             aria-label={t("coverage.mapAria")}
           >
-            <div className={styles.land} aria-hidden="true" />
-            <div className={styles.dots} aria-hidden="true" />
+            {/* Máscara del mapa diferida: ver WorldMapLayers. */}
+            <WorldMapLayers landClassName={styles.land} dotsClassName={styles.dots} />
             {ALL_CITIES.map((c) => {
               const { x, y } = project(c.lat, c.lon);
               return (

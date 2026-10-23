@@ -4,6 +4,7 @@ import Reveal from "@/components/effects/Reveal";
 import type { IconProps } from "@/components/icons/types";
 import { project } from "@/lib/coverage/data";
 import NameMarquee from "./NameMarquee";
+import WorldMapLayers from "@/components/ui/WorldMapLayers";
 import CardCarousel from "./CardCarousel";
 import { cn } from "@/lib/utils/cn";
 import styles from "./Landing.module.css";
@@ -378,8 +379,7 @@ export function CoverageBand({
         </Reveal>
         <Reveal className={styles.coverageMap}>
           <div className={styles.mapArt} aria-hidden="true">
-            <span className={styles.mapLand} />
-            <span className={styles.mapDots} />
+            <WorldMapLayers as="span" landClassName={styles.mapLand} dotsClassName={styles.mapDots} />
             {HUBS.map((h, i) => {
               const { x, y } = project(h.lat, h.lon);
               return (
