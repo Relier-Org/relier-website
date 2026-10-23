@@ -22,6 +22,7 @@ import {
   Band,
   Cards,
   Head,
+  Highlights,
   Split,
   Stats,
   Steps,
@@ -151,12 +152,6 @@ export default async function AirportPage({ params }: PageProps) {
           subtitle={t("hero.subtitle")}
           image="/images/services/airport/hero.webp"
           imageAlt={t("hero.imageAlt")}
-          // Puntos fuertes en el hero, como en la v3: en una franja propia
-          // quedaban pegados a la de cifras con la misma grilla (Nico, oct-2026).
-          chips={strings(t.raw("highlights")).map((label, i) => {
-            const Icon = [ShieldTickIcon, CalendarIcon, CarIcon, PhoneIcon][i % 4];
-            return { label, icon: <Icon aria-hidden="true" /> };
-          })}
           actions={
             <>
               <Button href="#booking" withArrow>
@@ -187,6 +182,11 @@ export default async function AirportPage({ params }: PageProps) {
             </p>
           </div>
         </section>
+
+        <Highlights
+          items={strings(t.raw("highlights"))}
+          icons={[ShieldTickIcon, CalendarIcon, CarIcon, PhoneIcon]}
+        />
 
         <Band>
           <Stats items={t.raw("trust") as Stat[]} />
