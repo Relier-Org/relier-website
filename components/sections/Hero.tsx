@@ -36,11 +36,12 @@ export default async function Hero() {
         className={styles.video}
         preload="none"
         deferUntilLoad
+        mirrorPoster
         before={
           <picture className={styles.poster}>
             <source media="(max-width: 720px)" srcSet={mobileSrcSet} sizes="100vw" />
             {/* eslint-disable-next-line @next/next/no-img-element -- props de getImageProps (art direction) */}
-            <img {...desktop} alt="" className={styles.posterImg} />
+            <img {...desktop} alt="" fetchPriority="high" className={styles.posterImg} />
           </picture>
         }
         toggle={{

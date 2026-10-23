@@ -53,7 +53,11 @@
    superpuestos se verían doble. */
 .poster {
   position: absolute;
-  inset: 0;
+  /* 1px de más por lado: el hero recorta (overflow hidden) y no se ve, pero
+     deja al poster estrictamente más grande que el <video>. Chrome sólo
+     reemplaza el LCP por un candidato mayor, y el primer frame del video (que
+     arranca después del load) le ganaba por redondeo de subpíxeles. */
+  inset: -1px;
 }
 
 .posterImg {

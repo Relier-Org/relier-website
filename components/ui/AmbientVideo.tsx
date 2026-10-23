@@ -33,6 +33,10 @@ interface AmbientVideoProps {
   playInView?: boolean;
   deferUntilLoad?: boolean;
   before?: ReactNode;
+  /** Usa como poster del <video> la imagen ya cargada en `before` (la variante
+   *  que eligió el navegador), así el video cuenta para el LCP por su poster y
+   *  no por el primer frame, que llega después del load. */
+  mirrorPoster?: boolean;
   children?: ReactNode;
 }
 
@@ -46,6 +50,7 @@ export default function AmbientVideo({
   playInView = false,
   deferUntilLoad = false,
   before,
+  mirrorPoster = false,
   children,
 }: AmbientVideoProps) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -80,6 +85,19 @@ export default function AmbientVideo({
     io.observe(video);
     return () => io.disconnect();
   }, [playInView]);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!mirrorPoster || !video) return;
+    const img = video.parentElement?.querySelector("img");
+    if (!img) return;
+    const apply = () => {
+      if (img.currentSrc) video.poster = img.currentSrc;
+    };
+    if (img.complete) apply();
+    else img.addEventListener("load", apply, { once: true });
+    return () => img.removeEventListener("load", apply);
+  }, [mirrorPoster]);
 
   // Sin `deferUntilLoad` cuenta como ya cargada.
   const [pageLoaded, setPageLoaded] = useState(!deferUntilLoad);
