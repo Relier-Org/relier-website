@@ -99,11 +99,28 @@ const smooth = (a: number, b: number, x: number) => {
  * pasa por el carril de arriba. Arriba, un auto rojo de frente, que se cruza
  * con la SUV después del sobrepaso (pos ≈ base / (1 + speed) ≈ 0,8).
  */
-const TRAFFIC: { base: number; speed: number; lane: 1 | -1; paint: Paint }[] = [
-  { base: 0.3, speed: 0.3, lane: 1, paint: "taxi" },
-  { base: 1.44, speed: -0.8, lane: -1, paint: "red" },
+const TRAFFIC: {
+  base: number;
+  speed: number;
+  lane: 1 | -1;
+  paint: Paint;
+  /** Dónde está cuando la SUV todavía no entró / ya salió: fuera de la ruta. */
+  from: number;
+  to: number;
+}[] = [
+  { base: 0.3, speed: 0.3, lane: 1, paint: "taxi", from: -0.55, to: 1.55 },
+  { base: 1.44, speed: -0.8, lane: -1, paint: "red", from: 1.96, to: -0.6 },
 ];
-const trafficAt = (pos: number) => TRAFFIC.map((c) => ({ ...c, x: c.base + pos * c.speed }));
+
+/** Posición del auto: entra antes que la SUV, recorre y sale al final. */
+function trafficX(c: (typeof TRAFFIC)[number], pos: number, off: number) {
+  if (pos < 0) return c.base + (c.base - c.from) * (pos / off);
+  if (pos > 1) {
+    const end = c.base + c.speed;
+    return end + (c.to - end) * ((pos - 1) / off);
+  }
+  return c.base + pos * c.speed;
+}
 
 /** Carril de la SUV en pos: 1 = su carril (abajo), -1 = pasando (arriba). */
 function laneAt(pos: number) {
@@ -201,7 +218,7 @@ export default function StepsTimeline({
   const lane = still ? 1 : laneAt(pos);
   // Giro de la trompa al cambiar de carril (derivada del carril), en grados.
   const yaw = still ? 0 : Math.max(-9, Math.min(9, (laneAt(pos + 0.01) - laneAt(pos - 0.01)) * 22));
-  const traffic = trafficAt(pos);
+  const traffic = TRAFFIC.map((c) => ({ ...c, x: trafficX(c, pos, OFF) }));
 
   return (
     <div
