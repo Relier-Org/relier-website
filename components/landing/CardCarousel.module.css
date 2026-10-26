@@ -87,3 +87,14 @@
     --gutter: 14px;
   }
 }
+
+/* Sobre franjas oscuras (flota de Airports). */
+.dark .arrow {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.dark .arrow:hover:not(:disabled) {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+}

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/effects/Reveal";
+import CardCarousel from "@/components/landing/CardCarousel";
 import { PassengerIcon, LuggageIcon } from "@/components/icons/FleetIcons";
 import styles from "./FleetGrid.module.css";
 
@@ -26,9 +27,11 @@ interface FleetGridProps {
   footer?: ReactNode;
   /** Clase extra para la grilla (otra cantidad de columnas, riel en mobile). */
   gridClassName?: string;
+  /** Carrusel con flechas en vez de grilla. */
+  carousel?: boolean;
 }
 
-export default function FleetGrid({ title, vehicles, lead, id, footer, gridClassName }: FleetGridProps) {
+export default function FleetGrid({ title, vehicles, lead, id, footer, gridClassName, carousel = false }: FleetGridProps) {
   const t = useTranslations("fleet");
   const tc = useTranslations("common");
   return (
@@ -40,10 +43,73 @@ export default function FleetGrid({ title, vehicles, lead, id, footer, gridClass
           {lead && <p className={styles.lead}>{lead}</p>}
         </Reveal>
 
-        <div
-          className={gridClassName ? `${styles.grid} ${gridClassName}` : styles.grid}
-          data-count={vehicles.length}
-        >
+        {carousel ? (
+          // Carrusel (Airports, Nico 26-oct-2026): tarjetas más grandes, 2,4 por
+          // vista en desktop, flechas y sin loop.
+          <CardCarousel label={title} loop={false} tone="dark" trackClassName={styles.carouselTrack}>
+            {vehicles.map((v, i) => (
+            <Reveal
+              key={v.name}
+              as="article"
+              className={styles.card}
+              delay={i * 0.05}
+            >
+              <div className={styles.cardInner}>
+                <div className={styles.cardPhoto}>
+                  {v.image ? (
+                    <Image
+                      src={v.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 720px) 90vw, (max-width: 1024px) 46vw, 320px"
+                      className={styles.photoImg}
+                    />
+                  ) : (
+                    <div className={styles.photoPlaceholder}>
+                      <span className={styles.placeholderText}>
+                        {t("grid.photoComingSoon")}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Un solo label de clase, en el bloque de info (Figma oct-2026).
+                    Los vehículos grandes no lo llevan: el nombre ya es la clase. */}
+                <div className={styles.cardContent}>
+                  {v.label && <p className={styles.tier}>{v.label}</p>}
+                  <h3>
+                    {v.name}
+                    {v.orSimilar && (
+                      <span className={styles.orSimilar}>
+                        {tc("orSimilar")}
+                      </span>
+                    )}
+                  </h3>
+                  <div className={styles.specs}>
+                    <span className={styles.spec}>
+                      <PassengerIcon className={styles.specIcon} />
+                      <span className={styles.specValue}>{v.passengers}</span>
+                      <span className={styles.specUnit}>{tc("pax")}</span>
+                    </span>
+                    {v.bags !== undefined && (
+                      <span className={styles.spec}>
+                        <span className={styles.specDivider} aria-hidden="true" />
+                        <LuggageIcon className={styles.specIcon} />
+                        <span className={styles.specValue}>{v.bags}</span>
+                        <span className={styles.specUnit}>{tc("bags")}</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+            ))}
+          </CardCarousel>
+        ) : (
+          <div
+            className={gridClassName ? `${styles.grid} ${gridClassName}` : styles.grid}
+            data-count={vehicles.length}
+          >
           {vehicles.map((v, i) => (
             <Reveal
               key={v.name}
@@ -101,7 +167,8 @@ export default function FleetGrid({ title, vehicles, lead, id, footer, gridClass
               </div>
             </Reveal>
           ))}
-        </div>
+          </div>
+        )}
         {footer ? <div className={styles.footer}>{footer}</div> : null}
       </div>
     </section>

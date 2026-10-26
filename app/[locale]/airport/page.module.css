@@ -174,9 +174,3 @@
   }
 }
 
-/* Flota en una fila de cuatro en desktop (era un 2×2 de 1.600px de alto). */
-@media (min-width: 1100px) {
-  .fleetRow {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-}

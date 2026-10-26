@@ -286,7 +286,7 @@ export default async function AirportPage({ params }: PageProps) {
           lead={t("fleet.lead")}
           vehicles={fleet}
           id="fleet"
-          gridClassName={`${styles.fleetRow} mobileRail`}
+          carousel
           footer={
             <Button href="/fleet" variant="secondary">
               {t("fleet.link")}

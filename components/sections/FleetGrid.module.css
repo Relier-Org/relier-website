@@ -212,3 +212,25 @@
   justify-content: center;
   margin-top: 48px;
 }
+
+/* Carrusel: tarjetas grandes. El % es del ancho del container. */
+.carouselTrack {
+  --basis: calc((100% - 2 * var(--gutter)) / 2.4);
+  margin-top: 8px;
+}
+
+.carouselTrack .card {
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .carouselTrack {
+    --basis: 62%;
+  }
+}
+
+@media (max-width: 720px) {
+  .carouselTrack {
+    --basis: 86%;
+  }
+}

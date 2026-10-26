@@ -30,11 +30,14 @@ export default function CardCarousel({
   label,
   loop = true,
   trackClassName,
+  tone = "light",
 }: {
   children: ReactNode;
   label: string;
   loop?: boolean;
   trackClassName?: string;
+  /** Fondo de la sección: las flechas cambian de color. */
+  tone?: "light" | "dark";
 }) {
   const t = useTranslations("common");
   const trackRef = useRef<HTMLUListElement>(null);
@@ -143,7 +146,7 @@ export default function CardCarousel({
       </ul>
       </div>
 
-      <div className={styles.controls}>
+      <div className={tone === "dark" ? `${styles.controls} ${styles.dark}` : styles.controls}>
         <button
           type="button"
           className={styles.arrow}
