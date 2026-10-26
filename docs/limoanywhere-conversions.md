@@ -42,6 +42,39 @@ acciones de conversión de Ads/Meta deben comprobarse antes de publicar el
 contenedor. La deduplicación local no reemplaza la deduplicación por ID de las
 plataformas, especialmente después de recargar o si se combina con CAPI/imports.
 
+## Pasos intermedios (quote por email vs. pago)
+
+El quote enviado por email ("The information for your requested quote has been
+sent to…") y el BOOK NOW se muestran dentro del iframe de AddOns, que es
+cross-origin. GTM en relier.com no puede leer ese texto ni detectar clics allí.
+Tag Assistant tampoco se conecta si se abre la URL del iframe directamente.
+
+El loader `expander.php` de Limo Anywhere corre en relier.com y recibe los
+`gtag_event` del iframe. Con el GTM de LQC vacío, los reenvía con `gtag()`
+directo, que no genera un Custom Event utilizable en GTM. Por eso
+`ReservationWidget` publica también cada evento que no sea purchase:
+
+```js
+{ event: "relier_booking_step", booking_provider: "limo_anywhere", booking_step: "<event_name de LA>" }
+```
+
+Solo se envía el nombre: los parámetros pueden contener datos del pasajero.
+Requiere GTM_ID y consentimiento de marketing, como el purchase. Se excluyen
+`purchase`, `page_view` y `set_user_data`.
+
+Todavía no se confirmó qué `event_name` produce la pantalla del quote enviado.
+Las etapas conocidas de checkout son `view_item`, `begin_checkout` y
+`add_payment_info`. No se envió un quote de producción para comprobarlo,
+porque eso crea un lead real y le manda un email a dispatch.
+
+Para confirmarlo hacen falta tres pasos. Primero, abrir GTM Preview en
+relier.com/online-reservation y no en la URL del iframe. Después, pedir un
+quote por email con datos de prueba coordinados con Relier. Finalmente, ver qué
+`booking_step` aparece al llegar a esa pantalla. Con ese valor se arma el
+activador: evento personalizado `relier_booking_step` con la variable
+`booking_step` igual al valor observado. Si no aparece ningún `booking_step`,
+LA no emite evento en ese paso y hay que pedírselo a soporte de Limo Anywhere.
+
 ## Estado observado en AddOns, 22-oct-2026
 
 - Formulario 13: DEV - Next Embed, Horizontal (Modern), CSS #7.

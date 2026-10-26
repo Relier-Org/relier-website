@@ -5,6 +5,7 @@ import {
   createBookingConversionTracker,
   isBookingMessage,
   readBookingPurchase,
+  readBookingStep,
 } from "./conversion";
 
 const purchase = { transaction_id: "TEST-BOOKING-1", currency: "USD", value: 240.84 };
@@ -78,4 +79,14 @@ test("emits one GTM hook per transaction without emitting another native purchas
     ...purchase,
   });
   assert.ok(events.every((event) => event.event !== "purchase"));
+});
+
+test("forwards only the name of non-purchase steps", () => {
+  assert.equal(readBookingStep(envelope({ email: "test@example.invalid" }, "generate_lead")), "generate_lead");
+  assert.equal(readBookingStep(envelope(purchase, "begin_checkout")), "begin_checkout");
+  for (const data of [
+    envelope(purchase), envelope({}, "page_view"), envelope({}, "set_user_data"),
+    envelope({}, "Bad Name"), envelope({}, "x".repeat(41)),
+    { message: JSON.stringify({ height: "600px" }) }, { message: "{" }, null,
+  ]) assert.equal(readBookingStep(data), null);
 });

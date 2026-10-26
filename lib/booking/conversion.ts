@@ -62,6 +62,31 @@ export function createBookingConversionTracker() {
   };
 }
 
+export const BOOKING_STEP_EVENT = "relier_booking_step";
+
+// purchase ya tiene su hook; page_view y set_user_data no son pasos del embudo.
+const NOT_A_STEP = new Set(["purchase", "page_view", "set_user_data"]);
+
+/**
+ * Nombre de cualquier otro evento nativo del iframe (view_item, begin_checkout,
+ * el envío del quote por email...). Sólo el nombre: los parámetros pueden traer
+ * datos del pasajero. Flor (performance, 26-oct-2026) lo usa para separar a
+ * quien pide el quote por mail de quien termina pagando.
+ */
+export function readBookingStep(data: unknown): string | null {
+  if (!isRecord(data) || typeof data.message !== "string") return null;
+  let message: unknown;
+  try {
+    message = JSON.parse(data.message);
+  } catch {
+    return null;
+  }
+  if (!isRecord(message) || !isRecord(message.gtag_event)) return null;
+  const name = message.gtag_event.event_name;
+  if (typeof name !== "string" || !/^[a-z][a-z0-9_]{0,39}$/.test(name)) return null;
+  return NOT_A_STEP.has(name) ? null : name;
+}
+
 // The native embed owns GA4's purchase. This separate GTM hook must not call
 // gtag('event', 'purchase') or fbq: doing so would duplicate provider/container tags.
 export const trackBookingConversion = createBookingConversionTracker();

@@ -2,7 +2,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { preconnect, preload } from 'react-dom';
 import { cn } from '@/lib/utils/cn';
-import { isBookingMessage, readBookingPurchase, trackBookingConversion } from '@/lib/booking/conversion';
+import {
+  BOOKING_STEP_EVENT,
+  isBookingMessage,
+  readBookingPurchase,
+  readBookingStep,
+  trackBookingConversion,
+} from '@/lib/booking/conversion';
 import { hasConsent } from '@/lib/consent/state';
 import { GTM_ID } from '@/lib/analytics/config';
 import styles from './ReservationWidget.module.css';
@@ -54,6 +60,12 @@ export default function ReservationWidget({
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push(conversion);
         });
+      }
+
+      const step = readBookingStep(event.data);
+      if (step && GTM_ID && hasConsent("marketing")) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: BOOKING_STEP_EVENT, booking_provider: 'limo_anywhere', booking_step: step });
       }
 
       let data: { height?: string };
