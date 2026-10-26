@@ -6,6 +6,7 @@ import {
   isBookingMessage,
   readBookingPurchase,
   readBookingStep,
+  createQuoteRequestDetector,
 } from "./conversion";
 
 const purchase = { transaction_id: "TEST-BOOKING-1", currency: "USD", value: 240.84 };
@@ -89,4 +90,32 @@ test("forwards only the name of non-purchase steps", () => {
     envelope({}, "Bad Name"), envelope({}, "x".repeat(41)),
     { message: JSON.stringify({ height: "600px" }) }, { message: "{" }, null,
   ]) assert.equal(readBookingStep(data), null);
+});
+
+test("detects the quote-sent screen, not lead creation or the booking path", () => {
+  const load = { la_load_request: 1 };
+  const lead = envelope({ currency: "USD", value: 0 }, "generate_lead");
+  const user = envelope({ user_data: {} }, "set_user_data");
+
+  // Pantalla "has been sent to": carga + generate_lead + set_user_data.
+  const sent = createQuoteRequestDetector();
+  assert.equal(sent(load, 1000), false);
+  assert.equal(sent(lead, 1510), true);
+  assert.equal(sent(user, 1511), false);
+
+  // Paso 1: generate_lead sin carga reciente (el form tardó en llenarse).
+  const first = createQuoteRequestDetector();
+  assert.equal(first(load, 0), false);
+  assert.equal(first(lead, 40000), false);
+
+  // Reserva: book.php carga y sigue view_item; un generate_lead posterior no cuenta.
+  const book = createQuoteRequestDetector();
+  assert.equal(book(load, 0), false);
+  assert.equal(book(envelope({}, "view_item"), 800), false);
+  assert.equal(book(lead, 1200), false);
+
+  // Volver a la lista con datos: generate_lead + set_user_data sin carga previa.
+  const back = createQuoteRequestDetector();
+  assert.equal(back(lead, 0), false);
+  assert.equal(back(user, 1), false);
 });

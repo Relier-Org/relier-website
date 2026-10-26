@@ -4,6 +4,8 @@ import { preconnect, preload } from 'react-dom';
 import { cn } from '@/lib/utils/cn';
 import {
   BOOKING_STEP_EVENT,
+  QUOTE_REQUEST_EVENT,
+  createQuoteRequestDetector,
   isBookingMessage,
   readBookingPurchase,
   readBookingStep,
@@ -42,6 +44,7 @@ export default function ReservationWidget({
     const outer = outerRef.current;
     if (!outer) return;
 
+    const isQuoteRequest = createQuoteRequestDetector();
     let done = false;
     const settle = () => {
       if (done) return;
@@ -66,6 +69,11 @@ export default function ReservationWidget({
       if (step && GTM_ID && hasConsent("marketing")) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: BOOKING_STEP_EVENT, booking_provider: 'limo_anywhere', booking_step: step });
+      }
+
+      if (isQuoteRequest(event.data, event.timeStamp) && GTM_ID && hasConsent("marketing")) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: QUOTE_REQUEST_EVENT, booking_provider: 'limo_anywhere' });
       }
 
       let data: { height?: string };

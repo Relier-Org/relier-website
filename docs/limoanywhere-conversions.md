@@ -62,18 +62,34 @@ Solo se envía el nombre: los parámetros pueden contener datos del pasajero.
 Requiere GTM_ID y consentimiento de marketing, como el purchase. Se excluyen
 `purchase`, `page_view` y `set_user_data`.
 
-Todavía no se confirmó qué `event_name` produce la pantalla del quote enviado.
-Las etapas conocidas de checkout son `view_item`, `begin_checkout` y
-`add_payment_info`. No se envió un quote de producción para comprobarlo,
-porque eso crea un lead real y le manda un email a dispatch.
+### Quote enviado por email: `relier_quote_request`
 
-Para confirmarlo hacen falta tres pasos. Primero, abrir GTM Preview en
-relier.com/online-reservation y no en la URL del iframe. Después, pedir un
-quote por email con datos de prueba coordinados con Relier. Finalmente, ver qué
-`booking_step` aparece al llegar a esa pantalla. Con ese valor se arma el
-activador: evento personalizado `relier_booking_step` con la variable
-`booking_step` igual al valor observado. Si no aparece ningún `booking_step`,
-LA no emite evento en ese paso y hay que pedírselo a soporte de Limo Anywhere.
+Quote de prueba del 26-oct-2026 desde localhost:3000, con los hits de medición
+bloqueados (lead TEST 2853, quotes 636/637). Secuencia observada:
+
+| Pantalla | Mensajes del iframe |
+|---|---|
+| Paso 1 → lista de vehículos (lead creado) | `generate_lead` |
+| "Send Me Quote" → formulario de datos | `la_load_request` |
+| "…has been sent to <email>" | `la_load_request`, `generate_lead` y `set_user_data` (~0,5 s) |
+| "Reserve" → datos → Review | `la_load_request` y después `view_item` |
+
+`generate_lead` aparece en los dos caminos, y `set_user_data` llega a GTM como
+un `set` de gtag y no como un evento. Por eso no sirven para separar el quote
+del pago. Lo que distingue la pantalla del quote es `generate_lead` hasta 3 s
+después de un `la_load_request`. En ese caso `ReservationWidget` publica:
+
+```js
+{ event: "relier_quote_request", booking_provider: "limo_anywhere" }
+```
+
+En GTM: activador de evento personalizado `relier_quote_request`. Depende de la
+secuencia interna de Limo Anywhere; si cambian el form, hay que volver a
+verificarlo.
+
+El BOOK NOW de esa pantalla abre `relier.mylimobiz.com/m/waiver/quote.php` en
+una pestaña nueva, fuera de relier.com. Lo que pase ahí no llega al dataLayer
+del sitio; solo lo mide el GA4 propio de Limo Anywhere.
 
 ## Estado observado en AddOns, 22-oct-2026
 

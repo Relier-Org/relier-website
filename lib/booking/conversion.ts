@@ -87,6 +87,44 @@ export function readBookingStep(data: unknown): string | null {
   return NOT_A_STEP.has(name) ? null : name;
 }
 
+export const QUOTE_REQUEST_EVENT = "relier_quote_request";
+
+// Secuencia observada en un quote de prueba (26-oct-2026, lead TEST 2853):
+// cada página de forms/common avisa `la_load_request` al cargar, y la pantalla
+// "…has been sent to <email>" manda enseguida generate_lead + set_user_data
+// (~0,5 s). generate_lead solo también sale al crear el lead (paso 1, común a
+// quote y reserva) y el camino de reserva sigue con view_item, así que lo que
+// distingue el quote enviado es generate_lead justo después de una carga.
+const QUOTE_WINDOW_MS = 3000;
+
+function gtagEventName(data: unknown): string | null {
+  if (!isRecord(data) || typeof data.message !== "string") return null;
+  try {
+    const message: unknown = JSON.parse(data.message);
+    if (isRecord(message) && isRecord(message.gtag_event)) {
+      const name = message.gtag_event.event_name;
+      return typeof name === "string" ? name : null;
+    }
+  } catch {}
+  return null;
+}
+
+/** Devuelve true cuando el iframe muestra la pantalla de quote enviado por email. */
+export function createQuoteRequestDetector() {
+  let loadedAt: number | null = null;
+  return (data: unknown, now: number): boolean => {
+    if (isRecord(data) && data.la_load_request === 1) {
+      loadedAt = now;
+      return false;
+    }
+    const name = gtagEventName(data);
+    if (!name) return false;
+    const hit = name === "generate_lead" && loadedAt !== null && now - loadedAt <= QUOTE_WINDOW_MS;
+    loadedAt = null;
+    return hit;
+  };
+}
+
 // The native embed owns GA4's purchase. This separate GTM hook must not call
 // gtag('event', 'purchase') or fbq: doing so would duplicate provider/container tags.
 export const trackBookingConversion = createBookingConversionTracker();
