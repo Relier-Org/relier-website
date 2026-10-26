@@ -46,10 +46,14 @@
   list-style: none;
   margin: 0;
   overflow-x: auto;
+  /* Sólo horizontal: las cards que todavía no entraron arrancan corridas
+     abajo (Reveal) y la pista también scrolleaba en vertical. */
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   margin-inline: calc(50% - 50vw);
-  padding: 4px var(--page-inset) 8px;
+  /* Aire arriba y abajo para el hover (la card sube) sin que lo recorte. */
+  padding: 8px var(--page-inset) 12px;
   scroll-padding-inline: var(--page-inset);
   scrollbar-width: none;
   -ms-overflow-style: none;
