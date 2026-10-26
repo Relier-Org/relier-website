@@ -17,7 +17,6 @@ import TextCTA from "@/components/ui/TextCTA";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import {
-  AirportBoard,
   AreaColumns,
   Band,
   Cards,
@@ -31,6 +30,7 @@ import {
   type Stat,
 } from "@/components/landing/Landing";
 import { items, strings } from "@/components/landing/landingPage";
+import DepartureBoard from "@/components/landing/DepartureBoard";
 import { ShieldTickIcon, CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
 import { PhoneIcon } from "@/components/icons/ContactIcons";
 import { BusIcon, CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
@@ -194,7 +194,7 @@ export default async function AirportPage({ params }: PageProps) {
             title={t("airports.title")}
             lead={t("airports.lead")}
           />
-          <AirportBoard
+          <DepartureBoard
             main={t.raw("airports.main") as Airport[]}
             regional={t.raw("airports.regional") as Airport[]}
             regionalTitle={t("airports.regionalTitle")}

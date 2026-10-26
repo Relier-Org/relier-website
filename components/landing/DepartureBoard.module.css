@@ -1,0 +1,212 @@
+/* Panel tipo pantalla de aeropuerto: negro profundo, filetes finos y el
+   dorado de la marca en lugar del amarillo de las pantallas reales. */
+.board {
+  --cols: 112px minmax(0, 1.4fr) minmax(0, 0.6fr) minmax(0, 0.6fr);
+  padding: 22px 28px 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid #2c2a25;
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0 2px, transparent 2px 4px),
+    #0d0c0a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #2c2a25;
+}
+
+.plane {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: var(--color-champagne-500);
+  color: #0d0c0a;
+}
+
+.plane svg {
+  transform: rotate(45deg);
+}
+
+.colLabel {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: center;
+  gap: 20px;
+  padding: 11px 0;
+  border-bottom: 1px solid #1f1d19;
+}
+
+.rows li:last-child {
+  border-bottom: 0;
+}
+
+/* Fichas split-flap: una por letra, con la ranura del medio. */
+.code {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 36px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #1d1b17 0 50%, #16140f 50% 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-champagne-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.flip {
+  animation: flap 70ms linear;
+}
+
+@keyframes flap {
+  0% { transform: scaleY(1); }
+  50% { transform: scaleY(0.15); }
+  100% { transform: scaleY(1); }
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.cell {
+  font-size: 15px;
+  color: var(--color-champagne-500);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.sub {
+  margin: 22px 0 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2c2a25;
+  font-size: var(--eyebrow-size);
+  font-weight: 500;
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+.rowRegional .name {
+  font-size: 13px;
+}
+
+/* El detalle de los regionales ocupa las dos columnas de datos. */
+.detail {
+  grid-column: 3 / span 2;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-silver-300);
+  text-wrap: pretty;
+}
+
+@media (max-width: 860px) {
+  /* Código a la izquierda ocupando dos líneas; a la derecha el nombre y,
+     debajo, los dos datos en la misma línea (o el detalle). */
+  .board {
+    --cols: auto minmax(0, 1fr) minmax(0, 1fr);
+    padding: 14px 14px 16px;
+  }
+  .head .colName,
+  .head .colLabel {
+    display: none;
+  }
+  .head {
+    padding-bottom: 10px;
+  }
+  .plane {
+    width: 28px;
+    height: 28px;
+  }
+  .row {
+    gap: 4px 12px;
+    padding: 12px 0;
+    align-items: start;
+  }
+  .code {
+    grid-row: span 2;
+  }
+  .tile {
+    width: 22px;
+    height: 30px;
+    font-size: 16px;
+  }
+  .name {
+    grid-column: 2 / -1;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .cell {
+    font-size: 12px;
+    white-space: normal;
+  }
+  .cell::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--text-tertiary);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .detail {
+    grid-column: 2 / -1;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .sub {
+    margin-top: 14px;
+    padding-bottom: 10px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip {
+    animation: none;
+  }
+}

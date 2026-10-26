@@ -536,63 +536,6 @@ export type Airport = {
   detail?: string;
 };
 
-/**
- * Tablero de aeropuertos (Airports, oct-2026): el código IATA grande en
- * display y los datos en micro-labels, como una pizarra de arribos. Los tres
- * principales con distancia y tiempo desde Midtown; los regionales, más chicos
- * y con una línea de detalle.
- */
-export function AirportBoard({
-  main,
-  regional,
-  regionalTitle,
-  distanceLabel,
-  timeLabel,
-}: {
-  main: Airport[];
-  regional: Airport[];
-  regionalTitle: string;
-  distanceLabel: string;
-  timeLabel: string;
-}) {
-  return (
-    <div className={styles.board}>
-      <ul className={styles.boardMain}>
-        {main.map((a, i) => (
-          <Reveal as="li" key={a.code} className={styles.boardRow} delay={Math.min(i * 0.06, 0.24)}>
-            <span className={styles.boardCode}>{a.code}</span>
-            <span className={styles.boardName}>{a.name}</span>
-            <dl className={styles.boardData}>
-              <div>
-                <dt>{distanceLabel}</dt>
-                <dd>{a.distance}</dd>
-              </div>
-              <div>
-                <dt>{timeLabel}</dt>
-                <dd>{a.time}</dd>
-              </div>
-            </dl>
-          </Reveal>
-        ))}
-      </ul>
-      <Reveal className={styles.boardRegional}>
-        <h3 className={styles.boardRegionalTitle}>{regionalTitle}</h3>
-        <ul className={cn(styles.boardRegionalList, "mobileRail")}>
-          {regional.map((a) => (
-            <li key={a.code}>
-              <span className={styles.boardCodeSm}>{a.code}</span>
-              <div>
-                <p className={styles.boardRegionalName}>{a.name}</p>
-                <p className={styles.cardBody}>{a.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-    </div>
-  );
-}
-
 export type Region = { name: string; places: string[] };
 
 /** Zona de servicio: cada región con sus barrios en una línea corrida. */
