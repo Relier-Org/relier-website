@@ -1081,3 +1081,61 @@
     gap: 28px;
   }
 }
+
+/* ─── Highlights en loop (mobile) ─── */
+.hlRail {
+  display: contents;
+}
+
+.hlCopy {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .hlLoop {
+    padding: 36px 0;
+  }
+  .hlLoop .hlRail {
+    display: block;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .hlLoop .hlList {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    animation: hlLoop 20s linear infinite;
+  }
+  .hlLoop .hlRail:hover .hlList,
+  .hlLoop .hlRail:active .hlList {
+    animation-play-state: paused;
+  }
+  .hlLoop .hlItem {
+    flex: 0 0 auto;
+    padding: 0 22px;
+    font-size: 17px;
+    white-space: nowrap;
+  }
+  .hlLoop .hlCopy {
+    display: flex;
+  }
+}
+
+@keyframes hlLoop {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hlLoop .hlList {
+    animation: none;
+  }
+  .hlLoop .hlRail {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}

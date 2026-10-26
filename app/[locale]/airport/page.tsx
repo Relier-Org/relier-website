@@ -184,6 +184,7 @@ export default async function AirportPage({ params }: PageProps) {
         </section>
 
         <Highlights
+          loop
           items={strings(t.raw("highlights"))}
           icons={[ShieldTickIcon, CalendarIcon, CarIcon, PhoneIcon]}
         />

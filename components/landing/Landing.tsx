@@ -71,29 +71,46 @@ export function Head({
 export function Highlights({
   items,
   icons,
+  loop = false,
 }: {
   items: string[];
   icons: Icon[];
+  /** En mobile, carrusel infinito en una línea (como la franja de logos del
+   *  home) en vez de la lista apilada. Airports, oct-2026. */
+  loop?: boolean;
 }) {
   return (
-    <section className={styles.highlights}>
+    <section className={cn(styles.highlights, loop && styles.hlLoop)}>
       <div className="container">
-        <ul className={styles.hlList}>
-          {items.map((it, i) => {
-            const Glyph = icons[i % icons.length];
-            return (
-              <Reveal
-                as="li"
-                key={it}
-                className={styles.hlItem}
-                delay={Math.min(i * 0.06, 0.24)}
-              >
-                <Glyph className={styles.hlIcon} aria-hidden="true" />
-                <span>{it}</span>
-              </Reveal>
-            );
-          })}
-        </ul>
+        <div className={styles.hlRail}>
+          <ul className={styles.hlList}>
+            {[false, true].map((copy) =>
+              copy && !loop
+                ? null
+                : items.map((it, i) => {
+                    const Glyph = icons[i % icons.length];
+                    // La copia cierra el loop: fuera del árbol accesible y
+                    // oculta en desktop.
+                    return copy ? (
+                      <li key={`c-${it}`} className={cn(styles.hlItem, styles.hlCopy)} aria-hidden="true">
+                        <Glyph className={styles.hlIcon} aria-hidden="true" />
+                        <span>{it}</span>
+                      </li>
+                    ) : (
+                      <Reveal
+                        as="li"
+                        key={it}
+                        className={styles.hlItem}
+                        delay={Math.min(i * 0.06, 0.24)}
+                      >
+                        <Glyph className={styles.hlIcon} aria-hidden="true" />
+                        <span>{it}</span>
+                      </Reveal>
+                    );
+                  })
+            )}
+          </ul>
+        </div>
       </div>
     </section>
   );
