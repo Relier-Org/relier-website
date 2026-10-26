@@ -636,7 +636,12 @@
           "body": "Conexiones entre JFK, LaGuardia y Newark con poco margen. El precio es fijo, el tiempo de espera está incluido a la llegada y el chofer está programado diez minutos antes de la recogida."
         }
       ],
-      "jfkLink": "Por qué quienes viajan desde Brooklyn reservan con Relier para ir a JFK"
+      "jfkLink": "Por qué quienes viajan desde Brooklyn reservan con Relier para ir a JFK",
+      "ticket": {
+        "pass": "Tarjeta de embarque",
+        "from": "Desde",
+        "to": "Hasta"
+      }
     },
     "areas": {
       "eyebrow": "Zona de servicio",

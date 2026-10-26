@@ -636,7 +636,12 @@
           "body": "Connecting between JFK, LaGuardia and Newark on a tight window. The price is fixed, wait time is included on arrival, and the chauffeur is scheduled ten minutes before pickup."
         }
       ],
-      "jfkLink": "Why Brooklyn travelers book Relier for JFK"
+      "jfkLink": "Why Brooklyn travelers book Relier for JFK",
+      "ticket": {
+        "pass": "Boarding pass",
+        "from": "From",
+        "to": "To"
+      }
     },
     "areas": {
       "eyebrow": "Service area",

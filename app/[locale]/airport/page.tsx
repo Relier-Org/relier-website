@@ -296,8 +296,16 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Band id="routes">
           <Head eyebrow={t("routes.eyebrow")} title={t("routes.title")} lead={t("routes.lead")} />
-          {/* Rutas como pases de abordar (Nico, 26-oct-2026). */}
-          <RouteTickets items={items(t.raw("routes.items"))} className="mobileRail" />
+          {/* Rutas como pasajes de avión (Nico, 26-oct-2026). */}
+          <RouteTickets
+            items={items(t.raw("routes.items"))}
+            labels={{
+              pass: t("routes.ticket.pass"),
+              from: t("routes.ticket.from"),
+              to: t("routes.ticket.to"),
+            }}
+            className="mobileRail"
+          />
           {/* Hub → child del roadmap SEO (sep-2026): este link venía de la
               página anterior y no se pierde. */}
           <div className={styles.after}>

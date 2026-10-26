@@ -1,53 +1,145 @@
+/* Pasajes de a dos en desktop: cuerpo + talón, separados por una perforación
+   vertical con muescas arriba y abajo. */
 .tickets {
+  --ticket-bg: #1b1915;
+  --stub-w: 116px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .ticket {
-  --cut: 104px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--radius-md);
-  background: #191713;
-  border: 1px solid #343434;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--stub-w);
+  border-radius: 10px;
+  background: var(--ticket-bg);
+  border: 1px solid #36332c;
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.8);
 }
 
-/* Arriba: origen › línea de vuelo con avión (de ancho completo). Abajo: el
-   destino grande. Así ningún tramo se parte en varias líneas. */
+/* Muescas: medialunas del color de la sección sobre el borde. */
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  right: calc(var(--stub-w) - 11px);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-canvas);
+  border: 1px solid #36332c;
+}
+
+.ticket::before {
+  top: -12px;
+  clip-path: inset(50% 0 0 0);
+}
+
+.ticket::after {
+  bottom: -12px;
+  clip-path: inset(0 0 50% 0);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Franja de encabezado, como la de una aerolínea. */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 12px 22px;
+  border-bottom: 1px solid #2c2a25;
+  border-radius: 10px 0 0 0;
+  background: linear-gradient(90deg, rgba(201, 169, 97, 0.14), rgba(201, 169, 97, 0.04));
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-champagne-500);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  letter-spacing: 0.24em;
+}
+
+.ring {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2.5px solid currentColor;
+}
+
 .route {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  align-content: center;
-  gap: 10px 14px;
-  min-height: var(--cut);
+  grid-template-columns: auto minmax(40px, 1fr) minmax(0, auto);
+  align-items: end;
+  gap: 14px;
   margin: 0;
-  padding: 20px 26px 18px;
+  padding: 20px 22px 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fieldTo {
+  text-align: right;
+}
+
+.label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
 }
 
 .from {
   white-space: nowrap;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.16em;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-champagne-500);
 }
 
-/* Línea punteada de vuelo con el avión al final, apuntando al destino. */
+.to {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+/* Línea de vuelo punteada con el avión al medio. */
 .path {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 18px;
+  display: grid;
+  place-items: center;
+  height: 26px;
+  margin-bottom: 2px;
   color: var(--color-champagne-500);
 }
 
@@ -62,79 +154,99 @@
 
 .path svg {
   position: relative;
-  padding-left: 8px;
+  padding: 0 6px;
   box-sizing: content-box;
-  background: #191713;
-}
-
-.to {
-  grid-column: 1 / -1;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-  font-variation-settings: "WONK" 0;
-  text-wrap: balance;
-}
-
-/* Perforación del talón, con las muescas dibujadas como medialunas del
-   color del fondo de la sección, encima del borde de la tarjeta. */
-.perf {
-  position: relative;
-  margin: 0 18px;
-  border-top: 2px dashed #3a3832;
-}
-
-.perf::before,
-.perf::after {
-  content: "";
-  position: absolute;
-  top: -12px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--bg-canvas);
-  border: 1px solid #343434;
-}
-
-.perf::before {
-  left: -30px;
-  clip-path: inset(0 0 0 50%);
-}
-
-.perf::after {
-  right: -30px;
-  clip-path: inset(0 50% 0 0);
+  background: var(--ticket-bg);
 }
 
 .body {
-  padding: 20px 26px 26px;
-  font-size: 15px;
+  margin: 0;
+  padding: 16px 22px 22px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--color-silver-300);
   text-wrap: pretty;
 }
 
-@media (max-width: 1024px) {
+/* Talón: perforación vertical a la izquierda. */
+.stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 22px 14px;
+  border-left: 2px dashed #3a3832;
+  border-radius: 0 10px 10px 0;
+  background: rgba(201, 169, 97, 0.05);
+  text-align: center;
+}
+
+.stubCode {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.stubPlane {
+  color: var(--color-champagne-500);
+}
+
+.barcode {
+  width: 78px;
+  height: 30px;
+  margin-top: 6px;
+  fill: rgba(240, 236, 228, 0.75);
+}
+
+@media (max-width: 1100px) {
   .tickets {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 720px) {
   .tickets {
-    grid-template-columns: 1fr;
+    --stub-w: 84px;
+  }
+  .top {
+    padding: 10px 16px;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+  }
+  .brand {
+    letter-spacing: 0.18em;
+  }
+  .stubCode {
+    font-size: 15px;
   }
   .route {
-    padding: 18px 20px 16px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px 16px 0;
   }
+  .path {
+    display: none;
+  }
+  .fieldTo {
+    text-align: left;
+  }
+  .from,
   .to {
-    font-size: 20px;
+    font-size: 19px;
   }
   .body {
-    padding: 18px 20px 22px;
-    font-size: 14px;
+    padding: 14px 16px 18px;
+    font-size: 13px;
+  }
+  .stub {
+    padding: 18px 8px;
+  }
+  .barcode {
+    width: 58px;
   }
 }
