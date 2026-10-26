@@ -1,7 +1,8 @@
+/* Desktop: lista | mapa | barrios. */
 .wrap {
   display: grid;
-  grid-template-columns: minmax(240px, 0.36fr) minmax(0, 1fr);
-  gap: 40px;
+  grid-template-columns: minmax(200px, 0.28fr) minmax(0, 1fr) minmax(200px, 0.3fr);
+  gap: 32px;
   align-items: start;
 }
 
@@ -48,7 +49,6 @@
 }
 
 .places {
-  margin-top: 24px;
   padding: 20px 22px 22px;
   border-radius: var(--radius-md);
   background: var(--bg-light-tile);
@@ -151,6 +151,16 @@
   }
 }
 
+@media (min-width: 721px) and (max-width: 1024px) {
+  /* Tablet: mapa arriba, lista y barrios lado a lado debajo. */
+  .wrap {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .map {
+    grid-column: 1 / -1;
+  }
+}
+
 /* Mobile: regiones como chips deslizables debajo del mapa. */
 @media (max-width: 720px) {
   .list {
@@ -186,7 +196,7 @@
     border-color: var(--color-champagne-500);
   }
   .places {
-    margin-top: 16px;
+    margin-top: -8px;
   }
   .airport text {
     font-size: 20px;

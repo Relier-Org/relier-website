@@ -41,10 +41,6 @@ export default function AreaMap({ regions }: { regions: Region[] }) {
             </li>
           ))}
         </ul>
-        <div id="area-panel" role="tabpanel" aria-labelledby={`area-tab-${active}`} className={styles.places}>
-          <h3 className={styles.placesTitle}>{r.name}</h3>
-          <p className={styles.placesList}>{r.places.join(" · ")}</p>
-        </div>
       </div>
 
       <div className={styles.map} aria-hidden="true">
@@ -72,6 +68,12 @@ export default function AreaMap({ regions }: { regions: Region[] }) {
             </g>
           ))}
         </svg>
+      </div>
+
+      {/* Barrios de la región, a la derecha del mapa (Nico). */}
+      <div id="area-panel" role="tabpanel" aria-labelledby={`area-tab-${active}`} className={styles.places}>
+        <h3 className={styles.placesTitle}>{r.name}</h3>
+        <p className={styles.placesList}>{r.places.join(" · ")}</p>
       </div>
     </div>
   );
