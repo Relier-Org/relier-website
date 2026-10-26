@@ -168,8 +168,8 @@
     height: 28px;
   }
   .row {
-    gap: 4px 12px;
-    padding: 12px 0;
+    gap: 12px 14px;
+    padding: 18px 0;
     align-items: start;
   }
   .code {
@@ -192,7 +192,7 @@
   .cell::before {
     content: attr(data-label);
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     color: var(--text-tertiary);
     font-size: 9px;
     letter-spacing: 0.14em;
@@ -200,9 +200,11 @@
   }
   .nameBlock {
     grid-column: 2 / -1;
+    gap: 8px;
   }
   .detail {
     font-size: 12px;
+    line-height: 1.6;
   }
   .sub {
     margin-top: 14px;
