@@ -13,6 +13,10 @@ const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
  * pantalla. El HTML del server ya trae las letras finales (sin JS o con
  * movimiento reducido se ven quietas); la animación sólo pasa por letras al
  * azar y vuelve a la correcta.
+ *
+ * TODO(cliente): los tiempos de viaje de los regionales (TEB, HPN, ISP, SWF)
+ * son estimaciones de Google Maps y guías de traslado (26-oct-2026); Relier
+ * tiene que validarlos.
  */
 export default function DepartureBoard({
   main,
@@ -115,8 +119,13 @@ export default function DepartureBoard({
         {regional.map((a) => (
           <li key={a.code} className={`${styles.row} ${styles.rowRegional}`}>
             {code(a.code)}
-            <span className={styles.name}>{a.name}</span>
-            <span className={styles.detail}>{a.detail}</span>
+            {/* Nombre con el detalle debajo, como la observación de un vuelo. */}
+            <span className={styles.nameBlock}>
+              <span className={styles.name}>{a.name}</span>
+              <span className={styles.detail}>{a.detail}</span>
+            </span>
+            <span className={styles.cell} data-label={distanceLabel}>{a.distance}</span>
+            <span className={styles.cell} data-label={timeLabel}>{a.time}</span>
           </li>
         ))}
       </ul>

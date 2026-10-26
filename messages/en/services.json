@@ -496,22 +496,30 @@
         {
           "code": "TEB",
           "name": "Teterboro, private aviation",
-          "detail": "12 miles north-northwest of Midtown Manhattan. Private aviation pickups include 30 minutes of wait time."
+          "detail": "12 miles north-northwest of Midtown Manhattan. Private aviation pickups include 30 minutes of wait time.",
+          "distance": "About 12 miles",
+          "time": "25 to 45 min"
         },
         {
           "code": "HPN",
           "name": "Westchester County Airport, White Plains",
-          "detail": "About 30 miles north of New York City. Arrivals for Westchester, Greenwich and the Connecticut coast."
+          "detail": "About 30 miles north of New York City. Arrivals for Westchester, Greenwich and the Connecticut coast.",
+          "distance": "About 30 miles",
+          "time": "45 to 75 min"
         },
         {
           "code": "ISP",
           "name": "Long Island MacArthur, Ronkonkoma",
-          "detail": "50 miles from Manhattan. Long Island arrivals, with The Hamptons and the North Fork within reach."
+          "detail": "50 miles from Manhattan. Long Island arrivals, with The Hamptons and the North Fork within reach.",
+          "distance": "About 50 miles",
+          "time": "60 to 90 min"
         },
         {
           "code": "SWF",
           "name": "New York Stewart International",
-          "detail": "About 60 miles north of New York City. Regional arrivals, same chauffeur standard as the city airports."
+          "detail": "About 60 miles north of New York City. Regional arrivals, same chauffeur standard as the city airports.",
+          "distance": "About 60 miles",
+          "time": "75 to 100 min"
         }
       ],
       "distanceLabel": "From Midtown",

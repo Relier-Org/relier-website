@@ -135,11 +135,16 @@
   font-size: 13px;
 }
 
-/* El detalle de los regionales ocupa las dos columnas de datos. */
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
 .detail {
-  grid-column: 3 / span 2;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--color-silver-300);
   text-wrap: pretty;
 }
@@ -193,10 +198,11 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
   }
-  .detail {
+  .nameBlock {
     grid-column: 2 / -1;
+  }
+  .detail {
     font-size: 12px;
-    line-height: 1.5;
   }
   .sub {
     margin-top: 14px;

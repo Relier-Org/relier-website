@@ -496,22 +496,30 @@
         {
           "code": "TEB",
           "name": "Teterboro, aviação privada",
-          "detail": "A 12 milhas ao norte-noroeste de Midtown Manhattan. Buscas em aviação privada incluem 30 minutos de tempo de espera."
+          "detail": "A 12 milhas ao norte-noroeste de Midtown Manhattan. Buscas em aviação privada incluem 30 minutos de tempo de espera.",
+          "distance": "Cerca de 12 milhas",
+          "time": "25 a 45 min"
         },
         {
           "code": "HPN",
           "name": "Westchester County Airport, White Plains",
-          "detail": "Cerca de 30 milhas ao norte da cidade de Nova York. Chegadas para Westchester, Greenwich e o litoral de Connecticut."
+          "detail": "Cerca de 30 milhas ao norte da cidade de Nova York. Chegadas para Westchester, Greenwich e o litoral de Connecticut.",
+          "distance": "Cerca de 30 milhas",
+          "time": "45 a 75 min"
         },
         {
           "code": "ISP",
           "name": "Long Island MacArthur, Ronkonkoma",
-          "detail": "A 50 milhas de Manhattan. Chegadas em Long Island, com The Hamptons e North Fork por perto."
+          "detail": "A 50 milhas de Manhattan. Chegadas em Long Island, com The Hamptons e North Fork por perto.",
+          "distance": "Cerca de 50 milhas",
+          "time": "60 a 90 min"
         },
         {
           "code": "SWF",
           "name": "New York Stewart International",
-          "detail": "Cerca de 60 milhas ao norte da cidade de Nova York. Chegadas regionais, com o mesmo padrão de motorista dos aeroportos da cidade."
+          "detail": "Cerca de 60 milhas ao norte da cidade de Nova York. Chegadas regionais, com o mesmo padrão de motorista dos aeroportos da cidade.",
+          "distance": "Cerca de 60 milhas",
+          "time": "75 a 100 min"
         }
       ],
       "distanceLabel": "A partir de Midtown",
