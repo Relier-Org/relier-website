@@ -65,9 +65,8 @@ export default function RouteTickets({
                   <span className={styles.label}>{labels.from}</span>
                   <span className={styles.from}>{from}</span>
                 </span>
-                <span className={styles.path} aria-hidden="true">
-                  <Plane />
-                </span>
+                {/* Sólo la línea de vuelo: el avión va en el talón (Nico). */}
+                <span className={styles.path} aria-hidden="true" />
                 <span className={cn(styles.field, styles.fieldTo)} aria-hidden="true">
                   <span className={styles.label}>{labels.to}</span>
                   <span className={styles.to}>{to}</span>

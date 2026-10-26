@@ -133,7 +133,7 @@
   text-wrap: balance;
 }
 
-/* Línea de vuelo punteada con el avión al medio. */
+/* Línea de vuelo punteada entre origen y destino. */
 .path {
   position: relative;
   display: grid;
@@ -150,13 +150,6 @@
   right: 0;
   top: 50%;
   border-top: 1px dashed rgba(201, 169, 97, 0.45);
-}
-
-.path svg {
-  position: relative;
-  padding: 0 6px;
-  box-sizing: content-box;
-  background: var(--ticket-bg);
 }
 
 .body {
