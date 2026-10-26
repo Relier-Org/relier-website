@@ -5,19 +5,58 @@ import type { Item } from "./Landing";
 import { cn } from "@/lib/utils/cn";
 import styles from "./StepsTimeline.module.css";
 
-/** Autito de perfil, sedán, para recorrer la ruta. */
-function Car({ className }: { className?: string }) {
+/**
+ * SUV negra vista desde arriba (mirando a la derecha): carrocería con brillo,
+ * parabrisas y luneta, techo, espejos y faros. Los conos de luz van aparte,
+ * en CSS, para que sumen sobre el asfalto.
+ */
+function TopCar({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 64 26" aria-hidden="true">
-      <path
-        d="M6 18.5c0-2.4 1.3-3.9 3.6-4.6l8.3-2.6 6.6-5.6c1.2-1 2.7-1.6 4.3-1.6h11.4c1.8 0 3.5.7 4.8 2l5 5 5.2 1.1c2.6.6 4.4 2.6 4.4 5.2v1.3c0 1-.8 1.8-1.8 1.8H8c-1.1 0-2-.9-2-2Z"
-        fill="currentColor"
-      />
-      <path d="M26.6 7.6c.7-.6 1.5-.9 2.4-.9h5.4v5.1H20.8l5.8-4.2Zm9.6-.9h4.7c1 0 1.9.4 2.6 1.1l4 3.9H36.2V6.7Z" fill="rgba(255,255,255,.55)" />
-      <circle cx="18" cy="21" r="4.6" fill="#141310" />
-      <circle cx="18" cy="21" r="2" fill="currentColor" />
-      <circle cx="49" cy="21" r="4.6" fill="#141310" />
-      <circle cx="49" cy="21" r="2" fill="currentColor" />
+    <svg className={className} viewBox="0 0 140 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="tc-body" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#2b2a27" />
+          <stop offset=".18" stopColor="#141412" />
+          <stop offset=".5" stopColor="#0b0b0a" />
+          <stop offset=".82" stopColor="#141412" />
+          <stop offset="1" stopColor="#2b2a27" />
+        </linearGradient>
+        <linearGradient id="tc-glass" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#3b4249" />
+          <stop offset="1" stopColor="#14181c" />
+        </linearGradient>
+        <linearGradient id="tc-roof" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#1c1c1a" />
+          <stop offset=".5" stopColor="#0d0d0c" />
+          <stop offset="1" stopColor="#1c1c1a" />
+        </linearGradient>
+      </defs>
+      {/* ruedas asomando */}
+      <rect x="22" y="2" width="20" height="7" rx="3" fill="#050505" />
+      <rect x="22" y="55" width="20" height="7" rx="3" fill="#050505" />
+      <rect x="98" y="2" width="20" height="7" rx="3" fill="#050505" />
+      <rect x="98" y="55" width="20" height="7" rx="3" fill="#050505" />
+      {/* carrocería */}
+      <path d="M10 14c0-5 3-8 8-8h96c9 0 16 4 18 10 1.6 4.8 2 10.8 2 16s-.4 11.2-2 16c-2 6-9 10-18 10H18c-5 0-8-3-8-8Z" fill="url(#tc-body)" />
+      {/* brillo de capot */}
+      <path d="M104 12c8 1 14 4 16 9" stroke="rgba(255,255,255,.18)" strokeWidth="1.2" fill="none" />
+      <path d="M104 52c8-1 14-4 16-9" stroke="rgba(255,255,255,.1)" strokeWidth="1.2" fill="none" />
+      {/* parabrisas */}
+      <path d="M84 13c5 0 9 1 11 3 1.6 4.6 2.2 10.4 2.2 16S96.6 43.4 95 48c-2 2-6 3-11 3Z" fill="url(#tc-glass)" />
+      {/* techo */}
+      <rect x="34" y="12" width="50" height="40" rx="6" fill="url(#tc-roof)" />
+      <path d="M38 18h42M38 46h42" stroke="rgba(255,255,255,.07)" strokeWidth="1" />
+      {/* luneta */}
+      <path d="M33 13c-6 0-10 1-12 3-1.4 4.6-1.8 10.4-1.8 16s.4 11.4 1.8 16c2 2 6 3 12 3Z" fill="url(#tc-glass)" opacity=".85" />
+      {/* espejos */}
+      <path d="M86 6l6-4h3l-2 5Z" fill="#141412" />
+      <path d="M86 58l6 4h3l-2-5Z" fill="#141412" />
+      {/* faros */}
+      <rect x="126" y="12" width="5" height="9" rx="2" fill="#fff6dc" />
+      <rect x="126" y="43" width="5" height="9" rx="2" fill="#fff6dc" />
+      {/* traseras */}
+      <rect x="9" y="10" width="4" height="12" rx="1.5" fill="#c81e1e" />
+      <rect x="9" y="42" width="4" height="12" rx="1.5" fill="#c81e1e" />
     </svg>
   );
 }
@@ -25,10 +64,11 @@ function Car({ className }: { className?: string }) {
 const clamp = (v: number) => Math.min(1, Math.max(0, v));
 
 /**
- * "How it works" como línea de tiempo (Nico, 26-oct-2026; referencia: el dial
- * de restoexp.com, pero lineal). Desktop: la sección queda fija mientras se
- * scrollea y un autito recorre una ruta con marcas; cada paso se enciende al
- * llegar a su punto. Mobile: la ruta es vertical y el auto baja con el scroll.
+ * "How it works" como línea de tiempo (Nico, 26-oct-2026): una ruta nocturna
+ * vista desde arriba (asfalto, banquinas, carril central) que una SUV negra con
+ * los faros encendidos recorre con el scroll. Cada paso es una tacha
+ * reflectiva sobre la ruta que se ilumina cuando el auto la pasa. Desktop: la
+ * sección queda fija mientras se scrollea. Mobile: ruta vertical.
  *
  * El texto de los pasos está siempre en el HTML y visible (atenuado hasta
  * encenderse): nada depende de JS para leerse. Con movimiento reducido no hay
@@ -101,10 +141,18 @@ export default function StepsTimeline({
         {head}
         <div className={styles.track}>
           <div className={styles.road} aria-hidden="true">
-            <span className={styles.ticks} />
-            <span className={styles.progress} />
+            <span className={styles.lane} />
+            <span className={styles.trail} />
+            {items.map((it, i) => (
+              <span
+                key={it.title}
+                className={cn(styles.stud, reached(i) && styles.studOn)}
+                style={{ "--at": i / Math.max(1, n - 1) } as React.CSSProperties}
+              />
+            ))}
             <span className={styles.carWrap}>
-              <Car className={styles.car} />
+              <span className={styles.beams} />
+              <TopCar className={styles.car} />
             </span>
           </div>
           <ol ref={listRef} className={styles.steps}>
