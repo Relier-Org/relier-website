@@ -48,7 +48,8 @@ export default function RouteTickets({
     <ul className={cn(styles.tickets, className)}>
       {items.map((it, i) => {
         const [from, to] = it.title.split(" › ");
-        const code = from.split(" · ")[0];
+        // El talón repite el mismo origen que el cuerpo, un código por línea.
+        const codes = from.split(" · ");
         return (
           <Reveal as="li" key={it.title} className={styles.ticket} delay={Math.min(i * 0.06, 0.24)}>
             <div className={styles.main}>
@@ -76,7 +77,11 @@ export default function RouteTickets({
             </div>
             <div className={styles.stub} aria-hidden="true">
               <span className={styles.label}>{labels.from}</span>
-              <span className={styles.stubCode}>{code}</span>
+              <span className={styles.stubCodes}>
+                {codes.map((c) => (
+                  <span key={c} className={styles.stubCode}>{c}</span>
+                ))}
+              </span>
               <Plane className={styles.stubPlane} />
               <Barcode seed={it.title} />
             </div>

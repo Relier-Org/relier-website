@@ -182,6 +182,18 @@
   text-align: center;
 }
 
+.stubCodes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Con varios códigos, más chicos para que entren en el talón. */
+.stubCodes:has(> :nth-child(2)) .stubCode {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
 .stubCode {
   font-family: var(--font-sans);
   text-transform: uppercase;
