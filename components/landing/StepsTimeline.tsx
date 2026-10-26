@@ -140,11 +140,14 @@ export default function StepsTimeline({
   const ENTRY = still ? 0 : 0.18;
   const EXIT = still ? 0 : 0.18;
   const cruise = 1 - ENTRY - EXIT;
+  // Cuánto fuera de la ruta arranca y termina el auto: lo suficiente para que
+  // tampoco se vean los haces de los faros (Nico, 26-oct-2026).
+  const OFF = 0.65;
   const pos =
     p < ENTRY
-      ? (p / ENTRY - 1) * 0.35
+      ? (p / ENTRY - 1) * OFF
       : p > 1 - EXIT
-        ? 1 + ((p - (1 - EXIT)) / EXIT) * 0.35
+        ? 1 + ((p - (1 - EXIT)) / EXIT) * OFF
         : (p - ENTRY) / cruise;
   const reached = (i: number) => pos >= i / Math.max(1, n - 1) - 0.005;
 
