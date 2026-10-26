@@ -10,11 +10,21 @@ import styles from "./StepsTimeline.module.css";
  * parabrisas y luneta, techo, espejos y faros. Los conos de luz van aparte,
  * en CSS, para que sumen sobre el asfalto.
  */
-function TopCar({ className, traffic = false }: { className?: string; traffic?: boolean }) {
-  // Los autos del tráfico: grafito, sin el aro. Ids propios para no pisar los
-  // degradés de la SUV de Relier.
-  const id = traffic ? "tt" : "tc";
-  const [edge, mid, core] = traffic ? ["#5a5b5e", "#3a3b3e", "#2a2b2e"] : ["#2b2a27", "#141412", "#0b0b0a"];
+type Paint = "relier" | "taxi" | "red";
+
+// Carrocería (borde, medio, centro) y techo por pintura.
+const PAINTS: Record<Paint, { body: [string, string, string]; roof: [string, string] }> = {
+  relier: { body: ["#2b2a27", "#141412", "#0b0b0a"], roof: ["#1c1c1a", "#0d0d0c"] },
+  taxi: { body: ["#ffd84a", "#f2b705", "#d99c00"], roof: ["#f6c21a", "#d99c00"] },
+  red: { body: ["#c23a33", "#8e1b1b", "#6e1212"], roof: ["#9b2420", "#6e1212"] },
+};
+
+function TopCar({ className, paint = "relier" }: { className?: string; paint?: Paint }) {
+  // Ids propios por pintura para que los degradés no se pisen entre autos.
+  const id = `tc-${paint}`;
+  const traffic = paint !== "relier";
+  const [edge, mid, core] = PAINTS[paint].body;
+  const [roofEdge, roofCore] = PAINTS[paint].roof;
   return (
     <svg className={className} viewBox="0 0 140 64" aria-hidden="true">
       <defs>
@@ -30,9 +40,9 @@ function TopCar({ className, traffic = false }: { className?: string; traffic?: 
           <stop offset="1" stopColor="#14181c" />
         </linearGradient>
         <linearGradient id={`${id}-roof`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor={traffic ? "#45464a" : "#1c1c1a"} />
-          <stop offset=".5" stopColor={traffic ? "#2e2f32" : "#0d0d0c"} />
-          <stop offset="1" stopColor={traffic ? "#45464a" : "#1c1c1a"} />
+          <stop offset="0" stopColor={roofEdge} />
+          <stop offset=".5" stopColor={roofCore} />
+          <stop offset="1" stopColor={roofEdge} />
         </linearGradient>
       </defs>
       {/* ruedas asomando */}
@@ -52,6 +62,10 @@ function TopCar({ className, traffic = false }: { className?: string; traffic?: 
       <path d="M38 18h42M38 46h42" stroke="rgba(255,255,255,.07)" strokeWidth="1" />
       {/* Aro de Relier en el techo, como un ploteo discreto. Gira para que se
           lea igual en mobile, donde el auto va rotado. */}
+      {/* Cartel de techo del taxi. */}
+      {paint === "taxi" && (
+        <rect x="54" y="25" width="10" height="14" rx="2" fill="#fff6dc" stroke="#1a1a1a" strokeWidth="1" />
+      )}
       {!traffic && (
         <g transform="translate(59 32)">
           <circle r="10" fill="none" stroke="rgba(255,255,255,.82)" strokeWidth="3.2" />
@@ -80,19 +94,23 @@ const smooth = (a: number, b: number, x: number) => {
 };
 
 /**
- * Tráfico: autos más lentos en el carril de la SUV. Cada uno arranca en `base`
- * y avanza a SPEED de la velocidad de la SUV, así ella los alcanza entre un
- * paso y otro (pasa cuando pos = base / (1 - SPEED)).
+ * Ruta de doble mano (Nico, 26-oct-2026). Abajo, un taxi más lento en el
+ * sentido de la SUV: ella lo alcanza (cuando pos = base / (1 - speed)) y lo
+ * pasa por el carril de arriba. Arriba, un auto rojo de frente, que se cruza
+ * con la SUV después del sobrepaso (pos ≈ base / (1 + speed) ≈ 0,8).
  */
-const TRAFFIC = [0.15, 0.5];
-const SPEED = 0.3;
-const trafficAt = (pos: number) => TRAFFIC.map((b) => b + pos * SPEED);
+const TRAFFIC: { base: number; speed: number; lane: 1 | -1; paint: Paint }[] = [
+  { base: 0.3, speed: 0.3, lane: 1, paint: "taxi" },
+  { base: 1.44, speed: -0.8, lane: -1, paint: "red" },
+];
+const trafficAt = (pos: number) => TRAFFIC.map((c) => ({ ...c, x: c.base + pos * c.speed }));
 
-/** Carril de la SUV en pos: 1 = su carril (derecho), -1 = pasando (izquierdo). */
+/** Carril de la SUV en pos: 1 = su carril (abajo), -1 = pasando (arriba). */
 function laneAt(pos: number) {
   let out = 0;
-  for (const b of TRAFFIC) {
-    const d = pos * (1 - SPEED) - b; // < 0: atrás del auto lento
+  for (const { base: b, speed, lane } of TRAFFIC) {
+    if (lane !== 1) continue;
+    const d = pos * (1 - speed) - b; // < 0: atrás del auto lento
     // Sale a pasar con distancia y vuelve recién con el auto bien atrás.
     out = Math.max(out, smooth(-0.13, -0.06, d) * (1 - smooth(0.07, 0.14, d)));
   }
@@ -196,15 +214,22 @@ export default function StepsTimeline({
         <div className={styles.track}>
           <div className={styles.road} aria-hidden="true">
             <span className={styles.lane} />
-            {traffic.map((x, i) => (
+            {traffic.map((c) => (
               <span
-                key={i}
+                key={c.paint}
                 className={`${styles.carWrap} ${styles.trafficCar}`}
-                style={{ "--x": x } as React.CSSProperties}
+                style={
+                  {
+                    "--x": c.x,
+                    "--car-lane": c.lane,
+                    // El de frente va girado: trompa hacia la izquierda.
+                    "--car-yaw": c.speed < 0 ? "180deg" : "0deg",
+                  } as React.CSSProperties
+                }
               >
                 <span className={`${styles.beam} ${styles.beamL}`} />
                 <span className={`${styles.beam} ${styles.beamR}`} />
-                <TopCar className={styles.car} traffic />
+                <TopCar className={styles.car} paint={c.paint} />
               </span>
             ))}
             <span className={`${styles.carWrap} ${styles.hero}`}>

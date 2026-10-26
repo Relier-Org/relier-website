@@ -98,7 +98,8 @@
   z-index: 3;
 }
 
-/* Tráfico: más chico y sin tanto brillo, para que destaque la de Relier. */
+/* Tráfico: un poco más chico y con faros más tenues, para que destaque la
+   de Relier. Carril y giro vienen inline por auto. */
 .trafficCar {
   width: 96px;
   margin-left: -48px;
