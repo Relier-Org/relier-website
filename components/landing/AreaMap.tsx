@@ -44,27 +44,39 @@ export default function AreaMap({ regions }: { regions: Region[] }) {
       </div>
 
       <div className={styles.map} aria-hidden="true">
+        {/* Como el mapa del home: tierra en matriz de puntos dorados sobre
+            obsidiana, con un relleno tenue debajo. */}
         <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className={styles.svg}>
+          <defs>
+            <pattern id="area-dots" width="7" height="7" patternUnits="userSpaceOnUse">
+              <circle cx="3.5" cy="3.5" r="1.1" fill="rgba(201,169,97,0.5)" />
+            </pattern>
+            <pattern id="area-dots-on" width="7" height="7" patternUnits="userSpaceOnUse">
+              <circle cx="3.5" cy="3.5" r="1.7" fill="#e3c27d" />
+            </pattern>
+          </defs>
           <g className={styles.context}>
             {CONTEXT_PATHS.map((d, i) => (
               <path key={i} d={d} />
             ))}
           </g>
           {REGION_PATHS.map((d, i) => (
-            <path
+            <g
               key={i}
-              d={d}
               className={cn(styles.region, i === shown && styles.regionOn)}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
               onClick={() => setActive(i)}
-            />
+            >
+              <path d={d} className={styles.regionFill} />
+              <path d={d} className={styles.regionDots} />
+            </g>
           ))}
           {MAP_AIRPORTS.map((a) => (
             <g key={a.code} transform={`translate(${a.x} ${a.y})`} className={styles.airport}>
-              <circle r="9" className={styles.pinHalo} />
-              <circle r="4.5" className={styles.pin} />
-              <text x="12" y="4">{a.code}</text>
+              <circle r="22" className={styles.pinHalo} />
+              <circle r="4" className={styles.pin} />
+              <text x="11" y="4.5">{a.code}</text>
             </g>
           ))}
         </svg>
