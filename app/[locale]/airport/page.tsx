@@ -17,7 +17,6 @@ import TextCTA from "@/components/ui/TextCTA";
 import GsapProvider from "@/components/effects/GsapProvider";
 import PageSchema from "@/components/seo/PageSchema";
 import {
-  AreaColumns,
   Band,
   Head,
   Highlights,
@@ -31,6 +30,7 @@ import { items, strings } from "@/components/landing/landingPage";
 import DepartureBoard from "@/components/landing/DepartureBoard";
 import StepsTimeline from "@/components/landing/StepsTimeline";
 import RouteTickets from "@/components/landing/RouteTickets";
+import AreaMap from "@/components/landing/AreaMap";
 import { ShieldTickIcon, CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
 import { PhoneIcon } from "@/components/icons/ContactIcons";
 import { BusIcon, CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
@@ -317,7 +317,8 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Band tone="light" id="areas">
           <Head eyebrow={t("areas.eyebrow")} title={t("areas.title")} lead={t("areas.lead")} />
-          <AreaColumns regions={t.raw("areas.regions") as Region[]} />
+          {/* Mapa interactivo de la zona (Nico, 26-oct-2026). */}
+          <AreaMap regions={t.raw("areas.regions") as Region[]} />
         </Band>
 
         <Testimonials

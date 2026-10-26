@@ -1,0 +1,197 @@
+.wrap {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.36fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* ─── Panel: regiones y barrios ─── */
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border-on-light-strong);
+}
+
+.tab {
+  display: block;
+  width: 100%;
+  padding: 11px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-on-light);
+  background: none;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.25;
+  color: var(--text-on-light-muted);
+  font-variation-settings: "WONK" 0;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out), padding var(--duration-fast) var(--ease-out);
+}
+
+.tab:hover,
+.tabOn {
+  color: var(--text-on-light);
+}
+
+.tabOn {
+  padding-left: 14px;
+  box-shadow: inset 2px 0 0 var(--accent-on-light);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--accent-on-light);
+  outline-offset: 2px;
+}
+
+.places {
+  margin-top: 24px;
+  padding: 20px 22px 22px;
+  border-radius: var(--radius-md);
+  background: var(--bg-light-tile);
+  border: 1px solid var(--border-on-light);
+}
+
+.placesTitle {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-on-light);
+}
+
+.placesList {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-on-light-muted);
+  text-wrap: pretty;
+}
+
+/* ─── Mapa ─── */
+.map {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-on-light);
+  background:
+    radial-gradient(120% 120% at 60% 40%, #ebe6dc 0%, #e2dccf 100%);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.context path {
+  fill: #d8d1c3;
+  stroke: #ebe6dc;
+  stroke-width: 1;
+}
+
+.region {
+  fill: #b9ac93;
+  stroke: #f2eee6;
+  stroke-width: 1.2;
+  cursor: pointer;
+  transition: fill 0.3s var(--ease-out);
+}
+
+.region:hover {
+  fill: #a69779;
+}
+
+.regionOn,
+.regionOn:hover {
+  fill: var(--color-champagne-500);
+}
+
+.airport {
+  pointer-events: none;
+}
+
+.pinHalo {
+  fill: rgba(20, 19, 16, 0.12);
+}
+
+.pin {
+  fill: var(--color-obsidian-900);
+  stroke: #f2eee6;
+  stroke-width: 1.5;
+}
+
+.airport text {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  fill: var(--color-obsidian-900);
+  paint-order: stroke;
+  stroke: rgba(242, 238, 230, 0.85);
+  stroke-width: 3px;
+}
+
+.panel {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    /* minmax(0,…): los chips a sangre del panel no tienen que ensanchar la
+       columna (el mapa y el texto se salían de la pantalla). */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .map {
+    order: -1;
+  }
+}
+
+/* Mobile: regiones como chips deslizables debajo del mapa. */
+@media (max-width: 720px) {
+  .list {
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-inline: calc(50% - 50vw);
+    padding: 0 var(--inset) 4px;
+    border-top: 0;
+    scrollbar-width: none;
+  }
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+  .list li {
+    flex: 0 0 auto;
+  }
+  .tab,
+  .tabOn {
+    width: auto;
+    padding: 9px 16px;
+    border: 1px solid var(--border-on-light-strong);
+    border-radius: var(--radius-pill);
+    box-shadow: none;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .tabOn {
+    color: var(--color-obsidian-900);
+    background: var(--color-champagne-500);
+    border-color: var(--color-champagne-500);
+  }
+  .places {
+    margin-top: 16px;
+  }
+  .airport text {
+    font-size: 20px;
+  }
+  .pin {
+    r: 7px;
+  }
+}
