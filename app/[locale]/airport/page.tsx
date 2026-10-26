@@ -19,7 +19,6 @@ import PageSchema from "@/components/seo/PageSchema";
 import {
   AreaColumns,
   Band,
-  Cards,
   Head,
   Highlights,
   Split,
@@ -31,6 +30,7 @@ import {
 import { items, strings } from "@/components/landing/landingPage";
 import DepartureBoard from "@/components/landing/DepartureBoard";
 import StepsTimeline from "@/components/landing/StepsTimeline";
+import RouteTickets from "@/components/landing/RouteTickets";
 import { ShieldTickIcon, CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
 import { PhoneIcon } from "@/components/icons/ContactIcons";
 import { BusIcon, CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
@@ -296,7 +296,8 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Band id="routes">
           <Head eyebrow={t("routes.eyebrow")} title={t("routes.title")} lead={t("routes.lead")} />
-          <Cards items={items(t.raw("routes.items"))} columns={3} rail />
+          {/* Rutas como pases de abordar (Nico, 26-oct-2026). */}
+          <RouteTickets items={items(t.raw("routes.items"))} className="mobileRail" />
           {/* Hub → child del roadmap SEO (sep-2026): este link venía de la
               página anterior y no se pierde. */}
           <div className={styles.after}>
