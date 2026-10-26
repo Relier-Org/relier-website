@@ -173,8 +173,14 @@
   }
 }
 
-/* Mobile: regiones como chips deslizables debajo del mapa. */
+/* Mobile: chips de regiones arriba del mapa (Nico), barrios debajo. */
 @media (max-width: 720px) {
+  .wrap {
+    gap: 16px;
+  }
+  .map {
+    order: 0;
+  }
   .list {
     flex-direction: row;
     gap: 8px;
@@ -208,7 +214,7 @@
     border-color: var(--color-champagne-500);
   }
   .places {
-    margin-top: -8px;
+    margin-top: 0;
   }
   .airport text {
     font-size: 20px;

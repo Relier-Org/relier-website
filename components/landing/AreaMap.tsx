@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CONTEXT_PATHS, MAP_AIRPORTS, MAP_H, MAP_W, REGION_PATHS } from "@/lib/coverage/nyMap";
 import type { Region } from "./Landing";
 import { cn } from "@/lib/utils/cn";
@@ -16,13 +16,24 @@ import styles from "./AreaMap.module.css";
 export default function AreaMap({ regions }: { regions: Region[] }) {
   const [active, setActive] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  // Mobile: la fila de chips desliza hasta la región activa (sin mover la
+  // página en vertical).
+  useEffect(() => {
+    const list = listRef.current;
+    const tab = list?.querySelectorAll("li")[active];
+    if (!list || !tab || list.scrollWidth <= list.clientWidth) return;
+    const left = tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2;
+    list.scrollTo({ left, behavior: "smooth" });
+  }, [active]);
   const shown = hover ?? active;
   const r = regions[shown];
 
   return (
     <div className={styles.wrap}>
       <div className={styles.panel}>
-        <ul className={styles.list} role="tablist" aria-orientation="vertical">
+        <ul ref={listRef} className={styles.list} role="tablist" aria-orientation="vertical">
           {regions.map((reg, i) => (
             <li key={reg.name}>
               <button
