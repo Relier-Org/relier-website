@@ -66,8 +66,8 @@ const clamp = (v: number) => Math.min(1, Math.max(0, v));
 /**
  * "How it works" como línea de tiempo (Nico, 26-oct-2026): una ruta nocturna
  * vista desde arriba (asfalto, banquinas, carril central) que una SUV negra con
- * los faros encendidos recorre con el scroll. Cada paso es una tacha
- * reflectiva sobre la ruta que se ilumina cuando el auto la pasa. Desktop: la
+ * los faros encendidos recorre con el scroll. Cada paso se enciende cuando el
+ * auto llega a su altura (sin marcas sobre la ruta: Nico, 26-oct-2026). Desktop: la
  * sección queda fija mientras se scrollea. Mobile: ruta vertical.
  *
  * El texto de los pasos está siempre en el HTML y visible (atenuado hasta
@@ -127,15 +127,18 @@ export default function StepsTimeline({
     };
   }, []);
 
-  // Los puntos van al centro de cada columna: el auto recorre del primero al
-  // último. Un paso se enciende apenas el auto lo alcanza.
-  const reached = (i: number) => p >= i / Math.max(1, n - 1) - 0.02;
+  // El primer 18% del scroll es la entrada: el auto viene desde fuera de la
+  // ruta (izquierda) hasta el paso 1. El resto recorre del paso 1 al último.
+  // `pos` < 0 = todavía entrando. Un paso se enciende apenas el auto lo alcanza.
+  const ENTRY = still ? 0 : 0.18;
+  const pos = p < ENTRY ? (p / ENTRY - 1) * 0.35 : (p - ENTRY) / (1 - ENTRY);
+  const reached = (i: number) => pos >= i / Math.max(1, n - 1) - 0.005;
 
   return (
     <div
       ref={outerRef}
       className={cn(styles.outer, still && styles.still)}
-      style={{ "--steps": n, "--p": p } as React.CSSProperties}
+      style={{ "--steps": n, "--p": p, "--pos": pos } as React.CSSProperties}
     >
       <div className={styles.sticky}>
         {head}
@@ -143,13 +146,6 @@ export default function StepsTimeline({
           <div className={styles.road} aria-hidden="true">
             <span className={styles.lane} />
             <span className={styles.trail} />
-            {items.map((it, i) => (
-              <span
-                key={it.title}
-                className={cn(styles.stud, reached(i) && styles.studOn)}
-                style={{ "--at": i / Math.max(1, n - 1) } as React.CSSProperties}
-              />
-            ))}
             <span className={styles.carWrap}>
               <span className={styles.beams} />
               <TopCar className={styles.car} />
