@@ -21,7 +21,16 @@ export interface Reel {
   focus?: "center" | "bottom";
 }
 
+// Carrusel selector (Nico, 26-oct-2026): cinco reels, el del medio arranca
+// activo. Se suman US Open y Fashion Week (reels de Relier en Nueva York),
+// recortados antes del logo de cierre.
 export const REELS: Reel[] = [
+  {
+    id: "us-open",
+    href: "https://www.instagram.com/reel/DdH8NFdRk8z/",
+    video: "/videos/socials/us-open.mp4",
+    poster: "/images/socials/us-open.webp",
+  },
   {
     id: "landing",
     href: "https://www.instagram.com/reel/DdtryFVxuX1/",
@@ -42,4 +51,13 @@ export const REELS: Reel[] = [
     video: "/videos/socials/new-york.mp4",
     poster: "/images/socials/new-york.webp",
   },
+  {
+    id: "fashion-week",
+    href: "https://www.instagram.com/reel/DccVVOBRclE/",
+    video: "/videos/socials/fashion-week.mp4",
+    poster: "/images/socials/fashion-week.webp",
+  },
 ];
+
+/** Índice del reel que arranca activo (el más visto, al medio). */
+export const INITIAL_REEL = 2;

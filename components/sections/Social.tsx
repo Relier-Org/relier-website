@@ -1,41 +1,15 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Reveal from "@/components/effects/Reveal";
-import AmbientVideo from "@/components/ui/AmbientVideo";
+import ReelsCarousel from "@/components/sections/ReelsCarousel";
 import { SOCIAL_PROFILES } from "@/lib/social/profiles";
-import { REELS } from "@/lib/social/reels";
+import { INITIAL_REEL, REELS } from "@/lib/social/reels";
 import styles from "./Social.module.css";
-
-/** Ícono de Reels de Instagram (claqueta con play), decorativo. */
-function ReelsGlyph({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2.5" y="2.5" width="19" height="19" rx="5" />
-      <path d="M2.5 8h19M9 2.5 12 8M15 2.5 18 8" />
-      <path d="M10 11.2v6l5-3-5-3Z" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
 
 /**
  * Sección social del home (Nico, 22-oct-2026, referencia: "We're loud on
- * socials" de Rreal Tacos): cabecera centrada con los perfiles y abajo tres
- * reels propios de @relier en vertical, el del medio más grande, con la pinta
- * de un reel (ícono, perfil y caption). Los videos
- * corren mudos y sólo en pantalla (`playInView`), con pausa por card (WCAG
- * 2.2.2). La card no es un link entera: adentro está el botón de pausa, y un
- * control no puede ir dentro de otro.
+ * socials" de Rreal Tacos): cabecera centrada con los perfiles y abajo los
+ * reels propios de @relier en un carrusel selector (ReelsCarousel, 26-oct-2026).
  */
 export default async function Social() {
   const t = await getTranslations("home.social");
@@ -69,72 +43,20 @@ export default async function Social() {
         </Reveal>
 
         <Reveal className={styles.reelsWrap} delay={0.08}>
-          <ul className={styles.reels}>
-            {REELS.map((r) => (
-              <li key={r.id} className={styles.reel}>
-                {/* Poster como <img loading="lazy"> debajo del video y no como
-                    atributo poster, que se descarga siempre (perf oct-2026: eran
-                    154 kB en la carga inicial de la home). El video lo tapa al
-                    arrancar. */}
-                <AmbientVideo
-                  src={r.video}
-                  before={
-                    // eslint-disable-next-line @next/next/no-img-element -- poster ya optimizado (540px), a la medida del reel
-                    <img
-                      src={r.poster}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      className={
-                        r.focus === "bottom"
-                          ? `${styles.video} ${styles.focusBottom}`
-                          : styles.video
-                      }
-                    />
-                  }
-                  preload="none"
-                  playInView
-                  wrapClassName={styles.media}
-                  className={
-                    r.focus === "bottom"
-                      ? `${styles.video} ${styles.focusBottom}`
-                      : styles.video
-                  }
-                  toggle={{
-                    pauseLabel: t("pause", { reel: t(`reels.${r.id}.caption`) }),
-                    playLabel: t("play", { reel: t(`reels.${r.id}.caption`) }),
-                    className: styles.toggle,
-                  }}
-                />
-                <ReelsGlyph className={styles.glyph} />
-                {/* Pie de reel: perfil (link al reel en Instagram) y caption. */}
-                <div className={styles.caption}>
-                  <a
-                    href={r.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.author}
-                  >
-                    <Image
-                      src="/images/socials/avatar.webp"
-                      alt=""
-                      width={30}
-                      height={30}
-                      className={styles.avatar}
-                    />
-                    <span className={styles.handle}>relier</span>
-                    <span className={styles.srOnly}>
-                      {" "}
-                      {t("watch")}: {t(`reels.${r.id}.caption`)} {t("newTab")}
-                    </span>
-                  </a>
-                  <p className={styles.captionText} aria-hidden="true">
-                    {t(`reels.${r.id}.caption`)}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <ReelsCarousel
+            initial={INITIAL_REEL}
+            reels={REELS.map((r) => ({ ...r, caption: t(`reels.${r.id}.caption`) }))}
+            labels={{
+              prev: t("prev"),
+              next: t("next"),
+              select: t.raw("select") as string,
+              carousel: t("carousel"),
+              watch: t("watch"),
+              newTab: t("newTab"),
+              pause: t.raw("pause") as string,
+              play: t.raw("play") as string,
+            }}
+          />
         </Reveal>
 
       </div>

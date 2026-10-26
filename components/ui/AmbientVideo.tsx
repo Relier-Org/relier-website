@@ -31,6 +31,9 @@ interface AmbientVideoProps {
   wrapClassName?: string;
   toggle?: { pauseLabel: string; playLabel: string; className?: string };
   playInView?: boolean;
+  /** false: queda en pausa aunque esté en pantalla (carrusel: sólo corre la
+   *  tarjeta activa). */
+  active?: boolean;
   deferUntilLoad?: boolean;
   before?: ReactNode;
   /** Usa como poster del <video> la imagen ya cargada en `before` (la variante
@@ -48,6 +51,7 @@ export default function AmbientVideo({
   wrapClassName,
   toggle,
   playInView = false,
+  active = true,
   deferUntilLoad = false,
   before,
   mirrorPoster = false,
@@ -112,7 +116,8 @@ export default function AmbientVideo({
 
   const wantsPlay = choice ? choice === "play" : reduced === false;
   // Un play() pedido por el usuario no espera al load.
-  const shouldPlay = wantsPlay && inView && (pageLoaded || choice === "play");
+  const shouldPlay =
+    active && wantsPlay && inView && (pageLoaded || choice === "play");
   const hasToggle = Boolean(toggle);
 
   useEffect(() => {

@@ -217,8 +217,18 @@
       },
       "new-york": {
         "caption": "Nova York nunca desacelera."
+      },
+      "us-open": {
+        "caption": "Chegaram os últimos dias do US Open."
+      },
+      "fashion-week": {
+        "caption": "A Fashion Week é rápida. Nós também."
       }
-    }
+    },
+    "prev": "Reel anterior",
+    "next": "Próximo reel",
+    "select": "Mostrar reel: {reel}",
+    "carousel": "Reels da Relier"
   },
   "about": {
     "eyebrow": "Quem somos",

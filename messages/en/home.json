@@ -217,8 +217,18 @@
       },
       "new-york": {
         "caption": "New York never slows down."
+      },
+      "us-open": {
+        "caption": "The final days of the US Open are here."
+      },
+      "fashion-week": {
+        "caption": "Fashion Week moves fast. So do we."
       }
-    }
+    },
+    "prev": "Previous reel",
+    "next": "Next reel",
+    "select": "Show reel: {reel}",
+    "carousel": "Relier reels"
   },
   "about": {
     "eyebrow": "Who we are",
