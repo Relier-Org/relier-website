@@ -21,7 +21,6 @@ import {
   Head,
   Highlights,
   Split,
-  Stats,
   type Airport,
   type Region,
   type Stat,
@@ -323,14 +322,13 @@ export default async function AirportPage({ params }: PageProps) {
 
         <Testimonials
           testimonials={TESTIMONIALS.filter((r) => AIRPORT_REVIEWS.includes(r.name))}
+          // Cifras de Relier (Nico, oct-2026: sin sección propia). El 5.0 / 412
+          // ya lo muestra el rating de esta misma sección.
+          stats={(t.raw("trust") as Stat[]).slice(1)}
           reviewPillMode="none"
         />
 
-        {/* Las cifras de Relier van en la sección que habla de Relier más allá
-            del aeropuerto; debajo del cotizador quedaban pegadas a la franja
-            de puntos fuertes (Nico, oct-2026). */}
         <RelatedLinks
-          intro={<Stats items={t.raw("trust") as Stat[]} rail />}
           gridClassName="mobileRail"
           eyebrow={t("beyond.eyebrow")}
           title={t("beyond.title")}

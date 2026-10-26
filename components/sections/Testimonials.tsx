@@ -22,6 +22,8 @@ interface TestimonialsProps {
   showHeader?: boolean;
   showRatingPill?: boolean; // top "G 5.0 · 412 Google reviews" pill
   reviewPillMode?: "inline" | "sticky" | "none"; // bottom "Leave a review" pill placement
+  /** Cifras de Relier en una fila bajo el rating (Airports, oct-2026). */
+  stats?: { value: string; label: string }[];
   className?: string;
 }
 
@@ -30,6 +32,7 @@ export default function Testimonials({
   showHeader = true,
   showRatingPill = true,
   reviewPillMode = "inline",
+  stats,
   className,
 }: TestimonialsProps = {}) {
   const t = useTranslations("home");
@@ -161,6 +164,17 @@ export default function Testimonials({
             </a>
           </div>
         )}
+
+        {stats?.length ? (
+          <dl className={styles.stats}>
+            {stats.map((s) => (
+              <div key={s.label} className={styles.stat}>
+                <dt className={styles.statLabel}>{s.label}</dt>
+                <dd className={styles.statValue}>{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
 
         <div ref={gridRef} className={styles.grid}>
           {testimonials.map((item) => (

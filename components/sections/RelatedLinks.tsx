@@ -15,8 +15,6 @@ interface RelatedLinksProps {
   className?: string;
   /** Clase extra para la grilla de cards (p. ej. riel en mobile). */
   gridClassName?: string;
-  /** Contenido entre el encabezado y las cards (p. ej. cifras de Relier). */
-  intro?: ReactNode;
 }
 
 /**
@@ -31,7 +29,6 @@ export default function RelatedLinks({
   items,
   className,
   gridClassName,
-  intro,
 }: RelatedLinksProps) {
   return (
     <section className={cn(styles.section, className)}>
@@ -40,7 +37,6 @@ export default function RelatedLinks({
           <p className={cn("eyebrow", styles.eyebrow)}>{eyebrow}</p>
           <h2 className={styles.title}>{title}</h2>
         </Reveal>
-        {intro ? <div className={styles.intro}>{intro}</div> : null}
         <SegmentCards
           items={items}
           className={cn(items.length === 3 && styles.grid3, gridClassName)}
