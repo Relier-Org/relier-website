@@ -10,25 +10,29 @@ import styles from "./StepsTimeline.module.css";
  * parabrisas y luneta, techo, espejos y faros. Los conos de luz van aparte,
  * en CSS, para que sumen sobre el asfalto.
  */
-function TopCar({ className }: { className?: string }) {
+function TopCar({ className, traffic = false }: { className?: string; traffic?: boolean }) {
+  // Los autos del tráfico: grafito, sin el aro. Ids propios para no pisar los
+  // degradés de la SUV de Relier.
+  const id = traffic ? "tt" : "tc";
+  const [edge, mid, core] = traffic ? ["#5a5b5e", "#3a3b3e", "#2a2b2e"] : ["#2b2a27", "#141412", "#0b0b0a"];
   return (
     <svg className={className} viewBox="0 0 140 64" aria-hidden="true">
       <defs>
-        <linearGradient id="tc-body" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#2b2a27" />
-          <stop offset=".18" stopColor="#141412" />
-          <stop offset=".5" stopColor="#0b0b0a" />
-          <stop offset=".82" stopColor="#141412" />
-          <stop offset="1" stopColor="#2b2a27" />
+        <linearGradient id={`${id}-body`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={edge} />
+          <stop offset=".18" stopColor={mid} />
+          <stop offset=".5" stopColor={core} />
+          <stop offset=".82" stopColor={mid} />
+          <stop offset="1" stopColor={edge} />
         </linearGradient>
-        <linearGradient id="tc-glass" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0" stopColor="#3b4249" />
           <stop offset="1" stopColor="#14181c" />
         </linearGradient>
-        <linearGradient id="tc-roof" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#1c1c1a" />
-          <stop offset=".5" stopColor="#0d0d0c" />
-          <stop offset="1" stopColor="#1c1c1a" />
+        <linearGradient id={`${id}-roof`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={traffic ? "#45464a" : "#1c1c1a"} />
+          <stop offset=".5" stopColor={traffic ? "#2e2f32" : "#0d0d0c"} />
+          <stop offset="1" stopColor={traffic ? "#45464a" : "#1c1c1a"} />
         </linearGradient>
       </defs>
       {/* ruedas asomando */}
@@ -37,23 +41,25 @@ function TopCar({ className }: { className?: string }) {
       <rect x="98" y="2" width="20" height="7" rx="3" fill="#050505" />
       <rect x="98" y="55" width="20" height="7" rx="3" fill="#050505" />
       {/* carrocería */}
-      <path d="M10 14c0-5 3-8 8-8h96c9 0 16 4 18 10 1.6 4.8 2 10.8 2 16s-.4 11.2-2 16c-2 6-9 10-18 10H18c-5 0-8-3-8-8Z" fill="url(#tc-body)" />
+      <path d="M10 14c0-5 3-8 8-8h96c9 0 16 4 18 10 1.6 4.8 2 10.8 2 16s-.4 11.2-2 16c-2 6-9 10-18 10H18c-5 0-8-3-8-8Z" fill={`url(#${id}-body)`} />
       {/* brillo de capot */}
       <path d="M104 12c8 1 14 4 16 9" stroke="rgba(255,255,255,.18)" strokeWidth="1.2" fill="none" />
       <path d="M104 52c8-1 14-4 16-9" stroke="rgba(255,255,255,.1)" strokeWidth="1.2" fill="none" />
       {/* parabrisas */}
-      <path d="M84 13c5 0 9 1 11 3 1.6 4.6 2.2 10.4 2.2 16S96.6 43.4 95 48c-2 2-6 3-11 3Z" fill="url(#tc-glass)" />
+      <path d="M84 13c5 0 9 1 11 3 1.6 4.6 2.2 10.4 2.2 16S96.6 43.4 95 48c-2 2-6 3-11 3Z" fill={`url(#${id}-glass)`} />
       {/* techo */}
-      <rect x="34" y="12" width="50" height="40" rx="6" fill="url(#tc-roof)" />
+      <rect x="34" y="12" width="50" height="40" rx="6" fill={`url(#${id}-roof)`} />
       <path d="M38 18h42M38 46h42" stroke="rgba(255,255,255,.07)" strokeWidth="1" />
       {/* Aro de Relier en el techo, como un ploteo discreto. Gira para que se
           lea igual en mobile, donde el auto va rotado. */}
-      <g transform="translate(59 32)">
-        <circle r="10" fill="none" stroke="rgba(255,255,255,.82)" strokeWidth="3.2" />
-        <circle r="10" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth="5.6" strokeDasharray="1.2 2.4" />
-      </g>
+      {!traffic && (
+        <g transform="translate(59 32)">
+          <circle r="10" fill="none" stroke="rgba(255,255,255,.82)" strokeWidth="3.2" />
+          <circle r="10" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth="5.6" strokeDasharray="1.2 2.4" />
+        </g>
+      )}
       {/* luneta */}
-      <path d="M33 13c-6 0-10 1-12 3-1.4 4.6-1.8 10.4-1.8 16s.4 11.4 1.8 16c2 2 6 3 12 3Z" fill="url(#tc-glass)" opacity=".85" />
+      <path d="M33 13c-6 0-10 1-12 3-1.4 4.6-1.8 10.4-1.8 16s.4 11.4 1.8 16c2 2 6 3 12 3Z" fill={`url(#${id}-glass)`} opacity=".85" />
       {/* espejos */}
       <path d="M86 6l6-4h3l-2 5Z" fill="#141412" />
       <path d="M86 58l6 4h3l-2-5Z" fill="#141412" />
@@ -68,6 +74,30 @@ function TopCar({ className }: { className?: string }) {
 }
 
 const clamp = (v: number) => Math.min(1, Math.max(0, v));
+const smooth = (a: number, b: number, x: number) => {
+  const t = clamp((x - a) / (b - a));
+  return t * t * (3 - 2 * t);
+};
+
+/**
+ * Tráfico: autos más lentos en el carril de la SUV. Cada uno arranca en `base`
+ * y avanza a SPEED de la velocidad de la SUV, así ella los alcanza entre un
+ * paso y otro (pasa cuando pos = base / (1 - SPEED)).
+ */
+const TRAFFIC = [0.15, 0.5];
+const SPEED = 0.3;
+const trafficAt = (pos: number) => TRAFFIC.map((b) => b + pos * SPEED);
+
+/** Carril de la SUV en pos: 1 = su carril (derecho), -1 = pasando (izquierdo). */
+function laneAt(pos: number) {
+  let out = 0;
+  for (const b of TRAFFIC) {
+    const d = pos * (1 - SPEED) - b; // < 0: atrás del auto lento
+    // Sale a pasar con distancia y vuelve recién con el auto bien atrás.
+    out = Math.max(out, smooth(-0.13, -0.06, d) * (1 - smooth(0.07, 0.14, d)));
+  }
+  return 1 - 2 * out;
+}
 
 /**
  * "How it works" como línea de tiempo (Nico, 26-oct-2026): una ruta nocturna
@@ -150,19 +180,34 @@ export default function StepsTimeline({
         ? 1 + ((p - (1 - EXIT)) / EXIT) * OFF
         : (p - ENTRY) / cruise;
   const reached = (i: number) => pos >= i / Math.max(1, n - 1) - 0.005;
+  const lane = still ? 1 : laneAt(pos);
+  // Giro de la trompa al cambiar de carril (derivada del carril), en grados.
+  const yaw = still ? 0 : Math.max(-9, Math.min(9, (laneAt(pos + 0.01) - laneAt(pos - 0.01)) * 22));
+  const traffic = trafficAt(pos);
 
   return (
     <div
       ref={outerRef}
       className={cn(styles.outer, still && styles.still)}
-      style={{ "--steps": n, "--p": p, "--pos": pos } as React.CSSProperties}
+      style={{ "--steps": n, "--p": p, "--pos": pos, "--lane": lane, "--yaw": `${yaw}deg` } as React.CSSProperties}
     >
       <div className={styles.sticky}>
         {head}
         <div className={styles.track}>
           <div className={styles.road} aria-hidden="true">
             <span className={styles.lane} />
-            <span className={styles.carWrap}>
+            {traffic.map((x, i) => (
+              <span
+                key={i}
+                className={`${styles.carWrap} ${styles.trafficCar}`}
+                style={{ "--x": x } as React.CSSProperties}
+              >
+                <span className={`${styles.beam} ${styles.beamL}`} />
+                <span className={`${styles.beam} ${styles.beamR}`} />
+                <TopCar className={styles.car} traffic />
+              </span>
+            ))}
+            <span className={`${styles.carWrap} ${styles.hero}`}>
               {/* Un cono por faro, nacen en cada faro (ver el SVG). */}
               <span className={`${styles.beam} ${styles.beamL}`} />
               <span className={`${styles.beam} ${styles.beamR}`} />

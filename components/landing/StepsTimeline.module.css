@@ -74,16 +74,39 @@
   opacity: 0.85;
 }
 
+/* Todos los autos: --x es su posición en la ruta (0..1, del primer al
+   último paso) y --lane su carril (1 derecho, -1 izquierdo). La SUV usa
+   --pos y el carril/giro que calcula el componente; el tráfico va siempre
+   por el carril derecho. */
 .carWrap {
+  --x: var(--pos);
+  --car-lane: 1;
+  --car-yaw: 0deg;
   position: absolute;
   top: 50%;
-  left: calc(var(--inset-x) + var(--pos) * (100% - 2 * var(--inset-x)));
+  left: calc(var(--inset-x) + var(--x) * (100% - 2 * var(--inset-x)));
   z-index: 2;
   width: 104px;
   margin-left: -52px;
-  /* Carril derecho (abajo, yendo hacia la derecha): se maneja por la derecha. */
-  transform: translateY(calc(-50% + 31px));
+  transform: translateY(calc(-50% + var(--car-lane) * 31px)) rotate(var(--car-yaw));
   animation: idle 2.4s ease-in-out infinite;
+}
+
+.hero {
+  --car-lane: var(--lane);
+  --car-yaw: var(--yaw);
+  z-index: 3;
+}
+
+/* Tráfico: más chico y sin tanto brillo, para que destaque la de Relier. */
+.trafficCar {
+  width: 96px;
+  margin-left: -48px;
+  animation-delay: -1.1s;
+}
+
+.trafficCar .beam {
+  opacity: 0.55;
 }
 
 /* Leve balanceo, como un auto en marcha. */
@@ -253,12 +276,19 @@
     background-size: 100% 52px;
     background-position: 0 calc(var(--p) * -260px);
   }
+  /* Vertical: el auto va girado 90° (trompa hacia abajo) y el carril se
+     aplica en su propio eje, así el derecho queda a la izquierda de la
+     pantalla, como manejando hacia abajo. */
   .carWrap {
-    top: calc(var(--pos) * 100%);
+    top: calc(var(--x) * 100%);
     left: 50%;
-    width: 62px;
-    margin-left: -31px;
-    transform: translateY(-50%) rotate(90deg);
+    width: 54px;
+    margin-left: -27px;
+    transform: translateY(-50%) rotate(90deg) translateY(calc(var(--car-lane) * 12px)) rotate(var(--car-yaw));
+  }
+  .trafficCar {
+    width: 50px;
+    margin-left: -25px;
   }
   .beam {
     width: 110px;
@@ -275,9 +305,9 @@
     align-items: flex-start;
     text-align: left;
   }
-  /* La tacha de mobile: punto a la izquierda, sobre la ruta. */
+  /* Sin marcas sobre la ruta, igual que en desktop (Nico, 26-oct-2026). */
   .dot {
-    display: block;
+    display: none;
     position: absolute;
     top: 6px;
     left: -58px;
