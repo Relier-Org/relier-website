@@ -24,13 +24,13 @@ import {
   Highlights,
   Split,
   Stats,
-  Steps,
   type Airport,
   type Region,
   type Stat,
 } from "@/components/landing/Landing";
 import { items, strings } from "@/components/landing/landingPage";
 import DepartureBoard from "@/components/landing/DepartureBoard";
+import StepsTimeline from "@/components/landing/StepsTimeline";
 import { ShieldTickIcon, CalendarIcon, GlobeIcon } from "@/components/icons/PillarIcons";
 import { PhoneIcon } from "@/components/icons/ContactIcons";
 import { BusIcon, CarIcon, RouteIcon } from "@/components/icons/SegmentIcons";
@@ -210,9 +210,12 @@ export default async function AirportPage({ params }: PageProps) {
           </Reveal>
         </Band>
 
+        {/* Línea de tiempo con scroll y autito (Nico, 26-oct-2026). */}
         <Band tone="light" id="how">
-          <Head eyebrow={t("how.eyebrow")} title={t("how.title")} lead={t("how.lead")} />
-          <Steps items={items(t.raw("how.steps"))} columns={4} rail />
+          <StepsTimeline
+            head={<Head eyebrow={t("how.eyebrow")} title={t("how.title")} lead={t("how.lead")} />}
+            items={items(t.raw("how.steps"))}
+          />
         </Band>
 
         {/* Reel propio de Relier manejando por Manhattan (IG DcjaxloRSQt,

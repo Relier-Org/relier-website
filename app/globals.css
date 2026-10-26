@@ -222,7 +222,10 @@ body {
   font-size: 16px;
   line-height: 1.55;
   font-weight: 400;
-  overflow-x: hidden;
+  /* clip y no hidden (oct-2026): hidden convierte al body en contenedor de
+     scroll y rompe position: sticky (línea de tiempo de Airports). Recorta
+     igual el desborde horizontal. */
+  overflow-x: clip;
   /* Fraunces sin las formas "wonky": la "&" clásica en vez de la "Et" (Figma
      oct-2026). Se hereda; cada override de opsz lo repite. */
   font-variation-settings: "WONK" 0;

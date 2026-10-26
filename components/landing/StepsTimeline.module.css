@@ -1,0 +1,253 @@
+/* ─── Desktop: sección fija y ruta horizontal ───
+   El contenedor exterior da el recorrido de scroll (1 pantalla extra); el
+   interior queda fijo debajo del nav mientras el auto avanza. */
+.outer {
+  --road-y: 0px;
+  --half: calc(50% / var(--steps));
+  position: relative;
+  height: 200vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: 72px;
+}
+
+.track {
+  position: relative;
+  margin-top: 8px;
+}
+
+/* La ruta va del centro de la primera columna al de la última. */
+.road {
+  position: relative;
+  height: 48px;
+  margin: 0 var(--half);
+}
+
+/* Marcas como el dial de referencia: rayitas finas a lo largo de la ruta. */
+.ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 12px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border-on-light-strong) 0 1px,
+    transparent 1px 12px
+  );
+}
+
+.ticks::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--border-on-light-strong);
+}
+
+.progress {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 2px;
+  width: calc(var(--p) * 100%);
+  transform: translateY(-50%);
+  background: var(--accent-on-light);
+  box-shadow: 0 0 12px rgba(201, 169, 97, 0.5);
+}
+
+.carWrap {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--p) * 100%);
+  transform: translate(-50%, -88%);
+  transition: none;
+}
+
+.car {
+  display: block;
+  width: 72px;
+  height: auto;
+  color: var(--color-obsidian-900);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(var(--steps), minmax(0, 1fr));
+  gap: 32px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0.32;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.on {
+  opacity: 1;
+  transform: none;
+}
+
+/* Punto sobre la ruta, centrado en la columna. */
+.dot {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--bg-light);
+  border: 1.5px solid var(--border-on-light-strong);
+  transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+
+.on .dot {
+  background: var(--accent-on-light);
+  border-color: var(--accent-on-light);
+  box-shadow: 0 0 0 5px rgba(201, 169, 97, 0.18);
+}
+
+.num {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--accent-on-light);
+  font-variation-settings: "WONK" 0;
+}
+
+.title {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-h4);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-on-light);
+  font-variation-settings: "WONK" 0;
+  text-wrap: balance;
+}
+
+.body {
+  margin-top: 10px;
+  max-width: 300px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-on-light-muted);
+  text-wrap: pretty;
+}
+
+/* ─── Mobile: ruta vertical a la izquierda, sin fijar ─── */
+@media (max-width: 860px) {
+  .outer {
+    height: auto;
+  }
+  .sticky {
+    position: static;
+    min-height: 0;
+    padding-top: 0;
+  }
+  .track {
+    margin-top: 0;
+  }
+  .road {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 32px;
+    height: auto;
+    margin: 0;
+  }
+  .ticks {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 10px;
+    height: auto;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(
+      180deg,
+      var(--border-on-light-strong) 0 1px,
+      transparent 1px 12px
+    );
+  }
+  .ticks::after {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+  .progress {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: calc(var(--p) * 100%);
+    transform: translateX(-50%);
+  }
+  .carWrap {
+    top: calc(var(--p) * 100%);
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .car {
+    width: 40px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin: 0;
+    padding-left: 52px;
+  }
+  .step {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .dot {
+    top: 8px;
+    left: -36px;
+    margin-left: 0;
+  }
+  .num {
+    margin-top: 0;
+  }
+  .body {
+    max-width: none;
+  }
+}
+
+/* Movimiento reducido: sin fijar ni recorrer, todo encendido. */
+.still {
+  height: auto;
+}
+
+.still .sticky {
+  position: static;
+  min-height: 0;
+  padding-top: 0;
+}
