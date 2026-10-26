@@ -337,6 +337,9 @@ input, select { font: inherit; color: inherit; outline: none; }
     display: flex !important;
     gap: 14px !important;
     overflow-x: auto;
+    /* Sólo horizontal: las tarjetas que todavía no entraron arrancan corridas
+       24px abajo (Reveal) y sin esto el riel también scrolleaba vertical. */
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     margin-inline: calc(50% - 50vw);
