@@ -61,9 +61,12 @@
   inset: 0;
 }
 
-.incMedia img {
+/* Encuadre a la altura de las caras de los choferes. Con :root para ganarle
+   a la regla global de esa foto (center 72%, pensada para la card de
+   Corporate). */
+:root .incMedia img {
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 46%;
 }
 
 .incMedia::after {
