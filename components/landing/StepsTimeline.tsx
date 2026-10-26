@@ -46,6 +46,12 @@ function TopCar({ className }: { className?: string }) {
       {/* techo */}
       <rect x="34" y="12" width="50" height="40" rx="6" fill="url(#tc-roof)" />
       <path d="M38 18h42M38 46h42" stroke="rgba(255,255,255,.07)" strokeWidth="1" />
+      {/* Aro de Relier en el techo, como un ploteo discreto. Gira para que se
+          lea igual en mobile, donde el auto va rotado. */}
+      <g transform="translate(59 32)">
+        <circle r="10" fill="none" stroke="rgba(255,255,255,.82)" strokeWidth="3.2" />
+        <circle r="10" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth="5.6" strokeDasharray="1.2 2.4" />
+      </g>
       {/* luneta */}
       <path d="M33 13c-6 0-10 1-12 3-1.4 4.6-1.8 10.4-1.8 16s.4 11.4 1.8 16c2 2 6 3 12 3Z" fill="url(#tc-glass)" opacity=".85" />
       {/* espejos */}
@@ -153,9 +159,10 @@ export default function StepsTimeline({
         <div className={styles.track}>
           <div className={styles.road} aria-hidden="true">
             <span className={styles.lane} />
-            <span className={styles.trail} />
             <span className={styles.carWrap}>
-              <span className={styles.beams} />
+              {/* Un cono por faro, nacen en cada faro (ver el SVG). */}
+              <span className={`${styles.beam} ${styles.beamL}`} />
+              <span className={`${styles.beam} ${styles.beamR}`} />
               <TopCar className={styles.car} />
             </span>
           </div>

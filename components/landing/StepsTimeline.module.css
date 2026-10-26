@@ -66,21 +66,12 @@
   top: 50%;
   height: 4px;
   margin-top: -2px;
-  background: repeating-linear-gradient(90deg, rgba(232, 200, 120, 0.75) 0 46px, transparent 46px 92px);
+  /* Tamaño = un período (trazo + hueco): si no, el patrón se repite con el
+     ancho de la ruta y en la costura quedan dos trazos pegados. */
+  background: linear-gradient(90deg, rgba(232, 200, 120, 0.75) 0 46px, transparent 46px 92px);
+  background-size: 92px 100%;
   background-position: calc(var(--p) * -460px) 0;
   opacity: 0.85;
-}
-
-/* Estela de luz cálida detrás del auto. */
-.trail {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 46px;
-  margin-top: -23px;
-  width: clamp(0px, calc(var(--inset-x) + var(--pos) * (100% - 2 * var(--inset-x))), 100%);
-  background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.08) 60%, rgba(201, 169, 97, 0.18) 100%);
-  filter: blur(6px);
 }
 
 .carWrap {
@@ -110,21 +101,33 @@
   filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.15));
 }
 
-/* Conos de los faros sobre el asfalto. */
-.beams {
+/* Conos de los faros: nacen en cada faro (en el SVG, a 92% del largo y al
+   25% / 75% del ancho) y se abren hacia adelante, apagándose con la distancia.
+   Detrás del auto en z, para que el cono arranque bajo la carrocería. */
+.beam {
   position: absolute;
-  top: 50%;
-  left: 92%;
-  width: 190px;
-  height: 120px;
-  margin-top: -60px;
+  left: 90%;
+  width: 180px;
+  height: 100px;
+  margin-top: -50px;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 100% 22% at 0% 30%, rgba(255, 244, 210, 0.38), transparent 70%),
-    radial-gradient(ellipse 100% 22% at 0% 70%, rgba(255, 244, 210, 0.38), transparent 70%);
+  /* Haz de ~28°: cono con bordes difusos que se apaga con la distancia. */
+  background: conic-gradient(
+    from 76deg at 0% 50%,
+    rgba(255, 244, 214, 0) 0deg,
+    rgba(255, 244, 214, 0.42) 7deg,
+    rgba(255, 244, 214, 0.42) 21deg,
+    rgba(255, 244, 214, 0) 28deg,
+    rgba(255, 244, 214, 0) 360deg
+  );
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.5) 40%, transparent 100%);
+  filter: blur(2px);
   mix-blend-mode: screen;
-  filter: blur(3px);
 }
+
+.beamL { top: 25%; }
+.beamR { top: 75%; }
 
 .steps {
   display: grid;
@@ -246,16 +249,9 @@
     width: 3px;
     height: auto;
     margin: 0 0 0 -1.5px;
-    background: repeating-linear-gradient(180deg, rgba(232, 200, 120, 0.75) 0 26px, transparent 26px 52px);
+    background: linear-gradient(180deg, rgba(232, 200, 120, 0.75) 0 26px, transparent 26px 52px);
+    background-size: 100% 52px;
     background-position: 0 calc(var(--p) * -260px);
-  }
-  .trail {
-    top: 0;
-    left: 50%;
-    width: 36px;
-    height: clamp(0px, calc(var(--pos) * 100%), 100%);
-    margin: 0 0 0 -18px;
-    background: linear-gradient(180deg, transparent, rgba(201, 169, 97, 0.18));
   }
   .carWrap {
     top: calc(var(--pos) * 100%);
@@ -264,10 +260,10 @@
     margin-left: -31px;
     transform: translateY(-50%) rotate(90deg);
   }
-  .beams {
+  .beam {
     width: 110px;
-    height: 70px;
-    margin-top: -35px;
+    height: 64px;
+    margin-top: -32px;
   }
   .steps {
     grid-template-columns: 1fr;
