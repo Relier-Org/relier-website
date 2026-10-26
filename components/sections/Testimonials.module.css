@@ -319,7 +319,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 28px 0 0;
+  margin: 36px 0 0;
+}
+
+/* El rating queda más pegado a las cifras que van arriba. */
+.stats + .ratingPillWrap {
+  margin-top: 24px;
 }
 
 .stat {

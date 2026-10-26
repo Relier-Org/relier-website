@@ -140,6 +140,18 @@ export default function Testimonials({
           </Reveal>
         )}
 
+        {/* Cifras arriba y el rating de Google debajo (Nico). */}
+        {stats?.length ? (
+          <dl className={styles.stats}>
+            {stats.map((s) => (
+              <div key={s.label} className={styles.stat}>
+                <dt className={styles.statLabel}>{s.label}</dt>
+                <dd className={styles.statValue}>{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
+
         {showRatingPill && (
           <div className={styles.ratingPillWrap}>
             <a
@@ -164,17 +176,6 @@ export default function Testimonials({
             </a>
           </div>
         )}
-
-        {stats?.length ? (
-          <dl className={styles.stats}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.stat}>
-                <dt className={styles.statLabel}>{s.label}</dt>
-                <dd className={styles.statValue}>{s.value}</dd>
-              </div>
-            ))}
-          </dl>
-        ) : null}
 
         <div ref={gridRef} className={styles.grid}>
           {testimonials.map((item) => (
