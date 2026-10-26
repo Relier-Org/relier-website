@@ -127,11 +127,19 @@ export default function StepsTimeline({
     };
   }, []);
 
-  // El primer 18% del scroll es la entrada: el auto viene desde fuera de la
+  // Entrada: el primer 18% del scroll: el auto viene desde fuera de la
   // ruta (izquierda) hasta el paso 1. El resto recorre del paso 1 al último.
   // `pos` < 0 = todavía entrando. Un paso se enciende apenas el auto lo alcanza.
+  // Igual a la salida: el último 18% saca al auto de la ruta por la derecha.
   const ENTRY = still ? 0 : 0.18;
-  const pos = p < ENTRY ? (p / ENTRY - 1) * 0.35 : (p - ENTRY) / (1 - ENTRY);
+  const EXIT = still ? 0 : 0.18;
+  const cruise = 1 - ENTRY - EXIT;
+  const pos =
+    p < ENTRY
+      ? (p / ENTRY - 1) * 0.35
+      : p > 1 - EXIT
+        ? 1 + ((p - (1 - EXIT)) / EXIT) * 0.35
+        : (p - ENTRY) / cruise;
   const reached = (i: number) => pos >= i / Math.max(1, n - 1) - 0.005;
 
   return (
