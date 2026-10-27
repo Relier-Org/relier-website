@@ -387,7 +387,7 @@ export default function Nav() {
           </ul>
           <div className={styles.right}>
             <LanguageSwitcher className={styles.lang} />
-            <Button href="/online-reservation/" variant="primary" size="sm" className={styles.cta}>
+            <Button href="/online-reservation/" variant="primary" size="sm" className={styles.cta} id="relier-nav-reserve">
               {/* "Reserve now" del Figma; entre 1025 y 1280 no entra (sobre todo
                   en ES/PT) y queda "Reserve". */}
               <span className={styles.ctaLong}>{t("common.reserve")}</span>
@@ -498,6 +498,7 @@ export default function Nav() {
                 href="/online-reservation/"
                 variant="primary"
                 className={styles.overlayCta}
+                id="relier-mobile-reserve"
                 onClick={() => setIsOpen(false)}
               >
                 {t("common.reserve")}

@@ -34,6 +34,7 @@ export default async function WhatsAppButton() {
       <script dangerouslySetInnerHTML={{ __html: CONSENT_PENDING_SCRIPT }} />
       <a
         href={WHATSAPP_HREF}
+        id="relier-whatsapp"
         className={styles.button}
         target="_blank"
         rel="noopener noreferrer"

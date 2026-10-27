@@ -39,6 +39,12 @@
   }
 }
 
+/* Mismo motivo que .cta del Nav: el click de GTM tiene que caer en el <a> y
+   no en el <svg>/<path>, que no llevan la clase del botón. */
+.button > * {
+  pointer-events: none;
+}
+
 .button:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
