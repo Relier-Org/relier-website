@@ -280,8 +280,17 @@
 }
 
 /* Los triggers de GTM del cliente filtran por "Click Classes contains
-   Nav_cta__…": con los spans adentro el click caía en el span y no matcheaba
-   (tracking caído desde el rediseño del 15-oct). Así el target es el <a>. */
+   Button_btn__… Button_primary__… Nav_cta__…" (ese string exacto): el Reserve
+   no puede llevar size="sm" de Button porque su clase se mete en el medio, así
+   que la pill compacta se replica acá. Y con los spans adentro el click caía
+   en el span y no matcheaba; los hijos sin pointer-events dejan el <a>. */
+.right .cta {
+  gap: 6px;
+  padding: 10px 18px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
 .cta > * {
   pointer-events: none;
 }
@@ -570,7 +579,7 @@
   .logoImg {
     height: 24px;
   }
-  .cta {
+  .right .cta {
     /* 14px of vertical padding, not 10: at 10px the button measured 36px tall
        and the primary conversion CTA missed the 44px touch minimum. */
     padding: 14px 16px;
