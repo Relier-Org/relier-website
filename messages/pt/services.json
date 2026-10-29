@@ -122,13 +122,13 @@
   },
   "corporate": {
     "meta": {
-      "title": "Transporte corporativo e serviço de carro executivo em NYC | Relier",
-      "description": "Transporte terrestre corporativo para empresas e viajantes executivos, com despacho 24/7, suporte de conta centralizado e serviço consistente em mais de 500 cidades."
+      "title": "Serviços corporativos: traslados, reuniões e eventos | Relier",
+      "description": "Serviços corporativos da Relier em Nova York: traslados entre aeroporto, hotel e escritório, motoristas para reuniões de negócios e transporte para eventos corporativos."
     },
     "hero": {
       "eyebrow": "Corporativo",
-      "title": "Transporte corporativo para equipes e executivos",
-      "subtitle": "Logística sob medida para profissionais e equipes executivas. Garantimos confiabilidade absoluta, privacidade e execução impecável para manter seu negócio em movimento."
+      "title": "Traslados, reuniões e eventos para viagens de negócios",
+      "subtitle": "Escolha o serviço que combina com a viagem: traslados entre aeroporto, hotel e escritório, um motorista à disposição durante suas reuniões ou transporte de grupos para eventos corporativos."
     },
     "blocks": {
       "onTime": {
@@ -152,20 +152,24 @@
       "body": "Despacho 24/7, WiFi a bordo e motoristas treinados para viagens de negócios. Reserve em minutos e chegue pronto."
     },
     "links": {
+      "primary": "transporte corporativo",
       "airport": "traslados corporativos para o aeroporto",
       "fleet": "opções de veículos executivos",
-      "forBusiness": "soluções de transporte para empresas"
+      "forBusiness": "soluções de transporte para empresas",
+      "transfers": "traslados corporativos entre aeroporto, hotel e escritório",
+      "meetings": "transporte executivo para reuniões de negócios",
+      "events": "transporte para eventos corporativos"
     }
   },
   "events": {
     "meta": {
-      "title": "Transporte para eventos e produções, artistas e equipes | Relier",
-      "description": "Transporte terrestre para artistas, equipes técnicas e produções nos Estados Unidos e na Europa, da cotação inicial à coordenação e ao faturamento final."
+      "title": "Transporte para eventos corporativos e conferências | Relier",
+      "description": "Transporte de grupos para eventos corporativos, conferências e produções: um coordenador, horários e listas de passageiros, e despacho 24/7, de sedãs a ônibus."
     },
     "hero": {
       "eyebrow": "Eventos",
-      "title": "Transporte terrestre para artistas, equipes e produções",
-      "subtitle": "De grandes competições esportivas a celebrações de alto nível, gerenciamos o transporte de grupos e a logística de eventos complexos com precisão impecável. Qualquer que seja a escala, garantimos que seus convidados e VIPs cheguem com absoluto conforto e distinção."
+      "title": "Transporte para eventos corporativos, conferências e grupos",
+      "subtitle": "De conferências e retiros corporativos a produções e grandes competições esportivas, movemos grupos no horário: um coordenador, horários e listas de passageiros preparados com antecedência, e despacho 24/7 em cada traslado."
     },
     "blocks": {
       "productions": {
@@ -201,7 +205,8 @@
     },
     "links": {
       "signatureEvents": "experiência em transporte para grandes eventos",
-      "fleet": "veículos para transporte de eventos"
+      "fleet": "veículos para transporte de eventos",
+      "primary": "soluções de transporte corporativo"
     }
   },
   "signatureEvents": {
@@ -858,7 +863,7 @@
       "accounts": {
         "title": "Contas corporativas",
         "cta": "para contas corporativas",
-        "anchor": "transporte corporativo",
+        "anchor": "serviços de transporte corporativo",
         "blurb": "Uma conta, um padrão, em cada cidade onde sua equipe opera.",
         "body": "Faturamento centralizado, relatórios de dever de cuidado e motoristas treinados para viagens de negócios, em roadshows, visitas a clientes, conferências e deslocamentos executivos diários.",
         "imageAlt": "Transporte terrestre corporativo da Relier"

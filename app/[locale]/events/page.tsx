@@ -35,10 +35,26 @@ export default async function EventsPage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("services.events");
 
-  // Rebuild parcial (roadmap SEO sep-2026, R03): /events/ pasa a ser la
-  // landing B2B de Events & Productions sin mover la URL. El bloque de
-  // artistas/crews/producciones va primero; los cuatro históricos siguen.
+  // Matriz SEO oct-2026: /events/ es el satélite de eventos corporativos,
+  // conferencias y grupos; artistas y producciones tienen su landing propia
+  // (/event-transportation/). Por eso corporativos y conferencias van primero.
   const blocks: ServiceBlock[] = [
+    {
+      title: t("blocks.corporate.title"),
+      paragraphs: [t("blocks.corporate.p1")],
+      image: "/images/services/events/corporate.webp",
+      imageAlt: t("blocks.corporate.imageAlt"),
+      links: [
+        { href: "/corporate-transportation", label: t("links.primary") },
+      ],
+    },
+    {
+      title: t("blocks.conferences.title"),
+      paragraphs: [t("blocks.conferences.p1")],
+      image: "/images/services/events/conferences.webp",
+      imageAlt: t("blocks.conferences.imageAlt"),
+      links: [{ href: "/fleet", label: t("links.fleet") }],
+    },
     {
       title: t("blocks.productions.title"),
       paragraphs: [t("blocks.productions.p1"), t("blocks.productions.p2")],
@@ -49,29 +65,16 @@ export default async function EventsPage({ params }: PageProps) {
       ],
     },
     {
-      title: t("blocks.entertainment.title"),
-      paragraphs: [t("blocks.entertainment.p1")],
-      image: "/images/services/events/entertainment.webp",
-      imageAlt: t("blocks.entertainment.imageAlt"),
-    },
-    {
-      title: t("blocks.corporate.title"),
-      paragraphs: [t("blocks.corporate.p1")],
-      image: "/images/services/events/corporate.webp",
-      imageAlt: t("blocks.corporate.imageAlt"),
-    },
-    {
       title: t("blocks.sports.title"),
       paragraphs: [t("blocks.sports.p1")],
       image: "/images/services/events/sports.webp",
       imageAlt: t("blocks.sports.imageAlt"),
     },
     {
-      title: t("blocks.conferences.title"),
-      paragraphs: [t("blocks.conferences.p1")],
-      image: "/images/services/events/conferences.webp",
-      imageAlt: t("blocks.conferences.imageAlt"),
-      links: [{ href: "/fleet", label: t("links.fleet") }],
+      title: t("blocks.entertainment.title"),
+      paragraphs: [t("blocks.entertainment.p1")],
+      image: "/images/services/events/entertainment.webp",
+      imageAlt: t("blocks.entertainment.imageAlt"),
     },
   ];
 

@@ -35,19 +35,33 @@ export default async function CorporatePage({ params }: PageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("services.corporate");
 
+  // Matriz SEO oct-2026: /corporate/ es el hub de navegación del cluster
+  // corporativo, no la página objetivo del término "corporate transportation".
+  // El primer link del hub va a la primaria del cluster (/corporate-transportation/).
   const blocks: ServiceBlock[] = [
     {
       title: t("blocks.onTime.title"),
       paragraphs: [t("blocks.onTime.p1")],
       image: "/images/services/corporate/arrive-on-time.webp",
       imageAlt: t("blocks.onTime.imageAlt"),
-      links: [{ href: "/airport", label: t("links.airport") }],
+      links: [
+        { href: "/corporate-transportation", label: t("links.primary") },
+        { href: "/airport", label: t("links.airport") },
+        {
+          href: "/corporate-transfer-service-in-new-york-city",
+          label: t("links.transfers"),
+        },
+      ],
     },
     {
       title: t("blocks.impression.title"),
       paragraphs: [t("blocks.impression.p1")],
       image: "/images/services/corporate/lasting-impression.webp",
       imageAlt: t("blocks.impression.imageAlt"),
+      links: [
+        { href: "/business-appointment-in-nyc", label: t("links.meetings") },
+        { href: "/events", label: t("links.events") },
+      ],
     },
     {
       title: t("blocks.workRelax.title"),

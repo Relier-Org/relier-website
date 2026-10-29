@@ -119,10 +119,10 @@ const SERVICE_LANDINGS: Record<string, LandingConfig> = {
   events: {
     path: "/events",
     ns: "services.events",
-    serviceType: "Event transportation",
+    serviceType: "Corporate event and group transportation",
     audience: {
       "@type": "Audience",
-      audienceType: "Artists, crews, production teams and event planners",
+      audienceType: "Companies, conference organizers, event planners and production teams",
     },
     crumb: "events",
     parent: "services",

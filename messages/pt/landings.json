@@ -254,8 +254,8 @@
   },
   "corporate": {
     "meta": {
-      "title": "Transporte corporativo e executivo com motorista | Relier",
-      "description": "Transporte corporativo para executivos, funcionários e convidados: traslados de aeroporto, roadshows e viagens a negócios em mais de 500 cidades."
+      "title": "Serviços de transporte corporativo em NYC e no mundo | Relier",
+      "description": "Transporte corporativo em NYC e mais de 500 cidades: contas corporativas, motorista executivo, reservas recorrentes, aeroportos e faturamento centralizado."
     },
     "hero": {
       "eyebrow": "Para empresas · Contas corporativas",
@@ -274,7 +274,7 @@
     "services": {
       "eyebrow": "Transporte para viagens a negócios",
       "title": "Transporte corporativo para equipes de todos os tamanhos",
-      "lead": "A Relier apoia equipes de viagens corporativas, assistentes executivos, organizadores de eventos e responsáveis por compras com transporte terrestre coordenado de forma profissional. A mesma relação de serviço pode atender a um único deslocamento executivo ou a um programa contínuo de transporte em várias cidades.",
+      "lead": "A Relier apoia equipes de viagens corporativas, assistentes executivos, organizadores de eventos e responsáveis por compras com transporte terrestre coordenado de forma profissional. A mesma relação de serviço pode atender a um único deslocamento executivo ou a um programa contínuo de transporte em várias cidades. Em Nova York, onde fica a base da Relier, a mesma equipe cuida dos trajetos diários por Manhattan e dos traslados corporativos em JFK, LaGuardia e Newark.",
       "items": [
         {
           "title": "Transporte terrestre corporativo",
@@ -363,7 +363,7 @@
         },
         {
           "title": "Reserve e coordene",
-          "body": "Use uma só relação com a Relier para gerenciar os trajetos de executivos, funcionários, clientes e convidados."
+          "body": "Use uma só relação com a Relier para gerenciar trajetos avulsos e recorrentes de executivos, funcionários, clientes e convidados."
         },
         {
           "title": "Acompanhe e concilie",

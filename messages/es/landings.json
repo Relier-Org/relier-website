@@ -254,8 +254,8 @@
   },
   "corporate": {
     "meta": {
-      "title": "Transporte corporativo y servicio ejecutivo con chofer | Relier",
-      "description": "Transporte corporativo para ejecutivos, empleados e invitados. Traslados al aeropuerto, roadshows y coordinación de viajes de negocios en más de 500 ciudades."
+      "title": "Servicios de transporte corporativo en NYC y en el mundo | Relier",
+      "description": "Transporte corporativo en NYC y más de 500 ciudades: cuentas corporativas, chofer ejecutivo, reservas recurrentes, aeropuertos y facturación centralizada."
     },
     "hero": {
       "eyebrow": "Para empresas · Cuentas corporativas",
@@ -274,7 +274,7 @@
     "services": {
       "eyebrow": "Transporte para viajes de negocios",
       "title": "Transporte corporativo para equipos de cualquier tamaño",
-      "lead": "Relier acompaña a equipos de viajes corporativos, asistentes ejecutivos, organizadores de eventos y responsables de compras con transporte terrestre coordinado de forma profesional. La misma relación de servicio puede cubrir un único desplazamiento ejecutivo o un programa de transporte continuo en varias ciudades.",
+      "lead": "Relier acompaña a equipos de viajes corporativos, asistentes ejecutivos, organizadores de eventos y responsables de compras con transporte terrestre coordinado de forma profesional. La misma relación de servicio puede cubrir un único desplazamiento ejecutivo o un programa de transporte continuo en varias ciudades. En Nueva York, donde Relier tiene su base, el mismo equipo cubre los trayectos diarios por Manhattan y los traslados corporativos en JFK, LaGuardia y Newark.",
       "items": [
         {
           "title": "Transporte terrestre corporativo",
@@ -363,7 +363,7 @@
         },
         {
           "title": "Reserva y coordina",
-          "body": "Usa una sola relación con Relier para gestionar los trayectos de ejecutivos, empleados, clientes e invitados."
+          "body": "Usa una sola relación con Relier para gestionar trayectos puntuales y recurrentes de ejecutivos, empleados, clientes e invitados."
         },
         {
           "title": "Controla y concilia",

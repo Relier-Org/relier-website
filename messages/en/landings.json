@@ -254,8 +254,8 @@
   },
   "corporate": {
     "meta": {
-      "title": "Corporate Transportation Services & Executive Car Service | Relier",
-      "description": "Corporate transportation services for executives, employees and guests. Airport transfers, roadshows and business travel coordination across 500+ cities."
+      "title": "Corporate Transportation Services in NYC & Worldwide | Relier",
+      "description": "Corporate transportation services in NYC and 500+ cities: corporate accounts, executive car service, recurring rides, airport transfers and centralized billing."
     },
     "hero": {
       "eyebrow": "For Business · Corporate Accounts",
@@ -274,7 +274,7 @@
     "services": {
       "eyebrow": "Business travel transportation",
       "title": "Corporate Transportation for Teams of Every Size",
-      "lead": "Relier supports corporate travel teams, executive assistants, event planners and procurement stakeholders with professionally coordinated ground transportation. The same service relationship can support one executive movement or an ongoing multi-city transportation program.",
+      "lead": "Relier supports corporate travel teams, executive assistants, event planners and procurement stakeholders with professionally coordinated ground transportation. The same service relationship can support one executive movement or an ongoing multi-city transportation program. In New York, where Relier is based, the same team handles daily rides across Manhattan and corporate transfers at JFK, LaGuardia and Newark.",
       "items": [
         {
           "title": "Corporate Ground Transportation",
@@ -363,7 +363,7 @@
         },
         {
           "title": "Book and coordinate",
-          "body": "Use one Relier relationship to manage rides for executives, employees, clients and guests."
+          "body": "Use one Relier relationship to manage one-off and recurring rides for executives, employees, clients and guests."
         },
         {
           "title": "Track and reconcile",

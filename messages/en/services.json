@@ -122,13 +122,13 @@
   },
   "corporate": {
     "meta": {
-      "title": "Corporate Transportation & Executive Car Service NYC | Relier",
-      "description": "Corporate ground transportation for companies and executive travelers, with 24/7 dispatch, centralized account support and consistent service across 500+ cities."
+      "title": "Corporate Services: Transfers, Meetings & Events | Relier",
+      "description": "Relier's corporate services in New York: transfers between airport, hotel and office, chauffeurs for business meetings and transportation for corporate events."
     },
     "hero": {
       "eyebrow": "Corporate",
-      "title": "Corporate Transportation for Teams & Executives",
-      "subtitle": "Tailored logistics for professionals and executive teams. We guarantee absolute reliability, privacy, and impeccable execution to keep your business moving smoothly."
+      "title": "Transfers, meetings and events for business travel",
+      "subtitle": "Choose the service that fits the trip: transfers between airport, hotel and office, a chauffeur on standby for business meetings, or group transportation for corporate events."
     },
     "blocks": {
       "onTime": {
@@ -152,20 +152,24 @@
       "body": "24/7 dispatch, onboard WiFi, and chauffeurs trained for business travel. Book in minutes and arrive ready."
     },
     "links": {
+      "primary": "corporate transportation",
       "airport": "corporate airport transfers",
       "fleet": "executive vehicle options",
-      "forBusiness": "business transportation solutions"
+      "forBusiness": "business transportation solutions",
+      "transfers": "corporate transfers between airport, hotel and office",
+      "meetings": "executive transportation for business meetings",
+      "events": "corporate event transportation"
     }
   },
   "events": {
     "meta": {
-      "title": "Event & Production Transportation for Artists & Crews | Relier",
-      "description": "Ground transportation for artists, crews and production teams across the U.S. and Europe, from initial quote through coordination and final invoicing."
+      "title": "Corporate Event & Conference Transportation | Relier",
+      "description": "Group transportation for corporate events, conferences and productions: one coordinator, passenger manifests and 24/7 dispatch, from sedans to motor coaches."
     },
     "hero": {
       "eyebrow": "Events",
-      "title": "Ground transportation for artists, crews and productions",
-      "subtitle": "From major sports fixtures to grand celebrations, we manage high-profile group transport and complex event logistics with flawless precision. No matter the scale, we ensure your guests and VIPs arrive in absolute comfort and distinction."
+      "title": "Transportation for corporate events, conferences and groups",
+      "subtitle": "From conferences and corporate retreats to productions and major sports fixtures, we move groups on schedule: one coordinator, schedules and passenger manifests prepared in advance, and 24/7 dispatch for every movement."
     },
     "blocks": {
       "productions": {
@@ -201,7 +205,8 @@
     },
     "links": {
       "signatureEvents": "major event transportation experience",
-      "fleet": "vehicles for event transportation"
+      "fleet": "vehicles for event transportation",
+      "primary": "corporate transportation solutions"
     }
   },
   "signatureEvents": {
@@ -858,7 +863,7 @@
       "accounts": {
         "title": "Corporate Accounts",
         "cta": "for corporate accounts",
-        "anchor": "corporate transportation",
+        "anchor": "corporate transportation services",
         "blurb": "One account, one standard, every city your team operates in.",
         "body": "Centralized billing, duty-of-care reporting and chauffeurs trained for business travel, across roadshows, client visits, conferences and daily executive travel.",
         "imageAlt": "Relier corporate ground transportation"
